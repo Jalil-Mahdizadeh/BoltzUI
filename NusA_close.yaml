@@ -1,0 +1,41 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: MNKEILAVVEAVSNEKALPREKIFEALESALATATKKKYEQEIDVRVQIDRKSGDFDTFRRWLVVDEVTQPTKEITLEAARYEDESLNLGDYVEDQIESVTFDRITTQTAKQVIVQKVREAERAMVVDQFREHEGEIITGVVKKVNRDNISLDLGNNAEAVILREDMLPRENFRPGDRVRGVLYSVRPEARGAQLFVTRSKPEMLIELFRIEVPEIGEEVIEIKAAARDPGSRAKIAVKTNDKRIDPVGACVGMRGARVQAVSTELGGERIDIVLWDDNPAQFVINAMAPADVASIVVDEDKHTMDIAVEAGNLAQAIGRNGQNVRLASQLSGWELNVMTVDDLQAKHQAEAHAAIDTFTKYLDIDEDFATVLVEEGFSTLEELAYVPMKELLEIEGLDEPTVEALRERAKNALATIAQAQEESLGDNKPADDLLNLEGVDRDLAFKLAARGVCTLEDLAEQGIDDLADIEGLTDEKAGALIMAARNICWFGDEA
+constraints:
+  - contact:
+      token1: [A, 249]
+      token2: [A, 490]
+      max_distance: 9.0
+      force: true
+
+  - contact:
+      token1: [A, 253]
+      token2: [A, 491]
+      max_distance: 9.0
+      force: true
+
+  - contact:
+      token1: [A, 270]
+      token2: [A, 488]
+      max_distance: 9.0
+      force: true
+
+  - contact:
+      token1: [A, 249]
+      token2: [A, 485]
+      max_distance: 10.0
+      force: true
+
+  - contact:
+      token1: [A, 253]
+      token2: [A, 488]
+      max_distance: 10.0
+      force: true
+
+  - contact:
+      token1: [A, 270]
+      token2: [A, 490]
+      max_distance: 10.0
+      force: true
