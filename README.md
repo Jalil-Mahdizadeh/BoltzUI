@@ -70,15 +70,3 @@ For a very conservative first test, edit `run.sh` to:
 --recycling_steps 3
 --max_parallel_samples 1
 ```
-
-## Push To Docker Hub
-
-Log in, tag, and push:
-
-```bash
-docker login
-docker tag boltz:221 YOUR_DOCKERHUB_USER/boltz:221
-docker push YOUR_DOCKERHUB_USER/boltz:221
-```
-
-Use `DOCKER_HUB.md` as the Docker Hub repository description.
