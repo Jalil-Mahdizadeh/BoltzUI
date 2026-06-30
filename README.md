@@ -65,29 +65,46 @@ Docker options:
 - `boltz:221` - Docker image tag used for prediction.
 - `-lc '...'` - asks Bash to run the quoted Boltz command.
 
-Boltz options:
+Boltz `predict` options:
 
-- `predict NusA_open.yaml` - runs structure prediction for the selected YAML input.
-- `--use_msa_server` - asks Boltz to generate missing protein MSAs through the remote MSA server.
-- `--no_kernels` - disables optional optimized kernels; useful when kernel compatibility is uncertain.
-- `--cache /opt/boltz-cache` - uses the cache baked into the Docker image.
-- `--diffusion_samples 20` - generates 20 structure samples.
-- `--recycling_steps 10` - runs 10 recycling iterations.
-- `--max_parallel_samples 1` - keeps samples serial to reduce VRAM pressure.
-- `--step_scale 1.0` - sets the diffusion step scale.
-- `--use_potentials` - enables physical/contact guidance potentials.
-- `--output_format pdb` - writes prediction structures as PDB files.
-
-Useful additional Boltz options:
-
-- `--accelerator cpu` - runs on CPU instead of GPU; slower but avoids VRAM limits.
-- `--accelerator gpu` - runs on CUDA GPU.
-- `--devices 1` - uses one CPU/GPU device.
-- `--sampling_steps N` - controls diffusion sampling steps; lower values are useful for smoke tests.
-- `--num_workers 0` - disables extra dataloader worker processes.
-- `--out_dir PATH` - writes outputs to a selected directory.
-- `--seed N` - makes sampling reproducible for comparable tests.
-- `--override` - overwrites existing prediction outputs.
+- `DATA` - input YAML/JSON/FASTA path, for example `NusA_open.yaml`. No default.
+- `--out_dir PATH` - base directory where predictions are saved. Default: `./`; Boltz appends `boltz_results_<input-stem>`.
+- `--cache PATH` - cache directory for model and molecule data. Default is `~/.boltz`, or `$BOLTZ_CACHE` if set. This image uses `/opt/boltz-cache`.
+- `--checkpoint PATH` - optional structure checkpoint path. Default is `None`; Boltz uses the bundled/default model checkpoint.
+- `--devices INTEGER` - number of devices to use. Default: `1`.
+- `--accelerator [gpu|cpu|tpu]` - accelerator backend. Default: `gpu`.
+- `--recycling_steps INTEGER` - number of recycling iterations. Default: `3`; `run.sh` uses `10`.
+- `--sampling_steps INTEGER` - number of diffusion sampling steps. Default: `200`.
+- `--diffusion_samples INTEGER` - number of generated structure samples. Default: `1`; `run.sh` uses `20`.
+- `--max_parallel_samples INTEGER` - maximum samples predicted in parallel. Default: `None`; `run.sh` uses `1` to reduce VRAM pressure.
+- `--step_scale FLOAT` - diffusion step scale. Default: `1.638` for Boltz-1 and `1.5` for Boltz-2; `run.sh` uses `1.0`.
+- `--write_full_pae` - writes full PAE as an NPZ file. Default: `True`.
+- `--write_full_pde` - writes full PDE as an NPZ file. Default: `False`.
+- `--output_format [pdb|mmcif]` - structure output format. Default: `mmcif`; `run.sh` uses `pdb`.
+- `--num_workers INTEGER` - dataloader worker count. Default: `2`.
+- `--override` - overwrites existing predictions. Default: `False`.
+- `--seed INTEGER` - random seed. Default: `None`.
+- `--use_msa_server` - generates missing protein MSAs through the MMSeqs2 server. Default: `False`; `run.sh` enables it.
+- `--msa_server_url TEXT` - MSA server URL, used with `--use_msa_server`. Default: `https://api.colabfold.com`.
+- `--msa_pairing_strategy TEXT` - MSA pairing strategy, `greedy` or `complete`, used with `--use_msa_server`. Default: `greedy`.
+- `--msa_server_username TEXT` - username for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_USERNAME`.
+- `--msa_server_password TEXT` - password for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_PASSWORD`.
+- `--api_key_header TEXT` - custom API-key header name. Option default: `None`; when API-key auth is used and no header is provided, Boltz uses `X-API-Key`.
+- `--api_key_value TEXT` - custom API-key header value. Default: `None`.
+- `--use_potentials` - enables steering potentials. Default: `False`; `run.sh` enables it.
+- `--model [boltz1|boltz2]` - model family. Default: `boltz2`.
+- `--method TEXT` - method metadata/conditioning value. Default: `None`.
+- `--preprocessing-threads INTEGER` - preprocessing thread count. Default: `1`.
+- `--affinity_mw_correction` - enables molecular-weight correction for affinity prediction. Default: `False`.
+- `--sampling_steps_affinity INTEGER` - affinity sampling steps. Default: `200`.
+- `--diffusion_samples_affinity INTEGER` - affinity diffusion samples. Default: `5`.
+- `--affinity_checkpoint PATH` - optional affinity checkpoint path. Default: `None`; Boltz uses the bundled/default affinity checkpoint.
+- `--max_msa_seqs INTEGER` - maximum MSA sequences used. Default: `8192`.
+- `--subsample_msa` - subsamples MSA sequences. Default: `True`.
+- `--num_subsampled_msa INTEGER` - number of MSA sequences after subsampling. Default: `1024`.
+- `--no_kernels` - disables optional optimized kernels. Default: `False`; `run.sh` enables it for compatibility.
+- `--write_embeddings` - writes `s` and `z` embeddings to NPZ. Default: `False`.
+- `--help` - prints command help.
 
 ## GPU Guidance
 
