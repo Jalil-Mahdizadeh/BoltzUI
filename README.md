@@ -183,6 +183,10 @@ The real 495-residue `NusA_open.yaml` sequence was tested on the same laptop GPU
 | Cap MSA to 512 | `max_msa_seqs=512`, `num_subsampled_msa=512` | Success | `86.743 s` |
 | Cap MSA to 768 | `max_msa_seqs=768`, `num_subsampled_msa=768` | Success | `86.845 s` |
 | Cap MSA to 1024 | `max_msa_seqs=1024`, `num_subsampled_msa=1024` | Success | `91.458 s` |
+| Cap MSA to 2048 | `max_msa_seqs=2048`, `num_subsampled_msa=2048` | Success | `109.463 s` |
+| Cap MSA to 3072 | `max_msa_seqs=3072`, `num_subsampled_msa=3072` | Success | `97.220 s` |
+| Cap MSA to 4096 | `max_msa_seqs=4096`, `num_subsampled_msa=4096` | Success | `111.988 s` |
+| Cap MSA to 5120 | `max_msa_seqs=5120`, `num_subsampled_msa=5120` | Success | `89.704 s` |
 | Increase sampling | capped MSA 1024, `sampling_steps=50` | Success | `93.239 s` |
 | Default sampling | capped MSA 1024, `sampling_steps=200` | Success | `106.235 s` |
 | Default recycling | capped MSA 1024, `recycling_steps=3`, `sampling_steps=200` | Success | `149.053 s` |
@@ -190,11 +194,11 @@ The real 495-residue `NusA_open.yaml` sequence was tested on the same laptop GPU
 | Add potentials | capped MSA 1024, `recycling_steps=10`, `sampling_steps=200`, `--use_potentials` | Success | `298.748 s` |
 | Two serial samples | previous settings plus `diffusion_samples=2` | Success | `366.732 s` |
 
-For this laptop, the first practical failure was not the 495-residue sequence length itself. It was allowing Boltz to ingest up to the default `max_msa_seqs=8192` MSA sequences. For NusA on this 8 GB GPU, add these flags when using an MSA:
+For this laptop, the first practical failure was not the 495-residue sequence length itself. It was allowing Boltz to ingest up to the default `max_msa_seqs=8192` MSA sequences. A cap of `5120` was confirmed to work for the minimal MSA test; the heavier setting ladder below used `1024` as the conservative cap. For NusA on this 8 GB GPU, keep MSA capped and samples serial:
 
 ```bash
---max_msa_seqs 1024
---num_subsampled_msa 1024
+--max_msa_seqs 5120
+--num_subsampled_msa 5120
 --max_parallel_samples 1
 ```
 

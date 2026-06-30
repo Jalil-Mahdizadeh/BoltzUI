@@ -30,11 +30,11 @@ For a safer first run on an 8 GB GPU, edit `run.sh` manually:
 
 On the tested NVIDIA RTX PRO 2000 Blackwell laptop GPU with 8151 MiB VRAM, the largest confirmed successful minimal GPU test was a synthetic 700 amino-acid single-chain input with `msa: empty`, `diffusion_samples=1`, `recycling_steps=1`, `sampling_steps=5`, and `max_parallel_samples=1`. Lengths of 750 amino acids and above failed with a CUDA driver `device not ready` error under the same test settings. Treat this as a laptop-specific safety boundary, not a general Boltz limit.
 
-For the real 495-residue `NusA_open.yaml` input, single-sequence GPU prediction succeeded, but enabling the full local MSA with Boltz's default `max_msa_seqs=8192` failed in the MSA module with CUDA driver `device not ready`. The same input succeeded when MSA use was capped with:
+For the real 495-residue `NusA_open.yaml` input, single-sequence GPU prediction succeeded, but enabling the full local MSA with Boltz's default `max_msa_seqs=8192` failed in the MSA module with CUDA driver `device not ready`. The same input succeeded in a minimal MSA test when MSA use was capped with:
 
 ```bash
---max_msa_seqs 1024
---num_subsampled_msa 1024
+--max_msa_seqs 5120
+--num_subsampled_msa 5120
 --max_parallel_samples 1
 ```
 
