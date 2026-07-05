@@ -64,6 +64,12 @@ BoltzUI exposes every `boltz predict` option from the installed 2.2.1 CLI, build
 
 The sidebar is collapsed by section by default. `Input` selects the prediction file, `Settings` contains the full flag set, and `MSA settings` groups MSA server, credential, and limit controls under one section. The structure preview includes a 0-100 confidence color legend whenever the viewer color mode is set to `Confidence`.
 
+## YAML Builder
+
+The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the primary authoring surface for Boltz input files and is available from the distinctive `YAML Builder` button at the top of the sidebar. It provides schema-guided templates for structure, multimer, protein-ligand, affinity, pocket, contact-constraint, and template-based predictions, then writes ordinary `.yaml` files into the mounted workspace.
+
+The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, ligands by SMILES or CCD code, covalent bonds, pocket constraints, any number of contact constraints with individual max distances, structural templates, and the Boltz-2 affinity property. The generated YAML remains editable before saving.
+
 ## Prediction Options
 
 The sidebar exposes these Boltz `predict` options:

@@ -849,34 +849,40 @@ function bindEvents() {
     }
   });
 
-  $("#save-input-button").addEventListener("click", async () => {
-    try {
-      const data = await api("/api/inputs", {
-        method: "POST",
-        body: JSON.stringify({
-          name: $("#new-input-name").value,
-          content: $("#input-editor").value
-        })
-      });
-      state.inputs.push(data.input);
-      renderInputs();
-      $("#input-file").value = data.input.path;
-      state.selectedResult = null;
-      state.selectedModelIndex = null;
-      renderInputs();
-      renderResults();
-      updateCommandPreview();
-      showToast("Input saved.");
-    } catch (error) {
-      showToast(error.message);
-    }
-  });
+  const saveInputButton = $("#save-input-button");
+  if (saveInputButton) {
+    saveInputButton.addEventListener("click", async () => {
+      try {
+        const data = await api("/api/inputs", {
+          method: "POST",
+          body: JSON.stringify({
+            name: $("#new-input-name").value,
+            content: $("#input-editor").value
+          })
+        });
+        state.inputs.push(data.input);
+        renderInputs();
+        $("#input-file").value = data.input.path;
+        state.selectedResult = null;
+        state.selectedModelIndex = null;
+        renderInputs();
+        renderResults();
+        updateCommandPreview();
+        showToast("Input saved.");
+      } catch (error) {
+        showToast(error.message);
+      }
+    });
+  }
 
-  $("#new-input-name").addEventListener("input", () => {
-    const name = $("#new-input-name").value || "new_prediction.yaml";
-    $("#yaml-summary-name").textContent = name;
-    $("#yaml-summary-name").title = name;
-  });
+  const newInputName = $("#new-input-name");
+  if (newInputName) {
+    newInputName.addEventListener("input", () => {
+      const name = newInputName.value || "new_prediction.yaml";
+      $("#yaml-summary-name").textContent = name;
+      $("#yaml-summary-name").title = name;
+    });
+  }
 
   for (const tab of document.querySelectorAll(".tab")) {
     tab.addEventListener("click", () => {

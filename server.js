@@ -42,9 +42,9 @@ const optionSchema = [
   { key: "msa_server_password", flag: "--msa_server_password", label: "MSA password", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
   { key: "api_key_header", flag: "--api_key_header", label: "API key header", type: "text", group: "MSA settings", subgroup: "MSA credentials", defaultDisplay: "not set" },
   { key: "api_key_value", flag: "--api_key_value", label: "API key value", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
-  { key: "max_msa_seqs", flag: "--max_msa_seqs", label: "Max MSA sequences", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "5120", min: 1 },
+  { key: "max_msa_seqs", flag: "--max_msa_seqs", label: "Max MSA sequences", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1 },
   { key: "subsample_msa", flag: "--subsample_msa", label: "Subsample MSA", type: "bool", group: "MSA settings", subgroup: "MSA limits", default: true },
-  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "5120", min: 1 },
+  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1 },
 
   { key: "output_format", flag: "--output_format", label: "Output format", type: "select", group: "Output", default: "pdb", choices: ["pdb", "mmcif"] },
   { key: "write_full_pae", flag: "--write_full_pae", label: "Write full PAE", type: "bool", group: "Output", default: true },

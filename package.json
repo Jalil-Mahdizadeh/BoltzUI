@@ -5,7 +5,7 @@
   "description": "Container web interface for running Boltz predictions.",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check public/app.js"
+    "check": "node --check server.js && node --check public/app.js && node --check public/builder.js"
   },
   "engines": {
     "node": ">=20"

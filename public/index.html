@@ -20,6 +20,11 @@
           </div>
         </div>
 
+        <a class="sidebar-builder-link" href="/builder.html">
+          <span>YAML Builder</span>
+          <em>Create inputs</em>
+        </a>
+
         <details class="sidebar-block sidebar-details" id="input-section">
           <summary class="sidebar-block-title">
             <span>Input</span>
@@ -211,39 +216,14 @@
         </section>
 
         <section class="panel lower-panel" aria-label="Results and input tools">
-          <div class="tabs" role="tablist">
-            <button class="tab active" data-tab="results" type="button">Result Browser</button>
-            <button class="tab" data-tab="input" type="button">Input Draft</button>
+          <div class="panel-heading compact">
+            <div>
+              <span class="section-kicker">Result browser</span>
+              <h2>Saved Outputs</h2>
+            </div>
           </div>
-
           <div class="tab-panel active" id="results-panel">
             <div id="results-list" class="result-list"></div>
-          </div>
-
-          <div class="tab-panel" id="input-panel">
-            <div class="panel-heading compact">
-              <div>
-                <span class="section-kicker">Input authoring</span>
-                <h2>Draft YAML</h2>
-              </div>
-              <button class="secondary-button" id="save-input-button" type="button">Save input</button>
-            </div>
-            <details class="yaml-editor-card" open>
-              <summary>
-                <span id="yaml-summary-name" title="new_prediction.yaml">new_prediction.yaml</span>
-                <em>YAML input</em>
-              </summary>
-              <label class="field">
-                <span>File name</span>
-                <input id="new-input-name" type="text" value="new_prediction.yaml">
-              </label>
-              <textarea id="input-editor" spellcheck="false">version: 1
-sequences:
-  - protein:
-      id: A
-      sequence: M
-</textarea>
-            </details>
           </div>
         </section>
       </main>
