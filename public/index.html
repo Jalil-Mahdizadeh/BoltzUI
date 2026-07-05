@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BoltzUI</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/vendor/3Dmol-min.js"></script>
+  </head>
+  <body>
+    <div class="studio-shell">
+      <button class="sidebar-flash-toggle" id="sidebar-toggle" type="button" aria-expanded="true" aria-label="Collapse sidebar"></button>
+      <aside class="sidebar" aria-label="Input and settings">
+        <div class="sidebar-brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <span class="sidebar-kicker">Local inference</span>
+            <h2>BoltzUI</h2>
+          </div>
+        </div>
+
+        <details class="sidebar-block sidebar-details" id="input-section">
+          <summary class="sidebar-block-title">
+            <span>Input</span>
+            <em id="input-count">0 inputs</em>
+          </summary>
+
+          <label class="field field-stack">
+            <span>Input file</span>
+            <select id="input-file"></select>
+          </label>
+        </details>
+
+        <details class="sidebar-block sidebar-details options-block">
+          <summary class="sidebar-block-title">
+            <span>Settings</span>
+            <em>36 flags</em>
+          </summary>
+          <div id="option-groups" class="option-groups"></div>
+        </details>
+      </aside>
+
+      <main class="main-stage">
+        <header class="app-header has-art">
+          <img class="app-header-art" src="/header.png" alt="Molecular structure art">
+          <div class="app-header-main">
+            <div class="app-logo">B</div>
+            <div>
+              <div class="app-kicker">Boltz 2.2.1 container workspace</div>
+              <h1>BoltzUI</h1>
+              <p>Local structure prediction, live execution, confidence review, and molecular inspection in one workspace.</p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="status-pill workspace-button" id="workspace-pill" type="button">Workspace</button>
+            <button class="secondary-button" id="refresh-button" type="button">Refresh</button>
+          </div>
+        </header>
+
+        <section class="cockpit-grid" aria-label="Run overview">
+          <div class="metric-card">
+            <span>Input</span>
+            <strong id="metric-input">-</strong>
+            <em id="metric-input-detail">Waiting</em>
+          </div>
+          <div class="metric-card">
+            <span>Results</span>
+            <strong id="metric-results">-</strong>
+            <em id="metric-results-detail">Folders</em>
+          </div>
+          <div class="metric-card">
+            <span>Run state</span>
+            <strong id="metric-run-state">Idle</strong>
+            <em id="metric-run-detail">Ready</em>
+          </div>
+        </section>
+
+        <section class="workbench-grid">
+          <section class="panel structure-panel" id="structure-panel" aria-label="Structure workspace">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">Structure workspace</span>
+                <h2>Models & Confidence</h2>
+              </div>
+              <div class="viewer-controls">
+                <select id="result-select" aria-label="Result folder"></select>
+                <select id="model-select" aria-label="Model"></select>
+              </div>
+            </div>
+
+            <div class="viewer-toolbar" aria-label="Viewer controls">
+              <label>
+                <span>Representation</span>
+                <select id="representation-select">
+                  <option value="cartoon">Cartoon</option>
+                  <option value="stick">Stick</option>
+                  <option value="line">Line</option>
+                  <option value="cartoon-stick">Cartoon + Ligands</option>
+                </select>
+              </label>
+              <label>
+                <span>Color</span>
+                <select id="color-mode-select">
+                  <option value="spectrum">Spectrum</option>
+                  <option value="chain">Chain</option>
+                  <option value="confidence">Confidence</option>
+                </select>
+              </label>
+              <button class="secondary-button compact-button" id="reset-view-button" type="button">Reset view</button>
+              <button class="secondary-button compact-button" id="viewer-fullscreen-button" type="button">Full screen</button>
+            </div>
+
+            <div class="viewer-shell">
+              <div class="viewer-badges">
+                <span><i class="dot receptor"></i>Model</span>
+                <span><i class="dot confidence" id="viewer-confidence-dot"></i>Confidence</span>
+              </div>
+              <div class="confidence-legend" id="confidence-legend" hidden aria-label="Confidence color scale">
+                <div class="confidence-legend-scale" aria-hidden="true"></div>
+                <div class="confidence-legend-labels">
+                  <span class="legend-label" style="--pos: 0%">0</span>
+                  <span class="legend-label" style="--pos: 50%">50</span>
+                  <span class="legend-label" style="--pos: 70%">70</span>
+                  <span class="legend-label" style="--pos: 90%">90</span>
+                  <span class="legend-label" style="--pos: 100%">100</span>
+                </div>
+              </div>
+              <div id="structure-viewer"></div>
+              <div id="viewer-empty" class="viewer-empty">No PDB structure selected.</div>
+            </div>
+
+            <div class="inspector-strip">
+              <div class="inspector-item">
+                <span>Selected input</span>
+                <strong id="selected-input-pill">None</strong>
+                <em id="selected-input-meta">Waiting</em>
+              </div>
+              <div class="inspector-item accent-blue">
+                <span>Selected model</span>
+                <strong id="selected-model-pill">None</strong>
+                <em id="selected-model-meta">No structure</em>
+              </div>
+              <div class="inspector-actions">
+                <a id="structure-file-link" class="file-link disabled" href="#" target="_blank" rel="noreferrer">Structure</a>
+                <a id="confidence-file-link" class="file-link disabled" href="#" target="_blank" rel="noreferrer">Confidence JSON</a>
+              </div>
+            </div>
+
+            <div class="model-table-wrap">
+              <table class="model-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Confidence</th>
+                    <th>pTM</th>
+                    <th>pLDDT</th>
+                    <th>PDE</th>
+                  </tr>
+                </thead>
+                <tbody id="model-table"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel console-panel" aria-label="Run console">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">Run console</span>
+                <h2>Command & Logs</h2>
+              </div>
+            </div>
+
+            <div class="run-banner run-banner-idle" id="run-banner">
+              <span class="run-dot"></span>
+              <div class="run-copy">
+                <strong id="run-banner-title">Idle</strong>
+                <span id="run-banner-detail">No active Boltz run.</span>
+              </div>
+            </div>
+
+            <div class="run-actions">
+              <button class="primary-button" id="run-button" type="button">Run Boltz</button>
+              <button class="secondary-button" id="stop-button" type="button" disabled>Stop</button>
+            </div>
+
+            <details class="command-box">
+              <summary>
+                <span>Generated command</span>
+                <button class="ghost-button" id="copy-command" type="button">Copy</button>
+              </summary>
+              <pre id="command-preview">Select an input file.</pre>
+            </details>
+
+            <details class="command-box generated-box">
+              <summary>
+                <span>Generated runs</span>
+                <em>History</em>
+              </summary>
+              <div id="jobs-list" class="jobs-list"></div>
+            </details>
+
+            <details class="command-box generated-box">
+              <summary>
+                <span>Generated log</span>
+                <em>Live output</em>
+              </summary>
+              <pre id="job-log" class="job-log">No active job.</pre>
+            </details>
+          </section>
+        </section>
+
+        <section class="panel lower-panel" aria-label="Results and input tools">
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="results" type="button">Result Browser</button>
+            <button class="tab" data-tab="input" type="button">Input Draft</button>
+          </div>
+
+          <div class="tab-panel active" id="results-panel">
+            <div id="results-list" class="result-list"></div>
+          </div>
+
+          <div class="tab-panel" id="input-panel">
+            <div class="panel-heading compact">
+              <div>
+                <span class="section-kicker">Input authoring</span>
+                <h2>Draft YAML</h2>
+              </div>
+              <button class="secondary-button" id="save-input-button" type="button">Save input</button>
+            </div>
+            <details class="yaml-editor-card" open>
+              <summary>
+                <span id="yaml-summary-name" title="new_prediction.yaml">new_prediction.yaml</span>
+                <em>YAML input</em>
+              </summary>
+              <label class="field">
+                <span>File name</span>
+                <input id="new-input-name" type="text" value="new_prediction.yaml">
+              </label>
+              <textarea id="input-editor" spellcheck="false">version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: M
+</textarea>
+            </details>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

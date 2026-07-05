@@ -1,11 +1,12 @@
-# Boltz 2.2.1 Cached Docker Runner
+# BoltzUI
 
-This repository contains a small Boltz 2.2.1 Docker workflow for running predictions without downloading the Boltz cache at runtime. The Docker image bakes the cache into `/opt/boltz-cache`, and `run.sh` mounts the current folder as `/workspace`.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. It is layered on the cached local `boltz:221` image, so the Boltz runtime and cache stay inside one final app image.
 
 ## Repository Contents
 
-- `run.sh` - editable Docker run command for `NusA_open.yaml`.
-- `Dockerfile` - builds a Boltz 2.2.1 image with the local `.boltz/` cache baked in.
+- `Dockerfile` - builds the BoltzUI web app image on top of the cached local `boltz:221` image.
+- `server.js`, `public/`, `package.json` - BoltzUI web interface for configuring, launching, and inspecting Boltz runs.
+- `run.sh` - optional launcher for the BoltzUI container.
 - `requirements.txt` - Python package pin for Boltz.
 - `REQUIREMENTS.md` - host, GPU, disk, and cache requirements.
 - `DOCKER_HUB.md` - copy-ready Docker Hub overview text.
@@ -14,58 +15,58 @@ This repository contains a small Boltz 2.2.1 Docker workflow for running predict
 
 ## Build The Image
 
-The build needs a local `.boltz/` folder with the downloaded Boltz2 components:
+The build expects the cached Boltz image to already exist locally:
 
-```text
-.boltz/
-  boltz2_aff.ckpt
-  boltz2_conf.ckpt
-  mols.tar
-  mols/
+```bash
+docker image ls boltz:221
 ```
 
 Build:
 
 ```bash
-docker build -t boltz:221 .
+docker build -t boltzui:221 .
 ```
 
-The `.boltz/` folder is ignored by Git, but it is intentionally included in the Docker build context so the image can be self-contained.
+The final `boltzui:221` image contains the Boltz runtime from `boltz:221`, Node.js, and the BoltzUI web app.
 
-## Run A Prediction
+## Run The Web UI
 
-Edit `run.sh` directly if you want a different input file or sampling settings, then run:
+Run the container:
 
 ```bash
-bash run.sh
+docker run --rm --gpus all \
+  --shm-size=8g \
+  -p 5173:5173 \
+  -v "$(pwd):/workspace/BoltzUI" \
+  -w /workspace/BoltzUI \
+  boltzui:221
 ```
 
-The script uses this cache path:
+PowerShell equivalent:
 
-```bash
---cache /opt/boltz-cache
+```powershell
+docker run --rm --gpus all --shm-size=8g `
+  -p 5173:5173 `
+  -v "${PWD}:/workspace/BoltzUI" `
+  -w /workspace/BoltzUI `
+  boltzui:221
 ```
 
-That path is inside the image, so the first prediction should not download the Boltz model or molecule cache.
+Then open:
 
-## CLI Options
+```text
+http://localhost:5173
+```
 
-`run.sh` intentionally keeps the command explicit so users can edit it directly.
+After building the image, `bash run.sh` runs the same container command on Unix-like shells.
 
-Docker options:
+BoltzUI exposes every `boltz predict` option from the installed 2.2.1 CLI, builds a command preview, launches jobs with collapsible live logs, summarizes existing `boltz_results_*` folders, and opens generated PDB structures in an embedded 3Dmol workspace. Results are written back to the mounted repository folder.
 
-- `docker run` - starts a new container from the image.
-- `--rm` - removes the container after the run finishes.
-- `-it` - runs interactively with a terminal attached.
-- `--gpus all` - exposes all available NVIDIA GPUs to the container.
-- `--shm-size=8g` - gives the container an 8 GB shared-memory segment.
-- `-v "${PWD}:/workspace"` - mounts the current folder into the container.
-- `-w /workspace` - runs commands from the mounted workspace.
-- `--entrypoint /bin/bash` - starts Bash instead of the image default entrypoint.
-- `boltz:221` - Docker image tag used for prediction.
-- `-lc '...'` - asks Bash to run the quoted Boltz command.
+The sidebar is collapsed by section by default. `Input` selects the prediction file, `Settings` contains the full flag set, and `MSA settings` groups MSA server, credential, and limit controls under one section. The structure preview includes a 0-100 confidence color legend whenever the viewer color mode is set to `Confidence`.
 
-Boltz `predict` options:
+## Prediction Options
+
+The sidebar exposes these Boltz `predict` options:
 
 - `DATA` - input YAML/JSON/FASTA path, for example `NusA_open.yaml`. No default.
 - `--out_dir PATH` - base directory where predictions are saved. Default: `./`; Boltz appends `boltz_results_<input-stem>`.
@@ -73,25 +74,25 @@ Boltz `predict` options:
 - `--checkpoint PATH` - optional structure checkpoint path. Default is `None`; Boltz uses the bundled/default model checkpoint.
 - `--devices INTEGER` - number of devices to use. Default: `1`.
 - `--accelerator [gpu|cpu|tpu]` - accelerator backend. Default: `gpu`.
-- `--recycling_steps INTEGER` - number of recycling iterations. Default: `3`; `run.sh` uses `10`.
+- `--recycling_steps INTEGER` - number of recycling iterations. Default: `3`.
 - `--sampling_steps INTEGER` - number of diffusion sampling steps. Default: `200`.
-- `--diffusion_samples INTEGER` - number of generated structure samples. Default: `1`; `run.sh` uses `20`.
-- `--max_parallel_samples INTEGER` - maximum samples predicted in parallel. Default: `None`; `run.sh` uses `1` to reduce VRAM pressure.
-- `--step_scale FLOAT` - diffusion step scale. Default: `1.638` for Boltz-1 and `1.5` for Boltz-2; `run.sh` uses `1.0`.
+- `--diffusion_samples INTEGER` - number of generated structure samples. Default: `1`.
+- `--max_parallel_samples INTEGER` - maximum samples predicted in parallel. Default: `None`.
+- `--step_scale FLOAT` - diffusion step scale. BoltzUI fills `1.5`, matching the Boltz-2 default model.
 - `--write_full_pae` - writes full PAE as an NPZ file. Default: `True`.
 - `--write_full_pde` - writes full PDE as an NPZ file. Default: `False`.
-- `--output_format [pdb|mmcif]` - structure output format. Default: `mmcif`; `run.sh` uses `pdb`.
-- `--num_workers INTEGER` - dataloader worker count. Default: `2`.
+- `--output_format [pdb|mmcif]` - structure output format. BoltzUI default: `pdb`.
+- `--num_workers INTEGER` - dataloader worker count. BoltzUI default: `0`.
 - `--override` - overwrites existing predictions. Default: `False`.
-- `--seed INTEGER` - random seed. Default: `None`.
-- `--use_msa_server` - generates missing protein MSAs through the MMSeqs2 server. Default: `False`; `run.sh` enables it.
+- `--seed INTEGER` - random seed. BoltzUI default: `1`; use `-1` for a random seed.
+- `--use_msa_server` - generates missing protein MSAs through the MMSeqs2 server. BoltzUI default: `True`.
 - `--msa_server_url TEXT` - MSA server URL, used with `--use_msa_server`. Default: `https://api.colabfold.com`.
 - `--msa_pairing_strategy TEXT` - MSA pairing strategy, `greedy` or `complete`, used with `--use_msa_server`. Default: `greedy`.
 - `--msa_server_username TEXT` - username for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_USERNAME`.
 - `--msa_server_password TEXT` - password for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_PASSWORD`.
 - `--api_key_header TEXT` - custom API-key header name. Option default: `None`; when API-key auth is used and no header is provided, Boltz uses `X-API-Key`.
 - `--api_key_value TEXT` - custom API-key header value. Default: `None`.
-- `--use_potentials` - enables steering potentials. Default: `False`; `run.sh` enables it.
+- `--use_potentials` - enables steering potentials. Default: `False`.
 - `--model [boltz1|boltz2]` - model family. Default: `boltz2`.
 - `--method TEXT` - method metadata/conditioning value. Default: `None`.
 - `--preprocessing-threads INTEGER` - preprocessing thread count. Default: `1`.
@@ -99,10 +100,10 @@ Boltz `predict` options:
 - `--sampling_steps_affinity INTEGER` - affinity sampling steps. Default: `200`.
 - `--diffusion_samples_affinity INTEGER` - affinity diffusion samples. Default: `5`.
 - `--affinity_checkpoint PATH` - optional affinity checkpoint path. Default: `None`; Boltz uses the bundled/default affinity checkpoint.
-- `--max_msa_seqs INTEGER` - maximum MSA sequences used. Default: `8192`.
+- `--max_msa_seqs INTEGER` - maximum MSA sequences used. BoltzUI default: `5120`.
 - `--subsample_msa` - subsamples MSA sequences. Default: `True`.
-- `--num_subsampled_msa INTEGER` - number of MSA sequences after subsampling. Default: `1024`.
-- `--no_kernels` - disables optional optimized kernels. Default: `False`; `run.sh` enables it for compatibility.
+- `--num_subsampled_msa INTEGER` - number of MSA sequences after subsampling. BoltzUI default: `5120`.
+- `--no_kernels` - disables optional optimized kernels. BoltzUI default: `True`.
 - `--write_embeddings` - writes `s` and `z` embeddings to NPZ. Default: `False`.
 - `--help` - prints command help.
 
@@ -121,7 +122,7 @@ If a run fails with CUDA out-of-memory, lower:
 --recycling_steps
 ```
 
-For a very conservative first test, edit `run.sh` to:
+For a very conservative first test, set these options in the sidebar:
 
 ```bash
 --diffusion_samples 1
@@ -168,7 +169,7 @@ Results on the NVIDIA RTX PRO 2000 Blackwell Generation Laptop GPU with 8151 MiB
 | 800 aa | Failed: CUDA driver `device not ready` | `160.515 s` before failure |
 | 900 aa | Failed: CUDA driver `device not ready` | `61.546 s` before failure |
 
-For this laptop, treat `700 aa` as the largest confirmed working length for minimal GPU testing. This is not a general production limit: real inputs with MSAs, higher `sampling_steps`, more `diffusion_samples`, more `recycling_steps`, `--use_potentials`, or parallel sampling can require substantially more VRAM. The default `run.sh` settings are much heavier than this benchmark.
+For this laptop, treat `700 aa` as the largest confirmed working length for minimal GPU testing. This is not a general production limit: real inputs with MSAs, higher `sampling_steps`, more `diffusion_samples`, more `recycling_steps`, `--use_potentials`, or parallel sampling can require substantially more VRAM. Full-quality UI settings can be much heavier than this benchmark.
 
 ## Real NusA GPU Ladder
 

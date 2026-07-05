@@ -2,11 +2,11 @@
 
 ## Short Description
 
-Boltz 2.2.1 with pre-baked model and molecule cache for no-download prediction startup.
+BoltzUI web app for Boltz 2.2.1 with a pre-baked model and molecule cache.
 
 ## Overview
 
-This image packages Boltz 2.2.1 together with the Boltz cache at `/opt/boltz-cache`, including the Boltz2 confidence checkpoint, affinity checkpoint, `mols.tar`, and extracted molecule data. It is intended for users who want reproducible local Boltz2 prediction runs without downloading model components on first use.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. It is intended for users who want a local browser UI that starts predictions inside the same Docker container without downloading model components on first use.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -16,30 +16,27 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Cache path: `/opt/boltz-cache`
 - Environment variable: `BOLTZ_CACHE=/opt/boltz-cache`
 - Includes Boltz2 checkpoints and molecule cache
-- Designed for bind-mounted workspaces at `/workspace`
+- Starts the BoltzUI web server on port `5173`
+- Designed for bind-mounted workspaces at `/workspace/BoltzUI`
+- Full `boltz predict` option sidebar with collapsed sections by default
+- MSA server enabled by default, with server, credential, and limit controls grouped under MSA settings
+- Collapsible generated command, run history, and live log panels
+- Embedded 3D structure preview with confidence color legend
 - Example inputs included in the repository: `NusA_open.yaml`, `NusA_close.yaml`, and `affinity.yaml`
 
 ## Quick Start
 
 ```bash
-docker run --rm -it \
+docker run --rm \
   --gpus all \
   --shm-size=8g \
-  -v "${PWD}:/workspace" \
-  -w /workspace \
-  --entrypoint /bin/bash \
-  boltz:221 \
-  -lc 'boltz predict NusA_open.yaml \
-    --use_msa_server \
-    --no_kernels \
-    --cache /opt/boltz-cache \
-    --diffusion_samples 20 \
-    --recycling_steps 10 \
-    --max_parallel_samples 1 \
-    --step_scale 1.0 \
-    --use_potentials \
-    --output_format pdb'
+  -p 5173:5173 \
+  -v "${PWD}:/workspace/BoltzUI" \
+  -w /workspace/BoltzUI \
+  boltzui:221
 ```
+
+Open `http://localhost:5173`.
 
 ## VRAM Note
 
@@ -47,10 +44,10 @@ Boltz2 inference can consume substantial GPU memory. On 8 GB GPUs, use `--max_pa
 
 ## Build From Source
 
-Place a populated `.boltz/` cache folder next to the Dockerfile, then run:
+Make sure the cached `boltz:221` base image exists locally, then run:
 
 ```bash
-docker build -t boltz:221 .
+docker build -t boltzui:221 .
 ```
 
-The build verifies that the required cache files exist before producing the image.
+The build verifies that `boltz` and `node` are available before producing the image.

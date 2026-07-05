@@ -1,27 +1,30 @@
-ARG PYTORCH_IMAGE=pytorch/pytorch:2.10.0-cuda12.8-cudnn9-runtime
-FROM ${PYTORCH_IMAGE}
+ARG BASE_IMAGE=boltz:221
+ARG NODE_IMAGE=node:20-bullseye-slim
 
-LABEL org.opencontainers.image.title="Boltz 2.2.1 cached"
-LABEL org.opencontainers.image.description="Boltz 2.2.1 Docker image with model and molecule cache pre-baked at /opt/boltz-cache"
+FROM ${NODE_IMAGE} AS node_runtime
 
-ENV BOLTZ_CACHE=/opt/boltz-cache
-ENV PYTHONUNBUFFERED=1
+FROM ${BASE_IMAGE}
 
-WORKDIR /workspace
+LABEL org.opencontainers.image.title="BoltzUI 2.2.1"
+LABEL org.opencontainers.image.description="BoltzUI web image layered on the cached Boltz 2.2.1 runtime"
 
-COPY requirements.txt /tmp/requirements.txt
-RUN python -m pip install --upgrade pip \
-    && python -m pip install --no-cache-dir -r /tmp/requirements.txt \
-    && rm /tmp/requirements.txt
+ENV BOLTZ_CACHE=/opt/boltz-cache \
+    PYTHONUNBUFFERED=1 \
+    HOST=0.0.0.0 \
+    PORT=5173
 
-COPY --chown=root:root .boltz/ /opt/boltz-cache/
+WORKDIR /workspace/BoltzUI
+
+COPY --from=node_runtime /usr/local/bin/node /usr/local/bin/node
+COPY server.js package.json ./
+COPY public ./public
 
 RUN set -eux; \
-    test -s /opt/boltz-cache/boltz2_conf.ckpt; \
-    test -s /opt/boltz-cache/boltz2_aff.ckpt; \
-    test -s /opt/boltz-cache/mols.tar; \
-    test -d /opt/boltz-cache/mols; \
-    python -c "from pathlib import Path; cache=Path('/opt/boltz-cache'); print('Boltz cache files:', sum(1 for path in cache.rglob('*') if path.is_file()))"
+    boltz --help >/dev/null; \
+    node --version; \
+    python -c "from pathlib import Path; cache=Path('/opt/boltz-cache'); print('Boltz cache path:', cache, 'exists=', cache.exists())"
 
-ENTRYPOINT ["boltz"]
-CMD ["--help"]
+EXPOSE 5173
+
+ENTRYPOINT ["node"]
+CMD ["server.js"]
