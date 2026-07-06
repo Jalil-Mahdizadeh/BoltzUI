@@ -594,7 +594,7 @@ function applyViewerStyle(resetView = false) {
   const viewer = state.viewer;
   if (!viewer) return;
   const representation = $("#representation-select")?.value || "cartoon";
-  const cartoon = { ...colorStyle("cartoon"), thickness: 0.42 };
+  const cartoon = { ...colorStyle("cartoon"), style: "oval", thickness: 0.28 };
   const stick = { ...colorStyle("stick"), radius: 0.15 };
   const line = { ...colorStyle("line"), linewidth: 1.2 };
 
@@ -626,7 +626,8 @@ function draw3DStructure(text, structurePath) {
   element.innerHTML = "";
   empty.hidden = true;
   const viewer = mol3d.createViewer(element, {
-    backgroundColor: "#070a11"
+    backgroundColor: "#070a11",
+    antialias: true
   });
   state.viewer = viewer;
   state.currentStructureText = text;

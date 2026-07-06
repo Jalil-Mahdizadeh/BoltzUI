@@ -4,6 +4,7 @@ let nextId = 1;
 
 const builderState = {
   polymers: [],
+  ligands: [],
   contacts: []
 };
 
@@ -25,18 +26,18 @@ const YAML_TASK_PRESETS = {
   ligand: {
     filename: "protein_ligand.yaml",
     polymers: [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }],
-    ligand: { enabled: true, ids: "B", source: "smiles", value: DEFAULT_LIGAND_SMILES }
+    ligands: [{ ids: "B", source: "smiles", value: DEFAULT_LIGAND_SMILES }]
   },
   affinity: {
     filename: "affinity_prediction.yaml",
     polymers: [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }],
-    ligand: { enabled: true, ids: "B", source: "smiles", value: DEFAULT_LIGAND_SMILES },
+    ligands: [{ ids: "B", source: "smiles", value: DEFAULT_LIGAND_SMILES }],
     affinity: { enabled: true, binder: "B" }
   },
   pocket: {
     filename: "pocket_prediction.yaml",
     polymers: [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }],
-    ligand: { enabled: true, ids: "B", source: "ccd", value: "ATP" },
+    ligands: [{ ids: "B", source: "ccd", value: "ATP" }],
     pocket: { enabled: true, binder: "B", distance: "6", force: false, contacts: "A:45\nA:68" }
   },
   contacts: {
@@ -120,6 +121,23 @@ function createPolymer(overrides = {}) {
     modifications: "",
     ...overrides
   };
+}
+
+function createLigand(overrides = {}) {
+  const { enabled, ...values } = overrides;
+  return {
+    uid: createUid("ligand"),
+    ids: "B",
+    source: "smiles",
+    value: DEFAULT_LIGAND_SMILES,
+    ...values
+  };
+}
+
+function presetLigands(preset) {
+  if (Array.isArray(preset.ligands)) return preset.ligands;
+  if (preset.ligand?.enabled) return [preset.ligand];
+  return [];
 }
 
 function createContact(overrides = {}) {
@@ -385,22 +403,30 @@ function buildYamlFromBuilder() {
     entityCount += 1;
   });
 
-  const ligandEnabled = fieldValue("yaml-ligand-enabled");
-  const ligandIds = parseIdList(fieldValue("yaml-ligand-id"));
-  const ligandSource = fieldValue("yaml-ligand-source") || "smiles";
-  const ligandValue = fieldValue("yaml-ligand-value").trim();
-  if (ligandEnabled) {
-    if (!ligandIds.length) warnings.push("Ligand needs at least one chain ID.");
-    if (!ligandValue) warnings.push("Ligand value is empty.");
+  const ligandRecords = [];
+  builderState.ligands.forEach((ligand, index) => {
+    const fallbackId = chainIdFromIndex(builderState.polymers.length + index);
+    const ligandIds = parseIdList(ligand.ids);
+    const resolvedIds = ligandIds.length ? ligandIds : [fallbackId || "B"];
+    const ligandSource = ligand.source === "ccd" ? "ccd" : "smiles";
+    const ligandValue = String(ligand.value || "").trim();
+    const label = `Ligand ${index + 1}`;
+    if (!ligandIds.length) warnings.push(`${label} needs at least one chain ID.`);
+    if (!ligandValue) warnings.push(`${label} value is empty.`);
+    const duplicateIds = resolvedIds.filter((id) => usedIds.includes(id));
+    if (duplicateIds.length) warnings.push(`${label} chain ID "${duplicateIds[0]}" is already used.`);
     lines.push("  - ligand:");
-    lines.push(`      id: ${yamlIdValue(ligandIds, "B")}`);
+    lines.push(`      id: ${yamlIdValue(resolvedIds, fallbackId || "B")}`);
     lines.push(ligandSource === "ccd"
       ? `      ccd: ${yamlCcdValue(ligandValue)}`
       : `      smiles: ${yamlScalar(ligandValue)}`);
-    usedIds.push(...(ligandIds.length ? ligandIds : ["B"]));
+    usedIds.push(...resolvedIds);
+    ligandRecords.push({ ids: resolvedIds, source: ligandSource, value: ligandValue, label });
     entityCount += 1;
-    features.push("ligand");
-  }
+    features.push(builderState.ligands.length === 1 ? "ligand" : `ligand ${index + 1}`);
+  });
+  const ligandIds = ligandRecords.flatMap((ligand) => ligand.ids);
+  const firstLigandId = ligandIds[0] || "";
 
   const constraints = [];
   if (fieldValue("yaml-bond-enabled")) {
@@ -415,7 +441,7 @@ function buildYamlFromBuilder() {
   }
 
   if (fieldValue("yaml-pocket-enabled")) {
-    const binder = fieldValue("yaml-pocket-binder").trim() || ligandIds[0] || "B";
+    const binder = fieldValue("yaml-pocket-binder").trim() || firstLigandId || "B";
     if (!usedIds.includes(binder)) warnings.push(`Pocket binder "${binder}" is not one of the current entity IDs.`);
     const contacts = String(fieldValue("yaml-pocket-contacts") || "")
       .split(/\r?\n/)
@@ -471,10 +497,20 @@ function buildYamlFromBuilder() {
   }
 
   if (fieldValue("yaml-affinity-enabled")) {
-    const binder = fieldValue("yaml-affinity-binder").trim() || ligandIds[0] || "B";
-    if (!ligandEnabled) warnings.push("Affinity requires a ligand entity.");
-    if (ligandIds.length > 1) warnings.push("Affinity binder must be a single ligand chain, not multiple copies.");
-    if (ligandSource === "ccd" && parseIdList(ligandValue).length > 1) warnings.push("Affinity does not support multi-residue CCD ligands.");
+    const binder = fieldValue("yaml-affinity-binder").trim() || firstLigandId || "B";
+    const binderLigand = ligandRecords.find((ligand) => ligand.ids.includes(binder));
+    const matchingCopies = binderLigand
+      ? ligandRecords
+        .filter((ligand) => ligand.source === binderLigand.source && ligand.value === binderLigand.value)
+        .flatMap((ligand) => ligand.ids)
+      : [];
+    if (!ligandRecords.length) warnings.push("Affinity requires a ligand entity.");
+    if (binderLigand?.ids.length > 1 || matchingCopies.length > 1) {
+      warnings.push("Affinity binder must resolve to one ligand copy. For affinity, use a unique ligand chain/value for the binder.");
+    }
+    if (binderLigand?.source === "ccd" && parseIdList(binderLigand.value).length > 1) {
+      warnings.push("Affinity does not support multi-residue CCD ligands.");
+    }
     if (!usedIds.includes(binder)) warnings.push(`Affinity binder "${binder}" is not one of the current entity IDs.`);
     lines.push("properties:");
     lines.push("  - affinity:");
@@ -555,7 +591,16 @@ function polymerCard(polymer, index) {
           </span>
         </label>
         <label class="field builder-span">
-          <span>Modifications</span>
+          <span class="field-label-row">
+            <span>Modifications</span>
+            <span
+              class="field-help"
+              tabindex="0"
+              role="img"
+              aria-label="Modifications use one based positions and CCD component codes from the Boltz cache."
+              data-tooltip="Optional CCD substitutions, one per line: position:CCD. Positions are 1-based. Use protein CCDs for protein positions, RNA CCDs for RNA positions, and DNA CCDs for DNA positions. Examples: 12:MSE, 24:SEP, 8:PSU. The CCD code must exist in /opt/boltz-cache/mols."
+            >?</span>
+          </span>
           <textarea class="mini-textarea" data-polymer-field="modifications" spellcheck="false" placeholder="12:MSE">${escapeHtml(polymer.modifications)}</textarea>
         </label>
       </div>
@@ -566,6 +611,45 @@ function polymerCard(polymer, index) {
 function renderPolymers() {
   const root = $("#polymer-list");
   root.innerHTML = builderState.polymers.map(polymerCard).join("");
+}
+
+function ligandCard(ligand, index) {
+  const isCcd = ligand.source === "ccd";
+  return `
+    <article class="repeat-card ligand-card" data-uid="${ligand.uid}">
+      <div class="repeat-card-heading">
+        <h4>Ligand ${index + 1}</h4>
+        <button class="ghost-button repeat-remove-button" data-action="remove-ligand" type="button">Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid ligand-repeat-grid">
+        <label class="field">
+          <span>Chain ID(s)</span>
+          <input data-ligand-field="ids" type="text" value="${escapeHtml(ligand.ids)}" placeholder="B or B, C">
+        </label>
+        <label class="field">
+          <span>Source</span>
+          <select data-ligand-field="source">
+            <option value="smiles"${!isCcd ? " selected" : ""}>SMILES</option>
+            <option value="ccd"${isCcd ? " selected" : ""}>CCD</option>
+          </select>
+        </label>
+        <label class="field builder-span">
+          <span data-ligand-value-label>${isCcd ? "CCD code(s)" : "SMILES"}</span>
+          <input data-ligand-field="value" type="text" value="${escapeHtml(ligand.value)}" placeholder="${isCcd ? "ATP or ATP, MG" : "CC1=CC=CC=C1"}">
+        </label>
+      </div>
+    </article>
+  `;
+}
+
+function renderLigands() {
+  const root = $("#ligand-list");
+  if (!root) return;
+  if (!builderState.ligands.length) {
+    root.innerHTML = `<div class="repeat-empty">No ligands added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.ligands.map(ligandCard).join("");
 }
 
 function contactCard(contact, index) {
@@ -610,16 +694,13 @@ function renderContacts() {
 }
 
 function updateYamlBuilderVisibility() {
-  const ligandEnabled = fieldValue("yaml-ligand-enabled");
-  document.querySelectorAll(".ligand-fields").forEach((element) => {
-    element.hidden = !ligandEnabled;
+  document.querySelectorAll(".ligand-card").forEach((card) => {
+    const source = card.querySelector("[data-ligand-field='source']")?.value || "smiles";
+    const label = card.querySelector("[data-ligand-value-label]");
+    const value = card.querySelector("[data-ligand-field='value']");
+    if (label) label.textContent = source === "ccd" ? "CCD code(s)" : "SMILES";
+    if (value) value.placeholder = source === "ccd" ? "ATP or ATP, MG" : "CC1=CC=CC=C1";
   });
-
-  const ligandSource = fieldValue("yaml-ligand-source") || "smiles";
-  const ligandLabel = $("#yaml-ligand-value-label");
-  const ligandValue = $("#yaml-ligand-value");
-  if (ligandLabel) ligandLabel.textContent = ligandSource === "ccd" ? "CCD code(s)" : "SMILES";
-  if (ligandValue) ligandValue.placeholder = ligandSource === "ccd" ? "ATP or SAH" : "CC1=CC=CC=C1";
 
   const thresholdField = $("#yaml-template-threshold")?.closest(".field");
   if (thresholdField) thresholdField.hidden = !fieldValue("yaml-template-force");
@@ -641,14 +722,15 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
   setDraftName(preset.filename);
 
   builderState.polymers = (preset.polymers || YAML_TASK_PRESETS.structure.polymers).map((polymer) => createPolymer(polymer));
+  builderState.ligands = presetLigands(preset).map((ligand, index) => createLigand({
+    ids: ligand.ids || chainIdFromIndex((preset.polymers || YAML_TASK_PRESETS.structure.polymers).length + index),
+    source: ligand.source || "smiles",
+    value: ligand.value || DEFAULT_LIGAND_SMILES
+  }));
   builderState.contacts = (preset.contacts || []).map((contact) => createContact(contact));
   renderPolymers();
+  renderLigands();
   renderContacts();
-
-  setFieldValue("yaml-ligand-enabled", Boolean(preset.ligand?.enabled));
-  setFieldValue("yaml-ligand-id", preset.ligand?.ids || "B");
-  setFieldValue("yaml-ligand-source", preset.ligand?.source || "smiles");
-  setFieldValue("yaml-ligand-value", preset.ligand?.value || DEFAULT_LIGAND_SMILES);
 
   setFieldValue("yaml-affinity-enabled", Boolean(preset.affinity?.enabled));
   setFieldValue("yaml-affinity-binder", preset.affinity?.binder || "B");
@@ -790,12 +872,11 @@ function parseYamlSequences(text, parsed) {
 
     if (header.key === "ligand") {
       const source = map.ccd !== undefined ? "ccd" : "smiles";
-      parsed.ligand = {
-        enabled: true,
+      parsed.ligands.push({
         ids: yamlValueAsText(map.id || "B"),
         source,
         value: source === "ccd" ? yamlValueAsText(map.ccd || "") : stripYamlQuotes(map.smiles || "")
-      };
+      });
       continue;
     }
 
@@ -879,8 +960,8 @@ function parseYamlProperties(text, parsed) {
 function parseBuilderYaml(text) {
   const parsed = {
     polymers: [],
+    ligands: [],
     contacts: [],
-    ligand: null,
     affinity: null,
     pocket: null,
     bond: null,
@@ -899,7 +980,7 @@ function profileFromParsedYaml(parsed) {
   if (parsed.pocket?.enabled) return "pocket";
   if (parsed.contacts.length) return "contacts";
   if (parsed.template?.enabled) return "template";
-  if (parsed.ligand?.enabled) return "ligand";
+  if (parsed.ligands.length) return "ligand";
   if (parsed.polymers.length > 1) return "complex";
   return "structure";
 }
@@ -914,7 +995,7 @@ function openSectionsForLoadedYaml(parsed) {
     section.open = false;
   });
   setBuilderSectionOpen("polymer", parsed.polymers.length > 0);
-  setBuilderSectionOpen("ligand", parsed.ligand?.enabled);
+  setBuilderSectionOpen("ligand", parsed.ligands.length > 0);
   setBuilderSectionOpen("affinity", parsed.affinity?.enabled);
   setBuilderSectionOpen("pocket", parsed.pocket?.enabled);
   setBuilderSectionOpen("constraints", parsed.contacts.length > 0 || parsed.bond?.enabled);
@@ -937,14 +1018,15 @@ function applyParsedYamlToBuilder(parsed, filename) {
     cyclic: Boolean(polymer.cyclic),
     modifications: polymer.modifications || ""
   }));
+  builderState.ligands = parsed.ligands.map((ligand, index) => createLigand({
+    ids: ligand.ids || chainIdFromIndex(builderState.polymers.length + index),
+    source: ligand.source || "smiles",
+    value: ligand.value || DEFAULT_LIGAND_SMILES
+  }));
   builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
   renderPolymers();
+  renderLigands();
   renderContacts();
-
-  setFieldValue("yaml-ligand-enabled", Boolean(parsed.ligand?.enabled));
-  setFieldValue("yaml-ligand-id", parsed.ligand?.ids || "B");
-  setFieldValue("yaml-ligand-source", parsed.ligand?.source || "smiles");
-  setFieldValue("yaml-ligand-value", parsed.ligand?.value || DEFAULT_LIGAND_SMILES);
 
   setFieldValue("yaml-affinity-enabled", Boolean(parsed.affinity?.enabled));
   setFieldValue("yaml-affinity-binder", parsed.affinity?.binder || "B");
@@ -1019,7 +1101,7 @@ async function loadExistingYaml(relativePath) {
 
     $("#input-editor").value = text.endsWith("\n") ? text : `${text}\n`;
     setDraftName(filename);
-    if (!parsed.polymers.length && !parsed.ligand?.enabled) {
+    if (!parsed.polymers.length && !parsed.ligands.length) {
       renderYamlBuilderStatus({
         warnings: ["No supported sequence entities were found. The YAML is loaded in the editor only."],
         summary: "Manual YAML loaded"
@@ -1048,6 +1130,17 @@ function updatePolymerFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updateLigandFromElement(element) {
+  const card = element.closest(".ligand-card");
+  if (!card) return;
+  const ligand = builderState.ligands.find((item) => item.uid === card.dataset.uid);
+  if (!ligand) return;
+  const field = element.dataset.ligandField;
+  ligand[field] = element.value;
+  if (field === "source") renderLigands();
+  syncYamlFromBuilder();
+}
+
 function updateContactFromElement(element) {
   const card = element.closest(".contact-card");
   if (!card) return;
@@ -1062,6 +1155,12 @@ function bindRepeatLists() {
   $("#add-polymer-button").addEventListener("click", () => {
     builderState.polymers.push(createPolymer({ ids: chainIdFromIndex(builderState.polymers.length) }));
     renderPolymers();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#add-ligand-button").addEventListener("click", () => {
+    builderState.ligands.push(createLigand({ ids: chainIdFromIndex(builderState.polymers.length + builderState.ligands.length) }));
+    renderLigands();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1083,6 +1182,21 @@ function bindRepeatLists() {
     if (!card || builderState.polymers.length <= 1) return;
     builderState.polymers = builderState.polymers.filter((item) => item.uid !== card.dataset.uid);
     renderPolymers();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#ligand-list").addEventListener("input", (event) => {
+    if (event.target.dataset.ligandField) updateLigandFromElement(event.target);
+  });
+  $("#ligand-list").addEventListener("change", (event) => {
+    if (event.target.dataset.ligandField) updateLigandFromElement(event.target);
+  });
+  $("#ligand-list").addEventListener("click", (event) => {
+    if (event.target.dataset.action !== "remove-ligand") return;
+    const card = event.target.closest(".ligand-card");
+    if (!card) return;
+    builderState.ligands = builderState.ligands.filter((item) => item.uid !== card.dataset.uid);
+    renderLigands();
     generateYamlFromBuilder({ silent: true });
   });
 

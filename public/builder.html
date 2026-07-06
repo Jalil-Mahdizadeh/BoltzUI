@@ -82,32 +82,13 @@
             </details>
 
             <details class="builder-section" data-section="ligand">
-              <summary><span><b>02</b>Ligand</span><em>SMILES or CCD</em></summary>
-              <div class="builder-grid">
-                <label class="toggle-field builder-span">
-                  <span>Add ligand</span>
-                  <span class="switch">
-                    <input id="yaml-ligand-enabled" data-yaml-control type="checkbox">
-                    <span class="slider"></span>
-                  </span>
-                </label>
-                <div class="builder-grid builder-span ligand-fields">
-                  <label class="field">
-                    <span>Ligand ID(s)</span>
-                    <input id="yaml-ligand-id" data-yaml-control type="text" value="B" placeholder="B">
-                  </label>
-                  <label class="field">
-                    <span>Source</span>
-                    <select id="yaml-ligand-source" data-yaml-control>
-                      <option value="smiles">SMILES</option>
-                      <option value="ccd">CCD</option>
-                    </select>
-                  </label>
-                  <label class="field builder-span">
-                    <span id="yaml-ligand-value-label">SMILES</span>
-                    <input id="yaml-ligand-value" data-yaml-control type="text" value="N[C@@H](Cc1ccc(O)cc1)C(=O)O">
-                  </label>
+              <summary><span><b>02</b>Ligands</span><em>Unlimited</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar">
+                  <span>Add any number of ligand chains. Use one card per distinct ligand entity; chain IDs can represent copies.</span>
+                  <button class="secondary-button mini-action-button" id="add-ligand-button" type="button">Add ligand</button>
                 </div>
+                <div class="repeat-list" id="ligand-list"></div>
               </div>
             </details>
 
