@@ -38,7 +38,7 @@
             </div>
             <div class="builder-action">
               <button class="secondary-button yaml-save-button" id="save-input-button" type="button">Save input</button>
-              <span class="action-help" tabindex="0" role="img" aria-label="Save input writes the current YAML editor content to a file in the mounted workspace." data-tooltip="Writes the current YAML editor content to a file in the mounted workspace. Manual edits are included.">?</span>
+              <span class="action-help" tabindex="0" role="img" aria-label="Save input writes the current YAML editor content to workspace inputs." data-tooltip="Writes the current YAML editor content to workspace/inputs. Manual edits are included.">?</span>
             </div>
           </div>
         </div>
@@ -50,6 +50,12 @@
                 <span class="section-kicker">Schema guided</span>
                 <h3>Input Generator</h3>
               </div>
+              <label class="field compact-field builder-load-field">
+                <span>Existing YAML</span>
+                <select id="existing-yaml-select">
+                  <option value="">Start new input</option>
+                </select>
+              </label>
               <label class="field compact-field">
                 <span>Task</span>
                 <select id="yaml-profile" data-yaml-control>
@@ -64,7 +70,7 @@
               </label>
             </div>
 
-            <details class="builder-section" data-section="polymer" open>
+            <details class="builder-section" data-section="polymer">
               <summary><span><b>01</b>Polymers</span><em>Unlimited</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
@@ -75,7 +81,7 @@
               </div>
             </details>
 
-            <details class="builder-section" data-section="ligand" open>
+            <details class="builder-section" data-section="ligand">
               <summary><span><b>02</b>Ligand</span><em>SMILES or CCD</em></summary>
               <div class="builder-grid">
                 <label class="toggle-field builder-span">
@@ -154,7 +160,7 @@
               </div>
             </details>
 
-            <details class="builder-section" data-section="constraints" open>
+            <details class="builder-section" data-section="constraints">
               <summary><span><b>05</b>Constraints</span><em>Contact list and bonds</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">

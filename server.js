@@ -9,6 +9,11 @@ const EventEmitter = require("node:events");
 const ROOT = process.cwd();
 const HOST = process.env.HOST || "0.0.0.0";
 const PORT = Number(process.env.PORT || 5173);
+const DATA_WORKSPACE_RELATIVE = "workspace";
+const INPUTS_RELATIVE = `${DATA_WORKSPACE_RELATIVE}/inputs`;
+const RESULTS_RELATIVE = `${DATA_WORKSPACE_RELATIVE}/results`;
+const INPUT_DIR = path.join(ROOT, INPUTS_RELATIVE);
+const RESULTS_DIR = path.join(ROOT, RESULTS_RELATIVE);
 const STATE_DIR = path.join(ROOT, ".boltz-ui");
 const JOB_DIR = path.join(STATE_DIR, "jobs");
 
@@ -18,7 +23,7 @@ const TEXT_EXTENSIONS = new Set([".txt", ".log", ".json", ".yaml", ".yml", ".csv
 const SKIP_DIRS = new Set([".git", ".boltz", ".boltz-ui", "graphify-out", "node_modules"]);
 
 const optionSchema = [
-  { key: "out_dir", flag: "--out_dir", label: "Output directory", type: "path", group: "Paths & checkpoints", placeholder: "./" },
+  { key: "out_dir", flag: "--out_dir", label: "Output directory", type: "path", group: "Paths & checkpoints", default: RESULTS_RELATIVE, placeholder: RESULTS_RELATIVE },
   { key: "cache", flag: "--cache", label: "Cache path", type: "path", group: "Paths & checkpoints", default: "/opt/boltz-cache" },
   { key: "checkpoint", flag: "--checkpoint", label: "Structure checkpoint", type: "path", group: "Paths & checkpoints" },
   { key: "affinity_checkpoint", flag: "--affinity_checkpoint", label: "Affinity checkpoint", type: "path", group: "Paths & checkpoints" },
@@ -114,6 +119,11 @@ function toRelative(absPath) {
   return toPosix(path.relative(ROOT, absPath));
 }
 
+async function ensureDataWorkspace() {
+  await fsp.mkdir(INPUT_DIR, { recursive: true });
+  await fsp.mkdir(RESULTS_DIR, { recursive: true });
+}
+
 async function openLocalPath(relativePath = ".") {
   const target = safeResolve(relativePath || ".");
   const stat = await fsp.stat(target);
@@ -172,11 +182,12 @@ function normalizeScalar(value, option) {
 function normalizeOptions(inputOptions = {}) {
   const normalized = {};
   for (const option of optionSchema) {
+    const hasValue = Object.prototype.hasOwnProperty.call(inputOptions, option.key);
     if (option.type === "bool") {
-      normalized[option.key] = Boolean(inputOptions[option.key]);
+      normalized[option.key] = hasValue ? Boolean(inputOptions[option.key]) : Boolean(option.default);
       continue;
     }
-    normalized[option.key] = normalizeScalar(inputOptions[option.key], option);
+    normalized[option.key] = normalizeScalar(hasValue ? inputOptions[option.key] : option.default, option);
   }
   return normalized;
 }
@@ -233,15 +244,14 @@ async function readBody(req) {
   }
 }
 
-async function walkFiles(dir, options = {}, output = []) {
+async function walkFiles(dir, output = []) {
   const entries = await fsp.readdir(dir, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name.startsWith(".") || SKIP_DIRS.has(entry.name)) continue;
-    if (options.skipResults && entry.isDirectory() && entry.name.startsWith("boltz_results_")) continue;
 
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      await walkFiles(fullPath, options, output);
+      await walkFiles(fullPath, output);
     } else if (entry.isFile()) {
       output.push(fullPath);
     }
@@ -250,7 +260,8 @@ async function walkFiles(dir, options = {}, output = []) {
 }
 
 async function listInputFiles() {
-  const files = await walkFiles(ROOT, { skipResults: true });
+  await ensureDataWorkspace();
+  const files = await walkFiles(INPUT_DIR);
   return files
     .filter((file) => INPUT_EXTENSIONS.has(path.extname(file).toLowerCase()))
     .filter((file) => !["package.json", "package-lock.json"].includes(path.basename(file).toLowerCase()))
@@ -355,10 +366,11 @@ async function summarizeResultDir(dir) {
 }
 
 async function listResults() {
-  const entries = await fsp.readdir(ROOT, { withFileTypes: true });
+  await ensureDataWorkspace();
+  const entries = await fsp.readdir(RESULTS_DIR, { withFileTypes: true });
   const dirs = entries
     .filter((entry) => entry.isDirectory() && entry.name.startsWith("boltz_results_"))
-    .map((entry) => path.join(ROOT, entry.name));
+    .map((entry) => path.join(RESULTS_DIR, entry.name));
   const summaries = await Promise.all(dirs.map(summarizeResultDir));
   return summaries.sort((a, b) => new Date(b.modifiedAt) - new Date(a.modifiedAt));
 }
@@ -402,6 +414,7 @@ function addLog(job, chunk) {
 
 async function startJob(payload) {
   await fsp.mkdir(JOB_DIR, { recursive: true });
+  await ensureDataWorkspace();
   const realCommand = buildBoltzCommand(payload, { maskSecrets: false });
   const maskedCommand = buildBoltzCommand(payload, { maskSecrets: true });
   const id = `${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID().slice(0, 8)}`;
@@ -535,6 +548,7 @@ async function serveStatic(urlPath, res) {
 
 async function handleApi(req, res, url) {
   if (req.method === "GET" && url.pathname === "/api/state") {
+    await ensureDataWorkspace();
     sendJson(res, 200, {
       workspace: ROOT,
       options: optionSchema,
@@ -616,7 +630,9 @@ async function handleApi(req, res, url) {
     if (!/^[A-Za-z0-9_.-]+\.(ya?ml|json|fasta|fa|faa)$/i.test(name)) {
       throw new Error("Input file name must be a simple YAML, JSON, or FASTA name.");
     }
-    const target = safeResolve(name);
+    await ensureDataWorkspace();
+    const target = path.resolve(INPUT_DIR, name);
+    if (!isInside(target, INPUT_DIR)) throw new Error("Input file path escapes the input workspace.");
     await fsp.writeFile(target, String(payload.content || ""), "utf8");
     sendJson(res, 201, { input: { path: toRelative(target), name: path.basename(target), size: fs.statSync(target).size } });
     return;

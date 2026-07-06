@@ -22,7 +22,8 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - MSA server enabled by default, with server, credential, and limit controls grouped under MSA settings
 - Collapsible generated command, run history, and live log panels
 - Embedded 3D structure preview with confidence color legend
-- Example inputs included in the repository: `NusA_open.yaml`, `NusA_close.yaml`, and `affinity.yaml`
+- Inputs are saved under `workspace/inputs/` and prediction folders are written under `workspace/results/`
+- Example inputs included in the repository under `workspace/inputs/`
 
 ## Quick Start
 

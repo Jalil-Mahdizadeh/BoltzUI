@@ -8,6 +8,7 @@ const builderState = {
 };
 
 const DEFAULT_LIGAND_SMILES = "N[C@@H](Cc1ccc(O)cc1)C(=O)O";
+const POLYMER_TYPES = new Set(["protein", "dna", "rna"]);
 
 const YAML_TASK_PRESETS = {
   structure: {
@@ -228,6 +229,91 @@ function parseTokenSpec(value) {
   const parts = String(value || "").replace(/^\[|\]$/g, "").split(/[:,\s]+/).filter(Boolean);
   if (parts.length < 2) return null;
   return { chain: parts[0], token: parts[1] };
+}
+
+function splitTopLevelComma(value) {
+  const text = String(value || "");
+  const items = [];
+  let current = "";
+  let depth = 0;
+  let quote = "";
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    if (quote) {
+      current += char;
+      if (char === quote) quote = "";
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = char;
+      current += char;
+      continue;
+    }
+    if (char === "[") depth += 1;
+    if (char === "]") depth -= 1;
+    if (char === "," && depth === 0) {
+      items.push(current.trim());
+      current = "";
+      continue;
+    }
+    current += char;
+  }
+
+  if (current.trim()) items.push(current.trim());
+  return items;
+}
+
+function stripYamlQuotes(value) {
+  const text = String(value ?? "").trim();
+  if ((text.startsWith("'") && text.endsWith("'")) || (text.startsWith('"') && text.endsWith('"'))) {
+    const inner = text.slice(1, -1);
+    return text.startsWith("'") ? inner.replaceAll("''", "'") : inner.replaceAll('\\"', '"');
+  }
+  return text;
+}
+
+function parseInlineYamlValue(value) {
+  const text = stripYamlQuotes(value);
+  if (text.startsWith("[") && text.endsWith("]")) {
+    return splitTopLevelComma(text.slice(1, -1)).map(parseInlineYamlValue);
+  }
+  if (/^(true|false)$/i.test(text)) return text.toLowerCase() === "true";
+  return text;
+}
+
+function yamlValueAsList(value) {
+  const parsed = parseInlineYamlValue(value);
+  return Array.isArray(parsed) ? parsed.map((item) => Array.isArray(item) ? item.join(":") : String(item)) : [String(parsed)];
+}
+
+function yamlValueAsText(value) {
+  return yamlValueAsList(value).filter(Boolean).join(", ");
+}
+
+function yamlTokenAsField(value) {
+  const parsed = parseInlineYamlValue(value);
+  if (Array.isArray(parsed) && parsed.length >= 2) return `${parsed[0]}:${parsed[1]}`;
+  return stripYamlQuotes(value);
+}
+
+function yamlAtomAsField(value) {
+  const parsed = parseInlineYamlValue(value);
+  if (Array.isArray(parsed) && parsed.length >= 3) return `${parsed[0]}:${parsed[1]}:${parsed[2]}`;
+  return stripYamlQuotes(value);
+}
+
+function yamlContactListAsField(value) {
+  const parsed = parseInlineYamlValue(value);
+  if (!Array.isArray(parsed)) return stripYamlQuotes(value);
+  return parsed
+    .filter((item) => Array.isArray(item) && item.length >= 2)
+    .map((item) => `${item[0]}:${item[1]}`)
+    .join("\n");
+}
+
+function boolFromYamlValue(value) {
+  return parseInlineYamlValue(value) === true;
 }
 
 function yamlToken(token) {
@@ -588,6 +674,369 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
   generateYamlFromBuilder({ silent });
 }
 
+function yamlLineIndent(line) {
+  return (String(line).match(/^\s*/) || [""])[0].length;
+}
+
+function yamlSectionLines(text, sectionName) {
+  const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
+  const sectionStart = lines.findIndex((line) => (
+    yamlLineIndent(line) === 0 && new RegExp(`^${sectionName}:\\s*$`).test(line.trim())
+  ));
+  if (sectionStart === -1) return [];
+
+  const section = [];
+  for (let index = sectionStart + 1; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (line.trim() && yamlLineIndent(line) === 0 && /^[A-Za-z_][\w-]*:\s*/.test(line.trim())) break;
+    section.push(line);
+  }
+  return section;
+}
+
+function splitYamlItems(sectionLines) {
+  const items = [];
+  let itemIndent = null;
+  let current = null;
+
+  for (const line of sectionLines) {
+    if (!line.trim()) {
+      if (current) current.push(line);
+      continue;
+    }
+
+    const trimmed = line.trim();
+    const indent = yamlLineIndent(line);
+    if (trimmed.startsWith("- ")) {
+      if (itemIndent === null) itemIndent = indent;
+      if (indent === itemIndent) {
+        if (current) items.push(current);
+        current = [line];
+        continue;
+      }
+    }
+
+    if (current) current.push(line);
+  }
+
+  if (current) items.push(current);
+  return items;
+}
+
+function yamlItemHeader(itemLines) {
+  const header = itemLines[0]?.trim().match(/^-\s+([A-Za-z_][\w-]*):\s*(.*)$/);
+  if (!header) return null;
+  return { key: header[1], value: header[2] || "" };
+}
+
+function parseYamlItemMapping(itemLines) {
+  const map = {};
+  for (const line of itemLines.slice(1)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("- ")) continue;
+    const match = trimmed.match(/^([A-Za-z_][\w-]*):(?:\s*(.*))?$/);
+    if (match && match[2] !== undefined && match[2] !== "") map[match[1]] = match[2];
+  }
+  return map;
+}
+
+function parseYamlModifications(itemLines) {
+  const modifications = [];
+  const start = itemLines.findIndex((line) => line.trim() === "modifications:");
+  if (start === -1) return "";
+
+  const baseIndent = yamlLineIndent(itemLines[start]);
+  let current = null;
+  for (const line of itemLines.slice(start + 1)) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (yamlLineIndent(line) <= baseIndent) break;
+
+    const position = trimmed.match(/^-\s+position:\s*(.+)$/);
+    if (position) {
+      if (current?.position && current?.ccd) modifications.push(current);
+      current = { position: stripYamlQuotes(position[1]), ccd: "" };
+      continue;
+    }
+
+    const ccd = trimmed.match(/^ccd:\s*(.+)$/);
+    if (ccd && current) current.ccd = stripYamlQuotes(ccd[1]);
+  }
+  if (current?.position && current?.ccd) modifications.push(current);
+
+  return modifications.map((item) => `${item.position}:${item.ccd}`).join("\n");
+}
+
+function parseYamlSequences(text, parsed) {
+  for (const item of splitYamlItems(yamlSectionLines(text, "sequences"))) {
+    const header = yamlItemHeader(item);
+    if (!header) continue;
+
+    const map = parseYamlItemMapping(item);
+    if (POLYMER_TYPES.has(header.key)) {
+      const msa = map.msa ? stripYamlQuotes(map.msa) : "";
+      const msaMode = msa ? (msa.toLowerCase() === "empty" ? "empty" : "custom") : "auto";
+      parsed.polymers.push({
+        type: header.key,
+        ids: yamlValueAsText(map.id || "A"),
+        sequence: stripYamlQuotes(map.sequence || ""),
+        msaMode,
+        msaPath: msaMode === "custom" ? msa : "",
+        cyclic: boolFromYamlValue(map.cyclic),
+        modifications: parseYamlModifications(item)
+      });
+      continue;
+    }
+
+    if (header.key === "ligand") {
+      const source = map.ccd !== undefined ? "ccd" : "smiles";
+      parsed.ligand = {
+        enabled: true,
+        ids: yamlValueAsText(map.id || "B"),
+        source,
+        value: source === "ccd" ? yamlValueAsText(map.ccd || "") : stripYamlQuotes(map.smiles || "")
+      };
+      continue;
+    }
+
+    parsed.warnings.push(`Unsupported sequence entity "${header.key}" was left out of builder fields.`);
+  }
+}
+
+function parseYamlConstraints(text, parsed) {
+  for (const item of splitYamlItems(yamlSectionLines(text, "constraints"))) {
+    const header = yamlItemHeader(item);
+    if (!header) continue;
+
+    const map = parseYamlItemMapping(item);
+    if (header.key === "contact") {
+      parsed.contacts.push({
+        token1: yamlTokenAsField(map.token1 || "A:45"),
+        token2: yamlTokenAsField(map.token2 || "B:67"),
+        distance: stripYamlQuotes(map.max_distance || "6"),
+        force: boolFromYamlValue(map.force)
+      });
+      continue;
+    }
+
+    if (header.key === "pocket") {
+      parsed.pocket = {
+        enabled: true,
+        binder: stripYamlQuotes(map.binder || "B"),
+        contacts: yamlContactListAsField(map.contacts || ""),
+        distance: stripYamlQuotes(map.max_distance || "6"),
+        force: boolFromYamlValue(map.force)
+      };
+      continue;
+    }
+
+    if (header.key === "bond") {
+      parsed.bond = {
+        enabled: true,
+        atom1: yamlAtomAsField(map.atom1 || "A:145:SG"),
+        atom2: yamlAtomAsField(map.atom2 || "B:1:C1")
+      };
+      continue;
+    }
+
+    parsed.warnings.push(`Unsupported constraint "${header.key}" was left out of builder fields.`);
+  }
+}
+
+function parseYamlTemplates(text, parsed) {
+  const items = splitYamlItems(yamlSectionLines(text, "templates"));
+  if (!items.length) return;
+
+  const header = yamlItemHeader(items[0]);
+  if (!header) return;
+  const map = parseYamlItemMapping(items[0]);
+  const format = ["cif", "pdb"].includes(header.key) ? header.key : "cif";
+  parsed.template = {
+    enabled: true,
+    format,
+    path: stripYamlQuotes(header.value || map[format] || `./template.${format}`),
+    chainIds: yamlValueAsText(map.chain_id || "A"),
+    templateIds: yamlValueAsText(map.template_id || ""),
+    force: boolFromYamlValue(map.force),
+    threshold: stripYamlQuotes(map.threshold || "2")
+  };
+  if (items.length > 1) parsed.warnings.push("Only the first template is editable in the builder.");
+}
+
+function parseYamlProperties(text, parsed) {
+  for (const item of splitYamlItems(yamlSectionLines(text, "properties"))) {
+    const header = yamlItemHeader(item);
+    if (!header) continue;
+    const map = parseYamlItemMapping(item);
+    if (header.key === "affinity") {
+      parsed.affinity = { enabled: true, binder: stripYamlQuotes(map.binder || "B") };
+    } else {
+      parsed.warnings.push(`Unsupported property "${header.key}" was left out of builder fields.`);
+    }
+  }
+}
+
+function parseBuilderYaml(text) {
+  const parsed = {
+    polymers: [],
+    contacts: [],
+    ligand: null,
+    affinity: null,
+    pocket: null,
+    bond: null,
+    template: null,
+    warnings: []
+  };
+  parseYamlSequences(text, parsed);
+  parseYamlConstraints(text, parsed);
+  parseYamlTemplates(text, parsed);
+  parseYamlProperties(text, parsed);
+  return parsed;
+}
+
+function profileFromParsedYaml(parsed) {
+  if (parsed.affinity?.enabled) return "affinity";
+  if (parsed.pocket?.enabled) return "pocket";
+  if (parsed.contacts.length) return "contacts";
+  if (parsed.template?.enabled) return "template";
+  if (parsed.ligand?.enabled) return "ligand";
+  if (parsed.polymers.length > 1) return "complex";
+  return "structure";
+}
+
+function setBuilderSectionOpen(sectionName, open) {
+  const section = document.querySelector(`.builder-section[data-section="${sectionName}"]`);
+  if (section) section.open = Boolean(open);
+}
+
+function openSectionsForLoadedYaml(parsed) {
+  document.querySelectorAll(".builder-section").forEach((section) => {
+    section.open = false;
+  });
+  setBuilderSectionOpen("polymer", parsed.polymers.length > 0);
+  setBuilderSectionOpen("ligand", parsed.ligand?.enabled);
+  setBuilderSectionOpen("affinity", parsed.affinity?.enabled);
+  setBuilderSectionOpen("pocket", parsed.pocket?.enabled);
+  setBuilderSectionOpen("constraints", parsed.contacts.length > 0 || parsed.bond?.enabled);
+  setBuilderSectionOpen("template", parsed.template?.enabled);
+}
+
+function applyParsedYamlToBuilder(parsed, filename) {
+  setDraftName(filename);
+  setFieldValue("yaml-profile", profileFromParsedYaml(parsed));
+
+  const polymers = parsed.polymers.length
+    ? parsed.polymers
+    : [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }];
+  builderState.polymers = polymers.map((polymer, index) => createPolymer({
+    ids: polymer.ids || chainIdFromIndex(index),
+    sequence: polymer.sequence || "M",
+    type: polymer.type || "protein",
+    msaMode: polymer.msaMode || "auto",
+    msaPath: polymer.msaPath || "",
+    cyclic: Boolean(polymer.cyclic),
+    modifications: polymer.modifications || ""
+  }));
+  builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
+  renderPolymers();
+  renderContacts();
+
+  setFieldValue("yaml-ligand-enabled", Boolean(parsed.ligand?.enabled));
+  setFieldValue("yaml-ligand-id", parsed.ligand?.ids || "B");
+  setFieldValue("yaml-ligand-source", parsed.ligand?.source || "smiles");
+  setFieldValue("yaml-ligand-value", parsed.ligand?.value || DEFAULT_LIGAND_SMILES);
+
+  setFieldValue("yaml-affinity-enabled", Boolean(parsed.affinity?.enabled));
+  setFieldValue("yaml-affinity-binder", parsed.affinity?.binder || "B");
+
+  setFieldValue("yaml-pocket-enabled", Boolean(parsed.pocket?.enabled));
+  setFieldValue("yaml-pocket-binder", parsed.pocket?.binder || "B");
+  setFieldValue("yaml-pocket-distance", parsed.pocket?.distance || "6");
+  setFieldValue("yaml-pocket-force", Boolean(parsed.pocket?.force));
+  setFieldValue("yaml-pocket-contacts", parsed.pocket?.contacts || "");
+
+  setFieldValue("yaml-bond-enabled", Boolean(parsed.bond?.enabled));
+  setFieldValue("yaml-bond-atom1", parsed.bond?.atom1 || "A:145:SG");
+  setFieldValue("yaml-bond-atom2", parsed.bond?.atom2 || "B:1:C1");
+
+  setFieldValue("yaml-template-enabled", Boolean(parsed.template?.enabled));
+  setFieldValue("yaml-template-format", parsed.template?.format || "cif");
+  setFieldValue("yaml-template-path", parsed.template?.path || "./template.cif");
+  setFieldValue("yaml-template-chain-ids", parsed.template?.chainIds || "A");
+  setFieldValue("yaml-template-template-ids", parsed.template?.templateIds || "");
+  setFieldValue("yaml-template-force", Boolean(parsed.template?.force));
+  setFieldValue("yaml-template-threshold", parsed.template?.threshold || "2");
+
+  openSectionsForLoadedYaml(parsed);
+  const result = generateYamlFromBuilder({ silent: true });
+  if (parsed.warnings.length) {
+    renderYamlBuilderStatus({
+      ...result,
+      warnings: [...parsed.warnings, ...result.warnings]
+    });
+  }
+}
+
+function filenameFromPath(relativePath) {
+  return String(relativePath || "").split(/[\\/]/).filter(Boolean).pop() || "loaded_input.yaml";
+}
+
+function upsertExistingYamlOption(input) {
+  const select = $("#existing-yaml-select");
+  if (!select || !input?.path || !/\.ya?ml$/i.test(input.path)) return;
+  let option = Array.from(select.options).find((item) => item.value === input.path);
+  if (!option) {
+    option = new Option(input.path.replace(/^workspace\/inputs\//, ""), input.path);
+    select.appendChild(option);
+  }
+  option.textContent = input.path.replace(/^workspace\/inputs\//, "");
+  option.title = input.path;
+}
+
+function populateExistingYamlSelect(inputs = []) {
+  const select = $("#existing-yaml-select");
+  if (!select) return;
+  const selected = select.value;
+  select.innerHTML = "";
+  select.appendChild(new Option("Start new input", ""));
+  inputs
+    .filter((input) => /\.ya?ml$/i.test(input.path || input.name || ""))
+    .sort((a, b) => String(a.path).localeCompare(String(b.path)))
+    .forEach(upsertExistingYamlOption);
+  if (selected && Array.from(select.options).some((option) => option.value === selected)) {
+    select.value = selected;
+  }
+}
+
+async function loadExistingYaml(relativePath) {
+  if (!relativePath) return;
+  try {
+    const response = await fetch(`/api/file?path=${encodeURIComponent(relativePath)}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Failed to load ${relativePath}.`);
+    const text = await response.text();
+    const parsed = parseBuilderYaml(text);
+    const filename = filenameFromPath(relativePath);
+
+    $("#input-editor").value = text.endsWith("\n") ? text : `${text}\n`;
+    setDraftName(filename);
+    if (!parsed.polymers.length && !parsed.ligand?.enabled) {
+      renderYamlBuilderStatus({
+        warnings: ["No supported sequence entities were found. The YAML is loaded in the editor only."],
+        summary: "Manual YAML loaded"
+      });
+      showToast("YAML loaded in editor.");
+      return;
+    }
+
+    applyParsedYamlToBuilder(parsed, filename);
+    const savedStatus = $("#saved-input-status");
+    if (savedStatus) savedStatus.textContent = `Loaded: ${relativePath}`;
+    showToast(parsed.warnings.length ? "YAML loaded with parser notes." : "YAML loaded.");
+  } catch (error) {
+    showToast(error.message);
+  }
+}
+
 function updatePolymerFromElement(element) {
   const card = element.closest(".polymer-card");
   if (!card) return;
@@ -664,6 +1113,8 @@ async function saveInput() {
     });
     const savedStatus = $("#saved-input-status");
     if (savedStatus) savedStatus.textContent = `Saved: ${data.input.path}`;
+    upsertExistingYamlOption(data.input);
+    setFieldValue("existing-yaml-select", data.input.path);
     showToast("Input saved.");
   } catch (error) {
     showToast(error.message);
@@ -686,6 +1137,7 @@ async function loadWorkspace() {
         }
       });
     }
+    populateExistingYamlSelect(data.inputs || []);
   } catch (error) {
     showToast(error.message);
   }
@@ -698,6 +1150,10 @@ function bindBuilderPage() {
 
   bindRepeatLists();
   profile.addEventListener("change", () => applyYamlPreset(profile.value, { silent: true }));
+  $("#existing-yaml-select").addEventListener("change", () => {
+    const selected = fieldValue("existing-yaml-select");
+    if (selected) loadExistingYaml(selected);
+  });
   document.querySelectorAll("[data-yaml-control]").forEach((element) => {
     if (element.id === "yaml-profile") return;
     const eventName = element.tagName === "SELECT" || element.type === "checkbox" ? "change" : "input";
