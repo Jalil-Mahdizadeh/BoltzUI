@@ -20,7 +20,6 @@
           </div>
         </div>
         <div class="header-actions">
-          <a class="secondary-button compact-button" href="/">Dashboard</a>
           <button class="status-pill workspace-button" id="workspace-pill" type="button">Workspace</button>
         </div>
       </header>
@@ -31,14 +30,17 @@
             <span class="section-kicker">Input authoring</span>
             <h2>Boltz YAML Generator</h2>
           </div>
-          <div class="input-actions">
-            <div class="builder-action">
-              <button class="secondary-button yaml-generate-button" id="generate-yaml-button" type="button">Generate YAML</button>
-              <span class="action-help" tabindex="0" role="img" aria-label="Generate YAML refreshes the editable YAML preview from the builder fields. It does not save a file." data-tooltip="Refreshes the editable YAML preview from the builder fields. It does not save a file.">?</span>
-            </div>
-            <div class="builder-action">
-              <button class="secondary-button yaml-save-button" id="save-input-button" type="button">Save input</button>
-              <span class="action-help" tabindex="0" role="img" aria-label="Save input writes the current YAML editor content to workspace inputs." data-tooltip="Writes the current YAML editor content to workspace/inputs. Manual edits are included.">?</span>
+          <div class="input-actions builder-page-actions">
+            <a class="return-dashboard-button" href="/">Return Dashboard</a>
+            <div class="builder-action-row">
+              <div class="builder-action">
+                <button class="secondary-button yaml-generate-button" id="generate-yaml-button" type="button">Generate YAML</button>
+                <span class="action-help" tabindex="0" role="img" aria-label="Generate YAML refreshes the editable YAML preview from the builder fields. It does not save a file." data-tooltip="Refreshes the editable YAML preview from the builder fields. It does not save a file.">?</span>
+              </div>
+              <div class="builder-action">
+                <button class="secondary-button yaml-save-button" id="save-input-button" type="button">Save input</button>
+                <span class="action-help" tabindex="0" role="img" aria-label="Save input writes the current YAML editor content to workspace inputs." data-tooltip="Writes the current YAML editor content to workspace/inputs. Manual edits are included.">?</span>
+              </div>
             </div>
           </div>
         </div>

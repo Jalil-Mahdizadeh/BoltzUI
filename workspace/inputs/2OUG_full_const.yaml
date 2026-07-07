@@ -1,0 +1,67 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: MQSWYLLYCKRGQLQRAQEHLERQAVNCLAPMITLEKIVRGKRTAVSEPLFPNYLFVEFDPEVIHTTTINATRGVSHFVRFGASPAIVPSAVIHQLSVYKPKDIVDPATPYPGDKVIITEGAFEGFQAIFTEPDGEARSMLLLNLINKEIKHSVKNTEFRKL
+constraints:
+  # CTD helix 1: enforce alpha-helical i -> i+4 geometry
+  - contact:
+      token1: [A, 117]
+      token2: [A, 121]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 118]
+      token2: [A, 122]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 119]
+      token2: [A, 123]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 122]
+      token2: [A, 126]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 126]
+      token2: [A, 130]
+      max_distance: 4
+      force: true
+
+  # CTD helix 2: enforce alpha-helical i -> i+4 geometry
+  - contact:
+      token1: [A, 135]
+      token2: [A, 139]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 138]
+      token2: [A, 142]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 142]
+      token2: [A, 146]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 146]
+      token2: [A, 150]
+      max_distance: 4
+      force: true
+
+  - contact:
+      token1: [A, 150]
+      token2: [A, 154]
+      max_distance: 4
+      force: true

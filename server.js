@@ -48,8 +48,8 @@ const optionSchema = [
   { key: "api_key_header", flag: "--api_key_header", label: "API key header", type: "text", group: "MSA settings", subgroup: "MSA credentials", defaultDisplay: "not set" },
   { key: "api_key_value", flag: "--api_key_value", label: "API key value", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
   { key: "max_msa_seqs", flag: "--max_msa_seqs", label: "Max MSA sequences", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1 },
-  { key: "subsample_msa", flag: "--subsample_msa", label: "Subsample MSA", type: "bool", group: "MSA settings", subgroup: "MSA limits", default: true },
-  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1 },
+  { key: "subsample_msa", flag: "--subsample_msa", label: "Subsample MSA", type: "bool", group: "MSA settings", subgroup: "MSA limits", default: false },
+  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1, dependsOn: "subsample_msa" },
 
   { key: "output_format", flag: "--output_format", label: "Output format", type: "select", group: "Output", default: "pdb", choices: ["pdb", "mmcif"] },
   { key: "write_full_pae", flag: "--write_full_pae", label: "Write full PAE", type: "bool", group: "Output", default: true },
@@ -61,9 +61,9 @@ const optionSchema = [
   { key: "preprocessing_threads", flag: "--preprocessing-threads", label: "Preprocessing threads", type: "int", group: "Compute", default: "1", min: 1 },
   { key: "no_kernels", flag: "--no_kernels", label: "Disable kernels", type: "bool", group: "Compute", default: true },
 
-  { key: "affinity_mw_correction", flag: "--affinity_mw_correction", label: "Affinity MW correction", type: "bool", group: "Affinity", default: false },
-  { key: "sampling_steps_affinity", flag: "--sampling_steps_affinity", label: "Affinity sampling steps", type: "int", group: "Affinity", default: "200", min: 1 },
-  { key: "diffusion_samples_affinity", flag: "--diffusion_samples_affinity", label: "Affinity diffusion samples", type: "int", group: "Affinity", default: "5", min: 1 }
+  { key: "affinity_mw_correction", flag: "--affinity_mw_correction", label: "Affinity MW correction", type: "bool", group: "Affinity", default: false, requiresLigand: true },
+  { key: "sampling_steps_affinity", flag: "--sampling_steps_affinity", label: "Affinity sampling steps", type: "int", group: "Affinity", default: "200", min: 1, requiresLigand: true },
+  { key: "diffusion_samples_affinity", flag: "--diffusion_samples_affinity", label: "Affinity diffusion samples", type: "int", group: "Affinity", default: "5", min: 1, requiresLigand: true }
 ];
 
 const jobs = new Map();
@@ -192,9 +192,40 @@ function normalizeOptions(inputOptions = {}) {
   return normalized;
 }
 
-function appendPredictOptions(args, options, maskSecrets) {
+function objectHasLigandEntity(value) {
+  if (Array.isArray(value)) return value.some(objectHasLigandEntity);
+  if (!value || typeof value !== "object") return false;
+  return Object.entries(value).some(([key, child]) => key === "ligand" || key === "ligands" || objectHasLigandEntity(child));
+}
+
+function inputHasLigandEntity(dataPath) {
+  const extension = path.extname(dataPath).toLowerCase();
+  if (![".yaml", ".yml", ".json"].includes(extension)) return false;
+
+  try {
+    const text = fs.readFileSync(dataPath, "utf8");
+    if (extension === ".json") {
+      return objectHasLigandEntity(JSON.parse(text));
+    }
+    const uncommented = text
+      .split(/\r?\n/)
+      .filter((line) => !line.trimStart().startsWith("#"))
+      .join("\n");
+    return /(^|\n)\s*-\s*ligand\s*:/i.test(uncommented);
+  } catch {
+    return false;
+  }
+}
+
+function appendPredictOptions(args, options, maskSecrets, context = {}) {
   for (const option of optionSchema) {
     if (MSA_SERVER_DEPENDENT_OPTIONS.has(option.key) && !options.use_msa_server) {
+      continue;
+    }
+    if (option.dependsOn && !options[option.dependsOn]) {
+      continue;
+    }
+    if (option.requiresLigand && !context.hasLigand) {
       continue;
     }
     const value = options[option.key];
@@ -209,9 +240,9 @@ function appendPredictOptions(args, options, maskSecrets) {
   }
 }
 
-function predictArgs(dataPath, options, maskSecrets, dataArg) {
+function predictArgs(dataPath, options, maskSecrets, dataArg, context = {}) {
   const args = ["predict", dataArg];
-  appendPredictOptions(args, options, maskSecrets);
+  appendPredictOptions(args, options, maskSecrets, context);
   return args;
 }
 
@@ -221,7 +252,9 @@ function buildBoltzCommand(payload, { maskSecrets = false } = {}) {
   if (!stat.isFile()) throw new Error("Input data path must be a file.");
 
   const options = normalizeOptions(payload.options || {});
-  const args = predictArgs(dataPath, options, maskSecrets, dataPath);
+  const args = predictArgs(dataPath, options, maskSecrets, dataPath, {
+    hasLigand: inputHasLigandEntity(dataPath)
+  });
   const command = `boltz ${args.map(quoteArg).join(" ")}`;
   return {
     executable: "boltz",
@@ -265,7 +298,12 @@ async function listInputFiles() {
   return files
     .filter((file) => INPUT_EXTENSIONS.has(path.extname(file).toLowerCase()))
     .filter((file) => !["package.json", "package-lock.json"].includes(path.basename(file).toLowerCase()))
-    .map((file) => ({ path: toRelative(file), name: path.basename(file), size: fs.statSync(file).size }))
+    .map((file) => ({
+      path: toRelative(file),
+      name: path.basename(file),
+      size: fs.statSync(file).size,
+      hasLigand: inputHasLigandEntity(file)
+    }))
     .sort((a, b) => a.path.localeCompare(b.path));
 }
 
@@ -634,7 +672,14 @@ async function handleApi(req, res, url) {
     const target = path.resolve(INPUT_DIR, name);
     if (!isInside(target, INPUT_DIR)) throw new Error("Input file path escapes the input workspace.");
     await fsp.writeFile(target, String(payload.content || ""), "utf8");
-    sendJson(res, 201, { input: { path: toRelative(target), name: path.basename(target), size: fs.statSync(target).size } });
+    sendJson(res, 201, {
+      input: {
+        path: toRelative(target),
+        name: path.basename(target),
+        size: fs.statSync(target).size,
+        hasLigand: inputHasLigandEntity(target)
+      }
+    });
     return;
   }
 

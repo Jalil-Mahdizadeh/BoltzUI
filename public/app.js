@@ -63,6 +63,22 @@ function defaultsFromSchema(schema) {
   }, {});
 }
 
+function optionIsActive(option) {
+  return !option.dependsOn || Boolean(state.options[option.dependsOn]);
+}
+
+function updateDependentOptionControls() {
+  for (const wrapper of document.querySelectorAll("[data-option-key]")) {
+    const option = state.schema.find((item) => item.key === wrapper.dataset.optionKey);
+    if (!option) continue;
+    const active = optionIsActive(option);
+    wrapper.classList.toggle("field-disabled", !active);
+    wrapper.querySelectorAll("input, select, textarea, button").forEach((control) => {
+      control.disabled = !active;
+    });
+  }
+}
+
 function groupOptions(schema) {
   const groups = new Map();
   for (const option of schema) {
@@ -99,6 +115,15 @@ function fileStem(filePath) {
 
 function selectedInputPath() {
   return $("#input-file")?.value || "";
+}
+
+function selectedInputFile() {
+  const inputPath = selectedInputPath();
+  return state.inputs.find((file) => file.path === inputPath) || null;
+}
+
+function selectedInputHasLigand() {
+  return Boolean(selectedInputFile()?.hasLigand);
 }
 
 function resultsForSelectedInput() {
@@ -202,6 +227,7 @@ function renderInputs() {
   const select = $("#input-file");
   const previous = select.value;
   select.innerHTML = "";
+  select.appendChild(new Option("Select input file...", ""));
   for (const file of state.inputs) {
     const option = document.createElement("option");
     option.value = file.path;
@@ -223,7 +249,9 @@ function renderInputs() {
 
 function renderSegmented(option, value) {
   const wrapper = document.createElement("div");
-  wrapper.className = "field";
+  const active = optionIsActive(option);
+  wrapper.className = `field${active ? "" : " field-disabled"}`;
+  wrapper.dataset.optionKey = option.key;
   const label = document.createElement("span");
   label.textContent = option.label;
   wrapper.appendChild(label);
@@ -235,6 +263,7 @@ function renderSegmented(option, value) {
     button.type = "button";
     button.className = `segment-button${value === choice ? " active" : ""}`;
     button.textContent = choice;
+    button.disabled = !optionIsActive(option);
     button.addEventListener("click", () => {
       state.options[option.key] = choice;
       renderOptionGroups();
@@ -249,9 +278,11 @@ function renderSegmented(option, value) {
 
 function renderOptionField(option) {
   const value = state.options[option.key];
+  const active = optionIsActive(option);
   if (option.type === "bool") {
     const label = document.createElement("label");
-    label.className = "toggle-field";
+    label.className = `toggle-field${active ? "" : " field-disabled"}`;
+    label.dataset.optionKey = option.key;
     const text = document.createElement("span");
     text.textContent = option.label;
     const toggle = document.createElement("span");
@@ -259,8 +290,10 @@ function renderOptionField(option) {
     const input = document.createElement("input");
     input.type = "checkbox";
     input.checked = Boolean(value);
+    input.disabled = !active;
     input.addEventListener("change", () => {
       state.options[option.key] = input.checked;
+      updateDependentOptionControls();
       renderOverview();
       updateCommandPreview();
     });
@@ -276,7 +309,8 @@ function renderOptionField(option) {
   }
 
   const label = document.createElement("label");
-  label.className = "field";
+  label.className = `field${active ? "" : " field-disabled"}`;
+  label.dataset.optionKey = option.key;
   const text = document.createElement("span");
   text.textContent = option.label;
   const input = option.type === "select" ? document.createElement("select") : document.createElement("input");
@@ -301,6 +335,7 @@ function renderOptionField(option) {
   }
 
   input.value = value || "";
+  input.disabled = !active;
   input.autocomplete = "off";
   input.addEventListener("input", () => {
     state.options[option.key] = input.value;
@@ -330,7 +365,9 @@ function createOptionGrid(options) {
 function renderOptionGroups() {
   const root = $("#option-groups");
   root.innerHTML = "";
-  const groups = groupOptions(state.schema);
+  const selectedHasLigand = selectedInputHasLigand();
+  const visibleSchema = state.schema.filter((option) => !option.requiresLigand || selectedHasLigand);
+  const groups = groupOptions(visibleSchema);
   for (const [name, options] of groups.entries()) {
     const details = document.createElement("details");
     details.className = "option-section";
@@ -727,7 +764,7 @@ async function refreshAll() {
 
   $("#workspace-pill").textContent = data.workspace;
   $("#workspace-pill").title = "Copy workspace path";
-  $("#input-section").open = false;
+  $("#input-section").open = true;
 
   renderInputs();
   renderOptionGroups();
@@ -796,6 +833,7 @@ function bindEvents() {
     state.selectedResult = null;
     state.selectedModelIndex = null;
     renderInputs();
+    renderOptionGroups();
     renderResults();
     updateCommandPreview();
   });
@@ -867,6 +905,7 @@ function bindEvents() {
         state.selectedResult = null;
         state.selectedModelIndex = null;
         renderInputs();
+        renderOptionGroups();
         renderResults();
         updateCommandPreview();
         showToast("Input saved.");

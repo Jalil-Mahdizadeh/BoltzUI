@@ -5,6 +5,9 @@
   --surface: #11171c;
   --surface-2: #151d23;
   --surface-3: #1a232a;
+  --field-bg: #182229;
+  --field-bg-strong: #1f2b34;
+  --field-border: rgba(190, 204, 210, 0.24);
   --sidebar: #0b0f12;
   --border: rgba(190, 204, 210, 0.14);
   --border-strong: rgba(190, 204, 210, 0.26);
@@ -507,8 +510,10 @@ textarea {
   min-height: 38px;
   color-scheme: dark;
   color: var(--text);
-  background: #0d1216;
-  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    var(--field-bg);
+  border: 1px solid var(--field-border);
   border-radius: var(--radius);
   padding: 8px 10px;
   outline: none;
@@ -521,7 +526,7 @@ select {
 select option,
 select optgroup {
   color: #edf4f3;
-  background-color: #0d1216;
+  background-color: var(--field-bg);
 }
 
 select option:checked {
@@ -537,8 +542,33 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent),
+    var(--field-bg-strong);
   border-color: rgba(45, 212, 191, 0.9);
   box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.13);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+  cursor: not-allowed;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  color: #738186;
+  background: rgba(17, 24, 29, 0.7);
+  border-color: rgba(190, 204, 210, 0.1);
+  box-shadow: none;
+  opacity: 1;
+}
+
+.field-disabled > span,
+.field-disabled .field-label-row span {
+  color: var(--text-dim);
 }
 
 textarea {
@@ -1632,11 +1662,56 @@ button.status-pill {
   gap: 8px;
 }
 
+.builder-page-actions {
+  display: grid;
+  justify-items: end;
+  gap: 9px;
+}
+
+.builder-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .builder-action {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 7px;
+}
+
+.return-dashboard-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 318px;
+  min-height: 38px;
+  padding: 9px 14px;
+  color: #061816;
+  text-decoration: none;
+  border: 1px solid rgba(45, 212, 191, 0.68);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, #63c7f8 0%, #2dd4bf 48%, #f0b84b 100%);
+  box-shadow:
+    0 16px 32px rgba(45, 212, 191, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  font-size: 13px;
+  font-weight: 950;
+  transition:
+    filter 0.16s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.return-dashboard-button:hover,
+.return-dashboard-button:focus-visible {
+  outline: 2px solid rgba(45, 212, 191, 0.78);
+  outline-offset: 2px;
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 .yaml-generate-button,
@@ -1851,7 +1926,8 @@ button.status-pill {
 .builder-load-field select {
   border-color: rgba(99, 199, 248, 0.34);
   background:
-    linear-gradient(180deg, rgba(17, 25, 29, 0.98), rgba(9, 13, 16, 0.98));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent),
+    var(--field-bg-strong);
   font-weight: 780;
 }
 
@@ -2232,9 +2308,11 @@ button.status-pill {
   gap: 14px;
   min-height: 38px;
   padding: 8px 10px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--field-border);
   border-radius: var(--radius);
-  background: #0d1216;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    var(--field-bg);
 }
 
 .switch {
