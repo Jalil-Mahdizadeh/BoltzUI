@@ -5,7 +5,8 @@ let nextId = 1;
 const builderState = {
   polymers: [],
   ligands: [],
-  contacts: []
+  contacts: [],
+  bonds: []
 };
 
 const DEFAULT_LIGAND_SMILES = "N[C@@H](Cc1ccc(O)cc1)C(=O)O";
@@ -140,6 +141,12 @@ function presetLigands(preset) {
   return [];
 }
 
+function presetBonds(preset) {
+  if (Array.isArray(preset.bonds)) return preset.bonds;
+  if (preset.bond?.enabled) return [preset.bond];
+  return [];
+}
+
 function createContact(overrides = {}) {
   return {
     uid: createUid("contact"),
@@ -148,6 +155,16 @@ function createContact(overrides = {}) {
     distance: "6",
     force: false,
     ...overrides
+  };
+}
+
+function createBond(overrides = {}) {
+  const { enabled, ...values } = overrides;
+  return {
+    uid: createUid("bond"),
+    atom1: "A:145:SG",
+    atom2: "B:1:C1",
+    ...values
   };
 }
 
@@ -429,16 +446,6 @@ function buildYamlFromBuilder() {
   const firstLigandId = ligandIds[0] || "";
 
   const constraints = [];
-  if (fieldValue("yaml-bond-enabled")) {
-    const atom1 = parseAtomSpec(fieldValue("yaml-bond-atom1"));
-    const atom2 = parseAtomSpec(fieldValue("yaml-bond-atom2"));
-    if (!atom1 || !atom2) {
-      warnings.push("Covalent bond atoms should look like A:145:SG.");
-    } else {
-      constraints.push("  - bond:", `      atom1: ${yamlAtom(atom1)}`, `      atom2: ${yamlAtom(atom2)}`);
-      features.push("bond");
-    }
-  }
 
   if (fieldValue("yaml-pocket-enabled")) {
     const binder = fieldValue("yaml-pocket-binder").trim() || firstLigandId || "B";
@@ -470,6 +477,20 @@ function buildYamlFromBuilder() {
     constraints.push(`      max_distance: ${readDistanceValue(contact.distance, `${label} max distance`, warnings)}`);
     constraints.push(`      force: ${contact.force ? "true" : "false"}`);
     features.push(`contact ${index + 1}`);
+  });
+
+  builderState.bonds.forEach((bond, index) => {
+    const atom1 = parseAtomSpec(bond.atom1);
+    const atom2 = parseAtomSpec(bond.atom2);
+    const label = `Bond ${index + 1}`;
+    if (!atom1 || !atom2) {
+      warnings.push(`${label} atoms should look like A:145:SG.`);
+      return;
+    }
+    constraints.push("  - bond:");
+    constraints.push(`      atom1: ${yamlAtom(atom1)}`);
+    constraints.push(`      atom2: ${yamlAtom(atom2)}`);
+    features.push(`bond ${index + 1}`);
   });
 
   if (constraints.length) {
@@ -693,6 +714,36 @@ function renderContacts() {
   root.innerHTML = builderState.contacts.map(contactCard).join("");
 }
 
+function bondCard(bond, index) {
+  return `
+    <article class="repeat-card bond-card" data-uid="${bond.uid}">
+      <div class="repeat-card-heading">
+        <h4>Bond ${index + 1}</h4>
+        <button class="ghost-button repeat-remove-button" data-action="remove-bond" type="button">Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid bond-repeat-grid">
+        <label class="field">
+          <span>Atom 1</span>
+          <input data-bond-field="atom1" type="text" value="${escapeHtml(bond.atom1)}" placeholder="A:145:SG">
+        </label>
+        <label class="field">
+          <span>Atom 2</span>
+          <input data-bond-field="atom2" type="text" value="${escapeHtml(bond.atom2)}" placeholder="B:1:C1">
+        </label>
+      </div>
+    </article>
+  `;
+}
+
+function renderBonds() {
+  const root = $("#bond-list");
+  if (!builderState.bonds.length) {
+    root.innerHTML = `<div class="repeat-empty">No bond constraints added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.bonds.map(bondCard).join("");
+}
+
 function updateYamlBuilderVisibility() {
   document.querySelectorAll(".ligand-card").forEach((card) => {
     const source = card.querySelector("[data-ligand-field='source']")?.value || "smiles";
@@ -728,9 +779,11 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
   builderState.contacts = (preset.contacts || []).map((contact) => createContact(contact));
+  builderState.bonds = presetBonds(preset).map((bond) => createBond(bond));
   renderPolymers();
   renderLigands();
   renderContacts();
+  renderBonds();
 
   setFieldValue("yaml-affinity-enabled", Boolean(preset.affinity?.enabled));
   setFieldValue("yaml-affinity-binder", preset.affinity?.binder || "B");
@@ -740,10 +793,6 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
   setFieldValue("yaml-pocket-distance", preset.pocket?.distance || "6");
   setFieldValue("yaml-pocket-force", Boolean(preset.pocket?.force));
   setFieldValue("yaml-pocket-contacts", preset.pocket?.contacts || "");
-
-  setFieldValue("yaml-bond-enabled", Boolean(preset.bond?.enabled));
-  setFieldValue("yaml-bond-atom1", preset.bond?.atom1 || "A:145:SG");
-  setFieldValue("yaml-bond-atom2", preset.bond?.atom2 || "B:1:C1");
 
   setFieldValue("yaml-template-enabled", Boolean(preset.template?.enabled));
   setFieldValue("yaml-template-format", preset.template?.format || "cif");
@@ -912,11 +961,10 @@ function parseYamlConstraints(text, parsed) {
     }
 
     if (header.key === "bond") {
-      parsed.bond = {
-        enabled: true,
+      parsed.bonds.push({
         atom1: yamlAtomAsField(map.atom1 || "A:145:SG"),
         atom2: yamlAtomAsField(map.atom2 || "B:1:C1")
-      };
+      });
       continue;
     }
 
@@ -962,9 +1010,9 @@ function parseBuilderYaml(text) {
     polymers: [],
     ligands: [],
     contacts: [],
+    bonds: [],
     affinity: null,
     pocket: null,
-    bond: null,
     template: null,
     warnings: []
   };
@@ -978,7 +1026,7 @@ function parseBuilderYaml(text) {
 function profileFromParsedYaml(parsed) {
   if (parsed.affinity?.enabled) return "affinity";
   if (parsed.pocket?.enabled) return "pocket";
-  if (parsed.contacts.length) return "contacts";
+  if (parsed.contacts.length || parsed.bonds.length) return "contacts";
   if (parsed.template?.enabled) return "template";
   if (parsed.ligands.length) return "ligand";
   if (parsed.polymers.length > 1) return "complex";
@@ -998,7 +1046,8 @@ function openSectionsForLoadedYaml(parsed) {
   setBuilderSectionOpen("ligand", parsed.ligands.length > 0);
   setBuilderSectionOpen("affinity", parsed.affinity?.enabled);
   setBuilderSectionOpen("pocket", parsed.pocket?.enabled);
-  setBuilderSectionOpen("constraints", parsed.contacts.length > 0 || parsed.bond?.enabled);
+  setBuilderSectionOpen("contact-constraints", parsed.contacts.length > 0);
+  setBuilderSectionOpen("bond-constraints", parsed.bonds.length > 0);
   setBuilderSectionOpen("template", parsed.template?.enabled);
 }
 
@@ -1024,9 +1073,11 @@ function applyParsedYamlToBuilder(parsed, filename) {
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
   builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
+  builderState.bonds = parsed.bonds.map((bond) => createBond(bond));
   renderPolymers();
   renderLigands();
   renderContacts();
+  renderBonds();
 
   setFieldValue("yaml-affinity-enabled", Boolean(parsed.affinity?.enabled));
   setFieldValue("yaml-affinity-binder", parsed.affinity?.binder || "B");
@@ -1036,10 +1087,6 @@ function applyParsedYamlToBuilder(parsed, filename) {
   setFieldValue("yaml-pocket-distance", parsed.pocket?.distance || "6");
   setFieldValue("yaml-pocket-force", Boolean(parsed.pocket?.force));
   setFieldValue("yaml-pocket-contacts", parsed.pocket?.contacts || "");
-
-  setFieldValue("yaml-bond-enabled", Boolean(parsed.bond?.enabled));
-  setFieldValue("yaml-bond-atom1", parsed.bond?.atom1 || "A:145:SG");
-  setFieldValue("yaml-bond-atom2", parsed.bond?.atom2 || "B:1:C1");
 
   setFieldValue("yaml-template-enabled", Boolean(parsed.template?.enabled));
   setFieldValue("yaml-template-format", parsed.template?.format || "cif");
@@ -1151,6 +1198,15 @@ function updateContactFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updateBondFromElement(element) {
+  const card = element.closest(".bond-card");
+  if (!card) return;
+  const bond = builderState.bonds.find((item) => item.uid === card.dataset.uid);
+  if (!bond) return;
+  bond[element.dataset.bondField] = element.value;
+  syncYamlFromBuilder();
+}
+
 function bindRepeatLists() {
   $("#add-polymer-button").addEventListener("click", () => {
     builderState.polymers.push(createPolymer({ ids: chainIdFromIndex(builderState.polymers.length) }));
@@ -1167,6 +1223,12 @@ function bindRepeatLists() {
   $("#add-contact-button").addEventListener("click", () => {
     builderState.contacts.push(createContact());
     renderContacts();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#add-bond-button").addEventListener("click", () => {
+    builderState.bonds.push(createBond());
+    renderBonds();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1212,6 +1274,21 @@ function bindRepeatLists() {
     if (!card) return;
     builderState.contacts = builderState.contacts.filter((item) => item.uid !== card.dataset.uid);
     renderContacts();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#bond-list").addEventListener("input", (event) => {
+    if (event.target.dataset.bondField) updateBondFromElement(event.target);
+  });
+  $("#bond-list").addEventListener("change", (event) => {
+    if (event.target.dataset.bondField) updateBondFromElement(event.target);
+  });
+  $("#bond-list").addEventListener("click", (event) => {
+    if (event.target.dataset.action !== "remove-bond") return;
+    const card = event.target.closest(".bond-card");
+    if (!card) return;
+    builderState.bonds = builderState.bonds.filter((item) => item.uid !== card.dataset.uid);
+    renderBonds();
     generateYamlFromBuilder({ silent: true });
   });
 }

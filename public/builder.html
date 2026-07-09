@@ -66,7 +66,7 @@
                   <option value="ligand">Protein-ligand</option>
                   <option value="affinity">Affinity</option>
                   <option value="pocket">Pocket</option>
-                  <option value="contacts">Contact constraints</option>
+                  <option value="contacts">Constraints</option>
                   <option value="template">Template</option>
                 </select>
               </label>
@@ -143,39 +143,30 @@
               </div>
             </details>
 
-            <details class="builder-section" data-section="constraints">
-              <summary><span><b>05</b>Constraints</span><em>Contact list and bonds</em></summary>
+            <details class="builder-section" data-section="contact-constraints">
+              <summary><span><b>05</b>Contact constraints</span><em>Token distance rules</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
-                  <span>Add any number of contact constraints. Each contact has its own token pair, max distance, and force toggle.</span>
+                  <span>Add any number of residue, nucleotide, or ligand-token contacts. Each contact has its own token pair, max distance, and force toggle.</span>
                   <button class="secondary-button mini-action-button" id="add-contact-button" type="button">Add contact</button>
                 </div>
                 <div class="repeat-list contact-list" id="contact-list"></div>
-                <div class="constraint-divider">
-                  <span>Covalent bond</span>
+              </div>
+            </details>
+
+            <details class="builder-section" data-section="bond-constraints">
+              <summary><span><b>06</b>Bond constraints</span><em>Covalent atom pairs</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar">
+                  <span>Add covalent atom-pair constraints when two specific atoms must be bonded in the final complex.</span>
+                  <button class="secondary-button mini-action-button" id="add-bond-button" type="button">Add bond</button>
                 </div>
-                <div class="builder-grid">
-                  <label class="toggle-field">
-                  <span>Covalent bond</span>
-                  <span class="switch">
-                    <input id="yaml-bond-enabled" data-yaml-control type="checkbox">
-                    <span class="slider"></span>
-                  </span>
-                </label>
-                <label class="field">
-                  <span>Atom 1</span>
-                  <input id="yaml-bond-atom1" data-yaml-control type="text" value="A:145:SG">
-                </label>
-                <label class="field">
-                  <span>Atom 2</span>
-                  <input id="yaml-bond-atom2" data-yaml-control type="text" value="B:1:C1">
-                </label>
-                </div>
+                <div class="repeat-list bond-list" id="bond-list"></div>
               </div>
             </details>
 
             <details class="builder-section" data-section="template">
-              <summary><span><b>06</b>Template</span><em>CIF or PDB</em></summary>
+              <summary><span><b>07</b>Template</span><em>CIF or PDB</em></summary>
               <div class="builder-grid">
                 <label class="toggle-field builder-span">
                   <span>Add template</span>

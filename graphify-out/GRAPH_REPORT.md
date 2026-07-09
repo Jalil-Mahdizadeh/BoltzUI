@@ -1,16 +1,16 @@
-# Graph Report - BoltzUI  (2026-07-07)
+# Graph Report - BoltzUI  (2026-07-09)
 
 ## Corpus Check
-- 50 files · ~78,033 words
+- 50 files · ~78,226 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 282 nodes · 511 edges · 20 communities (8 shown, 12 thin omitted)
+- 287 nodes · 522 edges · 20 communities (8 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `faee90d7`
+- Built from commit: `632cedf9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -37,16 +37,16 @@
 - [[_COMMUNITY_Community 20|Community 20]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `$()` - 78 edges
+1. `$()` - 83 edges
 2. `$()` - 58 edges
 3. `buildYamlFromBuilder()` - 16 edges
 4. `handleApi()` - 16 edges
-5. `parseYamlConstraints()` - 11 edges
-6. `applyParsedYamlToBuilder()` - 11 edges
-7. `stripYamlQuotes()` - 10 edges
-8. `parseYamlSequences()` - 10 edges
-9. `BoltzUI` - 10 edges
-10. `renderModelTable()` - 9 edges
+5. `applyParsedYamlToBuilder()` - 12 edges
+6. `applyYamlPreset()` - 11 edges
+7. `parseYamlConstraints()` - 11 edges
+8. `stripYamlQuotes()` - 10 edges
+9. `parseYamlSequences()` - 10 edges
+10. `BoltzUI` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `loadExistingYaml()` --calls--> `parseBuilderYaml()`  [EXTRACTED]
@@ -83,7 +83,7 @@ Nodes (7): Build From Source, Docker Hub Description, Highlights, Overview, Quic
 
 ### Community 8 - "Community 8"
 Cohesion: 0.08
-Nodes (55): $(), api(), appendPolymerYaml(), applyParsedYamlToBuilder(), applyYamlPreset(), bindBuilderPage(), bindRepeatLists(), builderState (+47 more)
+Nodes (60): $(), api(), appendPolymerYaml(), applyParsedYamlToBuilder(), applyYamlPreset(), bindBuilderPage(), bindRepeatLists(), bondCard() (+52 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.40
@@ -98,7 +98,7 @@ Nodes (4): Build input, GPU memory, Host system, Requirements
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `$()` connect `Community 8` to `Community 3`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+  _High betweenness centrality (0.071) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `private` to the rest of the system?**
   _63 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
@@ -108,4 +108,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `Community 8` be split into smaller, more focused modules?**
-  _Cohesion score 0.08208020050125313 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0750925436277102 - nodes in this community are weakly interconnected._

@@ -1664,44 +1664,58 @@ button.status-pill {
 
 .builder-page-actions {
   display: grid;
-  justify-items: end;
-  gap: 9px;
+  justify-items: stretch;
+  gap: 8px;
+  width: min(430px, 100%);
+  padding: 10px;
+  border: 1px solid rgba(190, 204, 210, 0.14);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    rgba(8, 11, 13, 0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 18px 44px rgba(0, 0, 0, 0.16);
 }
 
 .builder-action-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px;
+  align-items: stretch;
 }
 
 .builder-action {
-  position: relative;
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 26px;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
+  min-width: 0;
 }
 
 .return-dashboard-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 318px;
-  min-height: 38px;
-  padding: 9px 14px;
-  color: #061816;
+  min-width: 0;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: #dffdfa;
   text-decoration: none;
-  border: 1px solid rgba(45, 212, 191, 0.68);
+  border: 1px solid rgba(45, 212, 191, 0.48);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, #63c7f8 0%, #2dd4bf 48%, #f0b84b 100%);
+    linear-gradient(90deg, rgba(45, 212, 191, 0.24), rgba(99, 199, 248, 0.12)),
+    rgba(12, 20, 23, 0.92);
   box-shadow:
-    0 16px 32px rgba(45, 212, 191, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.38);
-  font-size: 13px;
-  font-weight: 950;
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(45, 212, 191, 0.08);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
   transition:
-    filter 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
     transform 0.16s ease,
     box-shadow 0.16s ease;
 }
@@ -1710,17 +1724,25 @@ button.status-pill {
 .return-dashboard-button:focus-visible {
   outline: 2px solid rgba(45, 212, 191, 0.78);
   outline-offset: 2px;
-  filter: brightness(1.05);
+  color: #effffd;
+  border-color: rgba(45, 212, 191, 0.72);
+  background:
+    linear-gradient(90deg, rgba(45, 212, 191, 0.32), rgba(99, 199, 248, 0.18)),
+    rgba(14, 25, 28, 0.96);
   transform: translateY(-1px);
 }
 
 .yaml-generate-button,
 .yaml-save-button {
-  min-width: 132px;
+  min-width: 0;
+  min-height: 38px;
+  padding: 9px 11px;
   border-color: transparent;
   box-shadow:
-    0 14px 28px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.16);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .yaml-generate-button {
@@ -1760,14 +1782,16 @@ button.status-pill {
   display: grid;
   place-items: center;
   flex: none;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   color: var(--text);
-  border: 1px solid rgba(190, 204, 210, 0.32);
+  border: 1px solid rgba(190, 204, 210, 0.24);
   border-radius: 999px;
-  background: rgba(9, 13, 16, 0.92);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent),
+    rgba(10, 15, 18, 0.9);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 950;
   line-height: 1;
   cursor: help;
@@ -1965,8 +1989,12 @@ button.status-pill {
   --section-accent-rgb: 239, 114, 95;
 }
 
-.builder-section[data-section="constraints"] {
+.builder-section[data-section="contact-constraints"] {
   --section-accent-rgb: 243, 125, 152;
+}
+
+.builder-section[data-section="bond-constraints"] {
+  --section-accent-rgb: 240, 184, 75;
 }
 
 .builder-section[data-section="template"] {
@@ -2119,6 +2147,10 @@ button.status-pill {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 140px 150px;
 }
 
+.bond-repeat-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
 .ligand-repeat-grid {
   grid-template-columns: minmax(0, 1fr) 150px;
 }
@@ -2130,25 +2162,6 @@ button.status-pill {
   border-radius: var(--radius);
   background: rgba(8, 11, 13, 0.44);
   font-size: 12px;
-}
-
-.constraint-divider {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text-muted);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.constraint-divider::before,
-.constraint-divider::after {
-  content: "";
-  height: 1px;
-  flex: 1;
-  background: rgba(var(--section-accent-rgb), 0.28);
 }
 
 .builder-grid.builder-span {

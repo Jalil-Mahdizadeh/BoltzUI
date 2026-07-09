@@ -68,7 +68,7 @@ The sidebar is collapsed by section by default. `Input` selects the prediction f
 
 The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the primary authoring surface for Boltz input files and is available from the distinctive `YAML Builder` button at the top of the sidebar. It provides schema-guided templates for structure, multimer, protein-ligand, affinity, pocket, contact-constraint, and template-based predictions, then writes ordinary `.yaml` files into `workspace/inputs/`.
 
-The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, covalent bonds, pocket constraints, any number of contact constraints with individual max distances, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains editable before saving.
+The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, pocket constraints, repeatable contact constraints with individual max distances, repeatable covalent bond constraints, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains editable before saving.
 
 ## Prediction Options
 
