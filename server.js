@@ -33,10 +33,10 @@ const optionSchema = [
   { key: "method", flag: "--method", label: "Method", type: "text", group: "Execution" },
 
   { key: "recycling_steps", flag: "--recycling_steps", label: "Recycling steps", type: "int", group: "Sampling", default: "3", min: 0 },
-  { key: "sampling_steps", flag: "--sampling_steps", label: "Sampling steps", type: "int", group: "Sampling", default: "200", min: 1 },
+  { key: "sampling_steps", flag: "--sampling_steps", label: "Sampling steps", type: "int", group: "Sampling", default: "400", min: 1 },
   { key: "diffusion_samples", flag: "--diffusion_samples", label: "Diffusion samples", type: "int", group: "Sampling", default: "1", min: 1 },
   { key: "max_parallel_samples", flag: "--max_parallel_samples", label: "Max parallel samples", type: "int", group: "Sampling", default: "1", min: 1 },
-  { key: "step_scale", flag: "--step_scale", label: "Step scale", type: "float", group: "Sampling", default: "1.5", min: 0 },
+  { key: "step_scale", flag: "--step_scale", label: "Step scale", type: "float", group: "Sampling", default: "1.0", min: 0 },
   { key: "seed", flag: "--seed", label: "Seed", type: "int", group: "Sampling", default: "1", min: -1, placeholder: "-1 for random" },
   { key: "use_potentials", flag: "--use_potentials", label: "Use potentials", type: "bool", group: "Sampling", default: false },
 
@@ -47,9 +47,9 @@ const optionSchema = [
   { key: "msa_server_password", flag: "--msa_server_password", label: "MSA password", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
   { key: "api_key_header", flag: "--api_key_header", label: "API key header", type: "text", group: "MSA settings", subgroup: "MSA credentials", defaultDisplay: "not set" },
   { key: "api_key_value", flag: "--api_key_value", label: "API key value", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
-  { key: "max_msa_seqs", flag: "--max_msa_seqs", label: "Max MSA sequences", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1 },
-  { key: "subsample_msa", flag: "--subsample_msa", label: "Subsample MSA", type: "bool", group: "MSA settings", subgroup: "MSA limits", default: false },
-  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "2048", min: 1, dependsOn: "subsample_msa" },
+  { key: "max_msa_seqs", flag: "--max_msa_seqs", label: "Max MSA sequences", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "8192", min: 1 },
+  { key: "subsample_msa", flag: "--subsample_msa", label: "Subsample MSA", type: "bool", group: "MSA settings", subgroup: "MSA limits", default: true },
+  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "1024", min: 1, dependsOn: "subsample_msa" },
 
   { key: "output_format", flag: "--output_format", label: "Output format", type: "select", group: "Output", default: "pdb", choices: ["pdb", "mmcif"] },
   { key: "write_full_pae", flag: "--write_full_pae", label: "Write full PAE", type: "bool", group: "Output", default: true },
@@ -198,6 +198,12 @@ function objectHasLigandEntity(value) {
   return Object.entries(value).some(([key, child]) => key === "ligand" || key === "ligands" || objectHasLigandEntity(child));
 }
 
+function objectHasKey(value, targetKey) {
+  if (Array.isArray(value)) return value.some((child) => objectHasKey(child, targetKey));
+  if (!value || typeof value !== "object") return false;
+  return Object.entries(value).some(([key, child]) => key === targetKey || objectHasKey(child, targetKey));
+}
+
 function inputHasLigandEntity(dataPath) {
   const extension = path.extname(dataPath).toLowerCase();
   if (![".yaml", ".yml", ".json"].includes(extension)) return false;
@@ -212,6 +218,25 @@ function inputHasLigandEntity(dataPath) {
       .filter((line) => !line.trimStart().startsWith("#"))
       .join("\n");
     return /(^|\n)\s*-\s*ligand\s*:/i.test(uncommented);
+  } catch {
+    return false;
+  }
+}
+
+function inputHasAtomContactConstraint(dataPath) {
+  const extension = path.extname(dataPath).toLowerCase();
+  if (![".yaml", ".yml", ".json"].includes(extension)) return false;
+
+  try {
+    const text = fs.readFileSync(dataPath, "utf8");
+    if (extension === ".json") {
+      return objectHasKey(JSON.parse(text), "atom_contact");
+    }
+    const uncommented = text
+      .split(/\r?\n/)
+      .filter((line) => !line.trimStart().startsWith("#"))
+      .join("\n");
+    return /(^|\n)\s*-\s*atom_contact\s*:/i.test(uncommented);
   } catch {
     return false;
   }
@@ -252,6 +277,9 @@ function buildBoltzCommand(payload, { maskSecrets = false } = {}) {
   if (!stat.isFile()) throw new Error("Input data path must be a file.");
 
   const options = normalizeOptions(payload.options || {});
+  if (!options.use_potentials && inputHasAtomContactConstraint(dataPath)) {
+    throw new Error("This input contains atom_contact constraints, which require --use_potentials for exact atom-atom enforcement. Enable Use potentials and run again.");
+  }
   const args = predictArgs(dataPath, options, maskSecrets, dataPath, {
     hasLigand: inputHasLigandEntity(dataPath)
   });

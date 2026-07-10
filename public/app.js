@@ -647,7 +647,10 @@ function applyViewerStyle(resetView = false) {
     viewer.setStyle({ hetflag: true }, { stick });
   }
 
-  if (resetView) viewer.zoomTo();
+  if (resetView) {
+    viewer.zoomTo();
+    viewer.zoom($("#structure-viewer").clientWidth < 520 ? 0.78 : 0.9);
+  }
   viewer.render();
 }
 
@@ -789,6 +792,25 @@ function updateSidebarToggle() {
   button.setAttribute("aria-expanded", String(!collapsed));
 }
 
+function setSidebarCollapsed(collapsed) {
+  const shell = $(".studio-shell");
+  const sidebar = $("#dashboard-sidebar");
+  const backdrop = $("#sidebar-backdrop");
+  shell.classList.toggle("sidebar-collapsed", collapsed);
+  sidebar.inert = collapsed;
+  sidebar.setAttribute("aria-hidden", String(collapsed));
+  backdrop.tabIndex = collapsed ? -1 : 0;
+  backdrop.setAttribute("aria-hidden", String(collapsed));
+  document.body.classList.toggle("sidebar-open-mobile", !collapsed && window.matchMedia("(max-width: 980px)").matches);
+  updateSidebarToggle();
+}
+
+function initializeResponsiveSidebar() {
+  const mobileViewport = window.matchMedia("(max-width: 980px)");
+  setSidebarCollapsed(mobileViewport.matches);
+  mobileViewport.addEventListener("change", (event) => setSidebarCollapsed(event.matches));
+}
+
 function updateFullscreenButton() {
   const button = $("#viewer-fullscreen-button");
   const panel = $("#structure-panel");
@@ -817,9 +839,9 @@ async function togglePreviewFullscreen() {
 
 function bindEvents() {
   $("#sidebar-toggle").addEventListener("click", () => {
-    $(".studio-shell").classList.toggle("sidebar-collapsed");
-    updateSidebarToggle();
+    setSidebarCollapsed(!$(".studio-shell").classList.contains("sidebar-collapsed"));
   });
+  $("#sidebar-backdrop").addEventListener("click", () => setSidebarCollapsed(true));
   $("#workspace-pill").addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(state.workspace || $("#workspace-pill").textContent);
@@ -935,7 +957,7 @@ function bindEvents() {
 }
 
 bindEvents();
-updateSidebarToggle();
+initializeResponsiveSidebar();
 updateFullscreenButton();
 updateConfidenceLegend();
 refreshAll().catch((error) => showToast(error.message));

@@ -65,8 +65,8 @@
                   <option value="complex">Multimer</option>
                   <option value="ligand">Protein-ligand</option>
                   <option value="affinity">Affinity</option>
-                  <option value="pocket">Pocket</option>
-                  <option value="contacts">Constraints</option>
+                  <option value="pocket">Pocket constraints</option>
+                  <option value="contacts">Token contact constraints</option>
                   <option value="template">Template</option>
                 </select>
               </label>
@@ -112,10 +112,10 @@
             </details>
 
             <details class="builder-section" data-section="pocket">
-              <summary><span><b>04</b>Pocket</span><em>Binder and contacts</em></summary>
+              <summary><span><b>04</b>Pocket constraints</span><em>Binder and contacts</em></summary>
               <div class="builder-grid">
                 <label class="toggle-field builder-span">
-                  <span>Pocket</span>
+                  <span>Pocket constraints</span>
                   <span class="switch">
                     <input id="yaml-pocket-enabled" data-yaml-control type="checkbox">
                     <span class="slider"></span>
@@ -144,18 +144,29 @@
             </details>
 
             <details class="builder-section" data-section="contact-constraints">
-              <summary><span><b>05</b>Contact constraints</span><em>Token distance rules</em></summary>
+              <summary><span><b>05</b>Token contact constraints</span><em>Token distance rules</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
-                  <span>Add any number of residue, nucleotide, or ligand-token contacts. Each contact has its own token pair, max distance, and force toggle.</span>
+                  <span>Add any number of token-level contacts. For protein, DNA, and RNA polymers, a token is a residue or nucleotide; for ligands and other non-polymers, a token is an atom.</span>
                   <button class="secondary-button mini-action-button" id="add-contact-button" type="button">Add contact</button>
                 </div>
                 <div class="repeat-list contact-list" id="contact-list"></div>
               </div>
             </details>
 
+            <details class="builder-section" data-section="atom-contact-constraints">
+              <summary><span><b>06</b>Atom contact constraints</span><em>Exact atom-pair guidance</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar">
+                  <span>Use atom_contact for exact non-covalent atom-atom distance guidance. Requires force: true and prediction with --use_potentials. In benchmarks, --sampling_steps 400 with --step_scale 1.0 gave much better satisfaction than default sampling. Use token contact constraints for residue/token contacts and bond constraints for covalent bonds.</span>
+                  <button class="secondary-button mini-action-button" id="add-atom-contact-button" type="button">Add atom contact</button>
+                </div>
+                <div class="repeat-list atom-contact-list" id="atom-contact-list"></div>
+              </div>
+            </details>
+
             <details class="builder-section" data-section="bond-constraints">
-              <summary><span><b>06</b>Bond constraints</span><em>Covalent atom pairs</em></summary>
+              <summary><span><b>07</b>Bond constraints</span><em>Covalent atom pairs</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Add covalent atom-pair constraints when two specific atoms must be bonded in the final complex.</span>
@@ -166,7 +177,7 @@
             </details>
 
             <details class="builder-section" data-section="template">
-              <summary><span><b>07</b>Template</span><em>CIF or PDB</em></summary>
+              <summary><span><b>08</b>Template</span><em>CIF or PDB</em></summary>
               <div class="builder-grid">
                 <label class="toggle-field builder-span">
                   <span>Add template</span>
@@ -208,7 +219,7 @@
               </div>
             </details>
 
-            <div class="yaml-builder-status" id="yaml-builder-status"></div>
+            <div class="yaml-builder-status" id="yaml-builder-status" role="status" aria-live="polite"></div>
             <button class="ghost-button reset-builder-button" id="reset-yaml-builder" type="button">Reset builder</button>
           </section>
 
@@ -229,13 +240,13 @@ sequences:
       sequence: M
 </textarea>
             </details>
-            <div class="saved-input-status" id="saved-input-status">Not saved</div>
+            <div class="saved-input-status" id="saved-input-status" role="status" aria-live="polite">Not saved</div>
           </section>
         </div>
       </section>
     </main>
 
-    <div id="toast" class="toast" hidden></div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
     <script src="/builder.js"></script>
   </body>
 </html>

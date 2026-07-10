@@ -6,6 +6,7 @@ const builderState = {
   polymers: [],
   ligands: [],
   contacts: [],
+  atomContacts: [],
   bonds: []
 };
 
@@ -158,6 +159,17 @@ function createContact(overrides = {}) {
   };
 }
 
+function createAtomContact(overrides = {}) {
+  return {
+    uid: createUid("atom-contact"),
+    atom1: "A:145:NZ",
+    atom2: "B:37:OD1",
+    distance: "3.5",
+    force: true,
+    ...overrides
+  };
+}
+
 function createBond(overrides = {}) {
   const { enabled, ...values } = overrides;
   return {
@@ -242,6 +254,19 @@ function readDistanceValue(value, label, warnings) {
   return formatNumberForYaml(number, 6);
 }
 
+function readAtomContactDistanceValue(value, label, warnings) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) {
+    warnings.push(`${label} must be a finite number; atom_contact card was not emitted.`);
+    return null;
+  }
+  if (number < 2 || number > 20) {
+    warnings.push(`${label} must be between 2.0 and 20.0 Angstrom; atom_contact card was not emitted.`);
+    return null;
+  }
+  return formatNumberForYaml(number, 3.5);
+}
+
 function parseModificationLines(text, warnings, label) {
   return String(text || "")
     .split(/\r?\n/)
@@ -262,7 +287,7 @@ function parseModificationLines(text, warnings, label) {
 
 function parseTokenSpec(value) {
   const parts = String(value || "").replace(/^\[|\]$/g, "").split(/[:,\s]+/).filter(Boolean);
-  if (parts.length < 2) return null;
+  if (parts.length !== 2) return null;
   return { chain: parts[0], token: parts[1] };
 }
 
@@ -477,6 +502,31 @@ function buildYamlFromBuilder() {
     constraints.push(`      max_distance: ${readDistanceValue(contact.distance, `${label} max distance`, warnings)}`);
     constraints.push(`      force: ${contact.force ? "true" : "false"}`);
     features.push(`contact ${index + 1}`);
+  });
+
+  if (builderState.atomContacts.length) {
+    warnings.push("atom_contact constraints require force: true and prediction with --use_potentials.");
+  }
+  builderState.atomContacts.forEach((atomContact, index) => {
+    const atom1 = parseAtomSpec(atomContact.atom1);
+    const atom2 = parseAtomSpec(atomContact.atom2);
+    const label = `Atom contact ${index + 1}`;
+    const distance = readAtomContactDistanceValue(atomContact.distance, `${label} max distance`, warnings);
+    if (!atom1 || !atom2) {
+      warnings.push(`${label} atoms should look like A:145:NZ.`);
+      return;
+    }
+    if (!distance) return;
+    if (!atomContact.force) {
+      warnings.push(`${label} requires force: true; atom_contact card was not emitted.`);
+      return;
+    }
+    constraints.push("  - atom_contact:");
+    constraints.push(`      atom1: ${yamlAtom(atom1)}`);
+    constraints.push(`      atom2: ${yamlAtom(atom2)}`);
+    constraints.push(`      max_distance: ${distance}`);
+    constraints.push("      force: true");
+    features.push(`atom_contact ${index + 1}`);
   });
 
   builderState.bonds.forEach((bond, index) => {
@@ -714,6 +764,48 @@ function renderContacts() {
   root.innerHTML = builderState.contacts.map(contactCard).join("");
 }
 
+function atomContactCard(atomContact, index) {
+  return `
+    <article class="repeat-card atom-contact-card" data-uid="${atomContact.uid}">
+      <div class="repeat-card-heading">
+        <h4>Atom contact ${index + 1}</h4>
+        <button class="ghost-button repeat-remove-button" data-action="remove-atom-contact" type="button">Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid atom-contact-repeat-grid">
+        <label class="field">
+          <span>Atom 1</span>
+          <input data-atom-contact-field="atom1" type="text" value="${escapeHtml(atomContact.atom1)}" placeholder="A:145:NZ">
+        </label>
+        <label class="field">
+          <span>Atom 2</span>
+          <input data-atom-contact-field="atom2" type="text" value="${escapeHtml(atomContact.atom2)}" placeholder="B:37:OD1">
+        </label>
+        <label class="field">
+          <span>Max distance</span>
+          <input data-atom-contact-field="distance" type="number" min="2" max="20" step="0.1" value="${escapeHtml(atomContact.distance)}">
+        </label>
+        <label class="toggle-field">
+          <span>Force contact</span>
+          <span class="switch">
+            <input data-atom-contact-field="force" type="checkbox"${atomContact.force ? " checked" : ""}>
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+    </article>
+  `;
+}
+
+function renderAtomContacts() {
+  const root = $("#atom-contact-list");
+  if (!root) return;
+  if (!builderState.atomContacts.length) {
+    root.innerHTML = `<div class="repeat-empty">No atom contact constraints added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.atomContacts.map(atomContactCard).join("");
+}
+
 function bondCard(bond, index) {
   return `
     <article class="repeat-card bond-card" data-uid="${bond.uid}">
@@ -779,10 +871,12 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
   builderState.contacts = (preset.contacts || []).map((contact) => createContact(contact));
+  builderState.atomContacts = (preset.atomContacts || []).map((atomContact) => createAtomContact(atomContact));
   builderState.bonds = presetBonds(preset).map((bond) => createBond(bond));
   renderPolymers();
   renderLigands();
   renderContacts();
+  renderAtomContacts();
   renderBonds();
 
   setFieldValue("yaml-affinity-enabled", Boolean(preset.affinity?.enabled));
@@ -862,11 +956,32 @@ function yamlItemHeader(itemLines) {
 
 function parseYamlItemMapping(itemLines) {
   const map = {};
-  for (const line of itemLines.slice(1)) {
+  for (let index = 1; index < itemLines.length; index += 1) {
+    const line = itemLines[index];
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("- ")) continue;
     const match = trimmed.match(/^([A-Za-z_][\w-]*):(?:\s*(.*))?$/);
-    if (match && match[2] !== undefined && match[2] !== "") map[match[1]] = match[2];
+    if (!match) continue;
+
+    const key = match[1];
+    const value = match[2] || "";
+    if (value !== "") {
+      map[key] = value;
+      continue;
+    }
+
+    const baseIndent = yamlLineIndent(line);
+    const listValues = [];
+    for (let childIndex = index + 1; childIndex < itemLines.length; childIndex += 1) {
+      const childLine = itemLines[childIndex];
+      const childTrimmed = childLine.trim();
+      if (!childTrimmed || childTrimmed.startsWith("#")) continue;
+      if (yamlLineIndent(childLine) <= baseIndent) break;
+      if (!childTrimmed.startsWith("- ")) continue;
+      const listValue = childTrimmed.replace(/^-\s+/, "").trim();
+      if (listValue) listValues.push(listValue);
+    }
+    if (listValues.length) map[key] = `[${listValues.join(", ")}]`;
   }
   return map;
 }
@@ -960,6 +1075,16 @@ function parseYamlConstraints(text, parsed) {
       continue;
     }
 
+    if (header.key === "atom_contact") {
+      parsed.atomContacts.push({
+        atom1: yamlAtomAsField(map.atom1 || "A:145:NZ"),
+        atom2: yamlAtomAsField(map.atom2 || "B:37:OD1"),
+        distance: stripYamlQuotes(map.max_distance || "3.5"),
+        force: boolFromYamlValue(map.force)
+      });
+      continue;
+    }
+
     if (header.key === "bond") {
       parsed.bonds.push({
         atom1: yamlAtomAsField(map.atom1 || "A:145:SG"),
@@ -1010,6 +1135,7 @@ function parseBuilderYaml(text) {
     polymers: [],
     ligands: [],
     contacts: [],
+    atomContacts: [],
     bonds: [],
     affinity: null,
     pocket: null,
@@ -1026,7 +1152,7 @@ function parseBuilderYaml(text) {
 function profileFromParsedYaml(parsed) {
   if (parsed.affinity?.enabled) return "affinity";
   if (parsed.pocket?.enabled) return "pocket";
-  if (parsed.contacts.length || parsed.bonds.length) return "contacts";
+  if (parsed.contacts.length || parsed.atomContacts.length || parsed.bonds.length) return "contacts";
   if (parsed.template?.enabled) return "template";
   if (parsed.ligands.length) return "ligand";
   if (parsed.polymers.length > 1) return "complex";
@@ -1047,11 +1173,12 @@ function openSectionsForLoadedYaml(parsed) {
   setBuilderSectionOpen("affinity", parsed.affinity?.enabled);
   setBuilderSectionOpen("pocket", parsed.pocket?.enabled);
   setBuilderSectionOpen("contact-constraints", parsed.contacts.length > 0);
+  setBuilderSectionOpen("atom-contact-constraints", parsed.atomContacts.length > 0);
   setBuilderSectionOpen("bond-constraints", parsed.bonds.length > 0);
   setBuilderSectionOpen("template", parsed.template?.enabled);
 }
 
-function applyParsedYamlToBuilder(parsed, filename) {
+function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } = {}) {
   setDraftName(filename);
   setFieldValue("yaml-profile", profileFromParsedYaml(parsed));
 
@@ -1073,10 +1200,12 @@ function applyParsedYamlToBuilder(parsed, filename) {
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
   builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
+  builderState.atomContacts = parsed.atomContacts.map((atomContact) => createAtomContact(atomContact));
   builderState.bonds = parsed.bonds.map((bond) => createBond(bond));
   renderPolymers();
   renderLigands();
   renderContacts();
+  renderAtomContacts();
   renderBonds();
 
   setFieldValue("yaml-affinity-enabled", Boolean(parsed.affinity?.enabled));
@@ -1097,13 +1226,13 @@ function applyParsedYamlToBuilder(parsed, filename) {
   setFieldValue("yaml-template-threshold", parsed.template?.threshold || "2");
 
   openSectionsForLoadedYaml(parsed);
-  const result = generateYamlFromBuilder({ silent: true });
-  if (parsed.warnings.length) {
-    renderYamlBuilderStatus({
-      ...result,
-      warnings: [...parsed.warnings, ...result.warnings]
-    });
-  }
+  const result = preserveEditor
+    ? buildYamlFromBuilder()
+    : generateYamlFromBuilder({ silent: true });
+  renderYamlBuilderStatus({
+    ...result,
+    warnings: parsed.warnings.length ? [...parsed.warnings, ...result.warnings] : result.warnings
+  });
 }
 
 function filenameFromPath(relativePath) {
@@ -1157,7 +1286,7 @@ async function loadExistingYaml(relativePath) {
       return;
     }
 
-    applyParsedYamlToBuilder(parsed, filename);
+    applyParsedYamlToBuilder(parsed, filename, { preserveEditor: true });
     const savedStatus = $("#saved-input-status");
     if (savedStatus) savedStatus.textContent = `Loaded: ${relativePath}`;
     showToast(parsed.warnings.length ? "YAML loaded with parser notes." : "YAML loaded.");
@@ -1198,6 +1327,16 @@ function updateContactFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updateAtomContactFromElement(element) {
+  const card = element.closest(".atom-contact-card");
+  if (!card) return;
+  const atomContact = builderState.atomContacts.find((item) => item.uid === card.dataset.uid);
+  if (!atomContact) return;
+  const field = element.dataset.atomContactField;
+  atomContact[field] = element.type === "checkbox" ? element.checked : element.value;
+  syncYamlFromBuilder();
+}
+
 function updateBondFromElement(element) {
   const card = element.closest(".bond-card");
   if (!card) return;
@@ -1223,6 +1362,12 @@ function bindRepeatLists() {
   $("#add-contact-button").addEventListener("click", () => {
     builderState.contacts.push(createContact());
     renderContacts();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#add-atom-contact-button").addEventListener("click", () => {
+    builderState.atomContacts.push(createAtomContact());
+    renderAtomContacts();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1274,6 +1419,21 @@ function bindRepeatLists() {
     if (!card) return;
     builderState.contacts = builderState.contacts.filter((item) => item.uid !== card.dataset.uid);
     renderContacts();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#atom-contact-list").addEventListener("input", (event) => {
+    if (event.target.dataset.atomContactField) updateAtomContactFromElement(event.target);
+  });
+  $("#atom-contact-list").addEventListener("change", (event) => {
+    if (event.target.dataset.atomContactField) updateAtomContactFromElement(event.target);
+  });
+  $("#atom-contact-list").addEventListener("click", (event) => {
+    if (event.target.dataset.action !== "remove-atom-contact") return;
+    const card = event.target.closest(".atom-contact-card");
+    if (!card) return;
+    builderState.atomContacts = builderState.atomContacts.filter((item) => item.uid !== card.dataset.uid);
+    renderAtomContacts();
     generateYamlFromBuilder({ silent: true });
   });
 

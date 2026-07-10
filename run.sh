@@ -7,4 +7,4 @@ docker run --rm \
   -p 5173:5173 \
   -v "${PWD}:/workspace/BoltzUI" \
   -w /workspace/BoltzUI \
-  boltzui:221
+  boltzui:221-atomcontact

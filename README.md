@@ -1,10 +1,11 @@
 # BoltzUI
 
-BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. It is layered on the cached local `boltz:221` image, so the Boltz runtime and cache stay inside one final app image.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. This patched build is layered on the local `boltzui:221` image and adds a reproducible Boltz2-only `atom_contact` runtime patch for exact atom-atom contact guidance.
 
 ## Repository Contents
 
-- `Dockerfile` - builds the BoltzUI web app image on top of the cached local `boltz:221` image.
+- `Dockerfile` - builds the patched BoltzUI web app image on top of the local `boltzui:221` image.
+- `patches/boltz_atom_contact/` - reproducible Boltz runtime patch applied during Docker build.
 - `server.js`, `public/`, `package.json` - BoltzUI web interface for configuring, launching, and inspecting Boltz runs.
 - `run.sh` - optional launcher for the BoltzUI container.
 - `requirements.txt` - Python package pin for Boltz.
@@ -15,19 +16,19 @@ BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web
 
 ## Build The Image
 
-The build expects the cached Boltz image to already exist locally:
+The atom-contact build expects the patched base workflow image to already exist locally:
 
 ```bash
-docker image ls boltz:221
+docker image inspect boltzui:221 >/dev/null
 ```
 
 Build:
 
 ```bash
-docker build -t boltzui:221 .
+docker build -t boltzui:221-atomcontact .
 ```
 
-The final `boltzui:221` image contains the Boltz runtime from `boltz:221`, Node.js, and the BoltzUI web app.
+The final `boltzui:221-atomcontact` image contains the Boltz runtime from `boltzui:221`, Node.js, the BoltzUI web app, and the `atom_contact` Boltz runtime patch.
 
 ## Run The Web UI
 
@@ -39,7 +40,7 @@ docker run --rm --gpus all \
   -p 5173:5173 \
   -v "$(pwd):/workspace/BoltzUI" \
   -w /workspace/BoltzUI \
-  boltzui:221
+  boltzui:221-atomcontact
 ```
 
 PowerShell equivalent:
@@ -49,7 +50,7 @@ docker run --rm --gpus all --shm-size=8g `
   -p 5173:5173 `
   -v "${PWD}:/workspace/BoltzUI" `
   -w /workspace/BoltzUI `
-  boltzui:221
+  boltzui:221-atomcontact
 ```
 
 Then open:
@@ -66,9 +67,39 @@ The sidebar is collapsed by section by default. `Input` selects the prediction f
 
 ## YAML Builder
 
-The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the primary authoring surface for Boltz input files and is available from the distinctive `YAML Builder` button at the top of the sidebar. It provides schema-guided templates for structure, multimer, protein-ligand, affinity, pocket, contact-constraint, and template-based predictions, then writes ordinary `.yaml` files into `workspace/inputs/`.
+The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the primary authoring surface for Boltz input files and is available from the distinctive `YAML Builder` button at the top of the sidebar. It provides schema-guided templates for structure, multimer, protein-ligand, affinity, pocket constraints, token contact constraints, atom contact constraints, and template-based predictions, then writes ordinary `.yaml` files into `workspace/inputs/`.
 
-The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, pocket constraints, repeatable contact constraints with individual max distances, repeatable covalent bond constraints, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains editable before saving.
+The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, pocket constraints, repeatable token-level contact constraints with individual max distances, repeatable exact non-covalent `atom_contact` constraints, repeatable covalent bond constraints, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains editable before saving.
+
+### Constraint Types
+
+- `contact` is the existing token-level proximity constraint. For protein/RNA/DNA polymers, a token is a residue or nucleotide selected by `[CHAIN_ID, RES_IDX]`; for ligands/non-polymers, a token is an atom selected by `[CHAIN_ID, ATOM_NAME]`.
+- `pocket` keeps the existing binder/contact behavior unchanged.
+- `bond` is the existing covalent atom-level bond constraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
+- `atom_contact` is a patched Boltz2-only exact non-covalent atom-atom distance constraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
+
+`atom_contact` requires `force: true`, prediction with `--use_potentials`, and `max_distance` in the `2.0-20.0` Angstrom range. The contact potential is sampling guidance rather than final geometric minimization; the benchmarked condition that worked best used `--sampling_steps 400`, `--step_scale 1.0`, multiple diffusion samples, and post-run distance filtering.
+
+Example:
+
+```yaml
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: K
+      msa: empty
+  - protein:
+      id: B
+      sequence: D
+      msa: empty
+constraints:
+  - atom_contact:
+      atom1: [A, 1, NZ]
+      atom2: [B, 1, OD1]
+      max_distance: 3.5
+      force: true
+```
 
 ## Prediction Options
 
@@ -81,10 +112,10 @@ The sidebar exposes these Boltz `predict` options:
 - `--devices INTEGER` - number of devices to use. Default: `1`.
 - `--accelerator [gpu|cpu|tpu]` - accelerator backend. Default: `gpu`.
 - `--recycling_steps INTEGER` - number of recycling iterations. Default: `3`.
-- `--sampling_steps INTEGER` - number of diffusion sampling steps. Default: `200`.
+- `--sampling_steps INTEGER` - number of diffusion sampling steps. BoltzUI default: `400`, chosen for stronger atom-contact steering; upstream Boltz default is `200`.
 - `--diffusion_samples INTEGER` - number of generated structure samples. Default: `1`.
 - `--max_parallel_samples INTEGER` - maximum samples predicted in parallel. Default: `None`.
-- `--step_scale FLOAT` - diffusion step scale. BoltzUI fills `1.5`, matching the Boltz-2 default model.
+- `--step_scale FLOAT` - diffusion step scale. BoltzUI default: `1.0`, chosen for stronger atom-contact steering; upstream Boltz-2 default is `1.5`.
 - `--write_full_pae` - writes full PAE as an NPZ file. Default: `True`.
 - `--write_full_pde` - writes full PDE as an NPZ file. Default: `False`.
 - `--output_format [pdb|mmcif]` - structure output format. BoltzUI default: `pdb`.
@@ -98,7 +129,7 @@ The sidebar exposes these Boltz `predict` options:
 - `--msa_server_password TEXT` - password for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_PASSWORD`.
 - `--api_key_header TEXT` - custom API-key header name. Option default: `None`; when API-key auth is used and no header is provided, Boltz uses `X-API-Key`.
 - `--api_key_value TEXT` - custom API-key header value. Default: `None`.
-- `--use_potentials` - enables steering potentials. Default: `False`.
+- `--use_potentials` - enables steering potentials. BoltzUI default: `False` because it adds runtime and changes sampling behavior for general tasks. Required for exact `atom_contact` constraints.
 - `--model [boltz1|boltz2]` - model family. Default: `boltz2`.
 - `--method TEXT` - method metadata/conditioning value. Default: `None`.
 - `--preprocessing-threads INTEGER` - preprocessing thread count. Default: `1`.
@@ -106,9 +137,9 @@ The sidebar exposes these Boltz `predict` options:
 - `--sampling_steps_affinity INTEGER` - affinity sampling steps. Default: `200`.
 - `--diffusion_samples_affinity INTEGER` - affinity diffusion samples. Default: `5`.
 - `--affinity_checkpoint PATH` - optional affinity checkpoint path. Default: `None`; Boltz uses the bundled/default affinity checkpoint.
-- `--max_msa_seqs INTEGER` - maximum MSA sequences used. BoltzUI default: `5120`.
-- `--subsample_msa` - subsamples MSA sequences. Default: `True`.
-- `--num_subsampled_msa INTEGER` - number of MSA sequences after subsampling. BoltzUI default: `5120`.
+- `--max_msa_seqs INTEGER` - maximum MSA sequences used. BoltzUI default: `8192`, matching upstream Boltz.
+- `--subsample_msa` - subsamples MSA sequences. BoltzUI default: `True`, matching upstream Boltz.
+- `--num_subsampled_msa INTEGER` - number of MSA sequences after subsampling. BoltzUI default: `1024`, matching upstream Boltz.
 - `--no_kernels` - disables optional optimized kernels. BoltzUI default: `True`.
 - `--write_embeddings` - writes `s` and `z` embeddings to NPZ. Default: `False`.
 - `--help` - prints command help.
