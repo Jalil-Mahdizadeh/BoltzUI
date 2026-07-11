@@ -53,8 +53,8 @@ msa_args:
   pairwise_num_heads: 4
   activation_checkpointing: false
   offload_to_cpu: false
-  subsample_msa: true
-  num_subsampled_msa: 2048
+  subsample_msa: false
+  num_subsampled_msa: 1024
 pairformer_args:
   num_blocks: 64
   num_heads: 16

@@ -155,10 +155,10 @@
             </details>
 
             <details class="builder-section" data-section="atom-contact-constraints">
-              <summary><span><b>06</b>Atom contact constraints</span><em>Exact atom-pair guidance</em></summary>
+              <summary><span><b>06</b>Atom contact constraints</span><em>Specific atom-pair guidance</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
-                  <span>Use atom_contact for exact non-covalent atom-atom distance guidance. Requires force: true and prediction with --use_potentials. In benchmarks, --sampling_steps 400 with --step_scale 1.0 gave much better satisfaction than default sampling. Use token contact constraints for residue/token contacts and bond constraints for covalent bonds.</span>
+                  <span>Use atom_contact for a specific atom-pair upper-distance restraint. This is soft inference-time potential guidance and does not guarantee the final distance. It requires force: true and --use_potentials. Use the experimental Atom-contact exploration preset from the dashboard; its lower step scale changes reverse-diffusion updates and sample diversity and may interact with guidance strength. Verify final distances in the restraint report.</span>
                   <button class="secondary-button mini-action-button" id="add-atom-contact-button" type="button">Add atom contact</button>
                 </div>
                 <div class="repeat-list atom-contact-list" id="atom-contact-list"></div>

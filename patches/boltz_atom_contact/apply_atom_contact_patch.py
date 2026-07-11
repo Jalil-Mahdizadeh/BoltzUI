@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Patch installed Boltz 2.2.1 with exact atom_contact constraints."""
+"""Patch Boltz 2.2.1 with specific atom-pair distance guidance."""
 
 from __future__ import annotations
 
+import argparse
+import hashlib
 import inspect
 import py_compile
 from pathlib import Path
@@ -12,6 +14,47 @@ import boltz.data.feature.featurizerv2 as featurizerv2
 import boltz.data.module.inferencev2 as inferencev2
 import boltz.data.parse.schema as schema
 import boltz.data.types as types
+
+
+EXPECTED_BOLTZ_VERSION = "2.2.1"
+EXPECTED_SOURCE_SHA256 = {
+    "schema.py": "c0dae4c89c4c4a22175a433b5a0c68860329d2a292c76224328bdde19b73b743",
+    "types.py": "e7e5ede40e0c208bcb966acd04caebb3b017e8a50b85b1aa3cae4cdf83b71707",
+    "inferencev2.py": "675235dff103d698dc65f2ebaca85a62b664ab28cd09f4b1c0166e6e56b47db4",
+    "featurizerv2.py": "af1f9e6ec0c3d7289eb1f7503c3c1c3ee0d9f03436778dd4a7d412b8f7bd9f94",
+}
+PATCH_MARKERS = {
+    "schema.py": ("atom_contact_constraints", "def atom_contact_spec_to_ids"),
+    "types.py": ("atom_contact_constraints",),
+    "inferencev2.py": ("atom_contact_constraints",),
+    "featurizerv2.py": ("inference_atom_contact_constraints",),
+}
+
+
+def source_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def check_compatibility(paths: dict[str, Path]) -> None:
+    version = getattr(boltz, "__version__", "unknown")
+    if version != EXPECTED_BOLTZ_VERSION:
+        raise RuntimeError(
+            f"Expected Boltz {EXPECTED_BOLTZ_VERSION}, found {version}. "
+            "Refusing to apply the atom_contact patch."
+        )
+    for label, path in paths.items():
+        text = path.read_text(encoding="utf-8")
+        if all(marker in text for marker in PATCH_MARKERS[label]):
+            print(f"{label}: compatibility check passed (already patched)")
+            continue
+        actual = source_sha256(path)
+        expected = EXPECTED_SOURCE_SHA256[label]
+        if actual != expected:
+            raise RuntimeError(
+                f"{label} source hash mismatch for Boltz {version}: "
+                f"expected {expected}, found {actual}."
+            )
+        print(f"{label}: compatibility check passed ({actual})")
 
 
 def replace_once(text: str, anchor: str, replacement: str, description: str) -> str:
@@ -63,28 +106,27 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
         raise ValueError(msg)
 
     chain_name, residue_index, atom_name = parts
+    endpoint = f"{chain_name}:{residue_index}:{atom_name}"
     if chain_name not in chain_to_idx:
-        msg = f"{label} chain '{chain_name}' does not exist."
+        msg = f"Unable to resolve atom-contact endpoint {endpoint}: chain does not exist."
         raise ValueError(msg)
 
     try:
         residue_index = int(residue_index)
     except (TypeError, ValueError) as exc:
-        msg = f"{label} residue index must be an integer."
+        msg = f"Unable to resolve atom-contact endpoint {endpoint}: residue index must be an integer."
         raise ValueError(msg) from exc
 
     if residue_index < 1:
-        msg = f"{label} residue index must be 1 or greater."
+        msg = f"Unable to resolve atom-contact endpoint {endpoint}: residue index must be 1 or greater."
         raise ValueError(msg)
 
     atom_name = str(atom_name)
     try:
         return atom_idx_map[(chain_name, residue_index - 1, atom_name)]
     except KeyError as exc:
-        msg = (
-            f"{label} atom '{atom_name}' was not found in chain "
-            f"{chain_name} residue {residue_index}."
-        )
+        endpoint = f"{chain_name}:{residue_index}:{atom_name}"
+        msg = f"Unable to resolve atom-contact endpoint {endpoint}"
         raise ValueError(msg) from exc
 '''
     text = replace_once(text, token_anchor, token_replacement, "schema atom_contact resolver")
@@ -126,8 +168,8 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
             force = atom_contact.get("force", False)
             if force is not True:
                 msg = (
-                    "atom_contact requires force: true because exact atom-atom "
-                    "enforcement is implemented through inference-time potentials. "
+                    "atom_contact requires force: true because specific atom-pair "
+                    "distance guidance is implemented through a soft inference-time potential. "
                     "Also run boltz predict with --use_potentials."
                 )
                 raise ValueError(msg)
@@ -341,6 +383,13 @@ def patch_featurizerv2(path: Path) -> bool:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Verify the Boltz version and source hashes without modifying files.",
+    )
+    args = parser.parse_args()
     paths = {
         "schema.py": Path(inspect.getfile(schema)),
         "types.py": Path(inspect.getfile(types)),
@@ -351,6 +400,11 @@ def main() -> None:
     print("boltz version:", getattr(boltz, "__version__", "unknown"))
     for label, path in paths.items():
         print(f"{label}: {path}")
+
+    check_compatibility(paths)
+    if args.check:
+        print("Boltz atom_contact patch compatibility check passed.")
+        return
 
     changed = {
         "schema.py": patch_schema(paths["schema.py"]),

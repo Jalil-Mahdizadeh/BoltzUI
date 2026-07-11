@@ -12,21 +12,18 @@
 
 Boltz 2.2.1 can fill an 8 GB GPU on larger or more aggressive runs. Keep `--max_parallel_samples 1` on small laptop GPUs. Increase `--diffusion_samples` for more samples, but keep them serial unless you have much more VRAM.
 
-The included `run.sh` uses:
+`run.sh` only launches the container. Prediction parameters are selected in the dashboard and are not supplied by the launcher.
 
-```bash
---diffusion_samples 20
---recycling_steps 10
---max_parallel_samples 1
-```
+## Prediction presets
 
-For a safer first run on an 8 GB GPU, edit `run.sh` manually:
+<!-- BEGIN GENERATED PREDICTION PRESETS -->
+| Preset | Sampling steps | Step scale | Potentials | Status |
+|---|---:|---:|---|---|
+| Standard Boltz-2 | 200 | 1.5 | Off | Standard |
+| Atom-contact exploration | 400 | 1.0 | On | Experimental |
 
-```bash
---diffusion_samples 1
---recycling_steps 3
---max_parallel_samples 1
-```
+The atom-contact exploration preset is experimental. Its lower step scale changes the reverse-diffusion update and sample diversity and may interact with inference-time potential guidance; it is not a mathematical guarantee of restraint satisfaction.
+<!-- END GENERATED PREDICTION PRESETS -->
 
 On the tested NVIDIA RTX PRO 2000 Blackwell laptop GPU with 8151 MiB VRAM, the largest confirmed successful minimal GPU test was a synthetic 700 amino-acid single-chain input with `msa: empty`, `diffusion_samples=1`, `recycling_steps=1`, `sampling_steps=5`, and `max_parallel_samples=1`. Lengths of 750 amino acids and above failed with a CUDA driver `device not ready` error under the same test settings. Treat this as a laptop-specific safety boundary, not a general Boltz limit.
 
@@ -40,14 +37,4 @@ For the real 495-residue `NusA_open.yaml` input, single-sequence GPU prediction 
 
 ## Build input
 
-The Docker build expects a local `.boltz/` folder next to the Dockerfile. It must contain:
-
-```text
-.boltz/
-  boltz2_aff.ckpt
-  boltz2_conf.ckpt
-  mols.tar
-  mols/
-```
-
-The `.boltz/` folder is intentionally ignored by Git because it is several gigabytes.
+The Docker build expects the local base image `boltzui:221`. It verifies the installed Boltz version and source hashes before applying the patch. Model and molecule caches are inherited from that image.

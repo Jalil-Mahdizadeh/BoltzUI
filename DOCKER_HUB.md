@@ -2,11 +2,11 @@
 
 ## Short Description
 
-BoltzUI web app for Boltz 2.2.1 with a pre-baked model cache and exact atom_contact constraints.
+BoltzUI web app for Boltz 2.2.1 with a pre-baked model cache and atom-pair distance guidance.
 
 ## Overview
 
-This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. It includes a reproducible Boltz runtime patch for Boltz2-only `atom_contact` constraints, allowing exact non-covalent atom-atom distance guidance through the existing contact potential path.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. It includes a reproducible Boltz runtime patch for Boltz2-only `atom_contact` restraints, providing specific atom-pair distance guidance through token conditioning and a soft inference-time contact potential.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -16,10 +16,9 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Cache path: `/opt/boltz-cache`
 - Environment variable: `BOLTZ_CACHE=/opt/boltz-cache`
 - Includes Boltz2 checkpoints and molecule cache
-- Adds `atom_contact` YAML constraints for exact atom-atom contact guidance
+- Adds `atom_contact` YAML restraints for specific atom-pair distance guidance
 - `atom_contact` requires `force: true`, `--use_potentials`, and `max_distance` in `2.0-20.0` Angstrom
-- The UI defaults to `--sampling_steps 400` and `--step_scale 1.0` because those settings improved atom-contact satisfaction in local benchmarks
-- `--use_potentials` stays off by default for general tasks, but the server blocks `atom_contact` inputs unless it is enabled
+- Final atom-pair distances are measured after prediction and reported separately from confidence
 - MSA defaults match upstream Boltz: `max_msa_seqs=8192`, `subsample_msa=true`, and `num_subsampled_msa=1024`
 - Starts the BoltzUI web server on port `5173`
 - Designed for bind-mounted workspaces at `/workspace/BoltzUI`
@@ -29,6 +28,17 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Embedded 3D structure preview with confidence color legend
 - Inputs are saved under `workspace/inputs/` and prediction folders are written under `workspace/results/`
 - Example inputs included in the repository under `workspace/inputs/`
+
+## Prediction Presets
+
+<!-- BEGIN GENERATED PREDICTION PRESETS -->
+| Preset | Sampling steps | Step scale | Potentials | Status |
+|---|---:|---:|---|---|
+| Standard Boltz-2 | 200 | 1.5 | Off | Standard |
+| Atom-contact exploration | 400 | 1.0 | On | Experimental |
+
+The atom-contact exploration preset is experimental. Its lower step scale changes the reverse-diffusion update and sample diversity and may interact with inference-time potential guidance; it is not a mathematical guarantee of restraint satisfaction.
+<!-- END GENERATED PREDICTION PRESETS -->
 
 ## Quick Start
 

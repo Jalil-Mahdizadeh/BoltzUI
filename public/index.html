@@ -42,6 +42,14 @@
             <span>Settings</span>
             <em>36 flags</em>
           </summary>
+          <div class="preset-control" id="preset-control">
+            <div class="preset-heading">
+              <strong>Prediction preset</strong>
+              <em id="preset-status">Standard Boltz-2</em>
+            </div>
+            <div class="segmented preset-buttons" id="preset-buttons" role="group" aria-label="Prediction preset"></div>
+            <p id="preset-description"></p>
+          </div>
           <div id="option-groups" class="option-groups"></div>
         </details>
       </aside>
@@ -151,6 +159,8 @@
               <div class="inspector-actions">
                 <a id="structure-file-link" class="file-link disabled" href="#" target="_blank" rel="noreferrer">Structure</a>
                 <a id="confidence-file-link" class="file-link disabled" href="#" target="_blank" rel="noreferrer">Confidence JSON</a>
+                <a id="run-manifest-link" class="file-link disabled" href="#" target="_blank" rel="noreferrer">Run manifest</a>
+                <a id="restraint-report-link" class="file-link disabled" href="#" target="_blank" rel="noreferrer">Restraint report</a>
               </div>
             </div>
 
@@ -168,6 +178,31 @@
                 <tbody id="model-table"></tbody>
               </table>
             </div>
+
+            <section class="restraint-audit" id="restraint-audit" hidden aria-label="Atom-pair restraint audit">
+              <div class="restraint-audit-heading">
+                <div>
+                  <span class="section-kicker">Specific atom-pair distance guidance</span>
+                  <h3>Restraint Audit</h3>
+                </div>
+                <p>Soft inference-time potential guidance; final distances are measured from each generated structure.</p>
+              </div>
+              <div class="model-table-wrap">
+                <table class="model-table restraint-table">
+                  <thead>
+                    <tr>
+                      <th>Model</th>
+                      <th>Atom pair</th>
+                      <th>Requested max</th>
+                      <th>Observed</th>
+                      <th>Excess</th>
+                      <th>Satisfied</th>
+                    </tr>
+                  </thead>
+                  <tbody id="restraint-table-body"></tbody>
+                </table>
+              </div>
+            </section>
           </section>
 
           <section class="panel console-panel" aria-label="Run console">

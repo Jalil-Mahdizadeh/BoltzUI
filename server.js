@@ -5,6 +5,15 @@ const path = require("node:path");
 const { spawn } = require("node:child_process");
 const { randomUUID } = require("node:crypto");
 const EventEmitter = require("node:events");
+const { inputMsaSummary, parseInputFile, validateAtomContacts } = require("./lib/atom-contact");
+const {
+  DEFAULT_PRESET,
+  optionSchema,
+  publicPresets,
+  resolvePredictionOptions
+} = require("./lib/prediction-config");
+const { completeRunManifest, createRunManifest, writeJson } = require("./lib/run-manifest");
+const { writeRestraintReport } = require("./lib/restraint-report");
 
 const ROOT = process.cwd();
 const HOST = process.env.HOST || "0.0.0.0";
@@ -21,50 +30,6 @@ const INPUT_EXTENSIONS = new Set([".yaml", ".yml", ".json", ".fasta", ".fa", ".f
 const STRUCTURE_EXTENSIONS = new Set([".pdb", ".cif", ".mmcif"]);
 const TEXT_EXTENSIONS = new Set([".txt", ".log", ".json", ".yaml", ".yml", ".csv", ".pdb", ".cif", ".mmcif", ".fa", ".faa", ".fasta", ".sh", ".md"]);
 const SKIP_DIRS = new Set([".git", ".boltz", ".boltz-ui", "graphify-out", "node_modules"]);
-
-const optionSchema = [
-  { key: "out_dir", flag: "--out_dir", label: "Output directory", type: "path", group: "Paths & checkpoints", default: RESULTS_RELATIVE, placeholder: RESULTS_RELATIVE },
-  { key: "cache", flag: "--cache", label: "Cache path", type: "path", group: "Paths & checkpoints", default: "/opt/boltz-cache" },
-  { key: "checkpoint", flag: "--checkpoint", label: "Structure checkpoint", type: "path", group: "Paths & checkpoints" },
-  { key: "affinity_checkpoint", flag: "--affinity_checkpoint", label: "Affinity checkpoint", type: "path", group: "Paths & checkpoints" },
-  { key: "devices", flag: "--devices", label: "Devices", type: "int", group: "Execution", default: "1", min: 1 },
-  { key: "accelerator", flag: "--accelerator", label: "Accelerator", type: "select", group: "Execution", default: "gpu", choices: ["gpu", "cpu", "tpu"] },
-  { key: "model", flag: "--model", label: "Model", type: "select", group: "Execution", default: "boltz2", choices: ["boltz1", "boltz2"] },
-  { key: "method", flag: "--method", label: "Method", type: "text", group: "Execution" },
-
-  { key: "recycling_steps", flag: "--recycling_steps", label: "Recycling steps", type: "int", group: "Sampling", default: "3", min: 0 },
-  { key: "sampling_steps", flag: "--sampling_steps", label: "Sampling steps", type: "int", group: "Sampling", default: "400", min: 1 },
-  { key: "diffusion_samples", flag: "--diffusion_samples", label: "Diffusion samples", type: "int", group: "Sampling", default: "1", min: 1 },
-  { key: "max_parallel_samples", flag: "--max_parallel_samples", label: "Max parallel samples", type: "int", group: "Sampling", default: "1", min: 1 },
-  { key: "step_scale", flag: "--step_scale", label: "Step scale", type: "float", group: "Sampling", default: "1.0", min: 0 },
-  { key: "seed", flag: "--seed", label: "Seed", type: "int", group: "Sampling", default: "1", min: -1, placeholder: "-1 for random" },
-  { key: "use_potentials", flag: "--use_potentials", label: "Use potentials", type: "bool", group: "Sampling", default: false },
-
-  { key: "use_msa_server", flag: "--use_msa_server", label: "Use MSA server", type: "bool", group: "MSA settings", subgroup: "MSA server", default: true },
-  { key: "msa_server_url", flag: "--msa_server_url", label: "MSA server URL", type: "text", group: "MSA settings", subgroup: "MSA server", default: "https://api.colabfold.com" },
-  { key: "msa_pairing_strategy", flag: "--msa_pairing_strategy", label: "MSA pairing", type: "select", group: "MSA settings", subgroup: "MSA server", default: "greedy", choices: ["greedy", "complete"] },
-  { key: "msa_server_username", flag: "--msa_server_username", label: "MSA username", type: "text", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
-  { key: "msa_server_password", flag: "--msa_server_password", label: "MSA password", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
-  { key: "api_key_header", flag: "--api_key_header", label: "API key header", type: "text", group: "MSA settings", subgroup: "MSA credentials", defaultDisplay: "not set" },
-  { key: "api_key_value", flag: "--api_key_value", label: "API key value", type: "password", group: "MSA settings", subgroup: "MSA credentials", secret: true, defaultDisplay: "not set" },
-  { key: "max_msa_seqs", flag: "--max_msa_seqs", label: "Max MSA sequences", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "8192", min: 1 },
-  { key: "subsample_msa", flag: "--subsample_msa", label: "Subsample MSA", type: "bool", group: "MSA settings", subgroup: "MSA limits", default: true },
-  { key: "num_subsampled_msa", flag: "--num_subsampled_msa", label: "Subsampled MSA count", type: "int", group: "MSA settings", subgroup: "MSA limits", default: "1024", min: 1, dependsOn: "subsample_msa" },
-
-  { key: "output_format", flag: "--output_format", label: "Output format", type: "select", group: "Output", default: "pdb", choices: ["pdb", "mmcif"] },
-  { key: "write_full_pae", flag: "--write_full_pae", label: "Write full PAE", type: "bool", group: "Output", default: true },
-  { key: "write_full_pde", flag: "--write_full_pde", label: "Write full PDE", type: "bool", group: "Output", default: false },
-  { key: "write_embeddings", flag: "--write_embeddings", label: "Write embeddings", type: "bool", group: "Output", default: false },
-  { key: "override", flag: "--override", label: "Override existing", type: "bool", group: "Output", default: false },
-
-  { key: "num_workers", flag: "--num_workers", label: "Data workers", type: "int", group: "Compute", default: "0", min: 0 },
-  { key: "preprocessing_threads", flag: "--preprocessing-threads", label: "Preprocessing threads", type: "int", group: "Compute", default: "1", min: 1 },
-  { key: "no_kernels", flag: "--no_kernels", label: "Disable kernels", type: "bool", group: "Compute", default: true },
-
-  { key: "affinity_mw_correction", flag: "--affinity_mw_correction", label: "Affinity MW correction", type: "bool", group: "Affinity", default: false, requiresLigand: true },
-  { key: "sampling_steps_affinity", flag: "--sampling_steps_affinity", label: "Affinity sampling steps", type: "int", group: "Affinity", default: "200", min: 1, requiresLigand: true },
-  { key: "diffusion_samples_affinity", flag: "--diffusion_samples_affinity", label: "Affinity diffusion samples", type: "int", group: "Affinity", default: "5", min: 1, requiresLigand: true }
-];
 
 const jobs = new Map();
 const jobEvents = new EventEmitter();
@@ -153,55 +118,10 @@ function quoteArg(value) {
   return JSON.stringify(text);
 }
 
-function normalizeScalar(value, option) {
-  if (value === undefined || value === null) return "";
-  const text = String(value).trim();
-  if (!text) return "";
-
-  if (option.type === "int") {
-    if (!/^-?\d+$/.test(text)) throw new Error(`${option.label} must be an integer.`);
-    const number = Number(text);
-    if (Number.isFinite(option.min) && number < option.min) throw new Error(`${option.label} must be at least ${option.min}.`);
-    return String(number);
-  }
-
-  if (option.type === "float") {
-    const number = Number(text);
-    if (!Number.isFinite(number)) throw new Error(`${option.label} must be a number.`);
-    if (Number.isFinite(option.min) && number < option.min) throw new Error(`${option.label} must be at least ${option.min}.`);
-    return text;
-  }
-
-  if (option.type === "select" && option.choices && !option.choices.includes(text)) {
-    throw new Error(`${option.label} must be one of: ${option.choices.join(", ")}.`);
-  }
-
-  return text;
-}
-
-function normalizeOptions(inputOptions = {}) {
-  const normalized = {};
-  for (const option of optionSchema) {
-    const hasValue = Object.prototype.hasOwnProperty.call(inputOptions, option.key);
-    if (option.type === "bool") {
-      normalized[option.key] = hasValue ? Boolean(inputOptions[option.key]) : Boolean(option.default);
-      continue;
-    }
-    normalized[option.key] = normalizeScalar(hasValue ? inputOptions[option.key] : option.default, option);
-  }
-  return normalized;
-}
-
 function objectHasLigandEntity(value) {
   if (Array.isArray(value)) return value.some(objectHasLigandEntity);
   if (!value || typeof value !== "object") return false;
   return Object.entries(value).some(([key, child]) => key === "ligand" || key === "ligands" || objectHasLigandEntity(child));
-}
-
-function objectHasKey(value, targetKey) {
-  if (Array.isArray(value)) return value.some((child) => objectHasKey(child, targetKey));
-  if (!value || typeof value !== "object") return false;
-  return Object.entries(value).some(([key, child]) => key === targetKey || objectHasKey(child, targetKey));
 }
 
 function inputHasLigandEntity(dataPath) {
@@ -223,26 +143,7 @@ function inputHasLigandEntity(dataPath) {
   }
 }
 
-function inputHasAtomContactConstraint(dataPath) {
-  const extension = path.extname(dataPath).toLowerCase();
-  if (![".yaml", ".yml", ".json"].includes(extension)) return false;
-
-  try {
-    const text = fs.readFileSync(dataPath, "utf8");
-    if (extension === ".json") {
-      return objectHasKey(JSON.parse(text), "atom_contact");
-    }
-    const uncommented = text
-      .split(/\r?\n/)
-      .filter((line) => !line.trimStart().startsWith("#"))
-      .join("\n");
-    return /(^|\n)\s*-\s*atom_contact\s*:/i.test(uncommented);
-  } catch {
-    return false;
-  }
-}
-
-function appendPredictOptions(args, options, maskSecrets, context = {}) {
+function appendPredictOptions(args, options, secretMode = "include", context = {}) {
   for (const option of optionSchema) {
     if (MSA_SERVER_DEPENDENT_OPTIONS.has(option.key) && !options.use_msa_server) {
       continue;
@@ -253,6 +154,7 @@ function appendPredictOptions(args, options, maskSecrets, context = {}) {
     if (option.requiresLigand && !context.hasLigand) {
       continue;
     }
+    if (option.secret && secretMode === "omit") continue;
     const value = options[option.key];
     if (option.type === "bool") {
       if (value) args.push(option.flag);
@@ -260,36 +162,69 @@ function appendPredictOptions(args, options, maskSecrets, context = {}) {
     }
     if (value !== "") {
       args.push(option.flag);
-      args.push(maskSecrets && option.secret ? "[hidden]" : value);
+      args.push(secretMode === "mask" && option.secret ? "[hidden]" : value);
     }
   }
 }
 
-function predictArgs(dataPath, options, maskSecrets, dataArg, context = {}) {
+function predictArgs(dataPath, options, secretMode, dataArg, context = {}) {
   const args = ["predict", dataArg];
-  appendPredictOptions(args, options, maskSecrets, context);
+  appendPredictOptions(args, options, secretMode, context);
   return args;
 }
 
-function buildBoltzCommand(payload, { maskSecrets = false } = {}) {
+function displayPath(absolutePath) {
+  return isInside(absolutePath, ROOT) ? toRelative(absolutePath) : absolutePath;
+}
+
+function resultDirectoryFor(dataPath, options) {
+  const outputRoot = path.isAbsolute(options.out_dir)
+    ? options.out_dir
+    : path.resolve(ROOT, options.out_dir);
+  const inputName = path.basename(dataPath, path.extname(dataPath));
+  return path.join(outputRoot, `boltz_results_${inputName}`);
+}
+
+function preparePrediction(payload) {
   const dataPath = safeResolve(payload.data);
   const stat = fs.statSync(dataPath);
   if (!stat.isFile()) throw new Error("Input data path must be a file.");
 
-  const options = normalizeOptions(payload.options || {});
-  if (!options.use_potentials && inputHasAtomContactConstraint(dataPath)) {
-    throw new Error("This input contains atom_contact constraints, which require --use_potentials for exact atom-atom enforcement. Enable Use potentials and run again.");
-  }
-  const args = predictArgs(dataPath, options, maskSecrets, dataPath, {
-    hasLigand: inputHasLigandEntity(dataPath)
-  });
-  const command = `boltz ${args.map(quoteArg).join(" ")}`;
+  const requestedPreset = payload.preset || (payload.options ? "custom" : DEFAULT_PRESET);
+  const { preset, options } = resolvePredictionOptions(payload.options || {}, requestedPreset);
+  const document = parseInputFile(dataPath);
+  const { restraints } = validateAtomContacts(document, { usePotentials: options.use_potentials });
+  const context = { hasLigand: inputHasLigandEntity(dataPath) };
+  const args = predictArgs(dataPath, options, "include", dataPath, context);
+  const maskedArgs = predictArgs(dataPath, options, "mask", dataPath, context);
+  const manifestArgs = predictArgs(dataPath, options, "omit", dataPath, context);
+  const resultDirectory = resultDirectoryFor(dataPath, options);
   return {
     executable: "boltz",
     args,
+    maskedArgs,
+    manifestArgs,
     env: { ...process.env },
-    command,
-    data: toRelative(dataPath)
+    command: `boltz ${args.map(quoteArg).join(" ")}`,
+    maskedCommand: `boltz ${maskedArgs.map(quoteArg).join(" ")}`,
+    data: toRelative(dataPath),
+    dataPath,
+    document,
+    options,
+    preset,
+    atomContacts: restraints,
+    msa: inputMsaSummary(document, options),
+    resultDirectory,
+    outputDirectory: displayPath(resultDirectory)
+  };
+}
+
+function buildBoltzCommand(payload, { maskSecrets = false } = {}) {
+  const prediction = preparePrediction(payload);
+  return {
+    ...prediction,
+    args: maskSecrets ? prediction.maskedArgs : prediction.args,
+    command: maskSecrets ? prediction.maskedCommand : prediction.command
   };
 }
 
@@ -359,6 +294,14 @@ function numericMetric(value) {
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
+async function readJsonIfPresent(filePath) {
+  try {
+    return JSON.parse(await fsp.readFile(filePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
 function modelIndexFromName(file) {
   const match = path.basename(file).match(/model_(\d+)/);
   return match ? Number(match[1]) : null;
@@ -415,6 +358,11 @@ async function summarizeResultDir(dir) {
     manifest = null;
   }
 
+  const runManifestFile = path.join(dir, "boltzui_run.json");
+  const restraintReportFile = path.join(dir, "atom_contact_restraints.json");
+  const runManifest = await readJsonIfPresent(runManifestFile);
+  const restraintReport = await readJsonIfPresent(restraintReportFile);
+
   const stats = await fsp.stat(dir);
   return {
     name: path.basename(dir),
@@ -427,7 +375,11 @@ async function summarizeResultDir(dir) {
     plddtFiles: plddtFiles.length,
     bestModel,
     models,
-    manifest
+    manifest,
+    runManifest,
+    runManifestPath: runManifest ? toRelative(runManifestFile) : null,
+    restraintReport,
+    restraintReportPath: restraintReport ? toRelative(restraintReportFile) : null
   };
 }
 
@@ -451,8 +403,11 @@ function publicJob(job, includeLogs = false) {
     signal: job.signal,
     command: job.command,
     data: job.data,
+    preset: job.preset,
     failureReason: job.failureReason || null,
-    logPath: job.logPath ? toRelative(job.logPath) : null
+    logPath: job.logPath ? toRelative(job.logPath) : null,
+    manifestPath: job.manifestPath ? displayPath(job.manifestPath) : null,
+    restraintReportPath: job.restraintReportPath ? displayPath(job.restraintReportPath) : null
   };
   if (includeLogs) summary.logs = job.logs;
   return summary;
@@ -481,10 +436,10 @@ function addLog(job, chunk) {
 async function startJob(payload) {
   await fsp.mkdir(JOB_DIR, { recursive: true });
   await ensureDataWorkspace();
-  const realCommand = buildBoltzCommand(payload, { maskSecrets: false });
-  const maskedCommand = buildBoltzCommand(payload, { maskSecrets: true });
+  const prediction = preparePrediction(payload);
   const id = `${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID().slice(0, 8)}`;
   const logPath = path.join(JOB_DIR, `${id}.log`);
+  const manifestStagingPath = path.join(JOB_DIR, `${id}.manifest.json`);
   const job = {
     id,
     status: "running",
@@ -492,20 +447,40 @@ async function startJob(payload) {
     endedAt: null,
     exitCode: null,
     signal: null,
-    command: maskedCommand.command,
-    data: realCommand.data,
+    command: prediction.maskedCommand,
+    data: prediction.data,
+    preset: prediction.preset,
+    options: prediction.options,
+    atomContacts: prediction.atomContacts,
+    resultDirectory: prediction.resultDirectory,
+    manifestStagingPath,
+    manifestPath: null,
+    restraintReportPath: null,
     detectedFailure: false,
     failureReason: null,
     logPath,
     logs: []
   };
+  job.manifest = createRunManifest({
+    root: ROOT,
+    jobId: id,
+    preset: prediction.preset,
+    options: prediction.options,
+    args: prediction.manifestArgs,
+    inputPath: prediction.dataPath,
+    outputDirectory: prediction.outputDirectory,
+    atomContacts: prediction.atomContacts,
+    msa: prediction.msa,
+    startedAt: job.startedAt
+  });
   jobs.set(id, job);
   await fsp.writeFile(logPath, "", "utf8");
+  await writeJson(manifestStagingPath, job.manifest);
   addLog(job, `${job.startedAt} ${job.command}\n`);
 
-  const child = spawn(realCommand.executable, realCommand.args, {
+  const child = spawn(prediction.executable, prediction.args, {
     cwd: ROOT,
-    env: realCommand.env,
+    env: prediction.env,
     windowsHide: true
   });
   job.child = child;
@@ -515,14 +490,13 @@ async function startJob(payload) {
   child.stderr.on("data", (chunk) => addLog(job, chunk));
   child.on("error", (error) => {
     job.status = "failed";
-    job.endedAt = new Date().toISOString();
+    job.failureReason = `Process error: ${error.message}`;
     addLog(job, `\nProcess error: ${error.message}\n`);
-    jobEvents.emit(job.id, { type: "status", data: publicJob(job) });
   });
-  child.on("close", (code, signal) => {
+  child.on("close", async (code, signal) => {
     if (job.status === "stopping") {
       job.status = "stopped";
-    } else {
+    } else if (job.status !== "failed") {
       job.status = code === 0 && !job.detectedFailure ? "succeeded" : "failed";
     }
     job.exitCode = code;
@@ -532,6 +506,26 @@ async function startJob(payload) {
       addLog(job, "\nBoltz reported an input-processing failure even though the process exited with code 0.\n");
     }
     addLog(job, `\nExited with code ${code}${signal ? ` (${signal})` : ""}.\n`);
+    try {
+      if (job.atomContacts.length > 0) {
+        const audit = await writeRestraintReport(job.resultDirectory, job.atomContacts);
+        job.restraintReportPath = audit.reportPath;
+      }
+    } catch (error) {
+      job.status = "failed";
+      job.failureReason = `Restraint report generation failed: ${error.message}`;
+      addLog(job, `\n${job.failureReason}\n`);
+    }
+    try {
+      job.manifest = completeRunManifest(job.manifest, job);
+      job.manifestPath = path.join(job.resultDirectory, "boltzui_run.json");
+      await writeJson(job.manifestStagingPath, job.manifest);
+      await writeJson(job.manifestPath, job.manifest);
+    } catch (error) {
+      job.status = "failed";
+      job.failureReason = `Run manifest finalization failed: ${error.message}`;
+      addLog(job, `\n${job.failureReason}\n`);
+    }
     jobEvents.emit(job.id, { type: "status", data: publicJob(job) });
   });
 
@@ -618,6 +612,8 @@ async function handleApi(req, res, url) {
     sendJson(res, 200, {
       workspace: ROOT,
       options: optionSchema,
+      presets: publicPresets(),
+      defaultPreset: DEFAULT_PRESET,
       inputs: await listInputFiles(),
       results: await listResults(),
       jobs: Array.from(jobs.values()).map((job) => publicJob(job))
@@ -633,7 +629,12 @@ async function handleApi(req, res, url) {
   if (req.method === "POST" && url.pathname === "/api/command") {
     const payload = await readBody(req);
     const command = buildBoltzCommand(payload, { maskSecrets: true });
-    sendJson(res, 200, { command: command.command, data: command.data });
+    sendJson(res, 200, {
+      command: command.command,
+      data: command.data,
+      preset: command.preset,
+      options: command.options
+    });
     return;
   }
 

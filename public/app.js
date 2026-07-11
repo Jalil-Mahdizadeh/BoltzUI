@@ -1,6 +1,8 @@
 const state = {
   schema: [],
   options: {},
+  presets: [],
+  selectedPreset: null,
   inputs: [],
   results: [],
   jobs: [],
@@ -65,6 +67,47 @@ function defaultsFromSchema(schema) {
 
 function optionIsActive(option) {
   return !option.dependsOn || Boolean(state.options[option.dependsOn]);
+}
+
+function selectedPreset() {
+  return state.presets.find((preset) => preset.id === state.selectedPreset) || null;
+}
+
+function renderPresetControl() {
+  const root = $("#preset-buttons");
+  if (!root) return;
+  root.innerHTML = "";
+  for (const preset of state.presets) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `segment-button${preset.id === state.selectedPreset ? " active" : ""}`;
+    button.textContent = preset.id === "standard"
+      ? "Standard"
+      : preset.id === "atom_contact" ? "Atom contact" : preset.label;
+    button.setAttribute("aria-pressed", String(preset.id === state.selectedPreset));
+    button.addEventListener("click", () => applyPreset(preset.id));
+    root.appendChild(button);
+  }
+  const preset = selectedPreset();
+  $("#preset-status").textContent = preset ? preset.label : "Custom";
+  $("#preset-description").textContent = preset ? preset.description : "Manually edited prediction parameters.";
+}
+
+function applyPreset(id) {
+  const preset = state.presets.find((item) => item.id === id);
+  if (!preset) return;
+  state.selectedPreset = preset.id;
+  if (preset.options) state.options = { ...preset.options };
+  renderPresetControl();
+  renderOptionGroups();
+  renderOverview();
+  updateCommandPreview();
+}
+
+function markPresetCustom() {
+  if (state.selectedPreset === "custom") return;
+  state.selectedPreset = "custom";
+  renderPresetControl();
 }
 
 function updateDependentOptionControls() {
@@ -266,6 +309,7 @@ function renderSegmented(option, value) {
     button.disabled = !optionIsActive(option);
     button.addEventListener("click", () => {
       state.options[option.key] = choice;
+      markPresetCustom();
       renderOptionGroups();
       renderOverview();
       updateCommandPreview();
@@ -293,6 +337,7 @@ function renderOptionField(option) {
     input.disabled = !active;
     input.addEventListener("change", () => {
       state.options[option.key] = input.checked;
+      markPresetCustom();
       updateDependentOptionControls();
       renderOverview();
       updateCommandPreview();
@@ -339,6 +384,7 @@ function renderOptionField(option) {
   input.autocomplete = "off";
   input.addEventListener("input", () => {
     state.options[option.key] = input.value;
+    markPresetCustom();
     renderOverview();
     updateCommandPreview();
   });
@@ -412,6 +458,7 @@ function renderOptionGroups() {
 function payloadFromForm() {
   return {
     data: $("#input-file").value,
+    preset: state.selectedPreset || "custom",
     options: state.options
   };
 }
@@ -482,8 +529,46 @@ function renderResults() {
   renderResultSelectors();
   renderResultCards();
   renderModelTable();
+  renderRestraintAudit();
   renderSelectedStructure();
   renderOverview();
+}
+
+function renderRestraintAudit() {
+  const result = currentResult();
+  const audit = $("#restraint-audit");
+  const body = $("#restraint-table-body");
+  const report = result && result.restraintReport;
+  setFileLink("#run-manifest-link", result && result.runManifestPath);
+  setFileLink("#restraint-report-link", result && result.restraintReportPath);
+  body.innerHTML = "";
+  if (!report || !Array.isArray(report.restraints) || !report.restraints.length) {
+    audit.hidden = true;
+    return;
+  }
+
+  audit.hidden = false;
+  for (const restraint of report.restraints) {
+    const pair = `${restraint.chain1}:${restraint.residue1}:${restraint.atom1} - ${restraint.chain2}:${restraint.residue2}:${restraint.atom2}`;
+    const models = Array.isArray(restraint.models) && restraint.models.length
+      ? restraint.models
+      : [{ model: "No structure", status: "unresolved", observed_distance: null, excess_distance: null, satisfied: null, unresolved_reason: "No generated structure was found." }];
+    for (const model of models) {
+      const row = document.createElement("tr");
+      const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
+      row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
+      row.title = model.unresolved_reason || "";
+      row.innerHTML = `
+        <td>${escapeHtml(model.model)}</td>
+        <td>${escapeHtml(pair)}</td>
+        <td>${formatNumber(Number(restraint.max_distance), 2)} A</td>
+        <td>${model.observed_distance === null ? "-" : `${formatNumber(model.observed_distance, 3)} A`}</td>
+        <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
+        <td>${escapeHtml(satisfaction)}</td>
+      `;
+      body.appendChild(row);
+    }
+  }
 }
 
 function renderResultCards() {
@@ -759,7 +844,12 @@ function connectJobEvents(id) {
 async function refreshAll() {
   const data = await api("/api/state");
   state.schema = data.options;
-  state.options = Object.keys(state.options).length ? state.options : defaultsFromSchema(data.options);
+  state.presets = data.presets || [];
+  if (!state.selectedPreset) state.selectedPreset = data.defaultPreset || "standard";
+  if (!Object.keys(state.options).length) {
+    const preset = state.presets.find((item) => item.id === state.selectedPreset);
+    state.options = preset && preset.options ? { ...preset.options } : defaultsFromSchema(data.options);
+  }
   state.inputs = data.inputs;
   state.results = data.results;
   state.jobs = data.jobs;
@@ -770,6 +860,7 @@ async function refreshAll() {
   $("#input-section").open = true;
 
   renderInputs();
+  renderPresetControl();
   renderOptionGroups();
   renderResults();
   renderJobs();
