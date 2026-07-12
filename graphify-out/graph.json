@@ -80,7 +80,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "lib_atom_contact_parseinputfile",
-      "community": 24,
+      "community": 1,
       "norm_label": "parseinputfile()"
     },
     {
@@ -114,10 +114,20 @@
       "norm_label": "buildchainindex()"
     },
     {
-      "label": "endpointLabel()",
+      "label": "documentHasAtomContacts()",
       "file_type": "code",
       "source_file": "lib/atom-contact.js",
       "source_location": "L60",
+      "_origin": "ast",
+      "id": "lib_atom_contact_documenthasatomcontacts",
+      "community": 1,
+      "norm_label": "documenthasatomcontacts()"
+    },
+    {
+      "label": "endpointLabel()",
+      "file_type": "code",
+      "source_file": "lib/atom-contact.js",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "lib_atom_contact_endpointlabel",
       "community": 24,
@@ -127,7 +137,7 @@
       "label": "normalizeEndpoint()",
       "file_type": "code",
       "source_file": "lib/atom-contact.js",
-      "source_location": "L64",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "lib_atom_contact_normalizeendpoint",
       "community": 24,
@@ -137,7 +147,7 @@
       "label": "canonicalPair()",
       "file_type": "code",
       "source_file": "lib/atom-contact.js",
-      "source_location": "L78",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "lib_atom_contact_canonicalpair",
       "community": 24,
@@ -147,7 +157,7 @@
       "label": "validateAtomContacts()",
       "file_type": "code",
       "source_file": "lib/atom-contact.js",
-      "source_location": "L82",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "lib_atom_contact_validateatomcontacts",
       "community": 24,
@@ -157,7 +167,7 @@
       "label": "inputMsaSummary()",
       "file_type": "code",
       "source_file": "lib/atom-contact.js",
-      "source_location": "L157",
+      "source_location": "L162",
       "_origin": "ast",
       "id": "lib_atom_contact_inputmsasummary",
       "community": 24,
@@ -174,10 +184,20 @@
       "norm_label": "prediction-config.js"
     },
     {
+      "label": "METHOD_CHOICES",
+      "file_type": "code",
+      "source_file": "lib/prediction-config.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "lib_prediction_config_method_choices",
+      "community": 22,
+      "norm_label": "method_choices"
+    },
+    {
       "label": "optionSchema",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L5",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "lib_prediction_config_optionschema",
       "community": 22,
@@ -187,7 +207,7 @@
       "label": "presets",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L49",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "lib_prediction_config_presets",
       "community": 22,
@@ -197,7 +217,7 @@
       "label": "normalizeScalar()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L78",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "lib_prediction_config_normalizescalar",
       "community": 22,
@@ -207,7 +227,7 @@
       "label": "normalizeOptions()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L103",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "lib_prediction_config_normalizeoptions",
       "community": 22,
@@ -217,7 +237,7 @@
       "label": "defaultOptions()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L116",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "lib_prediction_config_defaultoptions",
       "community": 22,
@@ -227,7 +247,7 @@
       "label": "presetById()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L120",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "lib_prediction_config_presetbyid",
       "community": 22,
@@ -237,7 +257,7 @@
       "label": "resolvedPresetOptions()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L126",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "lib_prediction_config_resolvedpresetoptions",
       "community": 22,
@@ -247,7 +267,7 @@
       "label": "resolvePredictionOptions()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L132",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "lib_prediction_config_resolvepredictionoptions",
       "community": 22,
@@ -257,7 +277,7 @@
       "label": "publicPresets()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L140",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "lib_prediction_config_publicpresets",
       "community": 22,
@@ -267,7 +287,7 @@
       "label": "serializableOptions()",
       "file_type": "code",
       "source_file": "lib/prediction-config.js",
-      "source_location": "L150",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "lib_prediction_config_serializableoptions",
       "community": 22,
@@ -364,10 +384,40 @@
       "norm_label": "tokenizecif()"
     },
     {
-      "label": "parseMmcif()",
+      "label": "normalizeCifValue()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
       "source_location": "L73",
+      "_origin": "ast",
+      "id": "lib_restraint_report_normalizecifvalue",
+      "community": 23,
+      "norm_label": "normalizecifvalue()"
+    },
+    {
+      "label": "createMmcifNamespace()",
+      "file_type": "code",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "lib_restraint_report_createmmcifnamespace",
+      "community": 23,
+      "norm_label": "createmmcifnamespace()"
+    },
+    {
+      "label": "addMmcifAtom()",
+      "file_type": "code",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "lib_restraint_report_addmmcifatom",
+      "community": 23,
+      "norm_label": "addmmcifatom()"
+    },
+    {
+      "label": "parseMmcif()",
+      "file_type": "code",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "lib_restraint_report_parsemmcif",
       "community": 23,
@@ -377,7 +427,7 @@
       "label": "endpoint()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L136",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "lib_restraint_report_endpoint",
       "community": 23,
@@ -387,17 +437,37 @@
       "label": "endpointText()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L144",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "lib_restraint_report_endpointtext",
       "community": 23,
       "norm_label": "endpointtext()"
     },
     {
+      "label": "resolveMmcifEndpoint()",
+      "file_type": "code",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "lib_restraint_report_resolvemmcifendpoint",
+      "community": 23,
+      "norm_label": "resolvemmcifendpoint()"
+    },
+    {
+      "label": "resolveMmcifPair()",
+      "file_type": "code",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L207",
+      "_origin": "ast",
+      "id": "lib_restraint_report_resolvemmcifpair",
+      "community": 23,
+      "norm_label": "resolvemmcifpair()"
+    },
+    {
       "label": "roundDistance()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L148",
+      "source_location": "L222",
       "_origin": "ast",
       "id": "lib_restraint_report_rounddistance",
       "community": 23,
@@ -407,7 +477,7 @@
       "label": "measureStructure()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L152",
+      "source_location": "L226",
       "_origin": "ast",
       "id": "lib_restraint_report_measurestructure",
       "community": 23,
@@ -417,7 +487,7 @@
       "label": "modelName()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L188",
+      "source_location": "L271",
       "_origin": "ast",
       "id": "lib_restraint_report_modelname",
       "community": 23,
@@ -427,7 +497,7 @@
       "label": "findStructureFiles()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L194",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "lib_restraint_report_findstructurefiles",
       "community": 23,
@@ -437,7 +507,7 @@
       "label": "createRestraintReport()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L209",
+      "source_location": "L292",
       "_origin": "ast",
       "id": "lib_restraint_report_createrestraintreport",
       "community": 23,
@@ -447,7 +517,7 @@
       "label": "writeRestraintReport()",
       "file_type": "code",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L238",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "lib_restraint_report_writerestraintreport",
       "community": 23,
@@ -807,7 +877,7 @@
       "label": "patch_types()",
       "file_type": "code",
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
-      "source_location": "L212",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "boltz_atom_contact_apply_atom_contact_patch_patch_types",
       "community": 19,
@@ -817,7 +887,7 @@
       "label": "patch_inferencev2()",
       "file_type": "code",
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
-      "source_location": "L229",
+      "source_location": "L236",
       "_origin": "ast",
       "id": "boltz_atom_contact_apply_atom_contact_patch_patch_inferencev2",
       "community": 19,
@@ -827,7 +897,7 @@
       "label": "patch_featurizerv2()",
       "file_type": "code",
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
-      "source_location": "L266",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "boltz_atom_contact_apply_atom_contact_patch_patch_featurizerv2",
       "community": 19,
@@ -837,7 +907,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
-      "source_location": "L385",
+      "source_location": "L426",
       "_origin": "ast",
       "id": "boltz_atom_contact_apply_atom_contact_patch_main",
       "community": 19,
@@ -957,7 +1027,7 @@
       "label": "markPresetCustom()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L107",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "public_app_markpresetcustom",
       "community": 2,
@@ -967,7 +1037,7 @@
       "label": "updateDependentOptionControls()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L113",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "public_app_updatedependentoptioncontrols",
       "community": 2,
@@ -977,7 +1047,7 @@
       "label": "groupOptions()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L125",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "public_app_groupoptions",
       "community": 2,
@@ -987,7 +1057,7 @@
       "label": "formatNumber()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L134",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "public_app_formatnumber",
       "community": 2,
@@ -997,7 +1067,7 @@
       "label": "formatDate()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L138",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "public_app_formatdate",
       "community": 2,
@@ -1007,7 +1077,7 @@
       "label": "metric()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L147",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "public_app_metric",
       "community": 2,
@@ -1017,7 +1087,7 @@
       "label": "basename()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L151",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "public_app_basename",
       "community": 2,
@@ -1027,7 +1097,7 @@
       "label": "fileStem()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L155",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "public_app_filestem",
       "community": 2,
@@ -1037,7 +1107,7 @@
       "label": "selectedInputPath()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L159",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "public_app_selectedinputpath",
       "community": 2,
@@ -1047,7 +1117,7 @@
       "label": "selectedInputFile()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L163",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "public_app_selectedinputfile",
       "community": 2,
@@ -1057,17 +1127,27 @@
       "label": "selectedInputHasLigand()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L168",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "public_app_selectedinputhasligand",
       "community": 2,
       "norm_label": "selectedinputhasligand()"
     },
     {
+      "label": "applySelectedInputDefaults()",
+      "file_type": "code",
+      "source_file": "public/app.js",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "public_app_applyselectedinputdefaults",
+      "community": 2,
+      "norm_label": "applyselectedinputdefaults()"
+    },
+    {
       "label": "resultsForSelectedInput()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L172",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "public_app_resultsforselectedinput",
       "community": 2,
@@ -1077,7 +1157,7 @@
       "label": "clamp()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L179",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "public_app_clamp",
       "community": 2,
@@ -1087,7 +1167,7 @@
       "label": "normalizeScore()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L183",
+      "source_location": "L190",
       "_origin": "ast",
       "id": "public_app_normalizescore",
       "community": 2,
@@ -1097,7 +1177,7 @@
       "label": "scoreCell()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L188",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "public_app_scorecell",
       "community": 2,
@@ -1107,7 +1187,7 @@
       "label": "setFileLink()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L198",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "public_app_setfilelink",
       "community": 2,
@@ -1117,7 +1197,7 @@
       "label": "modelLabel()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L212",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "public_app_modellabel",
       "community": 2,
@@ -1127,7 +1207,7 @@
       "label": "currentResult()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L220",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "public_app_currentresult",
       "community": 2,
@@ -1137,7 +1217,7 @@
       "label": "currentModel()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L232",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "public_app_currentmodel",
       "community": 2,
@@ -1147,7 +1227,7 @@
       "label": "latestJob()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L241",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "public_app_latestjob",
       "community": 2,
@@ -1157,7 +1237,7 @@
       "label": "renderOverview()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L248",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "public_app_renderoverview",
       "community": 2,
@@ -1167,7 +1247,7 @@
       "label": "renderInputs()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L269",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "public_app_renderinputs",
       "community": 2,
@@ -1177,7 +1257,7 @@
       "label": "renderSegmented()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L293",
+      "source_location": "L300",
       "_origin": "ast",
       "id": "public_app_rendersegmented",
       "community": 2,
@@ -1187,7 +1267,7 @@
       "label": "renderOptionField()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L323",
+      "source_location": "L330",
       "_origin": "ast",
       "id": "public_app_renderoptionfield",
       "community": 2,
@@ -1197,7 +1277,7 @@
       "label": "createOptionGrid()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L402",
+      "source_location": "L409",
       "_origin": "ast",
       "id": "public_app_createoptiongrid",
       "community": 2,
@@ -1207,7 +1287,7 @@
       "label": "renderOptionGroups()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L411",
+      "source_location": "L418",
       "_origin": "ast",
       "id": "public_app_renderoptiongroups",
       "community": 2,
@@ -1217,7 +1297,7 @@
       "label": "payloadFromForm()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L458",
+      "source_location": "L465",
       "_origin": "ast",
       "id": "public_app_payloadfromform",
       "community": 2,
@@ -1227,7 +1307,7 @@
       "label": "updateCommandPreview",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L466",
+      "source_location": "L473",
       "_origin": "ast",
       "id": "public_app_updatecommandpreview",
       "community": 2,
@@ -1237,7 +1317,7 @@
       "label": "renderResultSelectors()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L484",
+      "source_location": "L491",
       "_origin": "ast",
       "id": "public_app_renderresultselectors",
       "community": 2,
@@ -1247,7 +1327,7 @@
       "label": "renderResults()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L528",
+      "source_location": "L535",
       "_origin": "ast",
       "id": "public_app_renderresults",
       "community": 2,
@@ -1257,7 +1337,7 @@
       "label": "renderRestraintAudit()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L537",
+      "source_location": "L544",
       "_origin": "ast",
       "id": "public_app_renderrestraintaudit",
       "community": 2,
@@ -1267,7 +1347,7 @@
       "label": "renderResultCards()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L574",
+      "source_location": "L581",
       "_origin": "ast",
       "id": "public_app_renderresultcards",
       "community": 2,
@@ -1277,7 +1357,7 @@
       "label": "renderModelTable()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L611",
+      "source_location": "L618",
       "_origin": "ast",
       "id": "public_app_rendermodeltable",
       "community": 2,
@@ -1287,7 +1367,7 @@
       "label": "renderSelectedStructure()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L651",
+      "source_location": "L658",
       "_origin": "ast",
       "id": "public_app_renderselectedstructure",
       "community": 2,
@@ -1297,7 +1377,7 @@
       "label": "clearViewer()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L672",
+      "source_location": "L679",
       "_origin": "ast",
       "id": "public_app_clearviewer",
       "community": 2,
@@ -1307,7 +1387,7 @@
       "label": "chainColor()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L684",
+      "source_location": "L691",
       "_origin": "ast",
       "id": "public_app_chaincolor",
       "community": 2,
@@ -1317,7 +1397,7 @@
       "label": "confidenceColor()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L691",
+      "source_location": "L698",
       "_origin": "ast",
       "id": "public_app_confidencecolor",
       "community": 2,
@@ -1327,7 +1407,7 @@
       "label": "colorStyle()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L699",
+      "source_location": "L706",
       "_origin": "ast",
       "id": "public_app_colorstyle",
       "community": 2,
@@ -1337,7 +1417,7 @@
       "label": "updateConfidenceLegend()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L708",
+      "source_location": "L715",
       "_origin": "ast",
       "id": "public_app_updateconfidencelegend",
       "community": 2,
@@ -1347,7 +1427,7 @@
       "label": "applyViewerStyle()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L714",
+      "source_location": "L721",
       "_origin": "ast",
       "id": "public_app_applyviewerstyle",
       "community": 2,
@@ -1357,7 +1437,7 @@
       "label": "draw3DStructure()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L742",
+      "source_location": "L749",
       "_origin": "ast",
       "id": "public_app_draw3dstructure",
       "community": 2,
@@ -1367,7 +1447,7 @@
       "label": "renderJobs()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L765",
+      "source_location": "L772",
       "_origin": "ast",
       "id": "public_app_renderjobs",
       "community": 2,
@@ -1377,7 +1457,7 @@
       "label": "renderRunBanner()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L799",
+      "source_location": "L806",
       "_origin": "ast",
       "id": "public_app_renderrunbanner",
       "community": 2,
@@ -1387,7 +1467,7 @@
       "label": "loadJob()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L815",
+      "source_location": "L822",
       "_origin": "ast",
       "id": "public_app_loadjob",
       "community": 2,
@@ -1397,7 +1477,7 @@
       "label": "connectJobEvents()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L821",
+      "source_location": "L828",
       "_origin": "ast",
       "id": "public_app_connectjobevents",
       "community": 2,
@@ -1407,7 +1487,7 @@
       "label": "refreshAll()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L844",
+      "source_location": "L851",
       "_origin": "ast",
       "id": "public_app_refreshall",
       "community": 2,
@@ -1417,7 +1497,7 @@
       "label": "refreshResults()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L871",
+      "source_location": "L879",
       "_origin": "ast",
       "id": "public_app_refreshresults",
       "community": 2,
@@ -1427,7 +1507,7 @@
       "label": "updateSidebarToggle()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L877",
+      "source_location": "L885",
       "_origin": "ast",
       "id": "public_app_updatesidebartoggle",
       "community": 2,
@@ -1437,7 +1517,7 @@
       "label": "setSidebarCollapsed()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L886",
+      "source_location": "L894",
       "_origin": "ast",
       "id": "public_app_setsidebarcollapsed",
       "community": 2,
@@ -1447,7 +1527,7 @@
       "label": "initializeResponsiveSidebar()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L899",
+      "source_location": "L907",
       "_origin": "ast",
       "id": "public_app_initializeresponsivesidebar",
       "community": 2,
@@ -1457,7 +1537,7 @@
       "label": "updateFullscreenButton()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L905",
+      "source_location": "L913",
       "_origin": "ast",
       "id": "public_app_updatefullscreenbutton",
       "community": 2,
@@ -1467,7 +1547,7 @@
       "label": "togglePreviewFullscreen()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L912",
+      "source_location": "L920",
       "_origin": "ast",
       "id": "public_app_togglepreviewfullscreen",
       "community": 2,
@@ -1477,7 +1557,7 @@
       "label": "bindEvents()",
       "file_type": "code",
       "source_file": "public/app.js",
-      "source_location": "L931",
+      "source_location": "L939",
       "_origin": "ast",
       "id": "public_app_bindevents",
       "community": 2,
@@ -2922,20 +3002,20 @@
       "norm_label": "eventemitter"
     },
     {
-      "label": "{ inputMsaSummary, parseInputFile, validateAtomContacts }",
+      "label": "{\n  documentHasAtomContacts,\n  inputMsaSummary,\n  parseInputFile,\n  validateAtomContacts\n}",
       "file_type": "code",
       "source_file": "server.js",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "server_inputmsasummary_parseinputfile_validateatomcontacts",
+      "id": "server_documenthasatomcontacts_inputmsasummary_parseinputfile_validateatomcontacts",
       "community": 1,
-      "norm_label": "{ inputmsasummary, parseinputfile, validateatomcontacts }"
+      "norm_label": "{\n  documenthasatomcontacts,\n  inputmsasummary,\n  parseinputfile,\n  validateatomcontacts\n}"
     },
     {
       "label": "{\n  DEFAULT_PRESET,\n  optionSchema,\n  publicPresets,\n  resolvePredictionOptions\n}",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L9",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "server_default_preset_optionschema_publicpresets_resolvepredictionoptions",
       "community": 1,
@@ -2945,7 +3025,7 @@
       "label": "{ completeRunManifest, createRunManifest, writeJson }",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L15",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "server_completerunmanifest_createrunmanifest_writejson",
       "community": 1,
@@ -2955,7 +3035,7 @@
       "label": "{ writeRestraintReport }",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L16",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "server_writerestraintreport",
       "community": 1,
@@ -2965,7 +3045,7 @@
       "label": "ROOT",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L18",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "server_root",
       "community": 1,
@@ -2975,7 +3055,7 @@
       "label": "PORT",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L20",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "server_port",
       "community": 1,
@@ -2985,7 +3065,7 @@
       "label": "INPUT_DIR",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L24",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "server_input_dir",
       "community": 1,
@@ -2995,7 +3075,7 @@
       "label": "RESULTS_DIR",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L25",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "server_results_dir",
       "community": 1,
@@ -3005,7 +3085,7 @@
       "label": "STATE_DIR",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L26",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "server_state_dir",
       "community": 1,
@@ -3015,7 +3095,7 @@
       "label": "JOB_DIR",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L27",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "server_job_dir",
       "community": 1,
@@ -3025,7 +3105,7 @@
       "label": "INPUT_EXTENSIONS",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L29",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "server_input_extensions",
       "community": 1,
@@ -3035,7 +3115,7 @@
       "label": "STRUCTURE_EXTENSIONS",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L30",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "server_structure_extensions",
       "community": 1,
@@ -3045,7 +3125,7 @@
       "label": "TEXT_EXTENSIONS",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L31",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "server_text_extensions",
       "community": 1,
@@ -3055,7 +3135,7 @@
       "label": "SKIP_DIRS",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L32",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "server_skip_dirs",
       "community": 1,
@@ -3065,7 +3145,7 @@
       "label": "jobs",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L34",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "server_jobs",
       "community": 1,
@@ -3075,7 +3155,7 @@
       "label": "jobEvents",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L35",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "server_jobevents",
       "community": 1,
@@ -3085,7 +3165,7 @@
       "label": "MSA_SERVER_DEPENDENT_OPTIONS",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L36",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "server_msa_server_dependent_options",
       "community": 1,
@@ -3095,7 +3175,7 @@
       "label": "sendJson()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L45",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "server_sendjson",
       "community": 1,
@@ -3105,7 +3185,7 @@
       "label": "sendText()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L54",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "server_sendtext",
       "community": 1,
@@ -3115,7 +3195,7 @@
       "label": "isInside()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L62",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "server_isinside",
       "community": 1,
@@ -3125,7 +3205,7 @@
       "label": "safeResolve()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L67",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "server_saferesolve",
       "community": 1,
@@ -3135,7 +3215,7 @@
       "label": "toPosix()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L79",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "server_toposix",
       "community": 1,
@@ -3145,7 +3225,7 @@
       "label": "toRelative()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L83",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "server_torelative",
       "community": 1,
@@ -3155,7 +3235,7 @@
       "label": "ensureDataWorkspace()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L87",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "server_ensuredataworkspace",
       "community": 1,
@@ -3165,7 +3245,7 @@
       "label": "openLocalPath()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L92",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "server_openlocalpath",
       "community": 1,
@@ -3175,7 +3255,7 @@
       "label": "quoteArg()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L113",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "server_quotearg",
       "community": 1,
@@ -3185,7 +3265,7 @@
       "label": "objectHasLigandEntity()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L121",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "server_objecthasligandentity",
       "community": 1,
@@ -3195,17 +3275,27 @@
       "label": "inputHasLigandEntity()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L127",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "server_inputhasligandentity",
       "community": 1,
       "norm_label": "inputhasligandentity()"
     },
     {
+      "label": "inputHasAtomContact()",
+      "file_type": "code",
+      "source_file": "server.js",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "server_inputhasatomcontact",
+      "community": 1,
+      "norm_label": "inputhasatomcontact()"
+    },
+    {
       "label": "appendPredictOptions()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L146",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "server_appendpredictoptions",
       "community": 1,
@@ -3215,7 +3305,7 @@
       "label": "predictArgs()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L170",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "server_predictargs",
       "community": 1,
@@ -3225,7 +3315,7 @@
       "label": "displayPath()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L176",
+      "source_location": "L189",
       "_origin": "ast",
       "id": "server_displaypath",
       "community": 1,
@@ -3235,7 +3325,7 @@
       "label": "resultDirectoryFor()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L180",
+      "source_location": "L193",
       "_origin": "ast",
       "id": "server_resultdirectoryfor",
       "community": 1,
@@ -3245,7 +3335,7 @@
       "label": "preparePrediction()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L188",
+      "source_location": "L201",
       "_origin": "ast",
       "id": "server_prepareprediction",
       "community": 1,
@@ -3255,7 +3345,7 @@
       "label": "buildBoltzCommand()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L222",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "server_buildboltzcommand",
       "community": 1,
@@ -3265,7 +3355,7 @@
       "label": "readBody()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L231",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "server_readbody",
       "community": 1,
@@ -3275,7 +3365,7 @@
       "label": "walkFiles()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L243",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "server_walkfiles",
       "community": 1,
@@ -3285,7 +3375,7 @@
       "label": "listInputFiles()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L258",
+      "source_location": "L275",
       "_origin": "ast",
       "id": "server_listinputfiles",
       "community": 1,
@@ -3295,7 +3385,7 @@
       "label": "findFiles()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L273",
+      "source_location": "L291",
       "_origin": "ast",
       "id": "server_findfiles",
       "community": 1,
@@ -3305,7 +3395,7 @@
       "label": "numericMetric()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L293",
+      "source_location": "L311",
       "_origin": "ast",
       "id": "server_numericmetric",
       "community": 1,
@@ -3315,7 +3405,7 @@
       "label": "readJsonIfPresent()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L297",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "server_readjsonifpresent",
       "community": 1,
@@ -3325,7 +3415,7 @@
       "label": "modelIndexFromName()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L305",
+      "source_location": "L323",
       "_origin": "ast",
       "id": "server_modelindexfromname",
       "community": 1,
@@ -3335,7 +3425,7 @@
       "label": "summarizeResultDir()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L310",
+      "source_location": "L328",
       "_origin": "ast",
       "id": "server_summarizeresultdir",
       "community": 1,
@@ -3345,7 +3435,7 @@
       "label": "listResults()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L386",
+      "source_location": "L404",
       "_origin": "ast",
       "id": "server_listresults",
       "community": 1,
@@ -3355,7 +3445,7 @@
       "label": "publicJob()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L396",
+      "source_location": "L414",
       "_origin": "ast",
       "id": "server_publicjob",
       "community": 1,
@@ -3365,7 +3455,7 @@
       "label": "addLog()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L416",
+      "source_location": "L434",
       "_origin": "ast",
       "id": "server_addlog",
       "community": 1,
@@ -3375,7 +3465,7 @@
       "label": "startJob()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L436",
+      "source_location": "L454",
       "_origin": "ast",
       "id": "server_startjob",
       "community": 1,
@@ -3385,7 +3475,7 @@
       "label": "stopJob()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L535",
+      "source_location": "L553",
       "_origin": "ast",
       "id": "server_stopjob",
       "community": 1,
@@ -3395,7 +3485,7 @@
       "label": "streamJobEvents()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L546",
+      "source_location": "L564",
       "_origin": "ast",
       "id": "server_streamjobevents",
       "community": 1,
@@ -3405,7 +3495,7 @@
       "label": "contentType()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L571",
+      "source_location": "L589",
       "_origin": "ast",
       "id": "server_contenttype",
       "community": 1,
@@ -3415,7 +3505,7 @@
       "label": "serveStatic()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L587",
+      "source_location": "L605",
       "_origin": "ast",
       "id": "server_servestatic",
       "community": 1,
@@ -3425,7 +3515,7 @@
       "label": "handleApi()",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L609",
+      "source_location": "L627",
       "_origin": "ast",
       "id": "server_handleapi",
       "community": 1,
@@ -3435,7 +3525,7 @@
       "label": "server",
       "file_type": "code",
       "source_file": "server.js",
-      "source_location": "L718",
+      "source_location": "L737",
       "_origin": "ast",
       "id": "server_server",
       "community": 1,
@@ -3552,14 +3642,14 @@
       "norm_label": "assert"
     },
     {
-      "label": "{ resolvePredictionOptions }",
+      "label": "{ METHOD_CHOICES, optionSchema, resolvePredictionOptions }",
       "file_type": "code",
       "source_file": "tests/prediction-config.test.js",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "tests_prediction_config_test_resolvepredictionoptions",
+      "id": "tests_prediction_config_test_method_choices_optionschema_resolvepredictionoptions",
       "community": 22,
-      "norm_label": "{ resolvepredictionoptions }"
+      "norm_label": "{ method_choices, optionschema, resolvepredictionoptions }"
     },
     {
       "label": "restraint-report.test.js",
@@ -3722,6 +3812,66 @@
       "norm_label": "{ resolvepredictionoptions }"
     },
     {
+      "label": "server-prediction.test.js",
+      "file_type": "code",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_server_prediction_test",
+      "community": 1,
+      "norm_label": "server-prediction.test.js"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "tests_server_prediction_test_test",
+      "community": 1,
+      "norm_label": "test"
+    },
+    {
+      "label": "assert",
+      "file_type": "code",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "tests_server_prediction_test_assert",
+      "community": 1,
+      "norm_label": "assert"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "tests_server_prediction_test_path",
+      "community": 1,
+      "norm_label": "path"
+    },
+    {
+      "label": "{ buildBoltzCommand }",
+      "file_type": "code",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "tests_server_prediction_test_buildboltzcommand",
+      "community": 1,
+      "norm_label": "{ buildboltzcommand }"
+    },
+    {
+      "label": "input",
+      "file_type": "code",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "tests_server_prediction_test_input",
+      "community": 1,
+      "norm_label": "input"
+    },
+    {
       "label": "test_boltz_patch.py",
       "file_type": "code",
       "source_file": "tests/test_boltz_patch.py",
@@ -3735,7 +3885,7 @@
       "label": "BoltzPatchTests",
       "file_type": "code",
       "source_file": "tests/test_boltz_patch.py",
-      "source_location": "L18",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_boltz_patch_boltzpatchtests",
       "community": 25,
@@ -3745,7 +3895,7 @@
       "label": ".test_example_parses_with_real_boltz_schema()",
       "file_type": "code",
       "source_file": "tests/test_boltz_patch.py",
-      "source_location": "L19",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "tests_test_boltz_patch_boltzpatchtests_test_example_parses_with_real_boltz_schema",
       "community": 25,
@@ -3755,7 +3905,7 @@
       "label": ".test_exact_pair_and_threshold_propagation()",
       "file_type": "code",
       "source_file": "tests/test_boltz_patch.py",
-      "source_location": "L30",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "tests_test_boltz_patch_boltzpatchtests_test_exact_pair_and_threshold_propagation",
       "community": 25,
@@ -3765,17 +3915,57 @@
       "label": ".test_endpoint_errors_identify_complete_endpoint()",
       "file_type": "code",
       "source_file": "tests/test_boltz_patch.py",
-      "source_location": "L42",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "tests_test_boltz_patch_boltzpatchtests_test_endpoint_errors_identify_complete_endpoint",
       "community": 25,
       "norm_label": ".test_endpoint_errors_identify_complete_endpoint()"
     },
     {
+      "label": ".test_parser_rejects_endpoints_resolving_to_same_global_atom()",
+      "file_type": "code",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "tests_test_boltz_patch_boltzpatchtests_test_parser_rejects_endpoints_resolving_to_same_global_atom",
+      "community": 25,
+      "norm_label": ".test_parser_rejects_endpoints_resolving_to_same_global_atom()"
+    },
+    {
+      "label": ".test_token_pair_threshold_is_minimum_and_order_independent()",
+      "file_type": "code",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "tests_test_boltz_patch_boltzpatchtests_test_token_pair_threshold_is_minimum_and_order_independent",
+      "community": 25,
+      "norm_label": ".test_token_pair_threshold_is_minimum_and_order_independent()"
+    },
+    {
+      "label": ".test_contact_guidance_remains_on_without_optional_physical_potentials()",
+      "file_type": "code",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "tests_test_boltz_patch_boltzpatchtests_test_contact_guidance_remains_on_without_optional_physical_potentials",
+      "community": 25,
+      "norm_label": ".test_contact_guidance_remains_on_without_optional_physical_potentials()"
+    },
+    {
+      "label": ".test_method_choices_match_boltz_constants_without_future_slots()",
+      "file_type": "code",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "tests_test_boltz_patch_boltzpatchtests_test_method_choices_match_boltz_constants_without_future_slots",
+      "community": 25,
+      "norm_label": ".test_method_choices_match_boltz_constants_without_future_slots()"
+    },
+    {
       "label": ".test_inference_options_has_separate_atom_contact_field()",
       "file_type": "code",
       "source_file": "tests/test_boltz_patch.py",
-      "source_location": "L52",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "tests_test_boltz_patch_boltzpatchtests_test_inference_options_has_separate_atom_contact_field",
       "community": 25,
@@ -4321,9 +4511,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_atomcontactvalidationerror",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_atomcontactvalidationerror"
     },
     {
       "relation": "contains",
@@ -4331,9 +4521,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_buildchainindex",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_buildchainindex"
     },
     {
       "relation": "contains",
@@ -4341,9 +4531,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_canonicalpair",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_canonicalpair"
     },
     {
       "relation": "contains",
@@ -4352,8 +4542,18 @@
       "source_location": "L60",
       "weight": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_endpointlabel",
+      "target": "lib_atom_contact_documenthasatomcontacts",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/atom-contact.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_atom_contact",
+      "target": "lib_atom_contact_endpointlabel"
     },
     {
       "relation": "contains",
@@ -4361,9 +4561,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_entityids",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_entityids"
     },
     {
       "relation": "contains",
@@ -4371,9 +4571,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_fs",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_fs"
     },
     {
       "relation": "contains",
@@ -4381,9 +4581,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_inputmsasummary",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_inputmsasummary"
     },
     {
       "relation": "contains",
@@ -4391,9 +4591,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_normalizeendpoint",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_normalizeendpoint"
     },
     {
       "relation": "contains",
@@ -4401,9 +4601,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_parseinputfile",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_parseinputfile"
     },
     {
       "relation": "contains",
@@ -4411,9 +4611,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_parseinputtext",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_parseinputtext"
     },
     {
       "relation": "contains",
@@ -4421,9 +4621,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_path",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_path"
     },
     {
       "relation": "contains",
@@ -4431,9 +4631,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_sequencelength",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_sequencelength"
     },
     {
       "relation": "contains",
@@ -4441,9 +4641,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_validateatomcontacts",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_validateatomcontacts"
     },
     {
       "relation": "contains",
@@ -4451,9 +4651,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact",
-      "target": "lib_atom_contact_yaml",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_yaml"
     },
     {
       "relation": "imports_from",
@@ -4462,9 +4662,9 @@
       "source_file": "server.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_atom_contact",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact"
     },
     {
       "relation": "imports_from",
@@ -4473,9 +4673,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "lib_atom_contact",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact"
     },
     {
       "relation": "method",
@@ -4483,9 +4683,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact_atomcontactvalidationerror",
-      "target": "lib_atom_contact_atomcontactvalidationerror_constructor",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_atomcontactvalidationerror_constructor"
     },
     {
       "relation": "calls",
@@ -4494,9 +4694,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact_parseinputfile",
-      "target": "lib_atom_contact_parseinputtext",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_parseinputtext"
     },
     {
       "relation": "imports",
@@ -4505,9 +4705,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "lib_atom_contact_parseinputtext",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_parseinputtext"
     },
     {
       "relation": "calls",
@@ -4527,9 +4727,20 @@
       "source_file": "server.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_atom_contact_parseinputfile",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_parseinputfile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server.js",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "server_inputhasatomcontact",
+      "target": "lib_atom_contact_parseinputfile"
     },
     {
       "relation": "calls",
@@ -4549,9 +4760,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact_buildchainindex",
-      "target": "lib_atom_contact_entityids",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_entityids"
     },
     {
       "relation": "calls",
@@ -4560,9 +4771,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact_buildchainindex",
-      "target": "lib_atom_contact_sequencelength",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_sequencelength"
     },
     {
       "relation": "calls",
@@ -4571,9 +4782,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact_inputmsasummary",
-      "target": "lib_atom_contact_buildchainindex",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_buildchainindex"
     },
     {
       "relation": "calls",
@@ -4582,53 +4793,9 @@
       "source_file": "lib/atom-contact.js",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_atom_contact_validateatomcontacts",
-      "target": "lib_atom_contact_buildchainindex",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/atom-contact.js",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "lib_atom_contact_canonicalpair",
-      "target": "lib_atom_contact_endpointlabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/atom-contact.js",
-      "source_location": "L115",
-      "weight": 1.0,
-      "source": "lib_atom_contact_validateatomcontacts",
-      "target": "lib_atom_contact_endpointlabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/atom-contact.js",
-      "source_location": "L99",
-      "weight": 1.0,
-      "source": "lib_atom_contact_validateatomcontacts",
-      "target": "lib_atom_contact_normalizeendpoint",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/atom-contact.js",
-      "source_location": "L125",
-      "weight": 1.0,
-      "source": "lib_atom_contact_validateatomcontacts",
-      "target": "lib_atom_contact_canonicalpair",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_buildchainindex"
     },
     {
       "relation": "imports",
@@ -4638,8 +4805,74 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "server",
-      "target": "lib_atom_contact_validateatomcontacts",
+      "target": "lib_atom_contact_documenthasatomcontacts",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server.js",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "server_inputhasatomcontact",
+      "target": "lib_atom_contact_documenthasatomcontacts"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/atom-contact.js",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_atom_contact_canonicalpair",
+      "target": "lib_atom_contact_endpointlabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/atom-contact.js",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_atom_contact_validateatomcontacts",
+      "target": "lib_atom_contact_endpointlabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/atom-contact.js",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_atom_contact_validateatomcontacts",
+      "target": "lib_atom_contact_normalizeendpoint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/atom-contact.js",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_atom_contact_validateatomcontacts",
+      "target": "lib_atom_contact_canonicalpair"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server",
+      "target": "lib_atom_contact_validateatomcontacts"
     },
     {
       "relation": "calls",
@@ -4659,9 +4892,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "lib_atom_contact_validateatomcontacts",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_validateatomcontacts"
     },
     {
       "relation": "imports",
@@ -4670,9 +4903,9 @@
       "source_file": "server.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_atom_contact_inputmsasummary",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_inputmsasummary"
     },
     {
       "relation": "calls",
@@ -4692,9 +4925,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "lib_atom_contact_inputmsasummary",
-      "confidence_score": 1.0
+      "target": "lib_atom_contact_inputmsasummary"
     },
     {
       "relation": "contains",
@@ -4702,8 +4935,18 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_defaultoptions",
+      "target": "lib_prediction_config_defaultoptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/prediction-config.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "lib_prediction_config",
+      "target": "lib_prediction_config_method_choices",
       "confidence_score": 1.0
     },
     {
@@ -4712,9 +4955,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_normalizeoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_normalizeoptions"
     },
     {
       "relation": "contains",
@@ -4722,9 +4965,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_normalizescalar",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_normalizescalar"
     },
     {
       "relation": "contains",
@@ -4732,9 +4975,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_optionschema",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_optionschema"
     },
     {
       "relation": "contains",
@@ -4742,9 +4985,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_presetbyid",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_presetbyid"
     },
     {
       "relation": "contains",
@@ -4752,9 +4995,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_presets",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_presets"
     },
     {
       "relation": "contains",
@@ -4762,9 +5005,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_publicpresets",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_publicpresets"
     },
     {
       "relation": "contains",
@@ -4772,9 +5015,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_resolvedpresetoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_resolvedpresetoptions"
     },
     {
       "relation": "contains",
@@ -4782,9 +5025,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_resolvepredictionoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_resolvepredictionoptions"
     },
     {
       "relation": "contains",
@@ -4792,9 +5035,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config",
-      "target": "lib_prediction_config_serializableoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_serializableoptions"
     },
     {
       "relation": "imports_from",
@@ -4803,9 +5046,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_prediction_config",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config"
     },
     {
       "relation": "imports_from",
@@ -4814,9 +5057,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "lib_prediction_config",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config"
     },
     {
       "relation": "imports_from",
@@ -4825,9 +5068,9 @@
       "source_file": "server.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_prediction_config",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config"
     },
     {
       "relation": "imports_from",
@@ -4836,9 +5079,9 @@
       "source_file": "tests/prediction-config.test.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_prediction_config_test",
-      "target": "lib_prediction_config",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config"
     },
     {
       "relation": "imports_from",
@@ -4847,8 +5090,19 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "lib_prediction_config",
+      "target": "lib_prediction_config"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/prediction-config.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_prediction_config_test",
+      "target": "lib_prediction_config_method_choices",
       "confidence_score": 1.0
     },
     {
@@ -4858,7 +5112,18 @@
       "source_file": "server.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
+      "target": "lib_prediction_config_optionschema"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/prediction-config.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_prediction_config_test",
       "target": "lib_prediction_config_optionschema",
       "confidence_score": 1.0
     },
@@ -4869,9 +5134,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "lib_prediction_config_presets",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_presets"
     },
     {
       "relation": "calls",
@@ -4880,9 +5145,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_normalizeoptions",
-      "target": "lib_prediction_config_normalizescalar",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_normalizescalar"
     },
     {
       "relation": "calls",
@@ -4891,9 +5156,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_defaultoptions",
-      "target": "lib_prediction_config_normalizeoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_normalizeoptions"
     },
     {
       "relation": "calls",
@@ -4902,9 +5167,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_resolvedpresetoptions",
-      "target": "lib_prediction_config_normalizeoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_normalizeoptions"
     },
     {
       "relation": "calls",
@@ -4913,9 +5178,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_resolvepredictionoptions",
-      "target": "lib_prediction_config_normalizeoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_normalizeoptions"
     },
     {
       "relation": "calls",
@@ -4924,9 +5189,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_resolvedpresetoptions",
-      "target": "lib_prediction_config_defaultoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_defaultoptions"
     },
     {
       "relation": "imports",
@@ -4935,9 +5200,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "lib_prediction_config_defaultoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_defaultoptions"
     },
     {
       "relation": "calls",
@@ -4957,9 +5222,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_resolvedpresetoptions",
-      "target": "lib_prediction_config_presetbyid",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_presetbyid"
     },
     {
       "relation": "calls",
@@ -4968,9 +5233,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_resolvepredictionoptions",
-      "target": "lib_prediction_config_presetbyid",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_presetbyid"
     },
     {
       "relation": "calls",
@@ -4979,9 +5244,9 @@
       "source_file": "lib/prediction-config.js",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_prediction_config_resolvepredictionoptions",
-      "target": "lib_prediction_config_resolvedpresetoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_resolvedpresetoptions"
     },
     {
       "relation": "imports",
@@ -4990,9 +5255,9 @@
       "source_file": "server.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_prediction_config_resolvepredictionoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_resolvepredictionoptions"
     },
     {
       "relation": "calls",
@@ -5012,9 +5277,9 @@
       "source_file": "tests/prediction-config.test.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_prediction_config_test",
-      "target": "lib_prediction_config_resolvepredictionoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_resolvepredictionoptions"
     },
     {
       "relation": "imports",
@@ -5023,9 +5288,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "lib_prediction_config_resolvepredictionoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_resolvepredictionoptions"
     },
     {
       "relation": "imports",
@@ -5034,9 +5299,9 @@
       "source_file": "server.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_prediction_config_publicpresets",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_publicpresets"
     },
     {
       "relation": "calls",
@@ -5056,9 +5321,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_prediction_config_serializableoptions",
-      "confidence_score": 1.0
+      "target": "lib_prediction_config_serializableoptions"
     },
     {
       "relation": "calls",
@@ -5075,10 +5340,30 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L9",
+      "source_location": "L81",
       "weight": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_atomkey",
+      "target": "lib_restraint_report_addmmcifatom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_restraint_report",
+      "target": "lib_restraint_report_atomkey"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "lib_restraint_report",
+      "target": "lib_restraint_report_createmmcifnamespace",
       "confidence_score": 1.0
     },
     {
@@ -5087,9 +5372,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_createrestraintreport",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_createrestraintreport"
     },
     {
       "relation": "contains",
@@ -5097,9 +5382,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_endpoint",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_endpoint"
     },
     {
       "relation": "contains",
@@ -5107,9 +5392,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_endpointtext",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_endpointtext"
     },
     {
       "relation": "contains",
@@ -5117,9 +5402,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_findstructurefiles",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_findstructurefiles"
     },
     {
       "relation": "contains",
@@ -5127,9 +5412,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_fsp",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_fsp"
     },
     {
       "relation": "contains",
@@ -5137,9 +5422,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_measurestructure",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_measurestructure"
     },
     {
       "relation": "contains",
@@ -5147,9 +5432,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_modelname",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_modelname"
     },
     {
       "relation": "contains",
@@ -5158,8 +5443,18 @@
       "source_location": "L73",
       "weight": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_parsemmcif",
+      "target": "lib_restraint_report_normalizecifvalue",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_restraint_report",
+      "target": "lib_restraint_report_parsemmcif"
     },
     {
       "relation": "contains",
@@ -5167,9 +5462,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_parsepdb",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_parsepdb"
     },
     {
       "relation": "contains",
@@ -5177,9 +5472,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_path",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_path"
     },
     {
       "relation": "contains",
@@ -5187,8 +5482,28 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_preferaltlocation",
+      "target": "lib_restraint_report_preferaltlocation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "lib_restraint_report",
+      "target": "lib_restraint_report_resolvemmcifendpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "lib_restraint_report",
+      "target": "lib_restraint_report_resolvemmcifpair",
       "confidence_score": 1.0
     },
     {
@@ -5197,9 +5512,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_rounddistance",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_rounddistance"
     },
     {
       "relation": "contains",
@@ -5207,9 +5522,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_structure_extensions",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_structure_extensions"
     },
     {
       "relation": "contains",
@@ -5217,9 +5532,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_tokenizecif",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_tokenizecif"
     },
     {
       "relation": "contains",
@@ -5227,9 +5542,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_writejson",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_writejson"
     },
     {
       "relation": "contains",
@@ -5237,9 +5552,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L238",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_restraint_report_writerestraintreport",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_writerestraintreport"
     },
     {
       "relation": "imports_from",
@@ -5248,9 +5563,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_run_manifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest"
     },
     {
       "relation": "imports",
@@ -5259,9 +5574,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report",
-      "target": "lib_run_manifest_writejson",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_writejson"
     },
     {
       "relation": "imports_from",
@@ -5270,9 +5585,9 @@
       "source_file": "server.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_restraint_report",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report"
     },
     {
       "relation": "imports_from",
@@ -5281,8 +5596,19 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "lib_restraint_report",
+      "target": "lib_restraint_report"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "lib_restraint_report_addmmcifatom",
+      "target": "lib_restraint_report_atomkey",
       "confidence_score": 1.0
     },
     {
@@ -5292,9 +5618,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_measurestructure",
-      "target": "lib_restraint_report_atomkey",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_atomkey"
     },
     {
       "relation": "calls",
@@ -5303,9 +5629,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_parsemmcif",
-      "target": "lib_restraint_report_atomkey",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_atomkey"
     },
     {
       "relation": "calls",
@@ -5314,8 +5640,30 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_parsepdb",
+      "target": "lib_restraint_report_atomkey"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "lib_restraint_report_resolvemmcifendpoint",
       "target": "lib_restraint_report_atomkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "lib_restraint_report_addmmcifatom",
+      "target": "lib_restraint_report_preferaltlocation",
       "confidence_score": 1.0
     },
     {
@@ -5325,9 +5673,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_parsemmcif",
-      "target": "lib_restraint_report_preferaltlocation",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_preferaltlocation"
     },
     {
       "relation": "calls",
@@ -5336,9 +5684,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_parsepdb",
-      "target": "lib_restraint_report_preferaltlocation",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_preferaltlocation"
     },
     {
       "relation": "calls",
@@ -5347,9 +5695,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_createrestraintreport",
-      "target": "lib_restraint_report_parsepdb",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_parsepdb"
     },
     {
       "relation": "imports",
@@ -5358,9 +5706,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "lib_restraint_report_parsepdb",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_parsepdb"
     },
     {
       "relation": "calls",
@@ -5369,8 +5717,63 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_parsemmcif",
-      "target": "lib_restraint_report_tokenizecif",
+      "target": "lib_restraint_report_tokenizecif"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "lib_restraint_report_addmmcifatom",
+      "target": "lib_restraint_report_normalizecifvalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "lib_restraint_report_endpoint",
+      "target": "lib_restraint_report_normalizecifvalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "lib_restraint_report_parsemmcif",
+      "target": "lib_restraint_report_normalizecifvalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "lib_restraint_report_parsemmcif",
+      "target": "lib_restraint_report_createmmcifnamespace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "lib_restraint_report_parsemmcif",
+      "target": "lib_restraint_report_addmmcifatom",
       "confidence_score": 1.0
     },
     {
@@ -5380,9 +5783,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_createrestraintreport",
-      "target": "lib_restraint_report_parsemmcif",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_parsemmcif"
     },
     {
       "relation": "imports",
@@ -5391,9 +5794,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "lib_restraint_report_parsemmcif",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_parsemmcif"
     },
     {
       "relation": "calls",
@@ -5402,9 +5805,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_measurestructure",
-      "target": "lib_restraint_report_endpoint",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_endpoint"
     },
     {
       "relation": "calls",
@@ -5413,7 +5816,18 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_measurestructure",
+      "target": "lib_restraint_report_endpointtext"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "lib_restraint_report_resolvemmcifendpoint",
       "target": "lib_restraint_report_endpointtext",
       "confidence_score": 1.0
     },
@@ -5422,32 +5836,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/restraint-report.js",
-      "source_location": "L175",
+      "source_location": "L218",
       "weight": 1.0,
-      "source": "lib_restraint_report_measurestructure",
-      "target": "lib_restraint_report_rounddistance",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/restraint-report.test.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "tests_restraint_report_test",
-      "target": "lib_restraint_report_measurestructure",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/restraint-report.js",
-      "source_location": "L216",
-      "weight": 1.0,
-      "source": "lib_restraint_report_createrestraintreport",
-      "target": "lib_restraint_report_modelname",
+      "source": "lib_restraint_report_resolvemmcifpair",
+      "target": "lib_restraint_report_endpointtext",
       "confidence_score": 1.0
     },
     {
@@ -5457,9 +5849,64 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L210",
       "weight": 1.0,
-      "source": "lib_restraint_report_createrestraintreport",
-      "target": "lib_restraint_report_findstructurefiles",
+      "source": "lib_restraint_report_resolvemmcifpair",
+      "target": "lib_restraint_report_resolvemmcifendpoint",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "lib_restraint_report_measurestructure",
+      "target": "lib_restraint_report_resolvemmcifpair",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L175",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_restraint_report_measurestructure",
+      "target": "lib_restraint_report_rounddistance"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/restraint-report.test.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_restraint_report_test",
+      "target": "lib_restraint_report_measurestructure"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L216",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_restraint_report_createrestraintreport",
+      "target": "lib_restraint_report_modelname"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/restraint-report.js",
+      "source_location": "L210",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_restraint_report_createrestraintreport",
+      "target": "lib_restraint_report_findstructurefiles"
     },
     {
       "relation": "calls",
@@ -5468,9 +5915,9 @@
       "source_file": "lib/restraint-report.js",
       "source_location": "L239",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_restraint_report_writerestraintreport",
-      "target": "lib_restraint_report_createrestraintreport",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_createrestraintreport"
     },
     {
       "relation": "calls",
@@ -5490,9 +5937,9 @@
       "source_file": "server.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_restraint_report_writerestraintreport",
-      "confidence_score": 1.0
+      "target": "lib_restraint_report_writerestraintreport"
     },
     {
       "relation": "contains",
@@ -5500,9 +5947,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_commandoutput",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_commandoutput"
     },
     {
       "relation": "contains",
@@ -5510,9 +5957,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_completerunmanifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_completerunmanifest"
     },
     {
       "relation": "contains",
@@ -5520,9 +5967,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_createrunmanifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_createrunmanifest"
     },
     {
       "relation": "contains",
@@ -5530,9 +5977,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_crypto",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_crypto"
     },
     {
       "relation": "contains",
@@ -5540,9 +5987,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_fs",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_fs"
     },
     {
       "relation": "contains",
@@ -5550,9 +5997,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_fsp",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_fsp"
     },
     {
       "relation": "contains",
@@ -5560,9 +6007,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_path",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_path"
     },
     {
       "relation": "contains",
@@ -5570,9 +6017,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_runtimemetadata",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_runtimemetadata"
     },
     {
       "relation": "contains",
@@ -5580,9 +6027,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_serializableoptions",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_serializableoptions"
     },
     {
       "relation": "contains",
@@ -5590,9 +6037,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_sha256file",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_sha256file"
     },
     {
       "relation": "contains",
@@ -5600,9 +6047,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_spawnsync",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_spawnsync"
     },
     {
       "relation": "contains",
@@ -5610,9 +6057,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest",
-      "target": "lib_run_manifest_writejson",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_writejson"
     },
     {
       "relation": "imports_from",
@@ -5621,9 +6068,9 @@
       "source_file": "server.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_run_manifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest"
     },
     {
       "relation": "imports_from",
@@ -5632,9 +6079,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "lib_run_manifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest"
     },
     {
       "relation": "calls",
@@ -5643,9 +6090,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest_runtimemetadata",
-      "target": "lib_run_manifest_commandoutput",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_commandoutput"
     },
     {
       "relation": "calls",
@@ -5654,9 +6101,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest_createrunmanifest",
-      "target": "lib_run_manifest_runtimemetadata",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_runtimemetadata"
     },
     {
       "relation": "calls",
@@ -5665,9 +6112,9 @@
       "source_file": "lib/run-manifest.js",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_run_manifest_createrunmanifest",
-      "target": "lib_run_manifest_sha256file",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_sha256file"
     },
     {
       "relation": "imports",
@@ -5676,9 +6123,9 @@
       "source_file": "server.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_run_manifest_createrunmanifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_createrunmanifest"
     },
     {
       "relation": "calls",
@@ -5698,9 +6145,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "lib_run_manifest_createrunmanifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_createrunmanifest"
     },
     {
       "relation": "imports",
@@ -5709,9 +6156,9 @@
       "source_file": "server.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_run_manifest_completerunmanifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_completerunmanifest"
     },
     {
       "relation": "imports",
@@ -5720,9 +6167,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "lib_run_manifest_completerunmanifest",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_completerunmanifest"
     },
     {
       "relation": "imports",
@@ -5731,9 +6178,9 @@
       "source_file": "server.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "lib_run_manifest_writejson",
-      "confidence_score": 1.0
+      "target": "lib_run_manifest_writejson"
     },
     {
       "relation": "calls",
@@ -5752,9 +6199,9 @@
       "source_file": "package.json",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_dependencies",
-      "confidence_score": 1.0
+      "target": "package_dependencies"
     },
     {
       "relation": "contains",
@@ -5832,9 +6279,9 @@
       "source_file": "package.json",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_docs_sync",
-      "confidence_score": 1.0
+      "target": "package_scripts_docs_sync"
     },
     {
       "relation": "contains",
@@ -5852,9 +6299,9 @@
       "source_file": "package.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_test",
-      "confidence_score": 1.0
+      "target": "package_scripts_test"
     },
     {
       "relation": "contains",
@@ -5862,9 +6309,9 @@
       "source_file": "package.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_test_python",
-      "confidence_score": 1.0
+      "target": "package_scripts_test_python"
     },
     {
       "relation": "contains",
@@ -5882,9 +6329,9 @@
       "source_file": "package.json",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_yaml",
-      "confidence_score": 1.0
+      "target": "package_dependencies_yaml"
     },
     {
       "relation": "contains",
@@ -5892,9 +6339,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch",
-      "target": "boltz_atom_contact_apply_atom_contact_patch_check_compatibility",
-      "confidence_score": 1.0
+      "target": "boltz_atom_contact_apply_atom_contact_patch_check_compatibility"
     },
     {
       "relation": "contains",
@@ -5962,9 +6409,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch",
-      "target": "boltz_atom_contact_apply_atom_contact_patch_source_sha256",
-      "confidence_score": 1.0
+      "target": "boltz_atom_contact_apply_atom_contact_patch_source_sha256"
     },
     {
       "relation": "contains",
@@ -5983,9 +6430,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_check_compatibility",
-      "target": "boltz_atom_contact_apply_atom_contact_patch_source_sha256",
-      "confidence_score": 1.0
+      "target": "boltz_atom_contact_apply_atom_contact_patch_source_sha256"
     },
     {
       "relation": "references",
@@ -5994,9 +6441,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_source_sha256",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -6005,9 +6452,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_check_compatibility",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -6016,9 +6463,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L394",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_main",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -6027,9 +6474,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L266",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_patch_featurizerv2",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -6038,9 +6485,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L229",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_patch_inferencev2",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -6049,9 +6496,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_patch_schema",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -6060,9 +6507,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_patch_types",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -6071,9 +6518,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_write_if_changed",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -6082,9 +6529,9 @@
       "source_file": "patches/boltz_atom_contact/apply_atom_contact_patch.py",
       "source_location": "L404",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "boltz_atom_contact_apply_atom_contact_patch_main",
-      "target": "boltz_atom_contact_apply_atom_contact_patch_check_compatibility",
-      "confidence_score": 1.0
+      "target": "boltz_atom_contact_apply_atom_contact_patch_check_compatibility"
     },
     {
       "relation": "calls",
@@ -6310,8 +6757,18 @@
       "source_file": "public/app.js",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app",
-      "target": "public_app_applypreset",
+      "target": "public_app_applypreset"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/app.js",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "public_app",
+      "target": "public_app_applyselectedinputdefaults",
       "confidence_score": 1.0
     },
     {
@@ -6556,9 +7013,9 @@
       "source_file": "public/app.js",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app",
-      "target": "public_app_markpresetcustom",
-      "confidence_score": 1.0
+      "target": "public_app_markpresetcustom"
     },
     {
       "relation": "contains",
@@ -6704,9 +7161,9 @@
       "source_location": "L77",
       "weight": 1.0,
       "context": "call",
+      "confidence_score": 1.0,
       "source": "public_app_renderpresetcontrol",
-      "target": "public_app",
-      "confidence_score": 1.0
+      "target": "public_app"
     },
     {
       "relation": "calls",
@@ -6715,9 +7172,9 @@
       "source_location": "L539",
       "weight": 1.0,
       "context": "call",
+      "confidence_score": 1.0,
       "source": "public_app_renderrestraintaudit",
-      "target": "public_app",
-      "confidence_score": 1.0
+      "target": "public_app"
     },
     {
       "relation": "calls",
@@ -6840,9 +7297,9 @@
       "source_file": "public/app.js",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app",
-      "target": "public_app_selectedpreset",
-      "confidence_score": 1.0
+      "target": "public_app_selectedpreset"
     },
     {
       "relation": "calls",
@@ -7024,9 +7481,9 @@
       "source_file": "public/app.js",
       "source_location": "L562",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_renderrestraintaudit",
-      "target": "public_app_escapehtml",
-      "confidence_score": 1.0
+      "target": "public_app_escapehtml"
     },
     {
       "relation": "calls",
@@ -7090,9 +7547,42 @@
       "source_file": "public/app.js",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_renderpresetcontrol",
-      "target": "public_app_selectedpreset",
-      "confidence_score": 1.0
+      "target": "public_app_selectedpreset"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/app.js",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_app_applypreset",
+      "target": "public_app_renderpresetcontrol"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/app.js",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_app_markpresetcustom",
+      "target": "public_app_renderpresetcontrol"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/app.js",
+      "source_location": "L863",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_app_refreshall",
+      "target": "public_app_renderpresetcontrol"
     },
     {
       "relation": "calls",
@@ -7102,29 +7592,7 @@
       "source_location": "L101",
       "weight": 1.0,
       "source": "public_app_applypreset",
-      "target": "public_app_renderpresetcontrol",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "public/app.js",
-      "source_location": "L110",
-      "weight": 1.0,
-      "source": "public_app_markpresetcustom",
-      "target": "public_app_renderpresetcontrol",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "public/app.js",
-      "source_location": "L863",
-      "weight": 1.0,
-      "source": "public_app_refreshall",
-      "target": "public_app_renderpresetcontrol",
+      "target": "public_app_applyselectedinputdefaults",
       "confidence_score": 1.0
     },
     {
@@ -7134,9 +7602,9 @@
       "source_file": "public/app.js",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_applypreset",
-      "target": "public_app_renderoptiongroups",
-      "confidence_score": 1.0
+      "target": "public_app_renderoptiongroups"
     },
     {
       "relation": "calls",
@@ -7145,9 +7613,9 @@
       "source_file": "public/app.js",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_applypreset",
-      "target": "public_app_renderoverview",
-      "confidence_score": 1.0
+      "target": "public_app_renderoverview"
     },
     {
       "relation": "calls",
@@ -7156,9 +7624,9 @@
       "source_file": "public/app.js",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_applypreset",
-      "target": "public_app_updatecommandpreview",
-      "confidence_score": 1.0
+      "target": "public_app_updatecommandpreview"
     },
     {
       "relation": "calls",
@@ -7200,9 +7668,9 @@
       "source_file": "public/app.js",
       "source_location": "L564",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_renderrestraintaudit",
-      "target": "public_app_formatnumber",
-      "confidence_score": 1.0
+      "target": "public_app_formatnumber"
     },
     {
       "relation": "calls",
@@ -7363,6 +7831,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "public/app.js",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "public_app_applyselectedinputdefaults",
+      "target": "public_app_selectedinputfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/app.js",
       "source_location": "L126",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7379,6 +7858,17 @@
       "confidence_score": 1.0,
       "source": "public_app_renderoptiongroups",
       "target": "public_app_selectedinputhasligand"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/app.js",
+      "source_location": "L870",
+      "weight": 1.0,
+      "source": "public_app_refreshall",
+      "target": "public_app_applyselectedinputdefaults",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7475,9 +7965,9 @@
       "source_file": "public/app.js",
       "source_location": "L542",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_renderrestraintaudit",
-      "target": "public_app_setfilelink",
-      "confidence_score": 1.0
+      "target": "public_app_setfilelink"
     },
     {
       "relation": "calls",
@@ -7530,9 +8020,9 @@
       "source_file": "public/app.js",
       "source_location": "L538",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_renderrestraintaudit",
-      "target": "public_app_currentresult",
-      "confidence_score": 1.0
+      "target": "public_app_currentresult"
     },
     {
       "relation": "calls",
@@ -7772,9 +8262,9 @@
       "source_file": "public/app.js",
       "source_location": "L532",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "public_app_renderresults",
-      "target": "public_app_renderrestraintaudit",
-      "confidence_score": 1.0
+      "target": "public_app_renderrestraintaudit"
     },
     {
       "relation": "calls",
@@ -10714,9 +11204,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_checkonly",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_checkonly"
     },
     {
       "relation": "contains",
@@ -10724,9 +11214,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_defaultoptions_presets",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_defaultoptions_presets"
     },
     {
       "relation": "contains",
@@ -10734,9 +11224,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_files",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_files"
     },
     {
       "relation": "contains",
@@ -10744,9 +11234,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_fs",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_fs"
     },
     {
       "relation": "contains",
@@ -10754,9 +11244,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_generatedblock",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_generatedblock"
     },
     {
       "relation": "contains",
@@ -10764,9 +11254,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_path",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_path"
     },
     {
       "relation": "contains",
@@ -10774,9 +11264,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_root",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_root"
     },
     {
       "relation": "contains",
@@ -10784,9 +11274,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_synchronize",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_synchronize"
     },
     {
       "relation": "contains",
@@ -10794,9 +11284,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs",
-      "target": "scripts_sync_docs_value",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_value"
     },
     {
       "relation": "calls",
@@ -10805,9 +11295,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs_generatedblock",
-      "target": "scripts_sync_docs_value",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_value"
     },
     {
       "relation": "calls",
@@ -10816,9 +11306,9 @@
       "source_file": "scripts/sync-docs.js",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_docs_synchronize",
-      "target": "scripts_sync_docs_generatedblock",
-      "confidence_score": 1.0
+      "target": "scripts_sync_docs_generatedblock"
     },
     {
       "relation": "contains",
@@ -10856,9 +11346,9 @@
       "source_file": "server.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_completerunmanifest_createrunmanifest_writejson",
-      "confidence_score": 1.0
+      "target": "server_completerunmanifest_createrunmanifest_writejson"
     },
     {
       "relation": "contains",
@@ -10876,9 +11366,9 @@
       "source_file": "server.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_default_preset_optionschema_publicpresets_resolvepredictionoptions",
-      "confidence_score": 1.0
+      "target": "server_default_preset_optionschema_publicpresets_resolvepredictionoptions"
     },
     {
       "relation": "contains",
@@ -10886,8 +11376,18 @@
       "source_file": "server.js",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_displaypath",
+      "target": "server_displaypath"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server",
+      "target": "server_documenthasatomcontacts_inputmsasummary_parseinputfile_validateatomcontacts",
       "confidence_score": 1.0
     },
     {
@@ -10984,21 +11484,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server.js",
-      "source_location": "L201",
+      "source_location": "L151",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_inputhasligandentity"
+      "target": "server_inputhasatomcontact",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server.js",
-      "source_location": "L8",
+      "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_inputmsasummary_parseinputfile_validateatomcontacts",
-      "confidence_score": 1.0
+      "target": "server_inputhasligandentity"
     },
     {
       "relation": "contains",
@@ -11146,9 +11646,9 @@
       "source_file": "server.js",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_prepareprediction",
-      "confidence_score": 1.0
+      "target": "server_prepareprediction"
     },
     {
       "relation": "contains",
@@ -11196,9 +11696,9 @@
       "source_file": "server.js",
       "source_location": "L297",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_readjsonifpresent",
-      "confidence_score": 1.0
+      "target": "server_readjsonifpresent"
     },
     {
       "relation": "contains",
@@ -11206,9 +11706,9 @@
       "source_file": "server.js",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_resultdirectoryfor",
-      "confidence_score": 1.0
+      "target": "server_resultdirectoryfor"
     },
     {
       "relation": "contains",
@@ -11406,8 +11906,19 @@
       "source_file": "server.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server",
-      "target": "server_writerestraintreport",
+      "target": "server_writerestraintreport"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "server",
       "confidence_score": 1.0
     },
     {
@@ -11450,9 +11961,9 @@
       "source_file": "server.js",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_displaypath",
-      "target": "server_isinside",
-      "confidence_score": 1.0
+      "target": "server_isinside"
     },
     {
       "relation": "calls",
@@ -11527,9 +12038,9 @@
       "source_file": "server.js",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_prepareprediction",
-      "target": "server_saferesolve",
-      "confidence_score": 1.0
+      "target": "server_saferesolve"
     },
     {
       "relation": "calls",
@@ -11560,9 +12071,9 @@
       "source_file": "server.js",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_displaypath",
-      "target": "server_torelative",
-      "confidence_score": 1.0
+      "target": "server_torelative"
     },
     {
       "relation": "calls",
@@ -11593,9 +12104,9 @@
       "source_file": "server.js",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_prepareprediction",
-      "target": "server_torelative",
-      "confidence_score": 1.0
+      "target": "server_torelative"
     },
     {
       "relation": "calls",
@@ -11714,8 +12225,19 @@
       "source_file": "server.js",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_prepareprediction",
-      "target": "server_inputhasligandentity",
+      "target": "server_inputhasligandentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L728",
+      "weight": 1.0,
+      "source": "server_handleapi",
+      "target": "server_inputhasatomcontact",
       "confidence_score": 1.0
     },
     {
@@ -11747,9 +12269,9 @@
       "source_file": "server.js",
       "source_location": "L198",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_prepareprediction",
-      "target": "server_predictargs",
-      "confidence_score": 1.0
+      "target": "server_predictargs"
     },
     {
       "relation": "calls",
@@ -11758,9 +12280,9 @@
       "source_file": "server.js",
       "source_location": "L218",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_prepareprediction",
-      "target": "server_displaypath",
-      "confidence_score": 1.0
+      "target": "server_displaypath"
     },
     {
       "relation": "calls",
@@ -11769,9 +12291,9 @@
       "source_file": "server.js",
       "source_location": "L409",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_publicjob",
-      "target": "server_displaypath",
-      "confidence_score": 1.0
+      "target": "server_displaypath"
     },
     {
       "relation": "calls",
@@ -11780,9 +12302,9 @@
       "source_file": "server.js",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_prepareprediction",
-      "target": "server_resultdirectoryfor",
-      "confidence_score": 1.0
+      "target": "server_resultdirectoryfor"
     },
     {
       "relation": "calls",
@@ -11791,9 +12313,9 @@
       "source_file": "server.js",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_buildboltzcommand",
-      "target": "server_prepareprediction",
-      "confidence_score": 1.0
+      "target": "server_prepareprediction"
     },
     {
       "relation": "calls",
@@ -11802,9 +12324,9 @@
       "source_file": "server.js",
       "source_location": "L439",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_startjob",
-      "target": "server_prepareprediction",
-      "confidence_score": 1.0
+      "target": "server_prepareprediction"
     },
     {
       "relation": "calls",
@@ -11827,6 +12349,17 @@
       "confidence_score": 1.0,
       "source": "server_startjob",
       "target": "server_buildboltzcommand"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "server_buildboltzcommand",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -11890,9 +12423,9 @@
       "source_file": "server.js",
       "source_location": "L363",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_summarizeresultdir",
-      "target": "server_readjsonifpresent",
-      "confidence_score": 1.0
+      "target": "server_readjsonifpresent"
     },
     {
       "relation": "calls",
@@ -12032,9 +12565,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_assert",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_assert"
     },
     {
       "relation": "contains",
@@ -12042,9 +12575,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_documentfromfixture",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_documentfromfixture"
     },
     {
       "relation": "contains",
@@ -12052,9 +12585,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_fixture",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_fixture"
     },
     {
       "relation": "contains",
@@ -12062,9 +12595,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_fs",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_fs"
     },
     {
       "relation": "contains",
@@ -12072,9 +12605,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_inputmsasummary_parseinputtext_validateatomcontacts",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_inputmsasummary_parseinputtext_validateatomcontacts"
     },
     {
       "relation": "contains",
@@ -12082,9 +12615,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_path",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_path"
     },
     {
       "relation": "contains",
@@ -12092,9 +12625,9 @@
       "source_file": "tests/atom-contact.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_atom_contact_test",
-      "target": "tests_atom_contact_test_test",
-      "confidence_score": 1.0
+      "target": "tests_atom_contact_test_test"
     },
     {
       "relation": "contains",
@@ -12102,9 +12635,9 @@
       "source_file": "tests/prediction-config.test.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_prediction_config_test",
-      "target": "tests_prediction_config_test_assert",
-      "confidence_score": 1.0
+      "target": "tests_prediction_config_test_assert"
     },
     {
       "relation": "contains",
@@ -12113,7 +12646,7 @@
       "source_location": "L5",
       "weight": 1.0,
       "source": "tests_prediction_config_test",
-      "target": "tests_prediction_config_test_resolvepredictionoptions",
+      "target": "tests_prediction_config_test_method_choices_optionschema_resolvepredictionoptions",
       "confidence_score": 1.0
     },
     {
@@ -12122,9 +12655,9 @@
       "source_file": "tests/prediction-config.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_prediction_config_test",
-      "target": "tests_prediction_config_test_test",
-      "confidence_score": 1.0
+      "target": "tests_prediction_config_test_test"
     },
     {
       "relation": "contains",
@@ -12132,9 +12665,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_assert",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_assert"
     },
     {
       "relation": "contains",
@@ -12142,9 +12675,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_fs",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_fs"
     },
     {
       "relation": "contains",
@@ -12152,9 +12685,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_measurestructure_parsemmcif_parsepdb",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_measurestructure_parsemmcif_parsepdb"
     },
     {
       "relation": "contains",
@@ -12162,9 +12695,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_path",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_path"
     },
     {
       "relation": "contains",
@@ -12172,9 +12705,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_restraint",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_restraint"
     },
     {
       "relation": "contains",
@@ -12182,9 +12715,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_structures",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_structures"
     },
     {
       "relation": "contains",
@@ -12192,9 +12725,9 @@
       "source_file": "tests/restraint-report.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_restraint_report_test",
-      "target": "tests_restraint_report_test_test",
-      "confidence_score": 1.0
+      "target": "tests_restraint_report_test_test"
     },
     {
       "relation": "contains",
@@ -12202,9 +12735,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_assert",
-      "confidence_score": 1.0
+      "target": "tests_run_manifest_test_assert"
     },
     {
       "relation": "contains",
@@ -12212,9 +12745,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_completerunmanifest_createrunmanifest",
-      "confidence_score": 1.0
+      "target": "tests_run_manifest_test_completerunmanifest_createrunmanifest"
     },
     {
       "relation": "contains",
@@ -12222,9 +12755,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_fs",
-      "confidence_score": 1.0
+      "target": "tests_run_manifest_test_fs"
     },
     {
       "relation": "contains",
@@ -12232,9 +12765,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_os",
-      "confidence_score": 1.0
+      "target": "tests_run_manifest_test_os"
     },
     {
       "relation": "contains",
@@ -12242,9 +12775,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_path",
-      "confidence_score": 1.0
+      "target": "tests_run_manifest_test_path"
     },
     {
       "relation": "contains",
@@ -12252,9 +12785,9 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_resolvepredictionoptions",
-      "confidence_score": 1.0
+      "target": "tests_run_manifest_test_resolvepredictionoptions"
     },
     {
       "relation": "contains",
@@ -12262,8 +12795,58 @@
       "source_file": "tests/run-manifest.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_run_manifest_test",
-      "target": "tests_run_manifest_test_test",
+      "target": "tests_run_manifest_test_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "tests_server_prediction_test_assert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "tests_server_prediction_test_buildboltzcommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "tests_server_prediction_test_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "tests_server_prediction_test_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/server-prediction.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_server_prediction_test",
+      "target": "tests_server_prediction_test_test",
       "confidence_score": 1.0
     },
     {
@@ -12272,8 +12855,18 @@
       "source_file": "tests/test_boltz_patch.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_boltz_patch",
-      "target": "tests_test_boltz_patch_boltzpatchtests",
+      "target": "tests_test_boltz_patch_boltzpatchtests"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "tests_test_boltz_patch_boltzpatchtests",
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_contact_guidance_remains_on_without_optional_physical_potentials",
       "confidence_score": 1.0
     },
     {
@@ -12282,9 +12875,9 @@
       "source_file": "tests/test_boltz_patch.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_boltz_patch_boltzpatchtests",
-      "target": "tests_test_boltz_patch_boltzpatchtests_test_endpoint_errors_identify_complete_endpoint",
-      "confidence_score": 1.0
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_endpoint_errors_identify_complete_endpoint"
     },
     {
       "relation": "method",
@@ -12292,9 +12885,9 @@
       "source_file": "tests/test_boltz_patch.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_boltz_patch_boltzpatchtests",
-      "target": "tests_test_boltz_patch_boltzpatchtests_test_exact_pair_and_threshold_propagation",
-      "confidence_score": 1.0
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_exact_pair_and_threshold_propagation"
     },
     {
       "relation": "method",
@@ -12302,9 +12895,9 @@
       "source_file": "tests/test_boltz_patch.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_boltz_patch_boltzpatchtests",
-      "target": "tests_test_boltz_patch_boltzpatchtests_test_example_parses_with_real_boltz_schema",
-      "confidence_score": 1.0
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_example_parses_with_real_boltz_schema"
     },
     {
       "relation": "method",
@@ -12312,8 +12905,38 @@
       "source_file": "tests/test_boltz_patch.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_boltz_patch_boltzpatchtests",
-      "target": "tests_test_boltz_patch_boltzpatchtests_test_inference_options_has_separate_atom_contact_field",
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_inference_options_has_separate_atom_contact_field"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "tests_test_boltz_patch_boltzpatchtests",
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_method_choices_match_boltz_constants_without_future_slots",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "tests_test_boltz_patch_boltzpatchtests",
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_parser_rejects_endpoints_resolving_to_same_global_atom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_boltz_patch.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "tests_test_boltz_patch_boltzpatchtests",
+      "target": "tests_test_boltz_patch_boltzpatchtests_test_token_pair_threshold_is_minimum_and_order_independent",
       "confidence_score": 1.0
     },
     {
@@ -12472,9 +13095,9 @@
       "source_file": "DOCKER_HUB.md",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docker_hub_docker_hub_description",
-      "target": "docker_hub_prediction_presets",
-      "confidence_score": 1.0
+      "target": "docker_hub_prediction_presets"
     },
     {
       "relation": "contains",
@@ -12612,9 +13235,9 @@
       "source_file": "README.md",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_run_the_web_ui",
-      "target": "readme_prediction_presets",
-      "confidence_score": 1.0
+      "target": "readme_prediction_presets"
     },
     {
       "relation": "contains",
@@ -12632,9 +13255,9 @@
       "source_file": "README.md",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_yaml_builder",
-      "target": "readme_run_provenance_and_restraint_audit",
-      "confidence_score": 1.0
+      "target": "readme_run_provenance_and_restraint_audit"
     },
     {
       "relation": "contains",
@@ -12682,9 +13305,9 @@
       "source_file": "REQUIREMENTS.md",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "requirements_requirements",
-      "target": "requirements_prediction_presets",
-      "confidence_score": 1.0
+      "target": "requirements_prediction_presets"
     },
     {
       "relation": "contains",
@@ -12698,5 +13321,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4eff38bb84b4eb029606b2d43d1d25fe4f14acf4"
+  "built_at_commit": "b5e35560ccdd4ef148f9f11ccc25f2b64ca09687"
 }

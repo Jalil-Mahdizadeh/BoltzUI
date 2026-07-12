@@ -169,8 +169,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
             if force is not True:
                 msg = (
                     "atom_contact requires force: true because specific atom-pair "
-                    "distance guidance is implemented through a soft inference-time potential. "
-                    "Also run boltz predict with --use_potentials."
+                    "distance guidance is implemented through a soft inference-time potential."
                 )
                 raise ValueError(msg)
 
@@ -189,6 +188,14 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
             atom2 = atom_contact_spec_to_ids(
                 atom_contact["atom2"], chain_to_idx, atom_idx_map, "atom_contact atom2"
             )
+            if atom1[2] == atom2[2]:
+                endpoint1 = ":".join(str(value) for value in atom_contact["atom1"])
+                endpoint2 = ":".join(str(value) for value in atom_contact["atom2"])
+                msg = (
+                    f"atom_contact endpoints {endpoint1} and {endpoint2} resolve to "
+                    f"the same exact atom (global atom index {atom1[2]})."
+                )
+                raise ValueError(msg)
             atom_contact_constraints.append((atom1, atom2, max_distance, force))
         elif "pocket" in constraint:
 '''
@@ -278,6 +285,49 @@ def patch_featurizerv2(path: Path) -> bool:
 '''
     text = replace_once(text, token_sig_anchor, token_sig_replacement, "token feature signature")
 
+    token_function_anchor = '''def process_token_features(  # noqa: C901, PLR0915, PLR0912
+'''
+    token_function_replacement = '''def apply_atom_contact_token_conditioning(
+    contact_conditioning,
+    contact_threshold,
+    token_data,
+    inference_atom_contact_constraints,
+):
+    """Apply deterministic token conditioning for atom-contact restraints."""
+    for atom1, atom2, max_distance, _force in inference_atom_contact_constraints:
+        atom_idx1 = atom1[2]
+        atom_idx2 = atom2[2]
+        idx1 = None
+        idx2 = None
+        for idx, token in enumerate(token_data):
+            if token["atom_idx"] <= atom_idx1 < token["atom_idx"] + token["atom_num"]:
+                idx1 = idx
+            if token["atom_idx"] <= atom_idx2 < token["atom_idx"] + token["atom_num"]:
+                idx2 = idx
+        if idx1 is None or idx2 is None:
+            continue
+
+        contact_conditioning[idx1, idx2] = const.contact_conditioning_info["CONTACT"]
+        contact_conditioning[idx2, idx1] = const.contact_conditioning_info["CONTACT"]
+        current_threshold = contact_threshold[idx1, idx2]
+        threshold = (
+            max_distance
+            if current_threshold <= 0
+            else min(float(current_threshold), max_distance)
+        )
+        contact_threshold[idx1, idx2] = threshold
+        contact_threshold[idx2, idx1] = threshold
+
+
+def process_token_features(  # noqa: C901, PLR0915, PLR0912
+'''
+    text = replace_once(
+        text,
+        token_function_anchor,
+        token_function_replacement,
+        "atom_contact token conditioning helper",
+    )
+
     token_block_anchor = '''                            break
                     break
 
@@ -287,21 +337,12 @@ def patch_featurizerv2(path: Path) -> bool:
                     break
 
     if inference_atom_contact_constraints is not None:
-        for atom1, atom2, max_distance, force in inference_atom_contact_constraints:
-            atom_idx1 = atom1[2]
-            atom_idx2 = atom2[2]
-            idx1 = None
-            idx2 = None
-            for idx, token in enumerate(token_data):
-                if token["atom_idx"] <= atom_idx1 < token["atom_idx"] + token["atom_num"]:
-                    idx1 = idx
-                if token["atom_idx"] <= atom_idx2 < token["atom_idx"] + token["atom_num"]:
-                    idx2 = idx
-            if idx1 is not None and idx2 is not None:
-                contact_conditioning[idx1, idx2] = const.contact_conditioning_info["CONTACT"]
-                contact_conditioning[idx2, idx1] = const.contact_conditioning_info["CONTACT"]
-                contact_threshold[idx1, idx2] = max_distance
-                contact_threshold[idx2, idx1] = max_distance
+        apply_atom_contact_token_conditioning(
+            contact_conditioning,
+            contact_threshold,
+            token_data,
+            inference_atom_contact_constraints,
+        )
 
     if binder_pocket_conditioned_prop > 0.0:
 '''

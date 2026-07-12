@@ -98,6 +98,7 @@ function applyPreset(id) {
   if (!preset) return;
   state.selectedPreset = preset.id;
   if (preset.options) state.options = { ...preset.options };
+  applySelectedInputDefaults();
   renderPresetControl();
   renderOptionGroups();
   renderOverview();
@@ -167,6 +168,12 @@ function selectedInputFile() {
 
 function selectedInputHasLigand() {
   return Boolean(selectedInputFile()?.hasLigand);
+}
+
+function applySelectedInputDefaults() {
+  if (selectedInputFile()?.hasAtomContact && state.selectedPreset !== "custom") {
+    state.options.override = true;
+  }
 }
 
 function resultsForSelectedInput() {
@@ -305,7 +312,7 @@ function renderSegmented(option, value) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `segment-button${value === choice ? " active" : ""}`;
-    button.textContent = choice;
+    button.textContent = option.choiceLabels?.[choice] || choice;
     button.disabled = !optionIsActive(option);
     button.addEventListener("click", () => {
       state.options[option.key] = choice;
@@ -364,7 +371,7 @@ function renderOptionField(option) {
     for (const choice of option.choices) {
       const item = document.createElement("option");
       item.value = choice;
-      item.textContent = choice;
+      item.textContent = option.choiceLabels?.[choice] || choice;
       input.appendChild(item);
     }
   } else {
@@ -860,6 +867,7 @@ async function refreshAll() {
   $("#input-section").open = true;
 
   renderInputs();
+  applySelectedInputDefaults();
   renderPresetControl();
   renderOptionGroups();
   renderResults();
@@ -946,6 +954,7 @@ function bindEvents() {
     state.selectedResult = null;
     state.selectedModelIndex = null;
     renderInputs();
+    applySelectedInputDefaults();
     renderOptionGroups();
     renderResults();
     updateCommandPreview();

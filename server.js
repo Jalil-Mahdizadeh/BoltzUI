@@ -5,7 +5,12 @@ const path = require("node:path");
 const { spawn } = require("node:child_process");
 const { randomUUID } = require("node:crypto");
 const EventEmitter = require("node:events");
-const { inputMsaSummary, parseInputFile, validateAtomContacts } = require("./lib/atom-contact");
+const {
+  documentHasAtomContacts,
+  inputMsaSummary,
+  parseInputFile,
+  validateAtomContacts
+} = require("./lib/atom-contact");
 const {
   DEFAULT_PRESET,
   optionSchema,
@@ -143,6 +148,14 @@ function inputHasLigandEntity(dataPath) {
   }
 }
 
+function inputHasAtomContact(dataPath) {
+  try {
+    return documentHasAtomContacts(parseInputFile(dataPath));
+  } catch {
+    return false;
+  }
+}
+
 function appendPredictOptions(args, options, secretMode = "include", context = {}) {
   for (const option of optionSchema) {
     if (MSA_SERVER_DEPENDENT_OPTIONS.has(option.key) && !options.use_msa_server) {
@@ -190,10 +203,14 @@ function preparePrediction(payload) {
   const stat = fs.statSync(dataPath);
   if (!stat.isFile()) throw new Error("Input data path must be a file.");
 
-  const requestedPreset = payload.preset || (payload.options ? "custom" : DEFAULT_PRESET);
-  const { preset, options } = resolvePredictionOptions(payload.options || {}, requestedPreset);
   const document = parseInputFile(dataPath);
-  const { restraints } = validateAtomContacts(document, { usePotentials: options.use_potentials });
+  const { restraints } = validateAtomContacts(document);
+  const requestedPreset = payload.preset || (payload.options ? "custom" : DEFAULT_PRESET);
+  const { preset, options } = resolvePredictionOptions(
+    payload.options || {},
+    requestedPreset,
+    { hasAtomContacts: restraints.length > 0 }
+  );
   const context = { hasLigand: inputHasLigandEntity(dataPath) };
   const args = predictArgs(dataPath, options, "include", dataPath, context);
   const maskedArgs = predictArgs(dataPath, options, "mask", dataPath, context);
@@ -265,7 +282,8 @@ async function listInputFiles() {
       path: toRelative(file),
       name: path.basename(file),
       size: fs.statSync(file).size,
-      hasLigand: inputHasLigandEntity(file)
+      hasLigand: inputHasLigandEntity(file),
+      hasAtomContact: inputHasAtomContact(file)
     }))
     .sort((a, b) => a.path.localeCompare(b.path));
 }
@@ -706,7 +724,8 @@ async function handleApi(req, res, url) {
         path: toRelative(target),
         name: path.basename(target),
         size: fs.statSync(target).size,
-        hasLigand: inputHasLigandEntity(target)
+        hasLigand: inputHasLigandEntity(target),
+        hasAtomContact: inputHasAtomContact(target)
       }
     });
     return;
@@ -728,8 +747,12 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, HOST, async () => {
-  await fsp.mkdir(JOB_DIR, { recursive: true });
-  console.log(`Boltz UI listening at http://${HOST}:${PORT}`);
-  console.log(`Workspace: ${ROOT}`);
-});
+if (require.main === module) {
+  server.listen(PORT, HOST, async () => {
+    await fsp.mkdir(JOB_DIR, { recursive: true });
+    console.log(`Boltz UI listening at http://${HOST}:${PORT}`);
+    console.log(`Workspace: ${ROOT}`);
+  });
+}
+
+module.exports = { buildBoltzCommand, preparePrediction };

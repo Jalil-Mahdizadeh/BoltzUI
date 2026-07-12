@@ -17,7 +17,7 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Environment variable: `BOLTZ_CACHE=/opt/boltz-cache`
 - Includes Boltz2 checkpoints and molecule cache
 - Adds `atom_contact` YAML restraints for specific atom-pair distance guidance
-- `atom_contact` requires `force: true`, `--use_potentials`, and `max_distance` in `2.0-20.0` Angstrom
+- `atom_contact` requires `force: true` and `max_distance` in `2.0-20.0` Angstrom; additional FK/physical potentials are optional and enabled by default in the experimental preset
 - Final atom-pair distances are measured after prediction and reported separately from confidence
 - MSA defaults match upstream Boltz: `max_msa_seqs=8192`, `subsample_msa=true`, and `num_subsampled_msa=1024`
 - Starts the BoltzUI web server on port `5173`

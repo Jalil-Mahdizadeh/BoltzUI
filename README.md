@@ -91,7 +91,7 @@ The builder covers Boltz YAML features that are not available in FASTA: any numb
 - `bond` is the existing covalent atom-level bond constraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
 - `atom_contact` is a patched Boltz2-only atom-pair upper-distance restraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
 
-`atom_contact` requires `force: true`, prediction with `--use_potentials`, and `max_distance` in the `2.0-20.0` Angstrom range. It contributes token-level contact conditioning for the containing tokens and one exact atom-index pair to the soft inference-time contact potential. This does not mathematically guarantee the final distance. The experimental Atom-contact exploration preset changes the reverse-diffusion sampling schedule; final satisfaction must be checked in `atom_contact_restraints.json`.
+`atom_contact` requires `force: true` and `max_distance` in the `2.0-20.0` Angstrom range. It contributes token-level contact conditioning for the containing tokens and one exact atom-index pair to Boltz's soft inference-time contact guidance. Multiple restraints on the same token pair use the minimum distance for token conditioning while every exact atom pair remains in the atom-level potential. This does not mathematically guarantee the final distance. The experimental Atom-contact exploration preset changes the reverse-diffusion sampling schedule and enables optional physical potentials; final satisfaction must be checked in `atom_contact_restraints.json`.
 
 Example:
 
@@ -143,7 +143,7 @@ The sidebar exposes these Boltz `predict` options:
 - `--write_full_pde` - writes full PDE as an NPZ file. Default: `False`.
 - `--output_format [pdb|mmcif]` - structure output format. BoltzUI default: `pdb`.
 - `--num_workers INTEGER` - dataloader worker count. BoltzUI default: `0`.
-- `--override` - overwrites existing predictions. Default: `False`.
+- `--override` - overwrites existing predictions. Default: `False` for standard tasks and `True` when the input contains `atom_contact`; users can explicitly disable it in Custom settings.
 - `--seed INTEGER` - random seed. BoltzUI default: `1`; use `-1` for a random seed.
 - `--use_msa_server` - generates missing protein MSAs through the MMSeqs2 server. BoltzUI default: `True`.
 - `--msa_server_url TEXT` - MSA server URL, used with `--use_msa_server`. Default: `https://api.colabfold.com`.
@@ -152,9 +152,9 @@ The sidebar exposes these Boltz `predict` options:
 - `--msa_server_password TEXT` - password for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_PASSWORD`.
 - `--api_key_header TEXT` - custom API-key header name. Option default: `None`; when API-key auth is used and no header is provided, Boltz uses `X-API-Key`.
 - `--api_key_value TEXT` - custom API-key header value. Default: `None`.
-- `--use_potentials` - enables soft inference-time steering potentials. Required for `atom_contact`; enabled by the experimental Atom-contact exploration preset.
+- `--use_potentials` - enables Boltz's additional FK/physical steering potentials. It is optional for `atom_contact` because contact guidance remains active independently, but it defaults to on in the experimental Atom-contact exploration preset.
 - `--model [boltz1|boltz2]` - model family. Default: `boltz2`.
-- `--method TEXT` - method metadata/conditioning value. Default: `None`.
+- `--method TEXT` - method metadata/conditioning value selected from Boltz 2.2.1's supported methods. Default: `x-ray diffraction` (`X-RAY DIFFRACTION` in the UI).
 - `--preprocessing-threads INTEGER` - preprocessing thread count. Default: `1`.
 - `--affinity_mw_correction` - enables molecular-weight correction for affinity prediction. Default: `False`.
 - `--sampling_steps_affinity INTEGER` - affinity sampling steps. Default: `200`.

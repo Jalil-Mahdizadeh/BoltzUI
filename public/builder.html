@@ -158,7 +158,7 @@
               <summary><span><b>06</b>Atom contact constraints</span><em>Specific atom-pair guidance</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
-                  <span>Use atom_contact for a specific atom-pair upper-distance restraint. This is soft inference-time potential guidance and does not guarantee the final distance. It requires force: true and --use_potentials. Use the experimental Atom-contact exploration preset from the dashboard; its lower step scale changes reverse-diffusion updates and sample diversity and may interact with guidance strength. Verify final distances in the restraint report.</span>
+                  <span>Use atom_contact for a specific atom-pair upper-distance restraint. This is soft inference-time contact guidance and does not guarantee the final distance. It requires force: true. The experimental Atom-contact exploration preset enables optional physical potentials by default, but atom-contact guidance also works when they are disabled. Its lower step scale changes reverse-diffusion updates and sample diversity and may interact with guidance strength. Verify final distances in the restraint report.</span>
                   <button class="secondary-button mini-action-button" id="add-atom-contact-button" type="button">Add atom contact</button>
                 </div>
                 <div class="repeat-list atom-contact-list" id="atom-contact-list"></div>

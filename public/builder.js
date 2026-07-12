@@ -505,7 +505,7 @@ function buildYamlFromBuilder() {
   });
 
   if (builderState.atomContacts.length) {
-    warnings.push("atom_contact constraints require force: true and prediction with --use_potentials.");
+    warnings.push("atom_contact constraints require force: true. Optional physical potentials default to on in the Atom-contact exploration preset.");
   }
   builderState.atomContacts.forEach((atomContact, index) => {
     const atom1 = parseAtomSpec(atomContact.atom1);

@@ -55,8 +55,9 @@ test("identical endpoints and invalid distances fail preflight", () => {
   assert.throws(() => validateAtomContacts(invalidDistance, { usePotentials: true }), /max_distance must be finite and positive/);
 });
 
-test("missing potentials fails preflight", () => {
-  assert.throws(() => validateAtomContacts(documentFromFixture(), { usePotentials: false }), /require --use_potentials/);
+test("atom-contact validation does not require optional physical potentials", () => {
+  const result = validateAtomContacts(documentFromFixture(), { usePotentials: false });
+  assert.equal(result.restraints.length, 1);
 });
 
 test("explicit empty MSA is recorded without claiming server use", () => {

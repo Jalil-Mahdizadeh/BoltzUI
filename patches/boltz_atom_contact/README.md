@@ -29,9 +29,13 @@ Rules:
 - `max_distance` must be finite and in the `2.0-20.0` Angstrom range.
 - `force: true` is required because specific atom-pair distance guidance uses
   a soft inference-time contact potential.
-- Predictions using `atom_contact` must run with `--use_potentials`.
+- Boltz contact guidance remains active without `--use_potentials`. That flag
+  enables additional FK/physical steering and remains on by default in the
+  experimental UI preset.
 - `atom_contact` adds token-level contact conditioning and exactly one atom-index
-  pair to the contact potential. It is sampling guidance, not a mathematical
+  pair to the contact potential. Multiple atom contacts between the same token
+  pair use the minimum token threshold independent of YAML order, while every
+  exact atom pair is preserved. It is sampling guidance, not a mathematical
   guarantee or final minimizer. The experimental UI preset changes the
   reverse-diffusion sampling schedule; lower step scale changes the update and
   sample diversity and may interact with guidance.
