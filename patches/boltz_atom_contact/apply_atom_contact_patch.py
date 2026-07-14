@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Patch Boltz 2.2.1 with specific atom-pair distance guidance."""
+"""Patch Boltz 2.2.1 atom contacts and diffusion sample chunking."""
 
 from __future__ import annotations
 
@@ -14,6 +14,7 @@ import boltz.data.feature.featurizerv2 as featurizerv2
 import boltz.data.module.inferencev2 as inferencev2
 import boltz.data.parse.schema as schema
 import boltz.data.types as types
+import boltz.model.modules.diffusionv2 as diffusionv2
 
 
 EXPECTED_BOLTZ_VERSION = "2.2.1"
@@ -22,12 +23,14 @@ EXPECTED_SOURCE_SHA256 = {
     "types.py": "e7e5ede40e0c208bcb966acd04caebb3b017e8a50b85b1aa3cae4cdf83b71707",
     "inferencev2.py": "675235dff103d698dc65f2ebaca85a62b664ab28cd09f4b1c0166e6e56b47db4",
     "featurizerv2.py": "af1f9e6ec0c3d7289eb1f7503c3c1c3ee0d9f03436778dd4a7d412b8f7bd9f94",
+    "diffusionv2.py": "9eacc8cf7daeb62dffa81a09a1f93d2e268a4b7b68b5b88c2058c5ebf5ca4057",
 }
 PATCH_MARKERS = {
     "schema.py": ("atom_contact_constraints", "def atom_contact_spec_to_ids"),
     "types.py": ("atom_contact_constraints",),
     "inferencev2.py": ("atom_contact_constraints",),
     "featurizerv2.py": ("inference_atom_contact_constraints",),
+    "diffusionv2.py": ("sample_ids.split(max_parallel_samples)",),
 }
 
 
@@ -423,6 +426,27 @@ def process_token_features(  # noqa: C901, PLR0915, PLR0912
     return write_if_changed(path, text)
 
 
+def patch_diffusionv2(path: Path) -> bool:
+    text = path.read_text(encoding="utf-8")
+    marker = "sample_ids.split(max_parallel_samples)"
+    if marker in text:
+        return False
+
+    anchor = '''                sample_ids_chunks = sample_ids.chunk(
+                    multiplicity % max_parallel_samples + 1
+                )
+'''
+    replacement = '''                sample_ids_chunks = sample_ids.split(max_parallel_samples)
+'''
+    text = replace_once(
+        text,
+        anchor,
+        replacement,
+        "diffusion max_parallel_samples chunking",
+    )
+    return write_if_changed(path, text)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -436,6 +460,7 @@ def main() -> None:
         "types.py": Path(inspect.getfile(types)),
         "inferencev2.py": Path(inspect.getfile(inferencev2)),
         "featurizerv2.py": Path(inspect.getfile(featurizerv2)),
+        "diffusionv2.py": Path(inspect.getfile(diffusionv2)),
     }
 
     print("boltz version:", getattr(boltz, "__version__", "unknown"))
@@ -452,6 +477,7 @@ def main() -> None:
         "types.py": patch_types(paths["types.py"]),
         "inferencev2.py": patch_inferencev2(paths["inferencev2.py"]),
         "featurizerv2.py": patch_featurizerv2(paths["featurizerv2.py"]),
+        "diffusionv2.py": patch_diffusionv2(paths["diffusionv2.py"]),
     }
 
     for label, was_changed in changed.items():

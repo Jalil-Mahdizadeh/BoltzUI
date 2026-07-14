@@ -10,7 +10,7 @@
 
 ## GPU memory
 
-Boltz 2.2.1 can fill an 8 GB GPU on larger or more aggressive runs. Keep `--max_parallel_samples 1` on small laptop GPUs. Increase `--diffusion_samples` for more samples, but keep them serial unless you have much more VRAM.
+Boltz 2.2.1 can fill an 8 GB GPU on larger or more aggressive runs. This image patches `max_parallel_samples` to be a true denoiser chunk-size limit; keep it at `1` on small laptop GPUs. The minimal fix still retains diffusion state for all requested samples, so increasing `diffusion_samples` can still increase peak VRAM even when denoiser calls are serial.
 
 `run.sh` only launches the container. Prediction parameters are selected in the dashboard and are not supplied by the launcher.
 

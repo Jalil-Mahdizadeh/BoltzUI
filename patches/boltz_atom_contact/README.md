@@ -1,7 +1,8 @@
 # Boltz atom_contact patch
 
 This directory contains the reproducible patch layer that adds Boltz2-only
-`atom_contact` constraints to the installed Boltz runtime in the Docker image.
+`atom_contact` constraints and corrects diffusion sample chunking in the
+installed Boltz runtime in the Docker image.
 
 The patch is applied during `docker build` by `apply_atom_contact_patch.py`.
 It locates the installed Boltz source files through Python imports and
@@ -9,6 +10,12 @@ It locates the installed Boltz source files through Python imports and
 explicit source anchors. The patcher is idempotent and compiles the modified
 files before the image build continues. `--check` performs compatibility
 validation without editing installed files.
+
+The Boltz 2.2.1 diffusion implementation passes a remainder-derived value to
+`torch.chunk`, so `max_parallel_samples=1` can process every requested sample
+in one denoiser call. This patch uses `Tensor.split(max_parallel_samples)`,
+making the option a true maximum denoiser batch size. It deliberately does not
+change RNG generation, outer-loop sampling, confidence execution, or output order.
 
 Supported YAML:
 

@@ -1,5 +1,6 @@
 from pathlib import Path
 from types import SimpleNamespace
+import inspect
 import json
 import subprocess
 import tempfile
@@ -18,12 +19,29 @@ from boltz.data.parse.schema import atom_contact_spec_to_ids
 from boltz.data.parse.yaml import parse_yaml
 from boltz.data.types import InferenceOptions
 from boltz.main import BoltzSteeringParams, load_canonicals
+from boltz.model.modules.diffusionv2 import AtomDiffusion
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class BoltzPatchTests(unittest.TestCase):
+    def test_max_parallel_samples_is_a_true_chunk_size(self):
+        source = inspect.getsource(AtomDiffusion.sample)
+        self.assertIn("sample_ids.split(max_parallel_samples)", source)
+        self.assertNotIn("multiplicity % max_parallel_samples", source)
+        sample_ids = torch.arange(10)
+        expected = {
+            1: [1] * 10,
+            2: [2] * 5,
+            5: [5, 5],
+            10: [10],
+        }
+        for limit, sizes in expected.items():
+            self.assertEqual(
+                [chunk.numel() for chunk in sample_ids.split(limit)], sizes
+            )
+
     def test_example_parses_with_real_boltz_schema(self):
         target = parse_yaml(
             ROOT / "fixtures" / "atom_contact_example.yaml",

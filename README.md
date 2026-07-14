@@ -1,6 +1,6 @@
 # BoltzUI
 
-BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. This patched build is layered on the local `boltzui:221` image and adds a reproducible Boltz2-only `atom_contact` runtime patch for specific atom-pair distance guidance.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. This patched build is layered on the local `boltzui:221` image and adds reproducible Boltz2-only `atom_contact` guidance plus corrected `max_parallel_samples` denoiser chunking.
 
 ## Repository Contents
 
@@ -16,7 +16,7 @@ BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web
 
 ## Build The Image
 
-The atom-contact build expects the patched base workflow image to already exist locally:
+The patched build expects the base workflow image to already exist locally:
 
 ```bash
 docker image inspect boltzui:221 >/dev/null
@@ -28,7 +28,7 @@ Build:
 docker build -t boltzui:221-atomcontact .
 ```
 
-The final `boltzui:221-atomcontact` image contains the Boltz runtime from `boltzui:221`, Node.js, the BoltzUI web app, and the `atom_contact` Boltz runtime patch.
+The final `boltzui:221-atomcontact` image contains the Boltz runtime from `boltzui:221`, Node.js, the BoltzUI web app, atom-contact support, and bounded denoiser sample chunking.
 
 ## Run The Web UI
 
@@ -137,7 +137,7 @@ The sidebar exposes these Boltz `predict` options:
 - `--recycling_steps INTEGER` - number of recycling iterations. Default: `3`.
 - `--sampling_steps INTEGER` - number of diffusion sampling steps. Determined by the selected preset; see the generated preset table above.
 - `--diffusion_samples INTEGER` - number of generated structure samples. Default: `1`.
-- `--max_parallel_samples INTEGER` - maximum samples predicted in parallel. Default: `None`.
+- `--max_parallel_samples INTEGER` - maximum samples passed through each denoiser call. BoltzUI default: `1`. The patched runtime treats this as a true chunk size.
 - `--step_scale FLOAT` - reverse-diffusion step scale. Determined by the selected preset; changing it affects reverse-diffusion updates and sample diversity and can interact with potential guidance.
 - `--write_full_pae` - writes full PAE as an NPZ file. Default: `True`.
 - `--write_full_pde` - writes full PDE as an NPZ file. Default: `False`.
@@ -175,6 +175,10 @@ Boltz2 can fill small laptop GPUs. On an 8 GB GPU, keep:
 --max_parallel_samples 1
 ```
 
+This limits denoiser activations, but the minimal patch still allocates coordinate,
+noise, mask, and guidance state for all `diffusion_samples`. Peak VRAM therefore
+does not become independent of the total sample count.
+
 If a run fails with CUDA out-of-memory, lower:
 
 ```bash
@@ -189,6 +193,29 @@ For a very conservative first test, set these options in the sidebar:
 --recycling_steps 3
 --max_parallel_samples 1
 ```
+
+## Diffusion Chunking Benchmark
+
+The original Boltz 2.2.1 implementation used a remainder-derived argument to
+`torch.chunk`; for 10 samples, `max_parallel_samples=1` incorrectly produced one
+10-sample denoiser call. This image uses `Tensor.split(max_parallel_samples)`.
+
+The supplied 69-residue sequence was run with `msa: empty`, seed `42`, 200 sampling
+steps, 3 recycling steps, step scale 1.5, and 10 PDB samples on the 8151 MiB laptop
+GPU. Peak values are total GPU memory reported by `nvidia-smi`, including the desktop.
+
+| Runtime | Effective denoiser batches | Time | Peak GPU | Mean aligned all-atom RMSD vs pre-fix | Exact PDBs |
+|---|---|---:|---:|---:|---:|
+| Pre-fix, requested parallel limit 1 | `10` | 124.0 s | 2855 MiB | reference | 10/10 |
+| Fixed, parallel limit 1 | `1 x 10 calls` | 275.9 s | 2743 MiB | 0.000370 A | 0/10 |
+| Fixed, parallel limit 2 | `2 x 5 calls` | 183.1 s | 2743 MiB | 0.000411 A | 0/10 |
+| Fixed, parallel limit 5 | `5 x 2 calls` | 125.1 s | 2785 MiB | 0.000419 A | 0/10 |
+| Fixed, parallel limit 10 | `10` | 109.3 s | 2855 MiB | 0.000000 A | 10/10 |
+
+The fixed parallel-limit-10 run reproduced all baseline PDB and confidence files
+exactly. Smaller chunks changed floating-point execution shape: corresponding models
+remained sub-milliangstrom-equivalent, but were not byte-identical. The largest
+confidence-score change was `0.000238`.
 
 ## Laptop Smoke Benchmark
 
@@ -253,9 +280,9 @@ The real 495-residue `NusA_open.yaml` sequence was tested on the same laptop GPU
 | Default recycling | capped MSA 1024, `recycling_steps=3`, `sampling_steps=200` | Success | `149.053 s` |
 | High recycling | capped MSA 1024, `recycling_steps=10`, `sampling_steps=200` | Success | `241.689 s` |
 | Add potentials | capped MSA 1024, `recycling_steps=10`, `sampling_steps=200`, `--use_potentials` | Success | `298.748 s` |
-| Two serial samples | previous settings plus `diffusion_samples=2` | Success | `366.732 s` |
+| Two requested samples, pre-fix runtime | previous settings plus `diffusion_samples=2` | Success | `366.732 s` |
 
-For this laptop, the first practical failure was not the 495-residue sequence length itself. It was allowing Boltz to ingest up to the default `max_msa_seqs=8192` MSA sequences. A cap of `5120` was confirmed to work for the minimal MSA test; the heavier setting ladder below used `1024` as the conservative cap. For NusA on this 8 GB GPU, keep MSA capped and samples serial:
+For this laptop, the first practical failure was not the 495-residue sequence length itself. It was allowing Boltz to ingest up to the default `max_msa_seqs=8192` MSA sequences. A cap of `5120` was confirmed to work for the minimal MSA test; the heavier setting ladder used `1024` as the conservative cap. Those historical measurements predate the chunking fix, so their `max_parallel_samples=1` setting did not actually serialize multiple samples. With the patched image, keep MSA capped and denoiser samples serial:
 
 ```bash
 --max_msa_seqs 5120
@@ -263,4 +290,4 @@ For this laptop, the first practical failure was not the 495-residue sequence le
 --max_parallel_samples 1
 ```
 
-The original heavier 20-sample setting was not run end-to-end. With `max_parallel_samples=1`, additional diffusion samples are expected to increase runtime substantially while keeping peak VRAM closer to the one-sample case, but this was only verified up to `diffusion_samples=2`.
+The original heavier 20-sample setting was not run end-to-end. The patched 10-sample benchmark confirms correct denoiser serialization, but also shows that peak VRAM falls only modestly because full trajectory and guidance state remains allocated for every requested sample.
