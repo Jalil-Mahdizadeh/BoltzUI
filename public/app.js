@@ -543,24 +543,33 @@ function renderResults() {
 
 function renderRestraintAudit() {
   const result = currentResult();
+  const selectedModel = currentModel(result);
   const audit = $("#restraint-audit");
   const body = $("#restraint-table-body");
+  const summaryText = $("#restraint-audit-summary");
   const report = result && result.restraintReport;
+  const exactRestraints = Array.isArray(report?.restraints) ? report.restraints : [];
+  const unionGroups = Array.isArray(report?.union_groups) ? report.union_groups : [];
+  const selectedAuditModel = selectedModel
+    ? `model_${selectedModel.index}`
+    : report?.structures_examined?.[0]?.model;
+  const rowQueue = [];
   setFileLink("#run-manifest-link", result && result.runManifestPath);
   setFileLink("#restraint-report-link", result && result.restraintReportPath);
   body.innerHTML = "";
-  if (!report || !Array.isArray(report.restraints) || !report.restraints.length) {
+  if (!report || (!exactRestraints.length && !unionGroups.length)) {
     audit.hidden = true;
+    summaryText.textContent = "Soft inference-time potential guidance; final distances are measured from each generated structure.";
     return;
   }
 
   audit.hidden = false;
-  for (const restraint of report.restraints) {
+  for (const restraint of exactRestraints) {
     const pair = `${restraint.chain1}:${restraint.residue1}:${restraint.atom1} - ${restraint.chain2}:${restraint.residue2}:${restraint.atom2}`;
     const models = Array.isArray(restraint.models) && restraint.models.length
       ? restraint.models
       : [{ model: "No structure", status: "unresolved", observed_distance: null, excess_distance: null, satisfied: null, unresolved_reason: "No generated structure was found." }];
-    for (const model of models) {
+    for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
       const row = document.createElement("tr");
       const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
       row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
@@ -573,9 +582,91 @@ function renderRestraintAudit() {
         <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
         <td>${escapeHtml(satisfaction)}</td>
       `;
-      body.appendChild(row);
+      rowQueue.push({
+        row,
+        kind: "exact",
+        measurement: model,
+        priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
+      });
     }
   }
+
+  for (const group of unionGroups) {
+    const alternatives = Array.isArray(group.alternatives) ? group.alternatives : [];
+    const pair = `Union group ${group.group_index} (${alternatives.length} alternatives)`;
+    const alternativeSummary = alternatives.map((alternative) => (
+      `${alternative.alternative_index}: `
+      + `${alternative.chain1}:${alternative.residue1}:${alternative.atom1} - `
+      + `${alternative.chain2}:${alternative.residue2}:${alternative.atom2} `
+      + `(<= ${formatNumber(Number(alternative.max_distance), 2)} A)`
+    )).join("\n");
+    const models = Array.isArray(group.models) && group.models.length
+      ? group.models
+      : [{
+        model: "No structure",
+        status: "unresolved",
+        satisfied: null,
+        best_observed_distance: null,
+        minimum_excess_distance: null,
+        satisfying_alternatives: [],
+        unresolved_reason: "No generated structure was found."
+      }];
+    for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
+      const row = document.createElement("tr");
+      const satisfying = Array.isArray(model.satisfying_alternatives)
+        ? model.satisfying_alternatives
+        : [];
+      const satisfaction = model.satisfied === true
+        ? `Yes (alternative ${satisfying.join(", ")})`
+        : model.satisfied === false
+          ? "No"
+          : model.status === "indeterminate"
+            ? "Indeterminate"
+            : "Unresolved";
+      row.className = model.satisfied === true
+        ? "restraint-satisfied"
+        : model.satisfied === false
+          ? "restraint-violated"
+          : "restraint-unresolved";
+      row.title = [alternativeSummary, model.unresolved_reason].filter(Boolean).join("\n\n");
+      row.innerHTML = `
+        <td>${escapeHtml(model.model)}</td>
+        <td>${escapeHtml(pair)}</td>
+        <td>Per alternative</td>
+        <td>${model.best_observed_distance === null ? "-" : `${formatNumber(model.best_observed_distance, 3)} A`}</td>
+        <td>${model.minimum_excess_distance === null ? "-" : `${formatNumber(model.minimum_excess_distance, 3)} A`}</td>
+        <td>${escapeHtml(satisfaction)}</td>
+      `;
+      rowQueue.push({
+        row,
+        kind: "union",
+        measurement: model,
+        priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
+      });
+    }
+  }
+
+  rowQueue.sort((first, second) => first.priority - second.priority);
+  const visibleRows = rowQueue.slice(0, 500);
+  for (const entry of visibleRows) body.appendChild(entry.row);
+
+  const modelSummary = Array.isArray(report.model_summaries)
+    ? report.model_summaries.find((item) => item.model === selectedAuditModel)
+    : null;
+  const exactEntries = rowQueue.filter((entry) => entry.kind === "exact");
+  const unionEntries = rowQueue.filter((entry) => entry.kind === "union");
+  const exactResolved = exactEntries.filter((entry) => entry.measurement.satisfied !== null);
+  const unionConclusive = unionEntries.filter((entry) => entry.measurement.satisfied !== null);
+  const exactSatisfied = modelSummary?.exact?.satisfied
+    ?? exactResolved.filter((entry) => entry.measurement.satisfied === true).length;
+  const exactTotal = modelSummary?.exact?.resolved ?? exactResolved.length;
+  const unionSatisfied = modelSummary?.union?.satisfied
+    ?? unionConclusive.filter((entry) => entry.measurement.satisfied === true).length;
+  const unionTotal = modelSummary?.union?.conclusive ?? unionConclusive.length;
+  const rowNote = visibleRows.length < rowQueue.length
+    ? ` Showing ${visibleRows.length} of ${rowQueue.length} rows, with violations first; use the restraint report for all rows.`
+    : "";
+  summaryText.textContent = `${selectedAuditModel || "No structure"}: exact ${exactSatisfied}/${exactTotal} resolved satisfied; union ${unionSatisfied}/${unionTotal} conclusive satisfied.${rowNote}`;
 }
 
 function renderResultCards() {

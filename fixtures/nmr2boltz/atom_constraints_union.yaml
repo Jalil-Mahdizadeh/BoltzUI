@@ -1,0 +1,10 @@
+constraints:
+  - atom_contact_union:
+      alternatives:
+        - atom1: [A, 1, OG]
+          atom2: [B, 1, N]
+          max_distance: 4.000000
+        - atom1: [A, 1, N]
+          atom2: [B, 1, N]
+          max_distance: 4.000000
+      force: true

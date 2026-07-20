@@ -2,11 +2,11 @@
 
 ## Short Description
 
-BoltzUI web app for Boltz 2.2.1 with atom-pair guidance and bounded denoiser sample batches.
+BoltzUI web app for Boltz 2.2.1 with exact and ambiguous union atom-pair guidance and bounded denoiser sample batches.
 
 ## Overview
 
-This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only `atom_contact` restraints and corrects `max_parallel_samples` so it limits each denoiser call.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only exact `atom_contact` and OR-grouped `atom_contact_union` restraints and corrects `max_parallel_samples` so it limits each denoiser call.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -16,10 +16,12 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Cache path: `/opt/boltz-cache`
 - Environment variable: `BOLTZ_CACHE=/opt/boltz-cache`
 - Includes Boltz2 checkpoints and molecule cache
-- Adds `atom_contact` YAML restraints for specific atom-pair distance guidance
+- Adds exact `atom_contact` and ambiguous `atom_contact_union` YAML restraints
+- Keeps one potential union index per OR group and excludes union alternatives from binary token-contact conditioning
+- YAML Builder fields can directly load nmr2boltz `atom_constraints_exact.yaml` and `atom_constraints_union.yaml`
 - Corrects Boltz 2.2.1 diffusion chunking so `max_parallel_samples` is a true denoiser batch limit
-- `atom_contact` requires `force: true` and `max_distance` in `2.0-20.0` Angstrom; additional FK/physical potentials are optional and enabled by default in the experimental preset
-- Final atom-pair distances are measured after prediction and reported separately from confidence
+- Exact and union atom contacts require `force: true` and per-pair `max_distance` in `2.0-20.0` Angstrom; additional FK/physical potentials are optional and enabled by default in the experimental preset
+- Exact pairs and union-group alternatives are measured after prediction, summarized per model, and reported separately from confidence; large audits show violations first while retaining every measurement in JSON
 - MSA defaults match upstream Boltz: `max_msa_seqs=8192`, `subsample_msa=true`, and `num_subsampled_msa=1024`
 - Starts the BoltzUI web server on port `5173`
 - Designed for bind-mounted workspaces at `/workspace/BoltzUI`
@@ -67,4 +69,4 @@ Make sure the local `boltzui:221` base image exists, then run:
 docker build -t boltzui:221-atomcontact .
 ```
 
-The build applies and compiles the Boltz atom-contact and diffusion-chunking patch, runs compatibility tests, then verifies that `boltz` and `node` are available.
+The build applies and compiles the exact/union Boltz atom-contact and diffusion-chunking patch, runs compatibility tests, then verifies that `boltz` and `node` are available.

@@ -4,7 +4,13 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const { measureStructure, parseMmcif, parsePdb } = require("../lib/restraint-report");
+const {
+  measureStructure,
+  measureUnionGroup,
+  parseMmcif,
+  parsePdb,
+  summarizeModelAudit
+} = require("../lib/restraint-report");
 
 const structures = path.join(__dirname, "..", "fixtures", "structures");
 const restraint = {
@@ -34,6 +40,98 @@ test("missing endpoint is reported as unresolved", () => {
   assert.equal(measured.status, "unresolved");
   assert.equal(measured.satisfied, null);
   assert.match(measured.unresolved_reason, /A:1:MISSING/);
+});
+
+test("union report is satisfied when any one alternative is satisfied", () => {
+  const atoms = parsePdb(fs.readFileSync(path.join(structures, "atom_contact_model_0.pdb"), "utf8"));
+  const union = measureUnionGroup({
+    alternatives: [
+      { ...restraint, alternative_index: 1 },
+      {
+        chain1: "A", residue1: 1, atom1: "N",
+        chain2: "B", residue2: 1, atom2: "N",
+        max_distance: 4, alternative_index: 2
+      }
+    ]
+  }, atoms, "model_0");
+  assert.equal(union.measurements[0].satisfied, true);
+  assert.equal(union.measurements[1].satisfied, false);
+  assert.equal(union.summary.status, "satisfied");
+  assert.equal(union.summary.satisfied, true);
+  assert.deepEqual(union.summary.satisfying_alternatives, [1]);
+});
+
+test("partially unresolved union reports indeterminate instead of a false violation", () => {
+  const atoms = parsePdb(fs.readFileSync(path.join(structures, "atom_contact_model_0.pdb"), "utf8"));
+  const union = measureUnionGroup({
+    alternatives: [
+      { ...restraint, max_distance: 2, alternative_index: 1 },
+      { ...restraint, atom1: "MISSING", alternative_index: 2 }
+    ]
+  }, atoms, "model_0");
+  assert.equal(union.summary.status, "indeterminate");
+  assert.equal(union.summary.satisfied, null);
+  assert.deepEqual(union.summary.unresolved_alternatives, [2]);
+});
+
+test("large restraint reports expose per-model exact and union aggregates", () => {
+  const summary = summarizeModelAudit("model_0", [
+    {
+      models: [
+        { model: "model_0", status: "satisfied", satisfied: true, excess_distance: 0 }
+      ]
+    },
+    {
+      models: [
+        { model: "model_0", status: "violated", satisfied: false, excess_distance: 1.25 }
+      ]
+    },
+    {
+      models: [
+        { model: "model_0", status: "unresolved", satisfied: null, excess_distance: null }
+      ]
+    }
+  ], [
+    {
+      models: [
+        { model: "model_0", status: "satisfied", satisfied: true, minimum_excess_distance: 0 }
+      ]
+    },
+    {
+      models: [
+        { model: "model_0", status: "violated", satisfied: false, minimum_excess_distance: 0.75 }
+      ]
+    },
+    {
+      models: [
+        { model: "model_0", status: "indeterminate", satisfied: null, minimum_excess_distance: 0.5 }
+      ]
+    }
+  ]);
+
+  assert.deepEqual(summary.exact, {
+    total: 3,
+    resolved: 2,
+    satisfied: 1,
+    violated: 1,
+    unresolved: 1,
+    satisfaction_fraction_of_resolved: 0.5,
+    mean_excess_distance: 0.625,
+    mean_violation_excess_distance: 1.25,
+    maximum_excess_distance: 1.25
+  });
+  assert.deepEqual(summary.union, {
+    total: 3,
+    conclusive: 2,
+    satisfied: 1,
+    violated: 1,
+    indeterminate: 1,
+    unresolved: 0,
+    satisfaction_fraction_of_conclusive: 0.5,
+    mean_minimum_excess_distance: 0.375,
+    mean_violation_excess_distance: 0.75,
+    maximum_minimum_excess_distance: 0.75
+  });
 });
 
 const mmcifHeader = `data_test

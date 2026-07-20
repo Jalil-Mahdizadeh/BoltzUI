@@ -155,18 +155,39 @@
             </details>
 
             <details class="builder-section" data-section="atom-contact-constraints">
-              <summary><span><b>06</b>Atom contact constraints</span><em>Specific atom-pair guidance</em></summary>
+              <summary><span><b>06</b>Exact atom contact constraints</span><em>Specific atom-pair guidance</em></summary>
               <div class="builder-section-body">
-                <div class="builder-section-toolbar">
-                  <span>Use atom_contact for a specific atom-pair upper-distance restraint. This is soft inference-time contact guidance and does not guarantee the final distance. It requires force: true. The experimental Atom-contact exploration preset enables optional physical potentials by default, but atom-contact guidance also works when they are disabled. Its lower step scale changes reverse-diffusion updates and sample diversity and may interact with guidance strength. Verify final distances in the restraint report.</span>
-                  <button class="secondary-button mini-action-button" id="add-atom-contact-button" type="button">Add atom contact</button>
+                <div class="builder-section-toolbar constraint-import-toolbar">
+                  <span>Use atom_contact for one exact atom-pair upper-distance restraint. This is soft inference-time guidance and requires force: true. Optional physical potentials are independent. Verify final distances in the restraint report.</span>
+                  <div class="builder-toolbar-actions">
+                    <button class="ghost-button mini-action-button" id="load-exact-atom-contact-yaml-button" type="button">Load nmr2boltz exact YAML</button>
+                    <button class="secondary-button mini-action-button" id="add-atom-contact-button" type="button">Add exact contact</button>
+                    <input id="exact-atom-contact-yaml-input" type="file" accept=".yaml,.yml,application/yaml,text/yaml" hidden>
+                  </div>
                 </div>
+                <div class="constraint-load-status" id="exact-atom-contact-load-status" role="status" aria-live="polite">No nmr2boltz exact YAML loaded.</div>
                 <div class="repeat-list atom-contact-list" id="atom-contact-list"></div>
               </div>
             </details>
 
+            <details class="builder-section" data-section="atom-contact-union-constraints">
+              <summary><span><b>07</b>Union atom contact constraints</span><em>Ambiguous atom-pair OR groups</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar constraint-import-toolbar">
+                  <span>Use atom_contact_union when any one of two or more atom-pair alternatives may satisfy an ambiguous restraint. Every alternative keeps its own upper bound and shares one potential union index. Union alternatives do not set binary token-contact conditioning.</span>
+                  <div class="builder-toolbar-actions">
+                    <button class="ghost-button mini-action-button" id="load-union-atom-contact-yaml-button" type="button">Load nmr2boltz union YAML</button>
+                    <button class="secondary-button mini-action-button" id="add-atom-contact-union-button" type="button">Add union group</button>
+                    <input id="union-atom-contact-yaml-input" type="file" accept=".yaml,.yml,application/yaml,text/yaml" hidden>
+                  </div>
+                </div>
+                <div class="constraint-load-status" id="union-atom-contact-load-status" role="status" aria-live="polite">No nmr2boltz union YAML loaded.</div>
+                <div class="repeat-list atom-contact-union-list" id="atom-contact-union-list"></div>
+              </div>
+            </details>
+
             <details class="builder-section" data-section="bond-constraints">
-              <summary><span><b>07</b>Bond constraints</span><em>Covalent atom pairs</em></summary>
+              <summary><span><b>08</b>Bond constraints</span><em>Covalent atom pairs</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Add covalent atom-pair constraints when two specific atoms must be bonded in the final complex.</span>
@@ -177,7 +198,7 @@
             </details>
 
             <details class="builder-section" data-section="template">
-              <summary><span><b>08</b>Template</span><em>CIF or PDB</em></summary>
+              <summary><span><b>09</b>Template</span><em>CIF or PDB</em></summary>
               <div class="builder-grid">
                 <label class="toggle-field builder-span">
                   <span>Add template</span>

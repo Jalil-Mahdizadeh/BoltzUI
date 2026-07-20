@@ -26,10 +26,17 @@ EXPECTED_SOURCE_SHA256 = {
     "diffusionv2.py": "9eacc8cf7daeb62dffa81a09a1f93d2e268a4b7b68b5b88c2058c5ebf5ca4057",
 }
 PATCH_MARKERS = {
-    "schema.py": ("atom_contact_constraints", "def atom_contact_spec_to_ids"),
-    "types.py": ("atom_contact_constraints",),
-    "inferencev2.py": ("atom_contact_constraints",),
-    "featurizerv2.py": ("inference_atom_contact_constraints",),
+    "schema.py": (
+        "atom_contact_constraints",
+        "atom_contact_union_constraints",
+        "def atom_contact_spec_to_ids",
+    ),
+    "types.py": ("atom_contact_constraints", "atom_contact_union_constraints"),
+    "inferencev2.py": ("atom_contact_constraints", "atom_contact_union_constraints"),
+    "featurizerv2.py": (
+        "inference_atom_contact_constraints",
+        "inference_atom_contact_union_constraints",
+    ),
     "diffusionv2.py": ("sample_ids.split(max_parallel_samples)",),
 }
 
@@ -80,7 +87,7 @@ def write_if_changed(path: Path, text: str) -> bool:
 
 def patch_schema(path: Path) -> bool:
     text = path.read_text(encoding="utf-8")
-    if "atom_contact_constraints" in text and "def atom_contact_spec_to_ids" in text:
+    if all(marker in text for marker in PATCH_MARKERS["schema.py"]):
         return False
 
     token_anchor = '''def token_spec_to_ids(
@@ -140,6 +147,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
     lists_replacement = '''    pocket_constraints = []
     contact_constraints = []
     atom_contact_constraints = []
+    atom_contact_union_constraints = []
 '''
     text = replace_once(text, lists_anchor, lists_replacement, "schema atom_contact list")
 
@@ -200,6 +208,97 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
                 )
                 raise ValueError(msg)
             atom_contact_constraints.append((atom1, atom2, max_distance, force))
+        elif "atom_contact_union" in constraint:
+            if not boltz_2:
+                msg = "atom_contact_union constraint is not supported in Boltz-1!"
+                raise ValueError(msg)
+
+            union_number = len(atom_contact_union_constraints) + 1
+            atom_contact_union = constraint["atom_contact_union"]
+            if not isinstance(atom_contact_union, dict):
+                msg = f"atom_contact_union {union_number} must be a mapping."
+                raise ValueError(msg)
+            if atom_contact_union.get("force", False) is not True:
+                msg = (
+                    f"atom_contact_union {union_number} requires force: true because "
+                    "its OR group is implemented through a soft inference-time potential."
+                )
+                raise ValueError(msg)
+            alternatives = atom_contact_union.get("alternatives")
+            if not isinstance(alternatives, list) or len(alternatives) < 2:
+                msg = (
+                    f"atom_contact_union {union_number} alternatives must contain "
+                    "at least two atom-contact alternatives."
+                )
+                raise ValueError(msg)
+
+            resolved_alternatives = []
+            seen_pairs = set()
+            for alternative_number, alternative in enumerate(alternatives, start=1):
+                label = (
+                    f"atom_contact_union {union_number} alternative "
+                    f"{alternative_number}"
+                )
+                if not isinstance(alternative, dict) or (
+                    "atom1" not in alternative
+                    or "atom2" not in alternative
+                    or "max_distance" not in alternative
+                ):
+                    msg = (
+                        f"{label} was not properly specified; expected "
+                        "atom1, atom2, and max_distance."
+                    )
+                    raise ValueError(msg)
+                try:
+                    max_distance = float(alternative["max_distance"])
+                except (TypeError, ValueError) as exc:
+                    msg = f"{label} max_distance must be a finite number."
+                    raise ValueError(msg) from exc
+                if not np.isfinite(max_distance) or not (
+                    2.0 <= max_distance <= 20.0
+                ):
+                    msg = (
+                        f"{label} max_distance must satisfy "
+                        "2.0 <= max_distance <= 20.0 Angstrom."
+                    )
+                    raise ValueError(msg)
+
+                atom1 = atom_contact_spec_to_ids(
+                    alternative["atom1"],
+                    chain_to_idx,
+                    atom_idx_map,
+                    f"{label} atom1",
+                )
+                atom2 = atom_contact_spec_to_ids(
+                    alternative["atom2"],
+                    chain_to_idx,
+                    atom_idx_map,
+                    f"{label} atom2",
+                )
+                if atom1[2] == atom2[2]:
+                    endpoint1 = ":".join(
+                        str(value) for value in alternative["atom1"]
+                    )
+                    endpoint2 = ":".join(
+                        str(value) for value in alternative["atom2"]
+                    )
+                    msg = (
+                        f"{label} endpoints {endpoint1} and {endpoint2} resolve "
+                        f"to the same exact atom (global atom index {atom1[2]})."
+                    )
+                    raise ValueError(msg)
+                pair = tuple(sorted((atom1[2], atom2[2])))
+                if pair in seen_pairs:
+                    msg = (
+                        f"{label} duplicates another alternative after exact "
+                        f"atom-pair canonicalization ({pair[0]} <-> {pair[1]})."
+                    )
+                    raise ValueError(msg)
+                seen_pairs.add(pair)
+                resolved_alternatives.append(
+                    (atom1, atom2, max_distance, True)
+                )
+            atom_contact_union_constraints.append(resolved_alternatives)
         elif "pocket" in constraint:
 '''
     text = replace_once(text, branch_anchor, branch_replacement, "schema atom_contact branch")
@@ -212,6 +311,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
         pocket_constraints=pocket_constraints,
         contact_constraints=contact_constraints,
         atom_contact_constraints=atom_contact_constraints,
+        atom_contact_union_constraints=atom_contact_union_constraints,
     )
 '''
     text = replace_once(text, options_anchor, options_replacement, "schema InferenceOptions")
@@ -221,7 +321,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
 
 def patch_types(path: Path) -> bool:
     text = path.read_text(encoding="utf-8")
-    if "atom_contact_constraints" in text:
+    if all(marker in text for marker in PATCH_MARKERS["types.py"]):
         return False
 
     anchor = '''    contact_constraints: Optional[
@@ -231,6 +331,18 @@ def patch_types(path: Path) -> bool:
     replacement = anchor + '''    atom_contact_constraints: Optional[
         list[tuple[tuple[int, int, int], tuple[int, int, int], float, bool]]
     ] = None
+    atom_contact_union_constraints: Optional[
+        list[
+            list[
+                tuple[
+                    tuple[int, int, int],
+                    tuple[int, int, int],
+                    float,
+                    bool,
+                ]
+            ]
+        ]
+    ] = None
 '''
     text = replace_once(text, anchor, replacement, "types atom_contact field")
     return write_if_changed(path, text)
@@ -238,7 +350,7 @@ def patch_types(path: Path) -> bool:
 
 def patch_inferencev2(path: Path) -> bool:
     text = path.read_text(encoding="utf-8")
-    if "atom_contact_constraints" in text:
+    if all(marker in text for marker in PATCH_MARKERS["inferencev2.py"]):
         return False
 
     options_anchor = '''        if options is None:
@@ -250,13 +362,15 @@ def patch_inferencev2(path: Path) -> bool:
             )
 '''
     options_replacement = '''        if options is None:
-            pocket_constraints, contact_constraints, atom_contact_constraints = None, None, None
+            pocket_constraints = None
+            contact_constraints = None
+            atom_contact_constraints = None
+            atom_contact_union_constraints = None
         else:
-            pocket_constraints, contact_constraints, atom_contact_constraints = (
-                options.pocket_constraints,
-                options.contact_constraints,
-                options.atom_contact_constraints,
-            )
+            pocket_constraints = options.pocket_constraints
+            contact_constraints = options.contact_constraints
+            atom_contact_constraints = options.atom_contact_constraints
+            atom_contact_union_constraints = options.atom_contact_union_constraints
 '''
     text = replace_once(text, options_anchor, options_replacement, "inference atom_contact options")
 
@@ -267,6 +381,7 @@ def patch_inferencev2(path: Path) -> bool:
     call_replacement = '''                inference_pocket_constraints=pocket_constraints,
                 inference_contact_constraints=contact_constraints,
                 inference_atom_contact_constraints=atom_contact_constraints,
+                inference_atom_contact_union_constraints=atom_contact_union_constraints,
                 compute_constraint_features=True,
 '''
     text = replace_once(text, call_anchor, call_replacement, "inference featurizer call")
@@ -275,7 +390,7 @@ def patch_inferencev2(path: Path) -> bool:
 
 def patch_featurizerv2(path: Path) -> bool:
     text = path.read_text(encoding="utf-8")
-    if "inference_atom_contact_constraints" in text:
+    if all(marker in text for marker in PATCH_MARKERS["featurizerv2.py"]):
         return False
 
     token_sig_anchor = '''    inference_contact_constraints: Optional[
@@ -364,6 +479,16 @@ def process_token_features(  # noqa: C901, PLR0915, PLR0912
     inference_atom_contact_constraints: list[
         tuple[tuple[int, int, int], tuple[int, int, int], float, bool]
     ],
+    inference_atom_contact_union_constraints: Optional[list[
+        list[
+            tuple[
+                tuple[int, int, int],
+                tuple[int, int, int],
+                float,
+                bool,
+            ]
+        ]
+    ]] = None,
 ):
 '''
     text = replace_once(text, contact_sig_anchor, contact_sig_replacement, "contact feature signature")
@@ -382,6 +507,27 @@ def process_token_features(  # noqa: C901, PLR0915, PLR0912
         thresholds.append(torch.full((atom_idx_pairs.shape[1],), max_distance))
         union_idx += 1
 
+    for alternatives in inference_atom_contact_union_constraints or []:
+        atom_idx_pairs = torch.tensor(
+            [
+                [alternative[0][2] for alternative in alternatives],
+                [alternative[1][2] for alternative in alternatives],
+            ],
+            dtype=torch.long,
+        )
+        pair_index.append(atom_idx_pairs)
+        union_index.append(torch.full((atom_idx_pairs.shape[1],), union_idx))
+        negation_mask.append(
+            torch.ones((atom_idx_pairs.shape[1],), dtype=torch.bool)
+        )
+        thresholds.append(
+            torch.tensor(
+                [alternative[2] for alternative in alternatives],
+                dtype=torch.float,
+            )
+        )
+        union_idx += 1
+
     if len(pair_index) > 0:
 '''
     text = replace_once(text, exact_block_anchor, exact_block_replacement, "exact atom_contact potential pairs")
@@ -396,6 +542,18 @@ def process_token_features(  # noqa: C901, PLR0915, PLR0912
         ] = None,
         inference_atom_contact_constraints: Optional[
             list[tuple[tuple[int, int, int], tuple[int, int, int], float, bool]]
+        ] = None,
+        inference_atom_contact_union_constraints: Optional[
+            list[
+                list[
+                    tuple[
+                        tuple[int, int, int],
+                        tuple[int, int, int],
+                        float,
+                        bool,
+                    ]
+                ]
+            ]
         ] = None,
         compute_affinity: bool = False,
 '''
@@ -419,6 +577,7 @@ def process_token_features(  # noqa: C901, PLR0915, PLR0912
     contact_call_replacement = '''                inference_pocket_constraints=inference_pocket_constraints if inference_pocket_constraints else [],
                 inference_contact_constraints=inference_contact_constraints if inference_contact_constraints else [],
                 inference_atom_contact_constraints=inference_atom_contact_constraints if inference_atom_contact_constraints else [],
+                inference_atom_contact_union_constraints=inference_atom_contact_union_constraints if inference_atom_contact_union_constraints else [],
             )
 '''
     text = replace_once(text, contact_call_anchor, contact_call_replacement, "contact feature call")

@@ -2137,6 +2137,10 @@ button.status-pill {
   --section-accent-rgb: 45, 212, 191;
 }
 
+.builder-section[data-section="atom-contact-union-constraints"] {
+  --section-accent-rgb: 197, 183, 255;
+}
+
 .builder-section[data-section="bond-constraints"] {
   --section-accent-rgb: 240, 184, 75;
 }
@@ -2237,9 +2241,31 @@ button.status-pill {
   line-height: 1.4;
 }
 
+.constraint-import-toolbar {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.constraint-import-toolbar .builder-toolbar-actions {
+  justify-content: flex-start;
+}
+
 .mini-action-button {
   min-height: 34px;
   white-space: nowrap;
+}
+
+.builder-toolbar-actions,
+.repeat-heading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.constraint-load-status {
+  color: var(--text-dim);
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 .repeat-list {
@@ -2301,6 +2327,69 @@ button.status-pill {
 
 .atom-contact-repeat-grid {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 140px 150px;
+}
+
+.union-group-options {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 11px;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(var(--section-accent-rgb), 0.2);
+  background: rgba(var(--section-accent-rgb), 0.045);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.union-alternative-list {
+  display: grid;
+  gap: 0;
+  padding: 11px;
+}
+
+.union-alternative-card {
+  overflow: hidden;
+  border: 1px solid rgba(var(--section-accent-rgb), 0.28);
+  border-radius: var(--radius);
+  background: rgba(8, 11, 13, 0.5);
+}
+
+.union-alternative-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 38px;
+  padding: 7px 9px 7px 11px;
+  border-bottom: 1px solid rgba(var(--section-accent-rgb), 0.18);
+  background: rgba(var(--section-accent-rgb), 0.065);
+  font-size: 12px;
+}
+
+.union-or-badge {
+  justify-self: center;
+  z-index: 1;
+  margin: -2px 0;
+  padding: 3px 10px;
+  color: #100d1b;
+  border-radius: 999px;
+  background: rgb(var(--section-accent-rgb));
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.union-semantics-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  color: #100d1b;
+  border-radius: 999px;
+  background: rgb(var(--section-accent-rgb));
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  vertical-align: 1px;
 }
 
 .bond-repeat-grid {
@@ -2834,6 +2923,7 @@ button.status-pill {
   .builder-grid,
   .contact-repeat-grid,
   .atom-contact-repeat-grid,
+  .union-group-options,
   .bond-repeat-grid,
   .ligand-repeat-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -2850,6 +2940,16 @@ button.status-pill {
 
   .builder-section-toolbar .mini-action-button {
     width: 100%;
+  }
+
+  .builder-toolbar-actions,
+  .repeat-heading-actions {
+    width: 100%;
+  }
+
+  .builder-toolbar-actions > *,
+  .repeat-heading-actions > * {
+    flex: 1 1 150px;
   }
 
   .builder-page .yaml-editor-card #input-editor {

@@ -14,6 +14,7 @@ from boltz.data import const
 from boltz.data.feature.featurizerv2 import (
     apply_atom_contact_token_conditioning,
     process_contact_feature_constraints,
+    process_token_features,
 )
 from boltz.data.parse.schema import atom_contact_spec_to_ids
 from boltz.data.parse.yaml import parse_yaml
@@ -53,6 +54,18 @@ class BoltzPatchTests(unittest.TestCase):
         self.assertEqual(len(restraints), 1)
         self.assertEqual(restraints[0][2], 4.0)
 
+    def test_union_example_parses_with_real_boltz_schema(self):
+        target = parse_yaml(
+            ROOT / "fixtures" / "atom_contact_union_example.yaml",
+            load_canonicals(Path("/opt/boltz-cache/mols")),
+            Path("/opt/boltz-cache/mols"),
+            boltz2=True,
+        )
+        groups = target.record.inference_options.atom_contact_union_constraints
+        self.assertEqual(len(groups), 1)
+        self.assertEqual(len(groups[0]), 2)
+        self.assertEqual([alternative[2] for alternative in groups[0]], [4.0, 4.0])
+
     def test_exact_pair_and_threshold_propagation(self):
         data = SimpleNamespace(tokens=[], structure=SimpleNamespace(chains=[]))
         features = process_contact_feature_constraints(
@@ -74,6 +87,50 @@ class BoltzPatchTests(unittest.TestCase):
             torch.equal(features["contact_thresholds"], torch.tensor([4.0, 5.0]))
         )
 
+    def test_union_alternatives_share_one_union_index_per_group(self):
+        data = SimpleNamespace(tokens=[], structure=SimpleNamespace(chains=[]))
+        features = process_contact_feature_constraints(
+            data,
+            inference_pocket_constraints=[],
+            inference_contact_constraints=[],
+            inference_atom_contact_constraints=[
+                ((0, 0, 7), (1, 0, 11), 4.0, True),
+            ],
+            inference_atom_contact_union_constraints=[
+                [
+                    ((0, 0, 8), (1, 0, 12), 5.0, True),
+                    ((0, 0, 9), (1, 0, 13), 6.0, True),
+                ],
+                [
+                    ((0, 0, 10), (1, 0, 14), 7.0, True),
+                    ((0, 0, 15), (1, 0, 16), 8.0, True),
+                ],
+            ],
+        )
+        self.assertTrue(
+            torch.equal(
+                features["contact_pair_index"],
+                torch.tensor([[7, 8, 9, 10, 15], [11, 12, 13, 14, 16]]),
+            )
+        )
+        self.assertTrue(
+            torch.equal(
+                features["contact_union_index"],
+                torch.tensor([0, 1, 1, 2, 2]),
+            )
+        )
+        self.assertTrue(
+            torch.equal(
+                features["contact_thresholds"],
+                torch.tensor([4.0, 5.0, 6.0, 7.0, 8.0]),
+            )
+        )
+
+    def test_union_alternatives_do_not_enter_binary_token_conditioning(self):
+        parameters = inspect.signature(process_token_features).parameters
+        self.assertIn("inference_atom_contact_constraints", parameters)
+        self.assertNotIn("inference_atom_contact_union_constraints", parameters)
+
     def test_endpoint_errors_identify_complete_endpoint(self):
         chain_to_idx = {"A": 0}
         atom_map = {("A", 0, "OG"): (0, 0, 7)}
@@ -93,6 +150,48 @@ class BoltzPatchTests(unittest.TestCase):
             target = Path(directory) / "identical.yaml"
             target.write_text(yaml.safe_dump(document))
             with self.assertRaisesRegex(ValueError, "same exact atom.*global atom index"):
+                parse_yaml(
+                    target,
+                    load_canonicals(Path("/opt/boltz-cache/mols")),
+                    Path("/opt/boltz-cache/mols"),
+                    boltz2=True,
+                )
+
+    def test_parser_rejects_duplicate_reversed_union_alternatives(self):
+        document = yaml.safe_load(
+            (ROOT / "fixtures" / "atom_contact_union_example.yaml").read_text()
+        )
+        first = document["constraints"][0]["atom_contact_union"]["alternatives"][0]
+        document["constraints"][0]["atom_contact_union"]["alternatives"][1] = {
+            "atom1": first["atom2"],
+            "atom2": first["atom1"],
+            "max_distance": first["max_distance"],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "duplicate-union.yaml"
+            target.write_text(yaml.safe_dump(document))
+            with self.assertRaisesRegex(ValueError, "duplicates another alternative"):
+                parse_yaml(
+                    target,
+                    load_canonicals(Path("/opt/boltz-cache/mols")),
+                    Path("/opt/boltz-cache/mols"),
+                    boltz2=True,
+                )
+
+    def test_parser_rejects_invalid_union_bound_with_group_and_alternative_label(self):
+        document = yaml.safe_load(
+            (ROOT / "fixtures" / "atom_contact_union_example.yaml").read_text()
+        )
+        document["constraints"][0]["atom_contact_union"]["alternatives"][1][
+            "max_distance"
+        ] = 20.000001
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "invalid-union-bound.yaml"
+            target.write_text(yaml.safe_dump(document))
+            with self.assertRaisesRegex(
+                ValueError,
+                r"atom_contact_union 1 alternative 2 max_distance.*20\.0",
+            ):
                 parse_yaml(
                     target,
                     load_canonicals(Path("/opt/boltz-cache/mols")),
@@ -142,6 +241,10 @@ class BoltzPatchTests(unittest.TestCase):
 
     def test_inference_options_has_separate_atom_contact_field(self):
         self.assertIn("atom_contact_constraints", InferenceOptions.__dataclass_fields__)
+        self.assertIn(
+            "atom_contact_union_constraints",
+            InferenceOptions.__dataclass_fields__,
+        )
 
 
 if __name__ == "__main__":

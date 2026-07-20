@@ -9,6 +9,7 @@ const {
   documentHasAtomContacts,
   inputMsaSummary,
   parseInputFile,
+  parseInputText,
   validateAtomContacts
 } = require("./lib/atom-contact");
 const {
@@ -204,12 +205,13 @@ function preparePrediction(payload) {
   if (!stat.isFile()) throw new Error("Input data path must be a file.");
 
   const document = parseInputFile(dataPath);
-  const { restraints } = validateAtomContacts(document);
+  const { restraints, unionGroups } = validateAtomContacts(document);
+  const hasAtomContacts = restraints.length > 0 || unionGroups.length > 0;
   const requestedPreset = payload.preset || (payload.options ? "custom" : DEFAULT_PRESET);
   const { preset, options } = resolvePredictionOptions(
     payload.options || {},
     requestedPreset,
-    { hasAtomContacts: restraints.length > 0 }
+    { hasAtomContacts }
   );
   const context = { hasLigand: inputHasLigandEntity(dataPath) };
   const args = predictArgs(dataPath, options, "include", dataPath, context);
@@ -230,6 +232,7 @@ function preparePrediction(payload) {
     options,
     preset,
     atomContacts: restraints,
+    atomContactUnions: unionGroups,
     msa: inputMsaSummary(document, options),
     resultDirectory,
     outputDirectory: displayPath(resultDirectory)
@@ -470,6 +473,7 @@ async function startJob(payload) {
     preset: prediction.preset,
     options: prediction.options,
     atomContacts: prediction.atomContacts,
+    atomContactUnions: prediction.atomContactUnions,
     resultDirectory: prediction.resultDirectory,
     manifestStagingPath,
     manifestPath: null,
@@ -488,6 +492,7 @@ async function startJob(payload) {
     inputPath: prediction.dataPath,
     outputDirectory: prediction.outputDirectory,
     atomContacts: prediction.atomContacts,
+    atomContactUnions: prediction.atomContactUnions,
     msa: prediction.msa,
     startedAt: job.startedAt
   });
@@ -525,8 +530,12 @@ async function startJob(payload) {
     }
     addLog(job, `\nExited with code ${code}${signal ? ` (${signal})` : ""}.\n`);
     try {
-      if (job.atomContacts.length > 0) {
-        const audit = await writeRestraintReport(job.resultDirectory, job.atomContacts);
+      if (job.atomContacts.length > 0 || job.atomContactUnions.length > 0) {
+        const audit = await writeRestraintReport(
+          job.resultDirectory,
+          job.atomContacts,
+          job.atomContactUnions
+        );
         job.restraintReportPath = audit.reportPath;
       }
     } catch (error) {
@@ -652,6 +661,32 @@ async function handleApi(req, res, url) {
       data: command.data,
       preset: command.preset,
       options: command.options
+    });
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/api/atom-constraints/parse") {
+    const payload = await readBody(req);
+    const extension = String(payload.filename || "").toLowerCase().endsWith(".json")
+      ? ".json"
+      : ".yaml";
+    const document = parseInputText(String(payload.content || ""), extension);
+    const { restraints, unionGroups } = validateAtomContacts(document, { validateChains: false });
+    sendJson(res, 200, {
+      exact: restraints.map((restraint) => ({
+        atom1: `${restraint.chain1}:${restraint.residue1}:${restraint.atom1}`,
+        atom2: `${restraint.chain2}:${restraint.residue2}:${restraint.atom2}`,
+        distance: String(restraint.max_distance),
+        force: restraint.force
+      })),
+      unions: unionGroups.map((group) => ({
+        force: group.force,
+        alternatives: group.alternatives.map((alternative) => ({
+          atom1: `${alternative.chain1}:${alternative.residue1}:${alternative.atom1}`,
+          atom2: `${alternative.chain2}:${alternative.residue2}:${alternative.atom2}`,
+          distance: String(alternative.max_distance)
+        }))
+      }))
     });
     return;
   }

@@ -1,8 +1,9 @@
 # Boltz atom_contact patch
 
 This directory contains the reproducible patch layer that adds Boltz2-only
-`atom_contact` constraints and corrects diffusion sample chunking in the
-installed Boltz runtime in the Docker image.
+exact `atom_contact` and ambiguous `atom_contact_union` constraints and
+corrects diffusion sample chunking in the installed Boltz runtime in the
+Docker image.
 
 The patch is applied during `docker build` by `apply_atom_contact_patch.py`.
 It locates the installed Boltz source files through Python imports and
@@ -26,11 +27,21 @@ constraints:
       atom2: [B, 37, OD1]
       max_distance: 3.5
       force: true
+
+  - atom_contact_union:
+      alternatives:
+        - atom1: [A, 145, NZ]
+          atom2: [B, 37, OD1]
+          max_distance: 3.5
+        - atom1: [A, 145, CE]
+          atom2: [B, 37, OD1]
+          max_distance: 4.2
+      force: true
 ```
 
 Rules:
 
-- `atom_contact` is only supported for Boltz2.
+- `atom_contact` and `atom_contact_union` are only supported for Boltz2.
 - `atom1` and `atom2` must be `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
 - Residue indices are 1-indexed in YAML.
 - `max_distance` must be finite and in the `2.0-20.0` Angstrom range.
@@ -47,3 +58,13 @@ Rules:
   reverse-diffusion sampling schedule; lower step scale changes the update and
   sample diversity and may interact with guidance.
   Final distances must be checked in `atom_contact_restraints.json`.
+- `atom_contact_union` requires at least two unique alternatives. Every
+  alternative retains its own bound, and all alternatives in one group share
+  one contact-potential `union_index`. Separate union groups use separate
+  indices.
+- Union alternatives do not enter binary token-contact conditioning. Applying
+  that conditioning to every alternative would recreate AND semantics even
+  though the coordinate potential is grouped as OR.
+- Reversed duplicate alternatives, same-atom endpoints, unresolved selectors,
+  non-finite/out-of-range bounds, missing group-level `force: true`, and
+  Boltz-1 inputs are rejected before featurization.

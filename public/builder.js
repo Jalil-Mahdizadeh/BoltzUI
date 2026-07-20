@@ -7,6 +7,7 @@ const builderState = {
   ligands: [],
   contacts: [],
   atomContacts: [],
+  atomContactUnions: [],
   bonds: []
 };
 
@@ -170,6 +171,32 @@ function createAtomContact(overrides = {}) {
   };
 }
 
+function createAtomContactUnionAlternative(overrides = {}) {
+  return {
+    uid: createUid("atom-contact-union-alternative"),
+    atom1: "A:145:NZ",
+    atom2: "B:37:OD1",
+    distance: "3.5",
+    ...overrides
+  };
+}
+
+function createAtomContactUnion(overrides = {}) {
+  const alternatives = Array.isArray(overrides.alternatives)
+    ? overrides.alternatives
+    : [
+      { atom1: "A:145:NZ", atom2: "B:37:OD1", distance: "3.5" },
+      { atom1: "A:145:CE", atom2: "B:37:OD1", distance: "3.5" }
+    ];
+  return {
+    uid: createUid("atom-contact-union"),
+    force: overrides.force !== false,
+    alternatives: alternatives.map((alternative) => (
+      createAtomContactUnionAlternative(alternative)
+    ))
+  };
+}
+
 function createBond(overrides = {}) {
   const { enabled, ...values } = overrides;
   return {
@@ -257,11 +284,11 @@ function readDistanceValue(value, label, warnings) {
 function readAtomContactDistanceValue(value, label, warnings) {
   const number = Number(value);
   if (!Number.isFinite(number)) {
-    warnings.push(`${label} must be a finite number; atom_contact card was not emitted.`);
+    warnings.push(`${label} must be a finite number; the constraint was not emitted.`);
     return null;
   }
   if (number < 2 || number > 20) {
-    warnings.push(`${label} must be between 2.0 and 20.0 Angstrom; atom_contact card was not emitted.`);
+    warnings.push(`${label} must be between 2.0 and 20.0 Angstrom; the constraint was not emitted.`);
     return null;
   }
   return formatNumberForYaml(number, 3.5);
@@ -391,6 +418,13 @@ function yamlAtom(atom) {
   return `[${yamlScalar(atom.chain)}, ${atom.residue}, ${yamlScalar(atom.atom)}]`;
 }
 
+function canonicalAtomPair(atom1, atom2) {
+  return [
+    `${atom1.chain}:${atom1.residue}:${atom1.atom}`,
+    `${atom2.chain}:${atom2.residue}:${atom2.atom}`
+  ].sort().join("|");
+}
+
 function appendPolymerYaml(lines, polymer, index, warnings, usedIds) {
   const type = polymer.type || "protein";
   const ids = parseIdList(polymer.ids);
@@ -505,12 +539,12 @@ function buildYamlFromBuilder() {
   });
 
   if (builderState.atomContacts.length) {
-    warnings.push("atom_contact constraints require force: true. Optional physical potentials default to on in the Atom-contact exploration preset.");
+    warnings.push("Exact atom_contact constraints require force: true. Optional physical potentials default to on in the Atom-contact exploration preset.");
   }
   builderState.atomContacts.forEach((atomContact, index) => {
     const atom1 = parseAtomSpec(atomContact.atom1);
     const atom2 = parseAtomSpec(atomContact.atom2);
-    const label = `Atom contact ${index + 1}`;
+    const label = `Exact atom contact ${index + 1}`;
     const distance = readAtomContactDistanceValue(atomContact.distance, `${label} max distance`, warnings);
     if (!atom1 || !atom2) {
       warnings.push(`${label} atoms should look like A:145:NZ.`);
@@ -527,6 +561,61 @@ function buildYamlFromBuilder() {
     constraints.push(`      max_distance: ${distance}`);
     constraints.push("      force: true");
     features.push(`atom_contact ${index + 1}`);
+  });
+
+  if (builderState.atomContactUnions.length) {
+    warnings.push("Union atom_contact_union constraints are OR groups: one satisfied alternative satisfies the group. Binary token-contact conditioning is intentionally not applied to union alternatives.");
+  }
+  builderState.atomContactUnions.forEach((group, groupIndex) => {
+    const label = `Union atom contact ${groupIndex + 1}`;
+    if (!group.force) {
+      warnings.push(`${label} requires force: true; the complete union group was not emitted.`);
+      return;
+    }
+    if (!Array.isArray(group.alternatives) || group.alternatives.length < 2) {
+      warnings.push(`${label} needs at least two alternatives; the complete union group was not emitted.`);
+      return;
+    }
+
+    const normalized = [];
+    const seen = new Set();
+    for (let alternativeIndex = 0; alternativeIndex < group.alternatives.length; alternativeIndex += 1) {
+      const alternative = group.alternatives[alternativeIndex];
+      const alternativeLabel = `${label} alternative ${alternativeIndex + 1}`;
+      const atom1 = parseAtomSpec(alternative.atom1);
+      const atom2 = parseAtomSpec(alternative.atom2);
+      const distance = readAtomContactDistanceValue(
+        alternative.distance,
+        `${alternativeLabel} max distance`,
+        warnings
+      );
+      if (!atom1 || !atom2) {
+        warnings.push(`${alternativeLabel} atoms should look like A:145:NZ; the complete union group was not emitted.`);
+        return;
+      }
+      if (!distance) return;
+      const pair = canonicalAtomPair(atom1, atom2);
+      if (pair.split("|")[0] === pair.split("|")[1]) {
+        warnings.push(`${alternativeLabel} endpoints are identical; the complete union group was not emitted.`);
+        return;
+      }
+      if (seen.has(pair)) {
+        warnings.push(`${alternativeLabel} duplicates another exact pair in the same OR group; the complete union group was not emitted.`);
+        return;
+      }
+      seen.add(pair);
+      normalized.push({ atom1, atom2, distance });
+    }
+
+    constraints.push("  - atom_contact_union:");
+    constraints.push("      alternatives:");
+    normalized.forEach((alternative) => {
+      constraints.push(`        - atom1: ${yamlAtom(alternative.atom1)}`);
+      constraints.push(`          atom2: ${yamlAtom(alternative.atom2)}`);
+      constraints.push(`          max_distance: ${alternative.distance}`);
+    });
+    constraints.push("      force: true");
+    features.push(`atom_contact_union ${groupIndex + 1}`);
   });
 
   builderState.bonds.forEach((bond, index) => {
@@ -768,7 +857,7 @@ function atomContactCard(atomContact, index) {
   return `
     <article class="repeat-card atom-contact-card" data-uid="${atomContact.uid}">
       <div class="repeat-card-heading">
-        <h4>Atom contact ${index + 1}</h4>
+        <h4>Exact atom contact ${index + 1}</h4>
         <button class="ghost-button repeat-remove-button" data-action="remove-atom-contact" type="button">Remove</button>
       </div>
       <div class="builder-grid repeat-grid atom-contact-repeat-grid">
@@ -800,10 +889,75 @@ function renderAtomContacts() {
   const root = $("#atom-contact-list");
   if (!root) return;
   if (!builderState.atomContacts.length) {
-    root.innerHTML = `<div class="repeat-empty">No atom contact constraints added.</div>`;
+    root.innerHTML = `<div class="repeat-empty">No exact atom contact constraints added.</div>`;
     return;
   }
   root.innerHTML = builderState.atomContacts.map(atomContactCard).join("");
+}
+
+function atomContactUnionAlternativeCard(alternative, index, count) {
+  return `
+    ${index > 0 ? `<div class="union-or-badge" aria-hidden="true">OR</div>` : ""}
+    <article class="union-alternative-card" data-alt-uid="${alternative.uid}">
+      <div class="union-alternative-heading">
+        <strong>Alternative ${index + 1}</strong>
+        <button class="ghost-button repeat-remove-button" data-action="remove-union-alternative" type="button"${count <= 2 ? " disabled" : ""}>Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid atom-contact-repeat-grid">
+        <label class="field">
+          <span>Atom 1</span>
+          <input data-union-alternative-field="atom1" type="text" value="${escapeHtml(alternative.atom1)}" placeholder="A:145:NZ">
+        </label>
+        <label class="field">
+          <span>Atom 2</span>
+          <input data-union-alternative-field="atom2" type="text" value="${escapeHtml(alternative.atom2)}" placeholder="B:37:OD1">
+        </label>
+        <label class="field">
+          <span>Max distance</span>
+          <input data-union-alternative-field="distance" type="number" min="2" max="20" step="0.000001" value="${escapeHtml(alternative.distance)}">
+        </label>
+      </div>
+    </article>
+  `;
+}
+
+function atomContactUnionCard(group, index) {
+  return `
+    <article class="repeat-card atom-contact-union-card" data-uid="${group.uid}">
+      <div class="repeat-card-heading">
+        <h4>Union group ${index + 1} <span class="union-semantics-badge">OR</span></h4>
+        <div class="repeat-heading-actions">
+          <button class="secondary-button mini-action-button" data-action="add-union-alternative" type="button">Add alternative</button>
+          <button class="ghost-button repeat-remove-button" data-action="remove-atom-contact-union" type="button">Remove group</button>
+        </div>
+      </div>
+      <div class="union-group-options">
+        <label class="toggle-field">
+          <span>Force union</span>
+          <span class="switch">
+            <input data-atom-contact-union-field="force" type="checkbox"${group.force ? " checked" : ""}>
+            <span class="slider"></span>
+          </span>
+        </label>
+        <span>Alternatives share one potential union index. Satisfying any one alternative satisfies this group.</span>
+      </div>
+      <div class="union-alternative-list">
+        ${group.alternatives.map((alternative, alternativeIndex) => (
+          atomContactUnionAlternativeCard(alternative, alternativeIndex, group.alternatives.length)
+        )).join("")}
+      </div>
+    </article>
+  `;
+}
+
+function renderAtomContactUnions() {
+  const root = $("#atom-contact-union-list");
+  if (!root) return;
+  if (!builderState.atomContactUnions.length) {
+    root.innerHTML = `<div class="repeat-empty">No union atom contact constraints added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.atomContactUnions.map(atomContactUnionCard).join("");
 }
 
 function bondCard(bond, index) {
@@ -872,11 +1026,15 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
   }));
   builderState.contacts = (preset.contacts || []).map((contact) => createContact(contact));
   builderState.atomContacts = (preset.atomContacts || []).map((atomContact) => createAtomContact(atomContact));
+  builderState.atomContactUnions = (preset.atomContactUnions || []).map((group) => (
+    createAtomContactUnion(group)
+  ));
   builderState.bonds = presetBonds(preset).map((bond) => createBond(bond));
   renderPolymers();
   renderLigands();
   renderContacts();
   renderAtomContacts();
+  renderAtomContactUnions();
   renderBonds();
 
   setFieldValue("yaml-affinity-enabled", Boolean(preset.affinity?.enabled));
@@ -1136,6 +1294,7 @@ function parseBuilderYaml(text) {
     ligands: [],
     contacts: [],
     atomContacts: [],
+    atomContactUnions: [],
     bonds: [],
     affinity: null,
     pocket: null,
@@ -1152,7 +1311,12 @@ function parseBuilderYaml(text) {
 function profileFromParsedYaml(parsed) {
   if (parsed.affinity?.enabled) return "affinity";
   if (parsed.pocket?.enabled) return "pocket";
-  if (parsed.contacts.length || parsed.atomContacts.length || parsed.bonds.length) return "contacts";
+  if (
+    parsed.contacts.length
+    || parsed.atomContacts.length
+    || parsed.atomContactUnions.length
+    || parsed.bonds.length
+  ) return "contacts";
   if (parsed.template?.enabled) return "template";
   if (parsed.ligands.length) return "ligand";
   if (parsed.polymers.length > 1) return "complex";
@@ -1174,6 +1338,7 @@ function openSectionsForLoadedYaml(parsed) {
   setBuilderSectionOpen("pocket", parsed.pocket?.enabled);
   setBuilderSectionOpen("contact-constraints", parsed.contacts.length > 0);
   setBuilderSectionOpen("atom-contact-constraints", parsed.atomContacts.length > 0);
+  setBuilderSectionOpen("atom-contact-union-constraints", parsed.atomContactUnions.length > 0);
   setBuilderSectionOpen("bond-constraints", parsed.bonds.length > 0);
   setBuilderSectionOpen("template", parsed.template?.enabled);
 }
@@ -1201,11 +1366,15 @@ function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } =
   }));
   builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
   builderState.atomContacts = parsed.atomContacts.map((atomContact) => createAtomContact(atomContact));
+  builderState.atomContactUnions = parsed.atomContactUnions.map((group) => (
+    createAtomContactUnion(group)
+  ));
   builderState.bonds = parsed.bonds.map((bond) => createBond(bond));
   renderPolymers();
   renderLigands();
   renderContacts();
   renderAtomContacts();
+  renderAtomContactUnions();
   renderBonds();
 
   setFieldValue("yaml-affinity-enabled", Boolean(parsed.affinity?.enabled));
@@ -1237,6 +1406,55 @@ function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } =
 
 function filenameFromPath(relativePath) {
   return String(relativePath || "").split(/[\\/]/).filter(Boolean).pop() || "loaded_input.yaml";
+}
+
+async function parseAtomConstraintsYaml(content, filename = "constraints.yaml") {
+  return api("/api/atom-constraints/parse", {
+    method: "POST",
+    body: JSON.stringify({ content, filename })
+  });
+}
+
+function setConstraintLoadStatus(kind, message) {
+  const status = $(`#${kind}-atom-contact-load-status`);
+  if (status) status.textContent = message;
+}
+
+async function loadAtomConstraintFile(file, kind) {
+  if (!file) return;
+  try {
+    const parsed = await parseAtomConstraintsYaml(await file.text(), file.name);
+    if (kind === "exact") {
+      if (!parsed.exact.length && parsed.unions.length) {
+        throw new Error("This file contains union constraints, not exact atom_contact constraints.");
+      }
+      builderState.atomContacts = parsed.exact.map((item) => createAtomContact(item));
+      renderAtomContacts();
+      setBuilderSectionOpen("atom-contact-constraints", true);
+      setConstraintLoadStatus(
+        "exact",
+        `Loaded ${parsed.exact.length} exact constraint${parsed.exact.length === 1 ? "" : "s"} from ${file.name}.`
+      );
+    } else {
+      if (!parsed.unions.length && parsed.exact.length) {
+        throw new Error("This file contains exact constraints, not atom_contact_union groups.");
+      }
+      builderState.atomContactUnions = parsed.unions.map((group) => (
+        createAtomContactUnion(group)
+      ));
+      renderAtomContactUnions();
+      setBuilderSectionOpen("atom-contact-union-constraints", true);
+      setConstraintLoadStatus(
+        "union",
+        `Loaded ${parsed.unions.length} union group${parsed.unions.length === 1 ? "" : "s"} from ${file.name}.`
+      );
+    }
+    generateYamlFromBuilder({ silent: true });
+    showToast(`${kind === "exact" ? "Exact" : "Union"} atom contact constraints loaded.`);
+  } catch (error) {
+    setConstraintLoadStatus(kind, error.message);
+    showToast(error.message);
+  }
 }
 
 function upsertExistingYamlOption(input) {
@@ -1273,6 +1491,9 @@ async function loadExistingYaml(relativePath) {
     if (!response.ok) throw new Error(`Failed to load ${relativePath}.`);
     const text = await response.text();
     const parsed = parseBuilderYaml(text);
+    const atomConstraints = await parseAtomConstraintsYaml(text, filenameFromPath(relativePath));
+    parsed.atomContacts = atomConstraints.exact;
+    parsed.atomContactUnions = atomConstraints.unions;
     const filename = filenameFromPath(relativePath);
 
     $("#input-editor").value = text.endsWith("\n") ? text : `${text}\n`;
@@ -1337,6 +1558,26 @@ function updateAtomContactFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updateAtomContactUnionFromElement(element) {
+  const card = element.closest(".atom-contact-union-card");
+  if (!card) return;
+  const group = builderState.atomContactUnions.find((item) => item.uid === card.dataset.uid);
+  if (!group) return;
+  if (element.dataset.atomContactUnionField) {
+    group[element.dataset.atomContactUnionField] = element.type === "checkbox"
+      ? element.checked
+      : element.value;
+  } else if (element.dataset.unionAlternativeField) {
+    const alternativeCard = element.closest(".union-alternative-card");
+    const alternative = group.alternatives.find((item) => (
+      item.uid === alternativeCard?.dataset.altUid
+    ));
+    if (!alternative) return;
+    alternative[element.dataset.unionAlternativeField] = element.value;
+  }
+  syncYamlFromBuilder();
+}
+
 function updateBondFromElement(element) {
   const card = element.closest(".bond-card");
   if (!card) return;
@@ -1368,6 +1609,12 @@ function bindRepeatLists() {
   $("#add-atom-contact-button").addEventListener("click", () => {
     builderState.atomContacts.push(createAtomContact());
     renderAtomContacts();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#add-atom-contact-union-button").addEventListener("click", () => {
+    builderState.atomContactUnions.push(createAtomContactUnion());
+    renderAtomContactUnions();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1437,6 +1684,41 @@ function bindRepeatLists() {
     generateYamlFromBuilder({ silent: true });
   });
 
+  $("#atom-contact-union-list").addEventListener("input", (event) => {
+    if (event.target.dataset.atomContactUnionField || event.target.dataset.unionAlternativeField) {
+      updateAtomContactUnionFromElement(event.target);
+    }
+  });
+  $("#atom-contact-union-list").addEventListener("change", (event) => {
+    if (event.target.dataset.atomContactUnionField || event.target.dataset.unionAlternativeField) {
+      updateAtomContactUnionFromElement(event.target);
+    }
+  });
+  $("#atom-contact-union-list").addEventListener("click", (event) => {
+    const action = event.target.dataset.action;
+    const card = event.target.closest(".atom-contact-union-card");
+    if (!card) return;
+    const group = builderState.atomContactUnions.find((item) => item.uid === card.dataset.uid);
+    if (!group) return;
+
+    if (action === "remove-atom-contact-union") {
+      builderState.atomContactUnions = builderState.atomContactUnions.filter((item) => (
+        item.uid !== group.uid
+      ));
+    } else if (action === "add-union-alternative") {
+      group.alternatives.push(createAtomContactUnionAlternative());
+    } else if (action === "remove-union-alternative" && group.alternatives.length > 2) {
+      const alternativeCard = event.target.closest(".union-alternative-card");
+      group.alternatives = group.alternatives.filter((item) => (
+        item.uid !== alternativeCard?.dataset.altUid
+      ));
+    } else {
+      return;
+    }
+    renderAtomContactUnions();
+    generateYamlFromBuilder({ silent: true });
+  });
+
   $("#bond-list").addEventListener("input", (event) => {
     if (event.target.dataset.bondField) updateBondFromElement(event.target);
   });
@@ -1500,6 +1782,16 @@ function bindBuilderPage() {
   if (initialProfile && YAML_TASK_PRESETS[initialProfile]) profile.value = initialProfile;
 
   bindRepeatLists();
+  for (const kind of ["exact", "union"]) {
+    const button = $(`#load-${kind}-atom-contact-yaml-button`);
+    const input = $(`#${kind}-atom-contact-yaml-input`);
+    button.addEventListener("click", () => input.click());
+    input.addEventListener("change", async () => {
+      const [file] = input.files || [];
+      await loadAtomConstraintFile(file, kind);
+      input.value = "";
+    });
+  }
   profile.addEventListener("change", () => applyYamlPreset(profile.value, { silent: true }));
   $("#existing-yaml-select").addEventListener("change", () => {
     const selected = fieldValue("existing-yaml-select");

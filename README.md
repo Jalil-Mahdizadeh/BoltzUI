@@ -1,6 +1,6 @@
 # BoltzUI
 
-BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. This patched build is layered on the local `boltzui:221` image and adds reproducible Boltz2-only `atom_contact` guidance plus corrected `max_parallel_samples` denoiser chunking.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. This patched build is layered on the local `boltzui:221` image and adds reproducible Boltz2-only exact `atom_contact` and ambiguous `atom_contact_union` guidance plus corrected `max_parallel_samples` denoiser chunking.
 
 ## Repository Contents
 
@@ -28,7 +28,7 @@ Build:
 docker build -t boltzui:221-atomcontact .
 ```
 
-The final `boltzui:221-atomcontact` image contains the Boltz runtime from `boltzui:221`, Node.js, the BoltzUI web app, atom-contact support, and bounded denoiser sample chunking.
+The final `boltzui:221-atomcontact` image contains the Boltz runtime from `boltzui:221`, Node.js, the BoltzUI web app, exact and union atom-contact support, and bounded denoiser sample chunking.
 
 ## Run The Web UI
 
@@ -80,18 +80,23 @@ The atom-contact exploration preset is experimental. Its lower step scale change
 
 ## YAML Builder
 
-The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the primary authoring surface for Boltz input files and is available from the distinctive `YAML Builder` button at the top of the sidebar. It provides schema-guided templates for structure, multimer, protein-ligand, affinity, pocket constraints, token contact constraints, atom contact constraints, and template-based predictions, then writes ordinary `.yaml` files into `workspace/inputs/`.
+The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the primary authoring surface for Boltz input files and is available from the distinctive `YAML Builder` button at the top of the sidebar. It provides schema-guided templates for structure, multimer, protein-ligand, affinity, pocket constraints, token contact constraints, exact atom contact constraints, union atom contact constraints, and template-based predictions, then writes ordinary `.yaml` files into `workspace/inputs/`.
 
-The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, pocket constraints, repeatable token-level contact constraints with individual max distances, repeatable atom-pair upper-distance restraints, repeatable covalent bond constraints, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains editable before saving.
+The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, pocket constraints, repeatable token-level contacts, repeatable exact atom-pair upper-distance restraints, repeatable ambiguous atom-pair OR groups, covalent bonds, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains directly editable before saving.
+
+The Exact and Union atom-contact sections each have a dedicated nmr2boltz loader. `atom_constraints_exact.yaml` replaces only the exact-contact cards, and `atom_constraints_union.yaml` replaces only the union-group cards; sequences, ligands, settings, and the other constraint type are preserved. The loaders parse YAML on the server with the same structural validation used before prediction. An empty `constraints: []` file intentionally clears the corresponding section.
 
 ### Constraint Types
 
 - `contact` is the existing token-level proximity constraint. For protein/RNA/DNA polymers, a token is a residue or nucleotide selected by `[CHAIN_ID, RES_IDX]`; for ligands/non-polymers, a token is an atom selected by `[CHAIN_ID, ATOM_NAME]`.
 - `pocket` keeps the existing binder/contact behavior unchanged.
 - `bond` is the existing covalent atom-level bond constraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
-- `atom_contact` is a patched Boltz2-only atom-pair upper-distance restraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
+- `atom_contact` is a patched Boltz2-only exact atom-pair upper-distance restraint using `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
+- `atom_contact_union` is a patched Boltz2-only OR group containing two or more exact atom-pair alternatives, each with its own upper-distance bound.
 
 `atom_contact` requires `force: true` and `max_distance` in the `2.0-20.0` Angstrom range. It contributes token-level contact conditioning for the containing tokens and one exact atom-index pair to Boltz's soft inference-time contact guidance. Multiple restraints on the same token pair use the minimum distance for token conditioning while every exact atom pair remains in the atom-level potential. This does not mathematically guarantee the final distance. The experimental Atom-contact exploration preset changes the reverse-diffusion sampling schedule and enables optional physical potentials; final satisfaction must be checked in `atom_contact_restraints.json`.
+
+`atom_contact_union` also requires group-level `force: true`, at least two alternatives, and a finite `2.0-20.0` Angstrom bound on every alternative. Reversed duplicate pairs within one group, identical endpoints, unresolved atoms, and partial groups are rejected. All alternatives in a group receive the same Boltz potential `union_index`; separate groups receive separate indices. A union is therefore satisfied when any one alternative is satisfied. Union alternatives deliberately do not set binary token-contact conditioning, because marking every alternative as a contact would change the intended OR relation into AND. Optional `--use_potentials` physical steering is independent of both exact and union contact guidance.
 
 Example:
 
@@ -116,11 +121,28 @@ constraints:
 
 The redistributable test fixture is available at `fixtures/atom_contact_example.yaml`.
 
+Union example:
+
+```yaml
+constraints:
+  - atom_contact_union:
+      alternatives:
+        - atom1: [A, 10, CG1]
+          atom2: [A, 42, CB]
+          max_distance: 7.0
+        - atom1: [A, 10, CG2]
+          atom2: [A, 42, CB]
+          max_distance: 7.0
+      force: true
+```
+
+The complete union fixture is `fixtures/atom_contact_union_example.yaml`. Constraints-only loader fixtures matching nmr2boltz output are under `fixtures/nmr2boltz/`.
+
 ### Run Provenance And Restraint Audit
 
-Every completed, stopped, or failed submitted process writes `boltzui_run.json` into its `workspace/results/boltz_results_<input-stem>/` directory. It records the Git commit when available, Boltz version, selected preset, resolved parameters, credential-free command arguments, input SHA-256, MSA configuration, timestamps, exit status, and submitted atom-contact restraints.
+Every completed, stopped, or failed submitted process writes `boltzui_run.json` into its `workspace/results/boltz_results_<input-stem>/` directory. Manifest schema version 2 records the Git commit when available, Boltz version, selected preset, resolved parameters, credential-free command arguments, input SHA-256, MSA configuration, timestamps, exit status, and submitted exact and union atom-contact restraints.
 
-Atom-contact runs also write `atom_contact_restraints.json` in the same directory. The report measures every requested atom pair in every generated PDB or mmCIF structure and records observed distance, excess above the requested maximum, satisfaction, or an explicit unresolved endpoint. The result viewer exposes both JSON files and shows a compact restraint table separately from Boltz confidence metrics.
+Atom-contact runs also write `atom_contact_restraints.json` in the same directory. Report schema version 3 measures every exact pair and every union alternative in each generated PDB or mmCIF structure and adds compact per-model exact/union aggregates for NMR-scale restraint sets. A union group is satisfied if any alternative is within its own bound, violated only when every alternative resolves and violates, and indeterminate when unresolved alternatives prevent a definitive violation. The result viewer exposes both JSON files, shows exact and union summaries separately from Boltz confidence metrics, and renders at most 500 audit rows for the selected model with violations first; the complete measurements remain in the JSON report.
 
 PDB reports use the one-character chain identifiers present in the PDB file. Use mmCIF output when identifiers cannot be represented unambiguously in PDB. For mmCIF, the reporter resolves matching author identifiers first and also supports label identifiers without mixing the two namespaces.
 
@@ -143,7 +165,7 @@ The sidebar exposes these Boltz `predict` options:
 - `--write_full_pde` - writes full PDE as an NPZ file. Default: `False`.
 - `--output_format [pdb|mmcif]` - structure output format. BoltzUI default: `pdb`.
 - `--num_workers INTEGER` - dataloader worker count. BoltzUI default: `0`.
-- `--override` - overwrites existing predictions. Default: `False` for standard tasks and `True` when the input contains `atom_contact`; users can explicitly disable it in Custom settings.
+- `--override` - overwrites existing predictions. Default: `False` for standard tasks and `True` when the input contains `atom_contact` or `atom_contact_union`; users can explicitly disable it in Custom settings.
 - `--seed INTEGER` - random seed. BoltzUI default: `1`; use `-1` for a random seed.
 - `--use_msa_server` - generates missing protein MSAs through the MMSeqs2 server. BoltzUI default: `True`.
 - `--msa_server_url TEXT` - MSA server URL, used with `--use_msa_server`. Default: `https://api.colabfold.com`.
@@ -152,7 +174,7 @@ The sidebar exposes these Boltz `predict` options:
 - `--msa_server_password TEXT` - password for MSA server basic auth. Default: `None`; can also use `$BOLTZ_MSA_PASSWORD`.
 - `--api_key_header TEXT` - custom API-key header name. Option default: `None`; when API-key auth is used and no header is provided, Boltz uses `X-API-Key`.
 - `--api_key_value TEXT` - custom API-key header value. Default: `None`.
-- `--use_potentials` - enables Boltz's additional FK/physical steering potentials. It is optional for `atom_contact` because contact guidance remains active independently, but it defaults to on in the experimental Atom-contact exploration preset.
+- `--use_potentials` - enables Boltz's additional FK/physical steering potentials. It is optional for `atom_contact` and `atom_contact_union` because contact guidance remains active independently, but it defaults to on in the experimental Atom-contact exploration preset.
 - `--model [boltz1|boltz2]` - model family. Default: `boltz2`.
 - `--method TEXT` - method metadata/conditioning value selected from Boltz 2.2.1's supported methods. Default: `x-ray diffraction` (`X-RAY DIFFRACTION` in the UI).
 - `--preprocessing-threads INTEGER` - preprocessing thread count. Default: `1`.

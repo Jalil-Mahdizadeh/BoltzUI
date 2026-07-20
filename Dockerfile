@@ -9,8 +9,8 @@ RUN npm ci --omit=dev
 
 FROM ${BASE_IMAGE}
 
-LABEL org.opencontainers.image.title="BoltzUI 2.2.1 atom_contact"
-LABEL org.opencontainers.image.description="BoltzUI with atom-contact guidance and bounded Boltz 2.2.1 denoiser sample batches"
+LABEL org.opencontainers.image.title="BoltzUI 2.2.1 atom contacts"
+LABEL org.opencontainers.image.description="BoltzUI with exact and union atom-contact guidance and bounded Boltz 2.2.1 denoiser sample batches"
 
 ENV BOLTZ_CACHE=/opt/boltz-cache \
     PYTHONUNBUFFERED=1 \
