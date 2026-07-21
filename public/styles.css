@@ -1091,7 +1091,9 @@ button.status-pill {
 }
 
 .inspector-strip {
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 10px;
   margin-top: 10px;
 }
@@ -1130,19 +1132,28 @@ button.status-pill {
 }
 
 .inspector-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: stretch;
   flex-wrap: wrap;
-  justify-content: flex-end;
   gap: 8px;
+}
+
+.inspector-actions .file-link {
+  flex: 1 1 128px;
 }
 
 .file-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 0;
   min-height: 38px;
   padding: 8px 10px;
   color: #061816;
   text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
   border-radius: var(--radius);
   background: var(--accent);
   font-size: 12px;
@@ -2956,7 +2967,7 @@ button.status-pill {
   }
 
   .inspector-actions .file-link {
-    flex: 1;
+    flex: 1 1 128px;
   }
 
   .result-list {
