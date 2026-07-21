@@ -1415,9 +1415,41 @@ async function parseAtomConstraintsYaml(content, filename = "constraints.yaml") 
   });
 }
 
+async function parseTokenConstraintsYaml(content, filename = "constraints.yaml") {
+  return api("/api/token-constraints/parse", {
+    method: "POST",
+    body: JSON.stringify({ content, filename })
+  });
+}
+
 function setConstraintLoadStatus(kind, message) {
-  const status = $(`#${kind}-atom-contact-load-status`);
+  const statusId = kind === "token"
+    ? "#token-contact-load-status"
+    : `#${kind}-atom-contact-load-status`;
+  const status = $(statusId);
   if (status) status.textContent = message;
+}
+
+async function loadTokenConstraintFile(file) {
+  if (!file) return;
+  try {
+    const parsed = await parseTokenConstraintsYaml(await file.text(), file.name);
+    if (!parsed.contacts.length && parsed.constraintCount) {
+      throw new Error("This file contains constraints, but no token contact constraints.");
+    }
+    builderState.contacts = parsed.contacts.map((item) => createContact(item));
+    renderContacts();
+    setBuilderSectionOpen("contact-constraints", true);
+    setConstraintLoadStatus(
+      "token",
+      `Loaded ${parsed.contacts.length} token constraint${parsed.contacts.length === 1 ? "" : "s"} from ${file.name}.`
+    );
+    generateYamlFromBuilder({ silent: true });
+    showToast("Token contact constraints loaded.");
+  } catch (error) {
+    setConstraintLoadStatus("token", error.message);
+    showToast(error.message);
+  }
 }
 
 async function loadAtomConstraintFile(file, kind) {
@@ -1782,6 +1814,14 @@ function bindBuilderPage() {
   if (initialProfile && YAML_TASK_PRESETS[initialProfile]) profile.value = initialProfile;
 
   bindRepeatLists();
+  const tokenConstraintButton = $("#load-token-contact-yaml-button");
+  const tokenConstraintInput = $("#token-contact-yaml-input");
+  tokenConstraintButton.addEventListener("click", () => tokenConstraintInput.click());
+  tokenConstraintInput.addEventListener("change", async () => {
+    const [file] = tokenConstraintInput.files || [];
+    await loadTokenConstraintFile(file);
+    tokenConstraintInput.value = "";
+  });
   for (const kind of ["exact", "union"]) {
     const button = $(`#load-${kind}-atom-contact-yaml-button`);
     const input = $(`#${kind}-atom-contact-yaml-input`);

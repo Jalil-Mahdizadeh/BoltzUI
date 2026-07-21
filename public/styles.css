@@ -2534,8 +2534,33 @@ button.status-pill {
 }
 
 .yaml-editor-card #input-editor {
+  width: calc(100% - 22px);
   min-height: 560px;
   height: clamp(560px, 68vh, 780px);
+  overflow-x: auto;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(99, 199, 248, 0.68) rgba(8, 11, 13, 0.72);
+}
+
+.yaml-editor-card #input-editor::-webkit-scrollbar {
+  width: 18px;
+  height: 18px;
+}
+
+.yaml-editor-card #input-editor::-webkit-scrollbar-track {
+  background: rgba(8, 11, 13, 0.72);
+}
+
+.yaml-editor-card #input-editor::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(8, 11, 13, 0.72);
+  border-radius: 999px;
+  background: rgba(99, 199, 248, 0.68);
+}
+
+.yaml-editor-card #input-editor::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 225, 209, 0.86);
 }
 
 .builder-page .yaml-editor-card #input-editor {

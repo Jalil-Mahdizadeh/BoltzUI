@@ -12,6 +12,7 @@ const {
   parseInputText,
   validateAtomContacts
 } = require("./lib/atom-contact");
+const { validateTokenContacts } = require("./lib/token-contact");
 const {
   DEFAULT_PRESET,
   optionSchema,
@@ -686,6 +687,28 @@ async function handleApi(req, res, url) {
           atom2: `${alternative.chain2}:${alternative.residue2}:${alternative.atom2}`,
           distance: String(alternative.max_distance)
         }))
+      }))
+    });
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/api/token-constraints/parse") {
+    const payload = await readBody(req);
+    const extension = String(payload.filename || "").toLowerCase().endsWith(".json")
+      ? ".json"
+      : ".yaml";
+    const document = parseInputText(String(payload.content || ""), extension);
+    if (!Array.isArray(document.constraints)) {
+      throw new Error("Token constraint YAML must contain a top-level constraints list.");
+    }
+    const { contacts } = validateTokenContacts(document, { validateChains: false });
+    sendJson(res, 200, {
+      constraintCount: document.constraints.length,
+      contacts: contacts.map((contact) => ({
+        token1: `${contact.chain1}:${contact.token1}`,
+        token2: `${contact.chain2}:${contact.token2}`,
+        distance: String(contact.max_distance),
+        force: contact.force
       }))
     });
     return;

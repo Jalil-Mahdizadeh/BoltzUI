@@ -146,10 +146,15 @@
             <details class="builder-section" data-section="contact-constraints">
               <summary><span><b>05</b>Token contact constraints</span><em>Token distance rules</em></summary>
               <div class="builder-section-body">
-                <div class="builder-section-toolbar">
+                <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Add any number of token-level contacts. For protein, DNA, and RNA polymers, a token is a residue or nucleotide; for ligands and other non-polymers, a token is an atom.</span>
-                  <button class="secondary-button mini-action-button" id="add-contact-button" type="button">Add contact</button>
+                  <div class="builder-toolbar-actions">
+                    <button class="ghost-button mini-action-button" id="load-token-contact-yaml-button" type="button">Load nmr2boltz token YAML</button>
+                    <button class="secondary-button mini-action-button" id="add-contact-button" type="button">Add contact</button>
+                    <input id="token-contact-yaml-input" type="file" accept=".yaml,.yml,application/yaml,text/yaml" hidden>
+                  </div>
                 </div>
+                <div class="constraint-load-status" id="token-contact-load-status" role="status" aria-live="polite">No nmr2boltz token YAML loaded.</div>
                 <div class="repeat-list contact-list" id="contact-list"></div>
               </div>
             </details>

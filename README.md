@@ -84,7 +84,7 @@ The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the p
 
 The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, pocket constraints, repeatable token-level contacts, repeatable exact atom-pair upper-distance restraints, repeatable ambiguous atom-pair OR groups, covalent bonds, structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains directly editable before saving.
 
-The Exact and Union atom-contact sections each have a dedicated nmr2boltz loader. `atom_constraints_exact.yaml` replaces only the exact-contact cards, and `atom_constraints_union.yaml` replaces only the union-group cards; sequences, ligands, settings, and the other constraint type are preserved. The loaders parse YAML on the server with the same structural validation used before prediction. An empty `constraints: []` file intentionally clears the corresponding section.
+The Token, Exact atom-contact, and Union atom-contact sections each have a dedicated nmr2boltz loader. `token_constraints.yaml` replaces only the token-contact cards, `atom_constraints_exact.yaml` replaces only the exact-contact cards, and `atom_constraints_union.yaml` replaces only the union-group cards; sequences, ligands, settings, and all other constraint types are preserved. The loaders parse YAML on the server and validate the corresponding constraint structure. An empty `constraints: []` file intentionally clears the corresponding section.
 
 ### Constraint Types
 
