@@ -40,7 +40,8 @@ test("run manifest records resolved provenance and excludes credentials", () => 
   assert.equal(manifest.step_scale, 1.2);
   assert.equal(manifest.boltz_version, "2.2.1");
   assert.equal(manifest.boltzui_git_dirty, true);
-  assert.equal(manifest.schema_version, 2);
+  assert.equal(manifest.schema_version, 3);
+  assert.equal(manifest.command.executable, "boltzui-predict");
   assert.equal(manifest.atom_contact_union_constraints.length, 1);
   assert.equal(manifest.resolved_prediction_parameters.msa_server_password, undefined);
   assert.doesNotMatch(JSON.stringify(manifest), /secret/);

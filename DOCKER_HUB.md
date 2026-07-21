@@ -2,11 +2,11 @@
 
 ## Short Description
 
-BoltzUI web app for Boltz 2.2.1 with exact and ambiguous union atom-pair guidance and bounded denoiser sample batches.
+BoltzUI for Boltz 2.2.1 with exact/union atom guidance, neutral-pH hydrogens, and Amber minimization.
 
 ## Overview
 
-This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only exact `atom_contact` and OR-grouped `atom_contact_union` restraints and corrects `max_parallel_samples` so it limits each denoiser call.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only exact `atom_contact` and OR-grouped `atom_contact_union` restraints and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -16,6 +16,10 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Cache path: `/opt/boltz-cache`
 - Environment variable: `BOLTZ_CACHE=/opt/boltz-cache`
 - Includes Boltz2 checkpoints and molecule cache
+- Includes OpenMM 8.4.0, a pinned CUDA plugin, PDBFixer 1.12.0, and Amber force-field XML files
+- Adds mutually exclusive `--addh` and `--addh-energy-min` Output controls and CLI flags
+- Preserves original structures and exposes hydrogenated/minimized copies plus a provenance report in the model browser
+- Supports standard protein, RNA, and DNA; rejects ligands and modified residues without explicit parameters
 - Adds exact `atom_contact` and ambiguous `atom_contact_union` YAML restraints
 - Keeps one potential union index per OR group and excludes union alternatives from binary token-contact conditioning
 - YAML Builder fields can directly load nmr2boltz `atom_constraints_exact.yaml` and `atom_constraints_union.yaml`
@@ -52,7 +56,7 @@ docker run --rm \
   -p 5173:5173 \
   -v "${PWD}:/workspace/BoltzUI" \
   -w /workspace/BoltzUI \
-  boltzui:221-atomcontact
+  boltzui:221-exact-union
 ```
 
 Open `http://localhost:5173`.
@@ -63,10 +67,10 @@ Boltz2 inference can consume substantial GPU memory. On 8 GB GPUs, use `--max_pa
 
 ## Build From Source
 
-Make sure the local `boltzui:221` base image exists, then run:
+Make sure the local `boltz:221` base image exists, then run:
 
 ```bash
-docker build -t boltzui:221-atomcontact .
+docker build -t boltzui:221-exact-union .
 ```
 
-The build applies and compiles the exact/union Boltz atom-contact and diffusion-chunking patch, runs compatibility tests, then verifies that `boltz` and `node` are available.
+The build applies and compiles the exact/union Boltz atom-contact and diffusion-chunking patch, installs the post-processing stack, runs compatibility tests, then verifies that `boltz`, `boltzui-predict`, OpenMM, PDBFixer, and Node.js are available.

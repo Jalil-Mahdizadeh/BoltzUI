@@ -27,6 +27,16 @@ test("custom preset preserves validated manual values", () => {
   assert.equal(resolved.options.step_scale, "1.2");
 });
 
+test("hydrogen post-processing defaults off and modes are mutually exclusive", () => {
+  const defaults = resolvePredictionOptions({}, "standard").options;
+  assert.equal(defaults.addh, false);
+  assert.equal(defaults.addh_energy_min, false);
+  assert.throws(
+    () => resolvePredictionOptions({ addh: true, addh_energy_min: true }, "custom"),
+    /mutually exclusive/
+  );
+});
+
 test("atom-contact tasks default override on but respect explicit custom override off", () => {
   const automatic = resolvePredictionOptions({}, "standard", { hasAtomContacts: true });
   assert.equal(automatic.options.override, true);

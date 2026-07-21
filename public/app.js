@@ -17,6 +17,7 @@ const state = {
 };
 
 const $ = (selector) => document.querySelector(selector);
+const POSTPROCESS_OPTION_KEYS = new Set(["addh", "addh_energy_min"]);
 
 function showToast(message) {
   const toast = $("#toast");
@@ -66,6 +67,9 @@ function defaultsFromSchema(schema) {
 }
 
 function optionIsActive(option) {
+  if (POSTPROCESS_OPTION_KEYS.has(option.key) && selectedInputFile()?.postprocessEligibility?.eligible === false) {
+    return false;
+  }
   return !option.dependsOn || Boolean(state.options[option.dependsOn]);
 }
 
@@ -170,7 +174,19 @@ function selectedInputHasLigand() {
   return Boolean(selectedInputFile()?.hasLigand);
 }
 
+function selectedInputPostprocessReason() {
+  const eligibility = selectedInputFile()?.postprocessEligibility;
+  return eligibility?.eligible === false ? eligibility.reason : "";
+}
+
+function enforceSelectedInputEligibility() {
+  if (!selectedInputPostprocessReason()) return;
+  state.options.addh = false;
+  state.options.addh_energy_min = false;
+}
+
 function applySelectedInputDefaults() {
+  enforceSelectedInputEligibility();
   if (selectedInputFile()?.hasAtomContact && state.selectedPreset !== "custom") {
     state.options.override = true;
   }
@@ -221,7 +237,12 @@ function modelLabel(model) {
   if (model.index === null || model.index === undefined) {
     return basename(model.structurePath || model.confidencePath).replace(/\.(pdb|cif|mmcif|json)$/i, "");
   }
-  return `model ${model.index}`;
+  const suffix = model.variant === "addh"
+    ? " · hydrogens"
+    : model.variant === "addh_energy_min"
+      ? " · minimized"
+      : "";
+  return `model ${model.index}${suffix}`;
 }
 
 function currentResult() {
@@ -239,7 +260,7 @@ function currentResult() {
 function currentModel(result = currentResult()) {
   if (!result || !result.models || !result.models.length) return null;
   if (state.selectedModelIndex !== null) {
-    const selected = result.models.find((model) => String(model.index) === String(state.selectedModelIndex));
+    const selected = result.models.find((model) => String(model.selectionKey ?? model.index) === String(state.selectedModelIndex));
     if (selected) return selected;
   }
   return result.bestModel || result.models[0];
@@ -342,8 +363,16 @@ function renderOptionField(option) {
     input.type = "checkbox";
     input.checked = Boolean(value);
     input.disabled = !active;
+    if (!active && POSTPROCESS_OPTION_KEYS.has(option.key)) {
+      label.title = selectedInputPostprocessReason();
+    }
     input.addEventListener("change", () => {
       state.options[option.key] = input.checked;
+      if (input.checked && option.exclusiveWith) {
+        state.options[option.exclusiveWith] = false;
+        const paired = document.querySelector(`[data-option-key="${option.exclusiveWith}"] input[type="checkbox"]`);
+        if (paired) paired.checked = false;
+      }
       markPresetCustom();
       updateDependentOptionControls();
       renderOverview();
@@ -440,6 +469,13 @@ function renderOptionGroups() {
     details.appendChild(summary);
     if (subgroups.size === 1 && subgroups.has("")) {
       details.appendChild(createOptionGrid(options));
+      if (name === "Output" && selectedInputPostprocessReason()) {
+        const note = document.createElement("p");
+        note.className = "postprocess-eligibility-note";
+        note.setAttribute("role", "note");
+        note.textContent = selectedInputPostprocessReason();
+        details.appendChild(note);
+      }
     } else {
       const subgroupRoot = document.createElement("div");
       subgroupRoot.className = "option-subsections";
@@ -519,13 +555,13 @@ function renderResultSelectors() {
   const result = currentResult();
   const model = currentModel(result);
   for (const item of result.models || []) {
-    const option = new Option(modelLabel(item), String(item.index));
+    const option = new Option(modelLabel(item), String(item.selectionKey ?? item.index));
     option.title = item.structurePath || item.confidencePath || modelLabel(item);
     modelSelect.appendChild(option);
   }
   if (model) {
-    state.selectedModelIndex = model.index;
-    modelSelect.value = String(model.index);
+    state.selectedModelIndex = model.selectionKey ?? model.index;
+    modelSelect.value = String(model.selectionKey ?? model.index);
     modelSelect.title = model.structurePath || model.confidencePath || modelLabel(model);
   } else {
     modelSelect.title = "";
@@ -551,11 +587,12 @@ function renderRestraintAudit() {
   const exactRestraints = Array.isArray(report?.restraints) ? report.restraints : [];
   const unionGroups = Array.isArray(report?.union_groups) ? report.union_groups : [];
   const selectedAuditModel = selectedModel
-    ? `model_${selectedModel.index}`
+    ? (selectedModel.auditModel || `model_${selectedModel.index}`)
     : report?.structures_examined?.[0]?.model;
   const rowQueue = [];
   setFileLink("#run-manifest-link", result && result.runManifestPath);
   setFileLink("#restraint-report-link", result && result.restraintReportPath);
+  setFileLink("#postprocess-report-link", result && result.postprocessReportPath);
   body.innerHTML = "";
   if (!report || (!exactRestraints.length && !unionGroups.length)) {
     audit.hidden = true;
@@ -723,7 +760,7 @@ function renderModelTable() {
 
   for (const item of result.models) {
     const row = document.createElement("tr");
-    if (model && String(model.index) === String(item.index)) row.className = "active";
+    if (model && String(model.selectionKey ?? model.index) === String(item.selectionKey ?? item.index)) row.className = "active";
     row.innerHTML = `
       <td><button class="model-row-button" type="button">${escapeHtml(modelLabel(item))}</button></td>
       <td>${scoreCell(item.confidenceScore)}</td>
@@ -732,7 +769,7 @@ function renderModelTable() {
       <td>${formatNumber(item.complexPde)}</td>
     `;
     row.querySelector("button").addEventListener("click", () => {
-      state.selectedModelIndex = item.index;
+      state.selectedModelIndex = item.selectionKey ?? item.index;
       renderResults();
     });
     body.appendChild(row);
@@ -1118,6 +1155,7 @@ function bindEvents() {
         state.selectedResult = null;
         state.selectedModelIndex = null;
         renderInputs();
+        applySelectedInputDefaults();
         renderOptionGroups();
         renderResults();
         updateCommandPreview();

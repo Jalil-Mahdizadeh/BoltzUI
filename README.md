@@ -1,14 +1,15 @@
 # BoltzUI
 
-BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs `boltz predict` inside the same container. This patched build is layered on the local `boltzui:221` image and adds reproducible Boltz2-only exact `atom_contact` and ambiguous `atom_contact_union` guidance plus corrected `max_parallel_samples` denoiser chunking.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs predictions inside the same container. This build is layered on the local `boltz:221` image and adds reproducible Boltz2-only exact `atom_contact` and ambiguous `atom_contact_union` guidance, corrected `max_parallel_samples` denoiser chunking, neutral-pH hydrogen placement, and optional Amber energy minimization.
 
 ## Repository Contents
 
-- `Dockerfile` - builds the patched BoltzUI web app image on top of the local `boltzui:221` image.
+- `Dockerfile` - builds the patched BoltzUI web app image on top of the local `boltz:221` image.
 - `patches/boltz_atom_contact/` - reproducible Boltz runtime patch applied during Docker build.
 - `server.js`, `public/`, `package.json` - BoltzUI web interface for configuring, launching, and inspecting Boltz runs.
 - `run.sh` - optional launcher for the BoltzUI container.
 - `requirements.txt` - Python package pin for Boltz.
+- `requirements-postprocess.txt` - pinned OpenMM, CUDA plugin, and PDBFixer dependencies included in the image.
 - `REQUIREMENTS.md` - host, GPU, disk, and cache requirements.
 - `DOCKER_HUB.md` - copy-ready Docker Hub overview text.
 - `workspace/inputs/` - Boltz YAML/JSON/FASTA inputs. Example inputs live here.
@@ -19,16 +20,16 @@ BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web
 The patched build expects the base workflow image to already exist locally:
 
 ```bash
-docker image inspect boltzui:221 >/dev/null
+docker image inspect boltz:221 >/dev/null
 ```
 
 Build:
 
 ```bash
-docker build -t boltzui:221-atomcontact .
+docker build -t boltzui:221-exact-union .
 ```
 
-The final `boltzui:221-atomcontact` image contains the Boltz runtime from `boltzui:221`, Node.js, the BoltzUI web app, exact and union atom-contact support, and bounded denoiser sample chunking.
+The final `boltzui:221-exact-union` image contains the Boltz runtime from `boltz:221`, Node.js, the BoltzUI web app, exact and union atom-contact support, bounded denoiser sample chunking, OpenMM, its CUDA 12 plugin, and PDBFixer. No second runtime image is required.
 
 ## Run The Web UI
 
@@ -40,7 +41,7 @@ docker run --rm --gpus all \
   -p 5173:5173 \
   -v "$(pwd):/workspace/BoltzUI" \
   -w /workspace/BoltzUI \
-  boltzui:221-atomcontact
+  boltzui:221-exact-union
 ```
 
 PowerShell equivalent:
@@ -50,7 +51,7 @@ docker run --rm --gpus all --shm-size=8g `
   -p 5173:5173 `
   -v "${PWD}:/workspace/BoltzUI" `
   -w /workspace/BoltzUI `
-  boltzui:221-atomcontact
+  boltzui:221-exact-union
 ```
 
 Then open:
@@ -61,9 +62,24 @@ http://localhost:5173
 
 After building the image, `bash run.sh` runs the same container command on Unix-like shells.
 
-BoltzUI exposes every `boltz predict` option from the installed 2.2.1 CLI, builds a command preview, launches jobs with collapsible live logs, summarizes existing `workspace/results/boltz_results_*` folders, and opens generated PDB structures in an embedded 3Dmol workspace. Inputs and results are kept under `workspace/` by default so the repository root stays clear.
+BoltzUI exposes every `boltz predict` option from the installed 2.2.1 CLI plus its two post-processing flags, builds a command preview, launches jobs with collapsible live logs, summarizes existing `workspace/results/boltz_results_*` folders, and opens generated PDB structures in an embedded 3Dmol workspace. Inputs and results are kept under `workspace/` by default so the repository root stays clear.
 
 The sidebar is collapsed by section by default. `Input` selects the prediction file, `Settings` contains the full flag set, and `MSA settings` groups MSA server, credential, and limit controls under one section. The structure preview includes a 0-100 confidence color legend whenever the viewer color mode is set to `Confidence`.
+
+### Hydrogens And Energy Minimization
+
+The `Output` settings contain two mutually exclusive switches, both off by default:
+
+- `Add hydrogens` / `--addh` writes hydrogenated copies.
+- `Add hydrogens + energy minimize` / `--addh-energy-min` adds hydrogens and then minimizes the copies.
+
+BoltzUI runs predictions through the installed `boltzui-predict` pass-through command. It removes the two BoltzUI-only flags before invoking upstream `boltz`, waits for prediction to finish, and then post-processes every generated PDB or mmCIF model. Original Boltz models are never overwritten. Derived files are written below `postprocessed/addh/` or `postprocessed/addh_energy_min/` in the same result directory and appear as separate model variants in the result browser. `boltzui_postprocess.json` records hashes, atom counts, protonation variants, terminal repairs, software and force-field settings, platform, energies, and coordinate displacement. Derived PDB files retain Boltz confidence B-factors; newly added atoms inherit the residue confidence.
+
+Hydrogens are placed with OpenMM `Modeller.addHydrogens()` at pH 7.0 using Amber14 templates. This applies the usual dominant neutral-pH states, recognizes disulfide-bonded cysteine, and chooses a histidine tautomer from the local hydrogen-bond geometry. It is not a microscopic pKa calculation or constant-pH simulation.
+
+Minimization uses Amber14 ff14SB for protein, OL15 for DNA, OL3 for RNA, and GBn2 implicit solvent with `NoCutoff`, `HBonds` constraints, and OpenMM's L-BFGS minimizer (10 kJ/mol/nm tolerance, at most 250 iterations). CUDA mixed precision with deterministic forces is preferred; OpenCL and four-thread CPU execution are fallbacks. Boltz has already exited before post-processing starts, so its GPU allocation is released first.
+
+The current safe scope is standard protein, RNA, and DNA residues. Ligands and modified residues are rejected instead of being silently assigned unsuitable parameters. Boltz emits a 5-prime phosphate for a first RNA/DNA residue, whereas Amber OL3/OL15 use a standard 5-prime hydroxyl terminus; derived nucleic-acid copies therefore remove terminal `P`, `OP1`, and `OP2` atoms before protonation, and record that normalization explicitly. The original model remains byte-identical.
 
 ### Prediction Presets
 
@@ -140,7 +156,7 @@ The complete union fixture is `fixtures/atom_contact_union_example.yaml`. Constr
 
 ### Run Provenance And Restraint Audit
 
-Every completed, stopped, or failed submitted process writes `boltzui_run.json` into its `workspace/results/boltz_results_<input-stem>/` directory. Manifest schema version 2 records the Git commit when available, Boltz version, selected preset, resolved parameters, credential-free command arguments, input SHA-256, MSA configuration, timestamps, exit status, and submitted exact and union atom-contact restraints.
+Every completed, stopped, or failed submitted process writes `boltzui_run.json` into its `workspace/results/boltz_results_<input-stem>/` directory. Manifest schema version 3 records the Git commit when available, Boltz version, selected preset, resolved parameters, credential-free command arguments, input SHA-256, MSA configuration, post-processing report when requested, timestamps, exit status, and submitted exact and union atom-contact restraints.
 
 Atom-contact runs also write `atom_contact_restraints.json` in the same directory. Report schema version 3 measures every exact pair and every union alternative in each generated PDB or mmCIF structure and adds compact per-model exact/union aggregates for NMR-scale restraint sets. A union group is satisfied if any alternative is within its own bound, violated only when every alternative resolves and violates, and indeterminate when unresolved alternatives prevent a definitive violation. The result viewer exposes both JSON files, shows exact and union summaries separately from Boltz confidence metrics, and renders at most 500 audit rows for the selected model with violations first; the complete measurements remain in the JSON report.
 
@@ -166,6 +182,8 @@ The sidebar exposes these Boltz `predict` options:
 - `--output_format [pdb|mmcif]` - structure output format. BoltzUI default: `pdb`.
 - `--num_workers INTEGER` - dataloader worker count. BoltzUI default: `0`.
 - `--override` - overwrites existing predictions. Default: `False` for standard tasks and `True` when the input contains `atom_contact` or `atom_contact_union`; users can explicitly disable it in Custom settings.
+- `--addh` - preserves original models and writes neutral-pH hydrogenated copies. Default: `False`.
+- `--addh-energy-min` - preserves original models and writes neutral-pH hydrogenated, Amber14/GBn2-minimized copies. Default: `False`; mutually exclusive with `--addh`.
 - `--seed INTEGER` - random seed. BoltzUI default: `1`; use `-1` for a random seed.
 - `--use_msa_server` - generates missing protein MSAs through the MMSeqs2 server. BoltzUI default: `True`.
 - `--msa_server_url TEXT` - MSA server URL, used with `--use_msa_server`. Default: `https://api.colabfold.com`.

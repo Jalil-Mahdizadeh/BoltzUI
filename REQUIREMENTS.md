@@ -8,6 +8,8 @@
 - At least 32 GB system RAM recommended.
 - At least 45 GB free disk space for the final cached image and Docker build layers.
 
+OpenMM 8.4.0, its pinned CUDA 12 plugin, PDBFixer 1.12.0, and all Amber XML force-field files are installed directly in `boltzui:221-exact-union`. The post-processor prefers CUDA but automatically uses OpenCL or a four-thread CPU platform when CUDA is unavailable. Energy minimization does not run concurrently with Boltz prediction.
+
 ## GPU memory
 
 Boltz 2.2.1 can fill an 8 GB GPU on larger or more aggressive runs. This image patches `max_parallel_samples` to be a true denoiser chunk-size limit; keep it at `1` on small laptop GPUs. The minimal fix still retains diffusion state for all requested samples, so increasing `diffusion_samples` can still increase peak VRAM even when denoiser calls are serial.
@@ -37,4 +39,4 @@ For the real 495-residue `NusA_open.yaml` input, single-sequence GPU prediction 
 
 ## Build input
 
-The Docker build expects the local base image `boltzui:221`. It verifies the installed Boltz version and source hashes before applying the patch. Model and molecule caches are inherited from that image.
+The Docker build expects the local base image `boltz:221` and writes the completed runtime to `boltzui:221-exact-union`. It verifies the installed Boltz version and source hashes before applying the patch. Model and molecule caches are inherited from the base image.

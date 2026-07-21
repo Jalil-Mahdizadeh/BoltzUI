@@ -13,6 +13,7 @@ const {
   validateAtomContacts
 } = require("./lib/atom-contact");
 const { validateTokenContacts } = require("./lib/token-contact");
+const { analyzePostprocessEligibility } = require("./lib/postprocess-eligibility");
 const {
   DEFAULT_PRESET,
   optionSchema,
@@ -158,6 +159,22 @@ function inputHasAtomContact(dataPath) {
   }
 }
 
+function inputPostprocessEligibility(dataPath, parsedDocument = null) {
+  const extension = path.extname(dataPath).toLowerCase();
+  if (![".yaml", ".yml", ".json"].includes(extension)) {
+    return { eligible: true, reason: null };
+  }
+  try {
+    return analyzePostprocessEligibility(parsedDocument || parseInputFile(dataPath));
+  } catch (error) {
+    const detail = String(error.message || "the file could not be parsed").split("\n")[0];
+    return {
+      eligible: false,
+      reason: `Hydrogen addition and energy minimization are unavailable because this input could not be inspected: ${detail}`
+    };
+  }
+}
+
 function appendPredictOptions(args, options, secretMode = "include", context = {}) {
   for (const option of optionSchema) {
     if (MSA_SERVER_DEPENDENT_OPTIONS.has(option.key) && !options.use_msa_server) {
@@ -215,18 +232,22 @@ function preparePrediction(payload) {
     { hasAtomContacts }
   );
   const context = { hasLigand: inputHasLigandEntity(dataPath) };
+  const postprocessEligibility = inputPostprocessEligibility(dataPath, document);
+  if ((options.addh || options.addh_energy_min) && !postprocessEligibility.eligible) {
+    throw new Error(postprocessEligibility.reason);
+  }
   const args = predictArgs(dataPath, options, "include", dataPath, context);
   const maskedArgs = predictArgs(dataPath, options, "mask", dataPath, context);
   const manifestArgs = predictArgs(dataPath, options, "omit", dataPath, context);
   const resultDirectory = resultDirectoryFor(dataPath, options);
   return {
-    executable: "boltz",
+    executable: "boltzui-predict",
     args,
     maskedArgs,
     manifestArgs,
     env: { ...process.env },
-    command: `boltz ${args.map(quoteArg).join(" ")}`,
-    maskedCommand: `boltz ${maskedArgs.map(quoteArg).join(" ")}`,
+    command: `boltzui-predict ${args.map(quoteArg).join(" ")}`,
+    maskedCommand: `boltzui-predict ${maskedArgs.map(quoteArg).join(" ")}`,
     data: toRelative(dataPath),
     dataPath,
     document,
@@ -287,7 +308,8 @@ async function listInputFiles() {
       name: path.basename(file),
       size: fs.statSync(file).size,
       hasLigand: inputHasLigandEntity(file),
-      hasAtomContact: inputHasAtomContact(file)
+      hasAtomContact: inputHasAtomContact(file),
+      postprocessEligibility: inputPostprocessEligibility(file)
     }))
     .sort((a, b) => a.path.localeCompare(b.path));
 }
@@ -338,7 +360,7 @@ async function summarizeResultDir(dir) {
   const plddtFiles = await findFiles(predictionsDir, (file) => path.basename(file).startsWith("plddt_"));
 
   const structureByModel = new Map(structureFiles.map((file) => [modelIndexFromName(file), file]));
-  const models = [];
+  const originalModels = [];
   for (const confidenceFile of confidenceFiles) {
     let metrics = {};
     try {
@@ -347,8 +369,11 @@ async function summarizeResultDir(dir) {
       metrics = {};
     }
     const index = modelIndexFromName(confidenceFile);
-    models.push({
+    originalModels.push({
       index,
+      selectionKey: `${index}:original`,
+      variant: "original",
+      auditModel: index === null ? null : `model_${index}`,
       confidencePath: toRelative(confidenceFile),
       structurePath: structureByModel.has(index) ? toRelative(structureByModel.get(index)) : null,
       confidenceScore: numericMetric(metrics.confidence_score),
@@ -359,14 +384,14 @@ async function summarizeResultDir(dir) {
     });
   }
 
-  models.sort((a, b) => {
+  originalModels.sort((a, b) => {
     if (a.index === null && b.index === null) return a.confidencePath.localeCompare(b.confidencePath);
     if (a.index === null) return 1;
     if (b.index === null) return -1;
     return a.index - b.index;
   });
 
-  const bestModel = models.reduce((best, model) => {
+  const bestModel = originalModels.reduce((best, model) => {
     if (model.confidenceScore === null) return best;
     if (!best || model.confidenceScore > best.confidenceScore) return model;
     return best;
@@ -382,15 +407,47 @@ async function summarizeResultDir(dir) {
 
   const runManifestFile = path.join(dir, "boltzui_run.json");
   const restraintReportFile = path.join(dir, "atom_contact_restraints.json");
+  const postprocessReportFile = path.join(dir, "boltzui_postprocess.json");
   const runManifest = await readJsonIfPresent(runManifestFile);
   const restraintReport = await readJsonIfPresent(restraintReportFile);
+  const postprocessReport = await readJsonIfPresent(postprocessReportFile);
+  const models = [...originalModels];
+  if (Array.isArray(postprocessReport?.models)) {
+    for (const processed of postprocessReport.models) {
+      if (processed?.status !== "succeeded" || typeof processed.output !== "string") continue;
+      const outputPath = path.resolve(dir, processed.output);
+      if (!isInside(outputPath, dir) || !STRUCTURE_EXTENSIONS.has(path.extname(outputPath).toLowerCase())) continue;
+      try {
+        if (!(await fsp.stat(outputPath)).isFile()) continue;
+      } catch {
+        continue;
+      }
+      const index = Number.isInteger(processed.model_index) ? processed.model_index : modelIndexFromName(outputPath);
+      const original = originalModels.find((model) => model.index === index) || {};
+      const variant = postprocessReport.mode === "addh_energy_min" ? "addh_energy_min" : "addh";
+      models.push({
+        ...original,
+        index,
+        selectionKey: `${index}:${variant}`,
+        variant,
+        auditModel: index === null ? null : `model_${index}_${variant}`,
+        structurePath: toRelative(outputPath),
+        postprocess: processed
+      });
+    }
+  }
+  models.sort((a, b) => {
+    if (a.index !== b.index) return (a.index ?? Number.MAX_SAFE_INTEGER) - (b.index ?? Number.MAX_SAFE_INTEGER);
+    const rank = { original: 0, addh: 1, addh_energy_min: 2 };
+    return (rank[a.variant] ?? 9) - (rank[b.variant] ?? 9);
+  });
 
   const stats = await fsp.stat(dir);
   return {
     name: path.basename(dir),
     path: toRelative(dir),
     modifiedAt: stats.mtime.toISOString(),
-    structures: structureFiles.length,
+    structures: models.filter((model) => model.structurePath).length,
     confidenceFiles: confidenceFiles.length,
     paeFiles: paeFiles.length,
     pdeFiles: pdeFiles.length,
@@ -401,7 +458,9 @@ async function summarizeResultDir(dir) {
     runManifest,
     runManifestPath: runManifest ? toRelative(runManifestFile) : null,
     restraintReport,
-    restraintReportPath: restraintReport ? toRelative(restraintReportFile) : null
+    restraintReportPath: restraintReport ? toRelative(restraintReportFile) : null,
+    postprocessReport,
+    postprocessReportPath: postprocessReport ? toRelative(postprocessReportFile) : null
   };
 }
 
@@ -495,7 +554,8 @@ async function startJob(payload) {
     atomContacts: prediction.atomContacts,
     atomContactUnions: prediction.atomContactUnions,
     msa: prediction.msa,
-    startedAt: job.startedAt
+    startedAt: job.startedAt,
+    executable: prediction.executable
   });
   jobs.set(id, job);
   await fsp.writeFile(logPath, "", "utf8");
@@ -545,6 +605,9 @@ async function startJob(payload) {
       addLog(job, `\n${job.failureReason}\n`);
     }
     try {
+      job.manifest.structure_postprocessing = await readJsonIfPresent(
+        path.join(job.resultDirectory, "boltzui_postprocess.json")
+      );
       job.manifest = completeRunManifest(job.manifest, job);
       job.manifestPath = path.join(job.resultDirectory, "boltzui_run.json");
       await writeJson(job.manifestStagingPath, job.manifest);
@@ -783,7 +846,8 @@ async function handleApi(req, res, url) {
         name: path.basename(target),
         size: fs.statSync(target).size,
         hasLigand: inputHasLigandEntity(target),
-        hasAtomContact: inputHasAtomContact(target)
+        hasAtomContact: inputHasAtomContact(target),
+        postprocessEligibility: inputPostprocessEligibility(target)
       }
     });
     return;
@@ -813,4 +877,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildBoltzCommand, preparePrediction };
+module.exports = { buildBoltzCommand, preparePrediction, summarizeResultDir };
