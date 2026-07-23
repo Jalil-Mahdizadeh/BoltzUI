@@ -5,7 +5,7 @@
   "description": "Container web interface for running Boltz predictions.",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check public/app.js && node --check public/builder.js && node --check lib/prediction-config.js && node --check lib/atom-contact.js && node --check lib/token-contact.js && node --check lib/postprocess-eligibility.js && node --check lib/run-manifest.js && node --check lib/restraint-report.js && node scripts/sync-docs.js --check",
+    "check": "node --check server.js && node --check public/app.js && node --check public/builder.js && node --check lib/prediction-config.js && node --check lib/atom-contact.js && node --check lib/token-contact.js && node --check lib/interface-contact.js && node --check lib/postprocess-eligibility.js && node --check lib/run-manifest.js && node --check lib/restraint-report.js && node scripts/sync-docs.js --check",
     "docs:sync": "node scripts/sync-docs.js",
     "test": "node --test tests/*.test.js",
     "test:python": "python -m unittest tests/test_boltz_patch.py tests/test_boltzui_predict.py tests/test_structure_postprocess.py"

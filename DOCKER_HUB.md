@@ -6,7 +6,7 @@ BoltzUI for Boltz 2.2.1 with exact/union atom guidance, neutral-pH hydrogens, an
 
 ## Overview
 
-This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only exact `atom_contact` and OR-grouped `atom_contact_union` restraints and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only CSP-derived `interface_contact`, exact `atom_contact`, and OR-grouped `atom_contact_union` restraints and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -20,6 +20,7 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Adds mutually exclusive `--addh` and `--addh-energy-min` Output controls and CLI flags
 - Preserves original structures and exposes hydrogenated/minimized copies plus a provenance report in the model browser
 - Supports standard protein, RNA, and DNA; rejects ligands and modified residues without explicit parameters
+- Adds reciprocal ambiguous CSP patch-to-patch `interface_contact` restraints for multichain and single-chain folding
 - Adds exact `atom_contact` and ambiguous `atom_contact_union` YAML restraints
 - Keeps one potential union index per OR group and excludes union alternatives from binary token-contact conditioning
 - YAML Builder fields can directly load nmr2boltz `atom_constraints_exact.yaml` and `atom_constraints_union.yaml`
@@ -67,7 +68,7 @@ Boltz2 inference can consume substantial GPU memory. On 8 GB GPUs, use `--max_pa
 
 ## Build From Source
 
-Make sure the local `boltz:221` base image exists, then run:
+Make sure the local `boltzui:221-exact-union` base image exists, then run:
 
 ```bash
 docker build -t boltzui:221-exact-union .

@@ -39,4 +39,4 @@ For the real 495-residue `NusA_open.yaml` input, single-sequence GPU prediction 
 
 ## Build input
 
-The Docker build expects the local base image `boltz:221` and writes the completed runtime to `boltzui:221-exact-union`. It verifies the installed Boltz version and source hashes before applying the patch. Model and molecule caches are inherited from the base image.
+The Docker build expects the existing local workflow image `boltzui:221-exact-union` and upgrades that same tag after a successful build. It verifies Boltz 2.2.1 and the existing exact/union patch markers before applying the interface-contact upgrade. Model and molecule caches are inherited from the base image.

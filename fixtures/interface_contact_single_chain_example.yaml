@@ -1,0 +1,16 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: SAKGDE
+      msa: empty
+constraints:
+  - interface_contact:
+      patch1:
+        chain: A
+        residues: [1, 2]
+      patch2:
+        chain: A
+        residues: [5, 6]
+      max_distance: 6.0
+      force: true

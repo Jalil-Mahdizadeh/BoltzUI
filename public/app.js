@@ -187,7 +187,10 @@ function enforceSelectedInputEligibility() {
 
 function applySelectedInputDefaults() {
   enforceSelectedInputEligibility();
-  if (selectedInputFile()?.hasAtomContact && state.selectedPreset !== "custom") {
+  if (
+    (selectedInputFile()?.hasAtomContact || selectedInputFile()?.hasInterfaceContact)
+    && state.selectedPreset !== "custom"
+  ) {
     state.options.override = true;
   }
 }
@@ -587,6 +590,9 @@ function renderRestraintAudit() {
   const exactRestraints = Array.isArray(report?.restraints) ? report.restraints : [];
   const unionGroups = Array.isArray(report?.union_groups) ? report.union_groups : [];
   const tokenContacts = Array.isArray(report?.token_contacts) ? report.token_contacts : [];
+  const interfaceContacts = Array.isArray(report?.interface_contacts)
+    ? report.interface_contacts
+    : [];
   const selectedAuditModel = selectedModel
     ? (selectedModel.auditModel || `model_${selectedModel.index}`)
     : report?.structures_examined?.[0]?.model;
@@ -595,13 +601,71 @@ function renderRestraintAudit() {
   setFileLink("#restraint-report-link", result && result.restraintReportPath);
   setFileLink("#postprocess-report-link", result && result.postprocessReportPath);
   body.innerHTML = "";
-  if (!report || (!exactRestraints.length && !unionGroups.length && !tokenContacts.length)) {
+  if (
+    !report
+    || (
+      !exactRestraints.length
+      && !unionGroups.length
+      && !tokenContacts.length
+      && !interfaceContacts.length
+    )
+  ) {
     audit.hidden = true;
     summaryText.textContent = "Soft inference-time potential guidance; final distances are measured from each generated structure.";
     return;
   }
 
   audit.hidden = false;
+  for (const interfaceContact of interfaceContacts) {
+    const patch1 = `${interfaceContact.patch1.chain}:[${interfaceContact.patch1.residues.join(", ")}]`;
+    const patch2 = `${interfaceContact.patch2.chain}:[${interfaceContact.patch2.residues.join(", ")}]`;
+    const pair = `Interface ${interfaceContact.interface_index}: ${patch1} - ${patch2}`;
+    const models = Array.isArray(interfaceContact.models) && interfaceContact.models.length
+      ? interfaceContact.models
+      : [{
+        model: "No structure",
+        status: "unresolved",
+        satisfied: null,
+        maximum_observed_distance: null,
+        maximum_excess_distance: null,
+        residue_restraints: [],
+        unresolved_reason: "No generated structure was found."
+      }];
+    for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
+      const row = document.createElement("tr");
+      const satisfaction = model.satisfied === true
+        ? "Yes"
+        : model.satisfied === false
+          ? `No (${(model.violated_residues || []).join(", ")})`
+          : "Unresolved";
+      const residueDetails = (model.residue_restraints || []).map((measurement) => (
+        `${measurement.patch} ${measurement.chain}:${measurement.residue}: `
+        + `${measurement.observed_distance} A; `
+        + `${measurement.closest_source_atom} - ${measurement.closest_opposite_atom}`
+      )).join("\n");
+      row.className = model.satisfied === true
+        ? "restraint-satisfied"
+        : model.satisfied === false
+          ? "restraint-violated"
+          : "restraint-unresolved";
+      row.title = [residueDetails, model.unresolved_reason].filter(Boolean).join("\n\n");
+      row.innerHTML = `
+        <td>${escapeHtml(model.model)}</td>
+        <td>${escapeHtml(pair)}</td>
+        <td>${formatNumber(Number(interfaceContact.max_distance), 2)} A</td>
+        <td>${model.maximum_observed_distance === null ? "-" : `${formatNumber(model.maximum_observed_distance, 3)} A max`}</td>
+        <td>${model.maximum_excess_distance === null ? "-" : `${formatNumber(model.maximum_excess_distance, 3)} A max`}</td>
+        <td>${escapeHtml(satisfaction)}</td>
+      `;
+      rowQueue.push({
+        row,
+        kind: "interface",
+        measurement: model,
+        priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
+      });
+    }
+  }
+
   for (const contact of tokenContacts) {
     const pair = `Token ${contact.chain1}:${contact.token1} - ${contact.chain2}:${contact.token2}`;
     const models = Array.isArray(contact.models) && contact.models.length
@@ -724,9 +788,13 @@ function renderRestraintAudit() {
   const exactEntries = rowQueue.filter((entry) => entry.kind === "exact");
   const unionEntries = rowQueue.filter((entry) => entry.kind === "union");
   const tokenEntries = rowQueue.filter((entry) => entry.kind === "token");
+  const interfaceEntries = rowQueue.filter((entry) => entry.kind === "interface");
   const exactResolved = exactEntries.filter((entry) => entry.measurement.satisfied !== null);
   const unionConclusive = unionEntries.filter((entry) => entry.measurement.satisfied !== null);
   const tokenResolved = tokenEntries.filter((entry) => entry.measurement.satisfied !== null);
+  const interfaceResolved = interfaceEntries.filter(
+    (entry) => entry.measurement.satisfied !== null
+  );
   const exactSatisfied = modelSummary?.exact?.satisfied
     ?? exactResolved.filter((entry) => entry.measurement.satisfied === true).length;
   const exactTotal = modelSummary?.exact?.resolved ?? exactResolved.length;
@@ -736,10 +804,16 @@ function renderRestraintAudit() {
   const tokenSatisfied = modelSummary?.token?.satisfied
     ?? tokenResolved.filter((entry) => entry.measurement.satisfied === true).length;
   const tokenTotal = modelSummary?.token?.resolved ?? tokenResolved.length;
+  const interfaceSatisfied = modelSummary?.interface?.satisfied
+    ?? interfaceResolved.filter((entry) => entry.measurement.satisfied === true).length;
+  const interfaceTotal = modelSummary?.interface?.resolved ?? interfaceResolved.length;
   const rowNote = visibleRows.length < rowQueue.length
     ? ` Showing ${visibleRows.length} of ${rowQueue.length} rows, with violations first; use the restraint report for all rows.`
     : "";
   const summaryParts = [];
+  if (interfaceContacts.length) {
+    summaryParts.push(`interface ${interfaceSatisfied}/${interfaceTotal} resolved satisfied`);
+  }
   if (tokenContacts.length) summaryParts.push(`token ${tokenSatisfied}/${tokenTotal} resolved satisfied`);
   if (exactRestraints.length) summaryParts.push(`exact ${exactSatisfied}/${exactTotal} resolved satisfied`);
   if (unionGroups.length) summaryParts.push(`union ${unionSatisfied}/${unionTotal} conclusive satisfied`);

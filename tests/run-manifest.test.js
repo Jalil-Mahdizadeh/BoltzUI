@@ -34,6 +34,13 @@ test("run manifest records resolved provenance and excludes credentials", () => 
       force: true,
       alternatives: [{ alternative_index: 1 }, { alternative_index: 2 }]
     }],
+    interfaceContacts: [{
+      interface_index: 1,
+      patch1: { chain: "A", residues: [1] },
+      patch2: { chain: "B", residues: [2] },
+      max_distance: 6,
+      force: true
+    }],
     msa: { mode: "server", input_modes: ["auto"], server_url: "https://example.test" },
     startedAt: "2026-01-01T00:00:00.000Z",
     metadata: { boltzui_git_commit: "abc123", boltzui_git_dirty: true, boltz_version: "2.2.1" }
@@ -43,10 +50,11 @@ test("run manifest records resolved provenance and excludes credentials", () => 
   assert.equal(manifest.step_scale, 1.2);
   assert.equal(manifest.boltz_version, "2.2.1");
   assert.equal(manifest.boltzui_git_dirty, true);
-  assert.equal(manifest.schema_version, 4);
+  assert.equal(manifest.schema_version, 5);
   assert.equal(manifest.command.executable, "boltzui-predict");
   assert.equal(manifest.atom_contact_union_constraints.length, 1);
   assert.equal(manifest.token_contact_constraints.length, 1);
+  assert.equal(manifest.interface_contact_constraints.length, 1);
   assert.equal(manifest.resolved_prediction_parameters.msa_server_password, undefined);
   assert.doesNotMatch(JSON.stringify(manifest), /secret/);
   assert.match(manifest.input_sha256, /^[a-f0-9]{64}$/);

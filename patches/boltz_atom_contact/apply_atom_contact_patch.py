@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Patch Boltz 2.2.1 atom contacts and diffusion sample chunking."""
+"""Patch Boltz 2.2.1 atom/interface contacts and diffusion sample chunking."""
 
 from __future__ import annotations
 
@@ -38,6 +38,18 @@ PATCH_MARKERS = {
         "inference_atom_contact_union_constraints",
     ),
     "diffusionv2.py": ("sample_ids.split(max_parallel_samples)",),
+}
+INTERFACE_PATCH_MARKERS = {
+    "schema.py": (
+        "interface_contact_constraints",
+        "def interface_patch_to_ids",
+    ),
+    "types.py": ("interface_contact_constraints",),
+    "inferencev2.py": ("interface_contact_constraints",),
+    "featurizerv2.py": (
+        "inference_interface_contact_constraints",
+        "def apply_interface_contact_potentials",
+    ),
 }
 
 
@@ -606,6 +618,398 @@ def patch_diffusionv2(path: Path) -> bool:
     return write_if_changed(path, text)
 
 
+def patch_interface_schema(path: Path) -> bool:
+    text = path.read_text(encoding="utf-8")
+    if all(marker in text for marker in INTERFACE_PATCH_MARKERS["schema.py"]):
+        return False
+
+    parser_anchor = "\n\n\ndef parse_boltz_schema("
+    helper = '''
+
+
+def interface_patch_to_ids(patch, chain_to_idx, atom_idx_map, chains, label):
+    """Resolve one CSP-active protein patch to residue-token identifiers."""
+    if not isinstance(patch, dict):
+        msg = f"{label} must be a mapping with chain and residues."
+        raise ValueError(msg)
+    chain_name = str(patch.get("chain", ""))
+    if chain_name not in chain_to_idx:
+        msg = f"{label} chain {chain_name} does not exist."
+        raise ValueError(msg)
+    if chains[chain_name].type != const.chain_type_ids["PROTEIN"]:
+        msg = f"{label} chain {chain_name} must be a protein chain."
+        raise ValueError(msg)
+    residues = patch.get("residues")
+    if not isinstance(residues, list) or len(residues) == 0:
+        msg = f"{label} residues must be a nonempty list."
+        raise ValueError(msg)
+
+    resolved = []
+    seen = set()
+    for residue_number, residue_index in enumerate(residues, start=1):
+        if isinstance(residue_index, bool) or not isinstance(residue_index, int):
+            msg = f"{label} residue {residue_number} must be a positive integer."
+            raise ValueError(msg)
+        if residue_index < 1:
+            msg = f"{label} residue {residue_number} must be a positive integer."
+            raise ValueError(msg)
+        if residue_index > len(chains[chain_name].sequence):
+            msg = (
+                f"{label} residue {chain_name}:{residue_index} exceeds "
+                f"chain length {len(chains[chain_name].sequence)}."
+            )
+            raise ValueError(msg)
+        if residue_index in seen:
+            msg = f"{label} contains duplicate residue {residue_index}."
+            raise ValueError(msg)
+        seen.add(residue_index)
+        try:
+            resolved.append(
+                token_spec_to_ids(
+                    chain_name,
+                    residue_index,
+                    chain_to_idx,
+                    atom_idx_map,
+                    chains,
+                )
+            )
+        except KeyError as exc:
+            msg = f"Unable to resolve {label} residue {chain_name}:{residue_index}."
+            raise ValueError(msg) from exc
+    return resolved
+'''
+    text = replace_once(
+        text,
+        parser_anchor,
+        helper + parser_anchor,
+        "schema interface patch resolver",
+    )
+
+    list_anchor = '''    atom_contact_union_constraints = []
+    constraints = schema.get("constraints", [])
+'''
+    list_replacement = '''    atom_contact_union_constraints = []
+    interface_contact_constraints = []
+    constraints = schema.get("constraints", [])
+'''
+    text = replace_once(text, list_anchor, list_replacement, "schema interface list")
+
+    branch_anchor = '''        elif "pocket" in constraint:
+'''
+    branch_replacement = '''        elif "interface_contact" in constraint:
+            if not boltz_2:
+                msg = "interface_contact constraint is not supported in Boltz-1!"
+                raise ValueError(msg)
+
+            interface_number = len(interface_contact_constraints) + 1
+            interface_contact = constraint["interface_contact"]
+            if not isinstance(interface_contact, dict):
+                msg = f"interface_contact {interface_number} must be a mapping."
+                raise ValueError(msg)
+            if (
+                "patch1" not in interface_contact
+                or "patch2" not in interface_contact
+                or "max_distance" not in interface_contact
+            ):
+                msg = (
+                    f"interface_contact {interface_number} was not properly "
+                    "specified; expected patch1, patch2, max_distance, and force."
+                )
+                raise ValueError(msg)
+            try:
+                max_distance = float(interface_contact["max_distance"])
+            except (TypeError, ValueError) as exc:
+                msg = f"interface_contact {interface_number} max_distance must be finite."
+                raise ValueError(msg) from exc
+            if not np.isfinite(max_distance) or not (4.0 <= max_distance <= 20.0):
+                msg = (
+                    f"interface_contact {interface_number} max_distance must "
+                    "satisfy 4.0 <= max_distance <= 20.0 Angstrom."
+                )
+                raise ValueError(msg)
+            force = interface_contact.get("force", False)
+            if not isinstance(force, bool):
+                msg = f"interface_contact {interface_number} force must be true or false."
+                raise ValueError(msg)
+            patch1 = interface_patch_to_ids(
+                interface_contact["patch1"],
+                chain_to_idx,
+                atom_idx_map,
+                chains,
+                f"interface_contact {interface_number} patch1",
+            )
+            patch2 = interface_patch_to_ids(
+                interface_contact["patch2"],
+                chain_to_idx,
+                atom_idx_map,
+                chains,
+                f"interface_contact {interface_number} patch2",
+            )
+            overlap = set(patch1).intersection(patch2)
+            if overlap:
+                residues = ", ".join(str(residue[1] + 1) for residue in sorted(overlap))
+                msg = (
+                    f"interface_contact {interface_number} same-chain patches "
+                    f"must be disjoint; overlapping residues: {residues}."
+                )
+                raise ValueError(msg)
+            interface_contact_constraints.append(
+                (patch1, patch2, max_distance, force)
+            )
+        elif "pocket" in constraint:
+'''
+    text = replace_once(text, branch_anchor, branch_replacement, "schema interface branch")
+
+    options_anchor = '''        atom_contact_union_constraints=atom_contact_union_constraints,
+    )
+'''
+    options_replacement = '''        atom_contact_union_constraints=atom_contact_union_constraints,
+        interface_contact_constraints=interface_contact_constraints,
+    )
+'''
+    text = replace_once(text, options_anchor, options_replacement, "schema interface options")
+    return write_if_changed(path, text)
+
+
+def patch_interface_types(path: Path) -> bool:
+    text = path.read_text(encoding="utf-8")
+    if all(marker in text for marker in INTERFACE_PATCH_MARKERS["types.py"]):
+        return False
+    anchor = '''    atom_contact_union_constraints: Optional[
+        list[
+            list[
+                tuple[
+                    tuple[int, int, int],
+                    tuple[int, int, int],
+                    float,
+                    bool,
+                ]
+            ]
+        ]
+    ] = None
+'''
+    replacement = anchor + '''    interface_contact_constraints: Optional[
+        list[
+            tuple[
+                list[tuple[int, int]],
+                list[tuple[int, int]],
+                float,
+                bool,
+            ]
+        ]
+    ] = None
+'''
+    text = replace_once(text, anchor, replacement, "types interface field")
+    return write_if_changed(path, text)
+
+
+def patch_interface_inferencev2(path: Path) -> bool:
+    text = path.read_text(encoding="utf-8")
+    if all(marker in text for marker in INTERFACE_PATCH_MARKERS["inferencev2.py"]):
+        return False
+    none_anchor = '''            atom_contact_union_constraints = None
+        else:
+'''
+    none_replacement = '''            atom_contact_union_constraints = None
+            interface_contact_constraints = None
+        else:
+'''
+    text = replace_once(text, none_anchor, none_replacement, "inference interface none")
+    options_anchor = '''            atom_contact_union_constraints = options.atom_contact_union_constraints
+'''
+    options_replacement = options_anchor + '''            interface_contact_constraints = options.interface_contact_constraints
+'''
+    text = replace_once(text, options_anchor, options_replacement, "inference interface options")
+    call_anchor = '''                inference_atom_contact_union_constraints=atom_contact_union_constraints,
+                compute_constraint_features=True,
+'''
+    call_replacement = '''                inference_atom_contact_union_constraints=atom_contact_union_constraints,
+                inference_interface_contact_constraints=interface_contact_constraints,
+                compute_constraint_features=True,
+'''
+    text = replace_once(text, call_anchor, call_replacement, "inference interface call")
+    return write_if_changed(path, text)
+
+
+def patch_interface_featurizerv2(path: Path) -> bool:
+    text = path.read_text(encoding="utf-8")
+    if all(marker in text for marker in INTERFACE_PATCH_MARKERS["featurizerv2.py"]):
+        return False
+
+    function_anchor = '''def process_contact_feature_constraints(
+'''
+    helper = '''def apply_interface_contact_potentials(
+    token_data,
+    constraints,
+    pair_index,
+    union_index,
+    negation_mask,
+    thresholds,
+    union_idx,
+):
+    """Add reciprocal active-residue-to-opposite-patch ambiguous groups."""
+    token_by_residue = {
+        (int(token["asym_id"]), int(token["res_idx"])): token
+        for token in token_data
+        if token["mol_type"] != const.chain_type_ids["NONPOLYMER"]
+    }
+    for patch1, patch2, max_distance, force in constraints or []:
+        if not force:
+            continue
+        patch1_tokens = [token_by_residue[tuple(selector)] for selector in patch1]
+        patch2_tokens = [token_by_residue[tuple(selector)] for selector in patch2]
+        for source_tokens, target_tokens in (
+            (patch1_tokens, patch2_tokens),
+            (patch2_tokens, patch1_tokens),
+        ):
+            target_atoms = torch.cat(
+                [
+                    torch.arange(
+                        int(token["atom_idx"]),
+                        int(token["atom_idx"] + token["atom_num"]),
+                    )
+                    for token in target_tokens
+                ]
+            )
+            for source_token in source_tokens:
+                source_atoms = torch.arange(
+                    int(source_token["atom_idx"]),
+                    int(source_token["atom_idx"] + source_token["atom_num"]),
+                )
+                atom_idx_pairs = torch.cartesian_prod(source_atoms, target_atoms).T
+                pair_index.append(atom_idx_pairs)
+                union_index.append(
+                    torch.full((atom_idx_pairs.shape[1],), union_idx)
+                )
+                negation_mask.append(
+                    torch.ones((atom_idx_pairs.shape[1],), dtype=torch.bool)
+                )
+                thresholds.append(
+                    torch.full((atom_idx_pairs.shape[1],), max_distance)
+                )
+                union_idx += 1
+    return union_idx
+
+
+def process_contact_feature_constraints(
+'''
+    text = replace_once(
+        text,
+        function_anchor,
+        helper,
+        "interface potential helper",
+    )
+
+    signature_anchor = '''    inference_atom_contact_union_constraints: Optional[list[
+        list[
+            tuple[
+                tuple[int, int, int],
+                tuple[int, int, int],
+                float,
+                bool,
+            ]
+        ]
+    ]] = None,
+):
+'''
+    signature_replacement = '''    inference_atom_contact_union_constraints: Optional[list[
+        list[
+            tuple[
+                tuple[int, int, int],
+                tuple[int, int, int],
+                float,
+                bool,
+            ]
+        ]
+    ]] = None,
+    inference_interface_contact_constraints: Optional[
+        list[
+            tuple[
+                list[tuple[int, int]],
+                list[tuple[int, int]],
+                float,
+                bool,
+            ]
+        ]
+    ] = None,
+):
+'''
+    text = replace_once(text, signature_anchor, signature_replacement, "interface contact signature")
+
+    output_anchor = '''    if len(pair_index) > 0:
+        pair_index = torch.cat(pair_index, dim=1)
+'''
+    output_replacement = '''    union_idx = apply_interface_contact_potentials(
+        token_data,
+        inference_interface_contact_constraints,
+        pair_index,
+        union_index,
+        negation_mask,
+        thresholds,
+        union_idx,
+    )
+
+    if len(pair_index) > 0:
+        pair_index = torch.cat(pair_index, dim=1)
+'''
+    text = replace_once(text, output_anchor, output_replacement, "interface potential pairs")
+
+    process_signature_anchor = '''        inference_atom_contact_union_constraints: Optional[
+            list[
+                list[
+                    tuple[
+                        tuple[int, int, int],
+                        tuple[int, int, int],
+                        float,
+                        bool,
+                    ]
+                ]
+            ]
+        ] = None,
+        compute_affinity: bool = False,
+'''
+    process_signature_replacement = '''        inference_atom_contact_union_constraints: Optional[
+            list[
+                list[
+                    tuple[
+                        tuple[int, int, int],
+                        tuple[int, int, int],
+                        float,
+                        bool,
+                    ]
+                ]
+            ]
+        ] = None,
+        inference_interface_contact_constraints: Optional[
+            list[
+                tuple[
+                    list[tuple[int, int]],
+                    list[tuple[int, int]],
+                    float,
+                    bool,
+                ]
+            ]
+        ] = None,
+        compute_affinity: bool = False,
+'''
+    text = replace_once(
+        text,
+        process_signature_anchor,
+        process_signature_replacement,
+        "featurizer interface process signature",
+    )
+
+    call_anchor = '''                inference_atom_contact_union_constraints=inference_atom_contact_union_constraints if inference_atom_contact_union_constraints else [],
+            )
+'''
+    call_replacement = '''                inference_atom_contact_union_constraints=inference_atom_contact_union_constraints if inference_atom_contact_union_constraints else [],
+                inference_interface_contact_constraints=inference_interface_contact_constraints if inference_interface_contact_constraints else [],
+            )
+'''
+    text = replace_once(text, call_anchor, call_replacement, "featurizer interface call")
+    return write_if_changed(path, text)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -638,6 +1042,14 @@ def main() -> None:
         "featurizerv2.py": patch_featurizerv2(paths["featurizerv2.py"]),
         "diffusionv2.py": patch_diffusionv2(paths["diffusionv2.py"]),
     }
+    interface_changed = {
+        "schema.py": patch_interface_schema(paths["schema.py"]),
+        "types.py": patch_interface_types(paths["types.py"]),
+        "inferencev2.py": patch_interface_inferencev2(paths["inferencev2.py"]),
+        "featurizerv2.py": patch_interface_featurizerv2(paths["featurizerv2.py"]),
+    }
+    for label, was_changed in interface_changed.items():
+        changed[label] = changed[label] or was_changed
 
     for label, was_changed in changed.items():
         print(f"{label}: {'patched' if was_changed else 'already patched'}")

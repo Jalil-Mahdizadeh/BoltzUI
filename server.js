@@ -13,6 +13,10 @@ const {
   validateAtomContacts
 } = require("./lib/atom-contact");
 const { validateTokenContacts } = require("./lib/token-contact");
+const {
+  documentHasInterfaceContacts,
+  validateInterfaceContacts
+} = require("./lib/interface-contact");
 const { analyzePostprocessEligibility } = require("./lib/postprocess-eligibility");
 const {
   DEFAULT_PRESET,
@@ -183,6 +187,7 @@ async function describeInputFile(dataPath, { inspect = true } = {}) {
   const details = {
     hasLigand: document ? objectHasLigandEntity(document) : inputHasLigandEntity(dataPath),
     hasAtomContact: document ? documentHasAtomContacts(document) : false,
+    hasInterfaceContact: document ? documentHasInterfaceContacts(document) : false,
     postprocessEligibility: inputPostprocessEligibility(dataPath, document)
   };
   inputDescriptionCache.set(dataPath, { signature, details });
@@ -263,7 +268,10 @@ function preparePrediction(payload) {
   const document = parseInputFile(dataPath);
   const { restraints, unionGroups } = validateAtomContacts(document);
   const { contacts: tokenContacts } = validateTokenContacts(document);
-  const hasAtomContacts = restraints.length > 0 || unionGroups.length > 0;
+  const { interfaces: interfaceContacts } = validateInterfaceContacts(document);
+  const hasAtomContacts = restraints.length > 0
+    || unionGroups.length > 0
+    || interfaceContacts.length > 0;
   const requestedPreset = payload.preset || (payload.options ? "custom" : DEFAULT_PRESET);
   const { preset, options } = resolvePredictionOptions(
     payload.options || {},
@@ -295,6 +303,7 @@ function preparePrediction(payload) {
     atomContacts: restraints,
     atomContactUnions: unionGroups,
     tokenContacts,
+    interfaceContacts,
     msa: inputMsaSummary(document, options),
     resultDirectory,
     outputDirectory: displayPath(resultDirectory)
@@ -574,6 +583,7 @@ async function startJob(payload) {
     atomContacts: prediction.atomContacts,
     atomContactUnions: prediction.atomContactUnions,
     tokenContacts: prediction.tokenContacts,
+    interfaceContacts: prediction.interfaceContacts,
     resultDirectory: prediction.resultDirectory,
     manifestStagingPath,
     manifestPath: null,
@@ -594,6 +604,7 @@ async function startJob(payload) {
     atomContacts: prediction.atomContacts,
     atomContactUnions: prediction.atomContactUnions,
     tokenContacts: prediction.tokenContacts,
+    interfaceContacts: prediction.interfaceContacts,
     msa: prediction.msa,
     startedAt: job.startedAt,
     executable: prediction.executable
@@ -632,12 +643,18 @@ async function startJob(payload) {
     }
     addLog(job, `\nExited with code ${code}${signal ? ` (${signal})` : ""}.\n`);
     try {
-      if (job.atomContacts.length > 0 || job.atomContactUnions.length > 0 || job.tokenContacts.length > 0) {
+      if (
+        job.atomContacts.length > 0
+        || job.atomContactUnions.length > 0
+        || job.tokenContacts.length > 0
+        || job.interfaceContacts.length > 0
+      ) {
         const audit = await writeRestraintReport(
           job.resultDirectory,
           job.atomContacts,
           job.atomContactUnions,
-          job.tokenContacts
+          job.tokenContacts,
+          job.interfaceContacts
         );
         job.restraintReportPath = audit.reportPath;
       }

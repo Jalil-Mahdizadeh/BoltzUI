@@ -14,6 +14,8 @@ const {
 const input = path.join("fixtures", "atom_contact_example.yaml");
 const unionInput = path.join("fixtures", "atom_contact_union_example.yaml");
 const tokenInput = path.join("fixtures", "token_contact_example.yaml");
+const interfaceInput = path.join("fixtures", "interface_contact_example.yaml");
+const singleChainInterfaceInput = path.join("fixtures", "interface_contact_single_chain_example.yaml");
 
 test("input files are ordered newest first with deterministic name ties", () => {
   const inputs = sortInputFilesNewestFirst([
@@ -57,6 +59,21 @@ test("token-only contacts are retained for post-prediction restraint auditing", 
   assert.equal(prediction.tokenContacts.length, 1);
   assert.equal(prediction.atomContacts.length, 0);
   assert.equal(prediction.atomContactUnions.length, 0);
+});
+
+test("interface contacts trigger safe regeneration and retain reciprocal patch metadata", () => {
+  const prediction = buildBoltzCommand({ data: interfaceInput, preset: "standard" });
+  assert.equal(prediction.options.override, true);
+  assert.equal(prediction.args.includes("--override"), true);
+  assert.equal(prediction.interfaceContacts.length, 1);
+  assert.deepEqual(prediction.interfaceContacts[0].patch1.residues, [1, 3]);
+});
+
+test("single-chain interface contacts are accepted", () => {
+  const prediction = buildBoltzCommand({ data: singleChainInterfaceInput, preset: "standard" });
+  assert.equal(prediction.interfaceContacts.length, 1);
+  assert.equal(prediction.interfaceContacts[0].patch1.chain, "A");
+  assert.equal(prediction.interfaceContacts[0].patch2.chain, "A");
 });
 
 test("hydrogen flags use the BoltzUI wrapper and are passed to copied commands", () => {

@@ -6,6 +6,7 @@ const builderState = {
   polymers: [],
   ligands: [],
   pockets: [],
+  interfaceContacts: [],
   contacts: [],
   atomContacts: [],
   atomContactUnions: [],
@@ -44,6 +45,21 @@ const YAML_TASK_PRESETS = {
     polymers: [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }],
     ligands: [{ ids: "B", source: "ccd", value: "ATP" }],
     pockets: [{ binder: "B", distance: "6", force: false, contacts: "A:45\nA:68" }]
+  },
+  interface: {
+    filename: "interface_constraints.yaml",
+    polymers: [
+      { type: "protein", ids: "A", sequence: "M", msaMode: "auto" },
+      { type: "protein", ids: "B", sequence: "M", msaMode: "auto" }
+    ],
+    interfaceContacts: [{
+      patch1Chain: "A",
+      patch1Residues: "1",
+      patch2Chain: "B",
+      patch2Residues: "1",
+      distance: "6",
+      force: true
+    }]
   },
   contacts: {
     filename: "contact_constraints.yaml",
@@ -172,6 +188,19 @@ function createPocket(overrides = {}) {
     force: false,
     contacts: "A:45\nA:68",
     ...values
+  };
+}
+
+function createInterfaceContact(overrides = {}) {
+  return {
+    uid: createUid("interface-contact"),
+    patch1Chain: "A",
+    patch1Residues: "12\n15\n19",
+    patch2Chain: "B",
+    patch2Residues: "34\n40\n43",
+    distance: "6",
+    force: true,
+    ...overrides
   };
 }
 
@@ -356,6 +385,26 @@ function parseTokenSpec(value) {
   const parts = String(value || "").replace(/^\[|\]$/g, "").split(/[:,\s]+/).filter(Boolean);
   if (parts.length !== 2) return null;
   return { chain: parts[0], token: parts[1] };
+}
+
+function parseResidueList(value, label, warnings) {
+  const residues = [];
+  const seen = new Set();
+  for (const rawValue of String(value || "").split(/[,\s]+/).filter(Boolean)) {
+    const residue = Number(rawValue);
+    if (!Number.isInteger(residue) || residue < 1) {
+      warnings.push(`${label} contains invalid residue index "${rawValue}".`);
+      continue;
+    }
+    if (seen.has(residue)) {
+      warnings.push(`${label} contains duplicate residue ${residue}.`);
+      continue;
+    }
+    seen.add(residue);
+    residues.push(residue);
+  }
+  if (!residues.length) warnings.push(`${label} needs at least one positive residue index.`);
+  return residues;
 }
 
 function splitTopLevelComma(value) {
@@ -561,6 +610,54 @@ function buildYamlFromBuilder() {
     constraints.push(`      max_distance: ${readDistanceValue(pocket.distance, `${label} max distance`, warnings)}`);
     constraints.push(`      force: ${pocket.force ? "true" : "false"}`);
     features.push(builderState.pockets.length === 1 ? "pocket" : `pocket ${index + 1}`);
+  });
+
+  builderState.interfaceContacts.forEach((interfaceContact, index) => {
+    const label = `Interface constraint ${index + 1}`;
+    const patch1Chain = String(interfaceContact.patch1Chain || "").trim();
+    const patch2Chain = String(interfaceContact.patch2Chain || "").trim();
+    const patch1Residues = parseResidueList(
+      interfaceContact.patch1Residues,
+      `${label} patch 1`,
+      warnings
+    );
+    const patch2Residues = parseResidueList(
+      interfaceContact.patch2Residues,
+      `${label} patch 2`,
+      warnings
+    );
+    const distance = readDistanceValue(
+      interfaceContact.distance,
+      `${label} max distance`,
+      warnings
+    );
+    if (!usedIds.includes(patch1Chain)) {
+      warnings.push(`${label} patch 1 chain "${patch1Chain}" is not one of the current entity IDs.`);
+    }
+    if (!usedIds.includes(patch2Chain)) {
+      warnings.push(`${label} patch 2 chain "${patch2Chain}" is not one of the current entity IDs.`);
+    }
+    if (patch1Chain === patch2Chain) {
+      const overlap = patch1Residues.filter((residue) => patch2Residues.includes(residue));
+      if (overlap.length) {
+        warnings.push(`${label} same-chain patches overlap at residue(s) ${overlap.join(", ")}.`);
+        return;
+      }
+    }
+    if (!patch1Chain || !patch2Chain || !patch1Residues.length || !patch2Residues.length) return;
+    constraints.push("  - interface_contact:");
+    constraints.push("      patch1:");
+    constraints.push(`        chain: ${yamlScalar(patch1Chain)}`);
+    constraints.push(`        residues: [${patch1Residues.join(", ")}]`);
+    constraints.push("      patch2:");
+    constraints.push(`        chain: ${yamlScalar(patch2Chain)}`);
+    constraints.push(`        residues: [${patch2Residues.join(", ")}]`);
+    constraints.push(`      max_distance: ${distance}`);
+    constraints.push(`      force: ${interfaceContact.force ? "true" : "false"}`);
+    features.push(`interface_contact ${index + 1}`);
+    if (!interfaceContact.force) {
+      warnings.push(`${label} force is off: it will be audited but will not guide sampling.`);
+    }
   });
 
   builderState.contacts.forEach((contact, index) => {
@@ -900,6 +997,59 @@ function renderPockets() {
   root.innerHTML = builderState.pockets.map(pocketCard).join("");
 }
 
+function interfaceContactCard(interfaceContact, index) {
+  return `
+    <article class="repeat-card interface-contact-card" data-uid="${interfaceContact.uid}">
+      <div class="repeat-card-heading">
+        <h4>Interface ${index + 1} <span class="union-semantics-badge">AMBIGUOUS</span></h4>
+        <button class="ghost-button repeat-remove-button" data-action="remove-interface-contact" type="button">Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid">
+        <label class="field">
+          <span>Patch 1 chain</span>
+          <input data-interface-contact-field="patch1Chain" type="text" value="${escapeHtml(interfaceContact.patch1Chain)}" placeholder="A">
+        </label>
+        <label class="field">
+          <span>Patch 2 chain</span>
+          <input data-interface-contact-field="patch2Chain" type="text" value="${escapeHtml(interfaceContact.patch2Chain)}" placeholder="B">
+        </label>
+        <label class="field builder-span">
+          <span>Patch 1 active residues</span>
+          <textarea class="mini-textarea" data-interface-contact-field="patch1Residues" spellcheck="false" placeholder="12&#10;15&#10;19">${escapeHtml(interfaceContact.patch1Residues)}</textarea>
+        </label>
+        <label class="field builder-span">
+          <span>Patch 2 active residues</span>
+          <textarea class="mini-textarea" data-interface-contact-field="patch2Residues" spellcheck="false" placeholder="34&#10;40&#10;43">${escapeHtml(interfaceContact.patch2Residues)}</textarea>
+        </label>
+        <label class="field">
+          <span>Max distance</span>
+          <input data-interface-contact-field="distance" type="number" min="4" max="20" step="0.1" value="${escapeHtml(interfaceContact.distance)}">
+        </label>
+        <label class="toggle-field">
+          <span>Force interface</span>
+          <span class="switch">
+            <input data-interface-contact-field="force" type="checkbox"${interfaceContact.force ? " checked" : ""}>
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+      <div class="union-group-options">
+        <span>Each active residue is restrained ambiguously to any residue in the opposite patch. Force off is report-only.</span>
+      </div>
+    </article>
+  `;
+}
+
+function renderInterfaceContacts() {
+  const root = $("#interface-contact-list");
+  if (!root) return;
+  if (!builderState.interfaceContacts.length) {
+    root.innerHTML = `<div class="repeat-empty">No interface constraints added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.interfaceContacts.map(interfaceContactCard).join("");
+}
+
 function contactCard(contact, index) {
   return `
     <article class="repeat-card contact-card" data-uid="${contact.uid}">
@@ -1170,6 +1320,9 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
   builderState.pockets = presetPockets(preset).map((pocket) => createPocket(pocket));
+  builderState.interfaceContacts = (preset.interfaceContacts || []).map((item) => (
+    createInterfaceContact(item)
+  ));
   builderState.contacts = (preset.contacts || []).map((contact) => createContact(contact));
   builderState.atomContacts = (preset.atomContacts || []).map((atomContact) => createAtomContact(atomContact));
   builderState.atomContactUnions = (preset.atomContactUnions || []).map((group) => (
@@ -1180,6 +1333,7 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
   renderPolymers();
   renderLigands();
   renderPockets();
+  renderInterfaceContacts();
   renderContacts();
   renderAtomContacts();
   renderAtomContactUnions();
@@ -1367,6 +1521,43 @@ function parseYamlConstraints(text, parsed) {
       continue;
     }
 
+    if (header.key === "interface_contact") {
+      const patches = {
+        patch1: { chain: "A", residues: "" },
+        patch2: { chain: "B", residues: "" }
+      };
+      let currentPatch = null;
+      for (const line of item.slice(1)) {
+        const trimmed = line.trim();
+        const patchMatch = trimmed.match(/^(patch[12]):\s*$/);
+        if (patchMatch) {
+          currentPatch = patchMatch[1];
+          continue;
+        }
+        if (!currentPatch) continue;
+        const chainMatch = trimmed.match(/^chain:\s*(.+)$/);
+        if (chainMatch) {
+          patches[currentPatch].chain = stripYamlQuotes(chainMatch[1]);
+          continue;
+        }
+        const residuesMatch = trimmed.match(/^residues:\s*(.+)$/);
+        if (residuesMatch) {
+          patches[currentPatch].residues = yamlValueAsList(residuesMatch[1])
+            .map((value) => stripYamlQuotes(value))
+            .join("\n");
+        }
+      }
+      parsed.interfaceContacts.push({
+        patch1Chain: patches.patch1.chain,
+        patch1Residues: patches.patch1.residues,
+        patch2Chain: patches.patch2.chain,
+        patch2Residues: patches.patch2.residues,
+        distance: stripYamlQuotes(map.max_distance || "6"),
+        force: boolFromYamlValue(map.force)
+      });
+      continue;
+    }
+
     if (header.key === "atom_contact") {
       parsed.atomContacts.push({
         atom1: yamlAtomAsField(map.atom1 || "A:145:NZ"),
@@ -1429,6 +1620,7 @@ function parseBuilderYaml(text) {
     polymers: [],
     ligands: [],
     pockets: [],
+    interfaceContacts: [],
     contacts: [],
     atomContacts: [],
     atomContactUnions: [],
@@ -1447,8 +1639,10 @@ function parseBuilderYaml(text) {
 function profileFromParsedYaml(parsed) {
   if (parsed.affinity?.enabled) return "affinity";
   if (parsed.pockets.length) return "pocket";
+  if (parsed.interfaceContacts.length) return "interface";
   if (
     parsed.contacts.length
+    || parsed.interfaceContacts.length
     || parsed.atomContacts.length
     || parsed.atomContactUnions.length
     || parsed.bonds.length
@@ -1472,6 +1666,7 @@ function openSectionsForLoadedYaml(parsed) {
   setBuilderSectionOpen("ligand", parsed.ligands.length > 0);
   setBuilderSectionOpen("affinity", parsed.affinity?.enabled);
   setBuilderSectionOpen("pocket", parsed.pockets.length > 0);
+  setBuilderSectionOpen("interface-constraints", parsed.interfaceContacts.length > 0);
   setBuilderSectionOpen("contact-constraints", parsed.contacts.length > 0);
   setBuilderSectionOpen("atom-contact-constraints", parsed.atomContacts.length > 0);
   setBuilderSectionOpen("atom-contact-union-constraints", parsed.atomContactUnions.length > 0);
@@ -1501,6 +1696,9 @@ function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } =
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
   builderState.pockets = parsed.pockets.map((pocket) => createPocket(pocket));
+  builderState.interfaceContacts = parsed.interfaceContacts.map((item) => (
+    createInterfaceContact(item)
+  ));
   builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
   builderState.atomContacts = parsed.atomContacts.map((atomContact) => createAtomContact(atomContact));
   builderState.atomContactUnions = parsed.atomContactUnions.map((group) => (
@@ -1511,6 +1709,7 @@ function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } =
   renderPolymers();
   renderLigands();
   renderPockets();
+  renderInterfaceContacts();
   renderContacts();
   renderAtomContacts();
   renderAtomContactUnions();
@@ -1713,6 +1912,18 @@ function updatePocketFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updateInterfaceContactFromElement(element) {
+  const card = element.closest(".interface-contact-card");
+  if (!card) return;
+  const interfaceContact = builderState.interfaceContacts.find(
+    (item) => item.uid === card.dataset.uid
+  );
+  if (!interfaceContact) return;
+  const field = element.dataset.interfaceContactField;
+  interfaceContact[field] = element.type === "checkbox" ? element.checked : element.value;
+  syncYamlFromBuilder();
+}
+
 function updateContactFromElement(element) {
   const card = element.closest(".contact-card");
   if (!card) return;
@@ -1792,6 +2003,12 @@ function bindRepeatLists() {
     generateYamlFromBuilder({ silent: true });
   });
 
+  $("#add-interface-contact-button").addEventListener("click", () => {
+    builderState.interfaceContacts.push(createInterfaceContact());
+    renderInterfaceContacts();
+    generateYamlFromBuilder({ silent: true });
+  });
+
   $("#add-contact-button").addEventListener("click", () => {
     builderState.contacts.push(createContact());
     renderContacts();
@@ -1864,6 +2081,27 @@ function bindRepeatLists() {
     if (!card) return;
     builderState.pockets = builderState.pockets.filter((item) => item.uid !== card.dataset.uid);
     renderPockets();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#interface-contact-list").addEventListener("input", (event) => {
+    if (event.target.dataset.interfaceContactField) {
+      updateInterfaceContactFromElement(event.target);
+    }
+  });
+  $("#interface-contact-list").addEventListener("change", (event) => {
+    if (event.target.dataset.interfaceContactField) {
+      updateInterfaceContactFromElement(event.target);
+    }
+  });
+  $("#interface-contact-list").addEventListener("click", (event) => {
+    if (event.target.dataset.action !== "remove-interface-contact") return;
+    const card = event.target.closest(".interface-contact-card");
+    if (!card) return;
+    builderState.interfaceContacts = builderState.interfaceContacts.filter(
+      (item) => item.uid !== card.dataset.uid
+    );
+    renderInterfaceContacts();
     generateYamlFromBuilder({ silent: true });
   });
 

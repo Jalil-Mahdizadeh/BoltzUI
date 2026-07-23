@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=boltz:221
+ARG BASE_IMAGE=boltzui:221-exact-union
 ARG NODE_IMAGE=node:20-bullseye-slim
 
 FROM ${NODE_IMAGE} AS node_runtime
@@ -9,8 +9,8 @@ RUN npm ci --omit=dev
 
 FROM ${BASE_IMAGE}
 
-LABEL org.opencontainers.image.title="BoltzUI 2.2.1 atom contacts and structure post-processing"
-LABEL org.opencontainers.image.description="BoltzUI with atom-contact guidance, neutral-pH hydrogen placement, and Amber14/GBn2 minimization"
+LABEL org.opencontainers.image.title="BoltzUI 2.2.1 interface and atom contacts"
+LABEL org.opencontainers.image.description="BoltzUI with ambiguous CSP interface guidance, atom-contact guidance, and structure post-processing"
 
 ENV BOLTZ_CACHE=/opt/boltz-cache \
     OPENMM_CPU_THREADS=4 \
@@ -37,7 +37,7 @@ COPY README.md REQUIREMENTS.md DOCKER_HUB.md ./
 
 RUN set -eux; \
     chmod +x scripts/boltzui_predict.py; \
-    ln -s /workspace/BoltzUI/scripts/boltzui_predict.py /usr/local/bin/boltzui-predict; \
+    ln -sfn /workspace/BoltzUI/scripts/boltzui_predict.py /usr/local/bin/boltzui-predict; \
     python patches/boltz_atom_contact/apply_atom_contact_patch.py --check; \
     python patches/boltz_atom_contact/apply_atom_contact_patch.py; \
     node scripts/sync-docs.js --check; \

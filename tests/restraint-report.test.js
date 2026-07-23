@@ -7,6 +7,7 @@ const os = require("node:os");
 const path = require("node:path");
 const {
   measureStructure,
+  measureInterfaceContact,
   measureTokenContact,
   measureUnionGroup,
   parseMmcif,
@@ -84,7 +85,7 @@ test("token-only runs write the generic contact restraint report", async () => {
     max_distance: 4, force: true
   }]);
   assert.equal(path.basename(reportPath), "contact_restraints.json");
-  assert.equal(report.schema_version, 4);
+  assert.equal(report.schema_version, 5);
   assert.equal(report.token_contacts[0].models[0].satisfied, true);
   assert.equal(report.model_summaries[0].token.satisfied, 1);
 });
@@ -106,6 +107,24 @@ test("union report is satisfied when any one alternative is satisfied", () => {
   assert.equal(union.summary.status, "satisfied");
   assert.equal(union.summary.satisfied, true);
   assert.deepEqual(union.summary.satisfying_alternatives, [1]);
+});
+
+test("interface audit applies reciprocal ambiguity and ignores added hydrogens", () => {
+  const pdb = `${fs.readFileSync(path.join(structures, "atom_contact_model_0.pdb"), "utf8")}
+ATOM      6  H   SER A   1       1.000   0.000   0.000  1.00 80.00           H
+ATOM      7  H   GLY B   1       1.100   0.000   0.000  1.00 80.00           H
+END
+`;
+  const measured = measureInterfaceContact({
+    patch1: { chain: "A", residues: [1] },
+    patch2: { chain: "B", residues: [1] },
+    max_distance: 4,
+    force: true
+  }, parsePdb(pdb), "model_0");
+  assert.equal(measured.satisfied, true);
+  assert.equal(measured.residue_restraints.length, 2);
+  assert.equal(measured.residue_restraints[0].observed_distance, 3);
+  assert.equal(measured.residue_restraints[1].observed_distance, 3);
 });
 
 test("partially unresolved union reports indeterminate instead of a false violation", () => {
@@ -176,6 +195,16 @@ test("large restraint reports expose per-model exact and union aggregates", () =
     satisfaction_fraction_of_resolved: null,
     mean_excess_distance: null,
     mean_violation_excess_distance: null,
+    maximum_excess_distance: null
+  });
+  assert.deepEqual(summary.interface, {
+    total: 0,
+    resolved: 0,
+    satisfied: 0,
+    violated: 0,
+    unresolved: 0,
+    satisfaction_fraction_of_resolved: null,
+    mean_maximum_excess_distance: null,
     maximum_excess_distance: null
   });
   assert.deepEqual(summary.union, {

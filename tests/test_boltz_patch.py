@@ -66,6 +66,23 @@ class BoltzPatchTests(unittest.TestCase):
         self.assertEqual(len(groups[0]), 2)
         self.assertEqual([alternative[2] for alternative in groups[0]], [4.0, 4.0])
 
+    def test_interface_examples_parse_for_multichain_and_single_chain(self):
+        canonicals = load_canonicals(Path("/opt/boltz-cache/mols"))
+        for fixture in (
+            "interface_contact_example.yaml",
+            "interface_contact_single_chain_example.yaml",
+        ):
+            target = parse_yaml(
+                ROOT / "fixtures" / fixture,
+                canonicals,
+                Path("/opt/boltz-cache/mols"),
+                boltz2=True,
+            )
+            interfaces = target.record.inference_options.interface_contact_constraints
+            self.assertEqual(len(interfaces), 1)
+            self.assertEqual(interfaces[0][2], 6.0)
+            self.assertTrue(interfaces[0][3])
+
     def test_exact_pair_and_threshold_propagation(self):
         data = SimpleNamespace(tokens=[], structure=SimpleNamespace(chains=[]))
         features = process_contact_feature_constraints(
@@ -130,6 +147,78 @@ class BoltzPatchTests(unittest.TestCase):
         parameters = inspect.signature(process_token_features).parameters
         self.assertIn("inference_atom_contact_constraints", parameters)
         self.assertNotIn("inference_atom_contact_union_constraints", parameters)
+        self.assertNotIn("inference_interface_contact_constraints", parameters)
+
+    def test_interface_patches_create_reciprocal_per_residue_union_groups(self):
+        tokens = np.array(
+            [
+                (const.chain_type_ids["PROTEIN"], 0, 0, 0, 1),
+                (const.chain_type_ids["PROTEIN"], 0, 2, 1, 1),
+                (const.chain_type_ids["PROTEIN"], 1, 0, 2, 1),
+                (const.chain_type_ids["PROTEIN"], 1, 1, 3, 1),
+            ],
+            dtype=[
+                ("mol_type", np.int64),
+                ("asym_id", np.int64),
+                ("res_idx", np.int64),
+                ("atom_idx", np.int64),
+                ("atom_num", np.int64),
+            ],
+        )
+        data = SimpleNamespace(tokens=tokens, structure=SimpleNamespace(chains=[]))
+        features = process_contact_feature_constraints(
+            data,
+            inference_pocket_constraints=[],
+            inference_contact_constraints=[],
+            inference_atom_contact_constraints=[],
+            inference_atom_contact_union_constraints=[],
+            inference_interface_contact_constraints=[
+                ([(0, 0), (0, 2)], [(1, 0), (1, 1)], 6.0, True)
+            ],
+        )
+        self.assertTrue(
+            torch.equal(
+                features["contact_pair_index"],
+                torch.tensor(
+                    [[0, 0, 1, 1, 2, 2, 3, 3], [2, 3, 2, 3, 0, 1, 0, 1]]
+                ),
+            )
+        )
+        self.assertTrue(
+            torch.equal(
+                features["contact_union_index"],
+                torch.tensor([0, 0, 1, 1, 2, 2, 3, 3]),
+            )
+        )
+        self.assertTrue(
+            torch.equal(features["contact_thresholds"], torch.full((8,), 6.0))
+        )
+
+    def test_force_off_interface_is_report_only(self):
+        tokens = np.array(
+            [
+                (const.chain_type_ids["PROTEIN"], 0, 0, 0, 1),
+                (const.chain_type_ids["PROTEIN"], 0, 2, 1, 1),
+            ],
+            dtype=[
+                ("mol_type", np.int64),
+                ("asym_id", np.int64),
+                ("res_idx", np.int64),
+                ("atom_idx", np.int64),
+                ("atom_num", np.int64),
+            ],
+        )
+        data = SimpleNamespace(tokens=tokens, structure=SimpleNamespace(chains=[]))
+        features = process_contact_feature_constraints(
+            data,
+            inference_pocket_constraints=[],
+            inference_contact_constraints=[],
+            inference_atom_contact_constraints=[],
+            inference_interface_contact_constraints=[
+                ([(0, 0)], [(0, 2)], 6.0, False)
+            ],
+        )
+        self.assertEqual(features["contact_pair_index"].shape, (2, 0))
 
     def test_endpoint_errors_identify_complete_endpoint(self):
         chain_to_idx = {"A": 0}
@@ -243,6 +332,10 @@ class BoltzPatchTests(unittest.TestCase):
         self.assertIn("atom_contact_constraints", InferenceOptions.__dataclass_fields__)
         self.assertIn(
             "atom_contact_union_constraints",
+            InferenceOptions.__dataclass_fields__,
+        )
+        self.assertIn(
+            "interface_contact_constraints",
             InferenceOptions.__dataclass_fields__,
         )
 

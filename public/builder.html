@@ -16,7 +16,7 @@
           <div>
             <div class="app-kicker">Schema guided input authoring</div>
             <h1>YAML Builder</h1>
-            <p>Build and save Boltz YAML inputs for structure, complex, ligand, pocket, template, and affinity runs.</p>
+            <p>Build and save Boltz YAML inputs for structure, complex, ligand, interface, pocket, template, and affinity runs.</p>
           </div>
         </div>
         <div class="header-actions">
@@ -66,6 +66,7 @@
                   <option value="ligand">Protein-ligand</option>
                   <option value="affinity">Affinity</option>
                   <option value="pocket">Pocket constraints</option>
+                  <option value="interface">Interface constraints</option>
                   <option value="contacts">Token contact constraints</option>
                   <option value="template">Templates</option>
                 </select>
@@ -122,8 +123,19 @@
               </div>
             </details>
 
+            <details class="builder-section" data-section="interface-constraints">
+              <summary><span><b>05</b>Interface constraints</span><em>CSP-derived ambiguous patches</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar">
+                  <span>Connect two experimentally supported protein residue patches. Each active residue is guided to any residue in the opposite patch; the two patches may be on different chains or disjoint regions of one chain.</span>
+                  <button class="secondary-button mini-action-button" id="add-interface-contact-button" type="button">Add interface</button>
+                </div>
+                <div class="repeat-list interface-contact-list" id="interface-contact-list"></div>
+              </div>
+            </details>
+
             <details class="builder-section" data-section="contact-constraints">
-              <summary><span><b>05</b>Token contact constraints</span><em>Define token level constraints</em></summary>
+              <summary><span><b>06</b>Token contact constraints</span><em>Define token level constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Add any number of token-level contacts. For protein, DNA, and RNA polymers, a token is a residue or nucleotide; for ligands and other non-polymers, a token is an atom.</span>
@@ -139,7 +151,7 @@
             </details>
 
             <details class="builder-section" data-section="atom-contact-constraints">
-              <summary><span><b>06</b>Exact atom contact constraints</span><em>Define exact atom constraints</em></summary>
+              <summary><span><b>07</b>Exact atom contact constraints</span><em>Define exact atom constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Use atom_contact for one exact atom-pair upper-distance restraint. This is soft inference-time guidance and requires force: true. Optional physical potentials are independent. Verify final distances in the restraint report.</span>
@@ -155,7 +167,7 @@
             </details>
 
             <details class="builder-section" data-section="atom-contact-union-constraints">
-              <summary><span><b>07</b>Union atom contact constraints</span><em>Define ambiguous atom constraints</em></summary>
+              <summary><span><b>08</b>Union atom contact constraints</span><em>Define ambiguous atom constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Use atom_contact_union when any one of two or more atom-pair alternatives may satisfy an ambiguous restraint. Every alternative keeps its own upper bound and shares one potential union index. Union alternatives do not set binary token-contact conditioning.</span>
@@ -171,7 +183,7 @@
             </details>
 
             <details class="builder-section" data-section="bond-constraints">
-              <summary><span><b>08</b>Bond constraints</span><em>Define covalent atom pairs</em></summary>
+              <summary><span><b>09</b>Bond constraints</span><em>Define covalent atom pairs</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Add covalent atom-pair constraints when two specific atoms must be bonded in the final complex.</span>
@@ -182,7 +194,7 @@
             </details>
 
             <details class="builder-section" data-section="template">
-              <summary><span><b>09</b>Templates</span><em>Define Templates (CIF or PDB)</em></summary>
+              <summary><span><b>10</b>Templates</span><em>Define Templates (CIF or PDB)</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Add one or more CIF or PDB templates and optionally map target chains to template chains.</span>

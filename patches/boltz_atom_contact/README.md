@@ -1,7 +1,8 @@
 # Boltz atom_contact patch
 
 This directory contains the reproducible patch layer that adds Boltz2-only
-exact `atom_contact` and ambiguous `atom_contact_union` constraints and
+exact `atom_contact`, ambiguous `atom_contact_union`, and CSP-derived
+`interface_contact` constraints and
 corrects diffusion sample chunking in the installed Boltz runtime in the
 Docker image.
 
@@ -37,11 +38,21 @@ constraints:
           atom2: [B, 37, OD1]
           max_distance: 4.2
       force: true
+
+  - interface_contact:
+      patch1:
+        chain: A
+        residues: [12, 15, 19]
+      patch2:
+        chain: B
+        residues: [34, 40, 43]
+      max_distance: 6.0
+      force: true
 ```
 
 Rules:
 
-- `atom_contact` and `atom_contact_union` are only supported for Boltz2.
+- `atom_contact`, `atom_contact_union`, and `interface_contact` are only supported for Boltz2.
 - `atom1` and `atom2` must be `[CHAIN_ID, RES_IDX, ATOM_NAME]`.
 - Residue indices are 1-indexed in YAML.
 - `max_distance` must be finite and in the `2.0-20.0` Angstrom range.
@@ -65,6 +76,16 @@ Rules:
 - Union alternatives do not enter binary token-contact conditioning. Applying
   that conditioning to every alternative would recreate AND semantics even
   though the coordinate potential is grouped as OR.
+- `interface_contact` accepts exactly two nonempty protein-residue patches.
+  Different chains and two disjoint patches on one chain are supported.
+- For every active residue on each side, the runtime creates one potential
+  union containing all atom pairs to the opposite patch. This is reciprocal
+  patch-to-patch ambiguity, not an all-pairs contact assertion.
+- Interface bounds must be finite and in the `4.0-20.0` Angstrom range. The UI
+  defaults to `6.0` Angstrom. `force: true` activates guidance; `force: false`
+  is retained for post-run reporting and adds no binary or potential guidance.
+- Interface definitions do not use constraint subsampling or FreeSASA-based
+  passive-residue expansion.
 - Reversed duplicate alternatives, same-atom endpoints, unresolved selectors,
   non-finite/out-of-range bounds, missing group-level `force: true`, and
   Boltz-1 inputs are rejected before featurization.
