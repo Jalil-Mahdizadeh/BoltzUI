@@ -390,21 +390,27 @@ function parseTokenSpec(value) {
 function parseResidueList(value, label, warnings) {
   const residues = [];
   const seen = new Set();
+  let valid = true;
   for (const rawValue of String(value || "").split(/[,\s]+/).filter(Boolean)) {
     const residue = Number(rawValue);
     if (!Number.isInteger(residue) || residue < 1) {
       warnings.push(`${label} contains invalid residue index "${rawValue}".`);
+      valid = false;
       continue;
     }
     if (seen.has(residue)) {
       warnings.push(`${label} contains duplicate residue ${residue}.`);
+      valid = false;
       continue;
     }
     seen.add(residue);
     residues.push(residue);
   }
-  if (!residues.length) warnings.push(`${label} needs at least one positive residue index.`);
-  return residues;
+  if (!residues.length) {
+    warnings.push(`${label} needs at least one positive residue index.`);
+    valid = false;
+  }
+  return { residues, valid };
 }
 
 function splitTopLevelComma(value) {
@@ -594,6 +600,9 @@ function buildYamlFromBuilder() {
   const firstLigandId = ligandIds[0] || "";
 
   const constraints = [];
+  const interfaceChainIndex = InterfaceBuilderValidation.buildPolymerChainIndex(
+    builderState.polymers
+  );
 
   builderState.pockets.forEach((pocket, index) => {
     const label = `Pocket ${index + 1}`;
@@ -616,35 +625,47 @@ function buildYamlFromBuilder() {
     const label = `Interface constraint ${index + 1}`;
     const patch1Chain = String(interfaceContact.patch1Chain || "").trim();
     const patch2Chain = String(interfaceContact.patch2Chain || "").trim();
-    const patch1Residues = parseResidueList(
+    const patch1Result = parseResidueList(
       interfaceContact.patch1Residues,
       `${label} patch 1`,
       warnings
     );
-    const patch2Residues = parseResidueList(
+    const patch2Result = parseResidueList(
       interfaceContact.patch2Residues,
       `${label} patch 2`,
       warnings
     );
+    const patch1Residues = patch1Result.residues;
+    const patch2Residues = patch2Result.residues;
     const distance = readDistanceValue(
       interfaceContact.distance,
       `${label} max distance`,
       warnings
     );
-    if (!usedIds.includes(patch1Chain)) {
-      warnings.push(`${label} patch 1 chain "${patch1Chain}" is not one of the current entity IDs.`);
-    }
-    if (!usedIds.includes(patch2Chain)) {
-      warnings.push(`${label} patch 2 chain "${patch2Chain}" is not one of the current entity IDs.`);
-    }
+    const patchIssues = [
+      ...InterfaceBuilderValidation.validateInterfacePatch(
+        patch1Chain,
+        patch1Residues,
+        `${label} patch 1`,
+        interfaceChainIndex
+      ),
+      ...InterfaceBuilderValidation.validateInterfacePatch(
+        patch2Chain,
+        patch2Residues,
+        `${label} patch 2`,
+        interfaceChainIndex
+      )
+    ];
+    warnings.push(...patchIssues);
+    let valid = patch1Result.valid && patch2Result.valid && patchIssues.length === 0;
     if (patch1Chain === patch2Chain) {
       const overlap = patch1Residues.filter((residue) => patch2Residues.includes(residue));
       if (overlap.length) {
         warnings.push(`${label} same-chain patches overlap at residue(s) ${overlap.join(", ")}.`);
-        return;
+        valid = false;
       }
     }
-    if (!patch1Chain || !patch2Chain || !patch1Residues.length || !patch2Residues.length) return;
+    if (!valid) return;
     constraints.push("  - interface_contact:");
     constraints.push("      patch1:");
     constraints.push(`        chain: ${yamlScalar(patch1Chain)}`);
