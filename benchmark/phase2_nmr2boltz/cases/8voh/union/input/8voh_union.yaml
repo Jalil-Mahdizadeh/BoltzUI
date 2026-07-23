@@ -1,0 +1,96 @@
+# 8VOH union constraints generated from deposited NEF by nmr2boltz
+constraints:
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 135
+      - CD1
+      atom2:
+      - B
+      - 32
+      - CD1
+      max_distance: 5.845624
+    - atom1:
+      - A
+      - 135
+      - CD1
+      atom2:
+      - B
+      - 32
+      - CD2
+      max_distance: 5.845624
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 135
+      - CG2
+      atom2:
+      - B
+      - 32
+      - CD1
+      max_distance: 5.845624
+    - atom1:
+      - A
+      - 135
+      - CG2
+      atom2:
+      - B
+      - 32
+      - CD2
+      max_distance: 5.845624
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 133
+      - CA
+      atom2:
+      - B
+      - 32
+      - CD1
+      max_distance: 5.242343
+    - atom1:
+      - A
+      - 133
+      - CA
+      atom2:
+      - B
+      - 32
+      - CD2
+      max_distance: 5.242343
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 130
+      - CA
+      atom2:
+      - B
+      - 32
+      - CD1
+      max_distance: 5.242343
+    - atom1:
+      - A
+      - 130
+      - CA
+      atom2:
+      - B
+      - 32
+      - CD2
+      max_distance: 5.242343
+    force: true
+sequences:
+- protein:
+    id: A
+    msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/msa/entity_0.csv
+    sequence: EDSDIAFLIDGSGSIIPHDFRRMKEFVSTVMEQLKKSKTLFSLMQYSEEFRIHFTFKEFQNNPNPRSLVKPITQLLGRTHTATGIRKVVRELFNITNGARKNAFKILVVITDGEKFGDPLGYEDVIPEADREGVIRYVIGVGDAFRSEKSRQELNTIASKPPRDHVFQVNNFEALKTIQNQLREKIFAIEGTQT
+- protein:
+    id: B
+    msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/msa/entity_1.csv
+    sequence: GKKEKPEKKVKKSDCGEWQWSVCVPTSGDCGLGTREGTRTGAECKQTMKTQRCKIPCN
+version: 1

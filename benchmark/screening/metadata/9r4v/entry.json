@@ -1,0 +1,661 @@
+{
+  "audit_author": [
+    {
+      "name": "Tossavainen, H.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Permi, P.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Int.J.Biol.Macromol.",
+      "journal_id_ASTM": "IJBMDR",
+      "journal_id_CSD": "0708",
+      "journal_id_ISSN": "0141-8130",
+      "journal_volume": "330",
+      "page_first": "148227",
+      "page_last": "148227",
+      "pdbx_database_id_DOI": "10.1016/j.ijbiomac.2025.148227",
+      "pdbx_database_id_PubMed": 41075884,
+      "rcsb_authors": [
+        "Tossavainen, H.",
+        "Karjalainen, M.",
+        "Antenucci, L.",
+        "Hellman, M.",
+        "Permi, P."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Int J Biol Macromol",
+      "title": "Intrinsically disordered enteropathogenic E. coli EspF exploits motif mimicry in high-affinity binding to neural Wiskott-Aldrich syndrome protein and sorting nexin 9.",
+      "year": 2025
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9R4V",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9r4v/pdb",
+      "pdbx_database_accession": "pdb_00009r4v"
+    },
+    {
+      "database_code": "D_1292147598",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "34993",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR34993"
+    }
+  ],
+  "entry": {
+    "id": "9R4V"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-10-22T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Finland",
+      "funding_organization": "Academy of Finland",
+      "grant_number": "288235",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "34993",
+      "db_name": "BMRB",
+      "details": "Solution structure of N-WASP GBD in complex with EspF"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2025-05-08T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the least restraint violations",
+    "conformers_calculated_total_number": 30,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HN(COCA)CB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D iHNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D H(CCO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D C(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "10",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HBHA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "11",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-COSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "12",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HCCmHm-TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "13",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D (HB)CB(CGCD)HD"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "14",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D (HB)CB(CGCDCE)HE"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "15",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "16",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "17",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "18",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "19",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "20",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "21",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "22",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HN(COCA)CB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "23",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "24",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D iHNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "25",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D H(CCO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "26",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D C(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "27",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HBHA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "28",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-COSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "29",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HCCmHm-TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "30",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D (HB)CB(CGCD)HD"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "31",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D (HB)CB(CGCDCE)HE"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "32",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "33",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "34",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "35",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "4D HACACON"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "36",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HA(CA)CON"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "37",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D HA(CA)NCO"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "0.1",
+      "ionic_strength_units": "M",
+      "label": "conditions",
+      "pH": "6.5",
+      "pH_units": "pH",
+      "pressure": "ambient",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "restrained molecular dynamics",
+      "software_ordinal": 5
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "fewest violations"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.5 mM [U-13C; U-15N] N-WASP GBD, 0.6 mM EspF, 20 mM sodium phosphate, 50 mM sodium chloride, 93% H2O/7% D2O",
+      "label": "sample 1",
+      "solution_id": "1",
+      "solvent_system": "93% H2O/7% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.7 mM GBD, 0.5 mM [U-13C; U-15N] EspF, 20 mM sodium phosphate, 50 mM sodium chloride, 93% H2O/7% D2O",
+      "label": "sample 2",
+      "solution_id": "2",
+      "solvent_system": "93% H2O/7% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Bruker Biospin",
+      "classification": "collection",
+      "name": "TopSpin",
+      "ordinal": 1
+    },
+    {
+      "authors": "Bruker Biospin",
+      "classification": "processing",
+      "name": "TopSpin",
+      "ordinal": 2
+    },
+    {
+      "authors": "CCPN",
+      "classification": "data analysis",
+      "name": "CcpNmr Analysis",
+      "ordinal": 3
+    },
+    {
+      "authors": "Guntert, Mumenthaler and Wuthrich",
+      "classification": "structure calculation",
+      "name": "CYANA",
+      "ordinal": 4
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "refinement",
+      "name": "Amber",
+      "ordinal": 5
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 800.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "1"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-08T16:24:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.48,
+      "bonds_RMSZ": 0.85,
+      "clashscore": 0.04,
+      "clashscore_full_length": 0.03,
+      "num_H_reduce": 18020,
+      "num_angles_RMSZ": 25720,
+      "num_bonds_RMSZ": 19040,
+      "percent_ramachandran_outliers": 0.07,
+      "percent_ramachandran_outliers_full_length": 0.3,
+      "percent_rotamer_outliers": 10.0,
+      "percent_rotamer_outliers_full_length": 7.92
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 88.19,
+      "chemical_shift_completeness_full_length": 84.0,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 10,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 5,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 0,
+      "nmrclust_representative_model": 19
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-05-08T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-10-22T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2025-10-22T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9R4V",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "pubmed_id": 41075884,
+    "rcsb_id": "9R4V"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 930,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 907,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 121,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 121,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 13.22,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 8.3,
+    "polymer_molecular_weight_minimum": 4.92,
+    "polymer_monomer_count_maximum": 73,
+    "polymer_monomer_count_minimum": 48,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "CCPNMR ANALYSIS",
+      "CYANA",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "34993",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=34993",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9R4V",
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Int.J.Biol.Macromol.",
+    "journal_id_ASTM": "IJBMDR",
+    "journal_id_CSD": "0708",
+    "journal_id_ISSN": "0141-8130",
+    "journal_volume": "330",
+    "page_first": "148227",
+    "page_last": "148227",
+    "pdbx_database_id_DOI": "10.1016/j.ijbiomac.2025.148227",
+    "pdbx_database_id_PubMed": 41075884,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Tossavainen, H.",
+      "Karjalainen, M.",
+      "Antenucci, L.",
+      "Hellman, M.",
+      "Permi, P."
+    ],
+    "rcsb_journal_abbrev": "Int J Biol Macromol",
+    "title": "Intrinsically disordered enteropathogenic E. coli EspF exploits motif mimicry in high-affinity binding to neural Wiskott-Aldrich syndrome protein and sorting nexin 9.",
+    "year": 2025
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Solution structure of N-WASP GBD in complex with EspF"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "CELL INVASION",
+    "text": "complex, CELL INVASION"
+  }
+}

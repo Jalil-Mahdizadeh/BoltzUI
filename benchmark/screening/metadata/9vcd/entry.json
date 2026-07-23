@@ -1,0 +1,524 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0009-0008-4022-4179",
+      "name": "Dukhalin, S.D.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0002-9190-1298",
+      "name": "Mariasina, S.S.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0002-3216-5737",
+      "name": "Polshakov, V.I.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "identifier_ORCID": "0000-0002-3635-1609",
+      "name": "Bocharov, E.V.",
+      "pdbx_ordinal": 4
+    },
+    {
+      "identifier_ORCID": "0000-0002-8650-1839",
+      "name": "Balagurov, K.I.",
+      "pdbx_ordinal": 5
+    }
+  ],
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Nucleic Acids Res.",
+      "journal_id_ASTM": "NARHAD",
+      "journal_id_CSD": "0389",
+      "journal_id_ISSN": "1362-4962",
+      "journal_volume": "54",
+      "pdbx_database_id_DOI": "10.1093/nar/gkaf1425",
+      "pdbx_database_id_PubMed": 41495890,
+      "rcsb_authors": [
+        "Balagurov, K.I.",
+        "Mariasina, S.S.",
+        "Dukhalin, S.D.",
+        "Sluchanko, N.N.",
+        "Golovnina, A.A.",
+        "Khrustaleva, A.M.",
+        "Maksimenko, O.G.",
+        "Arkova, O.V.",
+        "Stepanenko, A.A.",
+        "Bocharov, E.V.",
+        "Polshakov, V.I.",
+        "Georgiev, P.G.",
+        "Bonchuk, A.N."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Nucleic Acids Res",
+      "title": "Beyond DNA binding: single C2H2 zinc fingers with adjacent beta-strands mediate dimerization in Drosophila transcription factors.",
+      "year": 2026
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9VCD",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9vcd/pdb",
+      "pdbx_database_accession": "pdb_00009vcd"
+    },
+    {
+      "database_code": "D_1300058657",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "52953",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR52953"
+    }
+  ],
+  "entry": {
+    "id": "9VCD"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "struct",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Structure summary",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-01-28T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2026-02-04T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_revision_item": [
+    {
+      "data_content_type": "Structure model",
+      "item": "_struct.title",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Russian Federation",
+      "funding_organization": "Russian Science Foundation",
+      "grant_number": "24-14-00081",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "52953",
+      "db_name": "BMRB",
+      "details": "N-terminal domain of Drosophila melanogaster architectural protein CG18262"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2025-06-05T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the least restraint violations",
+    "conformers_calculated_total_number": 200,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "2D NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "90",
+      "ionic_strength_units": "mM",
+      "label": "conditions_1",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 14
+    },
+    {
+      "method": "na",
+      "software_ordinal": 15
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "closest to the average"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "1 mM [U-98% 15N] CG18262, 20 mM NaH2PO4/Na2HPO4, 50 mM sodium chloride, 0.02 % NaN3, 95% H2O/5% D2O",
+      "label": "15N_sample",
+      "solution_id": "1",
+      "solvent_system": "95% H2O/5% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.73 mM [U-98% 13C; U-98% 15N] CG18262, 20 mM NaH2PO4/Na2HPO4, 50 mM sodium chloride, 0.02 % NaN3, 95% H2O/5% D2O",
+      "label": "13C_15N_sample",
+      "solution_id": "2",
+      "solvent_system": "95% H2O/5% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.73 mM [U-98% 13C; U-98% 15N] CG18262, 20 mM NaH2PO4/Na2HPO4, 50 mM sodium chloride, 0.02 % NaN3, 100% D2O",
+      "label": "13C_15N_sample_D2O",
+      "solution_id": "3",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Bruker Biospin",
+      "classification": "collection",
+      "name": "TopSpin",
+      "ordinal": 5
+    },
+    {
+      "authors": "Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax",
+      "classification": "data analysis",
+      "name": "NMRPipe",
+      "ordinal": 6
+    },
+    {
+      "authors": "Manthey, Tonelli, Clos II, Rahimi, Markley and Lee",
+      "classification": "data analysis",
+      "name": "Poky",
+      "ordinal": 7
+    },
+    {
+      "authors": "Manthey, Tonelli, Clos II, Rahimi, Markley and Lee",
+      "classification": "peak picking",
+      "name": "Poky",
+      "ordinal": 4
+    },
+    {
+      "authors": "Bahrami, Markley, Assadi, and Eghbalnia",
+      "classification": "chemical shift assignment",
+      "name": "PINE",
+      "ordinal": 8
+    },
+    {
+      "authors": "Linge, O'Donoghue and Nilges",
+      "classification": "data analysis",
+      "name": "ARIA",
+      "ordinal": 9
+    },
+    {
+      "authors": "Vladimir Polshakov",
+      "classification": "data analysis",
+      "name": "Anglesearch",
+      "ordinal": 10
+    },
+    {
+      "authors": "Yang Shen, Ad Bax",
+      "classification": "data analysis",
+      "name": "TALOS-N",
+      "ordinal": 11
+    },
+    {
+      "authors": "Vladimir Polshakov",
+      "classification": "data analysis",
+      "name": "NMRest",
+      "ordinal": 12
+    },
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "structure calculation",
+      "name": "CNS",
+      "ordinal": 13
+    },
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "refinement",
+      "name": "CNS",
+      "ordinal": 14
+    },
+    {
+      "authors": "Laskowski, MacArthur, Smith, Jones, Hutchinson, Morris, Moss and Thornton",
+      "classification": "data analysis",
+      "name": "PROCHECK / PROCHECK-NMR",
+      "ordinal": 15
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "details": "600 MHz NMR spectrometer equipped with room temperature PATXI probe",
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "600MHz_MSU_CMTS",
+      "spectrometer_id": "1"
+    },
+    {
+      "details": "600 MHz NMR spectrometer equipped with cryoprobe",
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "600MHz_IBCh",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "mogul,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-04-15T10:51:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 44.92,
+      "chemical_shift_completeness_full_length": 39.47,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 14,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 6,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 0,
+      "nmrclust_representative_model": 19
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-06-05T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-01-28T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 1,
+    "revision_date": "2026-02-04T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9VCD",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "2"
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "pubmed_id": 41495890,
+    "rcsb_id": "9VCD"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 2,
+    "deposited_atom_count": 1056,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1008,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 136,
+    "deposited_nonpolymer_entity_instance_count": 2,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 136,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 8,
+    "molecular_weight": 15.14,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_bound_components": [
+      "ZN"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.07,
+    "nonpolymer_molecular_weight_minimum": 0.07,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 7.51,
+    "polymer_molecular_weight_minimum": 7.51,
+    "polymer_monomer_count_maximum": 68,
+    "polymer_monomer_count_minimum": 68,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "ANGLESEARCH",
+      "ARIA",
+      "CNS",
+      "NMREST",
+      "NMRPIPE",
+      "PINE",
+      "POKY",
+      "PROCHECK / PROCHECK-NMR",
+      "TALOS-N",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "52953",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=52953",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9VCD",
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Nucleic Acids Res.",
+    "journal_id_ASTM": "NARHAD",
+    "journal_id_CSD": "0389",
+    "journal_id_ISSN": "1362-4962",
+    "journal_volume": "54",
+    "pdbx_database_id_DOI": "10.1093/nar/gkaf1425",
+    "pdbx_database_id_PubMed": 41495890,
+    "rcsb_ORCID_identifiers": [
+      "0000-0002-8650-1839",
+      "0000-0002-9190-1298",
+      "?",
+      "0000-0002-8608-1416",
+      "?",
+      "?",
+      "0000-0003-3502-0303",
+      "?",
+      "?",
+      "?",
+      "0000-0002-3216-5737",
+      "0000-0002-6509-3194",
+      "0000-0002-0948-0640"
+    ],
+    "rcsb_authors": [
+      "Balagurov, K.I.",
+      "Mariasina, S.S.",
+      "Dukhalin, S.D.",
+      "Sluchanko, N.N.",
+      "Golovnina, A.A.",
+      "Khrustaleva, A.M.",
+      "Maksimenko, O.G.",
+      "Arkova, O.V.",
+      "Stepanenko, A.A.",
+      "Bocharov, E.V.",
+      "Polshakov, V.I.",
+      "Georgiev, P.G.",
+      "Bonchuk, A.N."
+    ],
+    "rcsb_journal_abbrev": "Nucleic Acids Res",
+    "title": "Beyond DNA binding: single C2H2 zinc fingers with adjacent beta-strands mediate dimerization in Drosophila transcription factors.",
+    "year": 2026
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "N-terminal dimeric C2H2-domain of Drosophila melanogaster IMZF protein"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "METAL BINDING PROTEIN",
+    "text": "Zinc finger C2H2 Transcription factor, METAL BINDING PROTEIN"
+  }
+}

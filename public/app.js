@@ -302,7 +302,7 @@ function renderInputs() {
   for (const file of state.inputs) {
     const option = document.createElement("option");
     option.value = file.path;
-    option.textContent = file.path;
+    option.textContent = file.name || basename(file.path);
     option.title = file.path;
     select.appendChild(option);
   }
@@ -586,6 +586,7 @@ function renderRestraintAudit() {
   const report = result && result.restraintReport;
   const exactRestraints = Array.isArray(report?.restraints) ? report.restraints : [];
   const unionGroups = Array.isArray(report?.union_groups) ? report.union_groups : [];
+  const tokenContacts = Array.isArray(report?.token_contacts) ? report.token_contacts : [];
   const selectedAuditModel = selectedModel
     ? (selectedModel.auditModel || `model_${selectedModel.index}`)
     : report?.structures_examined?.[0]?.model;
@@ -594,13 +595,43 @@ function renderRestraintAudit() {
   setFileLink("#restraint-report-link", result && result.restraintReportPath);
   setFileLink("#postprocess-report-link", result && result.postprocessReportPath);
   body.innerHTML = "";
-  if (!report || (!exactRestraints.length && !unionGroups.length)) {
+  if (!report || (!exactRestraints.length && !unionGroups.length && !tokenContacts.length)) {
     audit.hidden = true;
     summaryText.textContent = "Soft inference-time potential guidance; final distances are measured from each generated structure.";
     return;
   }
 
   audit.hidden = false;
+  for (const contact of tokenContacts) {
+    const pair = `Token ${contact.chain1}:${contact.token1} - ${contact.chain2}:${contact.token2}`;
+    const models = Array.isArray(contact.models) && contact.models.length
+      ? contact.models
+      : [{ model: "No structure", status: "unresolved", observed_distance: null, excess_distance: null, satisfied: null, unresolved_reason: "No generated structure was found." }];
+    for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
+      const row = document.createElement("tr");
+      const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
+      const closestAtoms = model.closest_atom1 && model.closest_atom2
+        ? `Closest atoms: ${model.closest_atom1} - ${model.closest_atom2}`
+        : "";
+      row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
+      row.title = [closestAtoms, model.unresolved_reason].filter(Boolean).join("\n");
+      row.innerHTML = `
+        <td>${escapeHtml(model.model)}</td>
+        <td>${escapeHtml(pair)}</td>
+        <td>${formatNumber(Number(contact.max_distance), 2)} A</td>
+        <td>${model.observed_distance === null ? "-" : `${formatNumber(model.observed_distance, 3)} A`}</td>
+        <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
+        <td>${escapeHtml(satisfaction)}</td>
+      `;
+      rowQueue.push({
+        row,
+        kind: "token",
+        measurement: model,
+        priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
+      });
+    }
+  }
+
   for (const restraint of exactRestraints) {
     const pair = `${restraint.chain1}:${restraint.residue1}:${restraint.atom1} - ${restraint.chain2}:${restraint.residue2}:${restraint.atom2}`;
     const models = Array.isArray(restraint.models) && restraint.models.length
@@ -692,18 +723,27 @@ function renderRestraintAudit() {
     : null;
   const exactEntries = rowQueue.filter((entry) => entry.kind === "exact");
   const unionEntries = rowQueue.filter((entry) => entry.kind === "union");
+  const tokenEntries = rowQueue.filter((entry) => entry.kind === "token");
   const exactResolved = exactEntries.filter((entry) => entry.measurement.satisfied !== null);
   const unionConclusive = unionEntries.filter((entry) => entry.measurement.satisfied !== null);
+  const tokenResolved = tokenEntries.filter((entry) => entry.measurement.satisfied !== null);
   const exactSatisfied = modelSummary?.exact?.satisfied
     ?? exactResolved.filter((entry) => entry.measurement.satisfied === true).length;
   const exactTotal = modelSummary?.exact?.resolved ?? exactResolved.length;
   const unionSatisfied = modelSummary?.union?.satisfied
     ?? unionConclusive.filter((entry) => entry.measurement.satisfied === true).length;
   const unionTotal = modelSummary?.union?.conclusive ?? unionConclusive.length;
+  const tokenSatisfied = modelSummary?.token?.satisfied
+    ?? tokenResolved.filter((entry) => entry.measurement.satisfied === true).length;
+  const tokenTotal = modelSummary?.token?.resolved ?? tokenResolved.length;
   const rowNote = visibleRows.length < rowQueue.length
     ? ` Showing ${visibleRows.length} of ${rowQueue.length} rows, with violations first; use the restraint report for all rows.`
     : "";
-  summaryText.textContent = `${selectedAuditModel || "No structure"}: exact ${exactSatisfied}/${exactTotal} resolved satisfied; union ${unionSatisfied}/${unionTotal} conclusive satisfied.${rowNote}`;
+  const summaryParts = [];
+  if (tokenContacts.length) summaryParts.push(`token ${tokenSatisfied}/${tokenTotal} resolved satisfied`);
+  if (exactRestraints.length) summaryParts.push(`exact ${exactSatisfied}/${exactTotal} resolved satisfied`);
+  if (unionGroups.length) summaryParts.push(`union ${unionSatisfied}/${unionTotal} conclusive satisfied`);
+  summaryText.textContent = `${selectedAuditModel || "No structure"}: ${summaryParts.join("; ")}.${rowNote}`;
 }
 
 function renderResultCards() {
@@ -755,6 +795,7 @@ function renderModelTable() {
     $("#selected-model-meta").textContent = "No structure";
     setFileLink("#structure-file-link", null);
     setFileLink("#confidence-file-link", null);
+    $("#model-metrics-summary").textContent = "No models";
     return;
   }
 
@@ -781,6 +822,7 @@ function renderModelTable() {
     : "No structure";
   setFileLink("#structure-file-link", model && model.structurePath);
   setFileLink("#confidence-file-link", model && model.confidencePath);
+  $("#model-metrics-summary").textContent = `${result.models.length} model${result.models.length === 1 ? "" : "s"}`;
 }
 
 async function renderSelectedStructure() {
@@ -977,7 +1019,10 @@ function connectJobEvents(id) {
 }
 
 async function refreshAll() {
-  const data = await api("/api/state");
+  await refreshInputs({ details: false });
+  await new Promise((resolve) => requestAnimationFrame(resolve));
+  const inputsRequest = refreshInputs({ details: true }).catch((error) => showToast(error.message));
+  const data = await api("/api/state?inputs=0");
   state.schema = data.options;
   state.presets = data.presets || [];
   if (!state.selectedPreset) state.selectedPreset = data.defaultPreset || "standard";
@@ -985,7 +1030,7 @@ async function refreshAll() {
     const preset = state.presets.find((item) => item.id === state.selectedPreset);
     state.options = preset && preset.options ? { ...preset.options } : defaultsFromSchema(data.options);
   }
-  state.inputs = data.inputs;
+  if (Array.isArray(data.inputs)) state.inputs = data.inputs;
   state.results = data.results;
   state.jobs = data.jobs;
   state.workspace = data.workspace;
@@ -1001,6 +1046,20 @@ async function refreshAll() {
   renderResults();
   renderJobs();
   renderOverview();
+  updateCommandPreview();
+  await inputsRequest;
+}
+
+async function refreshInputs({ details = true } = {}) {
+  const data = await api(`/api/inputs?details=${details ? "1" : "0"}`);
+  const previousByPath = new Map(state.inputs.map((input) => [input.path, input]));
+  state.inputs = Array.isArray(data.inputs)
+    ? data.inputs.map((input) => ({ ...previousByPath.get(input.path), ...input }))
+    : [];
+  renderInputs();
+  applySelectedInputDefaults();
+  renderOptionGroups();
+  renderResults();
   updateCommandPreview();
 }
 
@@ -1149,8 +1208,13 @@ function bindEvents() {
             content: $("#input-editor").value
           })
         });
-        state.inputs.push(data.input);
-        renderInputs();
+        state.inputs = [
+          data.input,
+          ...state.inputs.filter((input) => input.path !== data.input.path)
+        ].sort((first, second) => (
+          Date.parse(second.createdAt || 0) - Date.parse(first.createdAt || 0)
+          || String(first.name || first.path).localeCompare(String(second.name || second.path))
+        ));
         $("#input-file").value = data.input.path;
         state.selectedResult = null;
         state.selectedModelIndex = null;

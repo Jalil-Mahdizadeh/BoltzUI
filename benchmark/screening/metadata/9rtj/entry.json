@@ -1,0 +1,797 @@
+{
+  "audit_author": [
+    {
+      "name": "Wu, P.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Damberger, F.F.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "name": "Zehnder, J.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "name": "Schroder, N.",
+      "pdbx_ordinal": 4
+    },
+    {
+      "name": "Lipps, G.",
+      "pdbx_ordinal": 5
+    },
+    {
+      "name": "Wiegand, T.",
+      "pdbx_ordinal": 6
+    },
+    {
+      "name": "Allain, F.H.-T.",
+      "pdbx_ordinal": 7
+    }
+  ],
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To Be Published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Wu, P.",
+        "Damberger, F.F.",
+        "Zehnder, J.",
+        "Schroder, N.",
+        "Lipps, G.",
+        "Wiegand, T.",
+        "Allain, F.H.-T."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "Molecular Basis for Primer Synthesis Initiation by DNA Primase"
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9RTJ",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9rtj/pdb",
+      "pdbx_database_accession": "pdb_00009rtj"
+    },
+    {
+      "database_code": "D_1292148613",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "35007",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR35007"
+    }
+  ],
+  "entry": {
+    "id": "9RTJ"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    },
+    {
+      "method": "SOLID-STATE NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-03-25T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Switzerland",
+      "funding_organization": "Swiss National Science Foundation",
+      "grant_number": "163345",
+      "ordinal": 1
+    },
+    {
+      "country": "Switzerland",
+      "funding_organization": "Swiss National Science Foundation",
+      "grant_number": "185252",
+      "ordinal": 2
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "35007",
+      "db_name": "BMRB",
+      "details": "Hydrid structure of the helix bundle domain of pRN1 primase in complex with DNA, ATP and dGTP"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2025-07-02T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 500,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HN(CA)CO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HN(CO)CA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D C(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D H(CCO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "10",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "11",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "12",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "13",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "14",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "15",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aliphatic"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "16",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D-F1fF2f-NOESY"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "17",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D-F2f-NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "18",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D-13C-aliphatic-HfilteredHedited-NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "19",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D-13C-aromatic-HfilteredHedited-NOESY"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "20",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 1,
+      "type": "2D-imino-NOESY"
+    },
+    {
+      "conditions_id": "4",
+      "experiment_id": "21",
+      "sample_state": "isotropic",
+      "solution_id": "8",
+      "spectrometer_id": 3,
+      "type": "2D-natural-abundance-Nhsqc"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "22",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 2,
+      "type": "2D-natural-abundance-Chsqc-aliphatic"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "23",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 2,
+      "type": "2D-natural-abundance-Chsqc-aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "24",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "25",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "5",
+      "experiment_id": "26",
+      "sample_state": "isotropic",
+      "solution_id": "9",
+      "spectrometer_id": 4,
+      "type": "CHHP"
+    },
+    {
+      "conditions_id": "5",
+      "experiment_id": "27",
+      "sample_state": "isotropic",
+      "solution_id": "9",
+      "spectrometer_id": 4,
+      "type": "NHHP"
+    },
+    {
+      "conditions_id": "5",
+      "experiment_id": "28",
+      "sample_state": "isotropic",
+      "solution_id": "7",
+      "spectrometer_id": 5,
+      "type": "hPH"
+    },
+    {
+      "conditions_id": "5",
+      "experiment_id": "29",
+      "sample_state": "isotropic",
+      "solution_id": "10",
+      "spectrometer_id": 5,
+      "type": "hPH"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "100",
+      "ionic_strength_units": "mM",
+      "label": "Condition_1",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "2",
+      "ionic_strength": "75",
+      "ionic_strength_units": "mM",
+      "label": "Condition_2",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "3",
+      "ionic_strength": "50",
+      "ionic_strength_units": "mM",
+      "label": "Condition_3",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "4",
+      "ionic_strength": "120",
+      "ionic_strength_units": "mM",
+      "label": "Condition_4",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "5",
+      "ionic_strength": "50",
+      "ionic_strength_units": "mM",
+      "label": "Condition_5",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "278",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "torsion angle dynamics",
+      "software_ordinal": 1
+    },
+    {
+      "method": "molecular dynamics",
+      "software_ordinal": 4
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.96 mM DNA, 0.8 mM [U-99% 13C; U-99% 15N] HBD, 2.4 mM AppCp, 2.4 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "0.8 mM 13C,15N-labeled HBD, 0.96 mM DNA, 2.4 mM AppCp, 2.4 mM dGppCp, 10 mM MgCl2, 90% H2O/10% D2O",
+      "label": "Sample_1",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "1 mM DNA, 1 mM [U-99% 13C; U-99% 15N] HBD, 1.2 mM AppCp, 1.2 mM dGppCp, 10 mM Mg2+, 100% D2O",
+      "details": "1 mM 13C, 15N-labeled HBD, 1 mM DNA, 1.2 mM AppCp, 1.2 mM dGppCp, 10 mM MgCl2, 100% D2O",
+      "label": "Sample_2",
+      "solution_id": "2",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "10.8 mM DNA, 0.8 mM [U-99% 13C; U-99% 15N] HBD, 1.6 mM AppCp, 1.6 mM dGppCp, 10 mM Mg2+, 100% D2O",
+      "details": "0.8 mM 13C, 15N-labeled HBD, 0.8 mM DNA, 1.6 mM AppCp, 1.6 mM dGppCp, 10 mM MgCl2, 100% D2O",
+      "label": "Sample_3",
+      "solution_id": "3",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "1.1 mM DNA, 1 mM [U-99% 13C; U-99% 15N] HBD, 1.2 mM AppCp, 1.2 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "1 mM 13C, 15N-labled HBD, 1.1 mM DNA, 1.2 mM AppCp, 1.2 mM dGppCp, 10 mM MgCl2,  90% H2O/10% D2O",
+      "label": "Sample_4",
+      "solution_id": "4",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "1 mM DNA, 1 mM HBD, 2 mM AppCp, 2 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "1 mM unlabeled HBD, 1 mM DNA, 2 mM AppCp, 2 mM dGppCp, 10 mM MgCl2,  90% H2O/10% D2O",
+      "label": "Sample_5",
+      "solution_id": "5",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "1 mM DNA, 1 mM HBD, 1.2 mM AppCp, 1.2 mM dGppCp, 10 mM Mg2+, 100% D2O",
+      "details": "1 mM unlabeled HBD, 1 mM DNA, 1.2 mM AppCp, 1.2 mM dGppCp, 10 mM MgCl2, 100% D2O",
+      "label": "Sample_6",
+      "solution_id": "6",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.254 mM DNA, 0.231 mM [U-100% 15N; U-80% 2H] pRN1 primase H145A, 0.924 mM AppNHp, 0.924 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "1 mg of 2H,15N-labeled pRN1(H145A) complexed with DNA and AppNHp and dGppCp",
+      "label": "Sample_7",
+      "solution_id": "7",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solid"
+    },
+    {
+      "contents": "4 mM DNA, 4 mM HBD, 4 mM AppCp, 4 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "4 mM unlabeled HBD, 4 mM DNA, 4 mM AppCp, 4 mM dGppCp, 10 mM MgCl2,  90% H2O/10% D2O",
+      "label": "Sample_8",
+      "solution_id": "8",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "2.5 mM DNA, 2.3 mM [U-100% 13C; U-100% 15N] pRN1 primase H145A, 4.6 mM AppCp, 4.6 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "30 mg 13C,15N-labeled pRN1(H145A) complexed with DNA and AppNHp and dGppCp",
+      "label": "Sample_9",
+      "solution_id": "9",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solid"
+    },
+    {
+      "contents": "0.254 mM DNA, 0.231 mM [U-15N; U-2H] pRN1 primase, 0.924 mM AppNHp, 0.924 mM dGppCp, 10 mM Mg2+, 90% H2O/10% D2O",
+      "details": "1 mg of 2H,15N-labeled pRN1 complexed with DNA and AppNHp and dGppCp",
+      "label": "Sample_10",
+      "solution_id": "10",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solid"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Guntert, Mumenthaler and Wuthrich",
+      "classification": "structure calculation",
+      "name": "CYANA",
+      "ordinal": 1,
+      "version": "3.98.15"
+    },
+    {
+      "authors": "Goddard",
+      "classification": "data analysis",
+      "name": "NMRFAM-SPARKY",
+      "ordinal": 2,
+      "version": "1.470"
+    },
+    {
+      "authors": "Herrmann, Guntert and Wuthrich",
+      "classification": "peak picking",
+      "name": "CANDID",
+      "ordinal": 3
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "refinement",
+      "name": "Amber",
+      "ordinal": 4,
+      "version": "20"
+    },
+    {
+      "authors": "Bruker Biospin",
+      "classification": "collection",
+      "name": "TopSpin",
+      "ordinal": 5,
+      "version": "4.0.7"
+    },
+    {
+      "authors": "Bruker Biospin",
+      "classification": "processing",
+      "name": "TopSpin",
+      "ordinal": 6,
+      "version": "4.0.7"
+    },
+    {
+      "authors": "Goddard",
+      "classification": "chemical shift assignment",
+      "name": "NMRFAM-SPARKY",
+      "ordinal": 7,
+      "version": "1.470"
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 900.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 700.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "2"
+    },
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "3"
+    },
+    {
+      "field_strength": 500.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "4"
+    },
+    {
+      "field_strength": 850.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "5"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "mogul,buster-report,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "Y",
+    "report_creation_date": "2026-04-05T01:50:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.98,
+      "bonds_RMSZ": 0.53,
+      "clashscore": 1.2,
+      "clashscore_full_length": 1.15,
+      "num_H_reduce": 22658,
+      "num_angles_RMSZ": 32760,
+      "num_bonds_RMSZ": 23800,
+      "percent_ramachandran_outliers": 1.05,
+      "percent_ramachandran_outliers_full_length": 2.28,
+      "percent_rotamer_outliers": 6.92,
+      "percent_rotamer_outliers_full_length": 6.59
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 88.88,
+      "chemical_shift_completeness_full_length": 88.87,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 14,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 10,
+      "nmrclust_representative_model": 12
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-07-02T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-03-25T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2026-03-25T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "entry_id": "9RTJ",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "3",
+      "4",
+      "5"
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "rcsb_id": "9RTJ"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 1215,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1130,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 127,
+    "deposited_nonpolymer_entity_instance_count": 4,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 127,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 1,
+    "entity_count": 5,
+    "experimental_method": "Multiple methods",
+    "experimental_method_count": 2,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 9,
+    "molecular_weight": 17.62,
+    "na_polymer_entity_types": "Other",
+    "ndb_struct_conf_na_feature_combined": [
+      "double helix"
+    ],
+    "nonpolymer_bound_components": [
+      "ATP",
+      "DGT",
+      "MG"
+    ],
+    "nonpolymer_entity_count": 3,
+    "nonpolymer_molecular_weight_maximum": 0.51,
+    "nonpolymer_molecular_weight_minimum": 0.02,
+    "polymer_composition": "protein/NA",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 1,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 1,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 13.86,
+    "polymer_molecular_weight_minimum": 2.71,
+    "polymer_monomer_count_maximum": 118,
+    "polymer_monomer_count_minimum": 9,
+    "selected_polymer_entity_types": "Protein/NA",
+    "software_programs_combined": [
+      "AMBER",
+      "CANDID",
+      "CYANA",
+      "NMRFAM-SPARKY",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "35007",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=35007",
+      "type": "BMRB"
+    },
+    {
+      "id": "9RTJ",
+      "link": "https://nakb.org/atlas=9RTJ",
+      "type": "NAKB"
+    }
+  ],
+  "rcsb_id": "9RTJ",
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To Be Published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Wu, P.",
+      "Damberger, F.F.",
+      "Zehnder, J.",
+      "Schroder, N.",
+      "Lipps, G.",
+      "Wiegand, T.",
+      "Allain, F.H.-T."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "Molecular Basis for Primer Synthesis Initiation by DNA Primase"
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Hydrid structure of the helix bundle domain of pRN1 primase in complex with DNA, ATP and dGTP"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "REPLICATION",
+    "text": "primase, HBD, dinucleotide, first base-pair, REPLICATION"
+  }
+}

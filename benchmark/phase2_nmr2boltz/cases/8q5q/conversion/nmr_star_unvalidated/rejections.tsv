@@ -1,0 +1,155 @@
+group_id	reason	details	row_ids	endpoint	provenance_json
+AMBER_distance_restraints_1:9	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3.	9	A:5:DNR:H3 -- B:30:DC:N3	{}
+AMBER_distance_restraints_1:10	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	10	A:5:DNR:H41 -- B:30:DC:O2	{}
+AMBER_distance_restraints_1:11	atom_not_present_in_mapped_residue	The complete projected contact was quarantined because exact component topology does not prove: A:5:DNR:O2 (component_topology_unavailable).	11	B:30:DC:H41 -- A:5:DNR:O2	"{""invalid_endpoints"": [{""atom_name"": ""O2"", ""chain"": ""A"", ""reason"": ""component_topology_unavailable"", ""residue_name"": ""DNR"", ""residue_number"": 5, ""topology_source"": null}], ""mapped_contact"": [{""atom_name"": ""O2"", ""chain"": ""A"", ""residue_name"": ""DNR"", ""residue_number"": 5}, {""atom_name"": ""N4"", ""chain"": ""B"", ""residue_name"": ""DC"", ""residue_number"": 15}], ""original_bounds"": {""bound_source"": ""explicit_upper_bound"", ""lower_bound"": 1.6, ""target_uncertainty"": null, ""target_value"": null, ""upper_bound"": 1.9, ""upper_linear_limit"": 2.4}, ""projected_upper_bound"": 2.98, ""restraint_group"": ""AMBER_distance_restraints_1:11"", ""source_endpoints"": [""B:30:DC:H41 -- A:5:DNR:O2""], ""source_row_ids"": [""11""]}"
+AMBER_distance_restraints_1:12	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3.	12	B:20:DNR:H3 -- A:15:DC:N3	{}
+AMBER_distance_restraints_1:13	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	13	B:20:DNR:H41 -- A:15:DC:O2	{}
+AMBER_distance_restraints_1:14	atom_not_present_in_mapped_residue	The complete projected contact was quarantined because exact component topology does not prove: B:5:DNR:O2 (component_topology_unavailable).	14	A:15:DC:H41 -- B:20:DNR:O2	"{""invalid_endpoints"": [{""atom_name"": ""O2"", ""chain"": ""B"", ""reason"": ""component_topology_unavailable"", ""residue_name"": ""DNR"", ""residue_number"": 5, ""topology_source"": null}], ""mapped_contact"": [{""atom_name"": ""N4"", ""chain"": ""A"", ""residue_name"": ""DC"", ""residue_number"": 15}, {""atom_name"": ""O2"", ""chain"": ""B"", ""residue_name"": ""DNR"", ""residue_number"": 5}], ""original_bounds"": {""bound_source"": ""explicit_upper_bound"", ""lower_bound"": 1.6, ""target_uncertainty"": null, ""target_value"": null, ""upper_bound"": 1.9, ""upper_linear_limit"": 2.4}, ""projected_upper_bound"": 2.98, ""restraint_group"": ""AMBER_distance_restraints_1:14"", ""source_endpoints"": [""A:15:DC:H41 -- B:20:DNR:O2""], ""source_row_ids"": [""14""]}"
+AMBER_distance_restraints_2:15	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	16		{}
+AMBER_distance_restraints_2:34	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	44		{}
+AMBER_distance_restraints_2:67	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	97		{}
+AMBER_distance_restraints_2:112	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H4'.	184	A:4:DT:H1' -- A:5:DNR:H4'	{}
+AMBER_distance_restraints_2:115	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	187		{}
+AMBER_distance_restraints_2:118	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	190	A:4:DT:H2' -- B:20:DNR:H41	{}
+AMBER_distance_restraints_2:119	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	191	A:4:DT:H2' -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:120	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	192	A:4:DT:H2' -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:126	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	198	A:4:DT:H2'' -- B:20:DNR:H41	{}
+AMBER_distance_restraints_2:146	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H42.	240	A:4:DT:H71 -- B:20:DNR:H42	{}
+AMBER_distance_restraints_2:146	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H42.	241	A:4:DT:H72 -- B:20:DNR:H42	{}
+AMBER_distance_restraints_2:146	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H42.	242	A:4:DT:H73 -- B:20:DNR:H42	{}
+AMBER_distance_restraints_2:147	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	243	A:4:DT:H71 -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:147	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	244	A:4:DT:H72 -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:147	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	245	A:4:DT:H73 -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:148	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	246	A:4:DT:H71 -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:148	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	247	A:4:DT:H72 -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:148	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	248	A:4:DT:H73 -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:149	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	249	A:5:DNR:H1' -- A:6:DA:H5'	{}
+AMBER_distance_restraints_2:149	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	250	A:5:DNR:H1' -- A:6:DA:H5''	{}
+AMBER_distance_restraints_2:150	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	251	A:5:DNR:H1' -- A:15:DC:H4'	{}
+AMBER_distance_restraints_2:151	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	252	A:5:DNR:H2' -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:152	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	253	A:5:DNR:H2' -- A:5:DNR:H4'	{}
+AMBER_distance_restraints_2:153	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	254	A:5:DNR:H2' -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:154	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	255	A:5:DNR:H2' -- A:5:DNR:H5'	{}
+AMBER_distance_restraints_2:154	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	256	A:5:DNR:H2' -- A:5:DNR:H5''	{}
+AMBER_distance_restraints_2:155	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	257	A:5:DNR:H2' -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:156	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	258	A:5:DNR:H2' -- A:6:DA:H8	{}
+AMBER_distance_restraints_2:157	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	259	A:5:DNR:H2'' -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:158	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	260	A:5:DNR:H2'' -- A:5:DNR:H2'	{}
+AMBER_distance_restraints_2:159	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	261	A:5:DNR:H2'' -- A:5:DNR:H4'	{}
+AMBER_distance_restraints_2:160	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	262	A:5:DNR:H2'' -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:161	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	263	A:5:DNR:H2'' -- A:5:DNR:H5'	{}
+AMBER_distance_restraints_2:161	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	264	A:5:DNR:H2'' -- A:5:DNR:H5''	{}
+AMBER_distance_restraints_2:162	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	265	A:5:DNR:H2'' -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:163	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	266	A:5:DNR:H2'' -- A:6:DA:H8	{}
+AMBER_distance_restraints_2:164	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	267	A:5:DNR:H3' -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:165	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	268	A:5:DNR:H3' -- A:5:DNR:H2'	{}
+AMBER_distance_restraints_2:166	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	269	A:5:DNR:H3' -- A:5:DNR:H2''	{}
+AMBER_distance_restraints_2:167	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	270	A:5:DNR:H3' -- A:5:DNR:H4'	{}
+AMBER_distance_restraints_2:168	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	271	A:5:DNR:H3' -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:169	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	272	A:5:DNR:H3' -- A:5:DNR:H5'	{}
+AMBER_distance_restraints_2:169	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	273	A:5:DNR:H3' -- A:5:DNR:H5''	{}
+AMBER_distance_restraints_2:170	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	274	A:5:DNR:H3' -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:171	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	275	A:5:DNR:H3' -- A:6:DA:H8	{}
+AMBER_distance_restraints_2:172	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	276	A:5:DNR:H3' -- A:15:DC:H1'	{}
+AMBER_distance_restraints_2:173	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H4'.	277	A:5:DNR:H4' -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:174	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	278	A:5:DNR:H41 -- B:19:DT:H1'	{}
+AMBER_distance_restraints_2:174	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	279	A:5:DNR:H41 -- B:19:DT:H3	{}
+AMBER_distance_restraints_2:175	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	280	A:5:DNR:H41 -- B:19:DT:H6	{}
+AMBER_distance_restraints_2:176	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	281	A:5:DNR:H41 -- B:19:DT:H71	{}
+AMBER_distance_restraints_2:176	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	282	A:5:DNR:H41 -- B:19:DT:H72	{}
+AMBER_distance_restraints_2:176	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	283	A:5:DNR:H41 -- B:19:DT:H73	{}
+AMBER_distance_restraints_2:177	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5'.	284	A:5:DNR:H5' -- A:5:DNR:H4'	{}
+AMBER_distance_restraints_2:177	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5''.	285	A:5:DNR:H5'' -- A:5:DNR:H4'	{}
+AMBER_distance_restraints_2:178	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5'.	286	A:5:DNR:H5' -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:178	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5''.	287	A:5:DNR:H5'' -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:179	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5'.	288	A:5:DNR:H5' -- A:15:DC:H1'	{}
+AMBER_distance_restraints_2:179	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5''.	289	A:5:DNR:H5'' -- A:15:DC:H1'	{}
+AMBER_distance_restraints_2:180	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	290	A:5:DNR:H6 -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:181	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	291	A:5:DNR:H6 -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:192	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	304		{}
+AMBER_distance_restraints_2:229	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	360		{}
+AMBER_distance_restraints_2:288	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	458		{}
+AMBER_distance_restraints_2:319	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	505		{}
+AMBER_distance_restraints_2:354	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	562		{}
+AMBER_distance_restraints_2:395	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	626		{}
+AMBER_distance_restraints_2:433	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	677		{}
+AMBER_distance_restraints_2:486	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	777		{}
+AMBER_distance_restraints_2:530	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	850	A:14:DT:H1' -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:535	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	855	A:14:DT:H2' -- A:5:DNR:H1'	{}
+AMBER_distance_restraints_2:537	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	857		{}
+AMBER_distance_restraints_2:549	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	875	A:14:DT:H3 -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:590	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	947	A:15:DC:H41 -- B:20:DNR:H41	{}
+AMBER_distance_restraints_2:612	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	974		{}
+AMBER_distance_restraints_2:631	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1002		{}
+AMBER_distance_restraints_2:664	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1055		{}
+AMBER_distance_restraints_2:709	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H4'.	1142	B:19:DT:H1' -- B:20:DNR:H4'	{}
+AMBER_distance_restraints_2:712	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1145		{}
+AMBER_distance_restraints_2:715	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1148	B:19:DT:H2' -- A:5:DNR:H41	{}
+AMBER_distance_restraints_2:716	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	1149	B:19:DT:H2' -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:717	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1150	B:19:DT:H2' -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:723	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1156	B:19:DT:H2'' -- A:5:DNR:H41	{}
+AMBER_distance_restraints_2:743	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H42.	1198	B:19:DT:H71 -- A:5:DNR:H42	{}
+AMBER_distance_restraints_2:743	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H42.	1199	B:19:DT:H72 -- A:5:DNR:H42	{}
+AMBER_distance_restraints_2:743	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H42.	1200	B:19:DT:H73 -- A:5:DNR:H42	{}
+AMBER_distance_restraints_2:744	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	1201	B:19:DT:H71 -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:744	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	1202	B:19:DT:H72 -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:744	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5.	1203	B:19:DT:H73 -- A:5:DNR:H5	{}
+AMBER_distance_restraints_2:745	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1204	B:19:DT:H71 -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:745	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1205	B:19:DT:H72 -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:745	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1206	B:19:DT:H73 -- A:5:DNR:H6	{}
+AMBER_distance_restraints_2:746	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	1207	B:20:DNR:H1' -- B:21:DA:H5'	{}
+AMBER_distance_restraints_2:746	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	1208	B:20:DNR:H1' -- B:21:DA:H5''	{}
+AMBER_distance_restraints_2:747	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	1209	B:20:DNR:H1' -- B:30:DC:H4'	{}
+AMBER_distance_restraints_2:748	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1210	B:20:DNR:H2' -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:749	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1211	B:20:DNR:H2' -- B:20:DNR:H4'	{}
+AMBER_distance_restraints_2:750	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1212	B:20:DNR:H2' -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:751	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1213	B:20:DNR:H2' -- B:20:DNR:H5''	{}
+AMBER_distance_restraints_2:751	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1214	B:20:DNR:H2' -- B:20:DNR:H5'	{}
+AMBER_distance_restraints_2:752	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1215	B:20:DNR:H2' -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:753	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2'.	1216	B:20:DNR:H2' -- B:21:DA:H8	{}
+AMBER_distance_restraints_2:754	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1217	B:20:DNR:H2'' -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:755	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1218	B:20:DNR:H2'' -- B:20:DNR:H2'	{}
+AMBER_distance_restraints_2:756	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1219	B:20:DNR:H2'' -- B:20:DNR:H4'	{}
+AMBER_distance_restraints_2:757	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1220	B:20:DNR:H2'' -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:758	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1221	B:20:DNR:H2'' -- B:20:DNR:H5''	{}
+AMBER_distance_restraints_2:758	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1222	B:20:DNR:H2'' -- B:20:DNR:H5'	{}
+AMBER_distance_restraints_2:759	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1223	B:20:DNR:H2'' -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:760	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H2''.	1224	B:20:DNR:H2'' -- B:21:DA:H8	{}
+AMBER_distance_restraints_2:761	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1225	B:20:DNR:H3' -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:762	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1226	B:20:DNR:H3' -- B:20:DNR:H2'	{}
+AMBER_distance_restraints_2:763	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1227	B:20:DNR:H3' -- B:20:DNR:H2''	{}
+AMBER_distance_restraints_2:764	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1228	B:20:DNR:H3' -- B:20:DNR:H4'	{}
+AMBER_distance_restraints_2:765	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1229	B:20:DNR:H3' -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:766	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1230	B:20:DNR:H3' -- B:20:DNR:H5''	{}
+AMBER_distance_restraints_2:766	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1231	B:20:DNR:H3' -- B:20:DNR:H5'	{}
+AMBER_distance_restraints_2:767	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1232	B:20:DNR:H3' -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:768	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1233	B:20:DNR:H3' -- B:21:DA:H8	{}
+AMBER_distance_restraints_2:769	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H3'.	1234	B:20:DNR:H3' -- B:30:DC:H1'	{}
+AMBER_distance_restraints_2:770	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H4'.	1235	B:20:DNR:H4' -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:771	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1236	B:20:DNR:H41 -- A:4:DT:H1'	{}
+AMBER_distance_restraints_2:771	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1237	B:20:DNR:H41 -- A:4:DT:H3	{}
+AMBER_distance_restraints_2:772	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1238	B:20:DNR:H41 -- A:4:DT:H6	{}
+AMBER_distance_restraints_2:773	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1239	B:20:DNR:H41 -- A:4:DT:H71	{}
+AMBER_distance_restraints_2:773	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1240	B:20:DNR:H41 -- A:4:DT:H72	{}
+AMBER_distance_restraints_2:773	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1241	B:20:DNR:H41 -- A:4:DT:H73	{}
+AMBER_distance_restraints_2:774	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5''.	1242	B:20:DNR:H5'' -- B:20:DNR:H4'	{}
+AMBER_distance_restraints_2:774	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5'.	1243	B:20:DNR:H5' -- B:20:DNR:H4'	{}
+AMBER_distance_restraints_2:775	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5''.	1244	B:20:DNR:H5'' -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:775	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5'.	1245	B:20:DNR:H5' -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:776	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5''.	1246	B:20:DNR:H5'' -- B:30:DC:H1'	{}
+AMBER_distance_restraints_2:776	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H5'.	1247	B:20:DNR:H5' -- B:30:DC:H1'	{}
+AMBER_distance_restraints_2:777	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1248	B:20:DNR:H6 -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:778	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1249	B:20:DNR:H6 -- B:20:DNR:H5	{}
+AMBER_distance_restraints_2:789	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1262		{}
+AMBER_distance_restraints_2:826	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1318		{}
+AMBER_distance_restraints_2:885	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1416		{}
+AMBER_distance_restraints_2:916	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1463		{}
+AMBER_distance_restraints_2:951	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1520		{}
+AMBER_distance_restraints_2:992	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1584		{}
+AMBER_distance_restraints_2:1030	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1635		{}
+AMBER_distance_restraints_2:1083	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1735		{}
+AMBER_distance_restraints_2:1127	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	1808	B:29:DT:H1' -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:1132	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H1'.	1813	B:29:DT:H2' -- B:20:DNR:H1'	{}
+AMBER_distance_restraints_2:1134	same_heavy_parent_atom	Every expanded nucleus pair maps to the same heavy atom, which Boltz cannot use as an atom-contact pair.	1815		{}
+AMBER_distance_restraints_2:1146	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H6.	1833	B:29:DT:H3 -- B:20:DNR:H6	{}
+AMBER_distance_restraints_2:1187	unresolved_atom_topology	No topology is available for component DNR; cannot map hydrogen H41.	1905	B:30:DC:H41 -- A:5:DNR:H41	{}

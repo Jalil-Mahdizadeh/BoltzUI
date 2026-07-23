@@ -1,0 +1,494 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0001-6703-5417",
+      "name": "Blasco, P.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0001-5465-7727",
+      "name": "Li, X.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "country": "CN",
+      "id": "primary",
+      "journal_abbrev": "Ccs Chem",
+      "journal_id_ISSN": "2096-5745",
+      "pdbx_database_id_DOI": "10.31635/ccschem.025.202505587",
+      "rcsb_authors": [
+        "Zhou, H.",
+        "Liang, Z.",
+        "Wang, C.",
+        "Blasco, P.",
+        "Ngai, W.L.",
+        "Xiao, Y.",
+        "Chong, T.H.",
+        "Liu, H.",
+        "Zheng, C.",
+        "Chan, M.K.",
+        "Li, X."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "CC Chem",
+      "title": "Development of Nanomolar Affinity Miniprotein Inhibitors Targeting alpha-Synuclein Aggregation as Promising Therapeutic Agents for Parkinson's Disease",
+      "year": 2025
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9JO6",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9jo6/pdb",
+      "pdbx_database_accession": "pdb_00009jo6"
+    },
+    {
+      "database_code": "D_1300051677",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "36696",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR36696"
+    }
+  ],
+  "entry": {
+    "id": "9JO6"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-08-06T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "funding_organization": "Other government",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "36696",
+      "db_name": "BMRB",
+      "details": "The complex of alpha-synuclein in the presence of PD6"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2024-09-24T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "target function",
+    "conformers_calculated_total_number": 194,
+    "conformers_submitted_total_number": 16
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "(1H-1H-15N)-NOESY-HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "(1H-13C-1H)-NOESY-HSQC"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "(1H-1H-15N)-NOESY-HSQC"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "(1H-13C-1H)-NOESY-HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D TOCSY-HSQC"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "10",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "11",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "12",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "13",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "14",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-TOCSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "details": "No overall issues",
+      "ionic_strength": "0.1627",
+      "ionic_strength_units": "mM",
+      "label": "alpha synuclein labeled bound to PD6",
+      "pH": "7.5",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "283.15",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "2",
+      "details": "no overall issues",
+      "ionic_strength": "0.1627",
+      "ionic_strength_units": "mM",
+      "label": "PD6 labeled bound to alpha synuclein",
+      "pH": "7.5",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "283.15",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "na",
+      "software_ordinal": 3
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "target function"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.50 mM [U-100% 13C; U-100% 15N] alpha-synuclein, 1.00 mM PD6, 90% H2O/10% D2O",
+      "details": "PBS pH 7.5 10% deuterated glycerol",
+      "label": "alpha synuclein labeled bound to PD6",
+      "solution_id": "3",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.20 mM alpha-synuclein, 0.40 mM [U-100% 13C; U-100% 15N] PD6, 90% H2O/10% D2O",
+      "details": "PBS pH 7.5 10% deuterated glycerol",
+      "label": "PD6 labeled bound to alpha synuclein",
+      "solution_id": "4",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Manthey, Tonelli, Clos II, Rahimi, Markley and Lee",
+      "classification": "chemical shift assignment",
+      "name": "Poky",
+      "ordinal": 1
+    },
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "structure calculation",
+      "name": "X-PLOR NIH",
+      "ordinal": 2
+    },
+    {
+      "authors": "Bonvin",
+      "classification": "structure calculation",
+      "name": "HADDOCK",
+      "ordinal": 5
+    },
+    {
+      "authors": "Manthey, Tonelli, Clos II, Rahimi, Markley and Lee",
+      "classification": "refinement",
+      "name": "Poky",
+      "ordinal": 3
+    },
+    {
+      "authors": "Manthey, Tonelli, Clos II, Rahimi, Markley and Lee",
+      "classification": "peak picking",
+      "name": "Poky",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "details": "TXI cryoprobe",
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "1"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-25T15:08:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.76,
+      "bonds_RMSZ": 0.38,
+      "clashscore": 5.19,
+      "clashscore_full_length": 5.22,
+      "num_H_reduce": 21968,
+      "num_angles_RMSZ": 29536,
+      "num_bonds_RMSZ": 22000,
+      "percent_ramachandran_outliers": 4.36,
+      "percent_ramachandran_outliers_full_length": 4.59,
+      "percent_rotamer_outliers": 18.09,
+      "percent_rotamer_outliers_full_length": 17.84
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 74.9,
+      "chemical_shift_completeness_full_length": 74.38,
+      "cyrange_number_of_domains": 2,
+      "exp_method": "nmr",
+      "medoid_model": 2,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 16,
+      "nmrclust_number_of_outliers": 0,
+      "nmrclust_representative_model": 2
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-09-24T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-08-06T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2025-08-06T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9JO6",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "rcsb_id": "9JO6"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 1359,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1371,
+    "deposited_model_count": 16,
+    "deposited_modeled_polymer_monomer_count": 181,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 181,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 1,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 19.47,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 14.48,
+    "polymer_molecular_weight_minimum": 4.99,
+    "polymer_monomer_count_maximum": 140,
+    "polymer_monomer_count_minimum": 41,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "HADDOCK",
+      "POKY",
+      "X-PLOR NIH"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "36696",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=36696",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9JO6",
+  "rcsb_primary_citation": {
+    "country": "CN",
+    "id": "primary",
+    "journal_abbrev": "Ccs Chem",
+    "journal_id_ISSN": "2096-5745",
+    "pdbx_database_id_DOI": "10.31635/ccschem.025.202505587",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Zhou, H.",
+      "Liang, Z.",
+      "Wang, C.",
+      "Blasco, P.",
+      "Ngai, W.L.",
+      "Xiao, Y.",
+      "Chong, T.H.",
+      "Liu, H.",
+      "Zheng, C.",
+      "Chan, M.K.",
+      "Li, X."
+    ],
+    "rcsb_journal_abbrev": "CC Chem",
+    "title": "Development of Nanomolar Affinity Miniprotein Inhibitors Targeting alpha-Synuclein Aggregation as Promising Therapeutic Agents for Parkinson's Disease",
+    "year": 2025
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "The complex of alpha-synuclein in the presence of PD6"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "PROTEIN BINDING",
+    "text": "Protein peptide complex, aggregation inhibitor, PEPTIDE BINDING PROTEIN, PROTEIN BINDING"
+  }
+}

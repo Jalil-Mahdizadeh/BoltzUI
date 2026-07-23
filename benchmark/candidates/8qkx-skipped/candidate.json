@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "34863"
+  ],
+  "candidate_directory": "candidates/8qkx-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 24,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "CTCCAGCTGGGTGAGGGGCTGGGT"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "2",
+      "length": 14,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "TTGGAGCTGGAGTT"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T17:23:20Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8qkx.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "b213e94076e023b97dc2ea72a5004df4d74fdeef3391c567a661ab4df91ce8f8",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 38,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 1.9358176170595032,
+    "medoid_backbone_rmsd_mean": 1.4075886791243253,
+    "medoid_backbone_rmsd_median": 1.549695535501345,
+    "medoid_backbone_rmsd_p90": 1.7572446170632134,
+    "medoid_model": 10,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 47,
+    "native_contact_count_median": 43.0,
+    "native_contact_count_minimum": 40,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8qkx_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8qkx",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 38,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8QKX",
+  "polymer_composition": "DNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T17:14:30Z",
+  "reference_file": "reference/8qkx.pdb",
+  "release_date": "2024-02-07T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "Solution structure of a bimolecular quadruplex-duplex hybrid containing a V-shaped loop"
+}

@@ -40,6 +40,7 @@ const TEXT_EXTENSIONS = new Set([".txt", ".log", ".json", ".yaml", ".yml", ".csv
 const SKIP_DIRS = new Set([".git", ".boltz", ".boltz-ui", "graphify-out", "node_modules"]);
 
 const jobs = new Map();
+const inputDescriptionCache = new Map();
 const jobEvents = new EventEmitter();
 const MSA_SERVER_DEPENDENT_OPTIONS = new Set([
   "msa_server_url",
@@ -151,12 +152,49 @@ function inputHasLigandEntity(dataPath) {
   }
 }
 
-function inputHasAtomContact(dataPath) {
-  try {
-    return documentHasAtomContacts(parseInputFile(dataPath));
-  } catch {
-    return false;
+function inputCreationTime(stats) {
+  const milliseconds = Number(stats.birthtimeMs) > 0 ? stats.birthtimeMs : stats.mtimeMs;
+  return new Date(milliseconds).toISOString();
+}
+
+async function describeInputFile(dataPath, { inspect = true } = {}) {
+  const extension = path.extname(dataPath).toLowerCase();
+  const stats = await fsp.stat(dataPath);
+  const base = {
+    path: toRelative(dataPath),
+    name: path.basename(dataPath),
+    size: stats.size,
+    createdAt: inputCreationTime(stats)
+  };
+  if (!inspect) return base;
+
+  const signature = `${stats.size}:${stats.mtimeMs}`;
+  const cached = inputDescriptionCache.get(dataPath);
+  if (cached?.signature === signature) return { ...base, ...cached.details };
+
+  let document = null;
+  if ([".yaml", ".yml", ".json"].includes(extension)) {
+    try {
+      document = parseInputFile(dataPath);
+    } catch {
+      document = null;
+    }
   }
+  const details = {
+    hasLigand: document ? objectHasLigandEntity(document) : inputHasLigandEntity(dataPath),
+    hasAtomContact: document ? documentHasAtomContacts(document) : false,
+    postprocessEligibility: inputPostprocessEligibility(dataPath, document)
+  };
+  inputDescriptionCache.set(dataPath, { signature, details });
+  return { ...base, ...details };
+}
+
+function sortInputFilesNewestFirst(inputs) {
+  return inputs.sort((a, b) => (
+    Date.parse(b.createdAt) - Date.parse(a.createdAt)
+    || a.name.localeCompare(b.name)
+    || a.path.localeCompare(b.path)
+  ));
 }
 
 function inputPostprocessEligibility(dataPath, parsedDocument = null) {
@@ -224,6 +262,7 @@ function preparePrediction(payload) {
 
   const document = parseInputFile(dataPath);
   const { restraints, unionGroups } = validateAtomContacts(document);
+  const { contacts: tokenContacts } = validateTokenContacts(document);
   const hasAtomContacts = restraints.length > 0 || unionGroups.length > 0;
   const requestedPreset = payload.preset || (payload.options ? "custom" : DEFAULT_PRESET);
   const { preset, options } = resolvePredictionOptions(
@@ -255,6 +294,7 @@ function preparePrediction(payload) {
     preset,
     atomContacts: restraints,
     atomContactUnions: unionGroups,
+    tokenContacts,
     msa: inputMsaSummary(document, options),
     resultDirectory,
     outputDirectory: displayPath(resultDirectory)
@@ -297,21 +337,14 @@ async function walkFiles(dir, output = []) {
   return output;
 }
 
-async function listInputFiles() {
+async function listInputFiles({ inspect = true } = {}) {
   await ensureDataWorkspace();
   const files = await walkFiles(INPUT_DIR);
-  return files
+  const inputs = await Promise.all(files
     .filter((file) => INPUT_EXTENSIONS.has(path.extname(file).toLowerCase()))
     .filter((file) => !["package.json", "package-lock.json"].includes(path.basename(file).toLowerCase()))
-    .map((file) => ({
-      path: toRelative(file),
-      name: path.basename(file),
-      size: fs.statSync(file).size,
-      hasLigand: inputHasLigandEntity(file),
-      hasAtomContact: inputHasAtomContact(file),
-      postprocessEligibility: inputPostprocessEligibility(file)
-    }))
-    .sort((a, b) => a.path.localeCompare(b.path));
+    .map((file) => describeInputFile(file, { inspect })));
+  return sortInputFilesNewestFirst(inputs);
 }
 
 async function findFiles(dir, predicate, limit = 1500, output = []) {
@@ -406,10 +439,16 @@ async function summarizeResultDir(dir) {
   }
 
   const runManifestFile = path.join(dir, "boltzui_run.json");
-  const restraintReportFile = path.join(dir, "atom_contact_restraints.json");
+  const restraintReportFile = path.join(dir, "contact_restraints.json");
+  const legacyRestraintReportFile = path.join(dir, "atom_contact_restraints.json");
   const postprocessReportFile = path.join(dir, "boltzui_postprocess.json");
   const runManifest = await readJsonIfPresent(runManifestFile);
-  const restraintReport = await readJsonIfPresent(restraintReportFile);
+  const currentRestraintReport = await readJsonIfPresent(restraintReportFile);
+  const restraintReport = currentRestraintReport
+    || await readJsonIfPresent(legacyRestraintReportFile);
+  const resolvedRestraintReportFile = currentRestraintReport
+    ? restraintReportFile
+    : legacyRestraintReportFile;
   const postprocessReport = await readJsonIfPresent(postprocessReportFile);
   const models = [...originalModels];
   if (Array.isArray(postprocessReport?.models)) {
@@ -458,7 +497,7 @@ async function summarizeResultDir(dir) {
     runManifest,
     runManifestPath: runManifest ? toRelative(runManifestFile) : null,
     restraintReport,
-    restraintReportPath: restraintReport ? toRelative(restraintReportFile) : null,
+    restraintReportPath: restraintReport ? toRelative(resolvedRestraintReportFile) : null,
     postprocessReport,
     postprocessReportPath: postprocessReport ? toRelative(postprocessReportFile) : null
   };
@@ -534,6 +573,7 @@ async function startJob(payload) {
     options: prediction.options,
     atomContacts: prediction.atomContacts,
     atomContactUnions: prediction.atomContactUnions,
+    tokenContacts: prediction.tokenContacts,
     resultDirectory: prediction.resultDirectory,
     manifestStagingPath,
     manifestPath: null,
@@ -553,6 +593,7 @@ async function startJob(payload) {
     outputDirectory: prediction.outputDirectory,
     atomContacts: prediction.atomContacts,
     atomContactUnions: prediction.atomContactUnions,
+    tokenContacts: prediction.tokenContacts,
     msa: prediction.msa,
     startedAt: job.startedAt,
     executable: prediction.executable
@@ -591,11 +632,12 @@ async function startJob(payload) {
     }
     addLog(job, `\nExited with code ${code}${signal ? ` (${signal})` : ""}.\n`);
     try {
-      if (job.atomContacts.length > 0 || job.atomContactUnions.length > 0) {
+      if (job.atomContacts.length > 0 || job.atomContactUnions.length > 0 || job.tokenContacts.length > 0) {
         const audit = await writeRestraintReport(
           job.resultDirectory,
           job.atomContacts,
-          job.atomContactUnions
+          job.atomContactUnions,
+          job.tokenContacts
         );
         job.restraintReportPath = audit.reportPath;
       }
@@ -700,15 +742,26 @@ async function serveStatic(urlPath, res) {
 async function handleApi(req, res, url) {
   if (req.method === "GET" && url.pathname === "/api/state") {
     await ensureDataWorkspace();
+    const includeInputs = url.searchParams.get("inputs") !== "0";
+    const [inputs, results] = await Promise.all([
+      includeInputs ? listInputFiles() : Promise.resolve(null),
+      listResults()
+    ]);
     sendJson(res, 200, {
       workspace: ROOT,
       options: optionSchema,
       presets: publicPresets(),
       defaultPreset: DEFAULT_PRESET,
-      inputs: await listInputFiles(),
-      results: await listResults(),
+      inputs,
+      results,
       jobs: Array.from(jobs.values()).map((job) => publicJob(job))
     });
+    return;
+  }
+
+  if (req.method === "GET" && url.pathname === "/api/inputs") {
+    const inspect = url.searchParams.get("details") !== "0";
+    sendJson(res, 200, { workspace: ROOT, inputs: await listInputFiles({ inspect }) });
     return;
   }
 
@@ -840,15 +893,9 @@ async function handleApi(req, res, url) {
     const target = path.resolve(INPUT_DIR, name);
     if (!isInside(target, INPUT_DIR)) throw new Error("Input file path escapes the input workspace.");
     await fsp.writeFile(target, String(payload.content || ""), "utf8");
+    const input = await describeInputFile(target);
     sendJson(res, 201, {
-      input: {
-        path: toRelative(target),
-        name: path.basename(target),
-        size: fs.statSync(target).size,
-        hasLigand: inputHasLigandEntity(target),
-        hasAtomContact: inputHasAtomContact(target),
-        postprocessEligibility: inputPostprocessEligibility(target)
-      }
+      input
     });
     return;
   }
@@ -877,4 +924,11 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildBoltzCommand, preparePrediction, summarizeResultDir };
+module.exports = {
+  buildBoltzCommand,
+  describeInputFile,
+  listInputFiles,
+  preparePrediction,
+  sortInputFilesNewestFirst,
+  summarizeResultDir
+};

@@ -1,0 +1,42 @@
+{
+  "arms": {
+    "combined": {
+      "applicable": true,
+      "exact_constraints": 527,
+      "input": "cases/9jo6/combined/input/9jo6_combined.yaml",
+      "union_groups": 8
+    },
+    "exact": {
+      "applicable": true,
+      "exact_constraints": 527,
+      "input": "cases/9jo6/exact/input/9jo6_exact.yaml",
+      "union_groups": 0
+    },
+    "union": {
+      "applicable": true,
+      "exact_constraints": 0,
+      "input": "cases/9jo6/union/input/9jo6_union.yaml",
+      "union_groups": 8
+    }
+  },
+  "exact_constraint_count": 527,
+  "fixed_phase1_msas": [
+    {
+      "bytes": 242135,
+      "entity_index": 0,
+      "file": "cases/9jo6/source/msa/entity_0.csv",
+      "sha256": "d2c43624410360cc349c15c894e403b45437b61e77d3a9aa96ef9784bf7991d1",
+      "source": "candidates/9jo6-passed/results/boltz_results_9jo6_unconstrained/msa/9jo6_unconstrained_0.csv"
+    },
+    {
+      "bytes": 206269,
+      "entity_index": 1,
+      "file": "cases/9jo6/source/msa/entity_1.csv",
+      "sha256": "b697045f953fe0a1c801bd8164c04c09d0ba1cf620f690fff2a9799a646f0016",
+      "source": "candidates/9jo6-passed/results/boltz_results_9jo6_unconstrained/msa/9jo6_unconstrained_1.csv"
+    }
+  ],
+  "pdb_id": "9JO6",
+  "schema_version": 1,
+  "union_group_count": 8
+}

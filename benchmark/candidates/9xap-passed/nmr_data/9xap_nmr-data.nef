@@ -1,0 +1,1419 @@
+data_nef_9xap
+
+save_nef_nmr_meta_data_entry_information
+   _nef_nmr_meta_data.sf_category     nef_nmr_meta_data
+   _nef_nmr_meta_data.sf_framecode    nef_nmr_meta_data_entry_information
+   _nef_nmr_meta_data.format_name     nmr_exchange_format
+   _nef_nmr_meta_data.format_version  1.1
+
+   loop_
+      _audit.revision_id
+      _audit.creation_date
+      _audit.creation_method
+      _audit.update_record
+
+     1   2026-06-10   .   'Initial release'    
+
+   stop_
+
+save_
+
+save_nef_molecular_system_assembly
+   _nef_molecular_system.sf_category   nef_molecular_system
+   _nef_molecular_system.sf_framecode  nef_molecular_system_assembly
+
+   loop_
+      _nef_covalent_links.chain_code_1
+      _nef_covalent_links.sequence_code_1
+      _nef_covalent_links.residue_name_1
+      _nef_covalent_links.atom_name_1
+      _nef_covalent_links.chain_code_2
+      _nef_covalent_links.sequence_code_2
+      _nef_covalent_links.residue_name_2
+      _nef_covalent_links.atom_name_2
+
+     1   3   CYS   SG   1   20   CYS   SG    
+     1   7   CYS   SG   1   16   CYS   SG    
+     2   3   CYS   SG   2   20   CYS   SG    
+     2   7   CYS   SG   2   16   CYS   SG    
+
+   stop_
+
+   loop_
+      _nef_sequence.index
+      _nef_sequence.chain_code
+      _nef_sequence.sequence_code
+      _nef_sequence.residue_name
+      _nef_sequence.linking
+      _nef_sequence.residue_variant
+      _nef_sequence.cis_peptide
+
+     1    A   1    GLY   start    .     false    
+     2    A   2    TYR   middle   .     .        
+     3    A   3    CYS   middle   -HG   .        
+     4    A   4    PHE   middle   .     .        
+     5    A   5    THR   middle   .     .        
+     6    A   6    ALA   middle   .     .        
+     7    A   7    CYS   middle   -HG   .        
+     8    A   8    ALA   middle   .     .        
+     9    A   9    ARG   middle   .     .        
+     10   A   10   ARG   middle   .     .        
+     11   A   11   ASN   middle   .     .        
+     12   A   12   GLY   middle   .     false    
+     13   A   13   VAL   middle   .     .        
+     14   A   14   ARG   middle   .     .        
+     15   A   15   ILE   middle   .     .        
+     16   A   16   CYS   middle   -HG   .        
+     17   A   17   TYR   middle   .     .        
+     18   A   18   ARG   middle   .     .        
+     19   A   19   ARG   middle   .     .        
+     20   A   20   CYS   middle   -HG   .        
+     21   A   21   ASN   end      .     .        
+     22   B   1    GLY   start    .     false    
+     23   B   2    TYR   middle   .     .        
+     24   B   3    CYS   middle   -HG   .        
+     25   B   4    PHE   middle   .     .        
+     26   B   5    THR   middle   .     .        
+     27   B   6    ALA   middle   .     .        
+     28   B   7    CYS   middle   -HG   .        
+     29   B   8    ALA   middle   .     .        
+     30   B   9    ARG   middle   .     .        
+     31   B   10   ARG   middle   .     .        
+     32   B   11   ASN   middle   .     .        
+     33   B   12   GLY   middle   .     false    
+     34   B   13   VAL   middle   .     .        
+     35   B   14   ARG   middle   .     .        
+     36   B   15   ILE   middle   .     .        
+     37   B   16   CYS   middle   -HG   .        
+     38   B   17   TYR   middle   .     .        
+     39   B   18   ARG   middle   .     .        
+     40   B   19   ARG   middle   .     .        
+     41   B   20   CYS   middle   -HG   .        
+     42   B   21   ASN   end      .     .        
+
+   stop_
+
+save_
+
+save_nef_chemical_shift_list_assigned_chem_shift_list_1
+   _nef_chemical_shift_list.sf_category   nef_chemical_shift_list
+   _nef_chemical_shift_list.sf_framecode  nef_chemical_shift_list_assigned_chem_shift_list_1
+
+   loop_
+      _nef_chemical_shift.chain_code
+      _nef_chemical_shift.sequence_code
+      _nef_chemical_shift.residue_name
+      _nef_chemical_shift.atom_name
+      _nef_chemical_shift.element
+      _nef_chemical_shift.isotope_number
+      _nef_chemical_shift.value
+      _nef_chemical_shift.value_uncertainty
+
+     A   1    GLY   HAy    H   1    3.713     0.020    
+     A   1    GLY   HAx    H   1    3.659     0.020    
+     A   1    GLY   CA     C   13   40.866    0.400    
+     A   2    TYR   H      H   1    8.447     0.020    
+     A   2    TYR   HA     H   1    4.629     0.020    
+     A   2    TYR   HBx    H   1    2.845     0.020    
+     A   2    TYR   HBy    H   1    2.845     0.020    
+     A   2    TYR   CB     C   13   44.349    0.400    
+     A   3    CYS   H      H   1    8.152     0.020    
+     A   3    CYS   HA     H   1    5.357     0.020    
+     A   3    CYS   HBx    H   1    2.349     0.020    
+     A   3    CYS   HBy    H   1    2.776     0.020    
+     A   3    CYS   CB     C   13   44.950    0.400    
+     A   3    CYS   N      N   15   121.121   0.400    
+     A   4    PHE   H      H   1    8.702     0.020    
+     A   4    PHE   HA     H   1    4.656     0.020    
+     A   4    PHE   HBx    H   1    2.881     0.020    
+     A   4    PHE   HBy    H   1    2.881     0.020    
+     A   4    PHE   HD1    H   1    6.811     0.020    
+     A   4    PHE   HD2    H   1    6.811     0.020    
+     A   4    PHE   HE1    H   1    7.034     0.020    
+     A   4    PHE   HE2    H   1    7.034     0.020    
+     A   4    PHE   HZ     H   1    7.035     0.020    
+     A   4    PHE   CB     C   13   38.490    0.400    
+     A   4    PHE   CDx    C   13   130.095   0.400    
+     A   4    PHE   CEx    C   13   128.328   0.400    
+     A   4    PHE   CZ     C   13   127.083   0.400    
+     A   4    PHE   N      N   15   119.685   0.400    
+     A   5    THR   H      H   1    8.459     0.020    
+     A   5    THR   HA     H   1    3.735     0.020    
+     A   5    THR   HB     H   1    4.519     0.020    
+     A   5    THR   HG2%   H   1    0.854     0.020    
+     A   5    THR   CG2    C   13   19.686    0.400    
+     A   5    THR   N      N   15   117.774   0.400    
+     A   6    ALA   H      H   1    8.545     0.020    
+     A   6    ALA   HA     H   1    4.485     0.020    
+     A   6    ALA   HB%    H   1    1.012     0.020    
+     A   6    ALA   CB     C   13   18.939    0.400    
+     A   6    ALA   N      N   15   131.677   0.400    
+     A   7    CYS   H      H   1    8.179     0.020    
+     A   7    CYS   HA     H   1    4.383     0.020    
+     A   7    CYS   HBx    H   1    3.559     0.020    
+     A   7    CYS   HBy    H   1    3.771     0.020    
+     A   8    ALA   HA     H   1    4.009     0.020    
+     A   8    ALA   HB%    H   1    0.968     0.020    
+     A   8    ALA   CB     C   13   15.823    0.400    
+     A   9    ARG   H      H   1    8.111     0.020    
+     A   9    ARG   HA     H   1    3.864     0.020    
+     A   9    ARG   HBx    H   1    1.845     0.020    
+     A   9    ARG   HBy    H   1    1.845     0.020    
+     A   9    ARG   HDx    H   1    2.902     0.020    
+     A   9    ARG   HDy    H   1    2.902     0.020    
+     A   10   ARG   H      H   1    8.725     0.020    
+     A   10   ARG   HA     H   1    4.364     0.020    
+     A   10   ARG   HBy    H   1    1.575     0.020    
+     A   10   ARG   HBx    H   1    1.491     0.020    
+     A   10   ARG   HDx    H   1    2.976     0.020    
+     A   10   ARG   HDy    H   1    2.976     0.020    
+     A   10   ARG   HGy    H   1    1.403     0.020    
+     A   10   ARG   HGx    H   1    1.294     0.020    
+     A   10   ARG   CB     C   13   29.654    0.400    
+     A   10   ARG   CD     C   13   40.767    0.400    
+     A   10   ARG   CG     C   13   24.266    0.400    
+     A   10   ARG   N      N   15   125.459   0.400    
+     A   11   ASN   H      H   1    9.365     0.020    
+     A   11   ASN   HA     H   1    4.176     0.020    
+     A   11   ASN   HBy    H   1    2.863     0.020    
+     A   11   ASN   HBx    H   1    2.592     0.020    
+     A   12   GLY   H      H   1    8.374     0.020    
+     A   12   GLY   HAx    H   1    3.360     0.020    
+     A   12   GLY   HAy    H   1    4.012     0.020    
+     A   12   GLY   CA     C   13   42.792    0.400    
+     A   12   GLY   N      N   15   102.599   0.400    
+     A   13   VAL   H      H   1    7.497     0.020    
+     A   13   VAL   HA     H   1    4.079     0.020    
+     A   13   VAL   HB     H   1    1.892     0.020    
+     A   13   VAL   HGx%   H   1    0.738     0.020    
+     A   13   VAL   HGy%   H   1    0.738     0.020    
+     A   13   VAL   CA     C   13   58.350    0.400    
+     A   13   VAL   CB     C   13   31.730    0.400    
+     A   13   VAL   CGx    C   13   18.580    0.400    
+     A   13   VAL   N      N   15   120.530   0.400    
+     A   14   ARG   H      H   1    8.514     0.020    
+     A   14   ARG   HA     H   1    4.378     0.020    
+     A   14   ARG   HBy    H   1    1.624     0.020    
+     A   14   ARG   HBx    H   1    1.368     0.020    
+     A   14   ARG   HDx    H   1    2.927     0.020    
+     A   14   ARG   HDy    H   1    2.927     0.020    
+     A   14   ARG   HGx    H   1    1.219     0.020    
+     A   14   ARG   HGy    H   1    1.219     0.020    
+     A   14   ARG   CB     C   13   28.123    0.400    
+     A   14   ARG   CD     C   13   41.053    0.400    
+     A   14   ARG   CG     C   13   25.514    0.400    
+     A   14   ARG   N      N   15   126.888   0.400    
+     A   15   ILE   H      H   1    8.746     0.020    
+     A   15   ILE   HA     H   1    4.262     0.020    
+     A   15   ILE   HB     H   1    1.629     0.020    
+     A   15   ILE   HD1%   H   1    0.658     0.020    
+     A   15   ILE   HG1x   H   1    1.307     0.020    
+     A   15   ILE   HG1y   H   1    1.307     0.020    
+     A   15   ILE   HG2%   H   1    0.986     0.020    
+     A   15   ILE   CB     C   13   37.848    0.400    
+     A   15   ILE   CD1    C   13   14.756    0.400    
+     A   15   ILE   CG1    C   13   24.287    0.400    
+     A   15   ILE   CG2    C   13   24.545    0.400    
+     A   15   ILE   N      N   15   128.999   0.400    
+     A   16   CYS   H      H   1    8.488     0.020    
+     A   16   CYS   HA     H   1    5.439     0.020    
+     A   16   CYS   HBy    H   1    2.703     0.020    
+     A   16   CYS   HBx    H   1    2.444     0.020    
+     A   16   CYS   CB     C   13   44.537    0.400    
+     A   16   CYS   N      N   15   124.006   0.400    
+     A   17   TYR   H      H   1    8.814     0.020    
+     A   17   TYR   HA     H   1    4.615     0.020    
+     A   17   TYR   HBy    H   1    2.803     0.020    
+     A   17   TYR   HBx    H   1    2.691     0.020    
+     A   17   TYR   HD1    H   1    6.928     0.020    
+     A   17   TYR   HD2    H   1    6.928     0.020    
+     A   17   TYR   HE1    H   1    6.549     0.020    
+     A   17   TYR   HE2    H   1    6.549     0.020    
+     A   17   TYR   CB     C   13   38.018    0.400    
+     A   17   TYR   CDx    C   13   130.717   0.400    
+     A   17   TYR   CEx    C   13   115.558   0.400    
+     A   17   TYR   N      N   15   120.783   0.400    
+     A   18   ARG   H      H   1    8.397     0.020    
+     A   18   ARG   HA     H   1    4.511     0.020    
+     A   18   ARG   HBy    H   1    1.503     0.020    
+     A   18   ARG   HBx    H   1    1.413     0.020    
+     A   18   ARG   HDx    H   1    2.841     0.020    
+     A   18   ARG   HDy    H   1    2.841     0.020    
+     A   18   ARG   HGx    H   1    1.209     0.020    
+     A   18   ARG   HGy    H   1    1.209     0.020    
+     A   18   ARG   CB     C   13   28.803    0.400    
+     A   18   ARG   CD     C   13   40.867    0.400    
+     A   18   ARG   CG     C   13   24.746    0.400    
+     A   18   ARG   N      N   15   122.372   0.400    
+     A   19   ARG   H      H   1    8.578     0.020    
+     A   19   ARG   HA     H   1    4.306     0.020    
+     A   19   ARG   HBy    H   1    1.205     0.020    
+     A   19   ARG   HBx    H   1    1.021     0.020    
+     A   19   ARG   HDx    H   1    2.934     0.020    
+     A   19   ARG   HDy    H   1    2.934     0.020    
+     A   19   ARG   HGx    H   1    1.283     0.020    
+     A   19   ARG   HGy    H   1    1.283     0.020    
+     A   19   ARG   CB     C   13   30.053    0.400    
+     A   19   ARG   CD     C   13   40.730    0.400    
+     A   19   ARG   CG     C   13   24.261    0.400    
+     A   19   ARG   N      N   15   127.955   0.400    
+     A   20   CYS   H      H   1    8.387     0.020    
+     A   20   CYS   HA     H   1    5.147     0.020    
+     A   20   CYS   HBx    H   1    2.706     0.020    
+     A   20   CYS   HBy    H   1    2.841     0.020    
+     A   20   CYS   CB     C   13   44.342    0.400    
+     A   20   CYS   N      N   15   121.237   0.400    
+     A   21   ASN   H      H   1    8.264     0.020    
+     A   21   ASN   HA     H   1    4.372     0.020    
+     A   21   ASN   HBx    H   1    2.631     0.020    
+     A   21   ASN   HBy    H   1    2.631     0.020    
+     A   21   ASN   CB     C   13   37.930    0.400    
+     A   21   ASN   N      N   15   126.502   0.400    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_1
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_1
+   _nef_distance_restraint_list.restraint_origin  noe
+   _nef_distance_restraint_list.potential_type    upper-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1     1     .   A   16   CYS   H      A   16   CYS   HBy    1.0   .   .   .   .   3.53   .    
+     2     2     .   A   4    PHE   H      A   19   ARG   HBy    1.0   .   .   .   .   4.19   .    
+     3     3     .   A   4    PHE   H      A   20   CYS   HA     1.0   .   .   .   .   4.58   .    
+     4     4     .   A   3    CYS   HBy    A   4    PHE   H      1.0   .   .   .   .   4.48   .    
+     5     5     .   A   15   ILE   HD1%   A   17   TYR   H      1.0   .   .   .   .   4.19   .    
+     6     6     .   A   15   ILE   HD1%   A   16   CYS   H      1.0   .   .   .   .   3.67   .    
+     7     7     .   A   15   ILE   HB     A   15   ILE   HD1%   1.0   .   .   .   .   3.12   .    
+     8     8     .   A   15   ILE   HA     A   15   ILE   HD1%   1.0   .   .   .   .   3.56   .    
+     9     9     .   A   17   TYR   H      A   17   TYR   HBx    1.0   .   .   .   .   4.01   .    
+     10    10    .   A   16   CYS   HA     A   17   TYR   H      1.0   .   .   .   .   3.03   .    
+     11    11    .   A   15   ILE   HG2%   A   15   ILE   HD1%   1.0   .   .   .   .   3.38   .    
+     12    12    .   A   15   ILE   HA     A   15   ILE   HG2%   1.0   .   .   .   .   4.24   .    
+     13    13    .   A   19   ARG   HBx    A   19   ARG   HDx    1.0   .   .   .   .   3.55   .    
+     14    13    .   A   19   ARG   HBx    A   19   ARG   HDy    1.0   .   .   .   .   3.55   .    
+     15    14    .   A   1    GLY   HAy    A   2    TYR   H      1.0   .   .   .   .   3.42   .    
+     16    15    .   A   4    PHE   HZ     A   18   ARG   HGx    1.0   .   .   .   .   4.18   .    
+     17    15    .   A   4    PHE   HZ     A   18   ARG   HGy    1.0   .   .   .   .   4.18   .    
+     18    16    .   A   18   ARG   H      A   18   ARG   HGx    1.0   .   .   .   .   4.12   .    
+     19    16    .   A   18   ARG   H      A   18   ARG   HGy    1.0   .   .   .   .   4.12   .    
+     20    17    .   A   19   ARG   HBy    A   19   ARG   HDx    1.0   .   .   .   .   3.83   .    
+     21    17    .   A   19   ARG   HBy    A   19   ARG   HDy    1.0   .   .   .   .   3.83   .    
+     22    17    .   A   19   ARG   HBx    A   19   ARG   HDx    1.0   .   .   .   .   3.83   .    
+     23    17    .   A   19   ARG   HBx    A   19   ARG   HDy    1.0   .   .   .   .   3.83   .    
+     24    18    .   A   10   ARG   HA     A   11   ASN   H      1.0   .   .   .   .   2.83   .    
+     25    19    .   A   11   ASN   H      A   11   ASN   HA     1.0   .   .   .   .   2.88   .    
+     26    20    .   A   7    CYS   H      A   7    CYS   HBy    1.0   .   .   .   .   3.55   .    
+     27    21    .   A   20   CYS   H      A   20   CYS   HBy    1.0   .   .   .   .   3.92   .    
+     28    22    .   A   16   CYS   HBx    A   17   TYR   H      1.0   .   .   .   .   3.82   .    
+     29    23    .   A   16   CYS   H      A   16   CYS   HBx    1.0   .   .   .   .   3.83   .    
+     30    24    .   A   5    THR   HG2%   A   16   CYS   HBx    1.0   .   .   .   .   2.91   .    
+     31    25    .   A   15   ILE   H      A   15   ILE   HD1%   1.0   .   .   .   .   4.0    .    
+     32    26    .   A   13   VAL   HGx%   A   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     33    26    .   A   13   VAL   HGy%   A   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     34    27    .   A   15   ILE   H      A   15   ILE   HB     1.0   .   .   .   .   3.81   .    
+     35    28    .   A   6    ALA   HB%    A   17   TYR   H      1.0   .   .   .   .   4.74   .    
+     36    29    .   A   4    PHE   HZ     A   6    ALA   HB%    1.0   .   .   .   .   3.74   .    
+     37    30    .   A   4    PHE   HD1    A   6    ALA   HB%    1.0   .   .   .   .   3.49   .    
+     38    30    .   A   4    PHE   HD2    A   6    ALA   HB%    1.0   .   .   .   .   3.49   .    
+     39    31    .   A   6    ALA   H      A   6    ALA   HB%    1.0   .   .   .   .   3.16   .    
+     40    32    .   A   10   ARG   HBx    A   10   ARG   HGy    1.0   .   .   .   .   2.4    .    
+     41    33    .   A   10   ARG   H      A   10   ARG   HBx    1.0   .   .   .   .   4.0    .    
+     42    34    .   A   13   VAL   HB     A   14   ARG   H      1.0   .   .   .   .   4.44   .    
+     43    35    .   A   4    PHE   HZ     A   19   ARG   HDx    1.0   .   .   .   .   3.27   .    
+     44    35    .   A   4    PHE   HZ     A   19   ARG   HDy    1.0   .   .   .   .   3.27   .    
+     45    36    .   A   15   ILE   HA     A   16   CYS   H      1.0   .   .   .   .   3.05   .    
+     46    37    .   A   9    ARG   HBx    A   9    ARG   HDx    1.0   .   .   .   .   3.43   .    
+     47    37    .   A   9    ARG   HBx    A   9    ARG   HDy    1.0   .   .   .   .   3.43   .    
+     48    37    .   A   9    ARG   HBy    A   9    ARG   HDx    1.0   .   .   .   .   3.43   .    
+     49    37    .   A   9    ARG   HBy    A   9    ARG   HDy    1.0   .   .   .   .   3.43   .    
+     50    38    .   A   15   ILE   HG2%   A   15   ILE   HG1x   1.0   .   .   .   .   3.3    .    
+     51    38    .   A   15   ILE   HG2%   A   15   ILE   HG1y   1.0   .   .   .   .   3.3    .    
+     52    39    .   A   19   ARG   HBy    A   19   ARG   HDx    1.0   .   .   .   .   3.19   .    
+     53    39    .   A   19   ARG   HBy    A   19   ARG   HDy    1.0   .   .   .   .   3.19   .    
+     54    40    .   A   19   ARG   H      A   19   ARG   HBy    1.0   .   .   .   .   3.61   .    
+     55    41    .   A   3    CYS   HBx    A   19   ARG   HBy    1.0   .   .   .   .   4.56   .    
+     56    42    .   A   3    CYS   HBx    A   18   ARG   HGx    1.0   .   .   .   .   0.0    .    
+     57    42    .   A   3    CYS   HBx    A   18   ARG   HGy    1.0   .   .   .   .   0.0    .    
+     58    43    .   A   2    TYR   H      A   2    TYR   HBx    1.0   .   .   .   .   3.12   .    
+     59    43    .   A   2    TYR   H      A   2    TYR   HBy    1.0   .   .   .   .   3.12   .    
+     60    44    .   A   18   ARG   HBx    A   18   ARG   HGx    1.0   .   .   .   .   2.6    .    
+     61    44    .   A   18   ARG   HBx    A   18   ARG   HGy    1.0   .   .   .   .   2.6    .    
+     62    45    .   A   17   TYR   HD1    A   20   CYS   HBy    1.0   .   .   .   .   3.34   .    
+     63    45    .   A   17   TYR   HD2    A   20   CYS   HBy    1.0   .   .   .   .   3.34   .    
+     64    46    .   A   13   VAL   HA     A   13   VAL   HGx%   1.0   .   .   .   .   3.51   .    
+     65    46    .   A   13   VAL   HA     A   13   VAL   HGy%   1.0   .   .   .   .   3.51   .    
+     66    47    .   A   20   CYS   HBy    A   21   ASN   H      1.0   .   .   .   .   4.04   .    
+     67    48    .   A   20   CYS   HA     A   21   ASN   H      1.0   .   .   .   .   3.17   .    
+     68    49    .   A   21   ASN   H      A   21   ASN   HBx    1.0   .   .   .   .   3.87   .    
+     69    49    .   A   21   ASN   H      A   21   ASN   HBy    1.0   .   .   .   .   3.87   .    
+     70    50    .   A   4    PHE   H      A   4    PHE   HD1    1.0   .   .   .   .   5.55   .    
+     71    50    .   A   4    PHE   H      A   4    PHE   HD2    1.0   .   .   .   .   5.55   .    
+     72    51    .   A   4    PHE   HD1    A   5    THR   H      1.0   .   .   .   .   3.82   .    
+     73    51    .   A   4    PHE   HD2    A   5    THR   H      1.0   .   .   .   .   3.82   .    
+     74    52    .   A   8    ALA   HB%    A   12   GLY   HAx    1.0   .   .   .   .   3.8    .    
+     75    53    .   A   6    ALA   H      A   17   TYR   H      1.0   .   .   .   .   3.71   .    
+     76    54    .   A   5    THR   HB     A   6    ALA   H      1.0   .   .   .   .   3.14   .    
+     77    55    .   A   6    ALA   H      A   18   ARG   H      1.0   .   .   .   .   4.47   .    
+     78    56    .   A   10   ARG   HA     A   10   ARG   HGy    1.0   .   .   .   .   3.9    .    
+     79    57    .   A   10   ARG   H      A   10   ARG   HGy    1.0   .   .   .   .   4.86   .    
+     80    58    .   A   10   ARG   HBy    A   10   ARG   HGy    1.0   .   .   .   .   2.86   .    
+     81    59    .   A   13   VAL   H      A   13   VAL   HB     1.0   .   .   .   .   3.75   .    
+     82    60    .   A   13   VAL   H      A   13   VAL   HGx%   1.0   .   .   .   .   3.54   .    
+     83    60    .   A   13   VAL   H      A   13   VAL   HGy%   1.0   .   .   .   .   3.54   .    
+     84    61    .   A   12   GLY   H      A   13   VAL   H      1.0   .   .   .   .   3.44   .    
+     85    62    .   A   10   ARG   H      A   13   VAL   H      1.0   .   .   .   .   3.85   .    
+     86    63    .   A   3    CYS   HA     A   4    PHE   H      1.0   .   .   .   .   3.02   .    
+     87    64    .   A   21   ASN   HA     A   21   ASN   HBx    1.0   .   .   .   .   2.83   .    
+     88    64    .   A   21   ASN   HA     A   21   ASN   HBy    1.0   .   .   .   .   2.83   .    
+     89    65    .   A   9    ARG   HBx    A   14   ARG   HA     1.0   .   .   .   .   4.09   .    
+     90    65    .   A   9    ARG   HBy    A   14   ARG   HA     1.0   .   .   .   .   4.09   .    
+     91    66    .   A   9    ARG   HBx    A   10   ARG   HA     1.0   .   .   .   .   0.0    .    
+     92    66    .   A   9    ARG   HBy    A   10   ARG   HA     1.0   .   .   .   .   0.0    .    
+     93    67    .   A   9    ARG   H      A   9    ARG   HBx    1.0   .   .   .   .   3.58   .    
+     94    67    .   A   9    ARG   H      A   9    ARG   HBy    1.0   .   .   .   .   3.58   .    
+     95    68    .   A   9    ARG   HBx    A   10   ARG   HBy    1.0   .   .   .   .   4.01   .    
+     96    68    .   A   9    ARG   HBy    A   10   ARG   HBy    1.0   .   .   .   .   4.01   .    
+     97    69    .   A   19   ARG   H      A   19   ARG   HBx    1.0   .   .   .   .   3.94   .    
+     98    70    .   A   10   ARG   H      A   10   ARG   HDx    1.0   .   .   .   .   5.27   .    
+     99    70    .   A   10   ARG   H      A   10   ARG   HDy    1.0   .   .   .   .   5.27   .    
+     100   71    .   A   10   ARG   H      A   13   VAL   HGx%   1.0   .   .   .   .   4.89   .    
+     101   71    .   A   10   ARG   H      A   13   VAL   HGy%   1.0   .   .   .   .   4.89   .    
+     102   72    .   A   10   ARG   H      A   10   ARG   HBy    1.0   .   .   .   .   4.13   .    
+     103   73    .   A   18   ARG   HBx    A   18   ARG   HDx    1.0   .   .   .   .   3.64   .    
+     104   73    .   A   18   ARG   HBx    A   18   ARG   HDy    1.0   .   .   .   .   3.64   .    
+     105   74    .   A   18   ARG   HBy    A   18   ARG   HDx    1.0   .   .   .   .   3.7    .    
+     106   74    .   A   18   ARG   HBy    A   18   ARG   HDy    1.0   .   .   .   .   3.7    .    
+     107   75    .   A   4    PHE   H      A   4    PHE   HBx    1.0   .   .   .   .   3.63   .    
+     108   75    .   A   4    PHE   H      A   4    PHE   HBy    1.0   .   .   .   .   3.63   .    
+     109   76    .   A   4    PHE   HA     A   4    PHE   HBx    1.0   .   .   .   .   3.0    .    
+     110   76    .   A   4    PHE   HA     A   4    PHE   HBy    1.0   .   .   .   .   3.0    .    
+     111   77    .   A   4    PHE   HBx    A   5    THR   H      1.0   .   .   .   .   3.04   .    
+     112   77    .   A   4    PHE   HBy    A   5    THR   H      1.0   .   .   .   .   3.04   .    
+     113   78    .   A   11   ASN   HA     A   11   ASN   HBy    1.0   .   .   .   .   2.82   .    
+     114   79    .   A   7    CYS   H      A   7    CYS   HBx    1.0   .   .   .   .   3.93   .    
+     115   80    .   A   4    PHE   HA     A   5    THR   H      1.0   .   .   .   .   3.02   .    
+     116   81    .   A   5    THR   H      A   5    THR   HB     1.0   .   .   .   .   3.47   .    
+     117   82    .   A   17   TYR   HBx    A   18   ARG   H      1.0   .   .   .   .   4.22   .    
+     118   83    .   A   17   TYR   HBy    A   18   ARG   H      1.0   .   .   .   .   4.59   .    
+     119   84    .   A   6    ALA   HB%    A   18   ARG   H      1.0   .   .   .   .   4.45   .    
+     120   85    .   A   18   ARG   H      A   18   ARG   HBx    1.0   .   .   .   .   3.4    .    
+     121   86    .   A   17   TYR   HA     A   18   ARG   H      1.0   .   .   .   .   3.25   .    
+     122   87    .   A   18   ARG   H      A   18   ARG   HBy    1.0   .   .   .   .   3.45   .    
+     123   88    .   A   3    CYS   H      A   3    CYS   HBy    1.0   .   .   .   .   4.14   .    
+     124   89    .   A   20   CYS   HBx    A   21   ASN   H      1.0   .   .   .   .   5.5    .    
+     125   90    .   A   20   CYS   H      A   20   CYS   HBx    1.0   .   .   .   .   3.15   .    
+     126   91    .   A   7    CYS   H      A   8    ALA   HB%    1.0   .   .   .   .   4.57   .    
+     127   92    .   A   7    CYS   H      A   15   ILE   HG2%   1.0   .   .   .   .   0.0    .    
+     128   93    .   A   3    CYS   HBx    A   4    PHE   H      1.0   .   .   .   .   3.63   .    
+     129   94    .   A   5    THR   HG2%   A   17   TYR   H      1.0   .   .   .   .   4.06   .    
+     130   95    .   A   5    THR   HG2%   A   16   CYS   HBy    1.0   .   .   .   .   3.59   .    
+     131   96    .   A   5    THR   HA     A   5    THR   HG2%   1.0   .   .   .   .   2.88   .    
+     132   97    .   A   5    THR   HG2%   A   6    ALA   H      1.0   .   .   .   .   3.41   .    
+     133   98    .   A   5    THR   H      A   5    THR   HG2%   1.0   .   .   .   .   3.95   .    
+     134   99    .   A   10   ARG   HA     A   10   ARG   HGx    1.0   .   .   .   .   4.19   .    
+     135   100   .   B   16   CYS   H      B   16   CYS   HBx    1.0   .   .   .   .   3.53   .    
+     136   101   .   B   4    PHE   H      B   19   ARG   HBx    1.0   .   .   .   .   4.19   .    
+     137   102   .   B   4    PHE   H      B   20   CYS   HA     1.0   .   .   .   .   4.58   .    
+     138   103   .   B   3    CYS   HBy    B   4    PHE   H      1.0   .   .   .   .   4.48   .    
+     139   104   .   B   15   ILE   HD11   B   17   TYR   H      1.0   .   .   .   .   4.19   .    
+     140   104   .   B   15   ILE   HD12   B   17   TYR   H      1.0   .   .   .   .   4.19   .    
+     141   104   .   B   15   ILE   HD13   B   17   TYR   H      1.0   .   .   .   .   4.19   .    
+     142   105   .   B   15   ILE   HD11   B   16   CYS   H      1.0   .   .   .   .   3.67   .    
+     143   105   .   B   15   ILE   HD12   B   16   CYS   H      1.0   .   .   .   .   3.67   .    
+     144   105   .   B   15   ILE   HD13   B   16   CYS   H      1.0   .   .   .   .   3.67   .    
+     145   106   .   B   15   ILE   HB     B   15   ILE   HD11   1.0   .   .   .   .   3.12   .    
+     146   106   .   B   15   ILE   HB     B   15   ILE   HD12   1.0   .   .   .   .   3.12   .    
+     147   106   .   B   15   ILE   HB     B   15   ILE   HD13   1.0   .   .   .   .   3.12   .    
+     148   107   .   B   15   ILE   HA     B   15   ILE   HD11   1.0   .   .   .   .   3.56   .    
+     149   107   .   B   15   ILE   HA     B   15   ILE   HD12   1.0   .   .   .   .   3.56   .    
+     150   107   .   B   15   ILE   HA     B   15   ILE   HD13   1.0   .   .   .   .   3.56   .    
+     151   108   .   B   17   TYR   H      B   17   TYR   HBy    1.0   .   .   .   .   4.01   .    
+     152   109   .   B   16   CYS   HA     B   17   TYR   H      1.0   .   .   .   .   3.03   .    
+     153   110   .   B   15   ILE   HG21   B   15   ILE   HD11   1.0   .   .   .   .   3.38   .    
+     154   110   .   B   15   ILE   HG21   B   15   ILE   HD12   1.0   .   .   .   .   3.38   .    
+     155   110   .   B   15   ILE   HG21   B   15   ILE   HD13   1.0   .   .   .   .   3.38   .    
+     156   110   .   B   15   ILE   HG22   B   15   ILE   HD11   1.0   .   .   .   .   3.38   .    
+     157   110   .   B   15   ILE   HG22   B   15   ILE   HD12   1.0   .   .   .   .   3.38   .    
+     158   110   .   B   15   ILE   HG22   B   15   ILE   HD13   1.0   .   .   .   .   3.38   .    
+     159   110   .   B   15   ILE   HG23   B   15   ILE   HD11   1.0   .   .   .   .   3.38   .    
+     160   110   .   B   15   ILE   HG23   B   15   ILE   HD12   1.0   .   .   .   .   3.38   .    
+     161   110   .   B   15   ILE   HG23   B   15   ILE   HD13   1.0   .   .   .   .   3.38   .    
+     162   111   .   B   15   ILE   HA     B   15   ILE   HG21   1.0   .   .   .   .   4.24   .    
+     163   111   .   B   15   ILE   HA     B   15   ILE   HG22   1.0   .   .   .   .   4.24   .    
+     164   111   .   B   15   ILE   HA     B   15   ILE   HG23   1.0   .   .   .   .   4.24   .    
+     165   112   .   B   19   ARG   HBy    B   19   ARG   HDx    1.0   .   .   .   .   3.55   .    
+     166   112   .   B   19   ARG   HBy    B   19   ARG   HDy    1.0   .   .   .   .   3.55   .    
+     167   113   .   B   1    GLY   HAx    B   2    TYR   H      1.0   .   .   .   .   3.42   .    
+     168   114   .   B   4    PHE   HZ     B   18   ARG   HGx    1.0   .   .   .   .   4.18   .    
+     169   114   .   B   4    PHE   HZ     B   18   ARG   HGy    1.0   .   .   .   .   4.18   .    
+     170   115   .   B   18   ARG   H      B   18   ARG   HGx    1.0   .   .   .   .   4.12   .    
+     171   115   .   B   18   ARG   H      B   18   ARG   HGy    1.0   .   .   .   .   4.12   .    
+     172   116   .   B   19   ARG   HBx    B   19   ARG   HDx    1.0   .   .   .   .   3.83   .    
+     173   116   .   B   19   ARG   HBx    B   19   ARG   HDy    1.0   .   .   .   .   3.83   .    
+     174   116   .   B   19   ARG   HBy    B   19   ARG   HDx    1.0   .   .   .   .   3.83   .    
+     175   116   .   B   19   ARG   HBy    B   19   ARG   HDy    1.0   .   .   .   .   3.83   .    
+     176   117   .   B   10   ARG   HA     B   11   ASN   H      1.0   .   .   .   .   2.83   .    
+     177   118   .   B   11   ASN   H      B   11   ASN   HA     1.0   .   .   .   .   2.88   .    
+     178   119   .   B   7    CYS   H      B   7    CYS   HBy    1.0   .   .   .   .   3.55   .    
+     179   120   .   B   20   CYS   H      B   20   CYS   HBy    1.0   .   .   .   .   3.92   .    
+     180   121   .   B   16   CYS   HBy    B   17   TYR   H      1.0   .   .   .   .   3.82   .    
+     181   122   .   B   16   CYS   H      B   16   CYS   HBy    1.0   .   .   .   .   3.83   .    
+     182   123   .   B   5    THR   HG21   B   16   CYS   HBy    1.0   .   .   .   .   2.91   .    
+     183   123   .   B   5    THR   HG22   B   16   CYS   HBy    1.0   .   .   .   .   2.91   .    
+     184   123   .   B   5    THR   HG23   B   16   CYS   HBy    1.0   .   .   .   .   2.91   .    
+     185   124   .   B   15   ILE   H      B   15   ILE   HD11   1.0   .   .   .   .   4.0    .    
+     186   124   .   B   15   ILE   H      B   15   ILE   HD12   1.0   .   .   .   .   4.0    .    
+     187   124   .   B   15   ILE   H      B   15   ILE   HD13   1.0   .   .   .   .   4.0    .    
+     188   125   .   B   13   VAL   HG11   B   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     189   125   .   B   13   VAL   HG12   B   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     190   125   .   B   13   VAL   HG13   B   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     191   125   .   B   13   VAL   HG21   B   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     192   125   .   B   13   VAL   HG22   B   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     193   125   .   B   13   VAL   HG23   B   15   ILE   H      1.0   .   .   .   .   4.9    .    
+     194   126   .   B   15   ILE   H      B   15   ILE   HB     1.0   .   .   .   .   3.81   .    
+     195   127   .   B   6    ALA   HB1    B   17   TYR   H      1.0   .   .   .   .   4.74   .    
+     196   127   .   B   6    ALA   HB2    B   17   TYR   H      1.0   .   .   .   .   4.74   .    
+     197   127   .   B   6    ALA   HB3    B   17   TYR   H      1.0   .   .   .   .   4.74   .    
+     198   128   .   B   4    PHE   HZ     B   6    ALA   HB1    1.0   .   .   .   .   3.74   .    
+     199   128   .   B   4    PHE   HZ     B   6    ALA   HB2    1.0   .   .   .   .   3.74   .    
+     200   128   .   B   4    PHE   HZ     B   6    ALA   HB3    1.0   .   .   .   .   3.74   .    
+     201   129   .   B   4    PHE   HDx    B   6    ALA   HB1    1.0   .   .   .   .   3.49   .    
+     202   129   .   B   4    PHE   HDx    B   6    ALA   HB2    1.0   .   .   .   .   3.49   .    
+     203   129   .   B   4    PHE   HDx    B   6    ALA   HB3    1.0   .   .   .   .   3.49   .    
+     204   129   .   B   4    PHE   HDy    B   6    ALA   HB1    1.0   .   .   .   .   3.49   .    
+     205   129   .   B   4    PHE   HDy    B   6    ALA   HB2    1.0   .   .   .   .   3.49   .    
+     206   129   .   B   4    PHE   HDy    B   6    ALA   HB3    1.0   .   .   .   .   3.49   .    
+     207   130   .   B   6    ALA   H      B   6    ALA   HB1    1.0   .   .   .   .   3.16   .    
+     208   130   .   B   6    ALA   H      B   6    ALA   HB2    1.0   .   .   .   .   3.16   .    
+     209   130   .   B   6    ALA   H      B   6    ALA   HB3    1.0   .   .   .   .   3.16   .    
+     210   131   .   B   10   ARG   HBy    B   10   ARG   HGx    1.0   .   .   .   .   2.4    .    
+     211   132   .   B   10   ARG   H      B   10   ARG   HBy    1.0   .   .   .   .   4.0    .    
+     212   133   .   B   13   VAL   HB     B   14   ARG   H      1.0   .   .   .   .   4.44   .    
+     213   134   .   B   4    PHE   HZ     B   19   ARG   HDx    1.0   .   .   .   .   3.27   .    
+     214   134   .   B   4    PHE   HZ     B   19   ARG   HDy    1.0   .   .   .   .   3.27   .    
+     215   135   .   B   15   ILE   HA     B   16   CYS   H      1.0   .   .   .   .   3.05   .    
+     216   136   .   B   9    ARG   HBx    B   9    ARG   HDx    1.0   .   .   .   .   3.43   .    
+     217   136   .   B   9    ARG   HBx    B   9    ARG   HDy    1.0   .   .   .   .   3.43   .    
+     218   136   .   B   9    ARG   HBy    B   9    ARG   HDx    1.0   .   .   .   .   3.43   .    
+     219   136   .   B   9    ARG   HBy    B   9    ARG   HDy    1.0   .   .   .   .   3.43   .    
+     220   137   .   B   15   ILE   HG21   B   15   ILE   HG1x   1.0   .   .   .   .   3.3    .    
+     221   137   .   B   15   ILE   HG21   B   15   ILE   HG1y   1.0   .   .   .   .   3.3    .    
+     222   137   .   B   15   ILE   HG22   B   15   ILE   HG1x   1.0   .   .   .   .   3.3    .    
+     223   137   .   B   15   ILE   HG22   B   15   ILE   HG1y   1.0   .   .   .   .   3.3    .    
+     224   137   .   B   15   ILE   HG23   B   15   ILE   HG1x   1.0   .   .   .   .   3.3    .    
+     225   137   .   B   15   ILE   HG23   B   15   ILE   HG1y   1.0   .   .   .   .   3.3    .    
+     226   138   .   B   19   ARG   HBx    B   19   ARG   HDx    1.0   .   .   .   .   3.19   .    
+     227   138   .   B   19   ARG   HBx    B   19   ARG   HDy    1.0   .   .   .   .   3.19   .    
+     228   139   .   B   19   ARG   H      B   19   ARG   HBx    1.0   .   .   .   .   3.61   .    
+     229   140   .   B   3    CYS   HBx    B   19   ARG   HBx    1.0   .   .   .   .   4.56   .    
+     230   141   .   B   3    CYS   HBx    B   18   ARG   HGx    1.0   .   .   .   .   0.0    .    
+     231   141   .   B   3    CYS   HBx    B   18   ARG   HGy    1.0   .   .   .   .   0.0    .    
+     232   142   .   B   2    TYR   H      B   2    TYR   HBx    1.0   .   .   .   .   3.12   .    
+     233   142   .   B   2    TYR   H      B   2    TYR   HBy    1.0   .   .   .   .   3.12   .    
+     234   143   .   B   18   ARG   HBy    B   18   ARG   HGx    1.0   .   .   .   .   2.6    .    
+     235   143   .   B   18   ARG   HBy    B   18   ARG   HGy    1.0   .   .   .   .   2.6    .    
+     236   144   .   B   17   TYR   HDx    B   20   CYS   HBy    1.0   .   .   .   .   3.34   .    
+     237   144   .   B   17   TYR   HDy    B   20   CYS   HBy    1.0   .   .   .   .   3.34   .    
+     238   145   .   B   13   VAL   HA     B   13   VAL   HG11   1.0   .   .   .   .   3.51   .    
+     239   145   .   B   13   VAL   HA     B   13   VAL   HG12   1.0   .   .   .   .   3.51   .    
+     240   145   .   B   13   VAL   HA     B   13   VAL   HG13   1.0   .   .   .   .   3.51   .    
+     241   145   .   B   13   VAL   HA     B   13   VAL   HG21   1.0   .   .   .   .   3.51   .    
+     242   145   .   B   13   VAL   HA     B   13   VAL   HG22   1.0   .   .   .   .   3.51   .    
+     243   145   .   B   13   VAL   HA     B   13   VAL   HG23   1.0   .   .   .   .   3.51   .    
+     244   146   .   B   20   CYS   HBy    B   21   ASN   H      1.0   .   .   .   .   4.04   .    
+     245   147   .   B   20   CYS   HA     B   21   ASN   H      1.0   .   .   .   .   3.17   .    
+     246   148   .   B   21   ASN   H      B   21   ASN   HBx    1.0   .   .   .   .   3.87   .    
+     247   148   .   B   21   ASN   H      B   21   ASN   HBy    1.0   .   .   .   .   3.87   .    
+     248   149   .   B   4    PHE   H      B   4    PHE   HDx    1.0   .   .   .   .   5.55   .    
+     249   149   .   B   4    PHE   H      B   4    PHE   HDy    1.0   .   .   .   .   5.55   .    
+     250   150   .   B   4    PHE   HDx    B   5    THR   H      1.0   .   .   .   .   3.82   .    
+     251   150   .   B   4    PHE   HDy    B   5    THR   H      1.0   .   .   .   .   3.82   .    
+     252   151   .   B   8    ALA   HB1    B   12   GLY   HAx    1.0   .   .   .   .   3.8    .    
+     253   151   .   B   8    ALA   HB2    B   12   GLY   HAx    1.0   .   .   .   .   3.8    .    
+     254   151   .   B   8    ALA   HB3    B   12   GLY   HAx    1.0   .   .   .   .   3.8    .    
+     255   152   .   B   6    ALA   H      B   17   TYR   H      1.0   .   .   .   .   3.71   .    
+     256   153   .   B   5    THR   HB     B   6    ALA   H      1.0   .   .   .   .   3.14   .    
+     257   154   .   B   6    ALA   H      B   18   ARG   H      1.0   .   .   .   .   4.47   .    
+     258   155   .   B   10   ARG   HA     B   10   ARG   HGx    1.0   .   .   .   .   3.9    .    
+     259   156   .   B   10   ARG   H      B   10   ARG   HGx    1.0   .   .   .   .   4.86   .    
+     260   157   .   B   10   ARG   HBx    B   10   ARG   HGx    1.0   .   .   .   .   2.86   .    
+     261   158   .   B   13   VAL   H      B   13   VAL   HB     1.0   .   .   .   .   3.75   .    
+     262   159   .   B   13   VAL   H      B   13   VAL   HG11   1.0   .   .   .   .   3.54   .    
+     263   159   .   B   13   VAL   H      B   13   VAL   HG12   1.0   .   .   .   .   3.54   .    
+     264   159   .   B   13   VAL   H      B   13   VAL   HG13   1.0   .   .   .   .   3.54   .    
+     265   159   .   B   13   VAL   H      B   13   VAL   HG21   1.0   .   .   .   .   3.54   .    
+     266   159   .   B   13   VAL   H      B   13   VAL   HG22   1.0   .   .   .   .   3.54   .    
+     267   159   .   B   13   VAL   H      B   13   VAL   HG23   1.0   .   .   .   .   3.54   .    
+     268   160   .   B   12   GLY   H      B   13   VAL   H      1.0   .   .   .   .   3.44   .    
+     269   161   .   B   10   ARG   H      B   13   VAL   H      1.0   .   .   .   .   3.85   .    
+     270   162   .   B   3    CYS   HA     B   4    PHE   H      1.0   .   .   .   .   3.02   .    
+     271   163   .   B   21   ASN   HA     B   21   ASN   HBx    1.0   .   .   .   .   2.83   .    
+     272   163   .   B   21   ASN   HA     B   21   ASN   HBy    1.0   .   .   .   .   2.83   .    
+     273   164   .   B   9    ARG   HBx    B   14   ARG   HA     1.0   .   .   .   .   4.09   .    
+     274   164   .   B   9    ARG   HBy    B   14   ARG   HA     1.0   .   .   .   .   4.09   .    
+     275   165   .   B   9    ARG   HBx    B   10   ARG   HA     1.0   .   .   .   .   0.0    .    
+     276   165   .   B   9    ARG   HBy    B   10   ARG   HA     1.0   .   .   .   .   0.0    .    
+     277   166   .   B   9    ARG   H      B   9    ARG   HBx    1.0   .   .   .   .   3.58   .    
+     278   166   .   B   9    ARG   H      B   9    ARG   HBy    1.0   .   .   .   .   3.58   .    
+     279   167   .   B   9    ARG   HBx    B   10   ARG   HBx    1.0   .   .   .   .   4.01   .    
+     280   167   .   B   9    ARG   HBy    B   10   ARG   HBx    1.0   .   .   .   .   4.01   .    
+     281   168   .   B   19   ARG   H      B   19   ARG   HBy    1.0   .   .   .   .   3.94   .    
+     282   169   .   B   10   ARG   H      B   10   ARG   HDx    1.0   .   .   .   .   5.27   .    
+     283   169   .   B   10   ARG   H      B   10   ARG   HDy    1.0   .   .   .   .   5.27   .    
+     284   170   .   B   10   ARG   H      B   13   VAL   HG11   1.0   .   .   .   .   4.89   .    
+     285   170   .   B   10   ARG   H      B   13   VAL   HG12   1.0   .   .   .   .   4.89   .    
+     286   170   .   B   10   ARG   H      B   13   VAL   HG13   1.0   .   .   .   .   4.89   .    
+     287   170   .   B   10   ARG   H      B   13   VAL   HG21   1.0   .   .   .   .   4.89   .    
+     288   170   .   B   10   ARG   H      B   13   VAL   HG22   1.0   .   .   .   .   4.89   .    
+     289   170   .   B   10   ARG   H      B   13   VAL   HG23   1.0   .   .   .   .   4.89   .    
+     290   171   .   B   10   ARG   H      B   10   ARG   HBx    1.0   .   .   .   .   4.13   .    
+     291   172   .   B   18   ARG   HBy    B   18   ARG   HDx    1.0   .   .   .   .   3.64   .    
+     292   172   .   B   18   ARG   HBy    B   18   ARG   HDy    1.0   .   .   .   .   3.64   .    
+     293   173   .   B   18   ARG   HBx    B   18   ARG   HDx    1.0   .   .   .   .   3.7    .    
+     294   173   .   B   18   ARG   HBx    B   18   ARG   HDy    1.0   .   .   .   .   3.7    .    
+     295   174   .   A   9    ARG   HBx    B   7    CYS   H      1.0   .   .   .   .   4.25   .    
+     296   174   .   A   9    ARG   HBy    B   7    CYS   H      1.0   .   .   .   .   4.25   .    
+     297   175   .   B   4    PHE   H      B   4    PHE   HBx    1.0   .   .   .   .   3.63   .    
+     298   175   .   B   4    PHE   H      B   4    PHE   HBy    1.0   .   .   .   .   3.63   .    
+     299   176   .   B   4    PHE   HA     B   4    PHE   HBx    1.0   .   .   .   .   3.0    .    
+     300   176   .   B   4    PHE   HA     B   4    PHE   HBy    1.0   .   .   .   .   3.0    .    
+     301   177   .   B   4    PHE   HBx    B   5    THR   H      1.0   .   .   .   .   3.04   .    
+     302   177   .   B   4    PHE   HBy    B   5    THR   H      1.0   .   .   .   .   3.04   .    
+     303   178   .   B   11   ASN   HA     B   11   ASN   HBx    1.0   .   .   .   .   2.82   .    
+     304   179   .   B   7    CYS   H      B   7    CYS   HBx    1.0   .   .   .   .   3.93   .    
+     305   180   .   B   4    PHE   HA     B   5    THR   H      1.0   .   .   .   .   3.02   .    
+     306   181   .   B   5    THR   H      B   5    THR   HB     1.0   .   .   .   .   3.47   .    
+     307   182   .   B   17   TYR   HBy    B   18   ARG   H      1.0   .   .   .   .   4.22   .    
+     308   183   .   B   17   TYR   HBx    B   18   ARG   H      1.0   .   .   .   .   4.59   .    
+     309   184   .   B   6    ALA   HB1    B   18   ARG   H      1.0   .   .   .   .   4.45   .    
+     310   184   .   B   6    ALA   HB2    B   18   ARG   H      1.0   .   .   .   .   4.45   .    
+     311   184   .   B   6    ALA   HB3    B   18   ARG   H      1.0   .   .   .   .   4.45   .    
+     312   185   .   B   18   ARG   H      B   18   ARG   HBy    1.0   .   .   .   .   3.4    .    
+     313   186   .   B   17   TYR   HA     B   18   ARG   H      1.0   .   .   .   .   3.25   .    
+     314   187   .   B   18   ARG   H      B   18   ARG   HBx    1.0   .   .   .   .   3.45   .    
+     315   188   .   B   3    CYS   H      B   3    CYS   HBy    1.0   .   .   .   .   4.14   .    
+     316   189   .   B   20   CYS   HBx    B   21   ASN   H      1.0   .   .   .   .   5.5    .    
+     317   190   .   B   20   CYS   H      B   20   CYS   HBx    1.0   .   .   .   .   3.15   .    
+     318   191   .   B   7    CYS   H      B   8    ALA   HB1    1.0   .   .   .   .   4.57   .    
+     319   191   .   B   7    CYS   H      B   8    ALA   HB2    1.0   .   .   .   .   4.57   .    
+     320   191   .   B   7    CYS   H      B   8    ALA   HB3    1.0   .   .   .   .   4.57   .    
+     321   192   .   B   7    CYS   H      B   15   ILE   HG21   1.0   .   .   .   .   0.0    .    
+     322   192   .   B   7    CYS   H      B   15   ILE   HG22   1.0   .   .   .   .   0.0    .    
+     323   192   .   B   7    CYS   H      B   15   ILE   HG23   1.0   .   .   .   .   0.0    .    
+     324   193   .   B   3    CYS   HBx    B   4    PHE   H      1.0   .   .   .   .   3.63   .    
+     325   194   .   B   5    THR   HG21   B   17   TYR   H      1.0   .   .   .   .   4.06   .    
+     326   194   .   B   5    THR   HG22   B   17   TYR   H      1.0   .   .   .   .   4.06   .    
+     327   194   .   B   5    THR   HG23   B   17   TYR   H      1.0   .   .   .   .   4.06   .    
+     328   195   .   B   5    THR   HG21   B   16   CYS   HBx    1.0   .   .   .   .   3.59   .    
+     329   195   .   B   5    THR   HG22   B   16   CYS   HBx    1.0   .   .   .   .   3.59   .    
+     330   195   .   B   5    THR   HG23   B   16   CYS   HBx    1.0   .   .   .   .   3.59   .    
+     331   196   .   B   5    THR   HA     B   5    THR   HG21   1.0   .   .   .   .   2.88   .    
+     332   196   .   B   5    THR   HA     B   5    THR   HG22   1.0   .   .   .   .   2.88   .    
+     333   196   .   B   5    THR   HA     B   5    THR   HG23   1.0   .   .   .   .   2.88   .    
+     334   197   .   B   5    THR   HG21   B   6    ALA   H      1.0   .   .   .   .   3.41   .    
+     335   197   .   B   5    THR   HG22   B   6    ALA   H      1.0   .   .   .   .   3.41   .    
+     336   197   .   B   5    THR   HG23   B   6    ALA   H      1.0   .   .   .   .   3.41   .    
+     337   198   .   B   5    THR   H      B   5    THR   HG21   1.0   .   .   .   .   3.95   .    
+     338   198   .   B   5    THR   H      B   5    THR   HG22   1.0   .   .   .   .   3.95   .    
+     339   198   .   B   5    THR   H      B   5    THR   HG23   1.0   .   .   .   .   3.95   .    
+     340   199   .   B   10   ARG   HA     B   10   ARG   HGy    1.0   .   .   .   .   4.19   .    
+     341   200   .   A   14   ARG   HGy    B   7    CYS   HBy    1.0   .   .   .   .   3.82   .    
+     342   201   .   A   14   ARG   HGy    B   7    CYS   HBx    1.0   .   .   .   .   3.92   .    
+     343   202   .   A   14   ARG   HGx    B   7    CYS   HBy    1.0   .   .   .   .   3.82   .    
+     344   203   .   A   14   ARG   HGx    B   7    CYS   HBx    1.0   .   .   .   .   3.72   .    
+     345   204   .   A   14   ARG   HGx    B   12   GLY   HAy    1.0   .   .   .   .   3.42   .    
+     346   205   .   A   14   ARG   HGy    B   12   GLY   HAy    1.0   .   .   .   .   3.87   .    
+     347   206   .   A   19   ARG   H      B   4    PHE   H      1.0   .   .   .   .   4.5    .    
+     348   207   .   A   9    ARG   HBx    B   7    CYS   HBx    1.0   .   .   .   .   4.45   .    
+     349   207   .   A   9    ARG   HBy    B   7    CYS   HBx    1.0   .   .   .   .   4.45   .    
+     350   208   .   A   9    ARG   HBx    B   7    CYS   HBy    1.0   .   .   .   .   5.45   .    
+     351   208   .   A   9    ARG   HBy    B   7    CYS   HBy    1.0   .   .   .   .   5.45   .    
+     352   209   .   A   7    CYS   HBy    A   8    ALA   HB%    1.0   .   .   .   .   5.54   .    
+     353   210   .   B   7    CYS   HBy    B   8    ALA   HB1    1.0   .   .   .   .   5.54   .    
+     354   210   .   B   7    CYS   HBy    B   8    ALA   HB2    1.0   .   .   .   .   5.54   .    
+     355   210   .   B   7    CYS   HBy    B   8    ALA   HB3    1.0   .   .   .   .   5.54   .    
+     356   211   .   A   9    ARG   HBx    B   8    ALA   HA     1.0   .   .   .   .   4.5    .    
+     357   211   .   A   9    ARG   HBy    B   8    ALA   HA     1.0   .   .   .   .   4.5    .    
+     358   212   .   A   9    ARG   HBx    B   12   GLY   HAx    1.0   .   .   .   .   3.9    .    
+     359   212   .   A   9    ARG   HBy    B   12   GLY   HAx    1.0   .   .   .   .   3.9    .    
+     360   213   .   A   7    CYS   C      A   10   ARG   H      9.0   .   .   .   .   3.4    .    
+     361   214   .   A   8    ALA   C      A   12   GLY   H      9.0   .   .   .   .   3.4    .    
+     362   215   .   A   4    PHE   H      A   19   ARG   C      9.0   .   .   .   .   3.4    .    
+     363   216   .   B   7    CYS   C      B   10   ARG   H      9.0   .   .   .   .   3.4    .    
+     364   217   .   B   8    ALA   C      B   12   GLY   H      9.0   .   .   .   .   3.4    .    
+     365   218   .   B   4    PHE   H      B   19   ARG   C      9.0   .   .   .   .   3.4    .    
+     366   219   .   A   8    ALA   C      A   11   ASN   H      9.0   .   .   .   .   3.4    .    
+     367   220   .   B   8    ALA   C      B   11   ASN   H      9.0   .   .   .   .   3.4    .    
+     368   221   .   A   10   ARG   C      A   13   VAL   H      9.0   .   .   .   .   3.4    .    
+     369   222   .   B   10   ARG   C      B   13   VAL   H      9.0   .   .   .   .   3.4    .    
+     370   223   .   A   4    PHE   H      A   18   ARG   C      9.0   .   .   .   .   3.4    .    
+     371   224   .   B   4    PHE   H      B   18   ARG   C      9.0   .   .   .   .   3.4    .    
+     372   225   .   A   4    PHE   C      A   18   ARG   H      9.0   .   .   .   .   3.4    .    
+     373   226   .   B   4    PHE   C      B   18   ARG   H      9.0   .   .   .   .   3.4    .    
+     374   227   .   A   17   TYR   C      B   5    THR   H      9.0   .   .   .   .   3.4    .    
+     375   228   .   A   19   ARG   H      B   3    CYS   C      9.0   .   .   .   .   3.4    .    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_2
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_2
+   _nef_distance_restraint_list.restraint_origin  disulfide_bond
+   _nef_distance_restraint_list.potential_type    upper-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1   1   .   A   3   CYS   SG   A   20   CYS   SG   9.0   .   .   .   .   2.1   .    
+     2   2   .   A   7   CYS   SG   A   16   CYS   SG   9.0   .   .   .   .   2.1   .    
+     3   3   .   B   3   CYS   SG   B   20   CYS   SG   9.0   .   .   .   .   2.1   .    
+     4   4   .   B   7   CYS   SG   B   16   CYS   SG   9.0   .   .   .   .   2.1   .    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_3
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_3
+   _nef_distance_restraint_list.restraint_origin  'reinforced disulfide bond'
+   _nef_distance_restraint_list.potential_type    upper-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1   1   .   A   3   CYS   SG   A   20   CYS   CB   9.0   .   .   .   .   3.1   .    
+     2   2   .   A   3   CYS   CB   A   20   CYS   SG   9.0   .   .   .   .   3.1   .    
+     3   3   .   A   7   CYS   SG   A   16   CYS   CB   9.0   .   .   .   .   3.1   .    
+     4   4   .   A   7   CYS   CB   A   16   CYS   SG   9.0   .   .   .   .   3.1   .    
+     5   5   .   B   3   CYS   SG   B   20   CYS   CB   9.0   .   .   .   .   3.1   .    
+     6   6   .   B   3   CYS   CB   B   20   CYS   SG   9.0   .   .   .   .   3.1   .    
+     7   7   .   B   7   CYS   SG   B   16   CYS   CB   9.0   .   .   .   .   3.1   .    
+     8   8   .   B   7   CYS   CB   B   16   CYS   SG   9.0   .   .   .   .   3.1   .    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_4
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_4
+   _nef_distance_restraint_list.restraint_origin  hbond
+   _nef_distance_restraint_list.potential_type    upper-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1    1    .   A   7    CYS   O   A   10   ARG   H   9.0   .   .   .   .   2.4   .    
+     2    2    .   A   7    CYS   O   A   10   ARG   N   9.0   .   .   .   .   3.4   .    
+     3    3    .   A   8    ALA   O   A   12   GLY   H   9.0   .   .   .   .   2.4   .    
+     4    4    .   A   8    ALA   O   A   12   GLY   N   9.0   .   .   .   .   3.4   .    
+     5    5    .   A   4    PHE   H   A   19   ARG   O   9.0   .   .   .   .   2.4   .    
+     6    6    .   A   4    PHE   N   A   19   ARG   O   9.0   .   .   .   .   3.4   .    
+     7    7    .   B   7    CYS   O   B   10   ARG   H   9.0   .   .   .   .   2.4   .    
+     8    8    .   B   7    CYS   O   B   10   ARG   N   9.0   .   .   .   .   3.4   .    
+     9    9    .   B   8    ALA   O   B   12   GLY   H   9.0   .   .   .   .   2.4   .    
+     10   10   .   B   8    ALA   O   B   12   GLY   N   9.0   .   .   .   .   3.4   .    
+     11   11   .   B   4    PHE   H   B   19   ARG   O   9.0   .   .   .   .   2.4   .    
+     12   12   .   B   4    PHE   N   B   19   ARG   O   9.0   .   .   .   .   3.4   .    
+     13   13   .   A   8    ALA   O   A   11   ASN   H   9.0   .   .   .   .   2.4   .    
+     14   14   .   A   8    ALA   O   A   11   ASN   N   9.0   .   .   .   .   3.4   .    
+     15   15   .   B   8    ALA   O   B   11   ASN   H   9.0   .   .   .   .   2.4   .    
+     16   16   .   B   8    ALA   O   B   11   ASN   N   9.0   .   .   .   .   3.4   .    
+     17   17   .   A   10   ARG   O   A   13   VAL   H   9.0   .   .   .   .   2.4   .    
+     18   18   .   A   10   ARG   O   A   13   VAL   N   9.0   .   .   .   .   3.4   .    
+     19   19   .   B   10   ARG   O   B   13   VAL   H   9.0   .   .   .   .   2.4   .    
+     20   20   .   B   10   ARG   O   B   13   VAL   N   9.0   .   .   .   .   3.4   .    
+     21   21   .   A   4    PHE   H   A   18   ARG   O   9.0   .   .   .   .   2.4   .    
+     22   22   .   A   4    PHE   N   A   18   ARG   O   9.0   .   .   .   .   3.4   .    
+     23   23   .   B   4    PHE   H   B   18   ARG   O   9.0   .   .   .   .   2.4   .    
+     24   24   .   B   4    PHE   N   B   18   ARG   O   9.0   .   .   .   .   3.4   .    
+     25   25   .   A   4    PHE   O   A   18   ARG   H   9.0   .   .   .   .   2.4   .    
+     26   26   .   A   4    PHE   O   A   18   ARG   N   9.0   .   .   .   .   3.4   .    
+     27   27   .   B   4    PHE   O   B   18   ARG   H   9.0   .   .   .   .   2.4   .    
+     28   28   .   B   4    PHE   O   B   18   ARG   N   9.0   .   .   .   .   3.4   .    
+     29   29   .   A   17   TYR   O   B   5    THR   H   9.0   .   .   .   .   2.4   .    
+     30   30   .   A   17   TYR   O   B   5    THR   N   9.0   .   .   .   .   3.4   .    
+     31   31   .   A   19   ARG   H   B   3    CYS   O   9.0   .   .   .   .   2.4   .    
+     32   32   .   A   19   ARG   N   B   3    CYS   O   9.0   .   .   .   .   3.4   .    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_5
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_5
+   _nef_distance_restraint_list.restraint_origin  'disufide bond (lower bound)'
+   _nef_distance_restraint_list.potential_type    lower-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1   1   .   A   3   CYS   SG   A   20   CYS   SG   9.0   .   .   .   2.0   .   .    
+     2   2   .   A   7   CYS   SG   A   16   CYS   SG   9.0   .   .   .   2.0   .   .    
+     3   3   .   B   3   CYS   SG   B   20   CYS   SG   9.0   .   .   .   2.0   .   .    
+     4   4   .   B   7   CYS   SG   B   16   CYS   SG   9.0   .   .   .   2.0   .   .    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_6
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_6
+   _nef_distance_restraint_list.restraint_origin  'NOE (lower bound)'
+   _nef_distance_restraint_list.potential_type    lower-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1    1    .   A   3    CYS   SG   A   20   CYS   CB   9.0   .   .   .   3.0   .   .    
+     2    2    .   A   3    CYS   CB   A   20   CYS   SG   9.0   .   .   .   3.0   .   .    
+     3    3    .   A   7    CYS   SG   A   16   CYS   CB   9.0   .   .   .   3.0   .   .    
+     4    4    .   A   7    CYS   CB   A   16   CYS   SG   9.0   .   .   .   3.0   .   .    
+     5    5    .   B   3    CYS   SG   B   20   CYS   CB   9.0   .   .   .   3.0   .   .    
+     6    6    .   B   3    CYS   CB   B   20   CYS   SG   9.0   .   .   .   3.0   .   .    
+     7    7    .   B   7    CYS   SG   B   16   CYS   CB   9.0   .   .   .   3.0   .   .    
+     8    8    .   B   7    CYS   CB   B   16   CYS   SG   9.0   .   .   .   3.0   .   .    
+     9    9    .   A   7    CYS   C    A   10   ARG   H    9.0   .   .   .   2.6   .   .    
+     10   10   .   A   8    ALA   C    A   12   GLY   H    9.0   .   .   .   2.6   .   .    
+     11   11   .   A   4    PHE   H    A   19   ARG   C    9.0   .   .   .   2.6   .   .    
+     12   12   .   B   7    CYS   C    B   10   ARG   H    9.0   .   .   .   2.6   .   .    
+     13   13   .   B   8    ALA   C    B   12   GLY   H    9.0   .   .   .   2.6   .   .    
+     14   14   .   B   4    PHE   H    B   19   ARG   C    9.0   .   .   .   2.6   .   .    
+     15   15   .   A   8    ALA   C    A   11   ASN   H    9.0   .   .   .   2.6   .   .    
+     16   16   .   B   8    ALA   C    B   11   ASN   H    9.0   .   .   .   2.6   .   .    
+     17   17   .   A   10   ARG   C    A   13   VAL   H    9.0   .   .   .   2.6   .   .    
+     18   18   .   B   10   ARG   C    B   13   VAL   H    9.0   .   .   .   2.6   .   .    
+     19   19   .   A   4    PHE   H    A   18   ARG   C    9.0   .   .   .   2.6   .   .    
+     20   20   .   B   4    PHE   H    B   18   ARG   C    9.0   .   .   .   2.6   .   .    
+     21   21   .   A   4    PHE   C    A   18   ARG   H    9.0   .   .   .   2.6   .   .    
+     22   22   .   B   4    PHE   C    B   18   ARG   H    9.0   .   .   .   2.6   .   .    
+     23   23   .   A   17   TYR   C    B   5    THR   H    9.0   .   .   .   2.6   .   .    
+     24   24   .   A   19   ARG   H    B   3    CYS   C    9.0   .   .   .   2.6   .   .    
+
+   stop_
+
+save_
+
+save_nef_distance_restraint_list_CYANA_distance_restraints_7
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      nef_distance_restraint_list_CYANA_distance_restraints_7
+   _nef_distance_restraint_list.restraint_origin  'hydrogen bond (lower bound)'
+   _nef_distance_restraint_list.potential_type    lower-bound-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1    1    .   A   7    CYS   O   A   10   ARG   H   9.0   .   .   .   1.7   .   .    
+     2    2    .   A   7    CYS   O   A   10   ARG   N   9.0   .   .   .   2.6   .   .    
+     3    3    .   A   8    ALA   O   A   12   GLY   H   9.0   .   .   .   1.7   .   .    
+     4    4    .   A   8    ALA   O   A   12   GLY   N   9.0   .   .   .   2.6   .   .    
+     5    5    .   A   4    PHE   H   A   19   ARG   O   9.0   .   .   .   1.7   .   .    
+     6    6    .   A   4    PHE   N   A   19   ARG   O   9.0   .   .   .   2.6   .   .    
+     7    7    .   B   7    CYS   O   B   10   ARG   H   9.0   .   .   .   1.7   .   .    
+     8    8    .   B   7    CYS   O   B   10   ARG   N   9.0   .   .   .   2.6   .   .    
+     9    9    .   B   8    ALA   O   B   12   GLY   H   9.0   .   .   .   1.7   .   .    
+     10   10   .   B   8    ALA   O   B   12   GLY   N   9.0   .   .   .   2.6   .   .    
+     11   11   .   B   4    PHE   H   B   19   ARG   O   9.0   .   .   .   1.7   .   .    
+     12   12   .   B   4    PHE   N   B   19   ARG   O   9.0   .   .   .   2.6   .   .    
+     13   13   .   A   8    ALA   O   A   11   ASN   H   9.0   .   .   .   1.7   .   .    
+     14   14   .   A   8    ALA   O   A   11   ASN   N   9.0   .   .   .   2.6   .   .    
+     15   15   .   B   8    ALA   O   B   11   ASN   H   9.0   .   .   .   1.7   .   .    
+     16   16   .   B   8    ALA   O   B   11   ASN   N   9.0   .   .   .   2.6   .   .    
+     17   17   .   A   10   ARG   O   A   13   VAL   H   9.0   .   .   .   1.7   .   .    
+     18   18   .   A   10   ARG   O   A   13   VAL   N   9.0   .   .   .   2.6   .   .    
+     19   19   .   B   10   ARG   O   B   13   VAL   H   9.0   .   .   .   1.7   .   .    
+     20   20   .   B   10   ARG   O   B   13   VAL   N   9.0   .   .   .   2.6   .   .    
+     21   21   .   A   4    PHE   H   A   18   ARG   O   9.0   .   .   .   1.7   .   .    
+     22   22   .   A   4    PHE   N   A   18   ARG   O   9.0   .   .   .   2.6   .   .    
+     23   23   .   B   4    PHE   H   B   18   ARG   O   9.0   .   .   .   1.7   .   .    
+     24   24   .   B   4    PHE   N   B   18   ARG   O   9.0   .   .   .   2.6   .   .    
+     25   25   .   A   4    PHE   O   A   18   ARG   H   9.0   .   .   .   1.7   .   .    
+     26   26   .   A   4    PHE   O   A   18   ARG   N   9.0   .   .   .   2.6   .   .    
+     27   27   .   B   4    PHE   O   B   18   ARG   H   9.0   .   .   .   1.7   .   .    
+     28   28   .   B   4    PHE   O   B   18   ARG   N   9.0   .   .   .   2.6   .   .    
+     29   29   .   A   17   TYR   O   B   5    THR   H   9.0   .   .   .   1.7   .   .    
+     30   30   .   A   17   TYR   O   B   5    THR   N   9.0   .   .   .   2.6   .   .    
+     31   31   .   A   19   ARG   H   B   3    CYS   O   9.0   .   .   .   1.7   .   .    
+     32   32   .   A   19   ARG   N   B   3    CYS   O   9.0   .   .   .   2.6   .   .    
+
+   stop_
+
+save_
+
+save_nef_dihedral_restraint_list_CYANA_dihedral_angle_restraints_1
+   _nef_dihedral_restraint_list.sf_category       nef_dihedral_restraint_list
+   _nef_dihedral_restraint_list.sf_framecode      nef_dihedral_restraint_list_CYANA_dihedral_angle_restraints_1
+   _nef_dihedral_restraint_list.potential_type    square-well-parabolic
+   _nef_dihedral_restraint_list.restraint_origin  chemical_shift
+
+   loop_
+      _nef_dihedral_restraint.index
+      _nef_dihedral_restraint.restraint_id
+      _nef_dihedral_restraint.restraint_combination_id
+      _nef_dihedral_restraint.chain_code_1
+      _nef_dihedral_restraint.sequence_code_1
+      _nef_dihedral_restraint.residue_name_1
+      _nef_dihedral_restraint.atom_name_1
+      _nef_dihedral_restraint.chain_code_2
+      _nef_dihedral_restraint.sequence_code_2
+      _nef_dihedral_restraint.residue_name_2
+      _nef_dihedral_restraint.atom_name_2
+      _nef_dihedral_restraint.chain_code_3
+      _nef_dihedral_restraint.sequence_code_3
+      _nef_dihedral_restraint.residue_name_3
+      _nef_dihedral_restraint.atom_name_3
+      _nef_dihedral_restraint.chain_code_4
+      _nef_dihedral_restraint.sequence_code_4
+      _nef_dihedral_restraint.residue_name_4
+      _nef_dihedral_restraint.atom_name_4
+      _nef_dihedral_restraint.weight
+      _nef_dihedral_restraint.target_value
+      _nef_dihedral_restraint.target_value_uncertainty
+      _nef_dihedral_restraint.lower_linear_limit
+      _nef_dihedral_restraint.lower_limit
+      _nef_dihedral_restraint.upper_limit
+      _nef_dihedral_restraint.upper_linear_limit
+      _nef_dihedral_restraint.name
+
+     1     1    .    A   1    GLY   N    A   1    GLY   CA   A   1    GLY   C     A   2    TYR   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     2     2    1    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     3     2    2    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     4     2    3    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     5     2    4    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     6     2    5    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     7     2    6    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     8     2    7    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     9     2    8    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     10    2    9    A   1    GLY   C    A   2    TYR   N    A   2    TYR   CA    A   2    TYR   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     11    3    1    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     12    3    2    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     13    3    3    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     14    3    4    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     15    3    5    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     16    3    6    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     17    3    7    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     18    3    8    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     19    3    9    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   C     A   3    CYS   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     20    4    1    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     21    4    2    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     22    4    3    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     23    4    4    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     24    4    5    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     25    4    6    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     26    4    7    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     27    4    8    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     28    4    9    A   3    CYS   C    A   4    PHE   N    A   4    PHE   CA    A   4    PHE   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     29    5    1    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     30    5    2    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     31    5    3    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     32    5    4    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     33    5    5    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     34    5    6    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     35    5    7    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     36    5    8    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     37    5    9    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   C     A   5    THR   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     38    6    1    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     1.0    .   .   .   -155.0   -85.0    .   PHI      
+     39    6    2    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     1.0    .   .   .   -105.0   225.0    .   PHI      
+     40    6    3    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     41    6    4    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     42    6    5    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     43    6    6    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     44    6    7    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     45    6    8    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     46    6    9    A   4    PHE   C    A   5    THR   N    A   5    THR   CA    A   5    THR   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     47    7    1    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     48    7    2    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     1.0    .   .   .   -75.0    195.0    .   PSI      
+     49    7    3    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     50    7    4    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     51    7    5    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     52    7    6    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     53    7    7    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     54    7    8    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     55    7    9    A   5    THR   N    A   5    THR   CA   A   5    THR   C     A   6    ALA   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     56    8    1    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     57    8    2    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     58    8    3    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     59    8    4    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     60    8    5    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     61    8    6    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     62    8    7    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     63    8    8    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     64    8    9    A   5    THR   C    A   6    ALA   N    A   6    ALA   CA    A   6    ALA   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     65    9    1    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     66    9    2    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     67    9    3    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     68    9    4    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     69    9    5    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     70    9    6    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     71    9    7    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     72    9    8    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     73    9    9    A   6    ALA   N    A   6    ALA   CA   A   6    ALA   C     A   7    CYS   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     74    10   1    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     75    10   2    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     76    10   3    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     77    10   4    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     78    10   5    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     79    10   6    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     80    10   7    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     81    10   8    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     82    10   9    A   6    ALA   C    A   7    CYS   N    A   7    CYS   CA    A   7    CYS   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     83    11   1    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     84    11   2    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     85    11   3    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     86    11   4    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     87    11   5    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     88    11   6    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     89    11   7    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     90    11   8    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     91    11   9    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   C     A   8    ALA   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     92    12   1    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     93    12   2    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     94    12   3    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     95    12   4    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     96    12   5    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     97    12   6    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     98    12   7    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     99    12   8    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     100   12   9    A   7    CYS   C    A   8    ALA   N    A   8    ALA   CA    A   8    ALA   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     101   13   1    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     102   13   2    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     103   13   3    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     104   13   4    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     105   13   5    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     106   13   6    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     107   13   7    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     108   13   8    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     109   13   9    A   8    ALA   N    A   8    ALA   CA   A   8    ALA   C     A   9    ARG   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     110   14   1    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     111   14   2    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     112   14   3    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     113   14   4    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     114   14   5    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     115   14   6    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     116   14   7    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     117   14   8    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     118   14   9    A   8    ALA   C    A   9    ARG   N    A   9    ARG   CA    A   9    ARG   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     119   15   1    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     120   15   2    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     121   15   3    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     122   15   4    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     123   15   5    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     124   15   6    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     125   15   7    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     126   15   8    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     127   15   9    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   C     A   10   ARG   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     128   16   1    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     1.0    .   .   .   -135.0   -105.0   .   PHI      
+     129   16   2    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     130   16   3    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     131   16   4    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     132   16   5    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     133   16   6    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     134   16   7    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     135   16   8    A   9    ARG   C    A   10   ARG   N    A   10   ARG   CA    A   10   ARG   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     136   17   1    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     137   17   2    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     138   17   3    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     139   17   4    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     140   17   5    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     141   17   6    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     142   17   7    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     143   17   8    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     144   17   9    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   C     A   11   ASN   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     145   18   1    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     146   18   2    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     147   18   3    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     148   18   4    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     149   18   5    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     150   18   6    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     151   18   7    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     152   18   8    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     153   18   9    A   10   ARG   C    A   11   ASN   N    A   11   ASN   CA    A   11   ASN   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     154   19   1    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     155   19   2    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     156   19   3    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     157   19   4    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     158   19   5    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     159   19   6    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     160   19   7    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     161   19   8    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     162   19   9    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   C     A   12   GLY   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     163   20   .    A   11   ASN   C    A   12   GLY   N    A   12   GLY   CA    A   12   GLY   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     164   21   .    A   12   GLY   N    A   12   GLY   CA   A   12   GLY   C     A   13   VAL   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     165   22   1    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     166   22   2    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     1.0    .   .   .   -185.0   75.0     .   PHI      
+     167   22   3    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     168   22   4    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     169   22   5    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     170   22   6    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     171   22   7    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     172   22   8    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     173   22   9    A   12   GLY   C    A   13   VAL   N    A   13   VAL   CA    A   13   VAL   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     174   23   1    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     175   23   2    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     176   23   3    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     177   23   4    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     178   23   5    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     179   23   6    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     180   23   7    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     181   23   8    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     182   23   9    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   C     A   14   ARG   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     183   24   1    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     184   24   2    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     185   24   3    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     186   24   4    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     187   24   5    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     188   24   6    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     189   24   7    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     190   24   8    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     191   24   9    A   13   VAL   C    A   14   ARG   N    A   14   ARG   CA    A   14   ARG   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     192   25   1    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     193   25   2    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     194   25   3    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     195   25   4    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     196   25   5    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     197   25   6    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     198   25   7    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     199   25   8    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     200   25   9    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   C     A   15   ILE   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     201   26   1    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     1.0    .   .   .   55.0     275.0    .   PHI      
+     202   26   2    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     1.0    .   .   .   -155.0   65.0     .   PHI      
+     203   26   3    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     1.0    .   .   .   -95.0    215.0    .   PHI      
+     204   26   4    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     205   26   5    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     206   26   6    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     207   26   7    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     208   26   8    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     209   26   9    A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     210   26   10   A   16   CYS   C    A   17   TYR   N    A   17   TYR   CA    A   17   TYR   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     211   27   1    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     212   27   2    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     213   27   3    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     214   27   4    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     215   27   5    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     216   27   6    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     217   27   7    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     218   27   8    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     219   27   9    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   C     A   18   ARG   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     220   28   1    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     1.0    .   .   .   -145.0   -85.0    .   PHI      
+     221   28   2    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     1.0    .   .   .   -105.0   235.0    .   PHI      
+     222   28   3    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     223   28   4    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     224   28   5    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     225   28   6    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     226   28   7    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     227   28   8    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     228   28   9    A   17   TYR   C    A   18   ARG   N    A   18   ARG   CA    A   18   ARG   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     229   29   1    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     230   29   2    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     231   29   3    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     232   29   4    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     233   29   5    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     234   29   6    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     235   29   7    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     236   29   8    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     237   29   9    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   C     A   19   ARG   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     238   30   1    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     239   30   2    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     240   30   3    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     241   30   4    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     242   30   5    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     243   30   6    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     244   30   7    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     245   30   8    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     246   30   9    A   18   ARG   C    A   19   ARG   N    A   19   ARG   CA    A   19   ARG   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     247   31   1    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     248   31   2    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     249   31   3    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     250   31   4    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     251   31   5    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     252   31   6    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     253   31   7    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     254   31   8    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     255   31   9    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   C     A   20   CYS   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     256   32   1    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     1.0    .   .   .   -315.0   -45.0    .   PHI      
+     257   32   2    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     1.0    .   .   .   -185.0   65.0     .   PHI      
+     258   32   3    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     259   32   4    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     260   32   5    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     261   32   6    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     262   32   7    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     263   32   8    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     264   32   9    A   19   ARG   C    A   20   CYS   N    A   20   CYS   CA    A   20   CYS   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     265   33   1    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     1.0    .   .   .   -335.0   -25.0    .   PSI      
+     266   33   2    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     1.0    .   .   .   -85.0    195.0    .   PSI      
+     267   33   3    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     268   33   4    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     269   33   5    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     270   33   6    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     271   33   7    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     272   33   8    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     273   33   9    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   C     A   21   ASN   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     274   34   1    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     1.0    .   .   .   -145.0   -95.0    .   PHI      
+     275   34   2    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     1.0    .   .   .   -115.0   235.0    .   PHI      
+     276   34   3    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     277   34   4    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     278   34   5    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     279   34   6    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     280   34   7    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     281   34   8    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     282   34   9    A   20   CYS   C    A   21   ASN   N    A   21   ASN   CA    A   21   ASN   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     283   35   1    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     284   35   2    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     285   35   3    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     286   35   4    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     287   35   5    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     288   35   6    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     289   35   7    A   2    TYR   C    A   3    CYS   N    A   3    CYS   CA    A   3    CYS   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     290   36   1    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     291   36   2    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     292   36   3    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     293   36   4    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     294   36   5    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     295   36   6    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     296   36   7    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   C     A   4    PHE   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     297   37   1    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     298   37   2    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     299   37   3    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     300   37   4    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     301   37   5    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     302   37   6    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     303   37   7    A   14   ARG   C    A   15   ILE   N    A   15   ILE   CA    A   15   ILE   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     304   38   1    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     305   38   2    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     306   38   3    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     307   38   4    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     308   38   5    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     309   38   6    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     310   38   7    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   C     A   16   CYS   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     311   39   1    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     1.0    .   .   .   -168.0   68.0     .   PHI      
+     312   39   2    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     0.5    .   .   .   -248.0   -32.0    .   PHI      
+     313   39   3    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     0.25   .   .   .   -118.0   68.0     .   PHI      
+     314   39   4    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     0.15   .   .   .   52.0     68.0     .   PHI      
+     315   39   5    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     0.5    .   .   .   -208.0   -52.0    .   PHI      
+     316   39   6    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     0.5    .   .   .   -98.0    208.0    .   PHI      
+     317   39   7    A   15   ILE   C    A   16   CYS   N    A   16   CYS   CA    A   16   CYS   C     0.5    .   .   .   -158.0   178.0    .   PHI      
+     318   40   1    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.5    .   .   .   -68.0    178.0    .   PSI      
+     319   40   2    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.5    .   .   .   32.0     48.0     .   PSI      
+     320   40   3    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.25   .   .   .   102.0    178.0    .   PSI      
+     321   40   4    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.15   .   .   .   -258.0   18.0     .   PSI      
+     322   40   5    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.5    .   .   .   -168.0   88.0     .   PSI      
+     323   40   6    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.5    .   .   .   -38.0    248.0    .   PSI      
+     324   40   7    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   C     A   17   TYR   N     0.5    .   .   .   -208.0   68.0     .   PSI      
+     325   41   1    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   CB    A   2    TYR   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     326   41   2    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   CB    A   2    TYR   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     327   41   3    A   2    TYR   N    A   2    TYR   CA   A   2    TYR   CB    A   2    TYR   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     328   42   1    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   CB    A   3    CYS   SG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     329   42   2    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   CB    A   3    CYS   SG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     330   42   3    A   3    CYS   N    A   3    CYS   CA   A   3    CYS   CB    A   3    CYS   SG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     331   43   1    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   CB    A   4    PHE   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     332   43   2    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   CB    A   4    PHE   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     333   43   3    A   4    PHE   N    A   4    PHE   CA   A   4    PHE   CB    A   4    PHE   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     334   44   1    A   5    THR   N    A   5    THR   CA   A   5    THR   CB    A   5    THR   OG1   0.2    .   .   .   -90.0    210.0    .   CHI1     
+     335   44   2    A   5    THR   N    A   5    THR   CA   A   5    THR   CB    A   5    THR   OG1   0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     336   44   3    A   5    THR   N    A   5    THR   CA   A   5    THR   CB    A   5    THR   OG1   0.2    .   .   .   -210.0   90.0     .   CHI1     
+     337   45   1    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   CB    A   7    CYS   SG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     338   45   2    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   CB    A   7    CYS   SG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     339   45   3    A   7    CYS   N    A   7    CYS   CA   A   7    CYS   CB    A   7    CYS   SG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     340   46   1    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   CB    A   9    ARG   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     341   46   2    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   CB    A   9    ARG   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     342   46   3    A   9    ARG   N    A   9    ARG   CA   A   9    ARG   CB    A   9    ARG   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     343   47   1    A   9    ARG   CA   A   9    ARG   CB   A   9    ARG   CG    A   9    ARG   CD    0.2    .   .   .   -90.0    210.0    .   CHI2     
+     344   47   2    A   9    ARG   CA   A   9    ARG   CB   A   9    ARG   CG    A   9    ARG   CD    0.2    .   .   .   -330.0   -30.0    .   CHI2     
+     345   47   3    A   9    ARG   CA   A   9    ARG   CB   A   9    ARG   CG    A   9    ARG   CD    0.2    .   .   .   -210.0   90.0     .   CHI2     
+     346   48   1    A   9    ARG   CB   A   9    ARG   CG   A   9    ARG   CD    A   9    ARG   NE    0.2    .   .   .   -90.0    210.0    .   CHI3     
+     347   48   2    A   9    ARG   CB   A   9    ARG   CG   A   9    ARG   CD    A   9    ARG   NE    0.2    .   .   .   -330.0   -30.0    .   CHI3     
+     348   48   3    A   9    ARG   CB   A   9    ARG   CG   A   9    ARG   CD    A   9    ARG   NE    0.2    .   .   .   -210.0   90.0     .   CHI3     
+     349   49   1    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   CB    A   10   ARG   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     350   49   2    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   CB    A   10   ARG   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     351   49   3    A   10   ARG   N    A   10   ARG   CA   A   10   ARG   CB    A   10   ARG   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     352   50   1    A   10   ARG   CA   A   10   ARG   CB   A   10   ARG   CG    A   10   ARG   CD    0.2    .   .   .   -90.0    210.0    .   CHI2     
+     353   50   2    A   10   ARG   CA   A   10   ARG   CB   A   10   ARG   CG    A   10   ARG   CD    0.2    .   .   .   -330.0   -30.0    .   CHI2     
+     354   50   3    A   10   ARG   CA   A   10   ARG   CB   A   10   ARG   CG    A   10   ARG   CD    0.2    .   .   .   -210.0   90.0     .   CHI2     
+     355   51   1    A   10   ARG   CB   A   10   ARG   CG   A   10   ARG   CD    A   10   ARG   NE    0.2    .   .   .   -90.0    210.0    .   CHI3     
+     356   51   2    A   10   ARG   CB   A   10   ARG   CG   A   10   ARG   CD    A   10   ARG   NE    0.2    .   .   .   -330.0   -30.0    .   CHI3     
+     357   51   3    A   10   ARG   CB   A   10   ARG   CG   A   10   ARG   CD    A   10   ARG   NE    0.2    .   .   .   -210.0   90.0     .   CHI3     
+     358   52   1    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   CB    A   11   ASN   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     359   52   2    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   CB    A   11   ASN   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     360   52   3    A   11   ASN   N    A   11   ASN   CA   A   11   ASN   CB    A   11   ASN   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     361   53   1    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   CB    A   13   VAL   CG1   0.2    .   .   .   -90.0    210.0    .   CHI1     
+     362   53   2    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   CB    A   13   VAL   CG1   0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     363   53   3    A   13   VAL   N    A   13   VAL   CA   A   13   VAL   CB    A   13   VAL   CG1   0.2    .   .   .   -210.0   90.0     .   CHI1     
+     364   54   1    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   CB    A   14   ARG   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     365   54   2    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   CB    A   14   ARG   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     366   54   3    A   14   ARG   N    A   14   ARG   CA   A   14   ARG   CB    A   14   ARG   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     367   55   1    A   14   ARG   CA   A   14   ARG   CB   A   14   ARG   CG    A   14   ARG   CD    0.2    .   .   .   -90.0    210.0    .   CHI2     
+     368   55   2    A   14   ARG   CA   A   14   ARG   CB   A   14   ARG   CG    A   14   ARG   CD    0.2    .   .   .   -330.0   -30.0    .   CHI2     
+     369   55   3    A   14   ARG   CA   A   14   ARG   CB   A   14   ARG   CG    A   14   ARG   CD    0.2    .   .   .   -210.0   90.0     .   CHI2     
+     370   56   1    A   14   ARG   CB   A   14   ARG   CG   A   14   ARG   CD    A   14   ARG   NE    0.2    .   .   .   -90.0    210.0    .   CHI3     
+     371   56   2    A   14   ARG   CB   A   14   ARG   CG   A   14   ARG   CD    A   14   ARG   NE    0.2    .   .   .   -330.0   -30.0    .   CHI3     
+     372   56   3    A   14   ARG   CB   A   14   ARG   CG   A   14   ARG   CD    A   14   ARG   NE    0.2    .   .   .   -210.0   90.0     .   CHI3     
+     373   57   1    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   CB    A   15   ILE   CG1   0.2    .   .   .   -90.0    210.0    .   CHI1     
+     374   57   2    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   CB    A   15   ILE   CG1   0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     375   57   3    A   15   ILE   N    A   15   ILE   CA   A   15   ILE   CB    A   15   ILE   CG1   0.2    .   .   .   -210.0   90.0     .   CHI1     
+     376   58   1    A   15   ILE   CA   A   15   ILE   CB   A   15   ILE   CG1   A   15   ILE   CD1   0.2    .   .   .   -90.0    210.0    .   CHI21    
+     377   58   2    A   15   ILE   CA   A   15   ILE   CB   A   15   ILE   CG1   A   15   ILE   CD1   0.2    .   .   .   -330.0   -30.0    .   CHI21    
+     378   58   3    A   15   ILE   CA   A   15   ILE   CB   A   15   ILE   CG1   A   15   ILE   CD1   0.2    .   .   .   -210.0   90.0     .   CHI21    
+     379   59   1    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   CB    A   16   CYS   SG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     380   59   2    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   CB    A   16   CYS   SG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     381   59   3    A   16   CYS   N    A   16   CYS   CA   A   16   CYS   CB    A   16   CYS   SG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     382   60   1    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   CB    A   17   TYR   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     383   60   2    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   CB    A   17   TYR   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     384   60   3    A   17   TYR   N    A   17   TYR   CA   A   17   TYR   CB    A   17   TYR   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     385   61   1    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   CB    A   18   ARG   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     386   61   2    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   CB    A   18   ARG   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     387   61   3    A   18   ARG   N    A   18   ARG   CA   A   18   ARG   CB    A   18   ARG   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     388   62   1    A   18   ARG   CA   A   18   ARG   CB   A   18   ARG   CG    A   18   ARG   CD    0.2    .   .   .   -90.0    210.0    .   CHI2     
+     389   62   2    A   18   ARG   CA   A   18   ARG   CB   A   18   ARG   CG    A   18   ARG   CD    0.2    .   .   .   -330.0   -30.0    .   CHI2     
+     390   62   3    A   18   ARG   CA   A   18   ARG   CB   A   18   ARG   CG    A   18   ARG   CD    0.2    .   .   .   -210.0   90.0     .   CHI2     
+     391   63   1    A   18   ARG   CB   A   18   ARG   CG   A   18   ARG   CD    A   18   ARG   NE    0.2    .   .   .   -90.0    210.0    .   CHI3     
+     392   63   2    A   18   ARG   CB   A   18   ARG   CG   A   18   ARG   CD    A   18   ARG   NE    0.2    .   .   .   -330.0   -30.0    .   CHI3     
+     393   63   3    A   18   ARG   CB   A   18   ARG   CG   A   18   ARG   CD    A   18   ARG   NE    0.2    .   .   .   -210.0   90.0     .   CHI3     
+     394   64   1    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   CB    A   19   ARG   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     395   64   2    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   CB    A   19   ARG   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     396   64   3    A   19   ARG   N    A   19   ARG   CA   A   19   ARG   CB    A   19   ARG   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     397   65   1    A   19   ARG   CA   A   19   ARG   CB   A   19   ARG   CG    A   19   ARG   CD    0.2    .   .   .   -90.0    210.0    .   CHI2     
+     398   65   2    A   19   ARG   CA   A   19   ARG   CB   A   19   ARG   CG    A   19   ARG   CD    0.2    .   .   .   -330.0   -30.0    .   CHI2     
+     399   65   3    A   19   ARG   CA   A   19   ARG   CB   A   19   ARG   CG    A   19   ARG   CD    0.2    .   .   .   -210.0   90.0     .   CHI2     
+     400   66   1    A   19   ARG   CB   A   19   ARG   CG   A   19   ARG   CD    A   19   ARG   NE    0.2    .   .   .   -90.0    210.0    .   CHI3     
+     401   66   2    A   19   ARG   CB   A   19   ARG   CG   A   19   ARG   CD    A   19   ARG   NE    0.2    .   .   .   -330.0   -30.0    .   CHI3     
+     402   66   3    A   19   ARG   CB   A   19   ARG   CG   A   19   ARG   CD    A   19   ARG   NE    0.2    .   .   .   -210.0   90.0     .   CHI3     
+     403   67   1    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   CB    A   20   CYS   SG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     404   67   2    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   CB    A   20   CYS   SG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     405   67   3    A   20   CYS   N    A   20   CYS   CA   A   20   CYS   CB    A   20   CYS   SG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+     406   68   1    A   21   ASN   N    A   21   ASN   CA   A   21   ASN   CB    A   21   ASN   CG    0.2    .   .   .   -90.0    210.0    .   CHI1     
+     407   68   2    A   21   ASN   N    A   21   ASN   CA   A   21   ASN   CB    A   21   ASN   CG    0.2    .   .   .   -330.0   -30.0    .   CHI1     
+     408   68   3    A   21   ASN   N    A   21   ASN   CA   A   21   ASN   CB    A   21   ASN   CG    0.2    .   .   .   -210.0   90.0     .   CHI1     
+
+   stop_
+
+save_

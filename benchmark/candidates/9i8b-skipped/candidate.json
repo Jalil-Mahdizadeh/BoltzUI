@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "52888"
+  ],
+  "candidate_directory": "candidates/9i8b-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 20,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "ACUGGACAAAUACUCCGAGG"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "2",
+      "length": 20,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "CCUCGGAGUAUUUGUCCAGU"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T15:26:11Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/9i8b.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "50d8829d8227b3001745cc06fdf7375f1527971270bda5bb6a572eb50fba68d9",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 40,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 1.0625340045138325,
+    "medoid_backbone_rmsd_mean": 0.5018187436451615,
+    "medoid_backbone_rmsd_median": 0.4224913339416103,
+    "medoid_backbone_rmsd_p90": 0.995726455573562,
+    "medoid_model": 7,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 55,
+    "native_contact_count_median": 54.0,
+    "native_contact_count_minimum": 54,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/9i8b_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/9i8b",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 40,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "9I8B",
+  "polymer_composition": "RNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T15:18:41Z",
+  "reference_file": "reference/9i8b.pdb",
+  "release_date": "2025-03-12T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "NMR-based model of an A-form 20mer dsRNA"
+}

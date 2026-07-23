@@ -5,10 +5,12 @@ let nextId = 1;
 const builderState = {
   polymers: [],
   ligands: [],
+  pockets: [],
   contacts: [],
   atomContacts: [],
   atomContactUnions: [],
-  bonds: []
+  bonds: [],
+  templates: []
 };
 
 const DEFAULT_LIGAND_SMILES = "N[C@@H](Cc1ccc(O)cc1)C(=O)O";
@@ -41,7 +43,7 @@ const YAML_TASK_PRESETS = {
     filename: "pocket_prediction.yaml",
     polymers: [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }],
     ligands: [{ ids: "B", source: "ccd", value: "ATP" }],
-    pocket: { enabled: true, binder: "B", distance: "6", force: false, contacts: "A:45\nA:68" }
+    pockets: [{ binder: "B", distance: "6", force: false, contacts: "A:45\nA:68" }]
   },
   contacts: {
     filename: "contact_constraints.yaml",
@@ -56,7 +58,7 @@ const YAML_TASK_PRESETS = {
   template: {
     filename: "template_prediction.yaml",
     polymers: [{ type: "protein", ids: "A", sequence: "M", msaMode: "auto" }],
-    template: { enabled: true, format: "cif", path: "./template.cif", chainIds: "A" }
+    templates: [{ format: "cif", path: "./template.cif", chainIds: "A" }]
   }
 };
 
@@ -149,6 +151,30 @@ function presetBonds(preset) {
   return [];
 }
 
+function presetPockets(preset) {
+  if (Array.isArray(preset.pockets)) return preset.pockets;
+  if (preset.pocket?.enabled) return [preset.pocket];
+  return [];
+}
+
+function presetTemplates(preset) {
+  if (Array.isArray(preset.templates)) return preset.templates;
+  if (preset.template?.enabled) return [preset.template];
+  return [];
+}
+
+function createPocket(overrides = {}) {
+  const { enabled, ...values } = overrides;
+  return {
+    uid: createUid("pocket"),
+    binder: "B",
+    distance: "6",
+    force: false,
+    contacts: "A:45\nA:68",
+    ...values
+  };
+}
+
 function createContact(overrides = {}) {
   return {
     uid: createUid("contact"),
@@ -203,6 +229,20 @@ function createBond(overrides = {}) {
     uid: createUid("bond"),
     atom1: "A:145:SG",
     atom2: "B:1:C1",
+    ...values
+  };
+}
+
+function createTemplate(overrides = {}) {
+  const { enabled, ...values } = overrides;
+  return {
+    uid: createUid("template"),
+    format: "cif",
+    path: "./template.cif",
+    chainIds: "A",
+    templateIds: "",
+    force: false,
+    threshold: "2",
     ...values
   };
 }
@@ -506,21 +546,22 @@ function buildYamlFromBuilder() {
 
   const constraints = [];
 
-  if (fieldValue("yaml-pocket-enabled")) {
-    const binder = fieldValue("yaml-pocket-binder").trim() || firstLigandId || "B";
-    if (!usedIds.includes(binder)) warnings.push(`Pocket binder "${binder}" is not one of the current entity IDs.`);
-    const contacts = String(fieldValue("yaml-pocket-contacts") || "")
+  builderState.pockets.forEach((pocket, index) => {
+    const label = `Pocket ${index + 1}`;
+    const binder = String(pocket.binder || "").trim() || firstLigandId || "B";
+    if (!usedIds.includes(binder)) warnings.push(`${label} binder "${binder}" is not one of the current entity IDs.`);
+    const contacts = String(pocket.contacts || "")
       .split(/\r?\n/)
       .map((line) => parseTokenSpec(line))
       .filter(Boolean);
-    if (!contacts.length) warnings.push("Pocket contacts are empty.");
+    if (!contacts.length) warnings.push(`${label} contacts are empty.`);
     constraints.push("  - pocket:");
     constraints.push(`      binder: ${yamlScalar(binder)}`);
     constraints.push(`      contacts: [${contacts.map(yamlToken).join(", ")}]`);
-    constraints.push(`      max_distance: ${readDistanceValue(fieldValue("yaml-pocket-distance"), "Pocket max distance", warnings)}`);
-    constraints.push(`      force: ${fieldValue("yaml-pocket-force") ? "true" : "false"}`);
-    features.push("pocket");
-  }
+    constraints.push(`      max_distance: ${readDistanceValue(pocket.distance, `${label} max distance`, warnings)}`);
+    constraints.push(`      force: ${pocket.force ? "true" : "false"}`);
+    features.push(builderState.pockets.length === 1 ? "pocket" : `pocket ${index + 1}`);
+  });
 
   builderState.contacts.forEach((contact, index) => {
     const token1 = parseTokenSpec(contact.token1);
@@ -637,23 +678,28 @@ function buildYamlFromBuilder() {
     lines.push(...constraints);
   }
 
-  if (fieldValue("yaml-template-enabled")) {
-    const templatePath = fieldValue("yaml-template-path").trim();
-    const templateFormat = fieldValue("yaml-template-format") || "cif";
-    const chainIds = parseIdList(fieldValue("yaml-template-chain-ids"));
-    const templateIds = parseIdList(fieldValue("yaml-template-template-ids"));
-    if (!templatePath) warnings.push("Template path is empty.");
-    if (!chainIds.length) warnings.push("Template target chain IDs are empty.");
-
+  if (builderState.templates.length) {
     lines.push("templates:");
-    lines.push(`  - ${templateFormat}: ${yamlScalar(templatePath || `./template.${templateFormat}`)}`);
-    if (chainIds.length) lines.push(`    chain_id: ${yamlIdValue(chainIds, "A")}`);
-    if (templateIds.length) lines.push(`    template_id: ${yamlIdValue(templateIds, "A1")}`);
-    if (fieldValue("yaml-template-force")) {
-      lines.push("    force: true");
-      lines.push(`    threshold: ${formatNumberForYaml(fieldValue("yaml-template-threshold"), 2)}`);
-    }
-    features.push("template");
+    builderState.templates.forEach((template, index) => {
+      const label = `Template ${index + 1}`;
+      const templatePath = String(template.path || "").trim();
+      const templateFormat = template.format === "pdb" ? "pdb" : "cif";
+      const chainIds = parseIdList(template.chainIds);
+      const templateIds = parseIdList(template.templateIds);
+      if (!templatePath) warnings.push(`${label} path is empty.`);
+      if (!chainIds.length) warnings.push(`${label} target chain IDs are empty.`);
+      if (templateIds.length && templateIds.length !== chainIds.length) {
+        warnings.push(`${label} target and template chain ID lists should have matching lengths.`);
+      }
+      lines.push(`  - ${templateFormat}: ${yamlScalar(templatePath || `./template.${templateFormat}`)}`);
+      if (chainIds.length) lines.push(`    chain_id: ${yamlIdValue(chainIds, "A")}`);
+      if (templateIds.length) lines.push(`    template_id: ${yamlIdValue(templateIds, "A1")}`);
+      if (template.force) {
+        lines.push("    force: true");
+        lines.push(`    threshold: ${formatNumberForYaml(template.threshold, 2)}`);
+      }
+      features.push(builderState.templates.length === 1 ? "template" : `template ${index + 1}`);
+    });
   }
 
   if (fieldValue("yaml-affinity-enabled")) {
@@ -810,6 +856,48 @@ function renderLigands() {
     return;
   }
   root.innerHTML = builderState.ligands.map(ligandCard).join("");
+}
+
+function pocketCard(pocket, index) {
+  return `
+    <article class="repeat-card pocket-card" data-uid="${pocket.uid}">
+      <div class="repeat-card-heading">
+        <h4>Pocket ${index + 1}</h4>
+        <button class="ghost-button repeat-remove-button" data-action="remove-pocket" type="button">Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid">
+        <label class="field">
+          <span>Pocket binder</span>
+          <input data-pocket-field="binder" type="text" value="${escapeHtml(pocket.binder)}" placeholder="B">
+        </label>
+        <label class="field">
+          <span>Max distance</span>
+          <input data-pocket-field="distance" type="number" min="4" max="20" step="0.1" value="${escapeHtml(pocket.distance)}">
+        </label>
+        <label class="toggle-field">
+          <span>Force pocket</span>
+          <span class="switch">
+            <input data-pocket-field="force" type="checkbox"${pocket.force ? " checked" : ""}>
+            <span class="slider"></span>
+          </span>
+        </label>
+        <label class="field builder-span">
+          <span>Pocket contacts</span>
+          <textarea class="mini-textarea" data-pocket-field="contacts" spellcheck="false" placeholder="A:45&#10;A:68">${escapeHtml(pocket.contacts)}</textarea>
+        </label>
+      </div>
+    </article>
+  `;
+}
+
+function renderPockets() {
+  const root = $("#pocket-list");
+  if (!root) return;
+  if (!builderState.pockets.length) {
+    root.innerHTML = `<div class="repeat-empty">No pocket constraints added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.pockets.map(pocketCard).join("");
 }
 
 function contactCard(contact, index) {
@@ -990,6 +1078,60 @@ function renderBonds() {
   root.innerHTML = builderState.bonds.map(bondCard).join("");
 }
 
+function templateCard(template, index) {
+  const thresholdHidden = template.force ? "" : " hidden";
+  return `
+    <article class="repeat-card template-card" data-uid="${template.uid}">
+      <div class="repeat-card-heading">
+        <h4>Template ${index + 1}</h4>
+        <button class="ghost-button repeat-remove-button" data-action="remove-template" type="button">Remove</button>
+      </div>
+      <div class="builder-grid repeat-grid">
+        <label class="field">
+          <span>Format</span>
+          <select data-template-field="format">
+            <option value="cif"${template.format !== "pdb" ? " selected" : ""}>CIF</option>
+            <option value="pdb"${template.format === "pdb" ? " selected" : ""}>PDB</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Template path</span>
+          <input data-template-field="path" type="text" value="${escapeHtml(template.path)}" placeholder="./template.${template.format === "pdb" ? "pdb" : "cif"}">
+        </label>
+        <label class="field">
+          <span>Target chain ID(s)</span>
+          <input data-template-field="chainIds" type="text" value="${escapeHtml(template.chainIds)}" placeholder="A or A, B">
+        </label>
+        <label class="field">
+          <span>Template chain ID(s)</span>
+          <input data-template-field="templateIds" type="text" value="${escapeHtml(template.templateIds)}" placeholder="A1, B1">
+        </label>
+        <label class="toggle-field">
+          <span>Force template</span>
+          <span class="switch">
+            <input data-template-field="force" type="checkbox"${template.force ? " checked" : ""}>
+            <span class="slider"></span>
+          </span>
+        </label>
+        <label class="field template-threshold-field"${thresholdHidden}>
+          <span>Threshold</span>
+          <input data-template-field="threshold" type="number" min="0" step="0.1" value="${escapeHtml(template.threshold)}">
+        </label>
+      </div>
+    </article>
+  `;
+}
+
+function renderTemplates() {
+  const root = $("#template-list");
+  if (!root) return;
+  if (!builderState.templates.length) {
+    root.innerHTML = `<div class="repeat-empty">No templates added.</div>`;
+    return;
+  }
+  root.innerHTML = builderState.templates.map(templateCard).join("");
+}
+
 function updateYamlBuilderVisibility() {
   document.querySelectorAll(".ligand-card").forEach((card) => {
     const source = card.querySelector("[data-ligand-field='source']")?.value || "smiles";
@@ -999,8 +1141,11 @@ function updateYamlBuilderVisibility() {
     if (value) value.placeholder = source === "ccd" ? "ATP or ATP, MG" : "CC1=CC=CC=C1";
   });
 
-  const thresholdField = $("#yaml-template-threshold")?.closest(".field");
-  if (thresholdField) thresholdField.hidden = !fieldValue("yaml-template-force");
+  document.querySelectorAll(".template-card").forEach((card) => {
+    const force = card.querySelector("[data-template-field='force']")?.checked;
+    const thresholdField = card.querySelector(".template-threshold-field");
+    if (thresholdField) thresholdField.hidden = !force;
+  });
 }
 
 function generateYamlFromBuilder({ silent = false } = {}) {
@@ -1024,35 +1169,25 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
     source: ligand.source || "smiles",
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
+  builderState.pockets = presetPockets(preset).map((pocket) => createPocket(pocket));
   builderState.contacts = (preset.contacts || []).map((contact) => createContact(contact));
   builderState.atomContacts = (preset.atomContacts || []).map((atomContact) => createAtomContact(atomContact));
   builderState.atomContactUnions = (preset.atomContactUnions || []).map((group) => (
     createAtomContactUnion(group)
   ));
   builderState.bonds = presetBonds(preset).map((bond) => createBond(bond));
+  builderState.templates = presetTemplates(preset).map((template) => createTemplate(template));
   renderPolymers();
   renderLigands();
+  renderPockets();
   renderContacts();
   renderAtomContacts();
   renderAtomContactUnions();
   renderBonds();
+  renderTemplates();
 
   setFieldValue("yaml-affinity-enabled", Boolean(preset.affinity?.enabled));
   setFieldValue("yaml-affinity-binder", preset.affinity?.binder || "B");
-
-  setFieldValue("yaml-pocket-enabled", Boolean(preset.pocket?.enabled));
-  setFieldValue("yaml-pocket-binder", preset.pocket?.binder || "B");
-  setFieldValue("yaml-pocket-distance", preset.pocket?.distance || "6");
-  setFieldValue("yaml-pocket-force", Boolean(preset.pocket?.force));
-  setFieldValue("yaml-pocket-contacts", preset.pocket?.contacts || "");
-
-  setFieldValue("yaml-template-enabled", Boolean(preset.template?.enabled));
-  setFieldValue("yaml-template-format", preset.template?.format || "cif");
-  setFieldValue("yaml-template-path", preset.template?.path || "./template.cif");
-  setFieldValue("yaml-template-chain-ids", preset.template?.chainIds || "A");
-  setFieldValue("yaml-template-template-ids", preset.template?.templateIds || "");
-  setFieldValue("yaml-template-force", Boolean(preset.template?.force));
-  setFieldValue("yaml-template-threshold", preset.template?.threshold || "2");
 
   generateYamlFromBuilder({ silent });
 }
@@ -1223,13 +1358,12 @@ function parseYamlConstraints(text, parsed) {
     }
 
     if (header.key === "pocket") {
-      parsed.pocket = {
-        enabled: true,
+      parsed.pockets.push({
         binder: stripYamlQuotes(map.binder || "B"),
         contacts: yamlContactListAsField(map.contacts || ""),
         distance: stripYamlQuotes(map.max_distance || "6"),
         force: boolFromYamlValue(map.force)
-      };
+      });
       continue;
     }
 
@@ -1257,22 +1391,24 @@ function parseYamlConstraints(text, parsed) {
 
 function parseYamlTemplates(text, parsed) {
   const items = splitYamlItems(yamlSectionLines(text, "templates"));
-  if (!items.length) return;
-
-  const header = yamlItemHeader(items[0]);
-  if (!header) return;
-  const map = parseYamlItemMapping(items[0]);
-  const format = ["cif", "pdb"].includes(header.key) ? header.key : "cif";
-  parsed.template = {
-    enabled: true,
-    format,
-    path: stripYamlQuotes(header.value || map[format] || `./template.${format}`),
-    chainIds: yamlValueAsText(map.chain_id || "A"),
-    templateIds: yamlValueAsText(map.template_id || ""),
-    force: boolFromYamlValue(map.force),
-    threshold: stripYamlQuotes(map.threshold || "2")
-  };
-  if (items.length > 1) parsed.warnings.push("Only the first template is editable in the builder.");
+  for (const item of items) {
+    const header = yamlItemHeader(item);
+    if (!header) continue;
+    const map = parseYamlItemMapping(item);
+    if (!["cif", "pdb"].includes(header.key)) {
+      parsed.warnings.push(`Unsupported template format "${header.key}" was left out of builder fields.`);
+      continue;
+    }
+    const format = header.key;
+    parsed.templates.push({
+      format,
+      path: stripYamlQuotes(header.value || map[format] || `./template.${format}`),
+      chainIds: yamlValueAsText(map.chain_id || "A"),
+      templateIds: yamlValueAsText(map.template_id || ""),
+      force: boolFromYamlValue(map.force),
+      threshold: stripYamlQuotes(map.threshold || "2")
+    });
+  }
 }
 
 function parseYamlProperties(text, parsed) {
@@ -1292,13 +1428,13 @@ function parseBuilderYaml(text) {
   const parsed = {
     polymers: [],
     ligands: [],
+    pockets: [],
     contacts: [],
     atomContacts: [],
     atomContactUnions: [],
     bonds: [],
     affinity: null,
-    pocket: null,
-    template: null,
+    templates: [],
     warnings: []
   };
   parseYamlSequences(text, parsed);
@@ -1310,14 +1446,14 @@ function parseBuilderYaml(text) {
 
 function profileFromParsedYaml(parsed) {
   if (parsed.affinity?.enabled) return "affinity";
-  if (parsed.pocket?.enabled) return "pocket";
+  if (parsed.pockets.length) return "pocket";
   if (
     parsed.contacts.length
     || parsed.atomContacts.length
     || parsed.atomContactUnions.length
     || parsed.bonds.length
   ) return "contacts";
-  if (parsed.template?.enabled) return "template";
+  if (parsed.templates.length) return "template";
   if (parsed.ligands.length) return "ligand";
   if (parsed.polymers.length > 1) return "complex";
   return "structure";
@@ -1335,12 +1471,12 @@ function openSectionsForLoadedYaml(parsed) {
   setBuilderSectionOpen("polymer", parsed.polymers.length > 0);
   setBuilderSectionOpen("ligand", parsed.ligands.length > 0);
   setBuilderSectionOpen("affinity", parsed.affinity?.enabled);
-  setBuilderSectionOpen("pocket", parsed.pocket?.enabled);
+  setBuilderSectionOpen("pocket", parsed.pockets.length > 0);
   setBuilderSectionOpen("contact-constraints", parsed.contacts.length > 0);
   setBuilderSectionOpen("atom-contact-constraints", parsed.atomContacts.length > 0);
   setBuilderSectionOpen("atom-contact-union-constraints", parsed.atomContactUnions.length > 0);
   setBuilderSectionOpen("bond-constraints", parsed.bonds.length > 0);
-  setBuilderSectionOpen("template", parsed.template?.enabled);
+  setBuilderSectionOpen("template", parsed.templates.length > 0);
 }
 
 function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } = {}) {
@@ -1364,35 +1500,25 @@ function applyParsedYamlToBuilder(parsed, filename, { preserveEditor = false } =
     source: ligand.source || "smiles",
     value: ligand.value || DEFAULT_LIGAND_SMILES
   }));
+  builderState.pockets = parsed.pockets.map((pocket) => createPocket(pocket));
   builderState.contacts = parsed.contacts.map((contact) => createContact(contact));
   builderState.atomContacts = parsed.atomContacts.map((atomContact) => createAtomContact(atomContact));
   builderState.atomContactUnions = parsed.atomContactUnions.map((group) => (
     createAtomContactUnion(group)
   ));
   builderState.bonds = parsed.bonds.map((bond) => createBond(bond));
+  builderState.templates = parsed.templates.map((template) => createTemplate(template));
   renderPolymers();
   renderLigands();
+  renderPockets();
   renderContacts();
   renderAtomContacts();
   renderAtomContactUnions();
   renderBonds();
+  renderTemplates();
 
   setFieldValue("yaml-affinity-enabled", Boolean(parsed.affinity?.enabled));
   setFieldValue("yaml-affinity-binder", parsed.affinity?.binder || "B");
-
-  setFieldValue("yaml-pocket-enabled", Boolean(parsed.pocket?.enabled));
-  setFieldValue("yaml-pocket-binder", parsed.pocket?.binder || "B");
-  setFieldValue("yaml-pocket-distance", parsed.pocket?.distance || "6");
-  setFieldValue("yaml-pocket-force", Boolean(parsed.pocket?.force));
-  setFieldValue("yaml-pocket-contacts", parsed.pocket?.contacts || "");
-
-  setFieldValue("yaml-template-enabled", Boolean(parsed.template?.enabled));
-  setFieldValue("yaml-template-format", parsed.template?.format || "cif");
-  setFieldValue("yaml-template-path", parsed.template?.path || "./template.cif");
-  setFieldValue("yaml-template-chain-ids", parsed.template?.chainIds || "A");
-  setFieldValue("yaml-template-template-ids", parsed.template?.templateIds || "");
-  setFieldValue("yaml-template-force", Boolean(parsed.template?.force));
-  setFieldValue("yaml-template-threshold", parsed.template?.threshold || "2");
 
   openSectionsForLoadedYaml(parsed);
   const result = preserveEditor
@@ -1495,7 +1621,7 @@ function upsertExistingYamlOption(input) {
   let option = Array.from(select.options).find((item) => item.value === input.path);
   if (!option) {
     option = new Option(input.path.replace(/^workspace\/inputs\//, ""), input.path);
-    select.appendChild(option);
+    select.insertBefore(option, select.options[1] || null);
   }
   option.textContent = input.path.replace(/^workspace\/inputs\//, "");
   option.title = input.path;
@@ -1509,8 +1635,15 @@ function populateExistingYamlSelect(inputs = []) {
   select.appendChild(new Option("Start new input", ""));
   inputs
     .filter((input) => /\.ya?ml$/i.test(input.path || input.name || ""))
-    .sort((a, b) => String(a.path).localeCompare(String(b.path)))
-    .forEach(upsertExistingYamlOption);
+    .sort((a, b) => (
+      Date.parse(b.createdAt || 0) - Date.parse(a.createdAt || 0)
+      || String(a.name || a.path).localeCompare(String(b.name || b.path))
+    ))
+    .forEach((input) => {
+      const option = new Option(input.name || filenameFromPath(input.path), input.path);
+      option.title = input.path;
+      select.appendChild(option);
+    });
   if (selected && Array.from(select.options).some((option) => option.value === selected)) {
     select.value = selected;
   }
@@ -1570,6 +1703,16 @@ function updateLigandFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updatePocketFromElement(element) {
+  const card = element.closest(".pocket-card");
+  if (!card) return;
+  const pocket = builderState.pockets.find((item) => item.uid === card.dataset.uid);
+  if (!pocket) return;
+  const field = element.dataset.pocketField;
+  pocket[field] = element.type === "checkbox" ? element.checked : element.value;
+  syncYamlFromBuilder();
+}
+
 function updateContactFromElement(element) {
   const card = element.closest(".contact-card");
   if (!card) return;
@@ -1619,6 +1762,17 @@ function updateBondFromElement(element) {
   syncYamlFromBuilder();
 }
 
+function updateTemplateFromElement(element) {
+  const card = element.closest(".template-card");
+  if (!card) return;
+  const template = builderState.templates.find((item) => item.uid === card.dataset.uid);
+  if (!template) return;
+  const field = element.dataset.templateField;
+  template[field] = element.type === "checkbox" ? element.checked : element.value;
+  if (field === "force" || field === "format") renderTemplates();
+  syncYamlFromBuilder();
+}
+
 function bindRepeatLists() {
   $("#add-polymer-button").addEventListener("click", () => {
     builderState.polymers.push(createPolymer({ ids: chainIdFromIndex(builderState.polymers.length) }));
@@ -1629,6 +1783,12 @@ function bindRepeatLists() {
   $("#add-ligand-button").addEventListener("click", () => {
     builderState.ligands.push(createLigand({ ids: chainIdFromIndex(builderState.polymers.length + builderState.ligands.length) }));
     renderLigands();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#add-pocket-button").addEventListener("click", () => {
+    builderState.pockets.push(createPocket());
+    renderPockets();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1653,6 +1813,12 @@ function bindRepeatLists() {
   $("#add-bond-button").addEventListener("click", () => {
     builderState.bonds.push(createBond());
     renderBonds();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#add-template-button").addEventListener("click", () => {
+    builderState.templates.push(createTemplate());
+    renderTemplates();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1683,6 +1849,21 @@ function bindRepeatLists() {
     if (!card) return;
     builderState.ligands = builderState.ligands.filter((item) => item.uid !== card.dataset.uid);
     renderLigands();
+    generateYamlFromBuilder({ silent: true });
+  });
+
+  $("#pocket-list").addEventListener("input", (event) => {
+    if (event.target.dataset.pocketField) updatePocketFromElement(event.target);
+  });
+  $("#pocket-list").addEventListener("change", (event) => {
+    if (event.target.dataset.pocketField) updatePocketFromElement(event.target);
+  });
+  $("#pocket-list").addEventListener("click", (event) => {
+    if (event.target.dataset.action !== "remove-pocket") return;
+    const card = event.target.closest(".pocket-card");
+    if (!card) return;
+    builderState.pockets = builderState.pockets.filter((item) => item.uid !== card.dataset.uid);
+    renderPockets();
     generateYamlFromBuilder({ silent: true });
   });
 
@@ -1765,6 +1946,21 @@ function bindRepeatLists() {
     renderBonds();
     generateYamlFromBuilder({ silent: true });
   });
+
+  $("#template-list").addEventListener("input", (event) => {
+    if (event.target.dataset.templateField) updateTemplateFromElement(event.target);
+  });
+  $("#template-list").addEventListener("change", (event) => {
+    if (event.target.dataset.templateField) updateTemplateFromElement(event.target);
+  });
+  $("#template-list").addEventListener("click", (event) => {
+    if (event.target.dataset.action !== "remove-template") return;
+    const card = event.target.closest(".template-card");
+    if (!card) return;
+    builderState.templates = builderState.templates.filter((item) => item.uid !== card.dataset.uid);
+    renderTemplates();
+    generateYamlFromBuilder({ silent: true });
+  });
 }
 
 async function saveInput() {
@@ -1788,7 +1984,7 @@ async function saveInput() {
 
 async function loadWorkspace() {
   try {
-    const data = await api("/api/state");
+    const data = await api("/api/inputs?details=0");
     const workspace = $("#workspace-pill");
     if (workspace) {
       workspace.textContent = data.workspace;

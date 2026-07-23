@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "status": "succeeded",
+  "mode": "addh_energy_min",
+  "started_at": "2026-07-22T09:49:27.507348Z",
+  "completed_at": "2026-07-22T09:49:43.965074Z",
+  "configuration": {
+    "pH": 7.0,
+    "hydrogen_forcefield": [
+      "amber14-all.xml"
+    ],
+    "minimization_forcefield": [
+      "amber14-all.xml",
+      "implicit/gbn2.xml"
+    ],
+    "implicit_solvent": "GBn2",
+    "nonbonded_method": "NoCutoff",
+    "constraints": "HBonds",
+    "minimizer": "OpenMM LocalEnergyMinimizer (L-BFGS)",
+    "tolerance_kj_mol_nm": 10.0,
+    "max_iterations": 250,
+    "platform_priority": [
+      "CUDA",
+      "OpenCL",
+      "CPU"
+    ]
+  },
+  "software": {
+    "openmm": "8.4",
+    "pdbfixer": "1.12.0",
+    "python": "3.10.20"
+  },
+  "models": [
+    {
+      "source": "predictions/8UWU-token-constraint/8UWU-token-constraint_model_0.pdb",
+      "output": "postprocessed/addh_energy_min/8UWU-token-constraint/8UWU-token-constraint_model_0_addh_energy_min.pdb",
+      "model_index": 0,
+      "status": "succeeded",
+      "source_sha256": "59910b8ace3547065e38bbbe7d03974c1eb7c13d0cc611729b5f0ef78d13a4c0",
+      "output_sha256": "141f32d1ed5256b1c62be04a948536367f24e87de5bcdb6a4b3a9cb1a59dee2b",
+      "counts_before": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after_terminal_normalization": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after": {
+        "atoms": 3438,
+        "heavy_atoms": 1684,
+        "hydrogens": 1754,
+        "residues": 220,
+        "chains": 2
+      },
+      "hydrogens_added": 1754,
+      "selected_protonation_variants": [
+        {
+          "residue": "A:110:HIS",
+          "variant": "HID"
+        },
+        {
+          "residue": "B:110:HIS",
+          "variant": "HID"
+        }
+      ],
+      "unresolved_missing_residue_segments_not_built": [],
+      "terminal_heavy_atoms_added": [
+        {
+          "residue": "A:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        },
+        {
+          "residue": "B:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        }
+      ],
+      "terminal_heavy_atoms_removed": [],
+      "potential_energy": {
+        "initial_kj_mol": -11231.698849991022,
+        "final_kj_mol": -19006.685037934767,
+        "change_kj_mol": -7774.986187943745
+      },
+      "coordinate_displacement": {
+        "heavy_atom_rmsd_angstrom": 0.28410485537403124,
+        "maximum_heavy_atom_angstrom": 1.5717962434963892
+      },
+      "openmm_platform": "CUDA",
+      "pdb_confidence_b_factors_preserved": true
+    },
+    {
+      "source": "predictions/8UWU-token-constraint/8UWU-token-constraint_model_1.pdb",
+      "output": "postprocessed/addh_energy_min/8UWU-token-constraint/8UWU-token-constraint_model_1_addh_energy_min.pdb",
+      "model_index": 1,
+      "status": "succeeded",
+      "source_sha256": "44736a262ac664226e81df1e34fb4b3e59e8b1d21417390cea590b4eb1608278",
+      "output_sha256": "72de4266f0377690098f83cfc514a99ddcbb75228f5047bcba74e8e94d59a716",
+      "counts_before": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after_terminal_normalization": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after": {
+        "atoms": 3438,
+        "heavy_atoms": 1684,
+        "hydrogens": 1754,
+        "residues": 220,
+        "chains": 2
+      },
+      "hydrogens_added": 1754,
+      "selected_protonation_variants": [
+        {
+          "residue": "A:110:HIS",
+          "variant": "HID"
+        },
+        {
+          "residue": "B:110:HIS",
+          "variant": "HID"
+        }
+      ],
+      "unresolved_missing_residue_segments_not_built": [],
+      "terminal_heavy_atoms_added": [
+        {
+          "residue": "A:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        },
+        {
+          "residue": "B:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        }
+      ],
+      "terminal_heavy_atoms_removed": [],
+      "potential_energy": {
+        "initial_kj_mol": -4901.720581256659,
+        "final_kj_mol": -18829.764268195362,
+        "change_kj_mol": -13928.043686938703
+      },
+      "coordinate_displacement": {
+        "heavy_atom_rmsd_angstrom": 0.3131742803806717,
+        "maximum_heavy_atom_angstrom": 1.3603476992131562
+      },
+      "openmm_platform": "CUDA",
+      "pdb_confidence_b_factors_preserved": true
+    },
+    {
+      "source": "predictions/8UWU-token-constraint/8UWU-token-constraint_model_2.pdb",
+      "output": "postprocessed/addh_energy_min/8UWU-token-constraint/8UWU-token-constraint_model_2_addh_energy_min.pdb",
+      "model_index": 2,
+      "status": "succeeded",
+      "source_sha256": "eb32d08b6dd97b0f41a76ef7bdf434a9887b33c329c1e48f3d14ac63b96e1a19",
+      "output_sha256": "508aee37b54ed62481c367872250c84e47f32e2d9d35dd1e8c697ac043cf404b",
+      "counts_before": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after_terminal_normalization": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after": {
+        "atoms": 3438,
+        "heavy_atoms": 1684,
+        "hydrogens": 1754,
+        "residues": 220,
+        "chains": 2
+      },
+      "hydrogens_added": 1754,
+      "selected_protonation_variants": [
+        {
+          "residue": "A:110:HIS",
+          "variant": "HID"
+        },
+        {
+          "residue": "B:110:HIS",
+          "variant": "HID"
+        }
+      ],
+      "unresolved_missing_residue_segments_not_built": [],
+      "terminal_heavy_atoms_added": [
+        {
+          "residue": "A:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        },
+        {
+          "residue": "B:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        }
+      ],
+      "terminal_heavy_atoms_removed": [],
+      "potential_energy": {
+        "initial_kj_mol": 8917.722939686813,
+        "final_kj_mol": -18211.305843765884,
+        "change_kj_mol": -27129.028783452697
+      },
+      "coordinate_displacement": {
+        "heavy_atom_rmsd_angstrom": 0.3620207849915292,
+        "maximum_heavy_atom_angstrom": 1.793433626253992
+      },
+      "openmm_platform": "CUDA",
+      "pdb_confidence_b_factors_preserved": true
+    },
+    {
+      "source": "predictions/8UWU-token-constraint/8UWU-token-constraint_model_3.pdb",
+      "output": "postprocessed/addh_energy_min/8UWU-token-constraint/8UWU-token-constraint_model_3_addh_energy_min.pdb",
+      "model_index": 3,
+      "status": "succeeded",
+      "source_sha256": "12dd01c98e55c40a0be1642e4ae13e7f884184979258fd3a6442d7e1c83111dc",
+      "output_sha256": "a1d7197b3afcee3d70dfcb3f97c2cc03c037b22028d88771ccd91a8ffa072968",
+      "counts_before": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after_terminal_normalization": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after": {
+        "atoms": 3438,
+        "heavy_atoms": 1684,
+        "hydrogens": 1754,
+        "residues": 220,
+        "chains": 2
+      },
+      "hydrogens_added": 1754,
+      "selected_protonation_variants": [
+        {
+          "residue": "A:110:HIS",
+          "variant": "HID"
+        },
+        {
+          "residue": "B:110:HIS",
+          "variant": "HID"
+        }
+      ],
+      "unresolved_missing_residue_segments_not_built": [],
+      "terminal_heavy_atoms_added": [
+        {
+          "residue": "A:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        },
+        {
+          "residue": "B:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        }
+      ],
+      "terminal_heavy_atoms_removed": [],
+      "potential_energy": {
+        "initial_kj_mol": 2447.870412053786,
+        "final_kj_mol": -18331.605139754538,
+        "change_kj_mol": -20779.475551808326
+      },
+      "coordinate_displacement": {
+        "heavy_atom_rmsd_angstrom": 0.37035012515724025,
+        "maximum_heavy_atom_angstrom": 1.8300806721455676
+      },
+      "openmm_platform": "CUDA",
+      "pdb_confidence_b_factors_preserved": true
+    },
+    {
+      "source": "predictions/8UWU-token-constraint/8UWU-token-constraint_model_4.pdb",
+      "output": "postprocessed/addh_energy_min/8UWU-token-constraint/8UWU-token-constraint_model_4_addh_energy_min.pdb",
+      "model_index": 4,
+      "status": "succeeded",
+      "source_sha256": "8028a16c55bfb99249e0c8baea651d6b8c5900e8954654fb397b13ad9206b5ec",
+      "output_sha256": "793506834d639445acfd710bc28776d1d79f49cea8c6078cdcb7d5416aef119a",
+      "counts_before": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after_terminal_normalization": {
+        "atoms": 1684,
+        "heavy_atoms": 1684,
+        "hydrogens": 0,
+        "residues": 220,
+        "chains": 2
+      },
+      "counts_after": {
+        "atoms": 3438,
+        "heavy_atoms": 1684,
+        "hydrogens": 1754,
+        "residues": 220,
+        "chains": 2
+      },
+      "hydrogens_added": 1754,
+      "selected_protonation_variants": [
+        {
+          "residue": "A:110:HIS",
+          "variant": "HID"
+        },
+        {
+          "residue": "B:110:HIS",
+          "variant": "HID"
+        }
+      ],
+      "unresolved_missing_residue_segments_not_built": [],
+      "terminal_heavy_atoms_added": [
+        {
+          "residue": "A:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        },
+        {
+          "residue": "B:110:HIS",
+          "atoms": [
+            "OXT"
+          ]
+        }
+      ],
+      "terminal_heavy_atoms_removed": [],
+      "potential_energy": {
+        "initial_kj_mol": -3702.4872334606644,
+        "final_kj_mol": -18373.141255332506,
+        "change_kj_mol": -14670.654021871842
+      },
+      "coordinate_displacement": {
+        "heavy_atom_rmsd_angstrom": 0.3401982720219186,
+        "maximum_heavy_atom_angstrom": 1.7277240287038604
+      },
+      "openmm_platform": "CUDA",
+      "pdb_confidence_b_factors_preserved": true
+    }
+  ],
+  "summary": {
+    "requested": 5,
+    "succeeded": 5,
+    "failed": 0
+  }
+}

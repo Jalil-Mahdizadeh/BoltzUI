@@ -1,0 +1,288 @@
+{
+  "entity_poly": {
+    "nstd_linkage": "no",
+    "nstd_monomer": "yes",
+    "pdbx_seq_one_letter_code": "(CFL)(GF2)(CFL)(GF2)(CFL)(GF2)",
+    "pdbx_seq_one_letter_code_can": "CXCXCX",
+    "pdbx_strand_id": "A,B",
+    "rcsb_artifact_monomer_count": 0,
+    "rcsb_conflict_count": 0,
+    "rcsb_deletion_count": 0,
+    "rcsb_entity_polymer_type": "DNA",
+    "rcsb_insertion_count": 0,
+    "rcsb_mutation_count": 0,
+    "rcsb_non_std_monomer_count": 2,
+    "rcsb_non_std_monomers": [
+      "CFL",
+      "GF2"
+    ],
+    "rcsb_sample_sequence_length": 6,
+    "type": "polydeoxyribonucleotide"
+  },
+  "pdbx_entity_src_syn": [
+    {
+      "ncbi_taxonomy_id": "32630",
+      "organism_scientific": "synthetic construct",
+      "pdbx_alt_source_flag": "sample",
+      "pdbx_beg_seq_num": 1,
+      "pdbx_end_seq_num": 6,
+      "pdbx_src_id": 1
+    }
+  ],
+  "rcsb_entity_source_organism": [
+    {
+      "ncbi_common_names": [
+        "artificial",
+        "artificial gene",
+        "artificial oligonucleotide",
+        "artificial sequence",
+        "synthetic",
+        "synthetic DNA",
+        "synthetic constructs",
+        "synthetic oligonucleotides"
+      ],
+      "ncbi_parent_scientific_name": "other sequences",
+      "ncbi_scientific_name": "synthetic construct",
+      "ncbi_taxonomy_id": 32630,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "synthetic construct",
+      "source_type": "synthetic",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "2787854",
+          "name": "other entries"
+        },
+        {
+          "depth": 2,
+          "id": "28384",
+          "name": "other sequences"
+        },
+        {
+          "depth": 3,
+          "id": "81077",
+          "name": "artificial sequences"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "synthetic construct"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "artificial"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "artificial gene"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "artificial oligonucleotide"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "artificial sequence"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "synthetic"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "synthetic DNA"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "synthetic constructs"
+        },
+        {
+          "depth": 4,
+          "id": "32630",
+          "name": "synthetic oligonucleotides"
+        }
+      ]
+    }
+  ],
+  "rcsb_id": "8QOR_1",
+  "rcsb_polymer_entity": {
+    "formula_weight": 1.918,
+    "pdbx_description": "DNA (5'-D(*(CFL)P*(FRG)P*(CFL)P*(FRG)P*(CFL)P*(FRG))-3')",
+    "pdbx_number_of_molecules": 2,
+    "rcsb_macromolecular_names_combined": [
+      {
+        "name": "DNA (5'-D(*(CFL)P*(FRG)P*(CFL)P*(FRG)P*(CFL)P*(FRG))-3')",
+        "provenance_code": "ECO:0000304",
+        "provenance_source": "PDB Preferred Name"
+      }
+    ],
+    "rcsb_multiple_source_flag": "N",
+    "rcsb_polymer_name_combined": {
+      "names": [
+        "Dna (5'-d(*(cfl)p*(frg)p*(cfl)p*(frg)p*(cfl)p*(frg))-3')"
+      ],
+      "provenance_source": "PDB Preferred Name"
+    },
+    "rcsb_source_part_count": 1,
+    "rcsb_source_taxonomy_count": 1,
+    "src_method": "syn"
+  },
+  "rcsb_polymer_entity_container_identifiers": {
+    "asym_ids": [
+      "A",
+      "B"
+    ],
+    "auth_asym_ids": [
+      "A",
+      "B"
+    ],
+    "chem_comp_monomers": [
+      "CFL",
+      "GF2"
+    ],
+    "chem_comp_nstd_monomers": [
+      "CFL",
+      "GF2"
+    ],
+    "entity_id": "1",
+    "entry_id": "8QOR",
+    "rcsb_id": "8QOR_1"
+  },
+  "rcsb_polymer_entity_feature": [
+    {
+      "additional_properties": [
+        {
+          "name": "PARENT_COMP_ID",
+          "values": [
+            "DC"
+          ]
+        }
+      ],
+      "assignment_version": "V1.0",
+      "feature_id": "monomer_feature_1",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1
+        }
+      ],
+      "name": "Parent monomer DC",
+      "provenance_source": "PDB",
+      "type": "modified_monomer"
+    },
+    {
+      "additional_properties": [
+        {
+          "name": "PARENT_COMP_ID",
+          "values": [
+            "DG"
+          ]
+        }
+      ],
+      "assignment_version": "V1.0",
+      "feature_id": "monomer_feature_2",
+      "feature_positions": [
+        {
+          "beg_seq_id": 2
+        }
+      ],
+      "name": "Parent monomer DG",
+      "provenance_source": "PDB",
+      "type": "modified_monomer"
+    },
+    {
+      "additional_properties": [
+        {
+          "name": "PARENT_COMP_ID",
+          "values": [
+            "DC"
+          ]
+        }
+      ],
+      "assignment_version": "V1.0",
+      "feature_id": "monomer_feature_3",
+      "feature_positions": [
+        {
+          "beg_seq_id": 3
+        }
+      ],
+      "name": "Parent monomer DC",
+      "provenance_source": "PDB",
+      "type": "modified_monomer"
+    },
+    {
+      "additional_properties": [
+        {
+          "name": "PARENT_COMP_ID",
+          "values": [
+            "DG"
+          ]
+        }
+      ],
+      "assignment_version": "V1.0",
+      "feature_id": "monomer_feature_4",
+      "feature_positions": [
+        {
+          "beg_seq_id": 4
+        }
+      ],
+      "name": "Parent monomer DG",
+      "provenance_source": "PDB",
+      "type": "modified_monomer"
+    },
+    {
+      "additional_properties": [
+        {
+          "name": "PARENT_COMP_ID",
+          "values": [
+            "DC"
+          ]
+        }
+      ],
+      "assignment_version": "V1.0",
+      "feature_id": "monomer_feature_5",
+      "feature_positions": [
+        {
+          "beg_seq_id": 5
+        }
+      ],
+      "name": "Parent monomer DC",
+      "provenance_source": "PDB",
+      "type": "modified_monomer"
+    },
+    {
+      "additional_properties": [
+        {
+          "name": "PARENT_COMP_ID",
+          "values": [
+            "DG"
+          ]
+        }
+      ],
+      "assignment_version": "V1.0",
+      "feature_id": "monomer_feature_6",
+      "feature_positions": [
+        {
+          "beg_seq_id": 6
+        }
+      ],
+      "name": "Parent monomer DG",
+      "provenance_source": "PDB",
+      "type": "modified_monomer"
+    }
+  ],
+  "rcsb_polymer_entity_feature_summary": [
+    {
+      "count": 6,
+      "coverage": 1.0,
+      "type": "modified_monomer"
+    }
+  ]
+}

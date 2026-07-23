@@ -1,0 +1,3802 @@
+{
+  "arms": {
+    "combined": {
+      "analysis": {
+        "best_of_10_best_of_ensemble": {
+          "assignment": {
+            "A": "A",
+            "B": "B"
+          },
+          "capri_class": "incorrect",
+          "capri_rank": 0,
+          "chain_backbone_rmsd": {
+            "A": 10.088108314987513,
+            "B": 11.126222438780772
+          },
+          "complex_plddt": 0.4617944657802582,
+          "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_4.json",
+          "confidence_score": 0.4582054316997528,
+          "contact_f1": 0.14893617021276598,
+          "contact_precision": 0.14285714285714285,
+          "fnat": 0.15555555555555556,
+          "global_anchor_count": 369,
+          "global_backbone_rmsd": 11.30921715611591,
+          "interface_anchor_count": 270,
+          "interface_backbone_rmsd": 10.181984600353422,
+          "iptm": 0.44384923577308655,
+          "ligand_anchor_count": 183,
+          "ligand_chain": "A",
+          "ligand_rmsd": 12.564669221911268,
+          "native_contact_count": 135,
+          "predicted_contact_count": 147,
+          "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_4.pdb",
+          "prediction_model": 4,
+          "prediction_sequence_identity": {
+            "A": 1.0,
+            "B": 1.0
+          },
+          "ptm": 0.5070723295211792,
+          "receptor_anchor_count": 186,
+          "receptor_chain": "B",
+          "recovered_native_contacts": 21,
+          "reference_model": 8
+        },
+        "capri_class_counts": {
+          "acceptable": 0,
+          "high": 0,
+          "incorrect": 10,
+          "medium": 0
+        },
+        "metric_medians": {
+          "contact_f1": 0.09851757052204982,
+          "fnat": 0.10653935185185184,
+          "global_backbone_rmsd": 12.545606120484672,
+          "interface_backbone_rmsd": 10.968469716294084,
+          "ligand_rmsd": 14.357173105621012
+        },
+        "model_summaries": [
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.783568933726874,
+              "B": 14.468965737892226
+            },
+            "complex_plddt": 0.4716110825538635,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_0.json",
+            "confidence_score": 0.553464412689209,
+            "contact_f1": 0.10071942446043165,
+            "contact_precision": 0.09333333333333334,
+            "fnat": 0.109375,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.958399204063317,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 12.542583656230464,
+            "iptm": 0.8808777928352356,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 15.910161293341822,
+            "native_contact_count": 128,
+            "predicted_contact_count": 150,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_0.pdb",
+            "prediction_model": 0,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.882107675075531,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 14,
+            "reference_model": 6
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.179076681972978,
+              "B": 15.14676218591876
+            },
+            "complex_plddt": 0.4591061472892761,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_1.json",
+            "confidence_score": 0.5169920325279236,
+            "contact_f1": 0.12925170068027214,
+            "contact_precision": 0.11242603550295859,
+            "fnat": 0.152,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.396063272385177,
+            "interface_anchor_count": 249,
+            "interface_backbone_rmsd": 12.50531692685142,
+            "iptm": 0.7485352754592896,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 14.911282199213128,
+            "native_contact_count": 125,
+            "predicted_contact_count": 169,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_1.pdb",
+            "prediction_model": 1,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7778163552284241,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 19,
+            "reference_model": 9
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.321531935296,
+              "B": 7.097088657935618
+            },
+            "complex_plddt": 0.4621218740940094,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_2.json",
+            "confidence_score": 0.5168406963348389,
+            "contact_f1": 0.11387900355871887,
+            "contact_precision": 0.1038961038961039,
+            "fnat": 0.12598425196850394,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 10.166077169968355,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 9.360220985463833,
+            "iptm": 0.735715925693512,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 13.473339579551817,
+            "native_contact_count": 127,
+            "predicted_contact_count": 154,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_2.pdb",
+            "prediction_model": 2,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7698823809623718,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 16,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 9.384055674486852,
+              "B": 13.418928575138198
+            },
+            "complex_plddt": 0.47168397903442383,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_3.json",
+            "confidence_score": 0.4981040954589844,
+            "contact_f1": 0.079734219269103,
+            "contact_precision": 0.07228915662650602,
+            "fnat": 0.08888888888888889,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 12.779271682636411,
+            "interface_anchor_count": 270,
+            "interface_backbone_rmsd": 10.974942429481972,
+            "iptm": 0.6037845015525818,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 13.835315879669404,
+            "native_contact_count": 135,
+            "predicted_contact_count": 166,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_3.pdb",
+            "prediction_model": 3,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.6532050371170044,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 12,
+            "reference_model": 8
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.088108314987513,
+              "B": 11.126222438780772
+            },
+            "complex_plddt": 0.4617944657802582,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_4.json",
+            "confidence_score": 0.4582054316997528,
+            "contact_f1": 0.14893617021276598,
+            "contact_precision": 0.14285714285714285,
+            "fnat": 0.15555555555555556,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 11.30921715611591,
+            "interface_anchor_count": 270,
+            "interface_backbone_rmsd": 10.181984600353422,
+            "iptm": 0.44384923577308655,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 12.564669221911268,
+            "native_contact_count": 135,
+            "predicted_contact_count": 147,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_4.pdb",
+            "prediction_model": 4,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.5070723295211792,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 21,
+            "reference_model": 8
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.45239340315425,
+              "B": 10.065751124133817
+            },
+            "complex_plddt": 0.46465811133384705,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_5.json",
+            "confidence_score": 0.4528522491455078,
+            "contact_f1": 0.06584362139917696,
+            "contact_precision": 0.06349206349206349,
+            "fnat": 0.06837606837606838,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.646630571664536,
+            "interface_anchor_count": 252,
+            "interface_backbone_rmsd": 11.234711989290075,
+            "iptm": 0.40562885999679565,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 20.375502173960832,
+            "native_contact_count": 117,
+            "predicted_contact_count": 126,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_5.pdb",
+            "prediction_model": 5,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.47176259756088257,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 8,
+            "reference_model": 4
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.000671287809336,
+              "B": 11.892465424066032
+            },
+            "complex_plddt": 0.45487597584724426,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_6.json",
+            "confidence_score": 0.4156769812107086,
+            "contact_f1": 0.09774436090225565,
+            "contact_precision": 0.087248322147651,
+            "fnat": 0.1111111111111111,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.370770776946218,
+            "interface_anchor_count": 252,
+            "interface_backbone_rmsd": 10.939313362106066,
+            "iptm": 0.2588810622692108,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 16.97175832735259,
+            "native_contact_count": 117,
+            "predicted_contact_count": 149,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_6.pdb",
+            "prediction_model": 6,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.34357964992523193,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 13,
+            "reference_model": 4
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.100745233878234,
+              "B": 12.023749775195439
+            },
+            "complex_plddt": 0.47915300726890564,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_7.json",
+            "confidence_score": 0.4074060916900635,
+            "contact_f1": 0.0622568093385214,
+            "contact_precision": 0.06153846153846154,
+            "fnat": 0.06299212598425197,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 12.311940558332934,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 11.171324093042655,
+            "iptm": 0.12041832506656647,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 14.083189206042963,
+            "native_contact_count": 127,
+            "predicted_contact_count": 130,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_7.pdb",
+            "prediction_model": 7,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.22353830933570862,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 8,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.029437181424804,
+              "B": 9.947924315688022
+            },
+            "complex_plddt": 0.43240389227867126,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_8.json",
+            "confidence_score": 0.37287184596061707,
+            "contact_f1": 0.057553956834532384,
+            "contact_precision": 0.052980132450331126,
+            "fnat": 0.06299212598425197,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 11.041326631100649,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 10.74352450111061,
+            "iptm": 0.13474370539188385,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 13.589816034955096,
+            "native_contact_count": 127,
+            "predicted_contact_count": 151,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_8.pdb",
+            "prediction_model": 8,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.22875483334064484,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 8,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.411989255845373,
+              "B": 9.49541593477963
+            },
+            "complex_plddt": 0.4420720636844635,
+            "confidence_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/confidence_8x8t_combined_model_9.json",
+            "confidence_score": 0.3701636493206024,
+            "contact_f1": 0.09929078014184398,
+            "contact_precision": 0.09523809523809523,
+            "fnat": 0.1037037037037037,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 11.285629430178929,
+            "interface_anchor_count": 270,
+            "interface_backbone_rmsd": 10.961997003106198,
+            "iptm": 0.08253001421689987,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 14.631157005199059,
+            "native_contact_count": 135,
+            "predicted_contact_count": 147,
+            "prediction_file": "cases/8x8t/combined/results/boltz_results_8x8t_combined/predictions/8x8t_combined/8x8t_combined_model_9.pdb",
+            "prediction_model": 9,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.1964264065027237,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 14,
+            "reference_model": 8
+          }
+        ],
+        "prediction_models_compared": 10,
+        "reference_models_compared": 10,
+        "restraint_audit_summary": {
+          "exact_unresolved_total": 0,
+          "median_exact_fraction_satisfied_resolved": 0.9279100529100529,
+          "median_union_fraction_satisfied_determinate": 0.9070796460176991,
+          "models": 10,
+          "union_indeterminate_total": 0
+        },
+        "restraint_audits": [
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9140211640211641,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 691,
+              "total": 756,
+              "violated": 65
+            },
+            "model": 0,
+            "union": {
+              "fraction_satisfied_determinate": 0.911504424778761,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 103,
+              "total": 113,
+              "violated": 10
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9298941798941799,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 703,
+              "total": 756,
+              "violated": 53
+            },
+            "model": 1,
+            "union": {
+              "fraction_satisfied_determinate": 0.8938053097345132,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 101,
+              "total": 113,
+              "violated": 12
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9259259259259259,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 700,
+              "total": 756,
+              "violated": 56
+            },
+            "model": 2,
+            "union": {
+              "fraction_satisfied_determinate": 0.9026548672566371,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 102,
+              "total": 113,
+              "violated": 11
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9285714285714286,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 702,
+              "total": 756,
+              "violated": 54
+            },
+            "model": 3,
+            "union": {
+              "fraction_satisfied_determinate": 0.9026548672566371,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 102,
+              "total": 113,
+              "violated": 11
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9206349206349206,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 696,
+              "total": 756,
+              "violated": 60
+            },
+            "model": 4,
+            "union": {
+              "fraction_satisfied_determinate": 0.9203539823008849,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 104,
+              "total": 113,
+              "violated": 9
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9272486772486772,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 701,
+              "total": 756,
+              "violated": 55
+            },
+            "model": 5,
+            "union": {
+              "fraction_satisfied_determinate": 0.9203539823008849,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 104,
+              "total": 113,
+              "violated": 9
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9338624338624338,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 706,
+              "total": 756,
+              "violated": 50
+            },
+            "model": 6,
+            "union": {
+              "fraction_satisfied_determinate": 0.8849557522123894,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 100,
+              "total": 113,
+              "violated": 13
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9259259259259259,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 700,
+              "total": 756,
+              "violated": 56
+            },
+            "model": 7,
+            "union": {
+              "fraction_satisfied_determinate": 0.911504424778761,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 103,
+              "total": 113,
+              "violated": 10
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9325396825396826,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 705,
+              "total": 756,
+              "violated": 51
+            },
+            "model": 8,
+            "union": {
+              "fraction_satisfied_determinate": 0.8849557522123894,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 100,
+              "total": 113,
+              "violated": 13
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9365079365079365,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 708,
+              "total": 756,
+              "violated": 48
+            },
+            "model": 9,
+            "union": {
+              "fraction_satisfied_determinate": 0.911504424778761,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 103,
+              "total": 113,
+              "violated": 10
+            }
+          }
+        ],
+        "technically_complete": true
+      },
+      "applicable": true,
+      "effect": {
+        "best_of_10_deltas": {
+          "capri_rank": 0,
+          "contact_f1": 0.014964878346737265,
+          "fnat": 0.035897435897435895,
+          "global_backbone_rmsd": -1.4233654613781148,
+          "interface_backbone_rmsd": -1.521393065399442,
+          "ligand_rmsd": -5.560341973857694
+        },
+        "median_model_deltas": {
+          "capri_rank": 0.0,
+          "contact_f1": 0.07897829666152734,
+          "fnat": 0.09866533610382036,
+          "global_backbone_rmsd": -14.564016755060774,
+          "interface_backbone_rmsd": -13.648941116930182,
+          "ligand_rmsd": -30.502648728327117
+        },
+        "model_pairs": [
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.07587470396353724,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.09362696850393701,
+            "global_backbone_rmsd_delta": -16.15201844413493,
+            "interface_backbone_rmsd_delta": -13.793962263758965,
+            "ligand_rmsd_delta": -39.24902890003039,
+            "prediction_model": 0
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.08208188935951742,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.1129375,
+            "global_backbone_rmsd_delta": -7.404495612424412,
+            "interface_backbone_rmsd_delta": -7.194487217982884,
+            "ligand_rmsd_delta": -21.756268556623844,
+            "prediction_model": 1
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.10457667797732352,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.118047744031996,
+            "global_backbone_rmsd_delta": -12.976015065986617,
+            "interface_backbone_rmsd_delta": -13.503919970101396,
+            "ligand_rmsd_delta": -15.483552455045695,
+            "prediction_model": 2
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.04464649997085739,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.05969180859691809,
+            "global_backbone_rmsd_delta": -4.0419838738501515,
+            "interface_backbone_rmsd_delta": -5.527399592903896,
+            "ligand_rmsd_delta": -8.562677805779453,
+            "prediction_model": 3
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.09293617021276598,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.10625978090766824,
+            "global_backbone_rmsd_delta": -2.807670864023713,
+            "interface_backbone_rmsd_delta": -3.1426818967392727,
+            "ligand_rmsd_delta": -7.736345352888685,
+            "prediction_model": 4
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.06812767046685175,
+            "current_capri_class": "incorrect",
+            "fnat_delta": -0.05128205128205128,
+            "global_backbone_rmsd_delta": 1.9140479541705115,
+            "interface_backbone_rmsd_delta": -0.46866567646278945,
+            "ligand_rmsd_delta": 2.25049097819187,
+            "prediction_model": 5
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.09774436090225565,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.1111111111111111,
+            "global_backbone_rmsd_delta": -31.38020371393374,
+            "interface_backbone_rmsd_delta": -31.899121383535334,
+            "ligand_rmsd_delta": -71.42212627303533,
+            "prediction_model": 6
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.0622568093385214,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.06299212598425197,
+            "global_backbone_rmsd_delta": -76.55395249457993,
+            "interface_backbone_rmsd_delta": -77.19343721099774,
+            "ligand_rmsd_delta": -164.2743739865632,
+            "prediction_model": 7
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.057553956834532384,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.06299212598425197,
+            "global_backbone_rmsd_delta": -68.38731914195841,
+            "interface_backbone_rmsd_delta": -67.05777409314192,
+            "ligand_rmsd_delta": -143.00757828555945,
+            "prediction_model": 8
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.09929078014184398,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.1037037037037037,
+            "global_backbone_rmsd_delta": -126.56082088914998,
+            "interface_backbone_rmsd_delta": -125.80277966417205,
+            "ligand_rmsd_delta": -261.8934532682514,
+            "prediction_model": 9
+          }
+        ],
+        "models_with_capri_rank_improvement": 0,
+        "models_with_capri_rank_worsening": 0,
+        "paired_models": 10
+      },
+      "manifest": {
+        "applicable": true,
+        "arm": "combined",
+        "command": {
+          "arguments": [
+            "predict",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/combined/input/8x8t_combined.yaml",
+            "--out_dir",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/combined/results",
+            "--cache",
+            "/opt/boltz-cache",
+            "--devices",
+            "1",
+            "--accelerator",
+            "gpu",
+            "--model",
+            "boltz2",
+            "--method",
+            "x-ray diffraction",
+            "--recycling_steps",
+            "3",
+            "--sampling_steps",
+            "400",
+            "--diffusion_samples",
+            "10",
+            "--max_parallel_samples",
+            "1",
+            "--step_scale",
+            "1.0",
+            "--seed",
+            "1",
+            "--use_potentials",
+            "--use_msa_server",
+            "--msa_server_url",
+            "https://api.colabfold.com",
+            "--msa_pairing_strategy",
+            "greedy",
+            "--max_msa_seqs",
+            "8192",
+            "--subsample_msa",
+            "--num_subsampled_msa",
+            "1024",
+            "--output_format",
+            "pdb",
+            "--write_full_pae",
+            "--override",
+            "--num_workers",
+            "0",
+            "--preprocessing-threads",
+            "1",
+            "--no_kernels"
+          ],
+          "display": "boltz predict /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/combined/input/8x8t_combined.yaml --out_dir /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/combined/results --cache /opt/boltz-cache --devices 1 --accelerator gpu --model boltz2 --method 'x-ray diffraction' --recycling_steps 3 --sampling_steps 400 --diffusion_samples 10 --max_parallel_samples 1 --step_scale 1.0 --seed 1 --use_potentials --use_msa_server --msa_server_url https://api.colabfold.com --msa_pairing_strategy greedy --max_msa_seqs 8192 --subsample_msa --num_subsampled_msa 1024 --output_format pdb --write_full_pae --override --num_workers 0 --preprocessing-threads 1 --no_kernels",
+          "executable": "boltz"
+        },
+        "exact_constraints": 756,
+        "fixed_phase1_msas": [
+          {
+            "bytes": 191166,
+            "entity_index": 0,
+            "file": "cases/8x8t/source/msa/entity_0.csv",
+            "sha256": "a519af355e91caa0d539f19907ca1585daabb4eb42436d34b889382e1b7bb237",
+            "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_0.csv"
+          },
+          {
+            "bytes": 96895,
+            "entity_index": 1,
+            "file": "cases/8x8t/source/msa/entity_1.csv",
+            "sha256": "88fb5c35b6a09b44195ba1f99cc08572bf2bf4456115ee27e115f7d6c7645fa3",
+            "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_1.csv"
+          }
+        ],
+        "input_file": "cases/8x8t/combined/input/8x8t_combined.yaml",
+        "input_sha256": "df0e54681147349fba78dc7123c3a76043a0fd1bd76b1f1ff6a636e10c55ca6d",
+        "pdb_id": "8X8T",
+        "schema_version": 1,
+        "union_groups": 113
+      }
+    },
+    "exact": {
+      "analysis": {
+        "best_of_10_best_of_ensemble": {
+          "assignment": {
+            "A": "A",
+            "B": "B"
+          },
+          "capri_class": "incorrect",
+          "capri_rank": 0,
+          "chain_backbone_rmsd": {
+            "A": 11.394604903303602,
+            "B": 12.237714075579254
+          },
+          "complex_plddt": 0.4731002449989319,
+          "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_9.json",
+          "confidence_score": 0.4240495264530182,
+          "contact_f1": 0.14022140221402213,
+          "contact_precision": 0.1310344827586207,
+          "fnat": 0.15079365079365079,
+          "global_anchor_count": 369,
+          "global_backbone_rmsd": 14.147119848274746,
+          "interface_anchor_count": 258,
+          "interface_backbone_rmsd": 12.738182012105957,
+          "iptm": 0.22784669697284698,
+          "ligand_anchor_count": 183,
+          "ligand_chain": "A",
+          "ligand_rmsd": 18.431309929816805,
+          "native_contact_count": 126,
+          "predicted_contact_count": 145,
+          "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_9.pdb",
+          "prediction_model": 9,
+          "prediction_sequence_identity": {
+            "A": 1.0,
+            "B": 1.0
+          },
+          "ptm": 0.3416016697883606,
+          "receptor_anchor_count": 186,
+          "receptor_chain": "B",
+          "recovered_native_contacts": 19,
+          "reference_model": 10
+        },
+        "capri_class_counts": {
+          "acceptable": 0,
+          "high": 0,
+          "incorrect": 10,
+          "medium": 0
+        },
+        "metric_medians": {
+          "contact_f1": 0.10244755244755245,
+          "fnat": 0.10659375,
+          "global_backbone_rmsd": 14.380379765547353,
+          "interface_backbone_rmsd": 12.97209816281861,
+          "ligand_rmsd": 18.410801053353353
+        },
+        "model_summaries": [
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 18.474244295682148,
+              "B": 18.37351080847193
+            },
+            "complex_plddt": 0.5203571915626526,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_0.json",
+            "confidence_score": 0.5616447329521179,
+            "contact_f1": 0.09195402298850576,
+            "contact_precision": 0.08823529411764706,
+            "fnat": 0.096,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 19.70165878560953,
+            "interface_anchor_count": 249,
+            "interface_backbone_rmsd": 16.850057626056774,
+            "iptm": 0.7267947196960449,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 22.3021241747074,
+            "native_contact_count": 125,
+            "predicted_contact_count": 136,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_0.pdb",
+            "prediction_model": 0,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7278103828430176,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 12,
+            "reference_model": 9
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 16.618745234199015,
+              "B": 15.794551053144204
+            },
+            "complex_plddt": 0.509601891040802,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_1.json",
+            "confidence_score": 0.5536232590675354,
+            "contact_f1": 0.0923076923076923,
+            "contact_precision": 0.09022556390977443,
+            "fnat": 0.09448818897637795,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 17.70537205375269,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 16.130936267963794,
+            "iptm": 0.729708731174469,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 21.338469667888866,
+            "native_contact_count": 127,
+            "predicted_contact_count": 133,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_1.pdb",
+            "prediction_model": 1,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7238767743110657,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 12,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 17.085524144061335,
+              "B": 17.95791141262201
+            },
+            "complex_plddt": 0.49591803550720215,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_2.json",
+            "confidence_score": 0.5478628277778625,
+            "contact_f1": 0.13919413919413917,
+            "contact_precision": 0.13768115942028986,
+            "fnat": 0.14074074074074075,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 18.77687100706663,
+            "interface_anchor_count": 270,
+            "interface_backbone_rmsd": 16.71347570047245,
+            "iptm": 0.7556419968605042,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 23.41263646472783,
+            "native_contact_count": 135,
+            "predicted_contact_count": 138,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_2.pdb",
+            "prediction_model": 2,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7437265515327454,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 19,
+            "reference_model": 8
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.115978515497147,
+              "B": 12.766051350625084
+            },
+            "complex_plddt": 0.4529183506965637,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_3.json",
+            "confidence_score": 0.5435571074485779,
+            "contact_f1": 0.11538461538461538,
+            "contact_precision": 0.0967741935483871,
+            "fnat": 0.14285714285714285,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.236411105980684,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 11.639585484627021,
+            "iptm": 0.906112015247345,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 15.990860881071113,
+            "native_contact_count": 126,
+            "predicted_contact_count": 186,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_3.pdb",
+            "prediction_model": 3,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9145604372024536,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 18,
+            "reference_model": 10
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.408883936726832,
+              "B": 12.653456993219788
+            },
+            "complex_plddt": 0.4755191206932068,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_4.json",
+            "confidence_score": 0.5393751263618469,
+            "contact_f1": 0.05303030303030303,
+            "contact_precision": 0.050724637681159424,
+            "fnat": 0.05555555555555555,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.689894461691022,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 13.206014313531261,
+            "iptm": 0.7947990298271179,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 16.849617662639343,
+            "native_contact_count": 126,
+            "predicted_contact_count": 138,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_4.pdb",
+            "prediction_model": 4,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.8198176026344299,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 7,
+            "reference_model": 10
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.794589671806602,
+              "B": 11.833700361481352
+            },
+            "complex_plddt": 0.4615444839000702,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_5.json",
+            "confidence_score": 0.5247469544410706,
+            "contact_f1": 0.1302681992337165,
+            "contact_precision": 0.125,
+            "fnat": 0.136,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 12.772254580694575,
+            "interface_anchor_count": 249,
+            "interface_backbone_rmsd": 10.797081177732196,
+            "iptm": 0.777556836605072,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 16.136300052847965,
+            "native_contact_count": 125,
+            "predicted_contact_count": 136,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_5.pdb",
+            "prediction_model": 5,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.8053159117698669,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 17,
+            "reference_model": 9
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 8.77683086322931,
+              "B": 11.594966362559164
+            },
+            "complex_plddt": 0.4702256917953491,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_6.json",
+            "confidence_score": 0.4796992242336273,
+            "contact_f1": 0.1,
+            "contact_precision": 0.10619469026548672,
+            "fnat": 0.09448818897637795,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.613639682819962,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 12.451789147113455,
+            "iptm": 0.517593264579773,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 18.390292176889904,
+            "native_contact_count": 127,
+            "predicted_contact_count": 113,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_6.pdb",
+            "prediction_model": 6,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.5844467878341675,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 12,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.04283398441357,
+              "B": 13.990346107854538
+            },
+            "complex_plddt": 0.47162482142448425,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_7.json",
+            "confidence_score": 0.4481895864009857,
+            "contact_f1": 0.1048951048951049,
+            "contact_precision": 0.0949367088607595,
+            "fnat": 0.1171875,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.851171579574698,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 13.249239722612677,
+            "iptm": 0.3544486165046692,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 18.974354644142792,
+            "native_contact_count": 128,
+            "predicted_contact_count": 158,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_7.pdb",
+            "prediction_model": 7,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.4455280900001526,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 15,
+            "reference_model": 5
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.154487195147844,
+              "B": 12.337509404024651
+            },
+            "complex_plddt": 0.4444498121738434,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_8.json",
+            "confidence_score": 0.4433043897151947,
+            "contact_f1": 0.07692307692307693,
+            "contact_precision": 0.07518796992481203,
+            "fnat": 0.07874015748031496,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.04356778521703,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 12.142565667764588,
+            "iptm": 0.43872278928756714,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 18.30091436749382,
+            "native_contact_count": 127,
+            "predicted_contact_count": 133,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_8.pdb",
+            "prediction_model": 8,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.5078717470169067,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 10,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.394604903303602,
+              "B": 12.237714075579254
+            },
+            "complex_plddt": 0.4731002449989319,
+            "confidence_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/confidence_8x8t_exact_model_9.json",
+            "confidence_score": 0.4240495264530182,
+            "contact_f1": 0.14022140221402213,
+            "contact_precision": 0.1310344827586207,
+            "fnat": 0.15079365079365079,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.147119848274746,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 12.738182012105957,
+            "iptm": 0.22784669697284698,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 18.431309929816805,
+            "native_contact_count": 126,
+            "predicted_contact_count": 145,
+            "prediction_file": "cases/8x8t/exact/results/boltz_results_8x8t_exact/predictions/8x8t_exact/8x8t_exact_model_9.pdb",
+            "prediction_model": 9,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.3416016697883606,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 19,
+            "reference_model": 10
+          }
+        ],
+        "prediction_models_compared": 10,
+        "reference_models_compared": 10,
+        "restraint_audit_summary": {
+          "exact_unresolved_total": 0,
+          "median_exact_fraction_satisfied_resolved": 0.923941798941799,
+          "median_union_fraction_satisfied_determinate": null,
+          "models": 10,
+          "union_indeterminate_total": 0
+        },
+        "restraint_audits": [
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9166666666666666,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 693,
+              "total": 756,
+              "violated": 63
+            },
+            "model": 0,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9232804232804233,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 698,
+              "total": 756,
+              "violated": 58
+            },
+            "model": 1,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9246031746031746,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 699,
+              "total": 756,
+              "violated": 57
+            },
+            "model": 2,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9193121693121693,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 695,
+              "total": 756,
+              "violated": 61
+            },
+            "model": 3,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9193121693121693,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 695,
+              "total": 756,
+              "violated": 61
+            },
+            "model": 4,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9272486772486772,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 701,
+              "total": 756,
+              "violated": 55
+            },
+            "model": 5,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9312169312169312,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 704,
+              "total": 756,
+              "violated": 52
+            },
+            "model": 6,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9259259259259259,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 700,
+              "total": 756,
+              "violated": 56
+            },
+            "model": 7,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9206349206349206,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 696,
+              "total": 756,
+              "violated": 60
+            },
+            "model": 8,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9259259259259259,
+              "median_excess_angstrom": 0.0,
+              "resolved": 756,
+              "satisfied": 700,
+              "total": 756,
+              "violated": 56
+            },
+            "model": 9,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          }
+        ],
+        "technically_complete": true
+      },
+      "applicable": true,
+      "effect": {
+        "best_of_10_deltas": {
+          "capri_rank": 0,
+          "contact_f1": 0.006250110347993415,
+          "fnat": 0.031135531135531122,
+          "global_backbone_rmsd": 1.4145372307807218,
+          "interface_backbone_rmsd": 1.0348043463530932,
+          "ligand_rmsd": 0.3062987340478429
+        },
+        "median_model_deltas": {
+          "capri_rank": 0.0,
+          "contact_f1": 0.07860998650472334,
+          "fnat": 0.08737007874015748,
+          "global_backbone_rmsd": -7.3869900457385285,
+          "interface_backbone_rmsd": -7.818576774512717,
+          "ligand_rmsd": -24.093073553306457
+        },
+        "model_pairs": [
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.06710930249161134,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08025196850393701,
+            "global_backbone_rmsd_delta": -10.408758862588716,
+            "interface_backbone_rmsd_delta": -9.486488293932656,
+            "ligand_rmsd_delta": -32.85706601866481,
+            "prediction_model": 0
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.04513788098693758,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.05542568897637795,
+            "global_backbone_rmsd_delta": -4.0951868310569,
+            "interface_backbone_rmsd_delta": -3.5688678768705095,
+            "ligand_rmsd_delta": -15.329081087948104,
+            "prediction_model": 1
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.12989181361274382,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.1328042328042328,
+            "global_backbone_rmsd_delta": -4.365221228888341,
+            "interface_backbone_rmsd_delta": -6.150665255092779,
+            "ligand_rmsd_delta": -5.544255569869684,
+            "prediction_model": 2
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.08029689608636977,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.11366006256517205,
+            "global_backbone_rmsd_delta": -3.5848444505058783,
+            "interface_backbone_rmsd_delta": -4.862756537758846,
+            "ligand_rmsd_delta": -6.407132804377744,
+            "prediction_model": 3
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.0029696969696969625,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.006259780907668232,
+            "global_backbone_rmsd_delta": -0.42699355844860065,
+            "interface_backbone_rmsd_delta": -0.11865218356143359,
+            "ligand_rmsd_delta": -3.451396912160611,
+            "prediction_model": 4
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.0037030926323122215,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.016341880341880347,
+            "global_backbone_rmsd_delta": 0.039671963200550664,
+            "interface_backbone_rmsd_delta": -0.9062964880206685,
+            "ligand_rmsd_delta": -1.988711142920998,
+            "prediction_model": 5
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.1,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.09448818897637795,
+            "global_backbone_rmsd_delta": -30.137334808059993,
+            "interface_backbone_rmsd_delta": -30.386645598527945,
+            "ligand_rmsd_delta": -70.00359242349802,
+            "prediction_model": 6
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.1048951048951049,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.1171875,
+            "global_backbone_rmsd_delta": -74.01472147333817,
+            "interface_backbone_rmsd_delta": -75.11552158142773,
+            "ligand_rmsd_delta": -159.38320854846336,
+            "prediction_model": 7
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.07692307692307693,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.07874015748031496,
+            "global_backbone_rmsd_delta": -65.38507798784202,
+            "interface_backbone_rmsd_delta": -65.65873292648794,
+            "ligand_rmsd_delta": -138.29647995302074,
+            "prediction_model": 8
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.14022140221402213,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.15079365079365079,
+            "global_backbone_rmsd_delta": -123.69933047105417,
+            "interface_backbone_rmsd_delta": -124.0265946551723,
+            "ligand_rmsd_delta": -258.09330034363364,
+            "prediction_model": 9
+          }
+        ],
+        "models_with_capri_rank_improvement": 0,
+        "models_with_capri_rank_worsening": 0,
+        "paired_models": 10
+      },
+      "manifest": {
+        "applicable": true,
+        "arm": "exact",
+        "command": {
+          "arguments": [
+            "predict",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/exact/input/8x8t_exact.yaml",
+            "--out_dir",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/exact/results",
+            "--cache",
+            "/opt/boltz-cache",
+            "--devices",
+            "1",
+            "--accelerator",
+            "gpu",
+            "--model",
+            "boltz2",
+            "--method",
+            "x-ray diffraction",
+            "--recycling_steps",
+            "3",
+            "--sampling_steps",
+            "400",
+            "--diffusion_samples",
+            "10",
+            "--max_parallel_samples",
+            "1",
+            "--step_scale",
+            "1.0",
+            "--seed",
+            "1",
+            "--use_potentials",
+            "--use_msa_server",
+            "--msa_server_url",
+            "https://api.colabfold.com",
+            "--msa_pairing_strategy",
+            "greedy",
+            "--max_msa_seqs",
+            "8192",
+            "--subsample_msa",
+            "--num_subsampled_msa",
+            "1024",
+            "--output_format",
+            "pdb",
+            "--write_full_pae",
+            "--override",
+            "--num_workers",
+            "0",
+            "--preprocessing-threads",
+            "1",
+            "--no_kernels"
+          ],
+          "display": "boltz predict /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/exact/input/8x8t_exact.yaml --out_dir /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/exact/results --cache /opt/boltz-cache --devices 1 --accelerator gpu --model boltz2 --method 'x-ray diffraction' --recycling_steps 3 --sampling_steps 400 --diffusion_samples 10 --max_parallel_samples 1 --step_scale 1.0 --seed 1 --use_potentials --use_msa_server --msa_server_url https://api.colabfold.com --msa_pairing_strategy greedy --max_msa_seqs 8192 --subsample_msa --num_subsampled_msa 1024 --output_format pdb --write_full_pae --override --num_workers 0 --preprocessing-threads 1 --no_kernels",
+          "executable": "boltz"
+        },
+        "exact_constraints": 756,
+        "fixed_phase1_msas": [
+          {
+            "bytes": 191166,
+            "entity_index": 0,
+            "file": "cases/8x8t/source/msa/entity_0.csv",
+            "sha256": "a519af355e91caa0d539f19907ca1585daabb4eb42436d34b889382e1b7bb237",
+            "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_0.csv"
+          },
+          {
+            "bytes": 96895,
+            "entity_index": 1,
+            "file": "cases/8x8t/source/msa/entity_1.csv",
+            "sha256": "88fb5c35b6a09b44195ba1f99cc08572bf2bf4456115ee27e115f7d6c7645fa3",
+            "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_1.csv"
+          }
+        ],
+        "input_file": "cases/8x8t/exact/input/8x8t_exact.yaml",
+        "input_sha256": "a338dc8c419e7d7ea6199ef7d86486b3d4dd6ace58c38ba994687d3e164cb233",
+        "pdb_id": "8X8T",
+        "schema_version": 1,
+        "union_groups": 0
+      }
+    },
+    "union": {
+      "analysis": {
+        "best_of_10_best_of_ensemble": {
+          "assignment": {
+            "A": "A",
+            "B": "B"
+          },
+          "capri_class": "incorrect",
+          "capri_rank": 0,
+          "chain_backbone_rmsd": {
+            "A": 11.072194384086083,
+            "B": 12.05743166533379
+          },
+          "complex_plddt": 0.4970603585243225,
+          "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_0.json",
+          "confidence_score": 0.5829167366027832,
+          "contact_f1": 0.11811023622047245,
+          "contact_precision": 0.11627906976744186,
+          "fnat": 0.12,
+          "global_anchor_count": 369,
+          "global_backbone_rmsd": 12.626238108400443,
+          "interface_anchor_count": 249,
+          "interface_backbone_rmsd": 11.264761559904434,
+          "iptm": 0.9263421893119812,
+          "ligand_anchor_count": 183,
+          "ligand_chain": "A",
+          "ligand_rmsd": 14.541339547645903,
+          "native_contact_count": 125,
+          "predicted_contact_count": 129,
+          "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_0.pdb",
+          "prediction_model": 0,
+          "prediction_sequence_identity": {
+            "A": 1.0,
+            "B": 1.0
+          },
+          "ptm": 0.9229356050491333,
+          "receptor_anchor_count": 186,
+          "receptor_chain": "B",
+          "recovered_native_contacts": 15,
+          "reference_model": 9
+        },
+        "capri_class_counts": {
+          "acceptable": 0,
+          "high": 0,
+          "incorrect": 10,
+          "medium": 0
+        },
+        "metric_medians": {
+          "contact_f1": 0.04932811128367884,
+          "fnat": 0.04705954724409449,
+          "global_backbone_rmsd": 13.696607623390392,
+          "interface_backbone_rmsd": 13.050668161988163,
+          "ligand_rmsd": 17.243385081262964
+        },
+        "model_summaries": [
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.072194384086083,
+              "B": 12.05743166533379
+            },
+            "complex_plddt": 0.4970603585243225,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_0.json",
+            "confidence_score": 0.5829167366027832,
+            "contact_f1": 0.11811023622047245,
+            "contact_precision": 0.11627906976744186,
+            "fnat": 0.12,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 12.626238108400443,
+            "interface_anchor_count": 249,
+            "interface_backbone_rmsd": 11.264761559904434,
+            "iptm": 0.9263421893119812,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 14.541339547645903,
+            "native_contact_count": 125,
+            "predicted_contact_count": 129,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_0.pdb",
+            "prediction_model": 0,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9229356050491333,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 15,
+            "reference_model": 9
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.138347108847574,
+              "B": 12.50520474703996
+            },
+            "complex_plddt": 0.5021721720695496,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_1.json",
+            "confidence_score": 0.5810336470603943,
+            "contact_f1": 0.10300429184549356,
+            "contact_precision": 0.11320754716981132,
+            "fnat": 0.09448818897637795,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.300871542309741,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 12.719056900813426,
+            "iptm": 0.896479606628418,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 16.388321161410342,
+            "native_contact_count": 127,
+            "predicted_contact_count": 106,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_1.pdb",
+            "prediction_model": 1,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9104063510894775,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 12,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 10.576061036430884,
+              "B": 12.461378109545189
+            },
+            "complex_plddt": 0.4953770339488983,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_2.json",
+            "confidence_score": 0.5677582025527954,
+            "contact_f1": 0.0661764705882353,
+            "contact_precision": 0.06923076923076923,
+            "fnat": 0.06338028169014084,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.524281676422785,
+            "interface_anchor_count": 285,
+            "interface_backbone_rmsd": 13.08800700398838,
+            "iptm": 0.857282817363739,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 18.347074108743147,
+            "native_contact_count": 142,
+            "predicted_contact_count": 130,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_2.pdb",
+            "prediction_model": 2,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.8718807697296143,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 9,
+            "reference_model": 3
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.069283849995017,
+              "B": 13.270275378982321
+            },
+            "complex_plddt": 0.492890328168869,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_3.json",
+            "confidence_score": 0.5535246729850769,
+            "contact_f1": 0.028571428571428574,
+            "contact_precision": 0.028985507246376812,
+            "fnat": 0.028169014084507043,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.634661400121615,
+            "interface_anchor_count": 285,
+            "interface_backbone_rmsd": 13.013329319987948,
+            "iptm": 0.7960618734359741,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 18.656059123852422,
+            "native_contact_count": 142,
+            "predicted_contact_count": 138,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_3.pdb",
+            "prediction_model": 3,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.8089358806610107,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 4,
+            "reference_model": 3
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 9.996725118406248,
+              "B": 12.037618631686518
+            },
+            "complex_plddt": 0.4963732957839966,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_4.json",
+            "confidence_score": 0.5313476324081421,
+            "contact_f1": 0.04780876494023904,
+            "contact_precision": 0.04838709677419355,
+            "fnat": 0.047244094488188976,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 11.833181810155448,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 11.982597158563093,
+            "iptm": 0.6712448596954346,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 12.326500560050677,
+            "native_contact_count": 127,
+            "predicted_contact_count": 124,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_4.pdb",
+            "prediction_model": 4,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7203646302223206,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 6,
+            "reference_model": 1
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.393811977937807,
+              "B": 14.47170617926623
+            },
+            "complex_plddt": 0.4767233431339264,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_5.json",
+            "confidence_score": 0.522314727306366,
+            "contact_f1": 0.029197080291970805,
+            "contact_precision": 0.025477707006369428,
+            "fnat": 0.03418803418803419,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.75855384665917,
+            "interface_anchor_count": 252,
+            "interface_backbone_rmsd": 12.769443211552403,
+            "iptm": 0.7046802043914795,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 15.910801119068658,
+            "native_contact_count": 117,
+            "predicted_contact_count": 157,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_5.pdb",
+            "prediction_model": 5,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7212299704551697,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 4,
+            "reference_model": 4
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 12.037459217984956,
+              "B": 14.089398304508444
+            },
+            "complex_plddt": 0.4687507450580597,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_6.json",
+            "confidence_score": 0.5153685808181763,
+            "contact_f1": 0.03717472118959108,
+            "contact_precision": 0.03937007874015748,
+            "fnat": 0.035211267605633804,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.161141872840751,
+            "interface_anchor_count": 285,
+            "interface_backbone_rmsd": 13.308797499991636,
+            "iptm": 0.7018396854400635,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 17.447027946575645,
+            "native_contact_count": 142,
+            "predicted_contact_count": 127,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_6.pdb",
+            "prediction_model": 6,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.7308385372161865,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 5,
+            "reference_model": 3
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 11.157509256734427,
+              "B": 11.507161789002152
+            },
+            "complex_plddt": 0.4922206699848175,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_7.json",
+            "confidence_score": 0.48589855432510376,
+            "contact_f1": 0.05084745762711864,
+            "contact_precision": 0.05555555555555555,
+            "fnat": 0.046875,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.98806533082372,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 13.553120533664389,
+            "iptm": 0.4606100916862488,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 21.354405431512532,
+            "native_contact_count": 128,
+            "predicted_contact_count": 108,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_7.pdb",
+            "prediction_model": 7,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.5423395037651062,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 6,
+            "reference_model": 5
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 12.423611848711019,
+              "B": 12.379189423599456
+            },
+            "complex_plddt": 0.475456178188324,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_8.json",
+            "confidence_score": 0.4674316346645355,
+            "contact_f1": 0.03875968992248062,
+            "contact_precision": 0.038461538461538464,
+            "fnat": 0.0390625,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 13.760951906521024,
+            "interface_anchor_count": 258,
+            "interface_backbone_rmsd": 13.181880279700396,
+            "iptm": 0.43533340096473694,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 17.03974221595028,
+            "native_contact_count": 128,
+            "predicted_contact_count": 130,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_8.pdb",
+            "prediction_model": 8,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.46708592772483826,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 5,
+            "reference_model": 6
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 12.165817175850245,
+              "B": 12.577451761575741
+            },
+            "complex_plddt": 0.47222399711608887,
+            "confidence_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/confidence_8x8t_union_model_9.json",
+            "confidence_score": 0.4149816930294037,
+            "contact_f1": 0.061538461538461535,
+            "contact_precision": 0.06015037593984962,
+            "fnat": 0.06299212598425197,
+            "global_anchor_count": 369,
+            "global_backbone_rmsd": 14.760487050173014,
+            "interface_anchor_count": 273,
+            "interface_backbone_rmsd": 13.694542652752094,
+            "iptm": 0.18601247668266296,
+            "ligand_anchor_count": 183,
+            "ligand_chain": "A",
+            "ligand_rmsd": 20.05976895462897,
+            "native_contact_count": 127,
+            "predicted_contact_count": 133,
+            "prediction_file": "cases/8x8t/union/results/boltz_results_8x8t_union/predictions/8x8t_union/8x8t_union_model_9.pdb",
+            "prediction_model": 9,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.27026861906051636,
+            "receptor_anchor_count": 186,
+            "receptor_chain": "B",
+            "recovered_native_contacts": 8,
+            "reference_model": 1
+          }
+        ],
+        "prediction_models_compared": 10,
+        "reference_models_compared": 10,
+        "restraint_audit_summary": {
+          "exact_unresolved_total": 0,
+          "median_exact_fraction_satisfied_resolved": null,
+          "median_union_fraction_satisfied_determinate": 0.8893805309734513,
+          "models": 10,
+          "union_indeterminate_total": 0
+        },
+        "restraint_audits": [
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 0,
+            "union": {
+              "fraction_satisfied_determinate": 0.9203539823008849,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 104,
+              "total": 113,
+              "violated": 9
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 1,
+            "union": {
+              "fraction_satisfied_determinate": 0.8938053097345132,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 101,
+              "total": 113,
+              "violated": 12
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 2,
+            "union": {
+              "fraction_satisfied_determinate": 0.8938053097345132,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 101,
+              "total": 113,
+              "violated": 12
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 3,
+            "union": {
+              "fraction_satisfied_determinate": 0.8849557522123894,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 100,
+              "total": 113,
+              "violated": 13
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 4,
+            "union": {
+              "fraction_satisfied_determinate": 0.8672566371681416,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 98,
+              "total": 113,
+              "violated": 15
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 5,
+            "union": {
+              "fraction_satisfied_determinate": 0.8849557522123894,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 100,
+              "total": 113,
+              "violated": 13
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 6,
+            "union": {
+              "fraction_satisfied_determinate": 0.9026548672566371,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 102,
+              "total": 113,
+              "violated": 11
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 7,
+            "union": {
+              "fraction_satisfied_determinate": 0.8495575221238938,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 96,
+              "total": 113,
+              "violated": 17
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 8,
+            "union": {
+              "fraction_satisfied_determinate": 0.8938053097345132,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 101,
+              "total": 113,
+              "violated": 12
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 9,
+            "union": {
+              "fraction_satisfied_determinate": 0.8849557522123894,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 100,
+              "total": 113,
+              "violated": 13
+            }
+          }
+        ],
+        "technically_complete": true
+      },
+      "applicable": true,
+      "effect": {
+        "best_of_10_deltas": {
+          "capri_rank": 0,
+          "contact_f1": -0.01586105564555626,
+          "fnat": 0.00034188034188033234,
+          "global_backbone_rmsd": -0.10634450909358151,
+          "interface_backbone_rmsd": -0.43861610584843014,
+          "ligand_rmsd": -3.58367164812306
+        },
+        "median_model_deltas": {
+          "capri_rank": 0.0,
+          "contact_f1": 0.04480357377479963,
+          "fnat": 0.04296875,
+          "global_backbone_rmsd": -13.550995049664996,
+          "interface_backbone_rmsd": -12.423959155830921,
+          "ligand_rmsd": -30.448540120076466
+        },
+        "model_pairs": [
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.09326551572357805,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.104251968503937,
+            "global_backbone_rmsd_delta": -17.484179539797804,
+            "interface_backbone_rmsd_delta": -15.071784360084996,
+            "ligand_rmsd_delta": -40.61785064572631,
+            "prediction_model": 0
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.05583448052473884,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.05542568897637795,
+            "global_backbone_rmsd_delta": -8.499687342499849,
+            "interface_backbone_rmsd_delta": -6.980747244020877,
+            "ligand_rmsd_delta": -20.279229594426628,
+            "prediction_model": 1
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.056874145006839946,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.05544377375363291,
+            "global_backbone_rmsd_delta": -9.617810559532188,
+            "interface_backbone_rmsd_delta": -9.776133951576849,
+            "ligand_rmsd_delta": -10.609817925854365,
+            "prediction_model": 2
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.006516290726817038,
+            "current_capri_class": "incorrect",
+            "fnat_delta": -0.001028066207463759,
+            "global_backbone_rmsd_delta": -3.186594156364947,
+            "interface_backbone_rmsd_delta": -3.48901270239792,
+            "ligand_rmsd_delta": -3.741934561596434,
+            "prediction_model": 3
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.008191235059760951,
+            "current_capri_class": "incorrect",
+            "fnat_delta": -0.002051680159698345,
+            "global_backbone_rmsd_delta": -2.2837062099841745,
+            "interface_backbone_rmsd_delta": -1.3420693385296012,
+            "ligand_rmsd_delta": -7.974514014749277,
+            "prediction_model": 4
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.1047742115740579,
+            "current_capri_class": "incorrect",
+            "fnat_delta": -0.08547008547008547,
+            "global_backbone_rmsd_delta": 1.0259712291651457,
+            "interface_backbone_rmsd_delta": 1.066065545799539,
+            "ligand_rmsd_delta": -2.2142100767003043,
+            "prediction_model": 5
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.03717472118959108,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.035211267605633804,
+            "global_backbone_rmsd_delta": -30.589832618039203,
+            "interface_backbone_rmsd_delta": -29.529637245649766,
+            "ligand_rmsd_delta": -70.94685665381228,
+            "prediction_model": 6
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.05084745762711864,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.046875,
+            "global_backbone_rmsd_delta": -73.87782772208915,
+            "interface_backbone_rmsd_delta": -74.81164077037602,
+            "ligand_rmsd_delta": -157.00315776109363,
+            "prediction_model": 7
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.03875968992248062,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0390625,
+            "global_backbone_rmsd_delta": -65.66769386653803,
+            "interface_backbone_rmsd_delta": -64.61941831455214,
+            "ligand_rmsd_delta": -139.55765210456428,
+            "prediction_model": 8
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.061538461538461535,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.06299212598425197,
+            "global_backbone_rmsd_delta": -123.0859632691559,
+            "interface_backbone_rmsd_delta": -123.07023401452616,
+            "ligand_rmsd_delta": -256.46484131882147,
+            "prediction_model": 9
+          }
+        ],
+        "models_with_capri_rank_improvement": 0,
+        "models_with_capri_rank_worsening": 0,
+        "paired_models": 10
+      },
+      "manifest": {
+        "applicable": true,
+        "arm": "union",
+        "command": {
+          "arguments": [
+            "predict",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/union/input/8x8t_union.yaml",
+            "--out_dir",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/union/results",
+            "--cache",
+            "/opt/boltz-cache",
+            "--devices",
+            "1",
+            "--accelerator",
+            "gpu",
+            "--model",
+            "boltz2",
+            "--method",
+            "x-ray diffraction",
+            "--recycling_steps",
+            "3",
+            "--sampling_steps",
+            "400",
+            "--diffusion_samples",
+            "10",
+            "--max_parallel_samples",
+            "1",
+            "--step_scale",
+            "1.0",
+            "--seed",
+            "1",
+            "--use_potentials",
+            "--use_msa_server",
+            "--msa_server_url",
+            "https://api.colabfold.com",
+            "--msa_pairing_strategy",
+            "greedy",
+            "--max_msa_seqs",
+            "8192",
+            "--subsample_msa",
+            "--num_subsampled_msa",
+            "1024",
+            "--output_format",
+            "pdb",
+            "--write_full_pae",
+            "--override",
+            "--num_workers",
+            "0",
+            "--preprocessing-threads",
+            "1",
+            "--no_kernels"
+          ],
+          "display": "boltz predict /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/union/input/8x8t_union.yaml --out_dir /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/union/results --cache /opt/boltz-cache --devices 1 --accelerator gpu --model boltz2 --method 'x-ray diffraction' --recycling_steps 3 --sampling_steps 400 --diffusion_samples 10 --max_parallel_samples 1 --step_scale 1.0 --seed 1 --use_potentials --use_msa_server --msa_server_url https://api.colabfold.com --msa_pairing_strategy greedy --max_msa_seqs 8192 --subsample_msa --num_subsampled_msa 1024 --output_format pdb --write_full_pae --override --num_workers 0 --preprocessing-threads 1 --no_kernels",
+          "executable": "boltz"
+        },
+        "exact_constraints": 0,
+        "fixed_phase1_msas": [
+          {
+            "bytes": 191166,
+            "entity_index": 0,
+            "file": "cases/8x8t/source/msa/entity_0.csv",
+            "sha256": "a519af355e91caa0d539f19907ca1585daabb4eb42436d34b889382e1b7bb237",
+            "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_0.csv"
+          },
+          {
+            "bytes": 96895,
+            "entity_index": 1,
+            "file": "cases/8x8t/source/msa/entity_1.csv",
+            "sha256": "88fb5c35b6a09b44195ba1f99cc08572bf2bf4456115ee27e115f7d6c7645fa3",
+            "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_1.csv"
+          }
+        ],
+        "input_file": "cases/8x8t/union/input/8x8t_union.yaml",
+        "input_sha256": "03f885ead513b264c906c8f2e456a2fa1f9efba0a8d146f34160a158f76aa9e0",
+        "pdb_id": "8X8T",
+        "schema_version": 1,
+        "union_groups": 113
+      }
+    }
+  },
+  "baseline_control": "phase1_unconstrained",
+  "conversion": {
+    "constraint_scope": {
+      "exact_interchain": 35,
+      "exact_intrachain": 721,
+      "exact_total": 756,
+      "union_alternatives": 226,
+      "union_interchain_only": 13,
+      "union_intrachain_only": 100,
+      "union_mixed": 0,
+      "union_total": 113
+    },
+    "format_parity": {
+      "exact": {
+        "first_count": 756,
+        "first_only_count": 140,
+        "identical": false,
+        "intersection_count": 616,
+        "jaccard": 0.7777777777777778,
+        "second_count": 652,
+        "second_only_count": 36
+      },
+      "pdb_id": "8X8T",
+      "union": {
+        "first_count": 77,
+        "first_only_count": 74,
+        "identical": false,
+        "intersection_count": 3,
+        "jaccard": 0.03896103896103896,
+        "second_count": 3,
+        "second_only_count": 0
+      }
+    },
+    "nef_statistics": {
+      "ambiguous_or_groups_not_emitted": 113,
+      "atom_topology_quarantines": 0,
+      "embedded_component_topologies": 0,
+      "emitted_atom_topology_violations": 0,
+      "emitted_unique_heavy_atom_constraints": 756,
+      "intrachain_groups_filtered": 0,
+      "intraresidue_groups_filtered": 0,
+      "mixed_chain_scope_groups_filtered": 0,
+      "mixed_intraresidue_interresidue_groups_filtered": 0,
+      "projected_alternatives_removed_by_intrachain_filter": 0,
+      "projected_alternatives_removed_by_intraresidue_filter": 0,
+      "rejection_records": 1,
+      "restraint_groups_read": 1398,
+      "safe_groups_before_pair_deduplication": 1284,
+      "sequence_records": 123,
+      "source_alternatives_read": 1554,
+      "union_alternatives_raised_to_boltz_minimum": 0,
+      "union_groups_quarantined_above_boltz_maximum": 0
+    },
+    "nmr_star_statistics": {
+      "ambiguous_or_groups_not_emitted": 3,
+      "atom_topology_quarantines": 0,
+      "embedded_component_topologies": 0,
+      "emitted_atom_topology_violations": 0,
+      "emitted_unique_heavy_atom_constraints": 652,
+      "intrachain_groups_filtered": 0,
+      "intraresidue_groups_filtered": 0,
+      "mixed_chain_scope_groups_filtered": 0,
+      "mixed_intraresidue_interresidue_groups_filtered": 0,
+      "projected_alternatives_removed_by_intrachain_filter": 0,
+      "projected_alternatives_removed_by_intraresidue_filter": 0,
+      "rejection_records": 815,
+      "restraint_groups_read": 1398,
+      "safe_groups_before_pair_deduplication": 1134,
+      "sequence_records": 123,
+      "source_alternatives_read": 1994,
+      "union_alternatives_raised_to_boltz_minimum": 0,
+      "union_groups_quarantined_above_boltz_maximum": 0
+    },
+    "reference_restraint_audit": {
+      "models": [
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9973544973544973,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 754,
+            "total": 756,
+            "violated": 2
+          },
+          "model": 1,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.996031746031746,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 753,
+            "total": 756,
+            "violated": 3
+          },
+          "model": 2,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9973544973544973,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 754,
+            "total": 756,
+            "violated": 2
+          },
+          "model": 3,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9973544973544973,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 754,
+            "total": 756,
+            "violated": 2
+          },
+          "model": 4,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9986772486772487,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 755,
+            "total": 756,
+            "violated": 1
+          },
+          "model": 5,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9933862433862434,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 751,
+            "total": 756,
+            "violated": 5
+          },
+          "model": 6,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9986772486772487,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 755,
+            "total": 756,
+            "violated": 1
+          },
+          "model": 7,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9973544973544973,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 754,
+            "total": 756,
+            "violated": 2
+          },
+          "model": 8,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9973544973544973,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 754,
+            "total": 756,
+            "violated": 2
+          },
+          "model": 9,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 1.0,
+            "median_excess_angstrom": 0.0,
+            "resolved": 756,
+            "satisfied": 756,
+            "total": 756,
+            "violated": 0
+          },
+          "model": 10,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 113,
+            "total": 113,
+            "violated": 0
+          }
+        }
+      ],
+      "summary": {
+        "exact_unresolved_total": 0,
+        "median_exact_fraction_satisfied_resolved": 0.9973544973544973,
+        "median_union_fraction_satisfied_determinate": 1.0,
+        "models": 10,
+        "union_indeterminate_total": 0
+      }
+    }
+  },
+  "matched_baseline": {
+    "best_of_10_best_of_ensemble": {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 10.596998313501134,
+        "B": 10.794370969564849
+      },
+      "complex_plddt": 0.508650541305542,
+      "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_5.json",
+      "confidence_score": 0.5430123805999756,
+      "contact_f1": 0.1339712918660287,
+      "contact_precision": 0.15217391304347827,
+      "fnat": 0.11965811965811966,
+      "global_anchor_count": 369,
+      "global_backbone_rmsd": 12.732582617494025,
+      "interface_anchor_count": 252,
+      "interface_backbone_rmsd": 11.703377665752864,
+      "iptm": 0.6804596781730652,
+      "ligand_anchor_count": 183,
+      "ligand_chain": "A",
+      "ligand_rmsd": 18.125011195768963,
+      "native_contact_count": 117,
+      "predicted_contact_count": 92,
+      "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_5.pdb",
+      "prediction_model": 5,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.7283251285552979,
+      "receptor_anchor_count": 186,
+      "receptor_chain": "B",
+      "recovered_native_contacts": 14,
+      "reference_model": 4
+    },
+    "capri_class_counts": {
+      "acceptable": 0,
+      "high": 0,
+      "incorrect": 10,
+      "medium": 0
+    },
+    "classification_reason": "all_10_predictions_capri_incorrect",
+    "classified_at": "2026-07-20T17:58:34Z",
+    "expected_prediction_models": 10,
+    "model_summaries": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 27.239551876030664,
+          "B": 12.925958018464408
+        },
+        "complex_plddt": 0.5825390219688416,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_0.json",
+        "confidence_score": 0.654516875743866,
+        "contact_f1": 0.024844720496894408,
+        "contact_precision": 0.058823529411764705,
+        "fnat": 0.015748031496062992,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 30.110417648198247,
+        "interface_anchor_count": 273,
+        "interface_backbone_rmsd": 26.33654591998943,
+        "iptm": 0.9424281716346741,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 55.15919019337221,
+        "native_contact_count": 127,
+        "predicted_contact_count": 34,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_0.pdb",
+        "prediction_model": 0,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.801294207572937,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 2,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 23.29584055969972,
+          "B": 15.012203205087248
+        },
+        "complex_plddt": 0.5641101598739624,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_1.json",
+        "confidence_score": 0.6392104029655457,
+        "contact_f1": 0.04716981132075472,
+        "contact_precision": 0.05952380952380952,
+        "fnat": 0.0390625,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 21.80055888480959,
+        "interface_anchor_count": 258,
+        "interface_backbone_rmsd": 19.699804144834303,
+        "iptm": 0.9396113157272339,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 36.66755075583697,
+        "native_contact_count": 128,
+        "predicted_contact_count": 84,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_1.pdb",
+        "prediction_model": 1,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.8412995934486389,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 5,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 16.04861825292757,
+          "B": 18.859423206068268
+        },
+        "complex_plddt": 0.5175472497940063,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_2.json",
+        "confidence_score": 0.579753577709198,
+        "contact_f1": 0.009302325581395349,
+        "contact_precision": 0.011235955056179775,
+        "fnat": 0.007936507936507936,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 23.142092235954973,
+        "interface_anchor_count": 258,
+        "interface_backbone_rmsd": 22.86414095556523,
+        "iptm": 0.8285787105560303,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 28.956892034597512,
+        "native_contact_count": 126,
+        "predicted_contact_count": 89,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_2.pdb",
+        "prediction_model": 2,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.8007761836051941,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 1,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 13.483575861502844,
+          "B": 13.56616051120676
+        },
+        "complex_plddt": 0.4893232583999634,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_3.json",
+        "confidence_score": 0.5698829889297485,
+        "contact_f1": 0.03508771929824561,
+        "contact_precision": 0.04395604395604396,
+        "fnat": 0.029197080291970802,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 16.821255556486562,
+        "interface_anchor_count": 282,
+        "interface_backbone_rmsd": 16.502342022385868,
+        "iptm": 0.8921219110488892,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 22.397993685448856,
+        "native_contact_count": 137,
+        "predicted_contact_count": 91,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_3.pdb",
+        "prediction_model": 3,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.8856444954872131,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 4,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 12.78167303222584,
+          "B": 12.397304972034773
+        },
+        "complex_plddt": 0.5000690221786499,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_4.json",
+        "confidence_score": 0.55417400598526,
+        "contact_f1": 0.055999999999999994,
+        "contact_precision": 0.06481481481481481,
+        "fnat": 0.04929577464788732,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 14.116888020139623,
+        "interface_anchor_count": 285,
+        "interface_backbone_rmsd": 13.324666497092695,
+        "iptm": 0.7705938816070557,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 20.301014574799954,
+        "native_contact_count": 142,
+        "predicted_contact_count": 108,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_4.pdb",
+        "prediction_model": 4,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.7754156589508057,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 7,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 10.596998313501134,
+          "B": 10.794370969564849
+        },
+        "complex_plddt": 0.508650541305542,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_5.json",
+        "confidence_score": 0.5430123805999756,
+        "contact_f1": 0.1339712918660287,
+        "contact_precision": 0.15217391304347827,
+        "fnat": 0.11965811965811966,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 12.732582617494025,
+        "interface_anchor_count": 252,
+        "interface_backbone_rmsd": 11.703377665752864,
+        "iptm": 0.6804596781730652,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 18.125011195768963,
+        "native_contact_count": 117,
+        "predicted_contact_count": 92,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_5.pdb",
+        "prediction_model": 5,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.7283251285552979,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 14,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 11.925039160266795,
+          "B": 13.221379054482393
+        },
+        "complex_plddt": 0.5923218727111816,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_6.json",
+        "confidence_score": 0.4927644431591034,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 44.750974490879955,
+        "interface_anchor_count": 270,
+        "interface_backbone_rmsd": 42.8384347456414,
+        "iptm": 0.09453460574150085,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 88.39388460038792,
+        "native_contact_count": 135,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_6.pdb",
+        "prediction_model": 6,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.49542462825775146,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 13.415851238916764,
+          "B": 11.278487131786886
+        },
+        "complex_plddt": 0.5822664499282837,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_7.json",
+        "confidence_score": 0.485372930765152,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 88.86589305291287,
+        "interface_anchor_count": 282,
+        "interface_backbone_rmsd": 88.3647613040404,
+        "iptm": 0.09779875725507736,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 178.35756319260616,
+        "native_contact_count": 137,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_7.pdb",
+        "prediction_model": 7,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.5033140182495117,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 21.13671108721553,
+          "B": 12.319314561216169
+        },
+        "complex_plddt": 0.5803558826446533,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_8.json",
+        "confidence_score": 0.4756476581096649,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 79.42864577305906,
+        "interface_anchor_count": 258,
+        "interface_backbone_rmsd": 77.80129859425253,
+        "iptm": 0.05681472644209862,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 156.59739432051455,
+        "native_contact_count": 128,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_8.pdb",
+        "prediction_model": 8,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.4285401701927185,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 13.544115772128576,
+          "B": 12.634561994373918
+        },
+        "complex_plddt": 0.5026508569717407,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_9.json",
+        "confidence_score": 0.40968552231788635,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 137.8464503193289,
+        "interface_anchor_count": 282,
+        "interface_backbone_rmsd": 136.76477666727826,
+        "iptm": 0.03782417252659798,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 276.52461027345043,
+        "native_contact_count": 137,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_9.pdb",
+        "prediction_model": 9,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.2635231912136078,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 7
+      }
+    ],
+    "pdb_id": "8X8T",
+    "prediction_models_compared": 10,
+    "reference_models_compared": 10,
+    "schema_version": 1,
+    "status": "passed",
+    "technically_complete": true,
+    "unified_nmr_downloads": [
+      {
+        "bytes": 228838,
+        "compressed_file": "nmr_data/8x8t_nmr-data.nef.gz",
+        "compressed_sha256": "8d9b9f69570e37b236e208b684d3035e16ffa5585183ba4269e299f2c5ad4316",
+        "file": "nmr_data/8x8t_nmr-data.nef",
+        "format": "NEF",
+        "sha256": "8a5ed212fc2ddd5177e10f3e8e20b28f68c00433b32ba37ebc6e8e117de3c540",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/x8/8x8t_nmr-data.nef.gz"
+      },
+      {
+        "bytes": 361679,
+        "compressed_file": "nmr_data/8x8t_nmr-data.str.gz",
+        "compressed_sha256": "b3651314ec770a84b5e2f163b3ed081a0732de2b57708079fb14b7d1e44de793",
+        "file": "nmr_data/8x8t_nmr-data.str",
+        "format": "NMR-STAR",
+        "sha256": "8ae9aa9d70b1a99dc55534d426474deea2090494e003b65d332371d91bac9fff",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/x8/8x8t_nmr-data.str.gz"
+      }
+    ]
+  },
+  "original_phase1_baseline": {
+    "best_of_10_best_of_ensemble": {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 10.596998313501134,
+        "B": 10.794370969564849
+      },
+      "complex_plddt": 0.508650541305542,
+      "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_5.json",
+      "confidence_score": 0.5430123805999756,
+      "contact_f1": 0.1339712918660287,
+      "contact_precision": 0.15217391304347827,
+      "fnat": 0.11965811965811966,
+      "global_anchor_count": 369,
+      "global_backbone_rmsd": 12.732582617494025,
+      "interface_anchor_count": 252,
+      "interface_backbone_rmsd": 11.703377665752864,
+      "iptm": 0.6804596781730652,
+      "ligand_anchor_count": 183,
+      "ligand_chain": "A",
+      "ligand_rmsd": 18.125011195768963,
+      "native_contact_count": 117,
+      "predicted_contact_count": 92,
+      "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_5.pdb",
+      "prediction_model": 5,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.7283251285552979,
+      "receptor_anchor_count": 186,
+      "receptor_chain": "B",
+      "recovered_native_contacts": 14,
+      "reference_model": 4
+    },
+    "capri_class_counts": {
+      "acceptable": 0,
+      "high": 0,
+      "incorrect": 10,
+      "medium": 0
+    },
+    "classification_reason": "all_10_predictions_capri_incorrect",
+    "classified_at": "2026-07-20T17:58:34Z",
+    "expected_prediction_models": 10,
+    "model_summaries": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 27.239551876030664,
+          "B": 12.925958018464408
+        },
+        "complex_plddt": 0.5825390219688416,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_0.json",
+        "confidence_score": 0.654516875743866,
+        "contact_f1": 0.024844720496894408,
+        "contact_precision": 0.058823529411764705,
+        "fnat": 0.015748031496062992,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 30.110417648198247,
+        "interface_anchor_count": 273,
+        "interface_backbone_rmsd": 26.33654591998943,
+        "iptm": 0.9424281716346741,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 55.15919019337221,
+        "native_contact_count": 127,
+        "predicted_contact_count": 34,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_0.pdb",
+        "prediction_model": 0,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.801294207572937,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 2,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 23.29584055969972,
+          "B": 15.012203205087248
+        },
+        "complex_plddt": 0.5641101598739624,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_1.json",
+        "confidence_score": 0.6392104029655457,
+        "contact_f1": 0.04716981132075472,
+        "contact_precision": 0.05952380952380952,
+        "fnat": 0.0390625,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 21.80055888480959,
+        "interface_anchor_count": 258,
+        "interface_backbone_rmsd": 19.699804144834303,
+        "iptm": 0.9396113157272339,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 36.66755075583697,
+        "native_contact_count": 128,
+        "predicted_contact_count": 84,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_1.pdb",
+        "prediction_model": 1,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.8412995934486389,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 5,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 16.04861825292757,
+          "B": 18.859423206068268
+        },
+        "complex_plddt": 0.5175472497940063,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_2.json",
+        "confidence_score": 0.579753577709198,
+        "contact_f1": 0.009302325581395349,
+        "contact_precision": 0.011235955056179775,
+        "fnat": 0.007936507936507936,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 23.142092235954973,
+        "interface_anchor_count": 258,
+        "interface_backbone_rmsd": 22.86414095556523,
+        "iptm": 0.8285787105560303,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 28.956892034597512,
+        "native_contact_count": 126,
+        "predicted_contact_count": 89,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_2.pdb",
+        "prediction_model": 2,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.8007761836051941,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 1,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 13.483575861502844,
+          "B": 13.56616051120676
+        },
+        "complex_plddt": 0.4893232583999634,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_3.json",
+        "confidence_score": 0.5698829889297485,
+        "contact_f1": 0.03508771929824561,
+        "contact_precision": 0.04395604395604396,
+        "fnat": 0.029197080291970802,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 16.821255556486562,
+        "interface_anchor_count": 282,
+        "interface_backbone_rmsd": 16.502342022385868,
+        "iptm": 0.8921219110488892,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 22.397993685448856,
+        "native_contact_count": 137,
+        "predicted_contact_count": 91,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_3.pdb",
+        "prediction_model": 3,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.8856444954872131,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 4,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 12.78167303222584,
+          "B": 12.397304972034773
+        },
+        "complex_plddt": 0.5000690221786499,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_4.json",
+        "confidence_score": 0.55417400598526,
+        "contact_f1": 0.055999999999999994,
+        "contact_precision": 0.06481481481481481,
+        "fnat": 0.04929577464788732,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 14.116888020139623,
+        "interface_anchor_count": 285,
+        "interface_backbone_rmsd": 13.324666497092695,
+        "iptm": 0.7705938816070557,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 20.301014574799954,
+        "native_contact_count": 142,
+        "predicted_contact_count": 108,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_4.pdb",
+        "prediction_model": 4,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.7754156589508057,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 7,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 10.596998313501134,
+          "B": 10.794370969564849
+        },
+        "complex_plddt": 0.508650541305542,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_5.json",
+        "confidence_score": 0.5430123805999756,
+        "contact_f1": 0.1339712918660287,
+        "contact_precision": 0.15217391304347827,
+        "fnat": 0.11965811965811966,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 12.732582617494025,
+        "interface_anchor_count": 252,
+        "interface_backbone_rmsd": 11.703377665752864,
+        "iptm": 0.6804596781730652,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 18.125011195768963,
+        "native_contact_count": 117,
+        "predicted_contact_count": 92,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_5.pdb",
+        "prediction_model": 5,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.7283251285552979,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 14,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 11.925039160266795,
+          "B": 13.221379054482393
+        },
+        "complex_plddt": 0.5923218727111816,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_6.json",
+        "confidence_score": 0.4927644431591034,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 44.750974490879955,
+        "interface_anchor_count": 270,
+        "interface_backbone_rmsd": 42.8384347456414,
+        "iptm": 0.09453460574150085,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 88.39388460038792,
+        "native_contact_count": 135,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_6.pdb",
+        "prediction_model": 6,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.49542462825775146,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 13.415851238916764,
+          "B": 11.278487131786886
+        },
+        "complex_plddt": 0.5822664499282837,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_7.json",
+        "confidence_score": 0.485372930765152,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 88.86589305291287,
+        "interface_anchor_count": 282,
+        "interface_backbone_rmsd": 88.3647613040404,
+        "iptm": 0.09779875725507736,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 178.35756319260616,
+        "native_contact_count": 137,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_7.pdb",
+        "prediction_model": 7,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.5033140182495117,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 21.13671108721553,
+          "B": 12.319314561216169
+        },
+        "complex_plddt": 0.5803558826446533,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_8.json",
+        "confidence_score": 0.4756476581096649,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 79.42864577305906,
+        "interface_anchor_count": 258,
+        "interface_backbone_rmsd": 77.80129859425253,
+        "iptm": 0.05681472644209862,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 156.59739432051455,
+        "native_contact_count": 128,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_8.pdb",
+        "prediction_model": 8,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.4285401701927185,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 13.544115772128576,
+          "B": 12.634561994373918
+        },
+        "complex_plddt": 0.5026508569717407,
+        "confidence_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/confidence_8x8t_unconstrained_model_9.json",
+        "confidence_score": 0.40968552231788635,
+        "contact_f1": 0.0,
+        "contact_precision": 0.0,
+        "fnat": 0.0,
+        "global_anchor_count": 369,
+        "global_backbone_rmsd": 137.8464503193289,
+        "interface_anchor_count": 282,
+        "interface_backbone_rmsd": 136.76477666727826,
+        "iptm": 0.03782417252659798,
+        "ligand_anchor_count": 183,
+        "ligand_chain": "A",
+        "ligand_rmsd": 276.52461027345043,
+        "native_contact_count": 137,
+        "predicted_contact_count": 0,
+        "prediction_file": "results/boltz_results_8x8t_unconstrained/predictions/8x8t_unconstrained/8x8t_unconstrained_model_9.pdb",
+        "prediction_model": 9,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.2635231912136078,
+        "receptor_anchor_count": 186,
+        "receptor_chain": "B",
+        "recovered_native_contacts": 0,
+        "reference_model": 7
+      }
+    ],
+    "pdb_id": "8X8T",
+    "prediction_models_compared": 10,
+    "reference_models_compared": 10,
+    "schema_version": 1,
+    "status": "passed",
+    "technically_complete": true,
+    "unified_nmr_downloads": [
+      {
+        "bytes": 228838,
+        "compressed_file": "nmr_data/8x8t_nmr-data.nef.gz",
+        "compressed_sha256": "8d9b9f69570e37b236e208b684d3035e16ffa5585183ba4269e299f2c5ad4316",
+        "file": "nmr_data/8x8t_nmr-data.nef",
+        "format": "NEF",
+        "sha256": "8a5ed212fc2ddd5177e10f3e8e20b28f68c00433b32ba37ebc6e8e117de3c540",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/x8/8x8t_nmr-data.nef.gz"
+      },
+      {
+        "bytes": 361679,
+        "compressed_file": "nmr_data/8x8t_nmr-data.str.gz",
+        "compressed_sha256": "b3651314ec770a84b5e2f163b3ed081a0732de2b57708079fb14b7d1e44de793",
+        "file": "nmr_data/8x8t_nmr-data.str",
+        "format": "NMR-STAR",
+        "sha256": "8ae9aa9d70b1a99dc55534d426474deea2090494e003b65d332371d91bac9fff",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/x8/8x8t_nmr-data.str.gz"
+      }
+    ]
+  },
+  "pdb_id": "8X8T"
+}

@@ -1,0 +1,450 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0002-7959-6681",
+      "name": "Javornik, U.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0003-1570-8602",
+      "name": "Plavec, J.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0003-4355-4313",
+      "name": "Galindo, M.A.",
+      "pdbx_ordinal": 3
+    }
+  ],
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Nat Commun",
+      "journal_id_ISSN": "2041-1723",
+      "journal_volume": "15",
+      "page_first": "7763",
+      "page_last": "7763",
+      "pdbx_database_id_DOI": "10.1038/s41467-024-51876-8",
+      "pdbx_database_id_PubMed": 39237564,
+      "rcsb_authors": [
+        "Javornik, U.",
+        "Perez-Romero, A.",
+        "Lopez-Chamorro, C.",
+        "Smith, R.M.",
+        "Dobado, J.A.",
+        "Palacios, O.",
+        "Bera, M.K.",
+        "Nyman, M.",
+        "Plavec, J.",
+        "Galindo, M.A."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Nat Commun",
+      "title": "Unveiling the solution structure of a DNA duplex with continuous silver-modified Watson-Crick base pairs.",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9GDM",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9gdm/pdb",
+      "pdbx_database_accession": "pdb_00009gdm"
+    },
+    {
+      "database_code": "D_1292139079",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "34942",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR34942"
+    }
+  ],
+  "entry": {
+    "id": "9GDM"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2024-09-18T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Slovenia",
+      "funding_organization": "Slovenian Research Agency",
+      "grant_number": "P1-0242",
+      "ordinal": 1
+    },
+    {
+      "country": "Slovenia",
+      "funding_organization": "Slovenian Research Agency",
+      "grant_number": "J1-1704",
+      "ordinal": 2
+    },
+    {
+      "country": "Spain",
+      "funding_organization": "Ministry of Economy and Competitiveness (MINECO)",
+      "grant_number": "PID2020-120186RB-I00",
+      "ordinal": 3
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "34942",
+      "db_name": "BMRB",
+      "details": "Solution structure of a silver ion mediated DNA duplex with universal 7-deazapurine substitutions"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2024-08-06T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 100,
+    "conformers_submitted_total_number": 10
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "2D NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H COSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-31P HPCOSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "details": "standard expt. conditions",
+      "ionic_strength": "100",
+      "ionic_strength_units": "mM",
+      "label": "room_temp",
+      "pH": "8.6",
+      "pH_err": 0.4,
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_err": 0.05,
+      "pressure_units": "bar",
+      "temperature": "298",
+      "temperature_err": 0.1,
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.8 mM DNA, 100 mM NaClO4, 100 mM TRIS, 14.5 mM AgNO3, 90% H2O/10% D2O",
+      "details": "Sample was titrated with silver nitrate to induce transition to metallated structure.",
+      "label": "odnIAg_h2o_sample",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.8 mM DNA, 100 mM NaClO4, 100 mM TRIS, 14.5 mM AgNO3, 100% D2O",
+      "details": "Sample was titrated with silver nitrate to induce transition to metallated structure.",
+      "label": "odnIAg_d2o_sample",
+      "solution_id": "2",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Agilent",
+      "classification": "collection",
+      "name": "VnmrJ",
+      "ordinal": 1,
+      "version": "4.2"
+    },
+    {
+      "authors": "Bruker",
+      "classification": "collection",
+      "name": "TopSpin",
+      "ordinal": 5,
+      "version": "4.1"
+    },
+    {
+      "authors": "Bruker",
+      "classification": "processing",
+      "name": "TopSpin",
+      "ordinal": 6,
+      "version": "4.1"
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "structure calculation",
+      "name": "Amber",
+      "ordinal": 2,
+      "version": "20"
+    },
+    {
+      "authors": "Lee W, Tonelli M, Markley JL (National Magnetic Resonance Facility at Madison)",
+      "classification": "chemical shift assignment",
+      "name": "NMRFAM-SPARKY",
+      "ordinal": 3
+    },
+    {
+      "authors": "Lee W, Tonelli M, Markley JL (National Magnetic Resonance Facility at Madison)",
+      "classification": "peak picking",
+      "name": "NMRFAM-SPARKY",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 800.0,
+      "manufacturer": "Varian",
+      "model": "VNMRS",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "mogul,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-09T15:00:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.8,
+      "bonds_RMSZ": 1.3,
+      "clashscore_full_length": 0.0,
+      "num_H_reduce": 2700,
+      "num_angles_RMSZ": 3760,
+      "num_bonds_RMSZ": 2520
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 17.24,
+      "chemical_shift_completeness_full_length": 17.24,
+      "exp_method": "nmr"
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-08-06T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2024-09-18T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2024-09-18T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9GDM",
+    "model_ids": [
+      1,
+      10,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "2"
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "pubmed_id": 39237564,
+    "rcsb_id": "9GDM"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 498,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 272,
+    "deposited_model_count": 10,
+    "deposited_modeled_polymer_monomer_count": 24,
+    "deposited_nonpolymer_entity_instance_count": 12,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 24,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 14,
+    "inter_mol_metalic_bond_count": 24,
+    "molecular_weight": 8.61,
+    "na_polymer_entity_types": "DNA (only)",
+    "ndb_struct_conf_na_feature_combined": [
+      "double helix"
+    ],
+    "nonpolymer_bound_components": [
+      "AG"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.11,
+    "nonpolymer_molecular_weight_minimum": 0.11,
+    "polymer_composition": "DNA",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 1,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 1,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 0,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 3.66,
+    "polymer_molecular_weight_minimum": 3.66,
+    "polymer_monomer_count_maximum": 12,
+    "polymer_monomer_count_minimum": 12,
+    "selected_polymer_entity_types": "Nucleic acid (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "NMRFAM-SPARKY",
+      "TOPSPIN",
+      "VNMRJ"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "9GDM",
+      "link": "https://nakb.org/atlas=9GDM",
+      "type": "NAKB"
+    },
+    {
+      "id": "34942",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=34942",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9GDM",
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Nat Commun",
+    "journal_id_ISSN": "2041-1723",
+    "journal_volume": "15",
+    "page_first": "7763",
+    "page_last": "7763",
+    "pdbx_database_id_DOI": "10.1038/s41467-024-51876-8",
+    "pdbx_database_id_PubMed": 39237564,
+    "rcsb_ORCID_identifiers": [
+      "0000-0002-7959-6681",
+      "?",
+      "?",
+      "?",
+      "0000-0001-7714-1715",
+      "0000-0002-2987-7303",
+      "?",
+      "0000-0002-1787-0518",
+      "0000-0003-1570-8602",
+      "0000-0003-4355-4313"
+    ],
+    "rcsb_authors": [
+      "Javornik, U.",
+      "Perez-Romero, A.",
+      "Lopez-Chamorro, C.",
+      "Smith, R.M.",
+      "Dobado, J.A.",
+      "Palacios, O.",
+      "Bera, M.K.",
+      "Nyman, M.",
+      "Plavec, J.",
+      "Galindo, M.A."
+    ],
+    "rcsb_journal_abbrev": "Nat Commun",
+    "title": "Unveiling the solution structure of a DNA duplex with continuous silver-modified Watson-Crick base pairs.",
+    "year": 2024
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Solution structure of a silver ion mediated DNA duplex with universal 7-deazapurine substitutions"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "DNA",
+    "text": "7-deazaadenine, 7-deazaguanine, silver-mediated base pairing, oligonucleotide, metallo-DNA, DNA"
+  }
+}

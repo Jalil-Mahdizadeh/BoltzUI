@@ -1,0 +1,3421 @@
+{
+  "schema_version": 3,
+  "job_id": "2026-07-22T10-04-56-065Z-45196ff6",
+  "boltzui_git_commit": "2df737415c1ae66ac52aab8dd46d867495c3a97b",
+  "boltzui_git_dirty": true,
+  "boltz_version": "2.2.1",
+  "selected_preset": "custom",
+  "resolved_prediction_parameters": {
+    "out_dir": "workspace/results",
+    "cache": "/opt/boltz-cache",
+    "checkpoint": "",
+    "affinity_checkpoint": "",
+    "devices": 1,
+    "accelerator": "gpu",
+    "model": "boltz2",
+    "method": "x-ray diffraction",
+    "recycling_steps": 3,
+    "sampling_steps": 400,
+    "diffusion_samples": 5,
+    "max_parallel_samples": 1,
+    "step_scale": 1,
+    "seed": 1,
+    "use_potentials": true,
+    "use_msa_server": true,
+    "msa_server_url": "https://api.colabfold.com",
+    "msa_pairing_strategy": "greedy",
+    "api_key_header": "",
+    "max_msa_seqs": 8192,
+    "subsample_msa": true,
+    "num_subsampled_msa": 1024,
+    "output_format": "pdb",
+    "write_full_pae": true,
+    "write_full_pde": false,
+    "write_embeddings": false,
+    "override": true,
+    "addh": false,
+    "addh_energy_min": true,
+    "num_workers": 0,
+    "preprocessing_threads": 1,
+    "no_kernels": true,
+    "affinity_mw_correction": false,
+    "sampling_steps_affinity": 200,
+    "diffusion_samples_affinity": 5
+  },
+  "command": {
+    "executable": "boltzui-predict",
+    "arguments": [
+      "predict",
+      "/workspace/BoltzUI/workspace/inputs/8UWU-atom-constraint.yaml",
+      "--out_dir",
+      "workspace/results",
+      "--cache",
+      "/opt/boltz-cache",
+      "--devices",
+      "1",
+      "--accelerator",
+      "gpu",
+      "--model",
+      "boltz2",
+      "--method",
+      "x-ray diffraction",
+      "--recycling_steps",
+      "3",
+      "--sampling_steps",
+      "400",
+      "--diffusion_samples",
+      "5",
+      "--max_parallel_samples",
+      "1",
+      "--step_scale",
+      "1.0",
+      "--seed",
+      "1",
+      "--use_potentials",
+      "--use_msa_server",
+      "--msa_server_url",
+      "https://api.colabfold.com",
+      "--msa_pairing_strategy",
+      "greedy",
+      "--max_msa_seqs",
+      "8192",
+      "--subsample_msa",
+      "--num_subsampled_msa",
+      "1024",
+      "--output_format",
+      "pdb",
+      "--write_full_pae",
+      "--override",
+      "--addh-energy-min",
+      "--num_workers",
+      "0",
+      "--preprocessing-threads",
+      "1",
+      "--no_kernels"
+    ]
+  },
+  "input_file": "8UWU-atom-constraint.yaml",
+  "input_path": "workspace/inputs/8UWU-atom-constraint.yaml",
+  "input_sha256": "b34231c8e2bada70233feee45adf82026311daf7f5df93733c4302552d55026a",
+  "seed": 1,
+  "model": "boltz2",
+  "sampling_steps": 400,
+  "recycling_steps": 3,
+  "diffusion_samples": 5,
+  "step_scale": 1,
+  "use_potentials": true,
+  "msa": {
+    "mode": "server",
+    "input_modes": [
+      "auto"
+    ],
+    "use_msa_server": true,
+    "server_url": "https://api.colabfold.com"
+  },
+  "start_time": "2026-07-22T10:04:56.065Z",
+  "completion_time": "2026-07-22T10:12:12.171Z",
+  "exit_status": "succeeded",
+  "exit_code": 0,
+  "signal": null,
+  "failure_reason": null,
+  "output_directory": "workspace/results/boltz_results_8UWU-atom-constraint",
+  "atom_contact_constraints": [
+    {
+      "chain1": "A",
+      "residue1": 5,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 9,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 6,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 10,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 7,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 11,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 8,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 12,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 9,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 13,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 10,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 10,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 10,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 14,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CD1",
+      "chain2": "A",
+      "residue2": 62,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CG2",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CG2",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "CG2",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 11,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 15,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 12,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 16,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 13,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 17,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "CA",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "CB",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "CG",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "CG",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 14,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 18,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 15,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 19,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 16,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 20,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 17,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 21,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 26,
+      "atom1": "CA",
+      "chain2": "A",
+      "residue2": 31,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 27,
+      "atom1": "CG",
+      "chain2": "A",
+      "residue2": 36,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 33,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 37,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 34,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 38,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 35,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 39,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 36,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 40,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 37,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 41,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 38,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 42,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 39,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 43,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 40,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 44,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 41,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 45,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 42,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 46,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 43,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 47,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 44,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 48,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 45,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 49,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 58,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 62,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 59,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 63,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 60,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 64,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 61,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 65,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 62,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 66,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 63,
+      "atom1": "CZ3",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CH2",
+      "max_distance": 6.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 63,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 67,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 64,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 68,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 65,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 69,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 66,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 70,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 67,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 71,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 68,
+      "atom1": "CD1",
+      "chain2": "A",
+      "residue2": 94,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 68,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 72,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 69,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 73,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 70,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 74,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 71,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 75,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 72,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 76,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 73,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 77,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 85,
+      "atom1": "CD1",
+      "chain2": "A",
+      "residue2": 88,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 85,
+      "atom1": "CD1",
+      "chain2": "A",
+      "residue2": 89,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 85,
+      "atom1": "CD2",
+      "chain2": "A",
+      "residue2": 88,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 85,
+      "atom1": "CD2",
+      "chain2": "A",
+      "residue2": 89,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 87,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 91,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 88,
+      "atom1": "CD1",
+      "chain2": "A",
+      "residue2": 89,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 88,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 92,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 89,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 93,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 90,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 90,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 94,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 91,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 95,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 92,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 96,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 93,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 93,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 93,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 97,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 94,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 94,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 98,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 95,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 99,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 96,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 100,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 90,
+      "atom2": "CA",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 93,
+      "atom2": "CB",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 93,
+      "atom2": "CG",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 94,
+      "atom2": "CB",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 97,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 101,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "A",
+      "residue1": 98,
+      "atom1": "O",
+      "chain2": "A",
+      "residue2": 102,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 5,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 9,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 6,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 10,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 7,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 11,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 8,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 12,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 9,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 13,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 10,
+      "atom1": "C",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 10,
+      "atom1": "C",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 10,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 10,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 6.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 10,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 14,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 11,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 62,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 11,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 15,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 12,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 16,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 13,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 17,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 14,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 18,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 15,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 19,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 16,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 20,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 17,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 21,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 33,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 37,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 34,
+      "atom1": "CG1",
+      "chain2": "B",
+      "residue2": 37,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 34,
+      "atom1": "CG1",
+      "chain2": "B",
+      "residue2": 38,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 34,
+      "atom1": "CG2",
+      "chain2": "B",
+      "residue2": 37,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 34,
+      "atom1": "CG2",
+      "chain2": "B",
+      "residue2": 38,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 34,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 38,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 35,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 36,
+      "atom2": "CG2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 35,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 39,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 36,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 40,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 37,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 41,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 38,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 42,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 39,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 40,
+      "atom2": "CG",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 39,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 43,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 40,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 41,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 40,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 44,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 41,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 45,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 42,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 46,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 43,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 44,
+      "atom2": "CG",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 43,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 47,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 44,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 48,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 45,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 49,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 47,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CG",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 47,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CG",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 54,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 55,
+      "atom2": "CD",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 56,
+      "atom1": "CG2",
+      "chain2": "B",
+      "residue2": 57,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 58,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 62,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 58,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 100,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 58,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 62,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 59,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 6.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 6.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CB",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 6.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 61,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CZ",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CZ",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE2",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CZ",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CE3",
+      "max_distance": 5.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "CZ",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CB",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 60,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 61,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 63,
+      "atom2": "CG",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 61,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 65,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 62,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 98,
+      "atom2": "CG1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 62,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 98,
+      "atom2": "CG2",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 62,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 101,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 62,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 66,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CB",
+      "max_distance": 6.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "CD2",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "CE2",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CB",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "CE3",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CB",
+      "max_distance": 6.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "CG",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "CZ3",
+      "chain2": "B",
+      "residue2": 64,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 63,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 67,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 64,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 68,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 65,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 94,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 65,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 69,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 66,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 70,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 67,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 71,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 68,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 94,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 68,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 72,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 69,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 73,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 70,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 74,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 71,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 75,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 72,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 76,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 73,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 77,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 83,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 88,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 83,
+      "atom1": "CD2",
+      "chain2": "B",
+      "residue2": 88,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 85,
+      "atom1": "CD1",
+      "chain2": "B",
+      "residue2": 88,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 85,
+      "atom1": "CD2",
+      "chain2": "B",
+      "residue2": 89,
+      "atom2": "CD1",
+      "max_distance": 7.24,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 87,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 91,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 88,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 92,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 89,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 93,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 90,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 94,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 91,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 95,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 92,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 96,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 93,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 94,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 94,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 98,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 95,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 95,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 99,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 96,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 97,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 96,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 100,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 98,
+      "atom2": "CA",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 99,
+      "atom2": "CB",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 97,
+      "atom1": "CA",
+      "chain2": "B",
+      "residue2": 101,
+      "atom2": "CD1",
+      "max_distance": 7.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 97,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 101,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    },
+    {
+      "chain1": "B",
+      "residue1": 98,
+      "atom1": "O",
+      "chain2": "B",
+      "residue2": 102,
+      "atom2": "N",
+      "max_distance": 3.5,
+      "force": true
+    }
+  ],
+  "atom_contact_union_constraints": [
+    {
+      "group_index": 1,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 27,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 36,
+          "atom2": "CA",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 27,
+          "atom1": "CD2",
+          "chain2": "A",
+          "residue2": 36,
+          "atom2": "CA",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 2,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 56,
+          "atom1": "CB",
+          "chain2": "B",
+          "residue2": 60,
+          "atom2": "CD1",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 56,
+          "atom1": "CB",
+          "chain2": "B",
+          "residue2": 60,
+          "atom2": "CD2",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 3,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 60,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 61,
+          "atom2": "C",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 60,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 61,
+          "atom2": "C",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 4,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 14,
+          "atom1": "OE1",
+          "chain2": "B",
+          "residue2": 60,
+          "atom2": "OH",
+          "max_distance": 4.5,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 14,
+          "atom1": "OE2",
+          "chain2": "B",
+          "residue2": 60,
+          "atom2": "OH",
+          "max_distance": 4.5,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 5,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 7,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 62,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 7,
+          "atom1": "CD2",
+          "chain2": "A",
+          "residue2": 62,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 6,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 7,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 11,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 7,
+          "atom1": "CD2",
+          "chain2": "A",
+          "residue2": 11,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 7,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 62,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 66,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 62,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 66,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 8,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 7,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 11,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 7,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 11,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 9,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 7,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 54,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 7,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 54,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 10,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 7,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 62,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 7,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 62,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 11,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 15,
+          "atom1": "CG1",
+          "chain2": "A",
+          "residue2": 71,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 15,
+          "atom1": "CG2",
+          "chain2": "A",
+          "residue2": 71,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 12,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 11,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 66,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 11,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 66,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 13,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 11,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 98,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 11,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 98,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 14,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 15,
+          "atom1": "CG1",
+          "chain2": "B",
+          "residue2": 16,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 15,
+          "atom1": "CG2",
+          "chain2": "B",
+          "residue2": 16,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 15,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 15,
+          "atom1": "CG1",
+          "chain2": "B",
+          "residue2": 71,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 15,
+          "atom1": "CG2",
+          "chain2": "B",
+          "residue2": 71,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 16,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 30,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 34,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 30,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 34,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        },
+        {
+          "chain1": "B",
+          "residue1": 30,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 34,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 3
+        },
+        {
+          "chain1": "B",
+          "residue1": 30,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 34,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 4
+        }
+      ]
+    },
+    {
+      "group_index": 17,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 34,
+          "atom1": "CG1",
+          "chain2": "A",
+          "residue2": 38,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 34,
+          "atom1": "CG2",
+          "chain2": "A",
+          "residue2": 38,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 18,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 62,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 66,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 62,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 66,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 19,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG1",
+          "chain2": "B",
+          "residue2": 70,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG1",
+          "chain2": "B",
+          "residue2": 70,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        },
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG2",
+          "chain2": "B",
+          "residue2": 70,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 3
+        },
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG2",
+          "chain2": "B",
+          "residue2": 70,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 4
+        }
+      ]
+    },
+    {
+      "group_index": 20,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG1",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG1",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        },
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG2",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 3
+        },
+        {
+          "chain1": "B",
+          "residue1": 69,
+          "atom1": "CG2",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 4
+        }
+      ]
+    },
+    {
+      "group_index": 21,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 70,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 70,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        },
+        {
+          "chain1": "B",
+          "residue1": 70,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 3
+        },
+        {
+          "chain1": "B",
+          "residue1": 70,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 73,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 4
+        }
+      ]
+    },
+    {
+      "group_index": 22,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 73,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 83,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 73,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 83,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        },
+        {
+          "chain1": "B",
+          "residue1": 73,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 83,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 3
+        },
+        {
+          "chain1": "B",
+          "residue1": 73,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 83,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 4
+        }
+      ]
+    },
+    {
+      "group_index": 23,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 7,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 54,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 7,
+          "atom1": "CD2",
+          "chain2": "A",
+          "residue2": 54,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 24,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 100,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 104,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 100,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 104,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 25,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 83,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 58,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 83,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 58,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 26,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 89,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 104,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 89,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 104,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 27,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 104,
+          "atom1": "CD1",
+          "chain2": "B",
+          "residue2": 89,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 104,
+          "atom1": "CD2",
+          "chain2": "B",
+          "residue2": 89,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 28,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 58,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 103,
+          "atom2": "CD1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 58,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 103,
+          "atom2": "CD2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 29,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "B",
+          "residue1": 60,
+          "atom1": "CE1",
+          "chain2": "B",
+          "residue2": 61,
+          "atom2": "CA",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "B",
+          "residue1": 60,
+          "atom1": "CE2",
+          "chain2": "B",
+          "residue2": 61,
+          "atom2": "CA",
+          "max_distance": 7.5,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    },
+    {
+      "group_index": 30,
+      "force": true,
+      "alternatives": [
+        {
+          "chain1": "A",
+          "residue1": 11,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 66,
+          "atom2": "CG1",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 1
+        },
+        {
+          "chain1": "A",
+          "residue1": 11,
+          "atom1": "CD1",
+          "chain2": "A",
+          "residue2": 66,
+          "atom2": "CG2",
+          "max_distance": 7.24,
+          "force": true,
+          "alternative_index": 2
+        }
+      ]
+    }
+  ],
+  "structure_postprocessing": {
+    "schema_version": 1,
+    "status": "succeeded",
+    "mode": "addh_energy_min",
+    "started_at": "2026-07-22T10:11:54.719855Z",
+    "completed_at": "2026-07-22T10:12:12.100141Z",
+    "configuration": {
+      "pH": 7,
+      "hydrogen_forcefield": [
+        "amber14-all.xml"
+      ],
+      "minimization_forcefield": [
+        "amber14-all.xml",
+        "implicit/gbn2.xml"
+      ],
+      "implicit_solvent": "GBn2",
+      "nonbonded_method": "NoCutoff",
+      "constraints": "HBonds",
+      "minimizer": "OpenMM LocalEnergyMinimizer (L-BFGS)",
+      "tolerance_kj_mol_nm": 10,
+      "max_iterations": 250,
+      "platform_priority": [
+        "CUDA",
+        "OpenCL",
+        "CPU"
+      ]
+    },
+    "software": {
+      "openmm": "8.4",
+      "pdbfixer": "1.12.0",
+      "python": "3.10.20"
+    },
+    "models": [
+      {
+        "source": "predictions/8UWU-atom-constraint/8UWU-atom-constraint_model_0.pdb",
+        "output": "postprocessed/addh_energy_min/8UWU-atom-constraint/8UWU-atom-constraint_model_0_addh_energy_min.pdb",
+        "model_index": 0,
+        "status": "succeeded",
+        "source_sha256": "cbcf226a804bc93bc902a72f5515d49884108becfcef75b4db4d64a59d4bcf74",
+        "output_sha256": "d3e399a16ac13e6dcb971386dccb5d753f0726426853391c7b2c663cc0b2f868",
+        "counts_before": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after_terminal_normalization": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after": {
+          "atoms": 3438,
+          "heavy_atoms": 1684,
+          "hydrogens": 1754,
+          "residues": 220,
+          "chains": 2
+        },
+        "hydrogens_added": 1754,
+        "selected_protonation_variants": [
+          {
+            "residue": "A:110:HIS",
+            "variant": "HID"
+          },
+          {
+            "residue": "B:110:HIS",
+            "variant": "HID"
+          }
+        ],
+        "unresolved_missing_residue_segments_not_built": [],
+        "terminal_heavy_atoms_added": [
+          {
+            "residue": "A:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          },
+          {
+            "residue": "B:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          }
+        ],
+        "terminal_heavy_atoms_removed": [],
+        "potential_energy": {
+          "initial_kj_mol": -5294.827793463801,
+          "final_kj_mol": -18743.571657652123,
+          "change_kj_mol": -13448.743864188322
+        },
+        "coordinate_displacement": {
+          "heavy_atom_rmsd_angstrom": 0.31110785190805545,
+          "maximum_heavy_atom_angstrom": 1.9219146089316377
+        },
+        "openmm_platform": "CUDA",
+        "pdb_confidence_b_factors_preserved": true
+      },
+      {
+        "source": "predictions/8UWU-atom-constraint/8UWU-atom-constraint_model_1.pdb",
+        "output": "postprocessed/addh_energy_min/8UWU-atom-constraint/8UWU-atom-constraint_model_1_addh_energy_min.pdb",
+        "model_index": 1,
+        "status": "succeeded",
+        "source_sha256": "e5d056bbc78c0119bd793f22627a228c1774fd362064452e71d723d953becf85",
+        "output_sha256": "15d02f28f059bb19dc28ea75980235dc65f276cd6f5ad8297f0f45048e268f88",
+        "counts_before": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after_terminal_normalization": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after": {
+          "atoms": 3438,
+          "heavy_atoms": 1684,
+          "hydrogens": 1754,
+          "residues": 220,
+          "chains": 2
+        },
+        "hydrogens_added": 1754,
+        "selected_protonation_variants": [
+          {
+            "residue": "A:110:HIS",
+            "variant": "HID"
+          },
+          {
+            "residue": "B:110:HIS",
+            "variant": "HID"
+          }
+        ],
+        "unresolved_missing_residue_segments_not_built": [],
+        "terminal_heavy_atoms_added": [
+          {
+            "residue": "A:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          },
+          {
+            "residue": "B:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          }
+        ],
+        "terminal_heavy_atoms_removed": [],
+        "potential_energy": {
+          "initial_kj_mol": -9180.781478730965,
+          "final_kj_mol": -18861.814948709307,
+          "change_kj_mol": -9681.033469978342
+        },
+        "coordinate_displacement": {
+          "heavy_atom_rmsd_angstrom": 0.34502286865944565,
+          "maximum_heavy_atom_angstrom": 1.7022713893763055
+        },
+        "openmm_platform": "CUDA",
+        "pdb_confidence_b_factors_preserved": true
+      },
+      {
+        "source": "predictions/8UWU-atom-constraint/8UWU-atom-constraint_model_2.pdb",
+        "output": "postprocessed/addh_energy_min/8UWU-atom-constraint/8UWU-atom-constraint_model_2_addh_energy_min.pdb",
+        "model_index": 2,
+        "status": "succeeded",
+        "source_sha256": "779da26ff240d19a5b32dea66dd5f7565dfe9e38d13f748772150180f1b69729",
+        "output_sha256": "4b784a32d627b9ec7f513bcbe2baa1a8cdbabf94be0015eb7b0ef1eee4d194c8",
+        "counts_before": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after_terminal_normalization": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after": {
+          "atoms": 3438,
+          "heavy_atoms": 1684,
+          "hydrogens": 1754,
+          "residues": 220,
+          "chains": 2
+        },
+        "hydrogens_added": 1754,
+        "selected_protonation_variants": [
+          {
+            "residue": "A:110:HIS",
+            "variant": "HID"
+          },
+          {
+            "residue": "B:110:HIS",
+            "variant": "HID"
+          }
+        ],
+        "unresolved_missing_residue_segments_not_built": [],
+        "terminal_heavy_atoms_added": [
+          {
+            "residue": "A:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          },
+          {
+            "residue": "B:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          }
+        ],
+        "terminal_heavy_atoms_removed": [],
+        "potential_energy": {
+          "initial_kj_mol": -7012.229785288315,
+          "final_kj_mol": -18555.43389821946,
+          "change_kj_mol": -11543.204112931146
+        },
+        "coordinate_displacement": {
+          "heavy_atom_rmsd_angstrom": 0.3626732625132237,
+          "maximum_heavy_atom_angstrom": 1.7093704660549034
+        },
+        "openmm_platform": "CUDA",
+        "pdb_confidence_b_factors_preserved": true
+      },
+      {
+        "source": "predictions/8UWU-atom-constraint/8UWU-atom-constraint_model_3.pdb",
+        "output": "postprocessed/addh_energy_min/8UWU-atom-constraint/8UWU-atom-constraint_model_3_addh_energy_min.pdb",
+        "model_index": 3,
+        "status": "succeeded",
+        "source_sha256": "87749b1f6cfb7418e4c4decdd45a05f1e7b9c43969ab769eb009b54045551a13",
+        "output_sha256": "75d022ecfe0f16fd9db8916c0f473450a81b3f2bafc88e4f7654ff5940446cef",
+        "counts_before": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after_terminal_normalization": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after": {
+          "atoms": 3438,
+          "heavy_atoms": 1684,
+          "hydrogens": 1754,
+          "residues": 220,
+          "chains": 2
+        },
+        "hydrogens_added": 1754,
+        "selected_protonation_variants": [
+          {
+            "residue": "A:110:HIS",
+            "variant": "HID"
+          },
+          {
+            "residue": "B:110:HIS",
+            "variant": "HID"
+          }
+        ],
+        "unresolved_missing_residue_segments_not_built": [],
+        "terminal_heavy_atoms_added": [
+          {
+            "residue": "A:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          },
+          {
+            "residue": "B:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          }
+        ],
+        "terminal_heavy_atoms_removed": [],
+        "potential_energy": {
+          "initial_kj_mol": -10569.584790114595,
+          "final_kj_mol": -18909.95289435447,
+          "change_kj_mol": -8340.368104239873
+        },
+        "coordinate_displacement": {
+          "heavy_atom_rmsd_angstrom": 0.3044844750879482,
+          "maximum_heavy_atom_angstrom": 1.709144286827729
+        },
+        "openmm_platform": "CUDA",
+        "pdb_confidence_b_factors_preserved": true
+      },
+      {
+        "source": "predictions/8UWU-atom-constraint/8UWU-atom-constraint_model_4.pdb",
+        "output": "postprocessed/addh_energy_min/8UWU-atom-constraint/8UWU-atom-constraint_model_4_addh_energy_min.pdb",
+        "model_index": 4,
+        "status": "succeeded",
+        "source_sha256": "cde1ba2054340d9e12892146668480beec4cfd53c22d6c5ec6051208cb154ebc",
+        "output_sha256": "e9b4cbf9e5cb2b9de0dad2fa93acb0055328efc1ecf29b46c112c9af3d749055",
+        "counts_before": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after_terminal_normalization": {
+          "atoms": 1684,
+          "heavy_atoms": 1684,
+          "hydrogens": 0,
+          "residues": 220,
+          "chains": 2
+        },
+        "counts_after": {
+          "atoms": 3438,
+          "heavy_atoms": 1684,
+          "hydrogens": 1754,
+          "residues": 220,
+          "chains": 2
+        },
+        "hydrogens_added": 1754,
+        "selected_protonation_variants": [
+          {
+            "residue": "A:110:HIS",
+            "variant": "HID"
+          },
+          {
+            "residue": "B:110:HIS",
+            "variant": "HID"
+          }
+        ],
+        "unresolved_missing_residue_segments_not_built": [],
+        "terminal_heavy_atoms_added": [
+          {
+            "residue": "A:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          },
+          {
+            "residue": "B:110:HIS",
+            "atoms": [
+              "OXT"
+            ]
+          }
+        ],
+        "terminal_heavy_atoms_removed": [],
+        "potential_energy": {
+          "initial_kj_mol": 567051.8992151074,
+          "final_kj_mol": -17270.512853649743,
+          "change_kj_mol": -584322.4120687572
+        },
+        "coordinate_displacement": {
+          "heavy_atom_rmsd_angstrom": 0.3547835047693651,
+          "maximum_heavy_atom_angstrom": 1.8004859816678347
+        },
+        "openmm_platform": "CUDA",
+        "pdb_confidence_b_factors_preserved": true
+      }
+    ],
+    "summary": {
+      "requested": 5,
+      "succeeded": 5,
+      "failed": 0
+    }
+  }
+}

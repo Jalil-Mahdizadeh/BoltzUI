@@ -1,0 +1,28 @@
+constraints:
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 14, CB]
+      atom2: [B, 19, CB]
+      max_distance: 8.140000
+    - atom1: [A, 14, CB]
+      atom2: [B, 19, CG]
+      max_distance: 8.140000
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 35, CA]
+      atom2: [B, 21, CB]
+      max_distance: 8.140000
+    - atom1: [A, 35, CB]
+      atom2: [B, 21, CB]
+      max_distance: 8.140000
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 50, CD]
+      atom2: [B, 55, CA]
+      max_distance: 8.140000
+    - atom1: [A, 50, CD]
+      atom2: [B, 55, CB]
+      max_distance: 8.140000
+    force: true

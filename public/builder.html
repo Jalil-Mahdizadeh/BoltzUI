@@ -67,13 +67,13 @@
                   <option value="affinity">Affinity</option>
                   <option value="pocket">Pocket constraints</option>
                   <option value="contacts">Token contact constraints</option>
-                  <option value="template">Template</option>
+                  <option value="template">Templates</option>
                 </select>
               </label>
             </div>
 
             <details class="builder-section" data-section="polymer">
-              <summary><span><b>01</b>Polymers</span><em>Unlimited</em></summary>
+              <summary><span><b>01</b>Polymers</span><em>Protein/DNA/RNA</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Each polymer can be protein, DNA, or RNA with its own chain IDs, sequence, MSA mode, cyclic flag, and modifications.</span>
@@ -84,7 +84,7 @@
             </details>
 
             <details class="builder-section" data-section="ligand">
-              <summary><span><b>02</b>Ligands</span><em>Unlimited</em></summary>
+              <summary><span><b>02</b>Ligands</span><em>Small organic molecules</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Add any number of ligand chains. Use one card per distinct ligand entity; chain IDs can represent copies.</span>
@@ -95,7 +95,7 @@
             </details>
 
             <details class="builder-section" data-section="affinity">
-              <summary><span><b>03</b>Affinity</span><em>Boltz-2 ligand property</em></summary>
+              <summary><span><b>03</b>Affinity</span><em>Define ligand for affinity</em></summary>
               <div class="builder-grid">
                 <label class="toggle-field">
                   <span>Affinity</span>
@@ -112,39 +112,18 @@
             </details>
 
             <details class="builder-section" data-section="pocket">
-              <summary><span><b>04</b>Pocket constraints</span><em>Binder and contacts</em></summary>
-              <div class="builder-grid">
-                <label class="toggle-field builder-span">
-                  <span>Pocket constraints</span>
-                  <span class="switch">
-                    <input id="yaml-pocket-enabled" data-yaml-control type="checkbox">
-                    <span class="slider"></span>
-                  </span>
-                </label>
-                <label class="field">
-                  <span>Pocket binder</span>
-                  <input id="yaml-pocket-binder" data-yaml-control type="text" value="B">
-                </label>
-                <label class="field">
-                  <span>Max distance</span>
-                  <input id="yaml-pocket-distance" data-yaml-control type="number" min="4" max="20" step="0.1" value="6">
-                </label>
-                <label class="toggle-field">
-                  <span>Force pocket</span>
-                  <span class="switch">
-                    <input id="yaml-pocket-force" data-yaml-control type="checkbox">
-                    <span class="slider"></span>
-                  </span>
-                </label>
-                <label class="field builder-span">
-                  <span>Pocket contacts</span>
-                  <textarea id="yaml-pocket-contacts" class="mini-textarea" data-yaml-control spellcheck="false" placeholder="A:45&#10;A:68"></textarea>
-                </label>
+              <summary><span><b>04</b>Pocket constraints</span><em>Define binding pocket</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar">
+                  <span>Add one pocket constraint for each binder and binding-site contact set.</span>
+                  <button class="secondary-button mini-action-button" id="add-pocket-button" type="button">Add pocket</button>
+                </div>
+                <div class="repeat-list pocket-list" id="pocket-list"></div>
               </div>
             </details>
 
             <details class="builder-section" data-section="contact-constraints">
-              <summary><span><b>05</b>Token contact constraints</span><em>Token distance rules</em></summary>
+              <summary><span><b>05</b>Token contact constraints</span><em>Define token level constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Add any number of token-level contacts. For protein, DNA, and RNA polymers, a token is a residue or nucleotide; for ligands and other non-polymers, a token is an atom.</span>
@@ -160,7 +139,7 @@
             </details>
 
             <details class="builder-section" data-section="atom-contact-constraints">
-              <summary><span><b>06</b>Exact atom contact constraints</span><em>Specific atom-pair guidance</em></summary>
+              <summary><span><b>06</b>Exact atom contact constraints</span><em>Define exact atom constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Use atom_contact for one exact atom-pair upper-distance restraint. This is soft inference-time guidance and requires force: true. Optional physical potentials are independent. Verify final distances in the restraint report.</span>
@@ -176,7 +155,7 @@
             </details>
 
             <details class="builder-section" data-section="atom-contact-union-constraints">
-              <summary><span><b>07</b>Union atom contact constraints</span><em>Ambiguous atom-pair OR groups</em></summary>
+              <summary><span><b>07</b>Union atom contact constraints</span><em>Define ambiguous atom constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
                   <span>Use atom_contact_union when any one of two or more atom-pair alternatives may satisfy an ambiguous restraint. Every alternative keeps its own upper bound and shares one potential union index. Union alternatives do not set binary token-contact conditioning.</span>
@@ -192,7 +171,7 @@
             </details>
 
             <details class="builder-section" data-section="bond-constraints">
-              <summary><span><b>08</b>Bond constraints</span><em>Covalent atom pairs</em></summary>
+              <summary><span><b>08</b>Bond constraints</span><em>Define covalent atom pairs</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
                   <span>Add covalent atom-pair constraints when two specific atoms must be bonded in the final complex.</span>
@@ -203,45 +182,13 @@
             </details>
 
             <details class="builder-section" data-section="template">
-              <summary><span><b>09</b>Template</span><em>CIF or PDB</em></summary>
-              <div class="builder-grid">
-                <label class="toggle-field builder-span">
-                  <span>Add template</span>
-                  <span class="switch">
-                    <input id="yaml-template-enabled" data-yaml-control type="checkbox">
-                    <span class="slider"></span>
-                  </span>
-                </label>
-                <label class="field">
-                  <span>Format</span>
-                  <select id="yaml-template-format" data-yaml-control>
-                    <option value="cif">CIF</option>
-                    <option value="pdb">PDB</option>
-                  </select>
-                </label>
-                <label class="field">
-                  <span>Template path</span>
-                  <input id="yaml-template-path" data-yaml-control type="text" value="./template.cif">
-                </label>
-                <label class="field">
-                  <span>Target chain ID(s)</span>
-                  <input id="yaml-template-chain-ids" data-yaml-control type="text" value="A">
-                </label>
-                <label class="field">
-                  <span>Template chain ID(s)</span>
-                  <input id="yaml-template-template-ids" data-yaml-control type="text" placeholder="A1, B1">
-                </label>
-                <label class="toggle-field">
-                  <span>Force template</span>
-                  <span class="switch">
-                    <input id="yaml-template-force" data-yaml-control type="checkbox">
-                    <span class="slider"></span>
-                  </span>
-                </label>
-                <label class="field">
-                  <span>Threshold</span>
-                  <input id="yaml-template-threshold" data-yaml-control type="number" min="0" step="0.1" value="2">
-                </label>
+              <summary><span><b>09</b>Templates</span><em>Define Templates (CIF or PDB)</em></summary>
+              <div class="builder-section-body">
+                <div class="builder-section-toolbar">
+                  <span>Add one or more CIF or PDB templates and optionally map target chains to template chains.</span>
+                  <button class="secondary-button mini-action-button" id="add-template-button" type="button">Add Template</button>
+                </div>
+                <div class="repeat-list template-list" id="template-list"></div>
               </div>
             </details>
 

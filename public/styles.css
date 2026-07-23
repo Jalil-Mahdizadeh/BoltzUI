@@ -368,7 +368,8 @@ summary.sidebar-block-title::after,
 .option-subsection summary::after,
 .command-box summary::after,
 .builder-section summary::after,
-.yaml-editor-card summary::after {
+.yaml-editor-card summary::after,
+.result-collapse-summary::after {
   content: "";
   display: grid;
   flex: 0 0 auto;
@@ -393,7 +394,8 @@ summary.sidebar-block-title::after,
 .option-subsection[open] > summary::after,
 .command-box[open] > summary::after,
 .builder-section[open] > summary::after,
-.yaml-editor-card[open] > summary::after {
+.yaml-editor-card[open] > summary::after,
+.result-collapsible[open] > .result-collapse-summary::after {
   background:
     linear-gradient(#f0b84b, #f0b84b) center / 10px 2px no-repeat,
     rgba(8, 11, 13, 0.82);
@@ -1174,6 +1176,53 @@ button.status-pill {
   border-radius: var(--radius);
 }
 
+.result-collapsible {
+  margin-top: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10, 15, 18, 0.64);
+}
+
+.result-collapse-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.result-collapse-summary::-webkit-details-marker {
+  display: none;
+}
+
+.result-collapse-summary:hover {
+  background: rgba(17, 25, 29, 0.92);
+}
+
+.result-collapse-summary em {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.result-collapsible[open] > .result-collapse-summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.result-collapsible > .model-table-wrap,
+.restraint-audit-content > .model-table-wrap {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+}
+
 .model-table {
   width: 100%;
   min-width: 650px;
@@ -1654,29 +1703,14 @@ button.status-pill {
 }
 
 .restraint-audit {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
+  margin-top: 10px;
 }
 
-.restraint-audit-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.restraint-audit-heading h3 {
-  margin: 3px 0 0;
-  color: var(--text);
-  font-size: 16px;
-}
-
-.restraint-audit-heading p {
-  max-width: 48ch;
+.restraint-audit-content > p {
   margin: 0;
+  padding: 10px 12px;
   color: var(--text-dim);
-  text-align: right;
+  border-bottom: 1px solid var(--border);
   font-size: 11px;
   line-height: 1.45;
 }

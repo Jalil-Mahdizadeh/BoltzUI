@@ -1,0 +1,474 @@
+{
+  "audit_author": [
+    {
+      "name": "Huang, C.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Ji, T.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "country": "US",
+      "id": "primary",
+      "journal_abbrev": "Nat.Struct.Mol.Biol.",
+      "journal_id_ISSN": "1545-9985",
+      "journal_volume": "32",
+      "page_first": "2088",
+      "page_last": "2098",
+      "pdbx_database_id_DOI": "10.1038/s41594-025-01585-7",
+      "pdbx_database_id_PubMed": 40467883,
+      "rcsb_authors": [
+        "Ji, T.",
+        "Ge, P.",
+        "Zhang, S.",
+        "Wan, C.",
+        "Liu, H.",
+        "Qu, X.",
+        "Zhu, F.",
+        "Gong, Q.",
+        "Xu, W.",
+        "Wang, C.",
+        "Wang, Y.",
+        "Huang, C."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Nat Struct Mol Biol",
+      "title": "Remote on-off switching of protein activity by intrinsically disordered region.",
+      "year": 2025
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9LLV",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9llv/pdb",
+      "pdbx_database_accession": "pdb_00009llv"
+    },
+    {
+      "database_code": "D_1300055806",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "52887",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR52887"
+    }
+  ],
+  "entry": {
+    "id": "9LLV"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-12-10T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "18341",
+      "db_name": "BMRB"
+    },
+    {
+      "content_type": "unspecified",
+      "db_id": "27044",
+      "db_name": "BMRB"
+    },
+    {
+      "content_type": "unspecified",
+      "db_id": "52887",
+      "db_name": "BMRB"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBC",
+    "recvd_initial_deposition_date": "2025-01-17T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_details": {
+    "text": "The full-length Sgt2 structure was determined entirely based on experimental NMR data collected for the full-length protein. We performed extensive NMR experiments on the full-length Sgt2, obtaining complete backbone, side-chain, and methyl group assignments, as well as NOE restraints, for all three domains (N,TPR and C). Both our NMR and biochemical data indicate that the three domains behave independently and do not form stable inter-domain contacts, resulting in a highly dynamic,\"beads-on-a-string\" architecture. This is supported by the absence of long-range inter-domain NOEs, as well as by extensive NMR spectral overlay and SAXS data, all of which reflect the true solution behavior of the protein."
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "all calculated structures submitted",
+    "conformers_calculated_total_number": 20,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "10",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "100",
+      "ionic_strength_units": "mM",
+      "label": "conditions_1",
+      "pH": "6.5",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "Pa",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "400 uM [U-15N] Sgt2_N, 90% H2O/10% D2O",
+      "details": "The sample was labeled with methyl and 15N",
+      "label": "15N_sample_1",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "400 uM [U-15N] Sgt2_T, 90% H2O/10% D2O",
+      "details": "The sample was labeled with methyl and 15N",
+      "label": "15N_sample_2",
+      "solution_id": "2",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "600 uM [U-15N] Sgt2_C, 90% H2O/10% D2O",
+      "details": "The sample was labeled with methyl and 15N",
+      "label": "15N_sample_3",
+      "solution_id": "3",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "600 uM [U-13C; U-15N; U-2H] Sgt2_C, 90% H2O/10% D2O",
+      "label": "15N_13C_2H_sample_1",
+      "solution_id": "4",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "refinement",
+      "name": "CNS",
+      "ordinal": 1
+    },
+    {
+      "authors": "Guntert, Mumenthaler and Wuthrich",
+      "classification": "structure calculation",
+      "name": "CYANA",
+      "ordinal": 2
+    },
+    {
+      "authors": "Johnson, One Moon Scientific",
+      "classification": "chemical shift assignment",
+      "name": "NMRViewJ",
+      "ordinal": 3
+    },
+    {
+      "authors": "Johnson, One Moon Scientific",
+      "classification": "peak picking",
+      "name": "NMRViewJ",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "1"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-09T13:20:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.06,
+      "bonds_RMSZ": 1.27,
+      "clashscore": 1.69,
+      "clashscore_full_length": 1.54,
+      "num_H_reduce": 101680,
+      "num_angles_RMSZ": 142400,
+      "num_bonds_RMSZ": 105960,
+      "percent_ramachandran_outliers": 1.52,
+      "percent_ramachandran_outliers_full_length": 6.18,
+      "percent_rotamer_outliers": 3.52,
+      "percent_rotamer_outliers_full_length": 4.04
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 8.39,
+      "chemical_shift_completeness_full_length": 8.47,
+      "cyrange_number_of_domains": 4,
+      "exp_method": "nmr",
+      "medoid_model": 20,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 5,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 0,
+      "nmrclust_representative_model": 1
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-01-17T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-12-10T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2025-12-10T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1"
+    ],
+    "entry_id": "9LLV",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "pubmed_id": 40467883,
+    "rcsb_id": "9LLV"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 5230,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 5088,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 694,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 694,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 1,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 74.84,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 37.42,
+    "polymer_molecular_weight_minimum": 37.42,
+    "polymer_monomer_count_maximum": 347,
+    "polymer_monomer_count_minimum": 347,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "CNS",
+      "CYANA",
+      "NMRVIEWJ"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_id": "9LLV",
+  "rcsb_primary_citation": {
+    "country": "US",
+    "id": "primary",
+    "journal_abbrev": "Nat.Struct.Mol.Biol.",
+    "journal_id_ISSN": "1545-9985",
+    "journal_volume": "32",
+    "page_first": "2088",
+    "page_last": "2098",
+    "pdbx_database_id_DOI": "10.1038/s41594-025-01585-7",
+    "pdbx_database_id_PubMed": 40467883,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "0000-0002-3034-6008",
+      "0000-0001-5796-8758",
+      "0000-0003-3192-2780",
+      "0000-0001-6046-2934",
+      "0000-0002-8997-9459"
+    ],
+    "rcsb_authors": [
+      "Ji, T.",
+      "Ge, P.",
+      "Zhang, S.",
+      "Wan, C.",
+      "Liu, H.",
+      "Qu, X.",
+      "Zhu, F.",
+      "Gong, Q.",
+      "Xu, W.",
+      "Wang, C.",
+      "Wang, Y.",
+      "Huang, C."
+    ],
+    "rcsb_journal_abbrev": "Nat Struct Mol Biol",
+    "title": "Remote on-off switching of protein activity by intrinsically disordered region.",
+    "year": 2025
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Dimer Sgt2 from S.cerevisiae"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "CHAPERONE",
+    "text": "Co-chaperone, GET Pathway, CHAPERONE"
+  }
+}

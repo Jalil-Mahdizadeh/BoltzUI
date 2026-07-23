@@ -1,0 +1,4807 @@
+{
+  "checks": [
+    {
+      "detail": null,
+      "name": "prediction_arguments_match_phase1_exactly",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "ten_prespecified_entries",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "nmr2boltz_sif_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "boltz_sif_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "nmr2boltz_sif_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "boltz_sif_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 215,
+        "checked_exact_constraints": 199,
+        "checked_sequence_records": 42,
+        "checked_union_alternatives": 32,
+        "checked_union_groups": 16,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 42,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9xap/source/9xap_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9XAP_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 121,
+        "checked_exact_constraints": 121,
+        "checked_sequence_records": 42,
+        "checked_union_alternatives": 0,
+        "checked_union_groups": 0,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 42,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9xap/source/9xap_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9XAP_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:00:25Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:53:18Z"
+      },
+      "name": "9XAP_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:00:25Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:53:18Z"
+      },
+      "name": "9XAP_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9XAP_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:07:35Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:00:26Z"
+      },
+      "name": "9XAP_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:07:35Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:00:26Z"
+      },
+      "name": "9XAP_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9XAP_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:14:42Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:07:36Z"
+      },
+      "name": "9XAP_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:14:42Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:07:36Z"
+      },
+      "name": "9XAP_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9XAP_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9XAP_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 535,
+        "checked_exact_constraints": 527,
+        "checked_sequence_records": 181,
+        "checked_union_alternatives": 20,
+        "checked_union_groups": 8,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 181,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9jo6/source/9jo6_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9JO6_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 535,
+        "checked_exact_constraints": 528,
+        "checked_sequence_records": 181,
+        "checked_union_alternatives": 14,
+        "checked_union_groups": 7,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 181,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9jo6/source/9jo6_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9JO6_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:37:00Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:29:48Z"
+      },
+      "name": "9JO6_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:37:00Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:29:48Z"
+      },
+      "name": "9JO6_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9JO6_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:44:05Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:37:01Z"
+      },
+      "name": "9JO6_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:44:05Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:37:01Z"
+      },
+      "name": "9JO6_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9JO6_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:51:24Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:44:06Z"
+      },
+      "name": "9JO6_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:51:24Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:44:06Z"
+      },
+      "name": "9JO6_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9JO6_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JO6_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 625,
+        "checked_exact_constraints": 495,
+        "checked_sequence_records": 76,
+        "checked_union_alternatives": 266,
+        "checked_union_groups": 130,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 76,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/source/9ezo_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9EZO_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 623,
+        "checked_exact_constraints": 525,
+        "checked_sequence_records": 76,
+        "checked_union_alternatives": 202,
+        "checked_union_groups": 98,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 76,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/source/9ezo_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9EZO_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:16:00Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:08:36Z"
+      },
+      "name": "9EZO_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:16:00Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:08:36Z"
+      },
+      "name": "9EZO_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9EZO_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:23:39Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:16:01Z"
+      },
+      "name": "9EZO_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:23:39Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:16:01Z"
+      },
+      "name": "9EZO_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9EZO_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:30:52Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:23:40Z"
+      },
+      "name": "9EZO_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:30:52Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:23:40Z"
+      },
+      "name": "9EZO_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9EZO_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZO_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 638,
+        "checked_exact_constraints": 495,
+        "checked_sequence_records": 76,
+        "checked_union_alternatives": 336,
+        "checked_union_groups": 143,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 76,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezp/source/9ezp_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9EZP_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 633,
+        "checked_exact_constraints": 531,
+        "checked_sequence_records": 76,
+        "checked_union_alternatives": 222,
+        "checked_union_groups": 102,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 76,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezp/source/9ezp_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9EZP_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:15:36Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:08:25Z"
+      },
+      "name": "9EZP_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:15:36Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:08:25Z"
+      },
+      "name": "9EZP_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9EZP_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:22:45Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:15:37Z"
+      },
+      "name": "9EZP_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:22:45Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:15:37Z"
+      },
+      "name": "9EZP_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9EZP_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:29:48Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:22:46Z"
+      },
+      "name": "9EZP_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:29:48Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:22:46Z"
+      },
+      "name": "9EZP_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9EZP_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9EZP_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 10,
+        "checked_exact_constraints": 6,
+        "checked_sequence_records": 252,
+        "checked_union_alternatives": 8,
+        "checked_union_groups": 4,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 252,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/8voh_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8VOH_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 10,
+        "checked_exact_constraints": 6,
+        "checked_sequence_records": 252,
+        "checked_union_alternatives": 8,
+        "checked_union_groups": 4,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 252,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/8voh_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8VOH_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T18:53:36Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:46:08Z"
+      },
+      "name": "8VOH_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T18:53:36Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:46:08Z"
+      },
+      "name": "8VOH_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8VOH_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:01:07Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:53:37Z"
+      },
+      "name": "8VOH_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:01:07Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:53:37Z"
+      },
+      "name": "8VOH_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8VOH_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:08:24Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:01:08Z"
+      },
+      "name": "8VOH_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:08:24Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:01:08Z"
+      },
+      "name": "8VOH_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8VOH_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8VOH_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 14,
+        "checked_exact_constraints": 6,
+        "checked_sequence_records": 245,
+        "checked_union_alternatives": 16,
+        "checked_union_groups": 8,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 245,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8ivb/source/8ivb_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8IVB_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 14,
+        "checked_exact_constraints": 6,
+        "checked_sequence_records": 245,
+        "checked_union_alternatives": 16,
+        "checked_union_groups": 8,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 245,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8ivb/source/8ivb_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8IVB_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T18:53:41Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:46:08Z"
+      },
+      "name": "8IVB_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T18:53:41Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:46:08Z"
+      },
+      "name": "8IVB_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8IVB_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:01:18Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:53:41Z"
+      },
+      "name": "8IVB_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:01:18Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T18:53:41Z"
+      },
+      "name": "8IVB_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8IVB_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:08:35Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:01:19Z"
+      },
+      "name": "8IVB_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:08:35Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:01:19Z"
+      },
+      "name": "8IVB_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8IVB_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8IVB_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 190,
+        "checked_exact_constraints": 190,
+        "checked_sequence_records": 28,
+        "checked_union_alternatives": 0,
+        "checked_union_groups": 0,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 28,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9kad/source/9kad_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9KAD_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 190,
+        "checked_exact_constraints": 190,
+        "checked_sequence_records": 28,
+        "checked_union_alternatives": 0,
+        "checked_union_groups": 0,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 28,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9kad/source/9kad_unconstrained.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9KAD_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_union_absence_audited",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:21:49Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:14:43Z"
+      },
+      "name": "9KAD_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:21:49Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:14:43Z"
+      },
+      "name": "9KAD_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9KAD_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_union_nonapplicable_no_command",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:28:53Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:21:50Z"
+      },
+      "name": "9KAD_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:28:53Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:21:50Z"
+      },
+      "name": "9KAD_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9KAD_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9KAD_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 956,
+        "checked_exact_constraints": 948,
+        "checked_sequence_records": 30,
+        "checked_union_alternatives": 16,
+        "checked_union_groups": 8,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 30,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8q5q/source/8q5q_target.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8Q5Q_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 956,
+        "checked_exact_constraints": 948,
+        "checked_sequence_records": 30,
+        "checked_union_alternatives": 16,
+        "checked_union_groups": 8,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 30,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8q5q/source/8q5q_target.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8Q5Q_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:38:19Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:30:53Z"
+      },
+      "name": "8Q5Q_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:38:19Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:30:53Z"
+      },
+      "name": "8Q5Q_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8Q5Q_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:45:38Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:38:20Z"
+      },
+      "name": "8Q5Q_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:45:38Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:38:20Z"
+      },
+      "name": "8Q5Q_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8Q5Q_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:53:18Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:45:38Z"
+      },
+      "name": "8Q5Q_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:53:18Z",
+        "exit_code": 0,
+        "gpu_index": 0,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:45:38Z"
+      },
+      "name": "8Q5Q_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8Q5Q_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_modified_control_unconstrained",
+      "passed": true
+    },
+    {
+      "detail": [
+        {
+          "ccd": "DNR",
+          "position": 5
+        }
+      ],
+      "name": "8Q5Q_DNR_declared",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_DNR_CCD_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_modified_control_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_modified_control_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8Q5Q_modified_control_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 641,
+        "checked_exact_constraints": 1,
+        "checked_sequence_records": 16,
+        "checked_union_alternatives": 2560,
+        "checked_union_groups": 640,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 16,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9jvn/source/9jvn_target.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9JVN_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 641,
+        "checked_exact_constraints": 1,
+        "checked_sequence_records": 16,
+        "checked_union_alternatives": 2560,
+        "checked_union_groups": 640,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 16,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9jvn/source/9jvn_target.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "9JVN_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:20:13Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:13:06Z"
+      },
+      "name": "9JVN_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:20:13Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:13:06Z"
+      },
+      "name": "9JVN_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9JVN_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:27:37Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:20:14Z"
+      },
+      "name": "9JVN_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:27:37Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:20:14Z"
+      },
+      "name": "9JVN_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9JVN_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:35:05Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:27:38Z"
+      },
+      "name": "9JVN_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:35:05Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:27:38Z"
+      },
+      "name": "9JVN_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "9JVN_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "9JVN_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_case_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_case_manifest_id",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_base_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_base_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_baseline_all_comparisons_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_baseline_all_comparisons_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_baseline_classification_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_baseline_classification_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_candidate_json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_candidate_json_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_conversion_target_yaml_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_conversion_target_yaml_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_reference_pdb_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_reference_pdb_digest",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 869,
+        "checked_exact_constraints": 756,
+        "checked_sequence_records": 123,
+        "checked_union_alternatives": 226,
+        "checked_union_groups": 113,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 123,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/source/8x8t_target.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8X8T_nef_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nef_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_atom_constraints_exact.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_atom_constraints_union.yaml",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_conversion_report.json",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_sequence_map.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_rejections.tsv",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_summary.txt",
+      "passed": true
+    },
+    {
+      "detail": {
+        "checked_constraints": 655,
+        "checked_exact_constraints": 652,
+        "checked_sequence_records": 123,
+        "checked_union_alternatives": 6,
+        "checked_union_groups": 3,
+        "error_count": 0,
+        "issues": [],
+        "mapped_positions": 123,
+        "target_chains": [
+          "A",
+          "B"
+        ],
+        "target_file": "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8x8t/source/8x8t_target.yaml",
+        "target_version": 1,
+        "warning_count": 0
+      },
+      "name": "8X8T_nmr_star_target_validation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nmr_star_topology_invariant",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nonempty_exact_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_nonempty_union_set",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:58:41Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:51:25Z"
+      },
+      "name": "8X8T_exact_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T19:58:41Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:51:25Z"
+      },
+      "name": "8X8T_exact_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8X8T_exact_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_exact_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:05:45Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:58:41Z"
+      },
+      "name": "8X8T_union_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:05:45Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T19:58:41Z"
+      },
+      "name": "8X8T_union_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8X8T_union_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_union_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_input",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_exact_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_union_count",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_command_arguments",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_execution_status",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:13:05Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:05:46Z"
+      },
+      "name": "8X8T_combined_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": {
+        "ended_at": "2026-07-20T20:13:05Z",
+        "exit_code": 0,
+        "gpu_index": 1,
+        "restraint_audit_exit_code": 0,
+        "started_at": "2026-07-20T20:05:46Z"
+      },
+      "name": "8X8T_combined_audit_exit_zero",
+      "passed": true
+    },
+    {
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "name": "8X8T_combined_ten_models",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_restraint_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_restraint_audit_schema",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_restraint_audit_counts",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_structural_analysis",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "8X8T_combined_analysis_complete",
+      "passed": true
+    },
+    {
+      "detail": 30,
+      "name": "thirty_executed_commands",
+      "passed": true
+    },
+    {
+      "detail": 29,
+      "name": "twenty_nine_applicable_constrained_runs",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "summary_phase2_results.json_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "summary_phase2_results.tsv_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "summary_CONCISE_REPORT.md_present",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "summary_has_ten_cases",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "summary_has_three_arms",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "applicable_constrained_runs": 29,
+    "commands": 30,
+    "entries": 10
+  },
+  "error_count": 0,
+  "errors": [],
+  "schema_version": 1,
+  "valid": true,
+  "warning_count": 0,
+  "warnings": []
+}

@@ -1,0 +1,37 @@
+constraints:
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 135, CD1]
+      atom2: [B, 32, CD1]
+      max_distance: 5.845624
+    - atom1: [A, 135, CD1]
+      atom2: [B, 32, CD2]
+      max_distance: 5.845624
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 135, CG2]
+      atom2: [B, 32, CD1]
+      max_distance: 5.845624
+    - atom1: [A, 135, CG2]
+      atom2: [B, 32, CD2]
+      max_distance: 5.845624
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 133, CA]
+      atom2: [B, 32, CD1]
+      max_distance: 5.242343
+    - atom1: [A, 133, CA]
+      atom2: [B, 32, CD2]
+      max_distance: 5.242343
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1: [A, 130, CA]
+      atom2: [B, 32, CD1]
+      max_distance: 5.242343
+    - atom1: [A, 130, CA]
+      atom2: [B, 32, CD2]
+      max_distance: 5.242343
+    force: true

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "pdb_id": "8VOH",
+  "arm": "token",
+  "applicable": true,
+  "input_file": "cases/8voh/token/input/8voh_token.yaml",
+  "input_sha256": "fc096b4ba49f3cee0d7f6b424e183b202010d283a2acbd310ddd3f60cdc4fb4e",
+  "source_nef": "cases/8voh/source/8voh_nmr-data.nef",
+  "source_nef_sha256": "409ea84fc3fddfa13d5f51606e1e7ced7812a43e494a38961f608d0471768967",
+  "generated_token_constraints": "cases/8voh/token/conversion/token_constraints.yaml",
+  "generated_token_constraints_sha256": "d591c3b1748e468e580d57d3995a387061723e59ff47839cf19dc43a60ea7b4b",
+  "token_constraints": 9,
+  "token_constraints_from_exact_groups": 6,
+  "token_constraints_from_collapsed_union_groups": 3,
+  "exact_atom_constraints": 0,
+  "union_atom_groups": 0,
+  "fixed_phase1_msas": [
+    {
+      "entity_index": 0,
+      "file": "cases/8voh/source/msa/entity_0.csv",
+      "sha256": "bfea23ec3cd78f08595eef8eca7c5e77c471eea033f64c6ec6e6f1242bbd802f"
+    },
+    {
+      "entity_index": 1,
+      "file": "cases/8voh/source/msa/entity_1.csv",
+      "sha256": "74f848baae2de9c912e63a8464338757f359d419e8bfe5ff513d30f7a8f03ca3"
+    }
+  ],
+  "nmr2boltz": {
+    "version": "0.1.0",
+    "image": "nmr2boltz:latest",
+    "image_id": "sha256:2e8fd2f26e7b6056ed1a04cf2029058837e1ef25f4c2cee89bfa2fb6d27bb40b",
+    "format": "nef",
+    "target_validation": true,
+    "rejections": 0
+  },
+  "boltz": {
+    "version": "2.2.1",
+    "image": "boltzui:221-exact-union",
+    "image_id": "sha256:15cdcac8e17fe16abc9756b2ff8673d99c7436ebe32f3d70b9e120024c445d83",
+    "runtime_seconds": 1061.5,
+    "failed_examples": 0
+  },
+  "command_file": "cases/8voh/token/command.json",
+  "analysis_summary": "cases/8voh/token/analysis/comparison_summary.json",
+  "validation_report": "cases/8voh/token/analysis/validation_report.json"
+}

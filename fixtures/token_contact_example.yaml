@@ -1,0 +1,16 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: S
+      msa: empty
+  - protein:
+      id: B
+      sequence: G
+      msa: empty
+constraints:
+  - contact:
+      token1: [A, 1]
+      token2: [B, 1]
+      max_distance: 4.0
+      force: true

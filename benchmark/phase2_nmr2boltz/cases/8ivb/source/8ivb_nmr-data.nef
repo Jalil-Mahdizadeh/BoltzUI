@@ -1,0 +1,744 @@
+data_nef_8ivb
+
+save_entry_information
+   _nef_nmr_meta_data.sf_category     nef_nmr_meta_data
+   _nef_nmr_meta_data.sf_framecode    entry_information
+   _nef_nmr_meta_data.format_name     nmr_exchange_format
+   _nef_nmr_meta_data.format_version  1.1
+
+   loop_
+      _audit.revision_id
+      _audit.creation_date
+      _audit.creation_method
+      _audit.update_record
+
+     1   2024-01-31   .   'Initial release'    
+
+   stop_
+
+save_
+
+save_assembly
+   _nef_molecular_system.sf_category   nef_molecular_system
+   _nef_molecular_system.sf_framecode  assembly
+
+   loop_
+      _nef_sequence.index
+      _nef_sequence.chain_code
+      _nef_sequence.sequence_code
+      _nef_sequence.residue_name
+      _nef_sequence.linking
+      _nef_sequence.residue_variant
+      _nef_sequence.cis_peptide
+
+     1     A   1     MET   start    .     .        
+     2     A   2     GLN   middle   .     .        
+     3     A   3     ILE   middle   .     .        
+     4     A   4     PHE   middle   .     .        
+     5     A   5     VAL   middle   .     .        
+     6     A   6     LYS   middle   .     .        
+     7     A   7     THR   middle   .     .        
+     8     A   8     LEU   middle   .     .        
+     9     A   9     THR   middle   .     .        
+     10    A   10    GLY   middle   .     false    
+     11    A   11    LYS   middle   .     .        
+     12    A   12    THR   middle   .     .        
+     13    A   13    ILE   middle   .     .        
+     14    A   14    THR   middle   .     .        
+     15    A   15    LEU   middle   .     .        
+     16    A   16    GLU   middle   .     .        
+     17    A   17    VAL   middle   .     .        
+     18    A   18    GLU   middle   .     .        
+     19    A   19    PRO   middle   .     false    
+     20    A   20    SER   middle   .     .        
+     21    A   21    ASP   middle   .     .        
+     22    A   22    THR   middle   .     .        
+     23    A   23    ILE   middle   .     .        
+     24    A   24    GLU   middle   .     .        
+     25    A   25    ASN   middle   .     .        
+     26    A   26    VAL   middle   .     .        
+     27    A   27    LYS   middle   .     .        
+     28    A   28    ALA   middle   .     .        
+     29    A   29    LYS   middle   .     .        
+     30    A   30    ILE   middle   .     .        
+     31    A   31    GLN   middle   .     .        
+     32    A   32    ASP   middle   .     .        
+     33    A   33    LYS   middle   .     .        
+     34    A   34    GLU   middle   .     .        
+     35    A   35    GLY   middle   .     false    
+     36    A   36    ILE   middle   .     .        
+     37    A   37    PRO   middle   .     false    
+     38    A   38    PRO   middle   .     false    
+     39    A   39    ASP   middle   .     .        
+     40    A   40    GLN   middle   .     .        
+     41    A   41    GLN   middle   .     .        
+     42    A   42    ARG   middle   .     .        
+     43    A   43    LEU   middle   .     .        
+     44    A   44    ILE   middle   .     .        
+     45    A   45    PHE   middle   .     .        
+     46    A   46    ALA   middle   .     .        
+     47    A   47    GLY   middle   .     false    
+     48    A   48    LYS   middle   .     .        
+     49    A   49    GLN   middle   .     .        
+     50    A   50    LEU   middle   .     .        
+     51    A   51    GLU   middle   .     .        
+     52    A   52    ASP   middle   .     .        
+     53    A   53    GLY   middle   .     false    
+     54    A   54    ARG   middle   .     .        
+     55    A   55    THR   middle   .     .        
+     56    A   56    LEU   middle   .     .        
+     57    A   57    SER   middle   .     .        
+     58    A   58    ASP   middle   .     .        
+     59    A   59    TYR   middle   .     .        
+     60    A   60    ASN   middle   .     .        
+     61    A   61    ILE   middle   .     .        
+     62    A   62    GLN   middle   .     .        
+     63    A   63    LYS   middle   .     .        
+     64    A   64    GLU   middle   .     .        
+     65    A   65    SER   middle   .     .        
+     66    A   66    THR   middle   .     .        
+     67    A   67    LEU   middle   .     .        
+     68    A   68    HIS   middle   .     .        
+     69    A   69    LEU   middle   .     .        
+     70    A   70    VAL   middle   .     .        
+     71    A   71    LEU   middle   .     .        
+     72    A   72    ARG   middle   .     .        
+     73    A   73    LEU   middle   .     .        
+     74    A   74    ARG   middle   .     .        
+     75    A   75    GLY   middle   .     false    
+     76    A   76    CYS   end      -HG   .        
+     77    B   18    ALA   start    .     .        
+     78    B   19    LEU   middle   .     .        
+     79    B   20    PRO   middle   .     false    
+     80    B   21    SER   middle   .     .        
+     81    B   22    ALA   middle   .     .        
+     82    B   23    SER   middle   .     .        
+     83    B   24    GLU   middle   .     .        
+     84    B   25    GLU   middle   .     .        
+     85    B   26    GLN   middle   .     .        
+     86    B   27    VAL   middle   .     .        
+     87    B   28    ALA   middle   .     .        
+     88    B   29    GLN   middle   .     .        
+     89    B   30    ASP   middle   .     .        
+     90    B   31    THR   middle   .     .        
+     91    B   32    GLU   middle   .     .        
+     92    B   33    GLU   middle   .     .        
+     93    B   34    VAL   middle   .     .        
+     94    B   35    PHE   middle   .     .        
+     95    B   36    ARG   middle   .     .        
+     96    B   37    SER   middle   .     .        
+     97    B   38    TYR   middle   .     .        
+     98    B   39    VAL   middle   .     .        
+     99    B   40    PHE   middle   .     .        
+     100   B   41    TYR   middle   .     .        
+     101   B   42    ARG   middle   .     .        
+     102   B   43    HIS   middle   .     .        
+     103   B   44    GLN   middle   .     .        
+     104   B   45    GLN   middle   .     .        
+     105   B   46    GLU   middle   .     .        
+     106   B   47    GLN   middle   .     .        
+     107   B   48    GLU   middle   .     .        
+     108   B   49    ALA   middle   .     .        
+     109   B   50    GLU   middle   .     .        
+     110   B   51    GLY   middle   .     false    
+     111   B   52    VAL   middle   .     .        
+     112   B   53    ALA   middle   .     .        
+     113   B   54    ALA   middle   .     .        
+     114   B   55    PRO   middle   .     false    
+     115   B   56    ALA   middle   .     .        
+     116   B   57    ASP   middle   .     .        
+     117   B   58    PRO   middle   .     false    
+     118   B   59    GLU   middle   .     .        
+     119   B   60    MET   middle   .     .        
+     120   B   61    VAL   middle   .     .        
+     121   B   62    THR   middle   .     .        
+     122   B   63    LEU   middle   .     .        
+     123   B   64    PRO   middle   .     false    
+     124   B   65    LEU   middle   .     .        
+     125   B   66    GLN   middle   .     .        
+     126   B   67    PRO   middle   .     false    
+     127   B   68    SER   middle   .     .        
+     128   B   69    SER   middle   .     .        
+     129   B   70    THR   middle   .     .        
+     130   B   71    MET   middle   .     .        
+     131   B   72    GLY   middle   .     false    
+     132   B   73    GLN   middle   .     .        
+     133   B   74    VAL   middle   .     .        
+     134   B   75    GLY   middle   .     false    
+     135   B   76    ARG   middle   .     .        
+     136   B   77    GLN   middle   .     .        
+     137   B   78    LEU   middle   .     .        
+     138   B   79    ALA   middle   .     .        
+     139   B   80    ILE   middle   .     .        
+     140   B   81    ILE   middle   .     .        
+     141   B   82    GLY   middle   .     false    
+     142   B   83    ASP   middle   .     .        
+     143   B   84    ASP   middle   .     .        
+     144   B   85    ILE   middle   .     .        
+     145   B   86    ASN   middle   .     .        
+     146   B   87    ARG   middle   .     .        
+     147   B   88    ARG   middle   .     .        
+     148   B   89    TYR   middle   .     .        
+     149   B   90    ASP   middle   .     .        
+     150   B   91    SER   middle   .     .        
+     151   B   92    GLU   middle   .     .        
+     152   B   93    PHE   middle   .     .        
+     153   B   94    GLN   middle   .     .        
+     154   B   95    THR   middle   .     .        
+     155   B   96    MET   middle   .     .        
+     156   B   97    LEU   middle   .     .        
+     157   B   98    GLN   middle   .     .        
+     158   B   99    HIS   middle   .     .        
+     159   B   100   LEU   middle   .     .        
+     160   B   101   GLN   middle   .     .        
+     161   B   102   PRO   middle   .     false    
+     162   B   103   THR   middle   .     .        
+     163   B   104   ALA   middle   .     .        
+     164   B   105   GLU   middle   .     .        
+     165   B   106   ASN   middle   .     .        
+     166   B   107   ALA   middle   .     .        
+     167   B   108   TYR   middle   .     .        
+     168   B   109   GLU   middle   .     .        
+     169   B   110   TYR   middle   .     .        
+     170   B   111   PHE   middle   .     .        
+     171   B   112   THR   middle   .     .        
+     172   B   113   CYS   middle   -HG   .        
+     173   B   114   ILE   middle   .     .        
+     174   B   115   ALA   middle   .     .        
+     175   B   116   THR   middle   .     .        
+     176   B   117   SER   middle   .     .        
+     177   B   118   LEU   middle   .     .        
+     178   B   119   PHE   middle   .     .        
+     179   B   120   GLU   middle   .     .        
+     180   B   121   SER   middle   .     .        
+     181   B   122   GLY   middle   .     false    
+     182   B   123   ILE   middle   .     .        
+     183   B   124   ASN   middle   .     .        
+     184   B   125   TRP   middle   .     .        
+     185   B   126   GLY   middle   .     false    
+     186   B   127   ARG   middle   .     .        
+     187   B   128   VAL   middle   .     .        
+     188   B   129   VAL   middle   .     .        
+     189   B   130   ALA   middle   .     .        
+     190   B   131   LEU   middle   .     .        
+     191   B   132   LEU   middle   .     .        
+     192   B   133   GLY   middle   .     false    
+     193   B   134   PHE   middle   .     .        
+     194   B   135   GLY   middle   .     false    
+     195   B   136   TYR   middle   .     .        
+     196   B   137   ARG   middle   .     .        
+     197   B   138   LEU   middle   .     .        
+     198   B   139   ALA   middle   .     .        
+     199   B   140   LEU   middle   .     .        
+     200   B   141   HIS   middle   .     .        
+     201   B   142   VAL   middle   .     .        
+     202   B   143   TYR   middle   .     .        
+     203   B   144   GLN   middle   .     .        
+     204   B   145   HIS   middle   .     .        
+     205   B   146   GLY   middle   .     false    
+     206   B   147   LEU   middle   .     .        
+     207   B   148   THR   middle   .     .        
+     208   B   149   GLY   middle   .     false    
+     209   B   150   PHE   middle   .     .        
+     210   B   151   LEU   middle   .     .        
+     211   B   152   GLY   middle   .     false    
+     212   B   153   GLN   middle   .     .        
+     213   B   154   VAL   middle   .     .        
+     214   B   155   THR   middle   .     .        
+     215   B   156   ARG   middle   .     .        
+     216   B   157   PHE   middle   .     .        
+     217   B   158   VAL   middle   .     .        
+     218   B   159   VAL   middle   .     .        
+     219   B   160   ASP   middle   .     .        
+     220   B   161   PHE   middle   .     .        
+     221   B   162   MET   middle   .     .        
+     222   B   163   LEU   middle   .     .        
+     223   B   164   HIS   middle   .     .        
+     224   B   165   HIS   middle   .     .        
+     225   B   166   CYS   middle   .     .        
+     226   B   167   ILE   middle   .     .        
+     227   B   168   ALA   middle   .     .        
+     228   B   169   ARG   middle   .     .        
+     229   B   170   TRP   middle   .     .        
+     230   B   171   ILE   middle   .     .        
+     231   B   172   ALA   middle   .     .        
+     232   B   173   GLN   middle   .     .        
+     233   B   174   ARG   middle   .     .        
+     234   B   175   GLY   middle   .     false    
+     235   B   176   GLY   middle   .     false    
+     236   B   177   TRP   middle   .     .        
+     237   B   178   VAL   middle   .     .        
+     238   B   179   ALA   middle   .     .        
+     239   B   180   ALA   middle   .     .        
+     240   B   181   LEU   middle   .     .        
+     241   B   182   ASN   middle   .     .        
+     242   B   183   LEU   middle   .     .        
+     243   B   184   GLY   middle   .     false    
+     244   B   185   ASN   middle   .     .        
+     245   B   186   GLY   end      .     false    
+
+   stop_
+
+   loop_
+      _nef_covalent_links.chain_code_1
+      _nef_covalent_links.sequence_code_1
+      _nef_covalent_links.residue_name_1
+      _nef_covalent_links.atom_name_1
+      _nef_covalent_links.chain_code_2
+      _nef_covalent_links.sequence_code_2
+      _nef_covalent_links.residue_name_2
+      _nef_covalent_links.atom_name_2
+
+     A   76   CYS   SG   B   113   CYS   SG    
+
+   stop_
+
+save_
+
+save_wk11_CS
+   _nef_chemical_shift_list.sf_category   nef_chemical_shift_list
+   _nef_chemical_shift_list.sf_framecode  wk11_CS
+
+   loop_
+      _nef_chemical_shift.chain_code
+      _nef_chemical_shift.sequence_code
+      _nef_chemical_shift.residue_name
+      _nef_chemical_shift.atom_name
+      _nef_chemical_shift.element
+      _nef_chemical_shift.isotope_number
+      _nef_chemical_shift.value
+      _nef_chemical_shift.value_uncertainty
+
+     A   28    ALA   H   H   1    8.72560     .    
+     A   28    ALA   N   N   15   125.16698   .    
+     A   42    ARG   H   H   1    8.89270     .    
+     A   42    ARG   N   N   15   122.01758   .    
+     A   75    GLY   H   H   1    8.18633     .    
+     A   75    GLY   N   N   15   104.79800   .    
+     B   25    GLU   H   H   1    8.78825     .    
+     B   25    GLU   N   N   15   119.30478   .    
+     B   26    GLN   H   H   1    7.98391     .    
+     B   26    GLN   N   N   15   121.54480   .    
+     B   27    VAL   H   H   1    7.87420     .    
+     B   27    VAL   N   N   15   118.45672   .    
+     B   29    GLN   H   H   1    7.88403     .    
+     B   29    GLN   N   N   15   118.40890   .    
+     B   30    ASP   H   H   1    8.93718     .    
+     B   30    ASP   N   N   15   122.00394   .    
+     B   31    THR   H   H   1    8.39850     .    
+     B   31    THR   N   N   15   115.22960   .    
+     B   32    GLU   H   H   1    7.47517     .    
+     B   32    GLU   N   N   15   120.22032   .    
+     B   33    GLU   H   H   1    7.22843     .    
+     B   33    GLU   N   N   15   117.41840   .    
+     B   34    VAL   H   H   1    7.96205     .    
+     B   34    VAL   N   N   15   120.41442   .    
+     B   35    PHE   H   H   1    8.93142     .    
+     B   35    PHE   N   N   15   117.57243   .    
+     B   36    ARG   H   H   1    8.13203     .    
+     B   36    ARG   N   N   15   116.50660   .    
+     B   37    SER   H   H   1    7.84603     .    
+     B   37    SER   N   N   15   112.70838   .    
+     B   38    TYR   H   H   1    8.87033     .    
+     B   38    TYR   N   N   15   122.42498   .    
+     B   39    VAL   H   H   1    8.41930     .    
+     B   39    VAL   N   N   15   115.44104   .    
+     B   41    TYR   H   H   1    8.59361     .    
+     B   41    TYR   N   N   15   117.37296   .    
+     B   43    HIS   H   H   1    8.32151     .    
+     B   43    HIS   N   N   15   119.45339   .    
+     B   44    GLN   H   H   1    7.71462     .    
+     B   44    GLN   N   N   15   117.13385   .    
+     B   45    GLN   H   H   1    7.85402     .    
+     B   45    GLN   N   N   15   117.81400   .    
+     B   46    GLU   H   H   1    7.71841     .    
+     B   46    GLU   N   N   15   118.85944   .    
+     B   49    ALA   H   H   1    7.69420     .    
+     B   49    ALA   N   N   15   122.22921   .    
+     B   50    GLU   H   H   1    8.14457     .    
+     B   50    GLU   N   N   15   117.95387   .    
+     B   51    GLY   H   H   1    8.16927     .    
+     B   51    GLY   N   N   15   109.62056   .    
+     B   52    VAL   H   H   1    7.61308     .    
+     B   52    VAL   N   N   15   118.31494   .    
+     B   53    ALA   H   H   1    8.26386     .    
+     B   53    ALA   N   N   15   127.13176   .    
+     B   54    ALA   H   H   1    7.88325     .    
+     B   54    ALA   N   N   15   124.13124   .    
+     B   56    ALA   H   H   1    8.19427     .    
+     B   56    ALA   N   N   15   124.48329   .    
+     B   57    ASP   H   H   1    7.93655     .    
+     B   57    ASP   N   N   15   123.40146   .    
+     B   69    SER   H   H   1    7.78890     .    
+     B   69    SER   N   N   15   117.68422   .    
+     B   71    MET   H   H   1    8.50963     .    
+     B   71    MET   N   N   15   117.88732   .    
+     B   72    GLY   H   H   1    8.09599     .    
+     B   72    GLY   N   N   15   109.02629   .    
+     B   73    GLN   H   H   1    7.92086     .    
+     B   73    GLN   N   N   15   121.47749   .    
+     B   74    VAL   H   H   1    8.07028     .    
+     B   74    VAL   N   N   15   121.02676   .    
+     B   76    ARG   H   H   1    7.63197     .    
+     B   76    ARG   N   N   15   119.30206   .    
+     B   77    GLN   H   H   1    7.91362     .    
+     B   77    GLN   N   N   15   117.05059   .    
+     B   78    LEU   H   H   1    8.49442     .    
+     B   78    LEU   N   N   15   116.93496   .    
+     B   79    ALA   H   H   1    7.83690     .    
+     B   79    ALA   N   N   15   120.95207   .    
+     B   80    ILE   H   H   1    7.48901     .    
+     B   80    ILE   N   N   15   115.40434   .    
+     B   82    GLY   H   H   1    8.19148     .    
+     B   82    GLY   N   N   15   110.41982   .    
+     B   83    ASP   H   H   1    7.65288     .    
+     B   83    ASP   N   N   15   120.72790   .    
+     B   84    ASP   H   H   1    8.39959     .    
+     B   84    ASP   N   N   15   118.75907   .    
+     B   85    ILE   H   H   1    7.92297     .    
+     B   85    ILE   N   N   15   119.35217   .    
+     B   86    ASN   H   H   1    8.30414     .    
+     B   86    ASN   N   N   15   118.98132   .    
+     B   87    ARG   H   H   1    8.06020     .    
+     B   87    ARG   N   N   15   119.47250   .    
+     B   88    ARG   H   H   1    7.83576     .    
+     B   88    ARG   N   N   15   119.43192   .    
+     B   91    SER   H   H   1    8.09053     .    
+     B   91    SER   N   N   15   112.70344   .    
+     B   92    GLU   H   H   1    7.74681     .    
+     B   92    GLU   N   N   15   123.31553   .    
+     B   94    GLN   H   H   1    8.36907     .    
+     B   94    GLN   N   N   15   117.27931   .    
+     B   95    THR   H   H   1    8.05486     .    
+     B   95    THR   N   N   15   115.74411   .    
+     B   96    MET   H   H   1    8.28043     .    
+     B   96    MET   N   N   15   120.20176   .    
+     B   97    LEU   H   H   1    8.04859     .    
+     B   97    LEU   N   N   15   118.18129   .    
+     B   103   THR   H   H   1    8.79807     .    
+     B   103   THR   N   N   15   112.62527   .    
+     B   104   ALA   H   H   1    8.88236     .    
+     B   104   ALA   N   N   15   122.19512   .    
+     B   105   GLU   H   H   1    8.36919     .    
+     B   105   GLU   N   N   15   115.06239   .    
+     B   106   ASN   H   H   1    7.68808     .    
+     B   106   ASN   N   N   15   116.17505   .    
+     B   107   ALA   H   H   1    8.19198     .    
+     B   107   ALA   N   N   15   121.99747   .    
+     B   108   TYR   H   H   1    8.52392     .    
+     B   108   TYR   N   N   15   117.11543   .    
+     B   109   GLU   H   H   1    8.10876     .    
+     B   109   GLU   N   N   15   122.25472   .    
+     B   111   PHE   H   H   1    8.91150     .    
+     B   111   PHE   N   N   15   118.42277   .    
+     B   113   CYS   H   H   1    7.91476     .    
+     B   113   CYS   N   N   15   122.21196   .    
+     B   114   ILE   H   H   1    7.76389     .    
+     B   114   ILE   N   N   15   121.12620   .    
+     B   115   ALA   H   H   1    8.39998     .    
+     B   115   ALA   N   N   15   122.82395   .    
+     B   116   THR   H   H   1    7.63496     .    
+     B   116   THR   N   N   15   111.03677   .    
+     B   117   SER   H   H   1    7.29519     .    
+     B   117   SER   N   N   15   117.52772   .    
+     B   118   LEU   H   H   1    7.63040     .    
+     B   118   LEU   N   N   15   121.68428   .    
+     B   119   PHE   H   H   1    6.98091     .    
+     B   119   PHE   N   N   15   112.15694   .    
+     B   120   GLU   H   H   1    7.35181     .    
+     B   120   GLU   N   N   15   123.04600   .    
+     B   121   SER   H   H   1    8.35674     .    
+     B   121   SER   N   N   15   111.07539   .    
+     B   122   GLY   H   H   1    7.46714     .    
+     B   122   GLY   N   N   15   109.87245   .    
+     B   123   ILE   H   H   1    8.16497     .    
+     B   123   ILE   N   N   15   117.72382   .    
+     B   124   ASN   H   H   1    6.50232     .    
+     B   124   ASN   N   N   15   117.57732   .    
+     B   125   TRP   H   H   1    9.00908     .    
+     B   125   TRP   N   N   15   119.31857   .    
+     B   126   GLY   H   H   1    8.58744     .    
+     B   126   GLY   N   N   15   106.85218   .    
+     B   127   ARG   H   H   1    7.91247     .    
+     B   127   ARG   N   N   15   120.39701   .    
+     B   128   VAL   H   H   1    7.66235     .    
+     B   128   VAL   N   N   15   119.73901   .    
+     B   129   VAL   H   H   1    8.48640     .    
+     B   129   VAL   N   N   15   118.38338   .    
+     B   130   ALA   H   H   1    8.09781     .    
+     B   130   ALA   N   N   15   123.05405   .    
+     B   131   LEU   H   H   1    8.01452     .    
+     B   131   LEU   N   N   15   119.57449   .    
+     B   132   LEU   H   H   1    7.67555     .    
+     B   132   LEU   N   N   15   118.02471   .    
+     B   133   GLY   H   H   1    8.62269     .    
+     B   133   GLY   N   N   15   107.61355   .    
+     B   134   PHE   H   H   1    9.10987     .    
+     B   134   PHE   N   N   15   124.82416   .    
+     B   135   GLY   H   H   1    8.72970     .    
+     B   135   GLY   N   N   15   106.50653   .    
+     B   136   TYR   H   H   1    8.81397     .    
+     B   136   TYR   N   N   15   121.60728   .    
+     B   137   ARG   H   H   1    8.45037     .    
+     B   137   ARG   N   N   15   117.22309   .    
+     B   138   LEU   H   H   1    9.14399     .    
+     B   138   LEU   N   N   15   121.94502   .    
+     B   139   ALA   H   H   1    8.41413     .    
+     B   139   ALA   N   N   15   120.45227   .    
+     B   140   LEU   H   H   1    8.15209     .    
+     B   140   LEU   N   N   15   119.17158   .    
+     B   141   HIS   H   H   1    8.32840     .    
+     B   141   HIS   N   N   15   118.55649   .    
+     B   143   TYR   H   H   1    7.76732     .    
+     B   143   TYR   N   N   15   123.32193   .    
+     B   144   GLN   H   H   1    8.72216     .    
+     B   144   GLN   N   N   15   118.43903   .    
+     B   145   HIS   H   H   1    7.34873     .    
+     B   145   HIS   N   N   15   115.07766   .    
+     B   146   GLY   H   H   1    7.52618     .    
+     B   146   GLY   N   N   15   106.42801   .    
+     B   148   THR   H   H   1    7.86976     .    
+     B   148   THR   N   N   15   116.27459   .    
+     B   153   GLN   H   H   1    7.25878     .    
+     B   153   GLN   N   N   15   122.61347   .    
+     B   154   VAL   H   H   1    7.27937     .    
+     B   154   VAL   N   N   15   117.54114   .    
+     B   155   THR   H   H   1    8.29292     .    
+     B   155   THR   N   N   15   114.20700   .    
+     B   156   ARG   H   H   1    7.05470     .    
+     B   156   ARG   N   N   15   120.00008   .    
+     B   157   PHE   H   H   1    8.07004     .    
+     B   157   PHE   N   N   15   117.83416   .    
+     B   158   VAL   H   H   1    7.68897     .    
+     B   158   VAL   N   N   15   118.81592   .    
+     B   159   VAL   H   H   1    8.17688     .    
+     B   159   VAL   N   N   15   119.79964   .    
+     B   160   ASP   H   H   1    8.97302     .    
+     B   160   ASP   N   N   15   119.05582   .    
+     B   161   PHE   H   H   1    8.51204     .    
+     B   161   PHE   N   N   15   120.49828   .    
+     B   162   MET   H   H   1    8.57993     .    
+     B   162   MET   N   N   15   116.23977   .    
+     B   163   LEU   H   H   1    8.46580     .    
+     B   163   LEU   N   N   15   121.21349   .    
+     B   164   HIS   H   H   1    8.32849     .    
+     B   164   HIS   N   N   15   117.14521   .    
+     B   165   HIS   H   H   1    7.78266     .    
+     B   165   HIS   N   N   15   115.58167   .    
+     B   167   ILE   H   H   1    7.75614     .    
+     B   167   ILE   N   N   15   121.05008   .    
+     B   168   ALA   H   H   1    7.81977     .    
+     B   168   ALA   N   N   15   122.10147   .    
+     B   169   ARG   H   H   1    7.91043     .    
+     B   169   ARG   N   N   15   118.39803   .    
+     B   170   TRP   H   H   1    7.43127     .    
+     B   170   TRP   N   N   15   121.56986   .    
+     B   171   ILE   H   H   1    8.28592     .    
+     B   171   ILE   N   N   15   117.95244   .    
+     B   172   ALA   H   H   1    8.43633     .    
+     B   172   ALA   N   N   15   123.66624   .    
+     B   173   GLN   H   H   1    7.96954     .    
+     B   173   GLN   N   N   15   117.04993   .    
+     B   174   ARG   H   H   1    7.08030     .    
+     B   174   ARG   N   N   15   116.87327   .    
+     B   175   GLY   H   H   1    7.54541     .    
+     B   175   GLY   N   N   15   104.51385   .    
+     B   176   GLY   H   H   1    8.13460     .    
+     B   176   GLY   N   N   15   107.12814   .    
+     B   177   TRP   H   H   1    8.30105     .    
+     B   177   TRP   N   N   15   118.20219   .    
+     B   178   VAL   H   H   1    8.55417     .    
+     B   178   VAL   N   N   15   113.58437   .    
+     B   179   ALA   H   H   1    7.73635     .    
+     B   179   ALA   N   N   15   124.32110   .    
+     B   180   ALA   H   H   1    7.89371     .    
+     B   180   ALA   N   N   15   119.96489   .    
+     B   181   LEU   H   H   1    7.23314     .    
+     B   181   LEU   N   N   15   114.01501   .    
+     B   182   ASN   H   H   1    7.39201     .    
+     B   182   ASN   N   N   15   115.48087   .    
+     B   183   LEU   H   H   1    7.50570     .    
+     B   183   LEU   N   N   15   120.52467   .    
+     B   184   GLY   H   H   1    8.28310     .    
+     B   184   GLY   N   N   15   108.16561   .    
+     B   185   ASN   H   H   1    8.14030     .    
+     B   185   ASN   N   N   15   118.87805   .    
+     B   186   GLY   H   H   1    8.00794     .    
+     B   186   GLY   N   N   15   115.36088   .    
+
+   stop_
+
+save_
+
+save_XPLOR-NIH/CNS_distance_restraints_1
+   _nef_distance_restraint_list.sf_category       nef_distance_restraint_list
+   _nef_distance_restraint_list.sf_framecode      XPLOR-NIH/CNS_distance_restraints_1
+   _nef_distance_restraint_list.restraint_origin  noe
+   _nef_distance_restraint_list.potential_type    square-well-parabolic
+
+   loop_
+      _nef_distance_restraint.index
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_name_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_name_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+
+     1     1    .   B   96    MET   HE1    A   70   VAL   HG11   1.0   3.0   .   .   2.5   3.5   .    
+     2     1    .   B   96    MET   HE1    A   70   VAL   HG12   1.0   3.0   .   .   2.5   3.5   .    
+     3     1    .   B   96    MET   HE1    A   70   VAL   HG13   1.0   3.0   .   .   2.5   3.5   .    
+     4     1    .   B   96    MET   HE1    A   70   VAL   HG21   1.0   3.0   .   .   2.5   3.5   .    
+     5     1    .   B   96    MET   HE1    A   70   VAL   HG22   1.0   3.0   .   .   2.5   3.5   .    
+     6     1    .   B   96    MET   HE1    A   70   VAL   HG23   1.0   3.0   .   .   2.5   3.5   .    
+     7     1    .   B   96    MET   HE2    A   70   VAL   HG11   1.0   3.0   .   .   2.5   3.5   .    
+     8     1    .   B   96    MET   HE2    A   70   VAL   HG12   1.0   3.0   .   .   2.5   3.5   .    
+     9     1    .   B   96    MET   HE2    A   70   VAL   HG13   1.0   3.0   .   .   2.5   3.5   .    
+     10    1    .   B   96    MET   HE2    A   70   VAL   HG21   1.0   3.0   .   .   2.5   3.5   .    
+     11    1    .   B   96    MET   HE2    A   70   VAL   HG22   1.0   3.0   .   .   2.5   3.5   .    
+     12    1    .   B   96    MET   HE2    A   70   VAL   HG23   1.0   3.0   .   .   2.5   3.5   .    
+     13    1    .   B   96    MET   HE3    A   70   VAL   HG11   1.0   3.0   .   .   2.5   3.5   .    
+     14    1    .   B   96    MET   HE3    A   70   VAL   HG12   1.0   3.0   .   .   2.5   3.5   .    
+     15    1    .   B   96    MET   HE3    A   70   VAL   HG13   1.0   3.0   .   .   2.5   3.5   .    
+     16    1    .   B   96    MET   HE3    A   70   VAL   HG21   1.0   3.0   .   .   2.5   3.5   .    
+     17    1    .   B   96    MET   HE3    A   70   VAL   HG22   1.0   3.0   .   .   2.5   3.5   .    
+     18    1    .   B   96    MET   HE3    A   70   VAL   HG23   1.0   3.0   .   .   2.5   3.5   .    
+     19    2    .   B   96    MET   HE1    A   42   ARG   HGx    1.0   3.0   .   .   2.5   3.5   .    
+     20    2    .   B   96    MET   HE1    A   42   ARG   HGy    1.0   3.0   .   .   2.5   3.5   .    
+     21    2    .   B   96    MET   HE2    A   42   ARG   HGx    1.0   3.0   .   .   2.5   3.5   .    
+     22    2    .   B   96    MET   HE2    A   42   ARG   HGy    1.0   3.0   .   .   2.5   3.5   .    
+     23    2    .   B   96    MET   HE3    A   42   ARG   HGx    1.0   3.0   .   .   2.5   3.5   .    
+     24    2    .   B   96    MET   HE3    A   42   ARG   HGy    1.0   3.0   .   .   2.5   3.5   .    
+     25    3    .   B   96    MET   HE1    A   42   ARG   HDx    1.0   3.8   .   .   3.3   5.3   .    
+     26    3    .   B   96    MET   HE1    A   42   ARG   HDy    1.0   3.8   .   .   3.3   5.3   .    
+     27    3    .   B   96    MET   HE2    A   42   ARG   HDx    1.0   3.8   .   .   3.3   5.3   .    
+     28    3    .   B   96    MET   HE2    A   42   ARG   HDy    1.0   3.8   .   .   3.3   5.3   .    
+     29    3    .   B   96    MET   HE3    A   42   ARG   HDx    1.0   3.8   .   .   3.3   5.3   .    
+     30    3    .   B   96    MET   HE3    A   42   ARG   HDy    1.0   3.8   .   .   3.3   5.3   .    
+     31    4    .   B   114   ILE   HG21   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     32    4    .   B   114   ILE   HG21   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     33    4    .   B   114   ILE   HG21   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     34    4    .   B   114   ILE   HG21   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     35    4    .   B   114   ILE   HG21   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     36    4    .   B   114   ILE   HG21   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     37    4    .   B   114   ILE   HG22   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     38    4    .   B   114   ILE   HG22   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     39    4    .   B   114   ILE   HG22   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     40    4    .   B   114   ILE   HG22   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     41    4    .   B   114   ILE   HG22   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     42    4    .   B   114   ILE   HG22   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     43    4    .   B   114   ILE   HG23   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     44    4    .   B   114   ILE   HG23   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     45    4    .   B   114   ILE   HG23   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     46    4    .   B   114   ILE   HG23   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     47    4    .   B   114   ILE   HG23   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     48    4    .   B   114   ILE   HG23   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     49    5    .   B   114   ILE   HD11   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     50    5    .   B   114   ILE   HD11   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     51    5    .   B   114   ILE   HD11   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     52    5    .   B   114   ILE   HD11   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     53    5    .   B   114   ILE   HD11   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     54    5    .   B   114   ILE   HD11   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     55    5    .   B   114   ILE   HD12   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     56    5    .   B   114   ILE   HD12   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     57    5    .   B   114   ILE   HD12   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     58    5    .   B   114   ILE   HD12   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     59    5    .   B   114   ILE   HD12   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     60    5    .   B   114   ILE   HD12   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     61    5    .   B   114   ILE   HD13   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     62    5    .   B   114   ILE   HD13   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     63    5    .   B   114   ILE   HD13   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     64    5    .   B   114   ILE   HD13   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     65    5    .   B   114   ILE   HD13   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     66    5    .   B   114   ILE   HD13   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     67    6    .   B   114   ILE   HD11   A   42   ARG   HGx    1.0   3.5   .   .   2.5   4.7   .    
+     68    6    .   B   114   ILE   HD11   A   42   ARG   HGy    1.0   3.5   .   .   2.5   4.7   .    
+     69    6    .   B   114   ILE   HD12   A   42   ARG   HGx    1.0   3.5   .   .   2.5   4.7   .    
+     70    6    .   B   114   ILE   HD12   A   42   ARG   HGy    1.0   3.5   .   .   2.5   4.7   .    
+     71    6    .   B   114   ILE   HD13   A   42   ARG   HGx    1.0   3.5   .   .   2.5   4.7   .    
+     72    6    .   B   114   ILE   HD13   A   42   ARG   HGy    1.0   3.5   .   .   2.5   4.7   .    
+     73    7    .   B   114   ILE   HD11   A   42   ARG   HDx    1.0   4.2   .   .   3.2   5.7   .    
+     74    7    .   B   114   ILE   HD11   A   42   ARG   HDy    1.0   4.2   .   .   3.2   5.7   .    
+     75    7    .   B   114   ILE   HD12   A   42   ARG   HDx    1.0   4.2   .   .   3.2   5.7   .    
+     76    7    .   B   114   ILE   HD12   A   42   ARG   HDy    1.0   4.2   .   .   3.2   5.7   .    
+     77    7    .   B   114   ILE   HD13   A   42   ARG   HDx    1.0   4.2   .   .   3.2   5.7   .    
+     78    7    .   B   114   ILE   HD13   A   42   ARG   HDy    1.0   4.2   .   .   3.2   5.7   .    
+     79    8    .   B   118   LEU   HD11   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     80    8    .   B   118   LEU   HD11   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     81    8    .   B   118   LEU   HD11   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     82    8    .   B   118   LEU   HD11   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     83    8    .   B   118   LEU   HD11   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     84    8    .   B   118   LEU   HD11   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     85    8    .   B   118   LEU   HD12   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     86    8    .   B   118   LEU   HD12   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     87    8    .   B   118   LEU   HD12   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     88    8    .   B   118   LEU   HD12   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     89    8    .   B   118   LEU   HD12   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     90    8    .   B   118   LEU   HD12   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     91    8    .   B   118   LEU   HD13   A   70   VAL   HG11   1.0   2.8   .   .   2.3   3.3   .    
+     92    8    .   B   118   LEU   HD13   A   70   VAL   HG12   1.0   2.8   .   .   2.3   3.3   .    
+     93    8    .   B   118   LEU   HD13   A   70   VAL   HG13   1.0   2.8   .   .   2.3   3.3   .    
+     94    8    .   B   118   LEU   HD13   A   70   VAL   HG21   1.0   2.8   .   .   2.3   3.3   .    
+     95    8    .   B   118   LEU   HD13   A   70   VAL   HG22   1.0   2.8   .   .   2.3   3.3   .    
+     96    8    .   B   118   LEU   HD13   A   70   VAL   HG23   1.0   2.8   .   .   2.3   3.3   .    
+     97    9    .   B   118   LEU   HD11   A   42   ARG   HGx    1.0   3.5   .   .   3.0   4.5   .    
+     98    9    .   B   118   LEU   HD11   A   42   ARG   HGy    1.0   3.5   .   .   3.0   4.5   .    
+     99    9    .   B   118   LEU   HD12   A   42   ARG   HGx    1.0   3.5   .   .   3.0   4.5   .    
+     100   9    .   B   118   LEU   HD12   A   42   ARG   HGy    1.0   3.5   .   .   3.0   4.5   .    
+     101   9    .   B   118   LEU   HD13   A   42   ARG   HGx    1.0   3.5   .   .   3.0   4.5   .    
+     102   9    .   B   118   LEU   HD13   A   42   ARG   HGy    1.0   3.5   .   .   3.0   4.5   .    
+     103   10   .   B   89    TYR   HBx    A   70   VAL   HG11   1.0   3.0   .   .   2.0   4.0   .    
+     104   10   .   B   89    TYR   HBx    A   70   VAL   HG12   1.0   3.0   .   .   2.0   4.0   .    
+     105   10   .   B   89    TYR   HBx    A   70   VAL   HG13   1.0   3.0   .   .   2.0   4.0   .    
+     106   10   .   B   89    TYR   HBx    A   70   VAL   HG21   1.0   3.0   .   .   2.0   4.0   .    
+     107   10   .   B   89    TYR   HBx    A   70   VAL   HG22   1.0   3.0   .   .   2.0   4.0   .    
+     108   10   .   B   89    TYR   HBx    A   70   VAL   HG23   1.0   3.0   .   .   2.0   4.0   .    
+     109   10   .   B   89    TYR   HBy    A   70   VAL   HG11   1.0   3.0   .   .   2.0   4.0   .    
+     110   10   .   B   89    TYR   HBy    A   70   VAL   HG12   1.0   3.0   .   .   2.0   4.0   .    
+     111   10   .   B   89    TYR   HBy    A   70   VAL   HG13   1.0   3.0   .   .   2.0   4.0   .    
+     112   10   .   B   89    TYR   HBy    A   70   VAL   HG21   1.0   3.0   .   .   2.0   4.0   .    
+     113   10   .   B   89    TYR   HBy    A   70   VAL   HG22   1.0   3.0   .   .   2.0   4.0   .    
+     114   10   .   B   89    TYR   HBy    A   70   VAL   HG23   1.0   3.0   .   .   2.0   4.0   .    
+     115   11   .   B   89    TYR   HBx    A   42   ARG   HGx    1.0   3.5   .   .   3.0   4.5   .    
+     116   11   .   B   89    TYR   HBx    A   42   ARG   HGy    1.0   3.5   .   .   3.0   4.5   .    
+     117   11   .   B   89    TYR   HBy    A   42   ARG   HGx    1.0   3.5   .   .   3.0   4.5   .    
+     118   11   .   B   89    TYR   HBy    A   42   ARG   HGy    1.0   3.5   .   .   3.0   4.5   .    
+     119   12   .   B   92    GLU   HGx    A   70   VAL   HG11   1.0   3.5   .   .   2.5   4.5   .    
+     120   12   .   B   92    GLU   HGx    A   70   VAL   HG12   1.0   3.5   .   .   2.5   4.5   .    
+     121   12   .   B   92    GLU   HGx    A   70   VAL   HG13   1.0   3.5   .   .   2.5   4.5   .    
+     122   12   .   B   92    GLU   HGx    A   70   VAL   HG21   1.0   3.5   .   .   2.5   4.5   .    
+     123   12   .   B   92    GLU   HGx    A   70   VAL   HG22   1.0   3.5   .   .   2.5   4.5   .    
+     124   12   .   B   92    GLU   HGx    A   70   VAL   HG23   1.0   3.5   .   .   2.5   4.5   .    
+     125   13   .   B   92    GLU   HGy    A   70   VAL   HG11   1.0   3.8   .   .   2.8   4.8   .    
+     126   13   .   B   92    GLU   HGy    A   70   VAL   HG12   1.0   3.8   .   .   2.8   4.8   .    
+     127   13   .   B   92    GLU   HGy    A   70   VAL   HG13   1.0   3.8   .   .   2.8   4.8   .    
+     128   13   .   B   92    GLU   HGy    A   70   VAL   HG21   1.0   3.8   .   .   2.8   4.8   .    
+     129   13   .   B   92    GLU   HGy    A   70   VAL   HG22   1.0   3.8   .   .   2.8   4.8   .    
+     130   13   .   B   92    GLU   HGy    A   70   VAL   HG23   1.0   3.8   .   .   2.8   4.8   .    
+     131   14   .   B   92    GLU   HBx    A   70   VAL   HG11   1.0   3.5   .   .   2.5   4.5   .    
+     132   14   .   B   92    GLU   HBx    A   70   VAL   HG12   1.0   3.5   .   .   2.5   4.5   .    
+     133   14   .   B   92    GLU   HBx    A   70   VAL   HG13   1.0   3.5   .   .   2.5   4.5   .    
+     134   14   .   B   92    GLU   HBx    A   70   VAL   HG21   1.0   3.5   .   .   2.5   4.5   .    
+     135   14   .   B   92    GLU   HBx    A   70   VAL   HG22   1.0   3.5   .   .   2.5   4.5   .    
+     136   14   .   B   92    GLU   HBx    A   70   VAL   HG23   1.0   3.5   .   .   2.5   4.5   .    
+     137   14   .   B   92    GLU   HBy    A   70   VAL   HG11   1.0   3.5   .   .   2.5   4.5   .    
+     138   14   .   B   92    GLU   HBy    A   70   VAL   HG12   1.0   3.5   .   .   2.5   4.5   .    
+     139   14   .   B   92    GLU   HBy    A   70   VAL   HG13   1.0   3.5   .   .   2.5   4.5   .    
+     140   14   .   B   92    GLU   HBy    A   70   VAL   HG21   1.0   3.5   .   .   2.5   4.5   .    
+     141   14   .   B   92    GLU   HBy    A   70   VAL   HG22   1.0   3.5   .   .   2.5   4.5   .    
+     142   14   .   B   92    GLU   HBy    A   70   VAL   HG23   1.0   3.5   .   .   2.5   4.5   .    
+
+   stop_
+
+save_

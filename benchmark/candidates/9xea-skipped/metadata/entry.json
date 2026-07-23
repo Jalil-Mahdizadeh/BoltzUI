@@ -1,0 +1,428 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0003-3694-6300",
+      "name": "Wang, Q.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Cai, T.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0002-4442-0344",
+      "name": "Chou, J.J.",
+      "pdbx_ordinal": 3
+    }
+  ],
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To Be Published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Wang, Q.",
+        "Cai, T.",
+        "Chou, J.J."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "Structure of the transmembrane domain dimer of the IL-7R V253G mutant"
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9XEA",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9xea/pdb",
+      "pdbx_database_accession": "pdb_00009xea"
+    },
+    {
+      "database_code": "D_1300064930",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "36805",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR36805"
+    }
+  ],
+  "entry": {
+    "id": "9XEA"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-04-22T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "grant_number": "82350710799",
+      "ordinal": 1
+    },
+    {
+      "country": "China",
+      "funding_organization": "Chinese Academy of Sciences",
+      "grant_number": "XDB1060000",
+      "ordinal": 2
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "8DDC",
+      "db_name": "PDB"
+    },
+    {
+      "content_type": "unspecified",
+      "db_id": "36805",
+      "db_name": "BMRB",
+      "details": "Structure of the transmembrane domain dimer of human IL-7R V253G mutant"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBC",
+    "recvd_initial_deposition_date": "2025-10-27T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 100,
+    "conformers_submitted_total_number": 15
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "3",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N TROSY-HSQC"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 2,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 1,
+      "type": "3D TROSY HNCA"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 1,
+      "type": "3D TROSY HN(CO)CA"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 1,
+      "type": "3D TROSY HNCO"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 2,
+      "type": "3D 1H-15N NOESY-TROSY"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY"
+    },
+    {
+      "conditions_id": "3",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "7",
+      "spectrometer_id": 2,
+      "type": "3D 1H-15N NOESY-TROSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "3",
+      "ionic_strength": "25",
+      "ionic_strength_err": 1.0,
+      "ionic_strength_units": "mM",
+      "label": "condition_1",
+      "pH": "6.5",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "306",
+      "temperature_err": 0.1,
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 1
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.6 mM [U-100% 13C; U-100% 15N; U-85% 2H] The transmembrane domain of the IL-7R-V253G dimer, 60 mM POPC, 150 mM DHPC, 25 mM MES, 90% H2O/10% D2O",
+      "details": "Triple labeled protein in bicelle for sequence specific assignment",
+      "label": "15N_13C_85%2H",
+      "solution_id": "5",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "bicelle"
+    },
+    {
+      "contents": "0.6 mM [U-13C; U-15N] Transmembrane domain of the IL-7R V253G mutant, 60 mM deuterated Deuterated POPC, 150 mM deuterated Deuterated DHPC, 25 mM MES, 90% H2O/10% D2O",
+      "details": "Double labeled protein in bicelle for NOE assignments",
+      "label": "15N_13C",
+      "solution_id": "6",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "bicelle"
+    },
+    {
+      "contents": "0.4 mM [U-15N; U-2H] Transmembrane domain of the IL-7R V253G mutant, 0.4 mM [U-13C] Transmembrane domain of the IL-7R V253G mutant, 60 mM deuterated Deuterated POPC, 150 mM deuterated Deuterated DHPC, 25 mM MES, 90% H2O/10% D2O",
+      "details": "Mixed labeled protein in bicelle for assignment of inter-chain NOE",
+      "label": "15N_2H/13C",
+      "solution_id": "7",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "bicelle"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "refinement",
+      "name": "X-PLOR NIH",
+      "ordinal": 1
+    },
+    {
+      "authors": "Shen, Delaglio, Cornilescu, Bax",
+      "classification": "data analysis",
+      "name": "TALOS+",
+      "ordinal": 2
+    },
+    {
+      "authors": "Bartels et al.",
+      "classification": "chemical shift assignment",
+      "name": "XEASY",
+      "ordinal": 3
+    },
+    {
+      "authors": "Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax",
+      "classification": "processing",
+      "name": "NMRPipe",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "details": "cryoprobe",
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "1"
+    },
+    {
+      "details": "cryoprobe",
+      "field_strength": 900.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-04-14T07:12:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.98,
+      "bonds_RMSZ": 0.68,
+      "clashscore": 6.22,
+      "clashscore_full_length": 4.83,
+      "num_H_reduce": 8010,
+      "num_angles_RMSZ": 10020,
+      "num_bonds_RMSZ": 7440,
+      "percent_ramachandran_outliers": 0.28,
+      "percent_ramachandran_outliers_full_length": 1.95,
+      "percent_rotamer_outliers": 4.13,
+      "percent_rotamer_outliers_full_length": 4.2
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 13.1,
+      "chemical_shift_completeness_full_length": 12.5,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 1,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 15,
+      "nmrclust_number_of_outliers": 1,
+      "nmrclust_representative_model": 6
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-10-27T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-04-22T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2026-04-22T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1"
+    ],
+    "entry_id": "9XEA",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "rcsb_id": "9XEA"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 486,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 542,
+    "deposited_model_count": 15,
+    "deposited_modeled_polymer_monomer_count": 62,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 62,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 1,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 6.85,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 3.43,
+    "polymer_molecular_weight_minimum": 3.43,
+    "polymer_monomer_count_maximum": 31,
+    "polymer_monomer_count_minimum": 31,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "NMRPIPE",
+      "TALOS+",
+      "X-PLOR NIH",
+      "XEASY"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "36805",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=36805",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9XEA",
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To Be Published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "0000-0003-3694-6300",
+      "?",
+      "0000-0002-4442-0344"
+    ],
+    "rcsb_authors": [
+      "Wang, Q.",
+      "Cai, T.",
+      "Chou, J.J."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "Structure of the transmembrane domain dimer of the IL-7R V253G mutant"
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Structure of the transmembrane domain dimer of human IL-7R V253G mutant"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "IMMUNE SYSTEM",
+    "text": "IL-7R, V253G mutation, transmembrane domain dimer, IMMUNE SYSTEM"
+  }
+}

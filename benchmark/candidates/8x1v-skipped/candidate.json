@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36612"
+  ],
+  "candidate_directory": "candidates/8x1v-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 12,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "AAGGGAAGGGAA"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "1",
+      "length": 12,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "AAGGGAAGGGAA"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T17:27:53Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8x1v.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "9c533ed8d3a6f0af1765d51bee86b8b7a51454fe1a66322b93fe447aeba6fd2d",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 24,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 0.8627569423748073,
+    "medoid_backbone_rmsd_mean": 0.6789927102466999,
+    "medoid_backbone_rmsd_median": 0.7546480527543592,
+    "medoid_backbone_rmsd_p90": 0.8182073083172375,
+    "medoid_model": 9,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 35,
+    "native_contact_count_median": 32.0,
+    "native_contact_count_minimum": 28,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8x1v_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8x1v",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 24,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8X1V",
+  "polymer_composition": "DNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T17:19:44Z",
+  "reference_file": "reference/8x1v.pdb",
+  "release_date": "2024-01-17T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "NMR structure of a bimolecular parallel G-quadruplex formed by AAGGG repeats from pathogenic RFC1 gene"
+}

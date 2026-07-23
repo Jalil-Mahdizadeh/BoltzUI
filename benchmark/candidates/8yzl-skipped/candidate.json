@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36654"
+  ],
+  "candidate_directory": "candidates/8yzl-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 10,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "CCGGGGCCGG"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "1",
+      "length": 10,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "CCGGGGCCGG"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T17:05:43Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8yzl.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "c49eb958411ea92f6377055b721b4f0a3115251bef5f9d96d268a406a1e07890",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 20,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 1.4104632669909738,
+    "medoid_backbone_rmsd_mean": 1.0046049812471518,
+    "medoid_backbone_rmsd_median": 1.0375166676445304,
+    "medoid_backbone_rmsd_p90": 1.3774348609861633,
+    "medoid_model": 5,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 28,
+    "native_contact_count_median": 25.0,
+    "native_contact_count_minimum": 23,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8yzl_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8yzl",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 20,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8YZL",
+  "polymer_composition": "RNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T16:57:23Z",
+  "reference_file": "reference/8yzl.pdb",
+  "release_date": "2025-03-12T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "Solution NMR structure of a RNA duplex formed by C9orf72 GGGGCC repeats"
+}

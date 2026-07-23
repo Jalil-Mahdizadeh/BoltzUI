@@ -1,0 +1,418 @@
+{
+  "audit_author": [
+    {
+      "name": "Reddy, P.P.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Das, R.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "country": "US",
+      "id": "primary",
+      "journal_abbrev": "Biosci.Rep.",
+      "journal_id_ISSN": "0144-8463",
+      "journal_volume": "45",
+      "pdbx_database_id_DOI": "10.1042/BSR20241173",
+      "pdbx_database_id_PubMed": 39745016,
+      "rcsb_authors": [
+        "Reddy, P.P.",
+        "Phale, A.",
+        "Das, R."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Biosci Rep",
+      "title": "Structural analysis of genetic variants of the human tumor suppressor PALB2 coiled-coil domain.",
+      "year": 2025
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8YAP",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8yap/pdb",
+      "pdbx_database_accession": "pdb_00008yap"
+    },
+    {
+      "database_code": "D_1300044916",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "36647",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR36647"
+    }
+  ],
+  "entry": {
+    "id": "8YAP"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "citation",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Database references",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-02-12T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2025-04-02T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_revision_item": [
+    {
+      "data_content_type": "Structure model",
+      "item": "_citation.journal_volume",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_citation.title",
+      "ordinal": 2,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "India",
+      "funding_organization": "Department of Science & Technology (DST, India)",
+      "grant_number": "RTI4006",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "36647",
+      "db_name": "BMRB",
+      "details": "Structure of human PALB2 coiled-coil domain"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2024-02-09T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 100,
+    "conformers_submitted_total_number": 10
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D C(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-TOCSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "300",
+      "ionic_strength_units": "mM",
+      "label": "conditions_1",
+      "pH": "8",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "DGSA-distance geometry simulated annealing",
+      "software_ordinal": 4
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.5 mM [U-100% 13C; U-100% 15N] Palb2, 90% H2O/10% D2O",
+      "label": "13C,15N_sample",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Markley",
+      "classification": "chemical shift assignment",
+      "name": "PINE-SPARKY",
+      "ordinal": 1
+    },
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "structure calculation",
+      "name": "X-PLOR NIH",
+      "ordinal": 2
+    },
+    {
+      "authors": "Goddard",
+      "classification": "peak picking",
+      "name": "Sparky",
+      "ordinal": 3
+    },
+    {
+      "authors": "Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax",
+      "classification": "processing",
+      "name": "NMRDraw",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 800.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-09T01:47:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.94,
+      "bonds_RMSZ": 0.54,
+      "clashscore": 29.25,
+      "clashscore_full_length": 30.44,
+      "num_H_reduce": 6480,
+      "num_angles_RMSZ": 7860,
+      "num_bonds_RMSZ": 5980,
+      "percent_ramachandran_outliers": 0.68,
+      "percent_ramachandran_outliers_full_length": 2.94,
+      "percent_rotamer_outliers": 46.79,
+      "percent_rotamer_outliers_full_length": 44.52
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 38.84,
+      "chemical_shift_completeness_full_length": 41.76,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 8,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 4,
+      "nmrclust_number_of_models": 10,
+      "nmrclust_number_of_outliers": 0,
+      "nmrclust_representative_model": 6
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-02-09T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-02-12T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 1,
+    "revision_date": "2025-04-02T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1"
+    ],
+    "entry_id": "8YAP",
+    "model_ids": [
+      1,
+      10,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "pubmed_id": 39745016,
+    "rcsb_id": "8YAP"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 594,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 654,
+    "deposited_model_count": 10,
+    "deposited_modeled_polymer_monomer_count": 72,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 74,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 2,
+    "disulfide_bond_count": 0,
+    "entity_count": 1,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 8.89,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 4.45,
+    "polymer_molecular_weight_minimum": 4.45,
+    "polymer_monomer_count_maximum": 37,
+    "polymer_monomer_count_minimum": 37,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "NMRDRAW",
+      "PINE-SPARKY",
+      "SPARKY",
+      "X-PLOR NIH"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_id": "8YAP",
+  "rcsb_primary_citation": {
+    "country": "US",
+    "id": "primary",
+    "journal_abbrev": "Biosci.Rep.",
+    "journal_id_ISSN": "0144-8463",
+    "journal_volume": "45",
+    "pdbx_database_id_DOI": "10.1042/BSR20241173",
+    "pdbx_database_id_PubMed": 39745016,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Reddy, P.P.",
+      "Phale, A.",
+      "Das, R."
+    ],
+    "rcsb_journal_abbrev": "Biosci Rep",
+    "title": "Structural analysis of genetic variants of the human tumor suppressor PALB2 coiled-coil domain.",
+    "year": 2025
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Structure of human PALB2 coiled-coil domain"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "DNA BINDING PROTEIN",
+    "text": "Tumor Suppressor, DNA repair, Homologous recombination, BRCA1, BRCA2, cancer, DNA BINDING PROTEIN"
+  }
+}

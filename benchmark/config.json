@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "benchmark_name": "boltz-2.2.1-multichain-solution-nmr-failure-challenge",
+  "target_passed_entries": 10,
+  "selection": {
+    "experimental_method": "SOLUTION NMR",
+    "minimum_release_date_exclusive": "2023-06-01",
+    "polymer_chain_instances": 2,
+    "minimum_total_polymer_residues": 10,
+    "maximum_total_polymer_residues": 1000,
+    "selection_size_stages": [
+      {
+        "stage": 1,
+        "minimum_total_polymer_residues": 40,
+        "maximum_total_polymer_residues": 350,
+        "reason": "initial_prespecified_pool"
+      },
+      {
+        "stage": 2,
+        "minimum_total_polymer_residues": 20,
+        "maximum_total_polymer_residues": 500,
+        "reason": "prospective_size_only_expansion_after_stage_1_could_not_supply_10_failures"
+      },
+      {
+        "stage": 3,
+        "minimum_total_polymer_residues": 10,
+        "maximum_total_polymer_residues": 1000,
+        "reason": "prospective_size_only_expansion_after_stage_2_could_not_supply_10_failures"
+      }
+    ],
+    "minimum_chain_residues": 5,
+    "maximum_nonpolymer_entity_count": 0,
+    "minimum_modeled_polymer_fraction": 0.95,
+    "minimum_nmr_models": 10,
+    "minimum_native_interchain_contacts": 10,
+    "native_contact_cutoff_angstrom": 5.0,
+    "maximum_ensemble_p90_backbone_rmsd_angstrom": 5.0,
+    "ensemble_compactness_stages": [
+      {
+        "stage": 1,
+        "maximum_ensemble_p90_backbone_rmsd_angstrom": 4.0,
+        "reason": "initial_strict_low_disorder_screen_used_through_size_stages_1_to_3"
+      },
+      {
+        "stage": 2,
+        "maximum_ensemble_p90_backbone_rmsd_angstrom": 5.0,
+        "reason": "near_threshold_sensitivity_extension_after_strict_pool_produced_9_failures"
+      }
+    ],
+    "required_repository_content_types": [
+      "Combined NMR data (NEF)",
+      "Combined NMR data (NMR-STAR)"
+    ],
+    "supported_polymer_types": [
+      "polypeptide(L)",
+      "polyribonucleotide",
+      "polydeoxyribonucleotide"
+    ],
+    "require_single_character_author_chain_ids": true
+  },
+  "classification": {
+    "high": {
+      "minimum_fnat": 0.5,
+      "maximum_lrmsd_angstrom": 1.0,
+      "maximum_irmsd_angstrom": 1.0
+    },
+    "medium": {
+      "minimum_fnat": 0.3,
+      "maximum_lrmsd_angstrom": 5.0,
+      "maximum_irmsd_angstrom": 2.0
+    },
+    "acceptable": {
+      "minimum_fnat": 0.1,
+      "maximum_lrmsd_angstrom": 10.0,
+      "maximum_irmsd_angstrom": 4.0
+    },
+    "candidate_pass_rule": "all_10_predictions_capri_incorrect_against_every_nmr_conformer"
+  },
+  "runtime": {
+    "sif": "/cephyr/users/sayyed/Alvis/Desktop/mimer_theo-storage/Jalil/Images/boltzui-221-exact-union.sif",
+    "cache": "/opt/boltz-cache",
+    "gpus": [
+      0,
+      1
+    ],
+    "boltz_version": "2.2.1",
+    "prediction_arguments": [
+      "--devices",
+      "1",
+      "--accelerator",
+      "gpu",
+      "--model",
+      "boltz2",
+      "--method",
+      "x-ray diffraction",
+      "--recycling_steps",
+      "3",
+      "--sampling_steps",
+      "400",
+      "--diffusion_samples",
+      "10",
+      "--max_parallel_samples",
+      "1",
+      "--step_scale",
+      "1.0",
+      "--seed",
+      "1",
+      "--use_potentials",
+      "--use_msa_server",
+      "--msa_server_url",
+      "https://api.colabfold.com",
+      "--msa_pairing_strategy",
+      "greedy",
+      "--max_msa_seqs",
+      "8192",
+      "--subsample_msa",
+      "--num_subsampled_msa",
+      "1024",
+      "--output_format",
+      "pdb",
+      "--write_full_pae",
+      "--override",
+      "--num_workers",
+      "0",
+      "--preprocessing-threads",
+      "1",
+      "--no_kernels"
+    ]
+  }
+}

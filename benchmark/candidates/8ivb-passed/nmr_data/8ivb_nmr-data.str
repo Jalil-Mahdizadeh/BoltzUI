@@ -1,0 +1,1559 @@
+data_nef_8ivb
+
+save_entry_information
+# 
+_Entry.Sf_category        entry_information 
+_Entry.Sf_framecode       entry_information 
+_Entry.ID                 8IVB 
+_Entry.Assigned_BMRB_ID   19045 
+# 
+loop_
+_Data_set.Type 
+_Data_set.Count 
+_Data_set.Entry_ID 
+assigned_chemical_shifts     1 8IVB 
+general_distance_constraints 1 8IVB 
+stop_
+# 
+loop_
+_Audit.Revision_ID 
+_Audit.Creation_date 
+_Audit.Update_record 
+_Audit.Creation_method 
+_Audit.Entry_ID 
+1 2024-01-31 'Initial release' . 8IVB 
+stop_
+save_
+save_assembly
+# 
+_Assembly.Sf_category                       assembly 
+_Assembly.Sf_framecode                      assembly 
+_Assembly.Entry_ID                          8IVB 
+_Assembly.ID                                1 
+_Assembly.Name                              'Ubiquitin, Bcl-2 homologous antagonist/killer' 
+_Assembly.BMRB_code                         . 
+_Assembly.Number_of_components              2 
+_Assembly.Organic_ligands                   . 
+_Assembly.Metal_ions                        . 
+_Assembly.Non_standard_bonds                . 
+_Assembly.Ambiguous_conformational_states   . 
+_Assembly.Ambiguous_chem_comp_sites         . 
+_Assembly.Molecules_in_chemical_exchange    . 
+_Assembly.Paramagnetic                      no 
+_Assembly.Thiol_state                       'free and disulfide bound' 
+_Assembly.Molecular_mass                    27547.127 
+_Assembly.Enzyme_commission_number          . 
+_Assembly.Details                           . 
+_Assembly.DB_query_date                     . 
+_Assembly.DB_query_revised_last_date        . 
+# 
+loop_
+_Entity_assembly.ID 
+_Entity_assembly.Entity_assembly_name 
+_Entity_assembly.Entity_ID 
+_Entity_assembly.Entity_label 
+_Entity_assembly.Asym_ID 
+_Entity_assembly.PDB_chain_ID 
+_Entity_assembly.Experimental_data_reported 
+_Entity_assembly.Physical_state 
+_Entity_assembly.Conformational_isomer 
+_Entity_assembly.Chemical_exchange_state 
+_Entity_assembly.Magnetic_equivalence_group_code 
+_Entity_assembly.Role 
+_Entity_assembly.Details 
+_Entity_assembly.Entry_ID 
+_Entity_assembly.Assembly_ID 
+1 entity_1 1 '$entity_1' A A yes . . . . .                                                       ? 8IVB 1 
+2 entity_2 2 '$entity_2' B B yes . . . . 'Apoptosis regulator BAK,Bcl-2-like protein 7,Bcl2-L-7' ? 8IVB 1 
+stop_
+# 
+loop_
+_Chem_comp_assembly.Entity_assembly_ID 
+_Chem_comp_assembly.Entity_ID 
+_Chem_comp_assembly.Comp_index_ID 
+_Chem_comp_assembly.Comp_ID 
+_Chem_comp_assembly.Seq_ID 
+_Chem_comp_assembly.Auth_asym_ID 
+_Chem_comp_assembly.Auth_seq_ID 
+_Chem_comp_assembly.Auth_comp_ID 
+_Chem_comp_assembly.Auth_variant_ID 
+_Chem_comp_assembly.Sequence_linking 
+_Chem_comp_assembly.Cis_residue 
+_Chem_comp_assembly.Entry_ID 
+_Chem_comp_assembly.Assembly_ID 
+1 1 1   MET 1   A 1   MET . start  .  8IVB 1 
+1 1 2   GLN 2   A 2   GLN . middle .  8IVB 1 
+1 1 3   ILE 3   A 3   ILE . middle .  8IVB 1 
+1 1 4   PHE 4   A 4   PHE . middle .  8IVB 1 
+1 1 5   VAL 5   A 5   VAL . middle .  8IVB 1 
+1 1 6   LYS 6   A 6   LYS . middle .  8IVB 1 
+1 1 7   THR 7   A 7   THR . middle .  8IVB 1 
+1 1 8   LEU 8   A 8   LEU . middle .  8IVB 1 
+1 1 9   THR 9   A 9   THR . middle .  8IVB 1 
+1 1 10  GLY 10  A 10  GLY . middle no 8IVB 1 
+1 1 11  LYS 11  A 11  LYS . middle .  8IVB 1 
+1 1 12  THR 12  A 12  THR . middle .  8IVB 1 
+1 1 13  ILE 13  A 13  ILE . middle .  8IVB 1 
+1 1 14  THR 14  A 14  THR . middle .  8IVB 1 
+1 1 15  LEU 15  A 15  LEU . middle .  8IVB 1 
+1 1 16  GLU 16  A 16  GLU . middle .  8IVB 1 
+1 1 17  VAL 17  A 17  VAL . middle .  8IVB 1 
+1 1 18  GLU 18  A 18  GLU . middle .  8IVB 1 
+1 1 19  PRO 19  A 19  PRO . middle no 8IVB 1 
+1 1 20  SER 20  A 20  SER . middle .  8IVB 1 
+1 1 21  ASP 21  A 21  ASP . middle .  8IVB 1 
+1 1 22  THR 22  A 22  THR . middle .  8IVB 1 
+1 1 23  ILE 23  A 23  ILE . middle .  8IVB 1 
+1 1 24  GLU 24  A 24  GLU . middle .  8IVB 1 
+1 1 25  ASN 25  A 25  ASN . middle .  8IVB 1 
+1 1 26  VAL 26  A 26  VAL . middle .  8IVB 1 
+1 1 27  LYS 27  A 27  LYS . middle .  8IVB 1 
+1 1 28  ALA 28  A 28  ALA . middle .  8IVB 1 
+1 1 29  LYS 29  A 29  LYS . middle .  8IVB 1 
+1 1 30  ILE 30  A 30  ILE . middle .  8IVB 1 
+1 1 31  GLN 31  A 31  GLN . middle .  8IVB 1 
+1 1 32  ASP 32  A 32  ASP . middle .  8IVB 1 
+1 1 33  LYS 33  A 33  LYS . middle .  8IVB 1 
+1 1 34  GLU 34  A 34  GLU . middle .  8IVB 1 
+1 1 35  GLY 35  A 35  GLY . middle no 8IVB 1 
+1 1 36  ILE 36  A 36  ILE . middle .  8IVB 1 
+1 1 37  PRO 37  A 37  PRO . middle no 8IVB 1 
+1 1 38  PRO 38  A 38  PRO . middle no 8IVB 1 
+1 1 39  ASP 39  A 39  ASP . middle .  8IVB 1 
+1 1 40  GLN 40  A 40  GLN . middle .  8IVB 1 
+1 1 41  GLN 41  A 41  GLN . middle .  8IVB 1 
+1 1 42  ARG 42  A 42  ARG . middle .  8IVB 1 
+1 1 43  LEU 43  A 43  LEU . middle .  8IVB 1 
+1 1 44  ILE 44  A 44  ILE . middle .  8IVB 1 
+1 1 45  PHE 45  A 45  PHE . middle .  8IVB 1 
+1 1 46  ALA 46  A 46  ALA . middle .  8IVB 1 
+1 1 47  GLY 47  A 47  GLY . middle no 8IVB 1 
+1 1 48  LYS 48  A 48  LYS . middle .  8IVB 1 
+1 1 49  GLN 49  A 49  GLN . middle .  8IVB 1 
+1 1 50  LEU 50  A 50  LEU . middle .  8IVB 1 
+1 1 51  GLU 51  A 51  GLU . middle .  8IVB 1 
+1 1 52  ASP 52  A 52  ASP . middle .  8IVB 1 
+1 1 53  GLY 53  A 53  GLY . middle no 8IVB 1 
+1 1 54  ARG 54  A 54  ARG . middle .  8IVB 1 
+1 1 55  THR 55  A 55  THR . middle .  8IVB 1 
+1 1 56  LEU 56  A 56  LEU . middle .  8IVB 1 
+1 1 57  SER 57  A 57  SER . middle .  8IVB 1 
+1 1 58  ASP 58  A 58  ASP . middle .  8IVB 1 
+1 1 59  TYR 59  A 59  TYR . middle .  8IVB 1 
+1 1 60  ASN 60  A 60  ASN . middle .  8IVB 1 
+1 1 61  ILE 61  A 61  ILE . middle .  8IVB 1 
+1 1 62  GLN 62  A 62  GLN . middle .  8IVB 1 
+1 1 63  LYS 63  A 63  LYS . middle .  8IVB 1 
+1 1 64  GLU 64  A 64  GLU . middle .  8IVB 1 
+1 1 65  SER 65  A 65  SER . middle .  8IVB 1 
+1 1 66  THR 66  A 66  THR . middle .  8IVB 1 
+1 1 67  LEU 67  A 67  LEU . middle .  8IVB 1 
+1 1 68  HIS 68  A 68  HIS . middle .  8IVB 1 
+1 1 69  LEU 69  A 69  LEU . middle .  8IVB 1 
+1 1 70  VAL 70  A 70  VAL . middle .  8IVB 1 
+1 1 71  LEU 71  A 71  LEU . middle .  8IVB 1 
+1 1 72  ARG 72  A 72  ARG . middle .  8IVB 1 
+1 1 73  LEU 73  A 73  LEU . middle .  8IVB 1 
+1 1 74  ARG 74  A 74  ARG . middle .  8IVB 1 
+1 1 75  GLY 75  A 75  GLY . middle no 8IVB 1 
+1 1 76  CYS 76  A 76  CYS . end    .  8IVB 1 
+2 2 1   ALA 1   B 18  ALA . start  .  8IVB 1 
+2 2 2   LEU 2   B 19  LEU . middle .  8IVB 1 
+2 2 3   PRO 3   B 20  PRO . middle no 8IVB 1 
+2 2 4   SER 4   B 21  SER . middle .  8IVB 1 
+2 2 5   ALA 5   B 22  ALA . middle .  8IVB 1 
+2 2 6   SER 6   B 23  SER . middle .  8IVB 1 
+2 2 7   GLU 7   B 24  GLU . middle .  8IVB 1 
+2 2 8   GLU 8   B 25  GLU . middle .  8IVB 1 
+2 2 9   GLN 9   B 26  GLN . middle .  8IVB 1 
+2 2 10  VAL 10  B 27  VAL . middle .  8IVB 1 
+2 2 11  ALA 11  B 28  ALA . middle .  8IVB 1 
+2 2 12  GLN 12  B 29  GLN . middle .  8IVB 1 
+2 2 13  ASP 13  B 30  ASP . middle .  8IVB 1 
+2 2 14  THR 14  B 31  THR . middle .  8IVB 1 
+2 2 15  GLU 15  B 32  GLU . middle .  8IVB 1 
+2 2 16  GLU 16  B 33  GLU . middle .  8IVB 1 
+2 2 17  VAL 17  B 34  VAL . middle .  8IVB 1 
+2 2 18  PHE 18  B 35  PHE . middle .  8IVB 1 
+2 2 19  ARG 19  B 36  ARG . middle .  8IVB 1 
+2 2 20  SER 20  B 37  SER . middle .  8IVB 1 
+2 2 21  TYR 21  B 38  TYR . middle .  8IVB 1 
+2 2 22  VAL 22  B 39  VAL . middle .  8IVB 1 
+2 2 23  PHE 23  B 40  PHE . middle .  8IVB 1 
+2 2 24  TYR 24  B 41  TYR . middle .  8IVB 1 
+2 2 25  ARG 25  B 42  ARG . middle .  8IVB 1 
+2 2 26  HIS 26  B 43  HIS . middle .  8IVB 1 
+2 2 27  GLN 27  B 44  GLN . middle .  8IVB 1 
+2 2 28  GLN 28  B 45  GLN . middle .  8IVB 1 
+2 2 29  GLU 29  B 46  GLU . middle .  8IVB 1 
+2 2 30  GLN 30  B 47  GLN . middle .  8IVB 1 
+2 2 31  GLU 31  B 48  GLU . middle .  8IVB 1 
+2 2 32  ALA 32  B 49  ALA . middle .  8IVB 1 
+2 2 33  GLU 33  B 50  GLU . middle .  8IVB 1 
+2 2 34  GLY 34  B 51  GLY . middle no 8IVB 1 
+2 2 35  VAL 35  B 52  VAL . middle .  8IVB 1 
+2 2 36  ALA 36  B 53  ALA . middle .  8IVB 1 
+2 2 37  ALA 37  B 54  ALA . middle .  8IVB 1 
+2 2 38  PRO 38  B 55  PRO . middle no 8IVB 1 
+2 2 39  ALA 39  B 56  ALA . middle .  8IVB 1 
+2 2 40  ASP 40  B 57  ASP . middle .  8IVB 1 
+2 2 41  PRO 41  B 58  PRO . middle no 8IVB 1 
+2 2 42  GLU 42  B 59  GLU . middle .  8IVB 1 
+2 2 43  MET 43  B 60  MET . middle .  8IVB 1 
+2 2 44  VAL 44  B 61  VAL . middle .  8IVB 1 
+2 2 45  THR 45  B 62  THR . middle .  8IVB 1 
+2 2 46  LEU 46  B 63  LEU . middle .  8IVB 1 
+2 2 47  PRO 47  B 64  PRO . middle no 8IVB 1 
+2 2 48  LEU 48  B 65  LEU . middle .  8IVB 1 
+2 2 49  GLN 49  B 66  GLN . middle .  8IVB 1 
+2 2 50  PRO 50  B 67  PRO . middle no 8IVB 1 
+2 2 51  SER 51  B 68  SER . middle .  8IVB 1 
+2 2 52  SER 52  B 69  SER . middle .  8IVB 1 
+2 2 53  THR 53  B 70  THR . middle .  8IVB 1 
+2 2 54  MET 54  B 71  MET . middle .  8IVB 1 
+2 2 55  GLY 55  B 72  GLY . middle no 8IVB 1 
+2 2 56  GLN 56  B 73  GLN . middle .  8IVB 1 
+2 2 57  VAL 57  B 74  VAL . middle .  8IVB 1 
+2 2 58  GLY 58  B 75  GLY . middle no 8IVB 1 
+2 2 59  ARG 59  B 76  ARG . middle .  8IVB 1 
+2 2 60  GLN 60  B 77  GLN . middle .  8IVB 1 
+2 2 61  LEU 61  B 78  LEU . middle .  8IVB 1 
+2 2 62  ALA 62  B 79  ALA . middle .  8IVB 1 
+2 2 63  ILE 63  B 80  ILE . middle .  8IVB 1 
+2 2 64  ILE 64  B 81  ILE . middle .  8IVB 1 
+2 2 65  GLY 65  B 82  GLY . middle no 8IVB 1 
+2 2 66  ASP 66  B 83  ASP . middle .  8IVB 1 
+2 2 67  ASP 67  B 84  ASP . middle .  8IVB 1 
+2 2 68  ILE 68  B 85  ILE . middle .  8IVB 1 
+2 2 69  ASN 69  B 86  ASN . middle .  8IVB 1 
+2 2 70  ARG 70  B 87  ARG . middle .  8IVB 1 
+2 2 71  ARG 71  B 88  ARG . middle .  8IVB 1 
+2 2 72  TYR 72  B 89  TYR . middle .  8IVB 1 
+2 2 73  ASP 73  B 90  ASP . middle .  8IVB 1 
+2 2 74  SER 74  B 91  SER . middle .  8IVB 1 
+2 2 75  GLU 75  B 92  GLU . middle .  8IVB 1 
+2 2 76  PHE 76  B 93  PHE . middle .  8IVB 1 
+2 2 77  GLN 77  B 94  GLN . middle .  8IVB 1 
+2 2 78  THR 78  B 95  THR . middle .  8IVB 1 
+2 2 79  MET 79  B 96  MET . middle .  8IVB 1 
+2 2 80  LEU 80  B 97  LEU . middle .  8IVB 1 
+2 2 81  GLN 81  B 98  GLN . middle .  8IVB 1 
+2 2 82  HIS 82  B 99  HIS . middle .  8IVB 1 
+2 2 83  LEU 83  B 100 LEU . middle .  8IVB 1 
+2 2 84  GLN 84  B 101 GLN . middle .  8IVB 1 
+2 2 85  PRO 85  B 102 PRO . middle no 8IVB 1 
+2 2 86  THR 86  B 103 THR . middle .  8IVB 1 
+2 2 87  ALA 87  B 104 ALA . middle .  8IVB 1 
+2 2 88  GLU 88  B 105 GLU . middle .  8IVB 1 
+2 2 89  ASN 89  B 106 ASN . middle .  8IVB 1 
+2 2 90  ALA 90  B 107 ALA . middle .  8IVB 1 
+2 2 91  TYR 91  B 108 TYR . middle .  8IVB 1 
+2 2 92  GLU 92  B 109 GLU . middle .  8IVB 1 
+2 2 93  TYR 93  B 110 TYR . middle .  8IVB 1 
+2 2 94  PHE 94  B 111 PHE . middle .  8IVB 1 
+2 2 95  THR 95  B 112 THR . middle .  8IVB 1 
+2 2 96  CYS 96  B 113 CYS . middle .  8IVB 1 
+2 2 97  ILE 97  B 114 ILE . middle .  8IVB 1 
+2 2 98  ALA 98  B 115 ALA . middle .  8IVB 1 
+2 2 99  THR 99  B 116 THR . middle .  8IVB 1 
+2 2 100 SER 100 B 117 SER . middle .  8IVB 1 
+2 2 101 LEU 101 B 118 LEU . middle .  8IVB 1 
+2 2 102 PHE 102 B 119 PHE . middle .  8IVB 1 
+2 2 103 GLU 103 B 120 GLU . middle .  8IVB 1 
+2 2 104 SER 104 B 121 SER . middle .  8IVB 1 
+2 2 105 GLY 105 B 122 GLY . middle no 8IVB 1 
+2 2 106 ILE 106 B 123 ILE . middle .  8IVB 1 
+2 2 107 ASN 107 B 124 ASN . middle .  8IVB 1 
+2 2 108 TRP 108 B 125 TRP . middle .  8IVB 1 
+2 2 109 GLY 109 B 126 GLY . middle no 8IVB 1 
+2 2 110 ARG 110 B 127 ARG . middle .  8IVB 1 
+2 2 111 VAL 111 B 128 VAL . middle .  8IVB 1 
+2 2 112 VAL 112 B 129 VAL . middle .  8IVB 1 
+2 2 113 ALA 113 B 130 ALA . middle .  8IVB 1 
+2 2 114 LEU 114 B 131 LEU . middle .  8IVB 1 
+2 2 115 LEU 115 B 132 LEU . middle .  8IVB 1 
+2 2 116 GLY 116 B 133 GLY . middle no 8IVB 1 
+2 2 117 PHE 117 B 134 PHE . middle .  8IVB 1 
+2 2 118 GLY 118 B 135 GLY . middle no 8IVB 1 
+2 2 119 TYR 119 B 136 TYR . middle .  8IVB 1 
+2 2 120 ARG 120 B 137 ARG . middle .  8IVB 1 
+2 2 121 LEU 121 B 138 LEU . middle .  8IVB 1 
+2 2 122 ALA 122 B 139 ALA . middle .  8IVB 1 
+2 2 123 LEU 123 B 140 LEU . middle .  8IVB 1 
+2 2 124 HIS 124 B 141 HIS . middle .  8IVB 1 
+2 2 125 VAL 125 B 142 VAL . middle .  8IVB 1 
+2 2 126 TYR 126 B 143 TYR . middle .  8IVB 1 
+2 2 127 GLN 127 B 144 GLN . middle .  8IVB 1 
+2 2 128 HIS 128 B 145 HIS . middle .  8IVB 1 
+2 2 129 GLY 129 B 146 GLY . middle no 8IVB 1 
+2 2 130 LEU 130 B 147 LEU . middle .  8IVB 1 
+2 2 131 THR 131 B 148 THR . middle .  8IVB 1 
+2 2 132 GLY 132 B 149 GLY . middle no 8IVB 1 
+2 2 133 PHE 133 B 150 PHE . middle .  8IVB 1 
+2 2 134 LEU 134 B 151 LEU . middle .  8IVB 1 
+2 2 135 GLY 135 B 152 GLY . middle no 8IVB 1 
+2 2 136 GLN 136 B 153 GLN . middle .  8IVB 1 
+2 2 137 VAL 137 B 154 VAL . middle .  8IVB 1 
+2 2 138 THR 138 B 155 THR . middle .  8IVB 1 
+2 2 139 ARG 139 B 156 ARG . middle .  8IVB 1 
+2 2 140 PHE 140 B 157 PHE . middle .  8IVB 1 
+2 2 141 VAL 141 B 158 VAL . middle .  8IVB 1 
+2 2 142 VAL 142 B 159 VAL . middle .  8IVB 1 
+2 2 143 ASP 143 B 160 ASP . middle .  8IVB 1 
+2 2 144 PHE 144 B 161 PHE . middle .  8IVB 1 
+2 2 145 MET 145 B 162 MET . middle .  8IVB 1 
+2 2 146 LEU 146 B 163 LEU . middle .  8IVB 1 
+2 2 147 HIS 147 B 164 HIS . middle .  8IVB 1 
+2 2 148 HIS 148 B 165 HIS . middle .  8IVB 1 
+2 2 149 CYS 149 B 166 CYS . middle .  8IVB 1 
+2 2 150 ILE 150 B 167 ILE . middle .  8IVB 1 
+2 2 151 ALA 151 B 168 ALA . middle .  8IVB 1 
+2 2 152 ARG 152 B 169 ARG . middle .  8IVB 1 
+2 2 153 TRP 153 B 170 TRP . middle .  8IVB 1 
+2 2 154 ILE 154 B 171 ILE . middle .  8IVB 1 
+2 2 155 ALA 155 B 172 ALA . middle .  8IVB 1 
+2 2 156 GLN 156 B 173 GLN . middle .  8IVB 1 
+2 2 157 ARG 157 B 174 ARG . middle .  8IVB 1 
+2 2 158 GLY 158 B 175 GLY . middle no 8IVB 1 
+2 2 159 GLY 159 B 176 GLY . middle no 8IVB 1 
+2 2 160 TRP 160 B 177 TRP . middle .  8IVB 1 
+2 2 161 VAL 161 B 178 VAL . middle .  8IVB 1 
+2 2 162 ALA 162 B 179 ALA . middle .  8IVB 1 
+2 2 163 ALA 163 B 180 ALA . middle .  8IVB 1 
+2 2 164 LEU 164 B 181 LEU . middle .  8IVB 1 
+2 2 165 ASN 165 B 182 ASN . middle .  8IVB 1 
+2 2 166 LEU 166 B 183 LEU . middle .  8IVB 1 
+2 2 167 GLY 167 B 184 GLY . middle no 8IVB 1 
+2 2 168 ASN 168 B 185 ASN . middle .  8IVB 1 
+2 2 169 GLY 169 B 186 GLY . end    no 8IVB 1 
+stop_
+# 
+loop_
+_Bond.ID 
+_Bond.Type 
+_Bond.Value_order 
+_Bond.Entity_assembly_ID_1 
+_Bond.Entity_assembly_name_1 
+_Bond.Entity_ID_1 
+_Bond.Comp_ID_1 
+_Bond.Comp_index_ID_1 
+_Bond.Seq_ID_1 
+_Bond.Atom_ID_1 
+_Bond.Entity_assembly_ID_2 
+_Bond.Entity_assembly_name_2 
+_Bond.Entity_ID_2 
+_Bond.Comp_ID_2 
+_Bond.Comp_index_ID_2 
+_Bond.Seq_ID_2 
+_Bond.Atom_ID_2 
+_Bond.Auth_asym_ID_1 
+_Bond.Auth_seq_ID_1 
+_Bond.Auth_comp_ID_1 
+_Bond.Auth_atom_ID_1 
+_Bond.Auth_asym_ID_2 
+_Bond.Auth_seq_ID_2 
+_Bond.Auth_comp_ID_2 
+_Bond.Auth_atom_ID_2 
+_Bond.Entry_ID 
+_Bond.Assembly_ID 
+1 disulfide sing 1 entity_1 1 CYS 76 76 SG 2 entity_2 2 CYS 96 96 SG A 76 CYS SG B 113 CYS SG 8IVB 1 
+stop_
+# 
+loop_
+_Entity_deleted_atom.ID 
+_Entity_deleted_atom.Entity_assembly_ID 
+_Entity_deleted_atom.Comp_ID 
+_Entity_deleted_atom.Comp_index_ID 
+_Entity_deleted_atom.Seq_ID 
+_Entity_deleted_atom.Atom_ID 
+_Entity_deleted_atom.Auth_entity_assembly_ID 
+_Entity_deleted_atom.Auth_seq_ID 
+_Entity_deleted_atom.Auth_comp_ID 
+_Entity_deleted_atom.Auth_atom_ID 
+_Entity_deleted_atom.Entry_ID 
+_Entity_deleted_atom.Assembly_ID 
+1 1 CYS 76 76 HG A 76  CYS HG 8IVB 1 
+2 2 CYS 96 96 HG B 113 CYS HG 8IVB 1 
+stop_
+save_
+save_entity_1
+# 
+_Entity.Sf_category                       entity 
+_Entity.Sf_framecode                      entity_1 
+_Entity.Entry_ID                          8IVB 
+_Entity.ID                                1 
+_Entity.BMRB_code                         . 
+_Entity.Name                              Ubiquitin 
+_Entity.Type                              polymer 
+_Entity.Polymer_common_type               protein 
+_Entity.Polymer_type                      'polypeptide(L)' 
+_Entity.Polymer_type_details              . 
+_Entity.Polymer_strand_ID                 A 
+_Entity.Polymer_seq_one_letter_code_can   MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGC 
+_Entity.Polymer_seq_one_letter_code       MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGC 
+_Entity.Target_identifier                 . 
+_Entity.Polymer_author_defined_seq        . 
+_Entity.Polymer_author_seq_details        . 
+_Entity.Ambiguous_conformational_states   . 
+_Entity.Ambiguous_chem_comp_sites         . 
+_Entity.Nstd_monomer                      no 
+_Entity.Nstd_chirality                    . 
+_Entity.Nstd_linkage                      no 
+_Entity.Nonpolymer_comp_ID                . 
+_Entity.Nonpolymer_comp_label             . 
+_Entity.Number_of_monomers                76 
+_Entity.Number_of_nonpolymer_components   . 
+_Entity.Paramagnetic                      no 
+_Entity.Thiol_state                       'all disulfide bound' 
+_Entity.Src_method                        man 
+_Entity.Parent_entity_ID                  . 
+_Entity.Fragment                          ? 
+_Entity.Mutation                          ? 
+_Entity.EC_number                         ? 
+_Entity.Calc_isoelectric_point            . 
+_Entity.Formula_weight                    8622.922 
+_Entity.Formula_weight_exptl              . 
+_Entity.Formula_weight_exptl_meth         . 
+_Entity.Details                           ? 
+_Entity.DB_query_date                     . 
+_Entity.DB_query_revised_last_date        . 
+# 
+loop_
+_Entity_comp_index.ID 
+_Entity_comp_index.Auth_seq_ID 
+_Entity_comp_index.Comp_ID 
+_Entity_comp_index.Comp_label 
+_Entity_comp_index.Entry_ID 
+_Entity_comp_index.Entity_ID 
+1  1  MET . 8IVB 1 
+2  2  GLN . 8IVB 1 
+3  3  ILE . 8IVB 1 
+4  4  PHE . 8IVB 1 
+5  5  VAL . 8IVB 1 
+6  6  LYS . 8IVB 1 
+7  7  THR . 8IVB 1 
+8  8  LEU . 8IVB 1 
+9  9  THR . 8IVB 1 
+10 10 GLY . 8IVB 1 
+11 11 LYS . 8IVB 1 
+12 12 THR . 8IVB 1 
+13 13 ILE . 8IVB 1 
+14 14 THR . 8IVB 1 
+15 15 LEU . 8IVB 1 
+16 16 GLU . 8IVB 1 
+17 17 VAL . 8IVB 1 
+18 18 GLU . 8IVB 1 
+19 19 PRO . 8IVB 1 
+20 20 SER . 8IVB 1 
+21 21 ASP . 8IVB 1 
+22 22 THR . 8IVB 1 
+23 23 ILE . 8IVB 1 
+24 24 GLU . 8IVB 1 
+25 25 ASN . 8IVB 1 
+26 26 VAL . 8IVB 1 
+27 27 LYS . 8IVB 1 
+28 28 ALA . 8IVB 1 
+29 29 LYS . 8IVB 1 
+30 30 ILE . 8IVB 1 
+31 31 GLN . 8IVB 1 
+32 32 ASP . 8IVB 1 
+33 33 LYS . 8IVB 1 
+34 34 GLU . 8IVB 1 
+35 35 GLY . 8IVB 1 
+36 36 ILE . 8IVB 1 
+37 37 PRO . 8IVB 1 
+38 38 PRO . 8IVB 1 
+39 39 ASP . 8IVB 1 
+40 40 GLN . 8IVB 1 
+41 41 GLN . 8IVB 1 
+42 42 ARG . 8IVB 1 
+43 43 LEU . 8IVB 1 
+44 44 ILE . 8IVB 1 
+45 45 PHE . 8IVB 1 
+46 46 ALA . 8IVB 1 
+47 47 GLY . 8IVB 1 
+48 48 LYS . 8IVB 1 
+49 49 GLN . 8IVB 1 
+50 50 LEU . 8IVB 1 
+51 51 GLU . 8IVB 1 
+52 52 ASP . 8IVB 1 
+53 53 GLY . 8IVB 1 
+54 54 ARG . 8IVB 1 
+55 55 THR . 8IVB 1 
+56 56 LEU . 8IVB 1 
+57 57 SER . 8IVB 1 
+58 58 ASP . 8IVB 1 
+59 59 TYR . 8IVB 1 
+60 60 ASN . 8IVB 1 
+61 61 ILE . 8IVB 1 
+62 62 GLN . 8IVB 1 
+63 63 LYS . 8IVB 1 
+64 64 GLU . 8IVB 1 
+65 65 SER . 8IVB 1 
+66 66 THR . 8IVB 1 
+67 67 LEU . 8IVB 1 
+68 68 HIS . 8IVB 1 
+69 69 LEU . 8IVB 1 
+70 70 VAL . 8IVB 1 
+71 71 LEU . 8IVB 1 
+72 72 ARG . 8IVB 1 
+73 73 LEU . 8IVB 1 
+74 74 ARG . 8IVB 1 
+75 75 GLY . 8IVB 1 
+76 76 CYS . 8IVB 1 
+stop_
+# 
+loop_
+_Entity_poly_seq.Hetero 
+_Entity_poly_seq.Mon_ID 
+_Entity_poly_seq.Num 
+_Entity_poly_seq.Comp_index_ID 
+_Entity_poly_seq.Entry_ID 
+_Entity_poly_seq.Entity_ID 
+. MET 1  1  8IVB 1 
+. GLN 2  2  8IVB 1 
+. ILE 3  3  8IVB 1 
+. PHE 4  4  8IVB 1 
+. VAL 5  5  8IVB 1 
+. LYS 6  6  8IVB 1 
+. THR 7  7  8IVB 1 
+. LEU 8  8  8IVB 1 
+. THR 9  9  8IVB 1 
+. GLY 10 10 8IVB 1 
+. LYS 11 11 8IVB 1 
+. THR 12 12 8IVB 1 
+. ILE 13 13 8IVB 1 
+. THR 14 14 8IVB 1 
+. LEU 15 15 8IVB 1 
+. GLU 16 16 8IVB 1 
+. VAL 17 17 8IVB 1 
+. GLU 18 18 8IVB 1 
+. PRO 19 19 8IVB 1 
+. SER 20 20 8IVB 1 
+. ASP 21 21 8IVB 1 
+. THR 22 22 8IVB 1 
+. ILE 23 23 8IVB 1 
+. GLU 24 24 8IVB 1 
+. ASN 25 25 8IVB 1 
+. VAL 26 26 8IVB 1 
+. LYS 27 27 8IVB 1 
+. ALA 28 28 8IVB 1 
+. LYS 29 29 8IVB 1 
+. ILE 30 30 8IVB 1 
+. GLN 31 31 8IVB 1 
+. ASP 32 32 8IVB 1 
+. LYS 33 33 8IVB 1 
+. GLU 34 34 8IVB 1 
+. GLY 35 35 8IVB 1 
+. ILE 36 36 8IVB 1 
+. PRO 37 37 8IVB 1 
+. PRO 38 38 8IVB 1 
+. ASP 39 39 8IVB 1 
+. GLN 40 40 8IVB 1 
+. GLN 41 41 8IVB 1 
+. ARG 42 42 8IVB 1 
+. LEU 43 43 8IVB 1 
+. ILE 44 44 8IVB 1 
+. PHE 45 45 8IVB 1 
+. ALA 46 46 8IVB 1 
+. GLY 47 47 8IVB 1 
+. LYS 48 48 8IVB 1 
+. GLN 49 49 8IVB 1 
+. LEU 50 50 8IVB 1 
+. GLU 51 51 8IVB 1 
+. ASP 52 52 8IVB 1 
+. GLY 53 53 8IVB 1 
+. ARG 54 54 8IVB 1 
+. THR 55 55 8IVB 1 
+. LEU 56 56 8IVB 1 
+. SER 57 57 8IVB 1 
+. ASP 58 58 8IVB 1 
+. TYR 59 59 8IVB 1 
+. ASN 60 60 8IVB 1 
+. ILE 61 61 8IVB 1 
+. GLN 62 62 8IVB 1 
+. LYS 63 63 8IVB 1 
+. GLU 64 64 8IVB 1 
+. SER 65 65 8IVB 1 
+. THR 66 66 8IVB 1 
+. LEU 67 67 8IVB 1 
+. HIS 68 68 8IVB 1 
+. LEU 69 69 8IVB 1 
+. VAL 70 70 8IVB 1 
+. LEU 71 71 8IVB 1 
+. ARG 72 72 8IVB 1 
+. LEU 73 73 8IVB 1 
+. ARG 74 74 8IVB 1 
+. GLY 75 75 8IVB 1 
+. CYS 76 76 8IVB 1 
+stop_
+save_
+save_entity_2
+# 
+_Entity.Sf_category                       entity 
+_Entity.Sf_framecode                      entity_2 
+_Entity.Entry_ID                          8IVB 
+_Entity.ID                                2 
+_Entity.BMRB_code                         . 
+_Entity.Name                              'Bcl-2 homologous antagonist/killer' 
+_Entity.Type                              polymer 
+_Entity.Polymer_common_type               protein 
+_Entity.Polymer_type                      'polypeptide(L)' 
+_Entity.Polymer_type_details              . 
+_Entity.Polymer_strand_ID                 B 
+_Entity.Polymer_seq_one_letter_code_can   
+;
+ALPSASEEQVAQDTEEVFRSYVFYRHQQEQEAEGVAAPADPEMVTLPLQPSSTMGQVGRQLAIIGDDINRRYDSEFQTML
+QHLQPTAENAYEYFTCIATSLFESGINWGRVVALLGFGYRLALHVYQHGLTGFLGQVTRFVVDFMLHHCIARWIAQRGGW
+VAALNLGNG
+;
+_Entity.Polymer_seq_one_letter_code       
+;
+ALPSASEEQVAQDTEEVFRSYVFYRHQQEQEAEGVAAPADPEMVTLPLQPSSTMGQVGRQLAIIGDDINRRYDSEFQTML
+QHLQPTAENAYEYFTCIATSLFESGINWGRVVALLGFGYRLALHVYQHGLTGFLGQVTRFVVDFMLHHCIARWIAQRGGW
+VAALNLGNG
+;
+_Entity.Target_identifier                 . 
+_Entity.Polymer_author_defined_seq        . 
+_Entity.Polymer_author_seq_details        . 
+_Entity.Ambiguous_conformational_states   . 
+_Entity.Ambiguous_chem_comp_sites         . 
+_Entity.Nstd_monomer                      no 
+_Entity.Nstd_chirality                    . 
+_Entity.Nstd_linkage                      no 
+_Entity.Nonpolymer_comp_ID                . 
+_Entity.Nonpolymer_comp_label             . 
+_Entity.Number_of_monomers                169 
+_Entity.Number_of_nonpolymer_components   . 
+_Entity.Paramagnetic                      no 
+_Entity.Thiol_state                       'free and disulfide bound' 
+_Entity.Src_method                        man 
+_Entity.Parent_entity_ID                  . 
+_Entity.Fragment                          ? 
+_Entity.Mutation                          K113C 
+_Entity.EC_number                         ? 
+_Entity.Calc_isoelectric_point            . 
+_Entity.Formula_weight                    18924.205 
+_Entity.Formula_weight_exptl              . 
+_Entity.Formula_weight_exptl_meth         . 
+_Entity.Details                           ? 
+_Entity.DB_query_date                     . 
+_Entity.DB_query_revised_last_date        . 
+# 
+loop_
+_Entity_common_name.Name 
+_Entity_common_name.Type 
+_Entity_common_name.Entry_ID 
+_Entity_common_name.Entity_ID 
+'Apoptosis regulator BAK,Bcl-2-like protein 7,Bcl2-L-7' common 8IVB 2 
+stop_
+# 
+loop_
+_Entity_comp_index.ID 
+_Entity_comp_index.Auth_seq_ID 
+_Entity_comp_index.Comp_ID 
+_Entity_comp_index.Comp_label 
+_Entity_comp_index.Entry_ID 
+_Entity_comp_index.Entity_ID 
+1   18  ALA . 8IVB 2 
+2   19  LEU . 8IVB 2 
+3   20  PRO . 8IVB 2 
+4   21  SER . 8IVB 2 
+5   22  ALA . 8IVB 2 
+6   23  SER . 8IVB 2 
+7   24  GLU . 8IVB 2 
+8   25  GLU . 8IVB 2 
+9   26  GLN . 8IVB 2 
+10  27  VAL . 8IVB 2 
+11  28  ALA . 8IVB 2 
+12  29  GLN . 8IVB 2 
+13  30  ASP . 8IVB 2 
+14  31  THR . 8IVB 2 
+15  32  GLU . 8IVB 2 
+16  33  GLU . 8IVB 2 
+17  34  VAL . 8IVB 2 
+18  35  PHE . 8IVB 2 
+19  36  ARG . 8IVB 2 
+20  37  SER . 8IVB 2 
+21  38  TYR . 8IVB 2 
+22  39  VAL . 8IVB 2 
+23  40  PHE . 8IVB 2 
+24  41  TYR . 8IVB 2 
+25  42  ARG . 8IVB 2 
+26  43  HIS . 8IVB 2 
+27  44  GLN . 8IVB 2 
+28  45  GLN . 8IVB 2 
+29  46  GLU . 8IVB 2 
+30  47  GLN . 8IVB 2 
+31  48  GLU . 8IVB 2 
+32  49  ALA . 8IVB 2 
+33  50  GLU . 8IVB 2 
+34  51  GLY . 8IVB 2 
+35  52  VAL . 8IVB 2 
+36  53  ALA . 8IVB 2 
+37  54  ALA . 8IVB 2 
+38  55  PRO . 8IVB 2 
+39  56  ALA . 8IVB 2 
+40  57  ASP . 8IVB 2 
+41  58  PRO . 8IVB 2 
+42  59  GLU . 8IVB 2 
+43  60  MET . 8IVB 2 
+44  61  VAL . 8IVB 2 
+45  62  THR . 8IVB 2 
+46  63  LEU . 8IVB 2 
+47  64  PRO . 8IVB 2 
+48  65  LEU . 8IVB 2 
+49  66  GLN . 8IVB 2 
+50  67  PRO . 8IVB 2 
+51  68  SER . 8IVB 2 
+52  69  SER . 8IVB 2 
+53  70  THR . 8IVB 2 
+54  71  MET . 8IVB 2 
+55  72  GLY . 8IVB 2 
+56  73  GLN . 8IVB 2 
+57  74  VAL . 8IVB 2 
+58  75  GLY . 8IVB 2 
+59  76  ARG . 8IVB 2 
+60  77  GLN . 8IVB 2 
+61  78  LEU . 8IVB 2 
+62  79  ALA . 8IVB 2 
+63  80  ILE . 8IVB 2 
+64  81  ILE . 8IVB 2 
+65  82  GLY . 8IVB 2 
+66  83  ASP . 8IVB 2 
+67  84  ASP . 8IVB 2 
+68  85  ILE . 8IVB 2 
+69  86  ASN . 8IVB 2 
+70  87  ARG . 8IVB 2 
+71  88  ARG . 8IVB 2 
+72  89  TYR . 8IVB 2 
+73  90  ASP . 8IVB 2 
+74  91  SER . 8IVB 2 
+75  92  GLU . 8IVB 2 
+76  93  PHE . 8IVB 2 
+77  94  GLN . 8IVB 2 
+78  95  THR . 8IVB 2 
+79  96  MET . 8IVB 2 
+80  97  LEU . 8IVB 2 
+81  98  GLN . 8IVB 2 
+82  99  HIS . 8IVB 2 
+83  100 LEU . 8IVB 2 
+84  101 GLN . 8IVB 2 
+85  102 PRO . 8IVB 2 
+86  103 THR . 8IVB 2 
+87  104 ALA . 8IVB 2 
+88  105 GLU . 8IVB 2 
+89  106 ASN . 8IVB 2 
+90  107 ALA . 8IVB 2 
+91  108 TYR . 8IVB 2 
+92  109 GLU . 8IVB 2 
+93  110 TYR . 8IVB 2 
+94  111 PHE . 8IVB 2 
+95  112 THR . 8IVB 2 
+96  113 CYS . 8IVB 2 
+97  114 ILE . 8IVB 2 
+98  115 ALA . 8IVB 2 
+99  116 THR . 8IVB 2 
+100 117 SER . 8IVB 2 
+101 118 LEU . 8IVB 2 
+102 119 PHE . 8IVB 2 
+103 120 GLU . 8IVB 2 
+104 121 SER . 8IVB 2 
+105 122 GLY . 8IVB 2 
+106 123 ILE . 8IVB 2 
+107 124 ASN . 8IVB 2 
+108 125 TRP . 8IVB 2 
+109 126 GLY . 8IVB 2 
+110 127 ARG . 8IVB 2 
+111 128 VAL . 8IVB 2 
+112 129 VAL . 8IVB 2 
+113 130 ALA . 8IVB 2 
+114 131 LEU . 8IVB 2 
+115 132 LEU . 8IVB 2 
+116 133 GLY . 8IVB 2 
+117 134 PHE . 8IVB 2 
+118 135 GLY . 8IVB 2 
+119 136 TYR . 8IVB 2 
+120 137 ARG . 8IVB 2 
+121 138 LEU . 8IVB 2 
+122 139 ALA . 8IVB 2 
+123 140 LEU . 8IVB 2 
+124 141 HIS . 8IVB 2 
+125 142 VAL . 8IVB 2 
+126 143 TYR . 8IVB 2 
+127 144 GLN . 8IVB 2 
+128 145 HIS . 8IVB 2 
+129 146 GLY . 8IVB 2 
+130 147 LEU . 8IVB 2 
+131 148 THR . 8IVB 2 
+132 149 GLY . 8IVB 2 
+133 150 PHE . 8IVB 2 
+134 151 LEU . 8IVB 2 
+135 152 GLY . 8IVB 2 
+136 153 GLN . 8IVB 2 
+137 154 VAL . 8IVB 2 
+138 155 THR . 8IVB 2 
+139 156 ARG . 8IVB 2 
+140 157 PHE . 8IVB 2 
+141 158 VAL . 8IVB 2 
+142 159 VAL . 8IVB 2 
+143 160 ASP . 8IVB 2 
+144 161 PHE . 8IVB 2 
+145 162 MET . 8IVB 2 
+146 163 LEU . 8IVB 2 
+147 164 HIS . 8IVB 2 
+148 165 HIS . 8IVB 2 
+149 166 CYS . 8IVB 2 
+150 167 ILE . 8IVB 2 
+151 168 ALA . 8IVB 2 
+152 169 ARG . 8IVB 2 
+153 170 TRP . 8IVB 2 
+154 171 ILE . 8IVB 2 
+155 172 ALA . 8IVB 2 
+156 173 GLN . 8IVB 2 
+157 174 ARG . 8IVB 2 
+158 175 GLY . 8IVB 2 
+159 176 GLY . 8IVB 2 
+160 177 TRP . 8IVB 2 
+161 178 VAL . 8IVB 2 
+162 179 ALA . 8IVB 2 
+163 180 ALA . 8IVB 2 
+164 181 LEU . 8IVB 2 
+165 182 ASN . 8IVB 2 
+166 183 LEU . 8IVB 2 
+167 184 GLY . 8IVB 2 
+168 185 ASN . 8IVB 2 
+169 186 GLY . 8IVB 2 
+stop_
+# 
+loop_
+_Entity_poly_seq.Hetero 
+_Entity_poly_seq.Mon_ID 
+_Entity_poly_seq.Num 
+_Entity_poly_seq.Comp_index_ID 
+_Entity_poly_seq.Entry_ID 
+_Entity_poly_seq.Entity_ID 
+. ALA 1   1   8IVB 2 
+. LEU 2   2   8IVB 2 
+. PRO 3   3   8IVB 2 
+. SER 4   4   8IVB 2 
+. ALA 5   5   8IVB 2 
+. SER 6   6   8IVB 2 
+. GLU 7   7   8IVB 2 
+. GLU 8   8   8IVB 2 
+. GLN 9   9   8IVB 2 
+. VAL 10  10  8IVB 2 
+. ALA 11  11  8IVB 2 
+. GLN 12  12  8IVB 2 
+. ASP 13  13  8IVB 2 
+. THR 14  14  8IVB 2 
+. GLU 15  15  8IVB 2 
+. GLU 16  16  8IVB 2 
+. VAL 17  17  8IVB 2 
+. PHE 18  18  8IVB 2 
+. ARG 19  19  8IVB 2 
+. SER 20  20  8IVB 2 
+. TYR 21  21  8IVB 2 
+. VAL 22  22  8IVB 2 
+. PHE 23  23  8IVB 2 
+. TYR 24  24  8IVB 2 
+. ARG 25  25  8IVB 2 
+. HIS 26  26  8IVB 2 
+. GLN 27  27  8IVB 2 
+. GLN 28  28  8IVB 2 
+. GLU 29  29  8IVB 2 
+. GLN 30  30  8IVB 2 
+. GLU 31  31  8IVB 2 
+. ALA 32  32  8IVB 2 
+. GLU 33  33  8IVB 2 
+. GLY 34  34  8IVB 2 
+. VAL 35  35  8IVB 2 
+. ALA 36  36  8IVB 2 
+. ALA 37  37  8IVB 2 
+. PRO 38  38  8IVB 2 
+. ALA 39  39  8IVB 2 
+. ASP 40  40  8IVB 2 
+. PRO 41  41  8IVB 2 
+. GLU 42  42  8IVB 2 
+. MET 43  43  8IVB 2 
+. VAL 44  44  8IVB 2 
+. THR 45  45  8IVB 2 
+. LEU 46  46  8IVB 2 
+. PRO 47  47  8IVB 2 
+. LEU 48  48  8IVB 2 
+. GLN 49  49  8IVB 2 
+. PRO 50  50  8IVB 2 
+. SER 51  51  8IVB 2 
+. SER 52  52  8IVB 2 
+. THR 53  53  8IVB 2 
+. MET 54  54  8IVB 2 
+. GLY 55  55  8IVB 2 
+. GLN 56  56  8IVB 2 
+. VAL 57  57  8IVB 2 
+. GLY 58  58  8IVB 2 
+. ARG 59  59  8IVB 2 
+. GLN 60  60  8IVB 2 
+. LEU 61  61  8IVB 2 
+. ALA 62  62  8IVB 2 
+. ILE 63  63  8IVB 2 
+. ILE 64  64  8IVB 2 
+. GLY 65  65  8IVB 2 
+. ASP 66  66  8IVB 2 
+. ASP 67  67  8IVB 2 
+. ILE 68  68  8IVB 2 
+. ASN 69  69  8IVB 2 
+. ARG 70  70  8IVB 2 
+. ARG 71  71  8IVB 2 
+. TYR 72  72  8IVB 2 
+. ASP 73  73  8IVB 2 
+. SER 74  74  8IVB 2 
+. GLU 75  75  8IVB 2 
+. PHE 76  76  8IVB 2 
+. GLN 77  77  8IVB 2 
+. THR 78  78  8IVB 2 
+. MET 79  79  8IVB 2 
+. LEU 80  80  8IVB 2 
+. GLN 81  81  8IVB 2 
+. HIS 82  82  8IVB 2 
+. LEU 83  83  8IVB 2 
+. GLN 84  84  8IVB 2 
+. PRO 85  85  8IVB 2 
+. THR 86  86  8IVB 2 
+. ALA 87  87  8IVB 2 
+. GLU 88  88  8IVB 2 
+. ASN 89  89  8IVB 2 
+. ALA 90  90  8IVB 2 
+. TYR 91  91  8IVB 2 
+. GLU 92  92  8IVB 2 
+. TYR 93  93  8IVB 2 
+. PHE 94  94  8IVB 2 
+. THR 95  95  8IVB 2 
+. CYS 96  96  8IVB 2 
+. ILE 97  97  8IVB 2 
+. ALA 98  98  8IVB 2 
+. THR 99  99  8IVB 2 
+. SER 100 100 8IVB 2 
+. LEU 101 101 8IVB 2 
+. PHE 102 102 8IVB 2 
+. GLU 103 103 8IVB 2 
+. SER 104 104 8IVB 2 
+. GLY 105 105 8IVB 2 
+. ILE 106 106 8IVB 2 
+. ASN 107 107 8IVB 2 
+. TRP 108 108 8IVB 2 
+. GLY 109 109 8IVB 2 
+. ARG 110 110 8IVB 2 
+. VAL 111 111 8IVB 2 
+. VAL 112 112 8IVB 2 
+. ALA 113 113 8IVB 2 
+. LEU 114 114 8IVB 2 
+. LEU 115 115 8IVB 2 
+. GLY 116 116 8IVB 2 
+. PHE 117 117 8IVB 2 
+. GLY 118 118 8IVB 2 
+. TYR 119 119 8IVB 2 
+. ARG 120 120 8IVB 2 
+. LEU 121 121 8IVB 2 
+. ALA 122 122 8IVB 2 
+. LEU 123 123 8IVB 2 
+. HIS 124 124 8IVB 2 
+. VAL 125 125 8IVB 2 
+. TYR 126 126 8IVB 2 
+. GLN 127 127 8IVB 2 
+. HIS 128 128 8IVB 2 
+. GLY 129 129 8IVB 2 
+. LEU 130 130 8IVB 2 
+. THR 131 131 8IVB 2 
+. GLY 132 132 8IVB 2 
+. PHE 133 133 8IVB 2 
+. LEU 134 134 8IVB 2 
+. GLY 135 135 8IVB 2 
+. GLN 136 136 8IVB 2 
+. VAL 137 137 8IVB 2 
+. THR 138 138 8IVB 2 
+. ARG 139 139 8IVB 2 
+. PHE 140 140 8IVB 2 
+. VAL 141 141 8IVB 2 
+. VAL 142 142 8IVB 2 
+. ASP 143 143 8IVB 2 
+. PHE 144 144 8IVB 2 
+. MET 145 145 8IVB 2 
+. LEU 146 146 8IVB 2 
+. HIS 147 147 8IVB 2 
+. HIS 148 148 8IVB 2 
+. CYS 149 149 8IVB 2 
+. ILE 150 150 8IVB 2 
+. ALA 151 151 8IVB 2 
+. ARG 152 152 8IVB 2 
+. TRP 153 153 8IVB 2 
+. ILE 154 154 8IVB 2 
+. ALA 155 155 8IVB 2 
+. GLN 156 156 8IVB 2 
+. ARG 157 157 8IVB 2 
+. GLY 158 158 8IVB 2 
+. GLY 159 159 8IVB 2 
+. TRP 160 160 8IVB 2 
+. VAL 161 161 8IVB 2 
+. ALA 162 162 8IVB 2 
+. ALA 163 163 8IVB 2 
+. LEU 164 164 8IVB 2 
+. ASN 165 165 8IVB 2 
+. LEU 166 166 8IVB 2 
+. GLY 167 167 8IVB 2 
+. ASN 168 168 8IVB 2 
+. GLY 169 169 8IVB 2 
+stop_
+save_
+save_chemical_shift_reference_1
+# 
+_Chem_shift_reference.Sf_category    chem_shift_reference 
+_Chem_shift_reference.Sf_framecode   chemical_shift_reference_1 
+_Chem_shift_reference.Entry_ID       8IVB 
+_Chem_shift_reference.ID             1 
+# 
+loop_
+_Chem_shift_ref.Atom_type 
+_Chem_shift_ref.Atom_isotope_number 
+_Chem_shift_ref.Mol_common_name 
+_Chem_shift_ref.Atom_group 
+_Chem_shift_ref.Concentration_val 
+_Chem_shift_ref.Concentration_units 
+_Chem_shift_ref.Solvent 
+_Chem_shift_ref.Rank 
+_Chem_shift_ref.Chem_shift_units 
+_Chem_shift_ref.Chem_shift_val 
+_Chem_shift_ref.Ref_method 
+_Chem_shift_ref.Ref_type 
+_Chem_shift_ref.Indirect_shift_ratio 
+_Chem_shift_ref.Entry_ID 
+_Chem_shift_ref.Chem_shift_reference_ID 
+H 1 water protons . . . . ppm 4.78 internal direct 0.25 8IVB 1 
+stop_
+save_
+save_wk11_CS
+# 
+_Assigned_chem_shift_list.Sf_category      assigned_chemical_shifts 
+_Assigned_chem_shift_list.Sf_framecode     wk11_CS 
+_Assigned_chem_shift_list.Entry_ID         8IVB 
+_Assigned_chem_shift_list.ID               1 
+_Assigned_chem_shift_list.Data_file_name   ub-bak.str 
+# 
+loop_
+_Atom_chem_shift.ID 
+_Atom_chem_shift.Entity_assembly_ID 
+_Atom_chem_shift.Entity_ID 
+_Atom_chem_shift.Comp_index_ID 
+_Atom_chem_shift.Seq_ID 
+_Atom_chem_shift.Comp_ID 
+_Atom_chem_shift.Atom_ID 
+_Atom_chem_shift.Atom_type 
+_Atom_chem_shift.Atom_isotope_number 
+_Atom_chem_shift.Val 
+_Atom_chem_shift.Val_err 
+_Atom_chem_shift.Assign_fig_of_merit 
+_Atom_chem_shift.Ambiguity_code 
+_Atom_chem_shift.Ambiguity_set_ID 
+_Atom_chem_shift.Occupancy 
+_Atom_chem_shift.Resonance_ID 
+_Atom_chem_shift.Auth_asym_ID 
+_Atom_chem_shift.Auth_seq_ID 
+_Atom_chem_shift.Auth_comp_ID 
+_Atom_chem_shift.Auth_atom_ID 
+_Atom_chem_shift.Original_PDB_strand_ID 
+_Atom_chem_shift.Original_PDB_residue_no 
+_Atom_chem_shift.Original_PDB_residue_name 
+_Atom_chem_shift.Original_PDB_atom_name 
+_Atom_chem_shift.Details 
+_Atom_chem_shift.Entry_ID 
+_Atom_chem_shift.Assigned_chem_shift_list_ID 
+1   2 2 8   8   GLU H H 1  8.78825   . . . . . . B 25  GLU H B 25  GLU HN . 8IVB 1 
+2   2 2 8   8   GLU N N 15 119.30478 . . . . . . B 25  GLU N B 25  GLU N  . 8IVB 1 
+3   2 2 9   9   GLN H H 1  7.98391   . . . . . . B 26  GLN H B 26  GLN HN . 8IVB 1 
+4   2 2 9   9   GLN N N 15 121.54480 . . . . . . B 26  GLN N B 26  GLN N  . 8IVB 1 
+5   2 2 10  10  VAL H H 1  7.87420   . . . . . . B 27  VAL H B 27  VAL HN . 8IVB 1 
+6   2 2 10  10  VAL N N 15 118.45672 . . . . . . B 27  VAL N B 27  VAL N  . 8IVB 1 
+7   1 1 28  28  ALA H H 1  8.72560   . . . . . . A 28  ALA H A 28  ALA HN . 8IVB 1 
+8   1 1 28  28  ALA N N 15 125.16698 . . . . . . A 28  ALA N A 28  ALA N  . 8IVB 1 
+9   2 2 12  12  GLN H H 1  7.88403   . . . . . . B 29  GLN H B 29  GLN HN . 8IVB 1 
+10  2 2 12  12  GLN N N 15 118.40890 . . . . . . B 29  GLN N B 29  GLN N  . 8IVB 1 
+11  2 2 13  13  ASP H H 1  8.93718   . . . . . . B 30  ASP H B 30  ASP HN . 8IVB 1 
+12  2 2 13  13  ASP N N 15 122.00394 . . . . . . B 30  ASP N B 30  ASP N  . 8IVB 1 
+13  2 2 14  14  THR H H 1  8.39850   . . . . . . B 31  THR H B 31  THR HN . 8IVB 1 
+14  2 2 14  14  THR N N 15 115.22960 . . . . . . B 31  THR N B 31  THR N  . 8IVB 1 
+15  2 2 15  15  GLU H H 1  7.47517   . . . . . . B 32  GLU H B 32  GLU HN . 8IVB 1 
+16  2 2 15  15  GLU N N 15 120.22032 . . . . . . B 32  GLU N B 32  GLU N  . 8IVB 1 
+17  2 2 16  16  GLU H H 1  7.22843   . . . . . . B 33  GLU H B 33  GLU HN . 8IVB 1 
+18  2 2 16  16  GLU N N 15 117.41840 . . . . . . B 33  GLU N B 33  GLU N  . 8IVB 1 
+19  2 2 17  17  VAL H H 1  7.96205   . . . . . . B 34  VAL H B 34  VAL HN . 8IVB 1 
+20  2 2 17  17  VAL N N 15 120.41442 . . . . . . B 34  VAL N B 34  VAL N  . 8IVB 1 
+21  2 2 18  18  PHE H H 1  8.93142   . . . . . . B 35  PHE H B 35  PHE HN . 8IVB 1 
+22  2 2 18  18  PHE N N 15 117.57243 . . . . . . B 35  PHE N B 35  PHE N  . 8IVB 1 
+23  2 2 19  19  ARG H H 1  8.13203   . . . . . . B 36  ARG H B 36  ARG HN . 8IVB 1 
+24  2 2 19  19  ARG N N 15 116.50660 . . . . . . B 36  ARG N B 36  ARG N  . 8IVB 1 
+25  2 2 20  20  SER H H 1  7.84603   . . . . . . B 37  SER H B 37  SER HN . 8IVB 1 
+26  2 2 20  20  SER N N 15 112.70838 . . . . . . B 37  SER N B 37  SER N  . 8IVB 1 
+27  2 2 21  21  TYR H H 1  8.87033   . . . . . . B 38  TYR H B 38  TYR HN . 8IVB 1 
+28  2 2 21  21  TYR N N 15 122.42498 . . . . . . B 38  TYR N B 38  TYR N  . 8IVB 1 
+29  2 2 22  22  VAL H H 1  8.41930   . . . . . . B 39  VAL H B 39  VAL HN . 8IVB 1 
+30  2 2 22  22  VAL N N 15 115.44104 . . . . . . B 39  VAL N B 39  VAL N  . 8IVB 1 
+31  2 2 24  24  TYR H H 1  8.59361   . . . . . . B 41  TYR H B 41  TYR HN . 8IVB 1 
+32  2 2 24  24  TYR N N 15 117.37296 . . . . . . B 41  TYR N B 41  TYR N  . 8IVB 1 
+33  1 1 42  42  ARG H H 1  8.89270   . . . . . . A 42  ARG H A 42  ARG HN . 8IVB 1 
+34  1 1 42  42  ARG N N 15 122.01758 . . . . . . A 42  ARG N A 42  ARG N  . 8IVB 1 
+35  2 2 26  26  HIS H H 1  8.32151   . . . . . . B 43  HIS H B 43  HIS HN . 8IVB 1 
+36  2 2 26  26  HIS N N 15 119.45339 . . . . . . B 43  HIS N B 43  HIS N  . 8IVB 1 
+37  2 2 27  27  GLN H H 1  7.71462   . . . . . . B 44  GLN H B 44  GLN HN . 8IVB 1 
+38  2 2 27  27  GLN N N 15 117.13385 . . . . . . B 44  GLN N B 44  GLN N  . 8IVB 1 
+39  2 2 28  28  GLN H H 1  7.85402   . . . . . . B 45  GLN H B 45  GLN HN . 8IVB 1 
+40  2 2 28  28  GLN N N 15 117.81400 . . . . . . B 45  GLN N B 45  GLN N  . 8IVB 1 
+41  2 2 29  29  GLU H H 1  7.71841   . . . . . . B 46  GLU H B 46  GLU HN . 8IVB 1 
+42  2 2 29  29  GLU N N 15 118.85944 . . . . . . B 46  GLU N B 46  GLU N  . 8IVB 1 
+43  2 2 32  32  ALA H H 1  7.69420   . . . . . . B 49  ALA H B 49  ALA HN . 8IVB 1 
+44  2 2 32  32  ALA N N 15 122.22921 . . . . . . B 49  ALA N B 49  ALA N  . 8IVB 1 
+45  2 2 33  33  GLU H H 1  8.14457   . . . . . . B 50  GLU H B 50  GLU HN . 8IVB 1 
+46  2 2 33  33  GLU N N 15 117.95387 . . . . . . B 50  GLU N B 50  GLU N  . 8IVB 1 
+47  2 2 34  34  GLY H H 1  8.16927   . . . . . . B 51  GLY H B 51  GLY HN . 8IVB 1 
+48  2 2 34  34  GLY N N 15 109.62056 . . . . . . B 51  GLY N B 51  GLY N  . 8IVB 1 
+49  2 2 35  35  VAL H H 1  7.61308   . . . . . . B 52  VAL H B 52  VAL HN . 8IVB 1 
+50  2 2 35  35  VAL N N 15 118.31494 . . . . . . B 52  VAL N B 52  VAL N  . 8IVB 1 
+51  2 2 36  36  ALA H H 1  8.26386   . . . . . . B 53  ALA H B 53  ALA HN . 8IVB 1 
+52  2 2 36  36  ALA N N 15 127.13176 . . . . . . B 53  ALA N B 53  ALA N  . 8IVB 1 
+53  2 2 37  37  ALA H H 1  7.88325   . . . . . . B 54  ALA H B 54  ALA HN . 8IVB 1 
+54  2 2 37  37  ALA N N 15 124.13124 . . . . . . B 54  ALA N B 54  ALA N  . 8IVB 1 
+55  2 2 39  39  ALA H H 1  8.19427   . . . . . . B 56  ALA H B 56  ALA HN . 8IVB 1 
+56  2 2 39  39  ALA N N 15 124.48329 . . . . . . B 56  ALA N B 56  ALA N  . 8IVB 1 
+57  2 2 40  40  ASP H H 1  7.93655   . . . . . . B 57  ASP H B 57  ASP HN . 8IVB 1 
+58  2 2 40  40  ASP N N 15 123.40146 . . . . . . B 57  ASP N B 57  ASP N  . 8IVB 1 
+59  2 2 52  52  SER H H 1  7.78890   . . . . . . B 69  SER H B 69  SER HN . 8IVB 1 
+60  2 2 52  52  SER N N 15 117.68422 . . . . . . B 69  SER N B 69  SER N  . 8IVB 1 
+61  2 2 54  54  MET H H 1  8.50963   . . . . . . B 71  MET H B 71  MET HN . 8IVB 1 
+62  2 2 54  54  MET N N 15 117.88732 . . . . . . B 71  MET N B 71  MET N  . 8IVB 1 
+63  2 2 55  55  GLY H H 1  8.09599   . . . . . . B 72  GLY H B 72  GLY HN . 8IVB 1 
+64  2 2 55  55  GLY N N 15 109.02629 . . . . . . B 72  GLY N B 72  GLY N  . 8IVB 1 
+65  2 2 56  56  GLN H H 1  7.92086   . . . . . . B 73  GLN H B 73  GLN HN . 8IVB 1 
+66  2 2 56  56  GLN N N 15 121.47749 . . . . . . B 73  GLN N B 73  GLN N  . 8IVB 1 
+67  2 2 57  57  VAL H H 1  8.07028   . . . . . . B 74  VAL H B 74  VAL HN . 8IVB 1 
+68  2 2 57  57  VAL N N 15 121.02676 . . . . . . B 74  VAL N B 74  VAL N  . 8IVB 1 
+69  1 1 75  75  GLY H H 1  8.18633   . . . . . . A 75  GLY H A 75  GLY HN . 8IVB 1 
+70  1 1 75  75  GLY N N 15 104.79800 . . . . . . A 75  GLY N A 75  GLY N  . 8IVB 1 
+71  2 2 59  59  ARG H H 1  7.63197   . . . . . . B 76  ARG H B 76  ARG HN . 8IVB 1 
+72  2 2 59  59  ARG N N 15 119.30206 . . . . . . B 76  ARG N B 76  ARG N  . 8IVB 1 
+73  2 2 60  60  GLN H H 1  7.91362   . . . . . . B 77  GLN H B 77  GLN HN . 8IVB 1 
+74  2 2 60  60  GLN N N 15 117.05059 . . . . . . B 77  GLN N B 77  GLN N  . 8IVB 1 
+75  2 2 61  61  LEU H H 1  8.49442   . . . . . . B 78  LEU H B 78  LEU HN . 8IVB 1 
+76  2 2 61  61  LEU N N 15 116.93496 . . . . . . B 78  LEU N B 78  LEU N  . 8IVB 1 
+77  2 2 62  62  ALA H H 1  7.83690   . . . . . . B 79  ALA H B 79  ALA HN . 8IVB 1 
+78  2 2 62  62  ALA N N 15 120.95207 . . . . . . B 79  ALA N B 79  ALA N  . 8IVB 1 
+79  2 2 63  63  ILE H H 1  7.48901   . . . . . . B 80  ILE H B 80  ILE HN . 8IVB 1 
+80  2 2 63  63  ILE N N 15 115.40434 . . . . . . B 80  ILE N B 80  ILE N  . 8IVB 1 
+81  2 2 65  65  GLY H H 1  8.19148   . . . . . . B 82  GLY H B 82  GLY HN . 8IVB 1 
+82  2 2 65  65  GLY N N 15 110.41982 . . . . . . B 82  GLY N B 82  GLY N  . 8IVB 1 
+83  2 2 66  66  ASP H H 1  7.65288   . . . . . . B 83  ASP H B 83  ASP HN . 8IVB 1 
+84  2 2 66  66  ASP N N 15 120.72790 . . . . . . B 83  ASP N B 83  ASP N  . 8IVB 1 
+85  2 2 67  67  ASP H H 1  8.39959   . . . . . . B 84  ASP H B 84  ASP HN . 8IVB 1 
+86  2 2 67  67  ASP N N 15 118.75907 . . . . . . B 84  ASP N B 84  ASP N  . 8IVB 1 
+87  2 2 68  68  ILE H H 1  7.92297   . . . . . . B 85  ILE H B 85  ILE HN . 8IVB 1 
+88  2 2 68  68  ILE N N 15 119.35217 . . . . . . B 85  ILE N B 85  ILE N  . 8IVB 1 
+89  2 2 69  69  ASN H H 1  8.30414   . . . . . . B 86  ASN H B 86  ASN HN . 8IVB 1 
+90  2 2 69  69  ASN N N 15 118.98132 . . . . . . B 86  ASN N B 86  ASN N  . 8IVB 1 
+91  2 2 70  70  ARG H H 1  8.06020   . . . . . . B 87  ARG H B 87  ARG HN . 8IVB 1 
+92  2 2 70  70  ARG N N 15 119.47250 . . . . . . B 87  ARG N B 87  ARG N  . 8IVB 1 
+93  2 2 71  71  ARG H H 1  7.83576   . . . . . . B 88  ARG H B 88  ARG HN . 8IVB 1 
+94  2 2 71  71  ARG N N 15 119.43192 . . . . . . B 88  ARG N B 88  ARG N  . 8IVB 1 
+95  2 2 74  74  SER H H 1  8.09053   . . . . . . B 91  SER H B 91  SER HN . 8IVB 1 
+96  2 2 74  74  SER N N 15 112.70344 . . . . . . B 91  SER N B 91  SER N  . 8IVB 1 
+97  2 2 75  75  GLU H H 1  7.74681   . . . . . . B 92  GLU H B 92  GLU HN . 8IVB 1 
+98  2 2 75  75  GLU N N 15 123.31553 . . . . . . B 92  GLU N B 92  GLU N  . 8IVB 1 
+99  2 2 77  77  GLN H H 1  8.36907   . . . . . . B 94  GLN H B 94  GLN HN . 8IVB 1 
+100 2 2 77  77  GLN N N 15 117.27931 . . . . . . B 94  GLN N B 94  GLN N  . 8IVB 1 
+101 2 2 78  78  THR H H 1  8.05486   . . . . . . B 95  THR H B 95  THR HN . 8IVB 1 
+102 2 2 78  78  THR N N 15 115.74411 . . . . . . B 95  THR N B 95  THR N  . 8IVB 1 
+103 2 2 79  79  MET H H 1  8.28043   . . . . . . B 96  MET H B 96  MET HN . 8IVB 1 
+104 2 2 79  79  MET N N 15 120.20176 . . . . . . B 96  MET N B 96  MET N  . 8IVB 1 
+105 2 2 80  80  LEU H H 1  8.04859   . . . . . . B 97  LEU H B 97  LEU HN . 8IVB 1 
+106 2 2 80  80  LEU N N 15 118.18129 . . . . . . B 97  LEU N B 97  LEU N  . 8IVB 1 
+107 2 2 86  86  THR H H 1  8.79807   . . . . . . B 103 THR H B 103 THR HN . 8IVB 1 
+108 2 2 86  86  THR N N 15 112.62527 . . . . . . B 103 THR N B 103 THR N  . 8IVB 1 
+109 2 2 87  87  ALA H H 1  8.88236   . . . . . . B 104 ALA H B 104 ALA HN . 8IVB 1 
+110 2 2 87  87  ALA N N 15 122.19512 . . . . . . B 104 ALA N B 104 ALA N  . 8IVB 1 
+111 2 2 88  88  GLU H H 1  8.36919   . . . . . . B 105 GLU H B 105 GLU HN . 8IVB 1 
+112 2 2 88  88  GLU N N 15 115.06239 . . . . . . B 105 GLU N B 105 GLU N  . 8IVB 1 
+113 2 2 89  89  ASN H H 1  7.68808   . . . . . . B 106 ASN H B 106 ASN HN . 8IVB 1 
+114 2 2 89  89  ASN N N 15 116.17505 . . . . . . B 106 ASN N B 106 ASN N  . 8IVB 1 
+115 2 2 90  90  ALA H H 1  8.19198   . . . . . . B 107 ALA H B 107 ALA HN . 8IVB 1 
+116 2 2 90  90  ALA N N 15 121.99747 . . . . . . B 107 ALA N B 107 ALA N  . 8IVB 1 
+117 2 2 91  91  TYR H H 1  8.52392   . . . . . . B 108 TYR H B 108 TYR HN . 8IVB 1 
+118 2 2 91  91  TYR N N 15 117.11543 . . . . . . B 108 TYR N B 108 TYR N  . 8IVB 1 
+119 2 2 92  92  GLU H H 1  8.10876   . . . . . . B 109 GLU H B 109 GLU HN . 8IVB 1 
+120 2 2 92  92  GLU N N 15 122.25472 . . . . . . B 109 GLU N B 109 GLU N  . 8IVB 1 
+121 2 2 94  94  PHE H H 1  8.91150   . . . . . . B 111 PHE H B 111 PHE HN . 8IVB 1 
+122 2 2 94  94  PHE N N 15 118.42277 . . . . . . B 111 PHE N B 111 PHE N  . 8IVB 1 
+123 2 2 96  96  CYS H H 1  7.91476   . . . . . . B 113 CYS H B 113 CYS HN . 8IVB 1 
+124 2 2 96  96  CYS N N 15 122.21196 . . . . . . B 113 CYS N B 113 CYS N  . 8IVB 1 
+125 2 2 97  97  ILE H H 1  7.76389   . . . . . . B 114 ILE H B 114 ILE HN . 8IVB 1 
+126 2 2 97  97  ILE N N 15 121.12620 . . . . . . B 114 ILE N B 114 ILE N  . 8IVB 1 
+127 2 2 98  98  ALA H H 1  8.39998   . . . . . . B 115 ALA H B 115 ALA HN . 8IVB 1 
+128 2 2 98  98  ALA N N 15 122.82395 . . . . . . B 115 ALA N B 115 ALA N  . 8IVB 1 
+129 2 2 99  99  THR H H 1  7.63496   . . . . . . B 116 THR H B 116 THR HN . 8IVB 1 
+130 2 2 99  99  THR N N 15 111.03677 . . . . . . B 116 THR N B 116 THR N  . 8IVB 1 
+131 2 2 100 100 SER H H 1  7.29519   . . . . . . B 117 SER H B 117 SER HN . 8IVB 1 
+132 2 2 100 100 SER N N 15 117.52772 . . . . . . B 117 SER N B 117 SER N  . 8IVB 1 
+133 2 2 101 101 LEU H H 1  7.63040   . . . . . . B 118 LEU H B 118 LEU HN . 8IVB 1 
+134 2 2 101 101 LEU N N 15 121.68428 . . . . . . B 118 LEU N B 118 LEU N  . 8IVB 1 
+135 2 2 102 102 PHE H H 1  6.98091   . . . . . . B 119 PHE H B 119 PHE HN . 8IVB 1 
+136 2 2 102 102 PHE N N 15 112.15694 . . . . . . B 119 PHE N B 119 PHE N  . 8IVB 1 
+137 2 2 103 103 GLU H H 1  7.35181   . . . . . . B 120 GLU H B 120 GLU HN . 8IVB 1 
+138 2 2 103 103 GLU N N 15 123.04600 . . . . . . B 120 GLU N B 120 GLU N  . 8IVB 1 
+139 2 2 104 104 SER H H 1  8.35674   . . . . . . B 121 SER H B 121 SER HN . 8IVB 1 
+140 2 2 104 104 SER N N 15 111.07539 . . . . . . B 121 SER N B 121 SER N  . 8IVB 1 
+141 2 2 105 105 GLY H H 1  7.46714   . . . . . . B 122 GLY H B 122 GLY HN . 8IVB 1 
+142 2 2 105 105 GLY N N 15 109.87245 . . . . . . B 122 GLY N B 122 GLY N  . 8IVB 1 
+143 2 2 106 106 ILE H H 1  8.16497   . . . . . . B 123 ILE H B 123 ILE HN . 8IVB 1 
+144 2 2 106 106 ILE N N 15 117.72382 . . . . . . B 123 ILE N B 123 ILE N  . 8IVB 1 
+145 2 2 107 107 ASN H H 1  6.50232   . . . . . . B 124 ASN H B 124 ASN HN . 8IVB 1 
+146 2 2 107 107 ASN N N 15 117.57732 . . . . . . B 124 ASN N B 124 ASN N  . 8IVB 1 
+147 2 2 108 108 TRP H H 1  9.00908   . . . . . . B 125 TRP H B 125 TRP HN . 8IVB 1 
+148 2 2 108 108 TRP N N 15 119.31857 . . . . . . B 125 TRP N B 125 TRP N  . 8IVB 1 
+149 2 2 109 109 GLY H H 1  8.58744   . . . . . . B 126 GLY H B 126 GLY HN . 8IVB 1 
+150 2 2 109 109 GLY N N 15 106.85218 . . . . . . B 126 GLY N B 126 GLY N  . 8IVB 1 
+151 2 2 110 110 ARG H H 1  7.91247   . . . . . . B 127 ARG H B 127 ARG HN . 8IVB 1 
+152 2 2 110 110 ARG N N 15 120.39701 . . . . . . B 127 ARG N B 127 ARG N  . 8IVB 1 
+153 2 2 111 111 VAL H H 1  7.66235   . . . . . . B 128 VAL H B 128 VAL HN . 8IVB 1 
+154 2 2 111 111 VAL N N 15 119.73901 . . . . . . B 128 VAL N B 128 VAL N  . 8IVB 1 
+155 2 2 112 112 VAL H H 1  8.48640   . . . . . . B 129 VAL H B 129 VAL HN . 8IVB 1 
+156 2 2 112 112 VAL N N 15 118.38338 . . . . . . B 129 VAL N B 129 VAL N  . 8IVB 1 
+157 2 2 113 113 ALA H H 1  8.09781   . . . . . . B 130 ALA H B 130 ALA HN . 8IVB 1 
+158 2 2 113 113 ALA N N 15 123.05405 . . . . . . B 130 ALA N B 130 ALA N  . 8IVB 1 
+159 2 2 114 114 LEU H H 1  8.01452   . . . . . . B 131 LEU H B 131 LEU HN . 8IVB 1 
+160 2 2 114 114 LEU N N 15 119.57449 . . . . . . B 131 LEU N B 131 LEU N  . 8IVB 1 
+161 2 2 115 115 LEU H H 1  7.67555   . . . . . . B 132 LEU H B 132 LEU HN . 8IVB 1 
+162 2 2 115 115 LEU N N 15 118.02471 . . . . . . B 132 LEU N B 132 LEU N  . 8IVB 1 
+163 2 2 116 116 GLY H H 1  8.62269   . . . . . . B 133 GLY H B 133 GLY HN . 8IVB 1 
+164 2 2 116 116 GLY N N 15 107.61355 . . . . . . B 133 GLY N B 133 GLY N  . 8IVB 1 
+165 2 2 117 117 PHE H H 1  9.10987   . . . . . . B 134 PHE H B 134 PHE HN . 8IVB 1 
+166 2 2 117 117 PHE N N 15 124.82416 . . . . . . B 134 PHE N B 134 PHE N  . 8IVB 1 
+167 2 2 118 118 GLY H H 1  8.72970   . . . . . . B 135 GLY H B 135 GLY HN . 8IVB 1 
+168 2 2 118 118 GLY N N 15 106.50653 . . . . . . B 135 GLY N B 135 GLY N  . 8IVB 1 
+169 2 2 119 119 TYR H H 1  8.81397   . . . . . . B 136 TYR H B 136 TYR HN . 8IVB 1 
+170 2 2 119 119 TYR N N 15 121.60728 . . . . . . B 136 TYR N B 136 TYR N  . 8IVB 1 
+171 2 2 120 120 ARG H H 1  8.45037   . . . . . . B 137 ARG H B 137 ARG HN . 8IVB 1 
+172 2 2 120 120 ARG N N 15 117.22309 . . . . . . B 137 ARG N B 137 ARG N  . 8IVB 1 
+173 2 2 121 121 LEU H H 1  9.14399   . . . . . . B 138 LEU H B 138 LEU HN . 8IVB 1 
+174 2 2 121 121 LEU N N 15 121.94502 . . . . . . B 138 LEU N B 138 LEU N  . 8IVB 1 
+175 2 2 122 122 ALA H H 1  8.41413   . . . . . . B 139 ALA H B 139 ALA HN . 8IVB 1 
+176 2 2 122 122 ALA N N 15 120.45227 . . . . . . B 139 ALA N B 139 ALA N  . 8IVB 1 
+177 2 2 123 123 LEU H H 1  8.15209   . . . . . . B 140 LEU H B 140 LEU HN . 8IVB 1 
+178 2 2 123 123 LEU N N 15 119.17158 . . . . . . B 140 LEU N B 140 LEU N  . 8IVB 1 
+179 2 2 124 124 HIS H H 1  8.32840   . . . . . . B 141 HIS H B 141 HIS HN . 8IVB 1 
+180 2 2 124 124 HIS N N 15 118.55649 . . . . . . B 141 HIS N B 141 HIS N  . 8IVB 1 
+181 2 2 126 126 TYR H H 1  7.76732   . . . . . . B 143 TYR H B 143 TYR HN . 8IVB 1 
+182 2 2 126 126 TYR N N 15 123.32193 . . . . . . B 143 TYR N B 143 TYR N  . 8IVB 1 
+183 2 2 127 127 GLN H H 1  8.72216   . . . . . . B 144 GLN H B 144 GLN HN . 8IVB 1 
+184 2 2 127 127 GLN N N 15 118.43903 . . . . . . B 144 GLN N B 144 GLN N  . 8IVB 1 
+185 2 2 128 128 HIS H H 1  7.34873   . . . . . . B 145 HIS H B 145 HIS HN . 8IVB 1 
+186 2 2 128 128 HIS N N 15 115.07766 . . . . . . B 145 HIS N B 145 HIS N  . 8IVB 1 
+187 2 2 129 129 GLY H H 1  7.52618   . . . . . . B 146 GLY H B 146 GLY HN . 8IVB 1 
+188 2 2 129 129 GLY N N 15 106.42801 . . . . . . B 146 GLY N B 146 GLY N  . 8IVB 1 
+189 2 2 131 131 THR H H 1  7.86976   . . . . . . B 148 THR H B 148 THR HN . 8IVB 1 
+190 2 2 131 131 THR N N 15 116.27459 . . . . . . B 148 THR N B 148 THR N  . 8IVB 1 
+191 2 2 136 136 GLN H H 1  7.25878   . . . . . . B 153 GLN H B 153 GLN HN . 8IVB 1 
+192 2 2 136 136 GLN N N 15 122.61347 . . . . . . B 153 GLN N B 153 GLN N  . 8IVB 1 
+193 2 2 137 137 VAL H H 1  7.27937   . . . . . . B 154 VAL H B 154 VAL HN . 8IVB 1 
+194 2 2 137 137 VAL N N 15 117.54114 . . . . . . B 154 VAL N B 154 VAL N  . 8IVB 1 
+195 2 2 138 138 THR H H 1  8.29292   . . . . . . B 155 THR H B 155 THR HN . 8IVB 1 
+196 2 2 138 138 THR N N 15 114.20700 . . . . . . B 155 THR N B 155 THR N  . 8IVB 1 
+197 2 2 139 139 ARG H H 1  7.05470   . . . . . . B 156 ARG H B 156 ARG HN . 8IVB 1 
+198 2 2 139 139 ARG N N 15 120.00008 . . . . . . B 156 ARG N B 156 ARG N  . 8IVB 1 
+199 2 2 140 140 PHE H H 1  8.07004   . . . . . . B 157 PHE H B 157 PHE HN . 8IVB 1 
+200 2 2 140 140 PHE N N 15 117.83416 . . . . . . B 157 PHE N B 157 PHE N  . 8IVB 1 
+201 2 2 141 141 VAL H H 1  7.68897   . . . . . . B 158 VAL H B 158 VAL HN . 8IVB 1 
+202 2 2 141 141 VAL N N 15 118.81592 . . . . . . B 158 VAL N B 158 VAL N  . 8IVB 1 
+203 2 2 142 142 VAL H H 1  8.17688   . . . . . . B 159 VAL H B 159 VAL HN . 8IVB 1 
+204 2 2 142 142 VAL N N 15 119.79964 . . . . . . B 159 VAL N B 159 VAL N  . 8IVB 1 
+205 2 2 143 143 ASP H H 1  8.97302   . . . . . . B 160 ASP H B 160 ASP HN . 8IVB 1 
+206 2 2 143 143 ASP N N 15 119.05582 . . . . . . B 160 ASP N B 160 ASP N  . 8IVB 1 
+207 2 2 144 144 PHE H H 1  8.51204   . . . . . . B 161 PHE H B 161 PHE HN . 8IVB 1 
+208 2 2 144 144 PHE N N 15 120.49828 . . . . . . B 161 PHE N B 161 PHE N  . 8IVB 1 
+209 2 2 145 145 MET H H 1  8.57993   . . . . . . B 162 MET H B 162 MET HN . 8IVB 1 
+210 2 2 145 145 MET N N 15 116.23977 . . . . . . B 162 MET N B 162 MET N  . 8IVB 1 
+211 2 2 146 146 LEU H H 1  8.46580   . . . . . . B 163 LEU H B 163 LEU HN . 8IVB 1 
+212 2 2 146 146 LEU N N 15 121.21349 . . . . . . B 163 LEU N B 163 LEU N  . 8IVB 1 
+213 2 2 147 147 HIS H H 1  8.32849   . . . . . . B 164 HIS H B 164 HIS HN . 8IVB 1 
+214 2 2 147 147 HIS N N 15 117.14521 . . . . . . B 164 HIS N B 164 HIS N  . 8IVB 1 
+215 2 2 148 148 HIS H H 1  7.78266   . . . . . . B 165 HIS H B 165 HIS HN . 8IVB 1 
+216 2 2 148 148 HIS N N 15 115.58167 . . . . . . B 165 HIS N B 165 HIS N  . 8IVB 1 
+217 2 2 150 150 ILE H H 1  7.75614   . . . . . . B 167 ILE H B 167 ILE HN . 8IVB 1 
+218 2 2 150 150 ILE N N 15 121.05008 . . . . . . B 167 ILE N B 167 ILE N  . 8IVB 1 
+219 2 2 151 151 ALA H H 1  7.81977   . . . . . . B 168 ALA H B 168 ALA HN . 8IVB 1 
+220 2 2 151 151 ALA N N 15 122.10147 . . . . . . B 168 ALA N B 168 ALA N  . 8IVB 1 
+221 2 2 152 152 ARG H H 1  7.91043   . . . . . . B 169 ARG H B 169 ARG HN . 8IVB 1 
+222 2 2 152 152 ARG N N 15 118.39803 . . . . . . B 169 ARG N B 169 ARG N  . 8IVB 1 
+223 2 2 153 153 TRP H H 1  7.43127   . . . . . . B 170 TRP H B 170 TRP HN . 8IVB 1 
+224 2 2 153 153 TRP N N 15 121.56986 . . . . . . B 170 TRP N B 170 TRP N  . 8IVB 1 
+225 2 2 154 154 ILE H H 1  8.28592   . . . . . . B 171 ILE H B 171 ILE HN . 8IVB 1 
+226 2 2 154 154 ILE N N 15 117.95244 . . . . . . B 171 ILE N B 171 ILE N  . 8IVB 1 
+227 2 2 155 155 ALA H H 1  8.43633   . . . . . . B 172 ALA H B 172 ALA HN . 8IVB 1 
+228 2 2 155 155 ALA N N 15 123.66624 . . . . . . B 172 ALA N B 172 ALA N  . 8IVB 1 
+229 2 2 156 156 GLN H H 1  7.96954   . . . . . . B 173 GLN H B 173 GLN HN . 8IVB 1 
+230 2 2 156 156 GLN N N 15 117.04993 . . . . . . B 173 GLN N B 173 GLN N  . 8IVB 1 
+231 2 2 157 157 ARG H H 1  7.08030   . . . . . . B 174 ARG H B 174 ARG HN . 8IVB 1 
+232 2 2 157 157 ARG N N 15 116.87327 . . . . . . B 174 ARG N B 174 ARG N  . 8IVB 1 
+233 2 2 158 158 GLY H H 1  7.54541   . . . . . . B 175 GLY H B 175 GLY HN . 8IVB 1 
+234 2 2 158 158 GLY N N 15 104.51385 . . . . . . B 175 GLY N B 175 GLY N  . 8IVB 1 
+235 2 2 159 159 GLY H H 1  8.13460   . . . . . . B 176 GLY H B 176 GLY HN . 8IVB 1 
+236 2 2 159 159 GLY N N 15 107.12814 . . . . . . B 176 GLY N B 176 GLY N  . 8IVB 1 
+237 2 2 160 160 TRP H H 1  8.30105   . . . . . . B 177 TRP H B 177 TRP HN . 8IVB 1 
+238 2 2 160 160 TRP N N 15 118.20219 . . . . . . B 177 TRP N B 177 TRP N  . 8IVB 1 
+239 2 2 161 161 VAL H H 1  8.55417   . . . . . . B 178 VAL H B 178 VAL HN . 8IVB 1 
+240 2 2 161 161 VAL N N 15 113.58437 . . . . . . B 178 VAL N B 178 VAL N  . 8IVB 1 
+241 2 2 162 162 ALA H H 1  7.73635   . . . . . . B 179 ALA H B 179 ALA HN . 8IVB 1 
+242 2 2 162 162 ALA N N 15 124.32110 . . . . . . B 179 ALA N B 179 ALA N  . 8IVB 1 
+243 2 2 163 163 ALA H H 1  7.89371   . . . . . . B 180 ALA H B 180 ALA HN . 8IVB 1 
+244 2 2 163 163 ALA N N 15 119.96489 . . . . . . B 180 ALA N B 180 ALA N  . 8IVB 1 
+245 2 2 164 164 LEU H H 1  7.23314   . . . . . . B 181 LEU H B 181 LEU HN . 8IVB 1 
+246 2 2 164 164 LEU N N 15 114.01501 . . . . . . B 181 LEU N B 181 LEU N  . 8IVB 1 
+247 2 2 165 165 ASN H H 1  7.39201   . . . . . . B 182 ASN H B 182 ASN HN . 8IVB 1 
+248 2 2 165 165 ASN N N 15 115.48087 . . . . . . B 182 ASN N B 182 ASN N  . 8IVB 1 
+249 2 2 166 166 LEU H H 1  7.50570   . . . . . . B 183 LEU H B 183 LEU HN . 8IVB 1 
+250 2 2 166 166 LEU N N 15 120.52467 . . . . . . B 183 LEU N B 183 LEU N  . 8IVB 1 
+251 2 2 167 167 GLY H H 1  8.28310   . . . . . . B 184 GLY H B 184 GLY HN . 8IVB 1 
+252 2 2 167 167 GLY N N 15 108.16561 . . . . . . B 184 GLY N B 184 GLY N  . 8IVB 1 
+253 2 2 168 168 ASN H H 1  8.14030   . . . . . . B 185 ASN H B 185 ASN HN . 8IVB 1 
+254 2 2 168 168 ASN N N 15 118.87805 . . . . . . B 185 ASN N B 185 ASN N  . 8IVB 1 
+255 2 2 169 169 GLY H H 1  8.00794   . . . . . . B 186 GLY H B 186 GLY HN . 8IVB 1 
+256 2 2 169 169 GLY N N 15 115.36088 . . . . . . B 186 GLY N B 186 GLY N  . 8IVB 1 
+stop_
+save_
+save_constraint_statistics
+# 
+_Constraint_stat_list.Sf_category                       constraint_statistics 
+_Constraint_stat_list.Sf_framecode                      constraint_statistics 
+_Constraint_stat_list.Entry_ID                          8IVB 
+_Constraint_stat_list.ID                                1 
+_Constraint_stat_list.Data_file_name                    D_1300036268_mr_P1.xplor-nih.V1 
+_Constraint_stat_list.NOE_dist_averaging_method         r-6 
+_Constraint_stat_list.NOE_tot_num                       14 
+_Constraint_stat_list.NOE_intraresidue_tot_num          0 
+_Constraint_stat_list.NOE_sequential_tot_num            0 
+_Constraint_stat_list.NOE_medium_range_tot_num          0 
+_Constraint_stat_list.NOE_long_range_tot_num            0 
+_Constraint_stat_list.NOE_unique_tot_num                12 
+_Constraint_stat_list.NOE_intraresidue_unique_tot_num   0 
+_Constraint_stat_list.NOE_sequential_unique_tot_num     0 
+_Constraint_stat_list.NOE_medium_range_unique_tot_num   0 
+_Constraint_stat_list.NOE_long_range_unique_tot_num     0 
+_Constraint_stat_list.NOE_unamb_intramol_tot_num        0 
+_Constraint_stat_list.NOE_unamb_intermol_tot_num        12 
+_Constraint_stat_list.NOE_ambig_intramol_tot_num        0 
+_Constraint_stat_list.NOE_ambig_intermol_tot_num        0 
+_Constraint_stat_list.NOE_interentity_tot_num           12 
+_Constraint_stat_list.NOE_other_tot_num                 0 
+# 
+loop_
+_Constraint_file.ID 
+_Constraint_file.Constraint_filename 
+_Constraint_file.Software_ID 
+_Constraint_file.Software_label 
+_Constraint_file.Software_name 
+_Constraint_file.Block_ID 
+_Constraint_file.Constraint_type 
+_Constraint_file.Constraint_subtype 
+_Constraint_file.Constraint_subsubtype 
+_Constraint_file.Constraint_number 
+_Constraint_file.Entry_ID 
+_Constraint_file.Constraint_stat_list_ID 
+1 noe-deposit.tbl 1 . 'X-PLOR NIH/CNS' 1 distance NOE simple 14 8IVB 1 
+stop_
+save_
+save_XPLOR-NIH/CNS_distance_restraints_1
+# 
+_Gen_dist_constraint_list.Sf_category          general_distance_constraints 
+_Gen_dist_constraint_list.Sf_framecode         XPLOR-NIH/CNS_distance_restraints_1 
+_Gen_dist_constraint_list.Entry_ID             8IVB 
+_Gen_dist_constraint_list.ID                   1 
+_Gen_dist_constraint_list.Data_file_name       noe-deposit.tbl 
+_Gen_dist_constraint_list.Constraint_type      NOE 
+_Gen_dist_constraint_list.Constraint_file_ID   1 
+_Gen_dist_constraint_list.Potential_type       square-well-parabolic 
+_Gen_dist_constraint_list.Block_ID             1 
+# 
+loop_
+_Gen_dist_constraint.Index_ID 
+_Gen_dist_constraint.ID 
+_Gen_dist_constraint.Combination_ID 
+_Gen_dist_constraint.Member_ID 
+_Gen_dist_constraint.Member_logic_code 
+_Gen_dist_constraint.Entity_assembly_ID_1 
+_Gen_dist_constraint.Entity_ID_1 
+_Gen_dist_constraint.Comp_index_ID_1 
+_Gen_dist_constraint.Comp_ID_1 
+_Gen_dist_constraint.Atom_ID_1 
+_Gen_dist_constraint.Entity_assembly_ID_2 
+_Gen_dist_constraint.Entity_ID_2 
+_Gen_dist_constraint.Comp_index_ID_2 
+_Gen_dist_constraint.Comp_ID_2 
+_Gen_dist_constraint.Atom_ID_2 
+_Gen_dist_constraint.Distance_val 
+_Gen_dist_constraint.Target_val 
+_Gen_dist_constraint.Target_val_uncertainty 
+_Gen_dist_constraint.Lower_linear_limit 
+_Gen_dist_constraint.Upper_linear_limit 
+_Gen_dist_constraint.Distance_lower_bound_val 
+_Gen_dist_constraint.Distance_upper_bound_val 
+_Gen_dist_constraint.Weight 
+_Gen_dist_constraint.Auth_asym_ID_1 
+_Gen_dist_constraint.Auth_seq_ID_1 
+_Gen_dist_constraint.Auth_comp_ID_1 
+_Gen_dist_constraint.Auth_atom_ID_1 
+_Gen_dist_constraint.Auth_atom_name_1 
+_Gen_dist_constraint.Auth_asym_ID_2 
+_Gen_dist_constraint.Auth_seq_ID_2 
+_Gen_dist_constraint.Auth_comp_ID_2 
+_Gen_dist_constraint.Auth_atom_ID_2 
+_Gen_dist_constraint.Auth_atom_name_2 
+_Gen_dist_constraint.Entry_ID 
+_Gen_dist_constraint.Gen_dist_constraint_list_ID 
+1   1  . . OR 2 2 79  MET HE1  1 1 70 VAL HG11 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 70 VAL HG11 HG* 8IVB 1 
+2   1  . . OR 2 2 79  MET HE1  1 1 70 VAL HG12 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 70 VAL HG12 HG* 8IVB 1 
+3   1  . . OR 2 2 79  MET HE1  1 1 70 VAL HG13 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 70 VAL HG13 HG* 8IVB 1 
+4   1  . . OR 2 2 79  MET HE1  1 1 70 VAL HG21 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 70 VAL HG21 HG* 8IVB 1 
+5   1  . . OR 2 2 79  MET HE1  1 1 70 VAL HG22 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 70 VAL HG22 HG* 8IVB 1 
+6   1  . . OR 2 2 79  MET HE1  1 1 70 VAL HG23 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 70 VAL HG23 HG* 8IVB 1 
+7   1  . . OR 2 2 79  MET HE2  1 1 70 VAL HG11 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 70 VAL HG11 HG* 8IVB 1 
+8   1  . . OR 2 2 79  MET HE2  1 1 70 VAL HG12 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 70 VAL HG12 HG* 8IVB 1 
+9   1  . . OR 2 2 79  MET HE2  1 1 70 VAL HG13 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 70 VAL HG13 HG* 8IVB 1 
+10  1  . . OR 2 2 79  MET HE2  1 1 70 VAL HG21 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 70 VAL HG21 HG* 8IVB 1 
+11  1  . . OR 2 2 79  MET HE2  1 1 70 VAL HG22 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 70 VAL HG22 HG* 8IVB 1 
+12  1  . . OR 2 2 79  MET HE2  1 1 70 VAL HG23 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 70 VAL HG23 HG* 8IVB 1 
+13  1  . . OR 2 2 79  MET HE3  1 1 70 VAL HG11 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 70 VAL HG11 HG* 8IVB 1 
+14  1  . . OR 2 2 79  MET HE3  1 1 70 VAL HG12 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 70 VAL HG12 HG* 8IVB 1 
+15  1  . . OR 2 2 79  MET HE3  1 1 70 VAL HG13 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 70 VAL HG13 HG* 8IVB 1 
+16  1  . . OR 2 2 79  MET HE3  1 1 70 VAL HG21 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 70 VAL HG21 HG* 8IVB 1 
+17  1  . . OR 2 2 79  MET HE3  1 1 70 VAL HG22 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 70 VAL HG22 HG* 8IVB 1 
+18  1  . . OR 2 2 79  MET HE3  1 1 70 VAL HG23 . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 70 VAL HG23 HG* 8IVB 1 
+19  2  . . OR 2 2 79  MET HE1  1 1 42 ARG HG2  . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 42 ARG HG2  HG* 8IVB 1 
+20  2  . . OR 2 2 79  MET HE1  1 1 42 ARG HG3  . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE1  HE*  A 42 ARG HG3  HG* 8IVB 1 
+21  2  . . OR 2 2 79  MET HE2  1 1 42 ARG HG2  . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 42 ARG HG2  HG* 8IVB 1 
+22  2  . . OR 2 2 79  MET HE2  1 1 42 ARG HG3  . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE2  HE*  A 42 ARG HG3  HG* 8IVB 1 
+23  2  . . OR 2 2 79  MET HE3  1 1 42 ARG HG2  . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 42 ARG HG2  HG* 8IVB 1 
+24  2  . . OR 2 2 79  MET HE3  1 1 42 ARG HG3  . 3.0 . . . 2.5 3.5 1.0 B 96  MET HE3  HE*  A 42 ARG HG3  HG* 8IVB 1 
+25  3  . . OR 2 2 79  MET HE1  1 1 42 ARG HD2  . 3.8 . . . 3.3 5.3 1.0 B 96  MET HE1  HE*  A 42 ARG HD2  HD* 8IVB 1 
+26  3  . . OR 2 2 79  MET HE1  1 1 42 ARG HD3  . 3.8 . . . 3.3 5.3 1.0 B 96  MET HE1  HE*  A 42 ARG HD3  HD* 8IVB 1 
+27  3  . . OR 2 2 79  MET HE2  1 1 42 ARG HD2  . 3.8 . . . 3.3 5.3 1.0 B 96  MET HE2  HE*  A 42 ARG HD2  HD* 8IVB 1 
+28  3  . . OR 2 2 79  MET HE2  1 1 42 ARG HD3  . 3.8 . . . 3.3 5.3 1.0 B 96  MET HE2  HE*  A 42 ARG HD3  HD* 8IVB 1 
+29  3  . . OR 2 2 79  MET HE3  1 1 42 ARG HD2  . 3.8 . . . 3.3 5.3 1.0 B 96  MET HE3  HE*  A 42 ARG HD2  HD* 8IVB 1 
+30  3  . . OR 2 2 79  MET HE3  1 1 42 ARG HD3  . 3.8 . . . 3.3 5.3 1.0 B 96  MET HE3  HE*  A 42 ARG HD3  HD* 8IVB 1 
+31  4  . . OR 2 2 97  ILE HG21 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG21 HG2* A 70 VAL HG11 HG* 8IVB 1 
+32  4  . . OR 2 2 97  ILE HG21 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG21 HG2* A 70 VAL HG12 HG* 8IVB 1 
+33  4  . . OR 2 2 97  ILE HG21 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG21 HG2* A 70 VAL HG13 HG* 8IVB 1 
+34  4  . . OR 2 2 97  ILE HG21 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG21 HG2* A 70 VAL HG21 HG* 8IVB 1 
+35  4  . . OR 2 2 97  ILE HG21 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG21 HG2* A 70 VAL HG22 HG* 8IVB 1 
+36  4  . . OR 2 2 97  ILE HG21 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG21 HG2* A 70 VAL HG23 HG* 8IVB 1 
+37  4  . . OR 2 2 97  ILE HG22 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG22 HG2* A 70 VAL HG11 HG* 8IVB 1 
+38  4  . . OR 2 2 97  ILE HG22 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG22 HG2* A 70 VAL HG12 HG* 8IVB 1 
+39  4  . . OR 2 2 97  ILE HG22 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG22 HG2* A 70 VAL HG13 HG* 8IVB 1 
+40  4  . . OR 2 2 97  ILE HG22 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG22 HG2* A 70 VAL HG21 HG* 8IVB 1 
+41  4  . . OR 2 2 97  ILE HG22 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG22 HG2* A 70 VAL HG22 HG* 8IVB 1 
+42  4  . . OR 2 2 97  ILE HG22 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG22 HG2* A 70 VAL HG23 HG* 8IVB 1 
+43  4  . . OR 2 2 97  ILE HG23 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG23 HG2* A 70 VAL HG11 HG* 8IVB 1 
+44  4  . . OR 2 2 97  ILE HG23 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG23 HG2* A 70 VAL HG12 HG* 8IVB 1 
+45  4  . . OR 2 2 97  ILE HG23 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG23 HG2* A 70 VAL HG13 HG* 8IVB 1 
+46  4  . . OR 2 2 97  ILE HG23 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG23 HG2* A 70 VAL HG21 HG* 8IVB 1 
+47  4  . . OR 2 2 97  ILE HG23 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG23 HG2* A 70 VAL HG22 HG* 8IVB 1 
+48  4  . . OR 2 2 97  ILE HG23 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HG23 HG2* A 70 VAL HG23 HG* 8IVB 1 
+49  5  . . OR 2 2 97  ILE HD11 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD11 HD1* A 70 VAL HG11 HG* 8IVB 1 
+50  5  . . OR 2 2 97  ILE HD11 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD11 HD1* A 70 VAL HG12 HG* 8IVB 1 
+51  5  . . OR 2 2 97  ILE HD11 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD11 HD1* A 70 VAL HG13 HG* 8IVB 1 
+52  5  . . OR 2 2 97  ILE HD11 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD11 HD1* A 70 VAL HG21 HG* 8IVB 1 
+53  5  . . OR 2 2 97  ILE HD11 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD11 HD1* A 70 VAL HG22 HG* 8IVB 1 
+54  5  . . OR 2 2 97  ILE HD11 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD11 HD1* A 70 VAL HG23 HG* 8IVB 1 
+55  5  . . OR 2 2 97  ILE HD12 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD12 HD1* A 70 VAL HG11 HG* 8IVB 1 
+56  5  . . OR 2 2 97  ILE HD12 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD12 HD1* A 70 VAL HG12 HG* 8IVB 1 
+57  5  . . OR 2 2 97  ILE HD12 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD12 HD1* A 70 VAL HG13 HG* 8IVB 1 
+58  5  . . OR 2 2 97  ILE HD12 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD12 HD1* A 70 VAL HG21 HG* 8IVB 1 
+59  5  . . OR 2 2 97  ILE HD12 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD12 HD1* A 70 VAL HG22 HG* 8IVB 1 
+60  5  . . OR 2 2 97  ILE HD12 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD12 HD1* A 70 VAL HG23 HG* 8IVB 1 
+61  5  . . OR 2 2 97  ILE HD13 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD13 HD1* A 70 VAL HG11 HG* 8IVB 1 
+62  5  . . OR 2 2 97  ILE HD13 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD13 HD1* A 70 VAL HG12 HG* 8IVB 1 
+63  5  . . OR 2 2 97  ILE HD13 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD13 HD1* A 70 VAL HG13 HG* 8IVB 1 
+64  5  . . OR 2 2 97  ILE HD13 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD13 HD1* A 70 VAL HG21 HG* 8IVB 1 
+65  5  . . OR 2 2 97  ILE HD13 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD13 HD1* A 70 VAL HG22 HG* 8IVB 1 
+66  5  . . OR 2 2 97  ILE HD13 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 114 ILE HD13 HD1* A 70 VAL HG23 HG* 8IVB 1 
+67  6  . . OR 2 2 97  ILE HD11 1 1 42 ARG HG2  . 3.5 . . . 2.5 4.7 1.0 B 114 ILE HD11 HD1* A 42 ARG HG2  HG* 8IVB 1 
+68  6  . . OR 2 2 97  ILE HD11 1 1 42 ARG HG3  . 3.5 . . . 2.5 4.7 1.0 B 114 ILE HD11 HD1* A 42 ARG HG3  HG* 8IVB 1 
+69  6  . . OR 2 2 97  ILE HD12 1 1 42 ARG HG2  . 3.5 . . . 2.5 4.7 1.0 B 114 ILE HD12 HD1* A 42 ARG HG2  HG* 8IVB 1 
+70  6  . . OR 2 2 97  ILE HD12 1 1 42 ARG HG3  . 3.5 . . . 2.5 4.7 1.0 B 114 ILE HD12 HD1* A 42 ARG HG3  HG* 8IVB 1 
+71  6  . . OR 2 2 97  ILE HD13 1 1 42 ARG HG2  . 3.5 . . . 2.5 4.7 1.0 B 114 ILE HD13 HD1* A 42 ARG HG2  HG* 8IVB 1 
+72  6  . . OR 2 2 97  ILE HD13 1 1 42 ARG HG3  . 3.5 . . . 2.5 4.7 1.0 B 114 ILE HD13 HD1* A 42 ARG HG3  HG* 8IVB 1 
+73  7  . . OR 2 2 97  ILE HD11 1 1 42 ARG HD2  . 4.2 . . . 3.2 5.7 1.0 B 114 ILE HD11 HD1* A 42 ARG HD2  HD* 8IVB 1 
+74  7  . . OR 2 2 97  ILE HD11 1 1 42 ARG HD3  . 4.2 . . . 3.2 5.7 1.0 B 114 ILE HD11 HD1* A 42 ARG HD3  HD* 8IVB 1 
+75  7  . . OR 2 2 97  ILE HD12 1 1 42 ARG HD2  . 4.2 . . . 3.2 5.7 1.0 B 114 ILE HD12 HD1* A 42 ARG HD2  HD* 8IVB 1 
+76  7  . . OR 2 2 97  ILE HD12 1 1 42 ARG HD3  . 4.2 . . . 3.2 5.7 1.0 B 114 ILE HD12 HD1* A 42 ARG HD3  HD* 8IVB 1 
+77  7  . . OR 2 2 97  ILE HD13 1 1 42 ARG HD2  . 4.2 . . . 3.2 5.7 1.0 B 114 ILE HD13 HD1* A 42 ARG HD2  HD* 8IVB 1 
+78  7  . . OR 2 2 97  ILE HD13 1 1 42 ARG HD3  . 4.2 . . . 3.2 5.7 1.0 B 114 ILE HD13 HD1* A 42 ARG HD3  HD* 8IVB 1 
+79  8  . . OR 2 2 101 LEU HD11 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD11 HD1* A 70 VAL HG11 HG* 8IVB 1 
+80  8  . . OR 2 2 101 LEU HD11 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD11 HD1* A 70 VAL HG12 HG* 8IVB 1 
+81  8  . . OR 2 2 101 LEU HD11 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD11 HD1* A 70 VAL HG13 HG* 8IVB 1 
+82  8  . . OR 2 2 101 LEU HD11 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD11 HD1* A 70 VAL HG21 HG* 8IVB 1 
+83  8  . . OR 2 2 101 LEU HD11 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD11 HD1* A 70 VAL HG22 HG* 8IVB 1 
+84  8  . . OR 2 2 101 LEU HD11 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD11 HD1* A 70 VAL HG23 HG* 8IVB 1 
+85  8  . . OR 2 2 101 LEU HD12 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD12 HD1* A 70 VAL HG11 HG* 8IVB 1 
+86  8  . . OR 2 2 101 LEU HD12 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD12 HD1* A 70 VAL HG12 HG* 8IVB 1 
+87  8  . . OR 2 2 101 LEU HD12 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD12 HD1* A 70 VAL HG13 HG* 8IVB 1 
+88  8  . . OR 2 2 101 LEU HD12 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD12 HD1* A 70 VAL HG21 HG* 8IVB 1 
+89  8  . . OR 2 2 101 LEU HD12 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD12 HD1* A 70 VAL HG22 HG* 8IVB 1 
+90  8  . . OR 2 2 101 LEU HD12 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD12 HD1* A 70 VAL HG23 HG* 8IVB 1 
+91  8  . . OR 2 2 101 LEU HD13 1 1 70 VAL HG11 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD13 HD1* A 70 VAL HG11 HG* 8IVB 1 
+92  8  . . OR 2 2 101 LEU HD13 1 1 70 VAL HG12 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD13 HD1* A 70 VAL HG12 HG* 8IVB 1 
+93  8  . . OR 2 2 101 LEU HD13 1 1 70 VAL HG13 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD13 HD1* A 70 VAL HG13 HG* 8IVB 1 
+94  8  . . OR 2 2 101 LEU HD13 1 1 70 VAL HG21 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD13 HD1* A 70 VAL HG21 HG* 8IVB 1 
+95  8  . . OR 2 2 101 LEU HD13 1 1 70 VAL HG22 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD13 HD1* A 70 VAL HG22 HG* 8IVB 1 
+96  8  . . OR 2 2 101 LEU HD13 1 1 70 VAL HG23 . 2.8 . . . 2.3 3.3 1.0 B 118 LEU HD13 HD1* A 70 VAL HG23 HG* 8IVB 1 
+97  9  . . OR 2 2 101 LEU HD11 1 1 42 ARG HG2  . 3.5 . . . 3.0 4.5 1.0 B 118 LEU HD11 HD1* A 42 ARG HG2  HG* 8IVB 1 
+98  9  . . OR 2 2 101 LEU HD11 1 1 42 ARG HG3  . 3.5 . . . 3.0 4.5 1.0 B 118 LEU HD11 HD1* A 42 ARG HG3  HG* 8IVB 1 
+99  9  . . OR 2 2 101 LEU HD12 1 1 42 ARG HG2  . 3.5 . . . 3.0 4.5 1.0 B 118 LEU HD12 HD1* A 42 ARG HG2  HG* 8IVB 1 
+100 9  . . OR 2 2 101 LEU HD12 1 1 42 ARG HG3  . 3.5 . . . 3.0 4.5 1.0 B 118 LEU HD12 HD1* A 42 ARG HG3  HG* 8IVB 1 
+101 9  . . OR 2 2 101 LEU HD13 1 1 42 ARG HG2  . 3.5 . . . 3.0 4.5 1.0 B 118 LEU HD13 HD1* A 42 ARG HG2  HG* 8IVB 1 
+102 9  . . OR 2 2 101 LEU HD13 1 1 42 ARG HG3  . 3.5 . . . 3.0 4.5 1.0 B 118 LEU HD13 HD1* A 42 ARG HG3  HG* 8IVB 1 
+103 10 . . OR 2 2 72  TYR HB2  1 1 70 VAL HG11 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB2  HB*  A 70 VAL HG11 HG* 8IVB 1 
+104 10 . . OR 2 2 72  TYR HB2  1 1 70 VAL HG12 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB2  HB*  A 70 VAL HG12 HG* 8IVB 1 
+105 10 . . OR 2 2 72  TYR HB2  1 1 70 VAL HG13 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB2  HB*  A 70 VAL HG13 HG* 8IVB 1 
+106 10 . . OR 2 2 72  TYR HB2  1 1 70 VAL HG21 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB2  HB*  A 70 VAL HG21 HG* 8IVB 1 
+107 10 . . OR 2 2 72  TYR HB2  1 1 70 VAL HG22 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB2  HB*  A 70 VAL HG22 HG* 8IVB 1 
+108 10 . . OR 2 2 72  TYR HB2  1 1 70 VAL HG23 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB2  HB*  A 70 VAL HG23 HG* 8IVB 1 
+109 10 . . OR 2 2 72  TYR HB3  1 1 70 VAL HG11 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB3  HB*  A 70 VAL HG11 HG* 8IVB 1 
+110 10 . . OR 2 2 72  TYR HB3  1 1 70 VAL HG12 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB3  HB*  A 70 VAL HG12 HG* 8IVB 1 
+111 10 . . OR 2 2 72  TYR HB3  1 1 70 VAL HG13 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB3  HB*  A 70 VAL HG13 HG* 8IVB 1 
+112 10 . . OR 2 2 72  TYR HB3  1 1 70 VAL HG21 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB3  HB*  A 70 VAL HG21 HG* 8IVB 1 
+113 10 . . OR 2 2 72  TYR HB3  1 1 70 VAL HG22 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB3  HB*  A 70 VAL HG22 HG* 8IVB 1 
+114 10 . . OR 2 2 72  TYR HB3  1 1 70 VAL HG23 . 3.0 . . . 2.0 4.0 1.0 B 89  TYR HB3  HB*  A 70 VAL HG23 HG* 8IVB 1 
+115 11 . . OR 2 2 72  TYR HB2  1 1 42 ARG HG2  . 3.5 . . . 3.0 4.5 1.0 B 89  TYR HB2  HB*  A 42 ARG HG2  HG* 8IVB 1 
+116 11 . . OR 2 2 72  TYR HB2  1 1 42 ARG HG3  . 3.5 . . . 3.0 4.5 1.0 B 89  TYR HB2  HB*  A 42 ARG HG3  HG* 8IVB 1 
+117 11 . . OR 2 2 72  TYR HB3  1 1 42 ARG HG2  . 3.5 . . . 3.0 4.5 1.0 B 89  TYR HB3  HB*  A 42 ARG HG2  HG* 8IVB 1 
+118 11 . . OR 2 2 72  TYR HB3  1 1 42 ARG HG3  . 3.5 . . . 3.0 4.5 1.0 B 89  TYR HB3  HB*  A 42 ARG HG3  HG* 8IVB 1 
+119 12 . . OR 2 2 75  GLU HG2  1 1 70 VAL HG11 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HG2  HG2  A 70 VAL HG11 HG* 8IVB 1 
+120 12 . . OR 2 2 75  GLU HG2  1 1 70 VAL HG12 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HG2  HG2  A 70 VAL HG12 HG* 8IVB 1 
+121 12 . . OR 2 2 75  GLU HG2  1 1 70 VAL HG13 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HG2  HG2  A 70 VAL HG13 HG* 8IVB 1 
+122 12 . . OR 2 2 75  GLU HG2  1 1 70 VAL HG21 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HG2  HG2  A 70 VAL HG21 HG* 8IVB 1 
+123 12 . . OR 2 2 75  GLU HG2  1 1 70 VAL HG22 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HG2  HG2  A 70 VAL HG22 HG* 8IVB 1 
+124 12 . . OR 2 2 75  GLU HG2  1 1 70 VAL HG23 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HG2  HG2  A 70 VAL HG23 HG* 8IVB 1 
+125 13 . . OR 2 2 75  GLU HG3  1 1 70 VAL HG11 . 3.8 . . . 2.8 4.8 1.0 B 92  GLU HG3  HG1  A 70 VAL HG11 HG* 8IVB 1 
+126 13 . . OR 2 2 75  GLU HG3  1 1 70 VAL HG12 . 3.8 . . . 2.8 4.8 1.0 B 92  GLU HG3  HG1  A 70 VAL HG12 HG* 8IVB 1 
+127 13 . . OR 2 2 75  GLU HG3  1 1 70 VAL HG13 . 3.8 . . . 2.8 4.8 1.0 B 92  GLU HG3  HG1  A 70 VAL HG13 HG* 8IVB 1 
+128 13 . . OR 2 2 75  GLU HG3  1 1 70 VAL HG21 . 3.8 . . . 2.8 4.8 1.0 B 92  GLU HG3  HG1  A 70 VAL HG21 HG* 8IVB 1 
+129 13 . . OR 2 2 75  GLU HG3  1 1 70 VAL HG22 . 3.8 . . . 2.8 4.8 1.0 B 92  GLU HG3  HG1  A 70 VAL HG22 HG* 8IVB 1 
+130 13 . . OR 2 2 75  GLU HG3  1 1 70 VAL HG23 . 3.8 . . . 2.8 4.8 1.0 B 92  GLU HG3  HG1  A 70 VAL HG23 HG* 8IVB 1 
+131 14 . . OR 2 2 75  GLU HB2  1 1 70 VAL HG11 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB2  HB*  A 70 VAL HG11 HG* 8IVB 1 
+132 14 . . OR 2 2 75  GLU HB2  1 1 70 VAL HG12 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB2  HB*  A 70 VAL HG12 HG* 8IVB 1 
+133 14 . . OR 2 2 75  GLU HB2  1 1 70 VAL HG13 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB2  HB*  A 70 VAL HG13 HG* 8IVB 1 
+134 14 . . OR 2 2 75  GLU HB2  1 1 70 VAL HG21 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB2  HB*  A 70 VAL HG21 HG* 8IVB 1 
+135 14 . . OR 2 2 75  GLU HB2  1 1 70 VAL HG22 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB2  HB*  A 70 VAL HG22 HG* 8IVB 1 
+136 14 . . OR 2 2 75  GLU HB2  1 1 70 VAL HG23 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB2  HB*  A 70 VAL HG23 HG* 8IVB 1 
+137 14 . . OR 2 2 75  GLU HB3  1 1 70 VAL HG11 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB3  HB*  A 70 VAL HG11 HG* 8IVB 1 
+138 14 . . OR 2 2 75  GLU HB3  1 1 70 VAL HG12 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB3  HB*  A 70 VAL HG12 HG* 8IVB 1 
+139 14 . . OR 2 2 75  GLU HB3  1 1 70 VAL HG13 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB3  HB*  A 70 VAL HG13 HG* 8IVB 1 
+140 14 . . OR 2 2 75  GLU HB3  1 1 70 VAL HG21 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB3  HB*  A 70 VAL HG21 HG* 8IVB 1 
+141 14 . . OR 2 2 75  GLU HB3  1 1 70 VAL HG22 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB3  HB*  A 70 VAL HG22 HG* 8IVB 1 
+142 14 . . OR 2 2 75  GLU HB3  1 1 70 VAL HG23 . 3.5 . . . 2.5 4.5 1.0 B 92  GLU HB3  HB*  A 70 VAL HG23 HG* 8IVB 1 
+stop_
+save_

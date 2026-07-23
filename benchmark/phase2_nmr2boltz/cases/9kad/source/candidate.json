@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36700"
+  ],
+  "candidate_directory": "candidates/9kad-passed",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 14,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "GCAGCAGCAGCAGC"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "1",
+      "length": 14,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "GCAGCAGCAGCAGC"
+    }
+  ],
+  "classification_reason": "all_10_predictions_capri_incorrect",
+  "classified_at": "2026-07-20T17:11:23Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/9kad.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "de40adec64df7f08b226f27c1465a81748f18d313d093fda260a7e6107ebde43",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 28,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 1.4697195525964517,
+    "medoid_backbone_rmsd_mean": 0.9345008925342132,
+    "medoid_backbone_rmsd_median": 0.9629218611168342,
+    "medoid_backbone_rmsd_p90": 1.2095961078157869,
+    "medoid_model": 7,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 32,
+    "native_contact_count_median": 29.5,
+    "native_contact_count_minimum": 28,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/9kad_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/9kad",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 28,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "9KAD",
+  "polymer_composition": "RNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T17:02:54Z",
+  "reference_file": "reference/9kad.pdb",
+  "release_date": "2025-01-22T00:00:00.000+00:00",
+  "status": "passed",
+  "title": "Solution NMR structure of an RNA duplex containing pure CAG repeats"
+}

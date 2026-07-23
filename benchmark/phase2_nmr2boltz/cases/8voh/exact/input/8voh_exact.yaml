@@ -1,0 +1,78 @@
+# 8VOH exact constraints generated from deposited NEF by nmr2boltz
+constraints:
+- atom_contact:
+    atom1:
+    - A
+    - 131
+    - CA
+    atom2:
+    - B
+    - 31
+    - CA
+    force: true
+    max_distance: 4.74
+- atom_contact:
+    atom1:
+    - A
+    - 135
+    - CD1
+    atom2:
+    - B
+    - 52
+    - CD
+    force: true
+    max_distance: 5.242343
+- atom_contact:
+    atom1:
+    - A
+    - 160
+    - CE
+    atom2:
+    - B
+    - 26
+    - CG2
+    force: true
+    max_distance: 5.242343
+- atom_contact:
+    atom1:
+    - A
+    - 160
+    - CE
+    atom2:
+    - B
+    - 34
+    - CG2
+    force: true
+    max_distance: 5.242343
+- atom_contact:
+    atom1:
+    - A
+    - 161
+    - CD
+    atom2:
+    - B
+    - 34
+    - CG2
+    force: true
+    max_distance: 5.242343
+- atom_contact:
+    atom1:
+    - A
+    - 161
+    - CD
+    atom2:
+    - B
+    - 50
+    - CG2
+    force: true
+    max_distance: 5.242343
+sequences:
+- protein:
+    id: A
+    msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/msa/entity_0.csv
+    sequence: EDSDIAFLIDGSGSIIPHDFRRMKEFVSTVMEQLKKSKTLFSLMQYSEEFRIHFTFKEFQNNPNPRSLVKPITQLLGRTHTATGIRKVVRELFNITNGARKNAFKILVVITDGEKFGDPLGYEDVIPEADREGVIRYVIGVGDAFRSEKSRQELNTIASKPPRDHVFQVNNFEALKTIQNQLREKIFAIEGTQT
+- protein:
+    id: B
+    msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/msa/entity_1.csv
+    sequence: GKKEKPEKKVKKSDCGEWQWSVCVPTSGDCGLGTREGTRTGAECKQTMKTQRCKIPCN
+version: 1

@@ -1,0 +1,394 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0002-4236-6735",
+      "name": "Zeng, L.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0002-7049-0573",
+      "name": "Zhou, M.-M.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To Be Published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Zeng, L.",
+        "Zhou, M.-M."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "NMR solution structures of ASH1L BRD-PHD domain in complex with H3K4me2 peptide"
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8ZXC",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8zxc/pdb",
+      "pdbx_database_accession": "pdb_00008zxc"
+    },
+    {
+      "database_code": "D_1300048680",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "36675",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR36675"
+    }
+  ],
+  "entry": {
+    "id": "8ZXC"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-02-19T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "National Science Foundation (NSF, China)",
+      "grant_number": "31770780",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "36675",
+      "db_name": "BMRB",
+      "details": "NMR solution structures of ASH1L BRD-PHD domain in complex with H3K4me2 peptide"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2024-06-14T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 200,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HN(COCA)CB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "null",
+      "ionic_strength_units": "Not defined",
+      "label": "conditions_1",
+      "pH": "7.5",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "torsion angle dynamics",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "100 mM sodium phosphate, 2 mM DTT, 50 mM potassium chloride, 90% H2O/10% D2O",
+      "label": "1_sample",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "100 mM sodium phosphate, 2 mM DTT, 50 mM potassium chloride, 100% D2O",
+      "label": "2_sample",
+      "solution_id": "2",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Johnson, One Moon Scientific",
+      "classification": "chemical shift assignment",
+      "name": "NMRView",
+      "ordinal": 1
+    },
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "structure calculation",
+      "name": "CNS",
+      "ordinal": 2
+    },
+    {
+      "authors": "Linge, O'Donoghue and Nilges",
+      "classification": "refinement",
+      "name": "ARIA",
+      "ordinal": 3
+    },
+    {
+      "authors": "Johnson, One Moon Scientific",
+      "classification": "peak picking",
+      "name": "NMRView",
+      "ordinal": 4
+    },
+    {
+      "authors": "Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax",
+      "classification": "processing",
+      "name": "NMRPipe",
+      "ordinal": 5
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 900.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 800.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "mogul,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-30T05:00:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.78,
+      "bonds_RMSZ": 0.46,
+      "clashscore": 20.27,
+      "clashscore_full_length": 19.53,
+      "num_H_reduce": 33584,
+      "num_angles_RMSZ": 46620,
+      "num_bonds_RMSZ": 34660,
+      "percent_ramachandran_outliers": 0.41,
+      "percent_ramachandran_outliers_full_length": 2.12,
+      "percent_rotamer_outliers": 13.2,
+      "percent_rotamer_outliers_full_length": 12.53
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 78.34,
+      "chemical_shift_completeness_full_length": 75.52,
+      "cyrange_number_of_domains": 2,
+      "exp_method": "nmr",
+      "medoid_model": 4,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 1,
+      "nmrclust_representative_model": 16
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-06-14T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-02-19T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2025-02-19T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "entry_id": "8ZXC",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "3"
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "rcsb_id": "8ZXC"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 1720,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1686,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 217,
+    "deposited_nonpolymer_entity_instance_count": 2,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 217,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 3,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 2,
+    "inter_mol_metalic_bond_count": 8,
+    "molecular_weight": 24.78,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_bound_components": [
+      "ZN"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.07,
+    "nonpolymer_molecular_weight_minimum": 0.07,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 23.31,
+    "polymer_molecular_weight_minimum": 1.34,
+    "polymer_monomer_count_maximum": 205,
+    "polymer_monomer_count_minimum": 12,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "ARIA",
+      "CNS",
+      "NMRPIPE",
+      "NMRVIEW"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "36675",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=36675",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "8ZXC",
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To Be Published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "0000-0002-4236-6735",
+      "0000-0002-7049-0573"
+    ],
+    "rcsb_authors": [
+      "Zeng, L.",
+      "Zhou, M.-M."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "NMR solution structures of ASH1L BRD-PHD domain in complex with H3K4me2 peptide"
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "NMR solution structures of ASH1L BRD-PHD domain in complex with H3K4me2 peptide"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "STRUCTURAL PROTEIN",
+    "text": "ASH1L, Bromodomain, PHD, H3, STRUCTURAL PROTEIN"
+  }
+}

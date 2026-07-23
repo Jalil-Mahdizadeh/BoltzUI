@@ -1,0 +1,450 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0002-3008-3957",
+      "name": "Schuster, M.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0003-0475-438X",
+      "name": "Zerbe, O.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "country": "US",
+      "id": "primary",
+      "journal_abbrev": "Protein Sci.",
+      "journal_id_ASTM": "PRCIEI",
+      "journal_id_CSD": "0795",
+      "journal_id_ISSN": "1469-896X",
+      "journal_volume": "35",
+      "page_first": "e70626",
+      "page_last": "e70626",
+      "pdbx_database_id_DOI": "10.1002/pro.70626",
+      "pdbx_database_id_PubMed": 42144870,
+      "rcsb_authors": [
+        "Dai, W.",
+        "Hu, W.",
+        "Schuster, M.",
+        "Rozic, L.",
+        "Roschitzki, B.",
+        "Zerbe, O."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Protein Sci",
+      "title": "Computational design of a soluble mimic of the outer membrane LPS transport protein LptD suitable for screening of antibiotics.",
+      "year": 2026
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9T3O",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9t3o/pdb",
+      "pdbx_database_accession": "pdb_00009t3o"
+    },
+    {
+      "database_code": "D_1292151673",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "35025",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR35025"
+    }
+  ],
+  "entry": {
+    "id": "9T3O"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-06-24T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Switzerland",
+      "funding_organization": "Swiss National Science Foundation",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "35025",
+      "db_name": "BMRB",
+      "details": "Solution structure of thanatin in complex with LptDm"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "N",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2025-10-28T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "target function",
+    "conformers_calculated_total_number": 100,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 3,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HN(COCA)CB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HBHA(CO)NH"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "150",
+      "ionic_strength_units": "mM",
+      "label": "conditions_1",
+      "pH": "7",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "310",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "molecular dynamics",
+      "software_ordinal": 1
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "target function"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "1 mM [U-13C; U-15N] LptDm, 1.5 mM thanatin, 93% H2O/7% D2O",
+      "label": "15N 13C",
+      "solution_id": "1",
+      "solvent_system": "93% H2O/7% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "600 uM [U-13C; U-15N; U-2H] LptDm, 540 uM thanatin, 93% H2O/7% D2O",
+      "details": "20 mM sodium phosphate, 150 mM NaCl",
+      "label": "15N 13C 2H",
+      "solution_id": "2",
+      "solvent_system": "93% H2O/7% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "OpenMM",
+      "classification": "refinement",
+      "name": "Amber",
+      "ordinal": 1,
+      "version": "Amber19"
+    },
+    {
+      "authors": "Guntert, Mumenthaler and Wuthrich",
+      "classification": "structure calculation",
+      "name": "CYANA",
+      "ordinal": 2,
+      "version": "3.98"
+    },
+    {
+      "authors": "CCPN",
+      "classification": "chemical shift assignment",
+      "name": "CcpNmr Analysis",
+      "ordinal": 3,
+      "version": "3.2"
+    },
+    {
+      "authors": "CCPN",
+      "classification": "peak picking",
+      "name": "CcpNmr Analysis",
+      "ordinal": 4,
+      "version": "3.2"
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 700.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "2"
+    },
+    {
+      "field_strength": 900.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "3"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-06-21T12:14:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.38,
+      "bonds_RMSZ": 0.85,
+      "clashscore_full_length": 0.0,
+      "num_H_reduce": 30300,
+      "num_angles_RMSZ": 42000,
+      "num_bonds_RMSZ": 31020,
+      "percent_ramachandran_outliers": 0.03,
+      "percent_ramachandran_outliers_full_length": 0.05,
+      "percent_rotamer_outliers": 4.2,
+      "percent_rotamer_outliers_full_length": 3.96
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 89.35,
+      "chemical_shift_completeness_full_length": 87.11,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 11,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 2,
+      "nmrclust_representative_model": 11
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-10-28T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-06-24T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2026-06-24T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9T3O",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "pubmed_id": 42144870,
+    "rcsb_id": "9T3O"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 1,
+    "deposited_atom_count": 1527,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1518,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 202,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 202,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 1,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 21.76,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 19.32,
+    "polymer_molecular_weight_minimum": 2.44,
+    "polymer_monomer_count_maximum": 181,
+    "polymer_monomer_count_minimum": 21,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "CCPNMR ANALYSIS",
+      "CYANA"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "35025",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=35025",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9T3O",
+  "rcsb_primary_citation": {
+    "country": "US",
+    "id": "primary",
+    "journal_abbrev": "Protein Sci.",
+    "journal_id_ASTM": "PRCIEI",
+    "journal_id_CSD": "0795",
+    "journal_id_ISSN": "1469-896X",
+    "journal_volume": "35",
+    "page_first": "e70626",
+    "page_last": "e70626",
+    "pdbx_database_id_DOI": "10.1002/pro.70626",
+    "pdbx_database_id_PubMed": 42144870,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "0000-0003-0475-438X"
+    ],
+    "rcsb_authors": [
+      "Dai, W.",
+      "Hu, W.",
+      "Schuster, M.",
+      "Rozic, L.",
+      "Roschitzki, B.",
+      "Zerbe, O."
+    ],
+    "rcsb_journal_abbrev": "Protein Sci",
+    "title": "Computational design of a soluble mimic of the outer membrane LPS transport protein LptD suitable for screening of antibiotics.",
+    "year": 2026
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Solution structure of thanatin in complex with LptDm"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "PEPTIDE BINDING PROTEIN",
+    "text": "Antibiotic, LPS transport, PEPTIDE BINDING PROTEIN"
+  }
+}

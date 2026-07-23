@@ -1,0 +1,343 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0002-8179-9824",
+      "name": "Fan, S.H.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0003-2946-7299",
+      "name": "Wu, C.L.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To Be Published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Duan, Z.P.",
+        "Wu, C.L."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "Combinations of Disulfide-Directing Motifs in Tandem Enabling the De-sign and Discovery of Multicyclic Peptide Binders"
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8WVS",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8wvs/pdb",
+      "pdbx_database_accession": "pdb_00008wvs"
+    },
+    {
+      "database_code": "D_1300042073",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "36604",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR36604"
+    }
+  ],
+  "entry": {
+    "id": "8WVS"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2024-10-30T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "Other government",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "36604",
+      "db_name": "BMRB",
+      "details": "the structure of CPPCXC motif"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2023-10-24T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 150,
+    "conformers_submitted_total_number": 15
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "anisotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "anisotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "anisotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "anisotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H TOCSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "0",
+      "ionic_strength_units": "Not defined",
+      "label": "CON",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "1.0 mM SER-CYS-PRO-PRO-CYS-LYS-CYS-GLY-TRP, 50% perdeuterated acetonitrile and 50% H2O",
+      "label": "SAMPLE",
+      "solution_id": "1",
+      "solvent_system": "50% perdeuterated acetonitrile and 50% H2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Lee W, Tonelli M, Markley JL",
+      "classification": "chemical shift assignment",
+      "name": "NMRFAM-SPARKY",
+      "ordinal": 1
+    },
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "structure calculation",
+      "name": "CNS",
+      "ordinal": 2
+    },
+    {
+      "authors": "Linge, O'Donoghue and Nilges",
+      "classification": "refinement",
+      "name": "ARIA",
+      "ordinal": 3
+    },
+    {
+      "authors": "Bruker Biospin",
+      "classification": "peak picking",
+      "name": "TopSpin",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 850.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "1"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-15T01:18:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.72,
+      "bonds_RMSZ": 0.46,
+      "clashscore": 6.75,
+      "clashscore_full_length": 6.13,
+      "num_H_reduce": 1770,
+      "num_angles_RMSZ": 2760,
+      "num_bonds_RMSZ": 2070,
+      "percent_ramachandran_outliers": 2.56,
+      "percent_ramachandran_outliers_full_length": 2.86,
+      "percent_rotamer_outliers": 3.81,
+      "percent_rotamer_outliers_full_length": 5.0
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 34.24,
+      "chemical_shift_completeness_full_length": 37.5,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 3,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 15,
+      "nmrclust_number_of_outliers": 1,
+      "nmrclust_representative_model": 7
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2023-10-24T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2024-10-30T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2024-10-30T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1"
+    ],
+    "entry_id": "8WVS",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "rcsb_id": "8WVS"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 132,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 118,
+    "deposited_model_count": 15,
+    "deposited_modeled_polymer_monomer_count": 18,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 18,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 3,
+    "entity_count": 1,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 1.96,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 0.98,
+    "polymer_molecular_weight_minimum": 0.98,
+    "polymer_monomer_count_maximum": 9,
+    "polymer_monomer_count_minimum": 9,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "ARIA",
+      "CNS",
+      "NMRFAM-SPARKY",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_id": "8WVS",
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To Be Published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Duan, Z.P.",
+      "Wu, C.L."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "Combinations of Disulfide-Directing Motifs in Tandem Enabling the De-sign and Discovery of Multicyclic Peptide Binders"
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "The structure of CPPCXC motif"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "UNKNOWN FUNCTION",
+    "text": "CPPC, prptide, UNKNOWN FUNCTION"
+  }
+}

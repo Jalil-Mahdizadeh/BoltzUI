@@ -1,0 +1,100 @@
+{
+  "query": {
+    "type": "group",
+    "logical_operator": "and",
+    "nodes": [
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "exptl.method",
+          "operator": "exact_match",
+          "value": "SOLUTION NMR"
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_accession_info.initial_release_date",
+          "operator": "greater",
+          "value": "2023-06-01"
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+          "operator": "equals",
+          "value": 2
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+          "operator": "greater_or_equal",
+          "value": 40
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+          "operator": "less_or_equal",
+          "value": 350
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_entry_info.deposited_model_count",
+          "operator": "greater_or_equal",
+          "value": 10
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_repository_holdings_current.repository_content_types",
+          "operator": "exact_match",
+          "value": "Combined NMR data (NEF)"
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "rcsb_repository_holdings_current.repository_content_types",
+          "operator": "exact_match",
+          "value": "Combined NMR data (NMR-STAR)"
+        }
+      }
+    ]
+  },
+  "return_type": "entry",
+  "request_options": {
+    "paginate": {
+      "start": 0,
+      "rows": 10000
+    },
+    "sort": [
+      {
+        "sort_by": "rcsb_accession_info.initial_release_date",
+        "direction": "desc"
+      },
+      {
+        "sort_by": "rcsb_id",
+        "direction": "asc"
+      }
+    ],
+    "results_content_type": [
+      "experimental"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "arms": {
+    "combined": {
+      "applicable": true,
+      "exact_constraints": 495,
+      "input": "cases/9ezp/combined/input/9ezp_combined.yaml",
+      "union_groups": 143
+    },
+    "exact": {
+      "applicable": true,
+      "exact_constraints": 495,
+      "input": "cases/9ezp/exact/input/9ezp_exact.yaml",
+      "union_groups": 0
+    },
+    "union": {
+      "applicable": true,
+      "exact_constraints": 0,
+      "input": "cases/9ezp/union/input/9ezp_union.yaml",
+      "union_groups": 143
+    }
+  },
+  "exact_constraint_count": 495,
+  "fixed_phase1_msas": [
+    {
+      "bytes": 910008,
+      "entity_index": 0,
+      "file": "cases/9ezp/source/msa/entity_0.csv",
+      "sha256": "2a603e5ee9d53b89e212f362e94d60449c3c3d7c78a1f24b0bce5165ec9c2fa8",
+      "source": "candidates/9ezp-passed/results/boltz_results_9ezp_unconstrained/msa/9ezp_unconstrained_0.csv"
+    },
+    {
+      "bytes": 471,
+      "entity_index": 1,
+      "file": "cases/9ezp/source/msa/entity_1.csv",
+      "sha256": "5484160329429af204a81913bc1956ae3f226fd4d82045acbb4e78d4b305853b",
+      "source": "candidates/9ezp-passed/results/boltz_results_9ezp_unconstrained/msa/9ezp_unconstrained_1.csv"
+    }
+  ],
+  "pdb_id": "9EZP",
+  "schema_version": 1,
+  "union_group_count": 143
+}

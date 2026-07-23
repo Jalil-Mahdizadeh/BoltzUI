@@ -1,0 +1,378 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0002-4576-9935",
+      "name": "Vianney, Y.M.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0002-2736-6606",
+      "name": "Weisz, K.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "country": "DE",
+      "id": "primary",
+      "journal_abbrev": "Chemistryselect",
+      "journal_id_ISSN": "2365-6549",
+      "pdbx_database_id_DOI": "10.1002/slct.202304286",
+      "rcsb_authors": [
+        "Agustin, D.F.",
+        "Vianney, Y.M.",
+        "Weisz, K.",
+        "Wahjudi, M."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "ChemistrySelect",
+      "title": "Structural Aspects of Split G-Quadruplexes in Quadruplex-Duplex Hybrid Systems",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8QKX",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8qkx/pdb",
+      "pdbx_database_accession": "pdb_00008qkx"
+    },
+    {
+      "database_code": "D_1292133417",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "34863",
+      "database_id": "BMRB"
+    }
+  ],
+  "entry": {
+    "id": "8QKX"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2024-02-07T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Germany",
+      "funding_organization": "German Research Foundation (DFG)",
+      "grant_number": "410497337",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "34863",
+      "db_name": "BMRB",
+      "details": "Solution structure of a bimolecular quadruplex-duplex hybrid containing a V-shaped loop"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2023-09-18T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 10,
+    "conformers_submitted_total_number": 10
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D DQF-COSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "details": "120 mM K+, 298 K, 0.42 mM",
+      "ionic_strength": "120",
+      "ionic_strength_units": "mM",
+      "label": "1",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 3
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.42 mM DNA (5'-D(*CP*TP*CP*CP*AP*GP*CP*TP*GP*GP*GP*TP*GP*AP*GP*GP*GP*GP*CP*TP*GP*GP*GP*T)-3'), 0.42 mM DNA (5'-D(*TP*TP*GP*GP*AP*GP*CP*TP*GP*GP*AP*GP*TP*T)-3'), 90% H2O/10% D2O",
+      "details": "120 mM K+, 298 K, 0.42 mM",
+      "label": "Sample 1",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.22 mM [U-13C; U-15N]-Gua DNA (5'-D(*CP*TP*CP*CP*AP*GP*CP*TP*GP*GP*GP*TP*GP*AP*GP*GP*GP*GP*CP*TP*GP*GP*GP*T)-3'), 0.22 mM DNA (5'-D(*TP*TP*GP*GP*AP*GP*CP*TP*GP*GP*AP*GP*TP*T)-3'), 90% H2O/10% D2O",
+      "details": "120 mM K+, 298 K, 0.22 mM",
+      "label": "Sample 2_G1510%lab",
+      "solution_id": "2",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.22 mM DNA (5'-D(*CP*TP*CP*CP*AP*GP*CP*TP*GP*GP*GP*TP*GP*AP*GP*GP*GP*GP*CP*TP*GP*GP*GP*T)-3'), 0.22 mM [U-13C; U-15N]-Gua DNA (5'-D(*TP*TP*GP*GP*AP*GP*CP*TP*GP*GP*AP*GP*TP*T)-3'), 90% H2O/10% D2O",
+      "details": "120 mM K+, 298 K, 0.22 mM",
+      "label": "Sample 3_G310%lab",
+      "solution_id": "3",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.22 mM DNA (5'-D(*CP*TP*CP*CP*AP*GP*CP*TP*GP*GP*GP*TP*GP*AP*GP*GP*GP*GP*CP*TP*GP*GP*GP*T)-3'), 0.22 mM [U-13C; U-15N]-Gua DNA (5'-D(*TP*TP*GP*GP*AP*GP*CP*TP*GP*GP*AP*GP*TP*T)-3'), 90% H2O/10% D2O",
+      "details": "120 mM K+, 298 K, 0.22 mM",
+      "label": "Sample 4_G410%lab",
+      "solution_id": "4",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "CCPN",
+      "classification": "chemical shift assignment",
+      "name": "CcpNmr Analysis",
+      "ordinal": 1,
+      "version": "2.4.2"
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "structure calculation",
+      "name": "Amber",
+      "ordinal": 2,
+      "version": "18"
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "refinement",
+      "name": "Amber",
+      "ordinal": 3,
+      "version": "18"
+    },
+    {
+      "authors": "Bruker Biospin",
+      "classification": "processing",
+      "name": "TopSpin",
+      "ordinal": 4,
+      "version": "4.0.7"
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "1"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-09T23:46:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.25,
+      "bonds_RMSZ": 0.69,
+      "clashscore_full_length": -0.2,
+      "num_H_reduce": 3456,
+      "num_angles_RMSZ": 12611,
+      "num_bonds_RMSZ": 8185
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 36.02,
+      "chemical_shift_completeness_full_length": 36.02,
+      "exp_method": "nmr"
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2023-09-18T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2024-02-07T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2024-02-07T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "8QKX",
+    "model_ids": [
+      1,
+      10,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "rcsb_id": "8QKX"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 788,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 432,
+    "deposited_model_count": 10,
+    "deposited_modeled_polymer_monomer_count": 38,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 38,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 11.87,
+    "na_polymer_entity_types": "DNA (only)",
+    "ndb_struct_conf_na_feature_combined": [
+      "b-form double helix",
+      "double helix",
+      "quadruple helix"
+    ],
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "DNA",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 2,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 2,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 0,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 7.5,
+    "polymer_molecular_weight_minimum": 4.37,
+    "polymer_monomer_count_maximum": 24,
+    "polymer_monomer_count_minimum": 14,
+    "selected_polymer_entity_types": "Nucleic acid (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "CCPNMR ANALYSIS",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "34863",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=34863",
+      "type": "BMRB"
+    },
+    {
+      "id": "8QKX",
+      "link": "https://nakb.org/atlas=8QKX",
+      "type": "NAKB"
+    }
+  ],
+  "rcsb_id": "8QKX",
+  "rcsb_primary_citation": {
+    "country": "DE",
+    "id": "primary",
+    "journal_abbrev": "Chemistryselect",
+    "journal_id_ISSN": "2365-6549",
+    "pdbx_database_id_DOI": "10.1002/slct.202304286",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Agustin, D.F.",
+      "Vianney, Y.M.",
+      "Weisz, K.",
+      "Wahjudi, M."
+    ],
+    "rcsb_journal_abbrev": "ChemistrySelect",
+    "title": "Structural Aspects of Split G-Quadruplexes in Quadruplex-Duplex Hybrid Systems",
+    "year": 2024
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Solution structure of a bimolecular quadruplex-duplex hybrid containing a V-shaped loop"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "DNA",
+    "text": "G-Quadruplex, Quadruplex-Duplex Hybrid, V-shaped loop, DNA"
+  }
+}

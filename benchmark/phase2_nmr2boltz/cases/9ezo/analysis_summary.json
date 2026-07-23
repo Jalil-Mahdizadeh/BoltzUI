@@ -1,0 +1,3973 @@
+{
+  "arms": {
+    "combined": {
+      "analysis": {
+        "best_of_10_best_of_ensemble": {
+          "assignment": {
+            "A": "A",
+            "B": "B"
+          },
+          "capri_class": "acceptable",
+          "capri_rank": 1,
+          "chain_backbone_rmsd": {
+            "A": 1.7440518606752258,
+            "B": 9.086683504757431
+          },
+          "complex_plddt": 0.8723530173301697,
+          "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_9.json",
+          "confidence_score": 0.8630022406578064,
+          "contact_f1": 0.29508196721311475,
+          "contact_precision": 0.20454545454545456,
+          "fnat": 0.5294117647058824,
+          "global_anchor_count": 228,
+          "global_backbone_rmsd": 5.535376187308062,
+          "interface_anchor_count": 48,
+          "interface_backbone_rmsd": 2.750431977674752,
+          "iptm": 0.8255990147590637,
+          "ligand_anchor_count": 57,
+          "ligand_chain": "B",
+          "ligand_rmsd": 11.497425503947225,
+          "native_contact_count": 17,
+          "predicted_contact_count": 44,
+          "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_9.pdb",
+          "prediction_model": 9,
+          "prediction_sequence_identity": {
+            "A": 1.0,
+            "B": 1.0
+          },
+          "ptm": 0.9307976961135864,
+          "receptor_anchor_count": 171,
+          "receptor_chain": "A",
+          "recovered_native_contacts": 9,
+          "reference_model": 7
+        },
+        "capri_class_counts": {
+          "acceptable": 1,
+          "high": 0,
+          "incorrect": 9,
+          "medium": 0
+        },
+        "metric_medians": {
+          "contact_f1": 0.21825396825396826,
+          "fnat": 0.5,
+          "global_backbone_rmsd": 11.713085514763229,
+          "interface_backbone_rmsd": 7.141381253523134,
+          "ligand_rmsd": 23.662032650697434
+        },
+        "model_summaries": [
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.4868238415483503,
+              "B": 7.862292610633059
+            },
+            "complex_plddt": 0.9334511756896973,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_0.json",
+            "confidence_score": 0.9347988367080688,
+            "contact_f1": 0.1818181818181818,
+            "contact_precision": 0.1111111111111111,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.107420549689841,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.155493733784343,
+            "iptm": 0.9401891827583313,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.605067510365124,
+            "native_contact_count": 12,
+            "predicted_contact_count": 54,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_0.pdb",
+            "prediction_model": 0,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9628328084945679,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5486178711768628,
+              "B": 7.806971586720757
+            },
+            "complex_plddt": 0.9274703860282898,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_1.json",
+            "confidence_score": 0.9289725422859192,
+            "contact_f1": 0.20338983050847456,
+            "contact_precision": 0.1276595744680851,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.195075644139843,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.208707025273439,
+            "iptm": 0.9349812269210815,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.781394684559523,
+            "native_contact_count": 12,
+            "predicted_contact_count": 47,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_1.pdb",
+            "prediction_model": 1,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9649494886398315,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.4866671369883437,
+              "B": 8.570152033200413
+            },
+            "complex_plddt": 0.9243893027305603,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_2.json",
+            "confidence_score": 0.9265145659446716,
+            "contact_f1": 0.2448979591836735,
+            "contact_precision": 0.16216216216216217,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.752495549409538,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.083604165064172,
+            "iptm": 0.9350153803825378,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.719424122296964,
+            "native_contact_count": 12,
+            "predicted_contact_count": 37,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_2.pdb",
+            "prediction_model": 2,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9626463651657104,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.472279242745798,
+              "B": 8.886136417000055
+            },
+            "complex_plddt": 0.9229667782783508,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_3.json",
+            "confidence_score": 0.9253849983215332,
+            "contact_f1": 0.21428571428571427,
+            "contact_precision": 0.13636363636363635,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.507167511555885,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.305640090615959,
+            "iptm": 0.9350579380989075,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.31085259054765,
+            "native_contact_count": 12,
+            "predicted_contact_count": 44,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_3.pdb",
+            "prediction_model": 3,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9642658233642578,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5360810313806372,
+              "B": 8.549122720390987
+            },
+            "complex_plddt": 0.91632479429245,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_4.json",
+            "confidence_score": 0.9198428988456726,
+            "contact_f1": 0.23529411764705882,
+            "contact_precision": 0.15384615384615385,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.618005305625388,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.2172533749031835,
+            "iptm": 0.9339151382446289,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.46012093891954,
+            "native_contact_count": 12,
+            "predicted_contact_count": 39,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_4.pdb",
+            "prediction_model": 4,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9610705375671387,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.484463011580788,
+              "B": 8.799742777416526
+            },
+            "complex_plddt": 0.9143661856651306,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_5.json",
+            "confidence_score": 0.9197246432304382,
+            "contact_f1": 0.22222222222222224,
+            "contact_precision": 0.14285714285714285,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.67367548011692,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.127268773261924,
+            "iptm": 0.9411585330963135,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.604641179097904,
+            "native_contact_count": 12,
+            "predicted_contact_count": 42,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_5.pdb",
+            "prediction_model": 5,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9656435251235962,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5135041726426657,
+              "B": 8.223592982847467
+            },
+            "complex_plddt": 0.9144032001495361,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_6.json",
+            "confidence_score": 0.9161969423294067,
+            "contact_f1": 0.20338983050847456,
+            "contact_precision": 0.1276595744680851,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.840196855992273,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.2310645740598956,
+            "iptm": 0.9233717322349548,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.074229629627517,
+            "native_contact_count": 12,
+            "predicted_contact_count": 47,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_6.pdb",
+            "prediction_model": 6,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9582251310348511,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.485351996112189,
+              "B": 8.422290684910488
+            },
+            "complex_plddt": 0.8886743783950806,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_7.json",
+            "confidence_score": 0.8929810523986816,
+            "contact_f1": 0.2608695652173913,
+            "contact_precision": 0.17647058823529413,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.83410700711802,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 6.876050621064328,
+            "iptm": 0.9102078676223755,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.0337727008338,
+            "native_contact_count": 12,
+            "predicted_contact_count": 34,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_7.pdb",
+            "prediction_model": 7,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9539440870285034,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.6539978498615147,
+              "B": 8.476497151172767
+            },
+            "complex_plddt": 0.8688966631889343,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_8.json",
+            "confidence_score": 0.8759563565254211,
+            "contact_f1": 0.16129032258064516,
+            "contact_precision": 0.1,
+            "fnat": 0.4166666666666667,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 10.933302895312277,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 5.814922148792744,
+            "iptm": 0.9041948318481445,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 22.59621991492814,
+            "native_contact_count": 12,
+            "predicted_contact_count": 50,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_8.pdb",
+            "prediction_model": 8,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9503042101860046,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 5,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "acceptable",
+            "capri_rank": 1,
+            "chain_backbone_rmsd": {
+              "A": 1.7440518606752258,
+              "B": 9.086683504757431
+            },
+            "complex_plddt": 0.8723530173301697,
+            "confidence_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/confidence_9ezo_combined_model_9.json",
+            "confidence_score": 0.8630022406578064,
+            "contact_f1": 0.29508196721311475,
+            "contact_precision": 0.20454545454545456,
+            "fnat": 0.5294117647058824,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 5.535376187308062,
+            "interface_anchor_count": 48,
+            "interface_backbone_rmsd": 2.750431977674752,
+            "iptm": 0.8255990147590637,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 11.497425503947225,
+            "native_contact_count": 17,
+            "predicted_contact_count": 44,
+            "prediction_file": "cases/9ezo/combined/results/boltz_results_9ezo_combined/predictions/9ezo_combined/9ezo_combined_model_9.pdb",
+            "prediction_model": 9,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9307976961135864,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 9,
+            "reference_model": 7
+          }
+        ],
+        "prediction_models_compared": 10,
+        "reference_models_compared": 19,
+        "restraint_audit_summary": {
+          "exact_unresolved_total": 0,
+          "median_exact_fraction_satisfied_resolved": 0.9595959595959596,
+          "median_union_fraction_satisfied_determinate": 0.95,
+          "models": 10,
+          "union_indeterminate_total": 0
+        },
+        "restraint_audits": [
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9595959595959596,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 475,
+              "total": 495,
+              "violated": 20
+            },
+            "model": 0,
+            "union": {
+              "fraction_satisfied_determinate": 0.9461538461538461,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 123,
+              "total": 130,
+              "violated": 7
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9595959595959596,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 475,
+              "total": 495,
+              "violated": 20
+            },
+            "model": 1,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 2,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9555555555555556,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 473,
+              "total": 495,
+              "violated": 22
+            },
+            "model": 3,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 4,
+            "union": {
+              "fraction_satisfied_determinate": 0.9615384615384616,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 125,
+              "total": 130,
+              "violated": 5
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9595959595959596,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 475,
+              "total": 495,
+              "violated": 20
+            },
+            "model": 5,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9636363636363636,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 477,
+              "total": 495,
+              "violated": 18
+            },
+            "model": 6,
+            "union": {
+              "fraction_satisfied_determinate": 0.9461538461538461,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 123,
+              "total": 130,
+              "violated": 7
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9595959595959596,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 475,
+              "total": 495,
+              "violated": 20
+            },
+            "model": 7,
+            "union": {
+              "fraction_satisfied_determinate": 0.9461538461538461,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 123,
+              "total": 130,
+              "violated": 7
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9555555555555556,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 473,
+              "total": 495,
+              "violated": 22
+            },
+            "model": 8,
+            "union": {
+              "fraction_satisfied_determinate": 0.9384615384615385,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 122,
+              "total": 130,
+              "violated": 8
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9737373737373738,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 482,
+              "total": 495,
+              "violated": 13
+            },
+            "model": 9,
+            "union": {
+              "fraction_satisfied_determinate": 0.9384615384615385,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 122,
+              "total": 130,
+              "violated": 8
+            }
+          }
+        ],
+        "technically_complete": true
+      },
+      "applicable": true,
+      "effect": {
+        "best_of_10_deltas": {
+          "capri_rank": 1,
+          "contact_f1": 0.08818541548897682,
+          "fnat": 0.02941176470588236,
+          "global_backbone_rmsd": -6.1576299447762075,
+          "interface_backbone_rmsd": -4.364180457926151,
+          "ligand_rmsd": -12.33071646553154
+        },
+        "median_model_deltas": {
+          "capri_rank": 0.0,
+          "contact_f1": 0.017050058195587123,
+          "fnat": 0.0,
+          "global_backbone_rmsd": -0.5511651200901024,
+          "interface_backbone_rmsd": -0.8423797398387589,
+          "ligand_rmsd": -1.2806116381987405
+        },
+        "model_pairs": [
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.025078369905956133,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": 0.4144144176055722,
+            "interface_backbone_rmsd_delta": 0.04088129818344033,
+            "ligand_rmsd_delta": 0.77692554088636,
+            "prediction_model": 0
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.010895883777239712,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.24809132887496865,
+            "interface_backbone_rmsd_delta": -0.7940701819832086,
+            "ligand_rmsd_delta": -0.6237082243978591,
+            "prediction_model": 1
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.03800140745953556,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.6262195779604074,
+            "interface_backbone_rmsd_delta": -0.8632955802391846,
+            "ligand_rmsd_delta": -1.4984879907265665,
+            "prediction_model": 2
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.01648351648351648,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.5209176532329334,
+            "interface_backbone_rmsd_delta": -0.7500317473131082,
+            "ligand_rmsd_delta": -1.1486032476268022,
+            "prediction_model": 3
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.06288032454361053,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": -0.6445489239515165,
+            "interface_backbone_rmsd_delta": -0.8450184956924076,
+            "ligand_rmsd_delta": -1.5313551568142643,
+            "prediction_model": 4
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.01532567049808431,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.5702180868715079,
+            "interface_backbone_rmsd_delta": -0.8298119209277228,
+            "ligand_rmsd_delta": -1.4126200287706787,
+            "prediction_model": 5
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.018774445893089936,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.32172695716961464,
+            "interface_backbone_rmsd_delta": -0.8397409839851102,
+            "ligand_rmsd_delta": -0.6042056039924795,
+            "prediction_model": 6
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.05678793256433004,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": -0.532112153308697,
+            "interface_backbone_rmsd_delta": -1.110463151619645,
+            "ligand_rmsd_delta": -1.0401321863340094,
+            "prediction_model": 7
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.056891495601173014,
+            "current_capri_class": "incorrect",
+            "fnat_delta": -0.08333333333333331,
+            "global_backbone_rmsd_delta": -1.1490712735366344,
+            "interface_backbone_rmsd_delta": -1.5233974443436606,
+            "ligand_rmsd_delta": -1.7330159392117075,
+            "prediction_model": 8
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 1,
+            "contact_f1_delta": 0.11326378539493295,
+            "current_capri_class": "acceptable",
+            "fnat_delta": 0.11274509803921567,
+            "global_backbone_rmsd_delta": -6.562607208850384,
+            "interface_backbone_rmsd_delta": -4.959179126188912,
+            "ligand_rmsd_delta": -13.345146035361674,
+            "prediction_model": 9
+          }
+        ],
+        "models_with_capri_rank_improvement": 1,
+        "models_with_capri_rank_worsening": 0,
+        "paired_models": 10
+      },
+      "manifest": {
+        "applicable": true,
+        "arm": "combined",
+        "command": {
+          "arguments": [
+            "predict",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/combined/input/9ezo_combined.yaml",
+            "--out_dir",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/combined/results",
+            "--cache",
+            "/opt/boltz-cache",
+            "--devices",
+            "1",
+            "--accelerator",
+            "gpu",
+            "--model",
+            "boltz2",
+            "--method",
+            "x-ray diffraction",
+            "--recycling_steps",
+            "3",
+            "--sampling_steps",
+            "400",
+            "--diffusion_samples",
+            "10",
+            "--max_parallel_samples",
+            "1",
+            "--step_scale",
+            "1.0",
+            "--seed",
+            "1",
+            "--use_potentials",
+            "--use_msa_server",
+            "--msa_server_url",
+            "https://api.colabfold.com",
+            "--msa_pairing_strategy",
+            "greedy",
+            "--max_msa_seqs",
+            "8192",
+            "--subsample_msa",
+            "--num_subsampled_msa",
+            "1024",
+            "--output_format",
+            "pdb",
+            "--write_full_pae",
+            "--override",
+            "--num_workers",
+            "0",
+            "--preprocessing-threads",
+            "1",
+            "--no_kernels"
+          ],
+          "display": "boltz predict /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/combined/input/9ezo_combined.yaml --out_dir /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/combined/results --cache /opt/boltz-cache --devices 1 --accelerator gpu --model boltz2 --method 'x-ray diffraction' --recycling_steps 3 --sampling_steps 400 --diffusion_samples 10 --max_parallel_samples 1 --step_scale 1.0 --seed 1 --use_potentials --use_msa_server --msa_server_url https://api.colabfold.com --msa_pairing_strategy greedy --max_msa_seqs 8192 --subsample_msa --num_subsampled_msa 1024 --output_format pdb --write_full_pae --override --num_workers 0 --preprocessing-threads 1 --no_kernels",
+          "executable": "boltz"
+        },
+        "exact_constraints": 495,
+        "fixed_phase1_msas": [
+          {
+            "bytes": 910008,
+            "entity_index": 0,
+            "file": "cases/9ezo/source/msa/entity_0.csv",
+            "sha256": "2a603e5ee9d53b89e212f362e94d60449c3c3d7c78a1f24b0bce5165ec9c2fa8",
+            "source": "candidates/9ezo-passed/results/boltz_results_9ezo_unconstrained/msa/9ezo_unconstrained_0.csv"
+          },
+          {
+            "bytes": 471,
+            "entity_index": 1,
+            "file": "cases/9ezo/source/msa/entity_1.csv",
+            "sha256": "5484160329429af204a81913bc1956ae3f226fd4d82045acbb4e78d4b305853b",
+            "source": "candidates/9ezo-passed/results/boltz_results_9ezo_unconstrained/msa/9ezo_unconstrained_1.csv"
+          }
+        ],
+        "input_file": "cases/9ezo/combined/input/9ezo_combined.yaml",
+        "input_sha256": "e7d34d35472e8e5c00aca152822b2cd4cbc60bea0c2746a50ff700c91dad0326",
+        "pdb_id": "9EZO",
+        "schema_version": 1,
+        "union_groups": 130
+      }
+    },
+    "exact": {
+      "analysis": {
+        "best_of_10_best_of_ensemble": {
+          "assignment": {
+            "A": "A",
+            "B": "B"
+          },
+          "capri_class": "incorrect",
+          "capri_rank": 0,
+          "chain_backbone_rmsd": {
+            "A": 1.541200540858403,
+            "B": 6.028325350420392
+          },
+          "complex_plddt": 0.9165093302726746,
+          "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_3.json",
+          "confidence_score": 0.9181258082389832,
+          "contact_f1": 0.21818181818181817,
+          "contact_precision": 0.13953488372093023,
+          "fnat": 0.5,
+          "global_anchor_count": 228,
+          "global_backbone_rmsd": 11.91385167198608,
+          "interface_anchor_count": 33,
+          "interface_backbone_rmsd": 6.354204387778702,
+          "iptm": 0.9245917797088623,
+          "ligand_anchor_count": 57,
+          "ligand_chain": "B",
+          "ligand_rmsd": 25.355364991337918,
+          "native_contact_count": 12,
+          "predicted_contact_count": 43,
+          "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_3.pdb",
+          "prediction_model": 3,
+          "prediction_sequence_identity": {
+            "A": 1.0,
+            "B": 1.0
+          },
+          "ptm": 0.958310067653656,
+          "receptor_anchor_count": 171,
+          "receptor_chain": "A",
+          "recovered_native_contacts": 6,
+          "reference_model": 13
+        },
+        "capri_class_counts": {
+          "acceptable": 0,
+          "high": 0,
+          "incorrect": 10,
+          "medium": 0
+        },
+        "metric_medians": {
+          "contact_f1": 0.22431865828092243,
+          "fnat": 0.5,
+          "global_backbone_rmsd": 11.682193053039889,
+          "interface_backbone_rmsd": 7.113280332151595,
+          "ligand_rmsd": 23.690085214218975
+        },
+        "model_summaries": [
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5083790354390985,
+              "B": 7.6930697390063765
+            },
+            "complex_plddt": 0.9309870004653931,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_0.json",
+            "confidence_score": 0.9322066307067871,
+            "contact_f1": 0.23529411764705882,
+            "contact_precision": 0.15384615384615385,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.999494798658002,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.359981236527486,
+            "iptm": 0.9370850324630737,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.258207188379387,
+            "native_contact_count": 12,
+            "predicted_contact_count": 39,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_0.pdb",
+            "prediction_model": 0,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9645893573760986,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5620924766959523,
+              "B": 8.384701093853064
+            },
+            "complex_plddt": 0.9225190877914429,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_1.json",
+            "confidence_score": 0.9240427017211914,
+            "contact_f1": 0.22641509433962262,
+            "contact_precision": 0.14634146341463414,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.566396329583926,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.172129811042896,
+            "iptm": 0.9301373958587646,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.608369651308788,
+            "native_contact_count": 12,
+            "predicted_contact_count": 41,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_1.pdb",
+            "prediction_model": 1,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.95980304479599,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5480362167731216,
+              "B": 7.5263143053240205
+            },
+            "complex_plddt": 0.9228678345680237,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_2.json",
+            "confidence_score": 0.9215839505195618,
+            "contact_f1": 0.21818181818181817,
+            "contact_precision": 0.13953488372093023,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.142227609201973,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.2928431887705685,
+            "iptm": 0.9164484143257141,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.648800551167756,
+            "native_contact_count": 12,
+            "predicted_contact_count": 43,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_2.pdb",
+            "prediction_model": 2,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9522830843925476,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.541200540858403,
+              "B": 6.028325350420392
+            },
+            "complex_plddt": 0.9165093302726746,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_3.json",
+            "confidence_score": 0.9181258082389832,
+            "contact_f1": 0.21818181818181817,
+            "contact_precision": 0.13953488372093023,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.91385167198608,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 6.354204387778702,
+            "iptm": 0.9245917797088623,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 25.355364991337918,
+            "native_contact_count": 12,
+            "predicted_contact_count": 43,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_3.pdb",
+            "prediction_model": 3,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.958310067653656,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.4800335922638301,
+              "B": 8.83885917373305
+            },
+            "complex_plddt": 0.9179219603538513,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_4.json",
+            "confidence_score": 0.9164236187934875,
+            "contact_f1": 0.22222222222222224,
+            "contact_precision": 0.14285714285714285,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.590105601788938,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.198083214167266,
+            "iptm": 0.9104304313659668,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.512577605983537,
+            "native_contact_count": 12,
+            "predicted_contact_count": 42,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_4.pdb",
+            "prediction_model": 4,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9538096189498901,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.4590260181203223,
+              "B": 8.928614542850799
+            },
+            "complex_plddt": 0.9129344820976257,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_5.json",
+            "confidence_score": 0.910970151424408,
+            "contact_f1": 0.23076923076923075,
+            "contact_precision": 0.15,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.458062833361028,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.0609112289041,
+            "iptm": 0.9031124711036682,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.24724590788209,
+            "native_contact_count": 12,
+            "predicted_contact_count": 40,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_5.pdb",
+            "prediction_model": 5,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9461305737495422,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.540099481073133,
+              "B": 8.093117752842153
+            },
+            "complex_plddt": 0.901900053024292,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_6.json",
+            "confidence_score": 0.9070222973823547,
+            "contact_f1": 0.22222222222222224,
+            "contact_precision": 0.14285714285714285,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.855417825622581,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 6.651348731063934,
+            "iptm": 0.92751145362854,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.814554210999034,
+            "native_contact_count": 12,
+            "predicted_contact_count": 42,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_6.pdb",
+            "prediction_model": 6,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9593775868415833,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.4939812960753085,
+              "B": 10.102501358467176
+            },
+            "complex_plddt": 0.8984971046447754,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_7.json",
+            "confidence_score": 0.9040160179138184,
+            "contact_f1": 0.25,
+            "contact_precision": 0.16666666666666666,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.030497697380268,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.16564943539909,
+            "iptm": 0.9260916113853455,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 22.501659259630408,
+            "native_contact_count": 12,
+            "predicted_contact_count": 36,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_7.pdb",
+            "prediction_model": 7,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9604417681694031,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5346595580778053,
+              "B": 7.756436287944446
+            },
+            "complex_plddt": 0.8943188190460205,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_8.json",
+            "confidence_score": 0.8979007601737976,
+            "contact_f1": 0.23999999999999996,
+            "contact_precision": 0.15789473684210525,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.774280504290838,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 6.702614938868122,
+            "iptm": 0.9122287034988403,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.771800777129158,
+            "native_contact_count": 12,
+            "predicted_contact_count": 38,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_8.pdb",
+            "prediction_model": 8,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9553914070129395,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5472588062309542,
+              "B": 6.921950785623048
+            },
+            "complex_plddt": 0.8859810829162598,
+            "confidence_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/confidence_9ezo_exact_model_9.json",
+            "confidence_score": 0.8930239677429199,
+            "contact_f1": 0.16393442622950818,
+            "contact_precision": 0.10869565217391304,
+            "fnat": 0.3333333333333333,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 10.67602930197444,
+            "interface_anchor_count": 39,
+            "interface_backbone_rmsd": 6.375698307633501,
+            "iptm": 0.9211955070495605,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 21.903070911775746,
+            "native_contact_count": 15,
+            "predicted_contact_count": 46,
+            "prediction_file": "cases/9ezo/exact/results/boltz_results_9ezo_exact/predictions/9ezo_exact/9ezo_exact_model_9.pdb",
+            "prediction_model": 9,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9575242400169373,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 5,
+            "reference_model": 14
+          }
+        ],
+        "prediction_models_compared": 10,
+        "reference_models_compared": 19,
+        "restraint_audit_summary": {
+          "exact_unresolved_total": 0,
+          "median_exact_fraction_satisfied_resolved": 0.9575757575757575,
+          "median_union_fraction_satisfied_determinate": null,
+          "models": 10,
+          "union_indeterminate_total": 0
+        },
+        "restraint_audits": [
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9535353535353536,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 472,
+              "total": 495,
+              "violated": 23
+            },
+            "model": 0,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 1,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 2,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9555555555555556,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 473,
+              "total": 495,
+              "violated": 22
+            },
+            "model": 3,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9595959595959596,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 475,
+              "total": 495,
+              "violated": 20
+            },
+            "model": 4,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 5,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 6,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 7,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9575757575757575,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 474,
+              "total": 495,
+              "violated": 21
+            },
+            "model": 8,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": 0.9595959595959596,
+              "median_excess_angstrom": 0.0,
+              "resolved": 495,
+              "satisfied": 475,
+              "total": 495,
+              "violated": 20
+            },
+            "model": 9,
+            "union": {
+              "fraction_satisfied_determinate": null,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": null,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            }
+          }
+        ],
+        "technically_complete": true
+      },
+      "applicable": true,
+      "effect": {
+        "best_of_10_deltas": {
+          "capri_rank": 0,
+          "contact_f1": 0.011285266457680243,
+          "fnat": 0.0,
+          "global_backbone_rmsd": 0.220845539901811,
+          "interface_backbone_rmsd": -0.7604080478222013,
+          "ligand_rmsd": 1.5272230218591538
+        },
+        "median_model_deltas": {
+          "capri_rank": 0.0,
+          "contact_f1": 0.02284543043163731,
+          "fnat": 0.0,
+          "global_backbone_rmsd": -0.49027114617302026,
+          "interface_backbone_rmsd": -0.8474180263210385,
+          "ligand_rmsd": -1.171389756185615
+        },
+        "model_pairs": [
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.028397565922920892,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": 0.30648866657373297,
+            "interface_backbone_rmsd_delta": 0.24536880092658286,
+            "ligand_rmsd_delta": 0.4300652189006229,
+            "prediction_model": 0
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.012129380053908345,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.876770643430886,
+            "interface_backbone_rmsd_delta": -0.8306473962137515,
+            "ligand_rmsd_delta": -1.7967332576485937,
+            "prediction_model": 1
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.011285266457680243,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.23648751816797287,
+            "interface_backbone_rmsd_delta": -0.6540565565327885,
+            "ligand_rmsd_delta": -0.5691115618557738,
+            "prediction_model": 2
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.012587412587412583,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.11423349280273776,
+            "interface_backbone_rmsd_delta": -1.701467450150365,
+            "ligand_rmsd_delta": 0.8959091531634655,
+            "prediction_model": 3
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.04980842911877395,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": -0.6724486277879667,
+            "interface_backbone_rmsd_delta": -0.8641886564283254,
+            "ligand_rmsd_delta": -1.478898489750268,
+            "prediction_model": 4
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.023872679045092826,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.7858307336273995,
+            "interface_backbone_rmsd_delta": -0.8961694652855465,
+            "ligand_rmsd_delta": -1.7700152999864933,
+            "prediction_model": 5
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.03760683760683761,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.3065059875393068,
+            "interface_backbone_rmsd_delta": -1.4194568269810715,
+            "ligand_rmsd_delta": -0.8638810226209621,
+            "prediction_model": 6
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.04591836734693874,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": -1.3357214630464487,
+            "interface_backbone_rmsd_delta": -0.820864337284883,
+            "ligand_rmsd_delta": -2.572245627537402,
+            "prediction_model": 7
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.021818181818181792,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.30809366455807385,
+            "interface_backbone_rmsd_delta": -0.6357046542682818,
+            "ligand_rmsd_delta": -0.5574350770106911,
+            "prediction_model": 8
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.01788375558867361,
+            "current_capri_class": "incorrect",
+            "fnat_delta": -0.08333333333333337,
+            "global_backbone_rmsd_delta": -1.4219540941840059,
+            "interface_backbone_rmsd_delta": -1.3339127962301633,
+            "ligand_rmsd_delta": -2.939500627533153,
+            "prediction_model": 9
+          }
+        ],
+        "models_with_capri_rank_improvement": 0,
+        "models_with_capri_rank_worsening": 0,
+        "paired_models": 10
+      },
+      "manifest": {
+        "applicable": true,
+        "arm": "exact",
+        "command": {
+          "arguments": [
+            "predict",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/exact/input/9ezo_exact.yaml",
+            "--out_dir",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/exact/results",
+            "--cache",
+            "/opt/boltz-cache",
+            "--devices",
+            "1",
+            "--accelerator",
+            "gpu",
+            "--model",
+            "boltz2",
+            "--method",
+            "x-ray diffraction",
+            "--recycling_steps",
+            "3",
+            "--sampling_steps",
+            "400",
+            "--diffusion_samples",
+            "10",
+            "--max_parallel_samples",
+            "1",
+            "--step_scale",
+            "1.0",
+            "--seed",
+            "1",
+            "--use_potentials",
+            "--use_msa_server",
+            "--msa_server_url",
+            "https://api.colabfold.com",
+            "--msa_pairing_strategy",
+            "greedy",
+            "--max_msa_seqs",
+            "8192",
+            "--subsample_msa",
+            "--num_subsampled_msa",
+            "1024",
+            "--output_format",
+            "pdb",
+            "--write_full_pae",
+            "--override",
+            "--num_workers",
+            "0",
+            "--preprocessing-threads",
+            "1",
+            "--no_kernels"
+          ],
+          "display": "boltz predict /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/exact/input/9ezo_exact.yaml --out_dir /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/exact/results --cache /opt/boltz-cache --devices 1 --accelerator gpu --model boltz2 --method 'x-ray diffraction' --recycling_steps 3 --sampling_steps 400 --diffusion_samples 10 --max_parallel_samples 1 --step_scale 1.0 --seed 1 --use_potentials --use_msa_server --msa_server_url https://api.colabfold.com --msa_pairing_strategy greedy --max_msa_seqs 8192 --subsample_msa --num_subsampled_msa 1024 --output_format pdb --write_full_pae --override --num_workers 0 --preprocessing-threads 1 --no_kernels",
+          "executable": "boltz"
+        },
+        "exact_constraints": 495,
+        "fixed_phase1_msas": [
+          {
+            "bytes": 910008,
+            "entity_index": 0,
+            "file": "cases/9ezo/source/msa/entity_0.csv",
+            "sha256": "2a603e5ee9d53b89e212f362e94d60449c3c3d7c78a1f24b0bce5165ec9c2fa8",
+            "source": "candidates/9ezo-passed/results/boltz_results_9ezo_unconstrained/msa/9ezo_unconstrained_0.csv"
+          },
+          {
+            "bytes": 471,
+            "entity_index": 1,
+            "file": "cases/9ezo/source/msa/entity_1.csv",
+            "sha256": "5484160329429af204a81913bc1956ae3f226fd4d82045acbb4e78d4b305853b",
+            "source": "candidates/9ezo-passed/results/boltz_results_9ezo_unconstrained/msa/9ezo_unconstrained_1.csv"
+          }
+        ],
+        "input_file": "cases/9ezo/exact/input/9ezo_exact.yaml",
+        "input_sha256": "7092843edb36eca2fb984c8b7e1396282a06e12e5240fe53800ae61a95bfbfcc",
+        "pdb_id": "9EZO",
+        "schema_version": 1,
+        "union_groups": 0
+      }
+    },
+    "union": {
+      "analysis": {
+        "best_of_10_best_of_ensemble": {
+          "assignment": {
+            "A": "A",
+            "B": "B"
+          },
+          "capri_class": "incorrect",
+          "capri_rank": 0,
+          "chain_backbone_rmsd": {
+            "A": 1.494477875601643,
+            "B": 5.606883322013106
+          },
+          "complex_plddt": 0.9014267921447754,
+          "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_9.json",
+          "confidence_score": 0.911789059638977,
+          "contact_f1": 0.1935483870967742,
+          "contact_precision": 0.12,
+          "fnat": 0.5,
+          "global_anchor_count": 228,
+          "global_backbone_rmsd": 12.422427439501519,
+          "interface_anchor_count": 33,
+          "interface_backbone_rmsd": 6.953699213338517,
+          "iptm": 0.9532379508018494,
+          "ligand_anchor_count": 57,
+          "ligand_chain": "B",
+          "ligand_rmsd": 25.936401558513065,
+          "native_contact_count": 12,
+          "predicted_contact_count": 50,
+          "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_9.pdb",
+          "prediction_model": 9,
+          "prediction_sequence_identity": {
+            "A": 1.0,
+            "B": 1.0
+          },
+          "ptm": 0.9752751588821411,
+          "receptor_anchor_count": 171,
+          "receptor_chain": "A",
+          "recovered_native_contacts": 6,
+          "reference_model": 13
+        },
+        "capri_class_counts": {
+          "acceptable": 0,
+          "high": 0,
+          "incorrect": 10,
+          "medium": 0
+        },
+        "metric_medians": {
+          "contact_f1": 0.21078582434514637,
+          "fnat": 0.5,
+          "global_backbone_rmsd": 12.025649855427393,
+          "interface_backbone_rmsd": 7.5288934423759635,
+          "ligand_rmsd": 24.349235772433552
+        },
+        "model_summaries": [
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5713219187120901,
+              "B": 8.073498929921975
+            },
+            "complex_plddt": 0.9348682761192322,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_0.json",
+            "confidence_score": 0.9397344589233398,
+            "contact_f1": 0.1935483870967742,
+            "contact_precision": 0.12,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.267249225324708,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.937392974859736,
+            "iptm": 0.9591992497444153,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.9244566093808,
+            "native_contact_count": 12,
+            "predicted_contact_count": 50,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_0.pdb",
+            "prediction_model": 0,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9750648140907288,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5818726526905924,
+              "B": 7.659509108222782
+            },
+            "complex_plddt": 0.9341543316841125,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_1.json",
+            "confidence_score": 0.9388816952705383,
+            "contact_f1": 0.21818181818181817,
+            "contact_precision": 0.13953488372093023,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.152517277563014,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.160887709038512,
+            "iptm": 0.9577909111976624,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.48820975968072,
+            "native_contact_count": 12,
+            "predicted_contact_count": 43,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_1.pdb",
+            "prediction_model": 1,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9759196043014526,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.562032342008704,
+              "B": 9.27675386829331
+            },
+            "complex_plddt": 0.9350686073303223,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_2.json",
+            "confidence_score": 0.9378553628921509,
+            "contact_f1": 0.22641509433962262,
+            "contact_precision": 0.14634146341463414,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.840539657007238,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.9498873771140985,
+            "iptm": 0.9490024447441101,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.150399477594892,
+            "native_contact_count": 12,
+            "predicted_contact_count": 41,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_2.pdb",
+            "prediction_model": 2,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9744617342948914,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.551567285546548,
+              "B": 7.673657354751438
+            },
+            "complex_plddt": 0.9325652122497559,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_3.json",
+            "confidence_score": 0.9377595782279968,
+            "contact_f1": 0.2,
+            "contact_precision": 0.125,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.450252544359795,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.945729977210708,
+            "iptm": 0.9585371017456055,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 25.301752403019496,
+            "native_contact_count": 12,
+            "predicted_contact_count": 48,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_3.pdb",
+            "prediction_model": 3,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9763092994689941,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5291733673425507,
+              "B": 8.180108315061956
+            },
+            "complex_plddt": 0.9303436279296875,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_4.json",
+            "confidence_score": 0.9345517158508301,
+            "contact_f1": 0.19047619047619047,
+            "contact_precision": 0.11764705882352941,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.898782433291771,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.097945176645662,
+            "iptm": 0.9513840079307556,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.997195863231987,
+            "native_contact_count": 12,
+            "predicted_contact_count": 51,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_4.pdb",
+            "prediction_model": 4,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9741372466087341,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.4567976736146078,
+              "B": 7.72630215900062
+            },
+            "complex_plddt": 0.9318076968193054,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_5.json",
+            "confidence_score": 0.9343960881233215,
+            "contact_f1": 0.20338983050847456,
+            "contact_precision": 0.1276595744680851,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.375707520553712,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.847993556098068,
+            "iptm": 0.944749653339386,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 25.18543138981526,
+            "native_contact_count": 12,
+            "predicted_contact_count": 47,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_5.pdb",
+            "prediction_model": 5,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9706407785415649,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5222226334312847,
+              "B": 8.8048063371488
+            },
+            "complex_plddt": 0.929440975189209,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_6.json",
+            "confidence_score": 0.9343269467353821,
+            "contact_f1": 0.22641509433962262,
+            "contact_precision": 0.14634146341463414,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.833544235754282,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 8.27662494677493,
+            "iptm": 0.9538708925247192,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 24.210261785186386,
+            "native_contact_count": 12,
+            "predicted_contact_count": 41,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_6.pdb",
+            "prediction_model": 6,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9763742685317993,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5911677660232688,
+              "B": 8.970208113662979
+            },
+            "complex_plddt": 0.9236580729484558,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_7.json",
+            "confidence_score": 0.929887592792511,
+            "contact_f1": 0.23529411764705882,
+            "contact_precision": 0.15384615384615385,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.401375466490055,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.084538380814354,
+            "iptm": 0.9548057913780212,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.041878308478932,
+            "native_contact_count": 12,
+            "predicted_contact_count": 39,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_7.pdb",
+            "prediction_model": 7,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.976773202419281,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.5101092357831665,
+              "B": 8.386343659021463
+            },
+            "complex_plddt": 0.9309818148612976,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_8.json",
+            "confidence_score": 0.9282094836235046,
+            "contact_f1": 0.22222222222222224,
+            "contact_precision": 0.14285714285714285,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 11.793150969460365,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 7.209793328653858,
+            "iptm": 0.9171203970909119,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 23.980678941821857,
+            "native_contact_count": 12,
+            "predicted_contact_count": 42,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_8.pdb",
+            "prediction_model": 8,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9633541107177734,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          },
+          {
+            "assignment": {
+              "A": "A",
+              "B": "B"
+            },
+            "capri_class": "incorrect",
+            "capri_rank": 0,
+            "chain_backbone_rmsd": {
+              "A": 1.494477875601643,
+              "B": 5.606883322013106
+            },
+            "complex_plddt": 0.9014267921447754,
+            "confidence_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/confidence_9ezo_union_model_9.json",
+            "confidence_score": 0.911789059638977,
+            "contact_f1": 0.1935483870967742,
+            "contact_precision": 0.12,
+            "fnat": 0.5,
+            "global_anchor_count": 228,
+            "global_backbone_rmsd": 12.422427439501519,
+            "interface_anchor_count": 33,
+            "interface_backbone_rmsd": 6.953699213338517,
+            "iptm": 0.9532379508018494,
+            "ligand_anchor_count": 57,
+            "ligand_chain": "B",
+            "ligand_rmsd": 25.936401558513065,
+            "native_contact_count": 12,
+            "predicted_contact_count": 50,
+            "prediction_file": "cases/9ezo/union/results/boltz_results_9ezo_union/predictions/9ezo_union/9ezo_union_model_9.pdb",
+            "prediction_model": 9,
+            "prediction_sequence_identity": {
+              "A": 1.0,
+              "B": 1.0
+            },
+            "ptm": 0.9752751588821411,
+            "receptor_anchor_count": 171,
+            "receptor_chain": "A",
+            "recovered_native_contacts": 6,
+            "reference_model": 13
+          }
+        ],
+        "prediction_models_compared": 10,
+        "reference_models_compared": 19,
+        "restraint_audit_summary": {
+          "exact_unresolved_total": 0,
+          "median_exact_fraction_satisfied_resolved": null,
+          "median_union_fraction_satisfied_determinate": 0.9538461538461539,
+          "models": 10,
+          "union_indeterminate_total": 0
+        },
+        "restraint_audits": [
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 0,
+            "union": {
+              "fraction_satisfied_determinate": 0.9461538461538461,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 123,
+              "total": 130,
+              "violated": 7
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 1,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 2,
+            "union": {
+              "fraction_satisfied_determinate": 0.9461538461538461,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 123,
+              "total": 130,
+              "violated": 7
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 3,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 4,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 5,
+            "union": {
+              "fraction_satisfied_determinate": 0.9461538461538461,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 123,
+              "total": 130,
+              "violated": 7
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 6,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 7,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 8,
+            "union": {
+              "fraction_satisfied_determinate": 0.9538461538461539,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 124,
+              "total": 130,
+              "violated": 6
+            }
+          },
+          {
+            "exact": {
+              "fraction_satisfied_resolved": null,
+              "median_excess_angstrom": null,
+              "resolved": 0,
+              "satisfied": 0,
+              "total": 0,
+              "violated": 0
+            },
+            "model": 9,
+            "union": {
+              "fraction_satisfied_determinate": 0.9615384615384616,
+              "indeterminate": 0,
+              "median_minimum_excess_angstrom": 0.0,
+              "satisfied": 125,
+              "total": 130,
+              "violated": 5
+            }
+          }
+        ],
+        "technically_complete": true
+      },
+      "applicable": true,
+      "effect": {
+        "best_of_10_deltas": {
+          "capri_rank": 0,
+          "contact_f1": -0.01334816462736374,
+          "fnat": 0.0,
+          "global_backbone_rmsd": 0.7294213074172493,
+          "interface_backbone_rmsd": -0.16091322226238614,
+          "ligand_rmsd": 2.1082595890343008
+        },
+        "median_model_deltas": {
+          "capri_rank": 0.0,
+          "contact_f1": 0.00788530465949823,
+          "fnat": 0.0,
+          "global_backbone_rmsd": -0.289936447420172,
+          "interface_backbone_rmsd": -0.11923406260045244,
+          "ligand_rmsd": -0.4083651803758013
+        },
+        "model_pairs": [
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.01334816462736374,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": 0.5742430932404385,
+            "interface_backbone_rmsd_delta": 0.822780539258833,
+            "ligand_rmsd_delta": 1.0963146399020367,
+            "prediction_model": 0
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.0038961038961038974,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.29064969545179764,
+            "interface_backbone_rmsd_delta": -0.8418894982181353,
+            "ligand_rmsd_delta": -0.9168931492766603,
+            "prediction_model": 1
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.01951854261548469,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.5381754703627077,
+            "interface_backbone_rmsd_delta": 0.0029876318107415756,
+            "ligand_rmsd_delta": -1.0675126354286384,
+            "prediction_model": 2
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.030769230769230743,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": 0.4221673795709773,
+            "interface_backbone_rmsd_delta": -0.10994186071835887,
+            "ligand_rmsd_delta": 0.8422965648450429,
+            "prediction_model": 3
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.01806239737274218,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": -0.3637717962851337,
+            "interface_backbone_rmsd_delta": -0.9643266939499293,
+            "ligand_rmsd_delta": -0.9942802325018185,
+            "prediction_model": 4
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": -0.0035067212156633665,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": 0.1318139535652847,
+            "interface_backbone_rmsd_delta": -0.10908713809157877,
+            "ligand_rmsd_delta": 0.1681701819466781,
+            "prediction_model": 5
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.04179970972423799,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.32837957740760615,
+            "interface_backbone_rmsd_delta": 0.20581938872992467,
+            "ligand_rmsd_delta": -0.4681734484336104,
+            "prediction_model": 6
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.031212484993997563,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": -0.9648436939366611,
+            "interface_backbone_rmsd_delta": -0.9019753918696196,
+            "ligand_rmsd_delta": -2.0320265786888783,
+            "prediction_model": 7
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.004040404040404066,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.0,
+            "global_backbone_rmsd_delta": -0.28922319938854635,
+            "interface_backbone_rmsd_delta": -0.128526264482546,
+            "ligand_rmsd_delta": -0.34855691231799213,
+            "prediction_model": 8
+          },
+          {
+            "baseline_capri_class": "incorrect",
+            "capri_rank_delta": 0,
+            "contact_f1_delta": 0.011730205278592393,
+            "current_capri_class": "incorrect",
+            "fnat_delta": 0.08333333333333331,
+            "global_backbone_rmsd_delta": 0.32444404334307286,
+            "interface_backbone_rmsd_delta": -0.7559118905251472,
+            "ligand_rmsd_delta": 1.093830019204166,
+            "prediction_model": 9
+          }
+        ],
+        "models_with_capri_rank_improvement": 0,
+        "models_with_capri_rank_worsening": 0,
+        "paired_models": 10
+      },
+      "manifest": {
+        "applicable": true,
+        "arm": "union",
+        "command": {
+          "arguments": [
+            "predict",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/union/input/9ezo_union.yaml",
+            "--out_dir",
+            "/workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/union/results",
+            "--cache",
+            "/opt/boltz-cache",
+            "--devices",
+            "1",
+            "--accelerator",
+            "gpu",
+            "--model",
+            "boltz2",
+            "--method",
+            "x-ray diffraction",
+            "--recycling_steps",
+            "3",
+            "--sampling_steps",
+            "400",
+            "--diffusion_samples",
+            "10",
+            "--max_parallel_samples",
+            "1",
+            "--step_scale",
+            "1.0",
+            "--seed",
+            "1",
+            "--use_potentials",
+            "--use_msa_server",
+            "--msa_server_url",
+            "https://api.colabfold.com",
+            "--msa_pairing_strategy",
+            "greedy",
+            "--max_msa_seqs",
+            "8192",
+            "--subsample_msa",
+            "--num_subsampled_msa",
+            "1024",
+            "--output_format",
+            "pdb",
+            "--write_full_pae",
+            "--override",
+            "--num_workers",
+            "0",
+            "--preprocessing-threads",
+            "1",
+            "--no_kernels"
+          ],
+          "display": "boltz predict /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/union/input/9ezo_union.yaml --out_dir /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/9ezo/union/results --cache /opt/boltz-cache --devices 1 --accelerator gpu --model boltz2 --method 'x-ray diffraction' --recycling_steps 3 --sampling_steps 400 --diffusion_samples 10 --max_parallel_samples 1 --step_scale 1.0 --seed 1 --use_potentials --use_msa_server --msa_server_url https://api.colabfold.com --msa_pairing_strategy greedy --max_msa_seqs 8192 --subsample_msa --num_subsampled_msa 1024 --output_format pdb --write_full_pae --override --num_workers 0 --preprocessing-threads 1 --no_kernels",
+          "executable": "boltz"
+        },
+        "exact_constraints": 0,
+        "fixed_phase1_msas": [
+          {
+            "bytes": 910008,
+            "entity_index": 0,
+            "file": "cases/9ezo/source/msa/entity_0.csv",
+            "sha256": "2a603e5ee9d53b89e212f362e94d60449c3c3d7c78a1f24b0bce5165ec9c2fa8",
+            "source": "candidates/9ezo-passed/results/boltz_results_9ezo_unconstrained/msa/9ezo_unconstrained_0.csv"
+          },
+          {
+            "bytes": 471,
+            "entity_index": 1,
+            "file": "cases/9ezo/source/msa/entity_1.csv",
+            "sha256": "5484160329429af204a81913bc1956ae3f226fd4d82045acbb4e78d4b305853b",
+            "source": "candidates/9ezo-passed/results/boltz_results_9ezo_unconstrained/msa/9ezo_unconstrained_1.csv"
+          }
+        ],
+        "input_file": "cases/9ezo/union/input/9ezo_union.yaml",
+        "input_sha256": "3abb133e990cd0b636e4bbdad85961f1380ae6c9f0beea64cc4040796b4865a0",
+        "pdb_id": "9EZO",
+        "schema_version": 1,
+        "union_groups": 130
+      }
+    }
+  },
+  "baseline_control": "phase1_unconstrained",
+  "conversion": {
+    "constraint_scope": {
+      "exact_interchain": 13,
+      "exact_intrachain": 482,
+      "exact_total": 495,
+      "union_alternatives": 266,
+      "union_interchain_only": 6,
+      "union_intrachain_only": 124,
+      "union_mixed": 0,
+      "union_total": 130
+    },
+    "format_parity": {
+      "exact": {
+        "first_count": 495,
+        "first_only_count": 157,
+        "identical": false,
+        "intersection_count": 338,
+        "jaccard": 0.49560117302052786,
+        "second_count": 525,
+        "second_only_count": 187
+      },
+      "pdb_id": "9EZO",
+      "union": {
+        "first_count": 110,
+        "first_only_count": 110,
+        "identical": false,
+        "intersection_count": 0,
+        "jaccard": 0.0,
+        "second_count": 92,
+        "second_only_count": 92
+      }
+    },
+    "nef_statistics": {
+      "ambiguous_or_groups_not_emitted": 130,
+      "atom_topology_quarantines": 0,
+      "embedded_component_topologies": 0,
+      "emitted_atom_topology_violations": 0,
+      "emitted_unique_heavy_atom_constraints": 495,
+      "intrachain_groups_filtered": 0,
+      "intraresidue_groups_filtered": 0,
+      "mixed_chain_scope_groups_filtered": 0,
+      "mixed_intraresidue_interresidue_groups_filtered": 0,
+      "projected_alternatives_removed_by_intrachain_filter": 0,
+      "projected_alternatives_removed_by_intraresidue_filter": 0,
+      "rejection_records": 0,
+      "restraint_groups_read": 695,
+      "safe_groups_before_pair_deduplication": 565,
+      "sequence_records": 76,
+      "source_alternatives_read": 1047,
+      "union_alternatives_raised_to_boltz_minimum": 0,
+      "union_groups_quarantined_above_boltz_maximum": 0
+    },
+    "nmr_star_statistics": {
+      "ambiguous_or_groups_not_emitted": 98,
+      "atom_topology_quarantines": 0,
+      "embedded_component_topologies": 0,
+      "emitted_atom_topology_violations": 0,
+      "emitted_unique_heavy_atom_constraints": 525,
+      "intrachain_groups_filtered": 0,
+      "intraresidue_groups_filtered": 0,
+      "mixed_chain_scope_groups_filtered": 0,
+      "mixed_intraresidue_interresidue_groups_filtered": 0,
+      "projected_alternatives_removed_by_intrachain_filter": 0,
+      "projected_alternatives_removed_by_intraresidue_filter": 0,
+      "rejection_records": 0,
+      "restraint_groups_read": 695,
+      "safe_groups_before_pair_deduplication": 597,
+      "sequence_records": 76,
+      "source_alternatives_read": 695,
+      "union_alternatives_raised_to_boltz_minimum": 0,
+      "union_groups_quarantined_above_boltz_maximum": 0
+    },
+    "reference_restraint_audit": {
+      "models": [
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 1,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 2,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 3,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9919191919191919,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 491,
+            "total": 495,
+            "violated": 4
+          },
+          "model": 4,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 5,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9919191919191919,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 491,
+            "total": 495,
+            "violated": 4
+          },
+          "model": 6,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 7,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 8,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 9,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9878787878787879,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 489,
+            "total": 495,
+            "violated": 6
+          },
+          "model": 10,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9858585858585859,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 488,
+            "total": 495,
+            "violated": 7
+          },
+          "model": 11,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9939393939393939,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 492,
+            "total": 495,
+            "violated": 3
+          },
+          "model": 12,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 13,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9878787878787879,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 489,
+            "total": 495,
+            "violated": 6
+          },
+          "model": 14,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9858585858585859,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 488,
+            "total": 495,
+            "violated": 7
+          },
+          "model": 15,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 16,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.98989898989899,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 490,
+            "total": 495,
+            "violated": 5
+          },
+          "model": 17,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9919191919191919,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 491,
+            "total": 495,
+            "violated": 4
+          },
+          "model": 18,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        },
+        {
+          "exact": {
+            "fraction_satisfied_resolved": 0.9878787878787879,
+            "median_excess_angstrom": 0.0,
+            "resolved": 495,
+            "satisfied": 489,
+            "total": 495,
+            "violated": 6
+          },
+          "model": 19,
+          "union": {
+            "fraction_satisfied_determinate": 1.0,
+            "indeterminate": 0,
+            "median_minimum_excess_angstrom": 0.0,
+            "satisfied": 130,
+            "total": 130,
+            "violated": 0
+          }
+        }
+      ],
+      "summary": {
+        "exact_unresolved_total": 0,
+        "median_exact_fraction_satisfied_resolved": 0.98989898989899,
+        "median_union_fraction_satisfied_determinate": 1.0,
+        "models": 19,
+        "union_indeterminate_total": 0
+      }
+    }
+  },
+  "matched_baseline": {
+    "best_of_10_best_of_ensemble": {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 1.493720218672411,
+        "B": 8.4104726469243
+      },
+      "complex_plddt": 0.9424223899841309,
+      "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_0.json",
+      "confidence_score": 0.9459473490715027,
+      "contact_f1": 0.20689655172413793,
+      "contact_precision": 0.13043478260869565,
+      "fnat": 0.5,
+      "global_anchor_count": 228,
+      "global_backbone_rmsd": 11.69300613208427,
+      "interface_anchor_count": 33,
+      "interface_backbone_rmsd": 7.114612435600903,
+      "iptm": 0.9600470662117004,
+      "ligand_anchor_count": 57,
+      "ligand_chain": "B",
+      "ligand_rmsd": 23.828141969478764,
+      "native_contact_count": 12,
+      "predicted_contact_count": 46,
+      "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_0.pdb",
+      "prediction_model": 0,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.9774450063705444,
+      "receptor_anchor_count": 171,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 6,
+      "reference_model": 13
+    },
+    "capri_class_counts": {
+      "acceptable": 0,
+      "high": 0,
+      "incorrect": 10,
+      "medium": 0
+    },
+    "classification_reason": "all_10_predictions_capri_incorrect",
+    "classified_at": "2026-07-20T15:35:54Z",
+    "expected_prediction_models": 10,
+    "model_summaries": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.493720218672411,
+          "B": 8.4104726469243
+        },
+        "complex_plddt": 0.9424223899841309,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_0.json",
+        "confidence_score": 0.9459473490715027,
+        "contact_f1": 0.20689655172413793,
+        "contact_precision": 0.13043478260869565,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 11.69300613208427,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.114612435600903,
+        "iptm": 0.9600470662117004,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 23.828141969478764,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_0.pdb",
+        "prediction_model": 0,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9774450063705444,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.4628941685038308,
+          "B": 7.547198976105298
+        },
+        "complex_plddt": 0.936233401298523,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_1.json",
+        "confidence_score": 0.9397996068000793,
+        "contact_f1": 0.21428571428571427,
+        "contact_precision": 0.13636363636363635,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.443166973014812,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.002777207256647,
+        "iptm": 0.9540645480155945,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.40510290895738,
+        "native_contact_count": 12,
+        "predicted_contact_count": 44,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_1.pdb",
+        "prediction_model": 1,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9763900637626648,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.5230168310429293,
+          "B": 7.89708665967294
+        },
+        "complex_plddt": 0.9343587160110474,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_2.json",
+        "confidence_score": 0.9383267760276794,
+        "contact_f1": 0.20689655172413793,
+        "contact_precision": 0.13043478260869565,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.378715127369945,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.946899745303357,
+        "iptm": 0.9541988372802734,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.21791211302353,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_2.pdb",
+        "prediction_model": 2,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9742138385772705,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.501874759904197,
+          "B": 8.481108752357894
+        },
+        "complex_plddt": 0.9337448477745056,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_3.json",
+        "confidence_score": 0.9378623962402344,
+        "contact_f1": 0.23076923076923075,
+        "contact_precision": 0.15,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.028085164788818,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.055671837929067,
+        "iptm": 0.9543325901031494,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.459455838174453,
+        "native_contact_count": 12,
+        "predicted_contact_count": 40,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_3.pdb",
+        "prediction_model": 3,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9750449657440186,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.428024520579396,
+          "B": 8.267033927970033
+        },
+        "complex_plddt": 0.9316360354423523,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_4.json",
+        "confidence_score": 0.9361498951911926,
+        "contact_f1": 0.1724137931034483,
+        "contact_precision": 0.10869565217391304,
+        "fnat": 0.4166666666666667,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.262554229576905,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.062271870595591,
+        "iptm": 0.9542053937911987,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.991476095733805,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_4.pdb",
+        "prediction_model": 4,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9750317335128784,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 5,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.5381503982805833,
+          "B": 7.949864666816237
+        },
+        "complex_plddt": 0.9310182332992554,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_5.json",
+        "confidence_score": 0.9359361529350281,
+        "contact_f1": 0.20689655172413793,
+        "contact_precision": 0.13043478260869565,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.243893566988428,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.957080694189647,
+        "iptm": 0.9556077122688293,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.017261207868582,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_5.pdb",
+        "prediction_model": 5,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.975413978099823,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.516268349718217,
+          "B": 8.395474130892437
+        },
+        "complex_plddt": 0.9258098602294922,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_6.json",
+        "confidence_score": 0.9322822690010071,
+        "contact_f1": 0.18461538461538463,
+        "contact_precision": 0.11320754716981132,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.161923813161888,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.070805558045006,
+        "iptm": 0.9581719636917114,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.678435233619997,
+        "native_contact_count": 12,
+        "predicted_contact_count": 53,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_6.pdb",
+        "prediction_model": 6,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9759825468063354,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.6293394878676017,
+          "B": 8.019199076286355
+        },
+        "complex_plddt": 0.9206843972206116,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_7.json",
+        "confidence_score": 0.9276953935623169,
+        "contact_f1": 0.20408163265306126,
+        "contact_precision": 0.13513513513513514,
+        "fnat": 0.4166666666666667,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.366219160426716,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.986513772683973,
+        "iptm": 0.9557393789291382,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.07390488716781,
+        "native_contact_count": 12,
+        "predicted_contact_count": 37,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_7.pdb",
+        "prediction_model": 7,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9770355224609375,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 5,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.6183806725995336,
+          "B": 8.102359907522274
+        },
+        "complex_plddt": 0.9133625030517578,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_8.json",
+        "confidence_score": 0.9218725562095642,
+        "contact_f1": 0.21818181818181817,
+        "contact_precision": 0.13953488372093023,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.082374168848911,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.338319593136404,
+        "iptm": 0.9559126496315002,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.32923585413985,
+        "native_contact_count": 12,
+        "predicted_contact_count": 43,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_8.pdb",
+        "prediction_model": 8,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9762359261512756,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.4870189150661552,
+          "B": 8.185950679398038
+        },
+        "complex_plddt": 0.9005345702171326,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_9.json",
+        "confidence_score": 0.9098483324050903,
+        "contact_f1": 0.1818181818181818,
+        "contact_precision": 0.11627906976744186,
+        "fnat": 0.4166666666666667,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.097983396158446,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.709611103863664,
+        "iptm": 0.9471033215522766,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.8425715393089,
+        "native_contact_count": 12,
+        "predicted_contact_count": 43,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_9.pdb",
+        "prediction_model": 9,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9712671041488647,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 5,
+        "reference_model": 13
+      }
+    ],
+    "pdb_id": "9EZO",
+    "prediction_models_compared": 10,
+    "reference_models_compared": 19,
+    "schema_version": 1,
+    "status": "passed",
+    "technically_complete": true,
+    "unified_nmr_downloads": [
+      {
+        "bytes": 174714,
+        "compressed_file": "nmr_data/9ezo_nmr-data.nef.gz",
+        "compressed_sha256": "2cbf6912cefd5c8e1c440af433f83a00b3bd6a708479664210b334561ef25fbf",
+        "file": "nmr_data/9ezo_nmr-data.nef",
+        "format": "NEF",
+        "sha256": "b2235bde6346e854367780ff5c8385e425be64b573bfa0cdabf101a6a7b87ee3",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/ez/9ezo_nmr-data.nef.gz"
+      },
+      {
+        "bytes": 318221,
+        "compressed_file": "nmr_data/9ezo_nmr-data.str.gz",
+        "compressed_sha256": "a6c2ba3627a7046c002b42b195ab691a730fab69520c5631407918c02e7ada85",
+        "file": "nmr_data/9ezo_nmr-data.str",
+        "format": "NMR-STAR",
+        "sha256": "fb18ca4b283296878fd8ce4edb94fcd37db6abb5271f7cb35ef987f525205f62",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/ez/9ezo_nmr-data.str.gz"
+      }
+    ]
+  },
+  "original_phase1_baseline": {
+    "best_of_10_best_of_ensemble": {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 1.493720218672411,
+        "B": 8.4104726469243
+      },
+      "complex_plddt": 0.9424223899841309,
+      "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_0.json",
+      "confidence_score": 0.9459473490715027,
+      "contact_f1": 0.20689655172413793,
+      "contact_precision": 0.13043478260869565,
+      "fnat": 0.5,
+      "global_anchor_count": 228,
+      "global_backbone_rmsd": 11.69300613208427,
+      "interface_anchor_count": 33,
+      "interface_backbone_rmsd": 7.114612435600903,
+      "iptm": 0.9600470662117004,
+      "ligand_anchor_count": 57,
+      "ligand_chain": "B",
+      "ligand_rmsd": 23.828141969478764,
+      "native_contact_count": 12,
+      "predicted_contact_count": 46,
+      "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_0.pdb",
+      "prediction_model": 0,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.9774450063705444,
+      "receptor_anchor_count": 171,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 6,
+      "reference_model": 13
+    },
+    "capri_class_counts": {
+      "acceptable": 0,
+      "high": 0,
+      "incorrect": 10,
+      "medium": 0
+    },
+    "classification_reason": "all_10_predictions_capri_incorrect",
+    "classified_at": "2026-07-20T15:35:54Z",
+    "expected_prediction_models": 10,
+    "model_summaries": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.493720218672411,
+          "B": 8.4104726469243
+        },
+        "complex_plddt": 0.9424223899841309,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_0.json",
+        "confidence_score": 0.9459473490715027,
+        "contact_f1": 0.20689655172413793,
+        "contact_precision": 0.13043478260869565,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 11.69300613208427,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.114612435600903,
+        "iptm": 0.9600470662117004,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 23.828141969478764,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_0.pdb",
+        "prediction_model": 0,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9774450063705444,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.4628941685038308,
+          "B": 7.547198976105298
+        },
+        "complex_plddt": 0.936233401298523,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_1.json",
+        "confidence_score": 0.9397996068000793,
+        "contact_f1": 0.21428571428571427,
+        "contact_precision": 0.13636363636363635,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.443166973014812,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.002777207256647,
+        "iptm": 0.9540645480155945,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.40510290895738,
+        "native_contact_count": 12,
+        "predicted_contact_count": 44,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_1.pdb",
+        "prediction_model": 1,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9763900637626648,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.5230168310429293,
+          "B": 7.89708665967294
+        },
+        "complex_plddt": 0.9343587160110474,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_2.json",
+        "confidence_score": 0.9383267760276794,
+        "contact_f1": 0.20689655172413793,
+        "contact_precision": 0.13043478260869565,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.378715127369945,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.946899745303357,
+        "iptm": 0.9541988372802734,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.21791211302353,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_2.pdb",
+        "prediction_model": 2,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9742138385772705,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.501874759904197,
+          "B": 8.481108752357894
+        },
+        "complex_plddt": 0.9337448477745056,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_3.json",
+        "confidence_score": 0.9378623962402344,
+        "contact_f1": 0.23076923076923075,
+        "contact_precision": 0.15,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.028085164788818,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.055671837929067,
+        "iptm": 0.9543325901031494,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.459455838174453,
+        "native_contact_count": 12,
+        "predicted_contact_count": 40,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_3.pdb",
+        "prediction_model": 3,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9750449657440186,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.428024520579396,
+          "B": 8.267033927970033
+        },
+        "complex_plddt": 0.9316360354423523,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_4.json",
+        "confidence_score": 0.9361498951911926,
+        "contact_f1": 0.1724137931034483,
+        "contact_precision": 0.10869565217391304,
+        "fnat": 0.4166666666666667,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.262554229576905,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.062271870595591,
+        "iptm": 0.9542053937911987,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.991476095733805,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_4.pdb",
+        "prediction_model": 4,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9750317335128784,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 5,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.5381503982805833,
+          "B": 7.949864666816237
+        },
+        "complex_plddt": 0.9310182332992554,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_5.json",
+        "confidence_score": 0.9359361529350281,
+        "contact_f1": 0.20689655172413793,
+        "contact_precision": 0.13043478260869565,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.243893566988428,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.957080694189647,
+        "iptm": 0.9556077122688293,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.017261207868582,
+        "native_contact_count": 12,
+        "predicted_contact_count": 46,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_5.pdb",
+        "prediction_model": 5,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.975413978099823,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.516268349718217,
+          "B": 8.395474130892437
+        },
+        "complex_plddt": 0.9258098602294922,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_6.json",
+        "confidence_score": 0.9322822690010071,
+        "contact_f1": 0.18461538461538463,
+        "contact_precision": 0.11320754716981132,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.161923813161888,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 8.070805558045006,
+        "iptm": 0.9581719636917114,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.678435233619997,
+        "native_contact_count": 12,
+        "predicted_contact_count": 53,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_6.pdb",
+        "prediction_model": 6,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9759825468063354,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.6293394878676017,
+          "B": 8.019199076286355
+        },
+        "complex_plddt": 0.9206843972206116,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_7.json",
+        "confidence_score": 0.9276953935623169,
+        "contact_f1": 0.20408163265306126,
+        "contact_precision": 0.13513513513513514,
+        "fnat": 0.4166666666666667,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.366219160426716,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.986513772683973,
+        "iptm": 0.9557393789291382,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 25.07390488716781,
+        "native_contact_count": 12,
+        "predicted_contact_count": 37,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_7.pdb",
+        "prediction_model": 7,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9770355224609375,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 5,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.6183806725995336,
+          "B": 8.102359907522274
+        },
+        "complex_plddt": 0.9133625030517578,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_8.json",
+        "confidence_score": 0.9218725562095642,
+        "contact_f1": 0.21818181818181817,
+        "contact_precision": 0.13953488372093023,
+        "fnat": 0.5,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.082374168848911,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.338319593136404,
+        "iptm": 0.9559126496315002,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.32923585413985,
+        "native_contact_count": 12,
+        "predicted_contact_count": 43,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_8.pdb",
+        "prediction_model": 8,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9762359261512756,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 6,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "incorrect",
+        "capri_rank": 0,
+        "chain_backbone_rmsd": {
+          "A": 1.4870189150661552,
+          "B": 8.185950679398038
+        },
+        "complex_plddt": 0.9005345702171326,
+        "confidence_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/confidence_9ezo_unconstrained_model_9.json",
+        "confidence_score": 0.9098483324050903,
+        "contact_f1": 0.1818181818181818,
+        "contact_precision": 0.11627906976744186,
+        "fnat": 0.4166666666666667,
+        "global_anchor_count": 228,
+        "global_backbone_rmsd": 12.097983396158446,
+        "interface_anchor_count": 33,
+        "interface_backbone_rmsd": 7.709611103863664,
+        "iptm": 0.9471033215522766,
+        "ligand_anchor_count": 57,
+        "ligand_chain": "B",
+        "ligand_rmsd": 24.8425715393089,
+        "native_contact_count": 12,
+        "predicted_contact_count": 43,
+        "prediction_file": "results/boltz_results_9ezo_unconstrained/predictions/9ezo_unconstrained/9ezo_unconstrained_model_9.pdb",
+        "prediction_model": 9,
+        "prediction_sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "ptm": 0.9712671041488647,
+        "receptor_anchor_count": 171,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 5,
+        "reference_model": 13
+      }
+    ],
+    "pdb_id": "9EZO",
+    "prediction_models_compared": 10,
+    "reference_models_compared": 19,
+    "schema_version": 1,
+    "status": "passed",
+    "technically_complete": true,
+    "unified_nmr_downloads": [
+      {
+        "bytes": 174714,
+        "compressed_file": "nmr_data/9ezo_nmr-data.nef.gz",
+        "compressed_sha256": "2cbf6912cefd5c8e1c440af433f83a00b3bd6a708479664210b334561ef25fbf",
+        "file": "nmr_data/9ezo_nmr-data.nef",
+        "format": "NEF",
+        "sha256": "b2235bde6346e854367780ff5c8385e425be64b573bfa0cdabf101a6a7b87ee3",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/ez/9ezo_nmr-data.nef.gz"
+      },
+      {
+        "bytes": 318221,
+        "compressed_file": "nmr_data/9ezo_nmr-data.str.gz",
+        "compressed_sha256": "a6c2ba3627a7046c002b42b195ab691a730fab69520c5631407918c02e7ada85",
+        "file": "nmr_data/9ezo_nmr-data.str",
+        "format": "NMR-STAR",
+        "sha256": "fb18ca4b283296878fd8ce4edb94fcd37db6abb5271f7cb35ef987f525205f62",
+        "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/ez/9ezo_nmr-data.str.gz"
+      }
+    ]
+  },
+  "pdb_id": "9EZO"
+}

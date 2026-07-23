@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36697"
+  ],
+  "candidate_directory": "candidates/9jvn-passed",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 8,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "CGCACGCG"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "2",
+      "length": 8,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "CGCGUGCG"
+    }
+  ],
+  "classification_reason": "all_10_predictions_capri_incorrect",
+  "classified_at": "2026-07-20T17:43:51Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/9jvn.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "cf9fc747555b246ee89992583008b8f63274f0ba933b884022cc668e4bbc2171",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 16,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 0.4205169383735336,
+    "medoid_backbone_rmsd_mean": 0.1727180633482259,
+    "medoid_backbone_rmsd_median": 0.14435796384527375,
+    "medoid_backbone_rmsd_p90": 0.3447692689541723,
+    "medoid_model": 6,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 18,
+    "native_contact_count_median": 18.0,
+    "native_contact_count_minimum": 18,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/9jvn_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/9jvn",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 16,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "9JVN",
+  "polymer_composition": "DNA/RNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T17:36:04Z",
+  "reference_file": "reference/9jvn.pdb",
+  "release_date": "2024-11-06T00:00:00.000+00:00",
+  "status": "passed",
+  "title": "Z-FORM DNA-RNA HYBRID"
+}

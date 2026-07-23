@@ -1,0 +1,580 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0003-0225-5165",
+      "name": "Gaussmann, S.",
+      "pdbx_ordinal": 1
+    }
+  ],
+  "citation": [
+    {
+      "country": "US",
+      "id": "primary",
+      "journal_abbrev": "Proc.Natl.Acad.Sci.USA",
+      "journal_id_ASTM": "PNASA6",
+      "journal_id_CSD": "0040",
+      "journal_id_ISSN": "1091-6490",
+      "journal_volume": "123",
+      "page_first": "e2533726123",
+      "page_last": "e2533726123",
+      "pdbx_database_id_DOI": "10.1073/pnas.2533726123",
+      "pdbx_database_id_PubMed": 41746722,
+      "rcsb_authors": [
+        "Krishna, C.K.",
+        "Gaussmann, S.",
+        "Das, H.",
+        "Jung, M.",
+        "Oeljeklaus, S.",
+        "Sattler, M.",
+        "Warscheid, B.",
+        "Kalel, V.C.",
+        "Erdmann, R."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Proc Natl Acad Sci U S A",
+      "title": "Evolutionary remodeling of a remnant GET pathway factor into PEX38, an essential peroxin.",
+      "year": 2026
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9SGX",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9sgx/pdb",
+      "pdbx_database_accession": "pdb_00009sgx"
+    },
+    {
+      "database_code": "D_1292150397",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "35015",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR35015"
+    }
+  ],
+  "entry": {
+    "id": "9SGX"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-06-17T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Germany",
+      "funding_organization": "German Research Foundation (DFG)",
+      "grant_number": "FOR1905",
+      "ordinal": 1
+    },
+    {
+      "country": "European Union",
+      "funding_organization": "Marie Sklodowska-Curie Actions, FragNET ITN",
+      "grant_number": "2018 812968",
+      "ordinal": 2
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "35015",
+      "db_name": "BMRB",
+      "details": "tbPEX38(65-134) in complex with tbPEX19(1-50)"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2025-08-22T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the least restraint violations",
+    "conformers_calculated_total_number": 200,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 3,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 3,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 3,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 3,
+      "type": "3D H(CCO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 3,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "25",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 3,
+      "type": "3D HCACO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "24",
+      "sample_state": "isotropic",
+      "solution_id": "5",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "23",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "22",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "21",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "20",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "26",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "19",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "18",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "3D H(CCO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "17",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "16",
+      "sample_state": "isotropic",
+      "solution_id": "6",
+      "spectrometer_id": 1,
+      "type": "3D HCACO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "27",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 2,
+      "type": "3D HCCH-TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "15",
+      "sample_state": "isotropic",
+      "solution_id": "4",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "13",
+      "sample_state": "isotropic",
+      "solution_id": "3",
+      "spectrometer_id": 2,
+      "type": "3D 1H-15N NOESY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "0.22",
+      "ionic_strength_units": "mM",
+      "label": "All_conditions",
+      "pH": "6.5",
+      "pH_units": "pH",
+      "pressure": "AMBIENT",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "torsion angle dynamics",
+      "software_ordinal": 4
+    },
+    {
+      "method": "molecular dynamics",
+      "software_ordinal": 6
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "fewest violations"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "400 uM [U-100% 15N] tbPEX19, 1000 uM tbPEX38, 20 mM sodium phosphate, 100 mM sodium chloride, 1 mM dithiothreitol, 90% H2O/10% D2O",
+      "label": "15N_PEX19_Unl_PEX38",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "400 uM [U-100% 13C; U-100% 15N] tbPEX19, 1000 mM tbPEX38, 20 mM sodium phosphate, 100 mM sodium chloride, 1 mM dithiothreitol, 100% D2O",
+      "label": "13C15N_PEX19_Unl_PEX38",
+      "solution_id": "2",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "400 uM [U-100% 13C; U-100% 15N] tbPEX19, 1000 mM tbPEX38, 20 mM sodium phosphate, 100 mM sodium chloride, 1 mM dithiothreitol, 90% H2O/10% D2O",
+      "label": "13C15N_PEX19_PEX38_assign",
+      "solution_id": "5",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "300 uM [U-100% 15N] tbPEX38, 800 uM tbPEX19, 20 mM sodium phosphate, 100 mM sodium chloride, 1 mM dithiothreitol, 90% H2O/10% D2O",
+      "label": "15N_PEX38_Unl_PEX19",
+      "solution_id": "3",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "300 uM [U-100% 13C; U-100% 15N] tbPEX38, 800 uM tbPEX19, 20 mM sodium phosphate, 100 mM sodium chloride, 1 mM dithiothreitol, 100% D2O",
+      "label": "13C15N_PEX38_Unl_PEX19",
+      "solution_id": "4",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "300 uM [U-100% 13C; U-100% 15N] tbPEX38, 800 uM tbPEX19, 20 mM sodium phosphate, 100 mM sodium chloride, 1 mM dithiothreitol, 90% H2O/10% D2O",
+      "label": "13C15N_PEX38_PEX19_assign",
+      "solution_id": "6",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Bruker Biospin",
+      "classification": "collection",
+      "name": "TopSpin",
+      "ordinal": 1,
+      "version": "3.6"
+    },
+    {
+      "authors": "Vranken, Boucher et al. 2005",
+      "classification": "peak picking",
+      "name": "CcpNmr Analysis",
+      "ordinal": 2,
+      "version": "2.4.2"
+    },
+    {
+      "authors": "Vranken, Boucher et al. 2005",
+      "classification": "chemical shift assignment",
+      "name": "CcpNmr Analysis",
+      "ordinal": 3,
+      "version": "2.4.2"
+    },
+    {
+      "authors": "Guntert, Mumenthaler and Wuthrich",
+      "classification": "structure calculation",
+      "name": "CYANA",
+      "ordinal": 4,
+      "version": "3.98.15"
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "refinement",
+      "name": "Amber",
+      "ordinal": 6,
+      "version": "20"
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 900.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 950.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "2"
+    },
+    {
+      "field_strength": 1200.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE NEO",
+      "spectrometer_id": "3"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-06-08T18:17:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.95,
+      "bonds_RMSZ": 0.48,
+      "clashscore": 3.2,
+      "clashscore_full_length": 2.18,
+      "num_H_reduce": 18740,
+      "num_angles_RMSZ": 26680,
+      "num_bonds_RMSZ": 19920,
+      "percent_ramachandran_outliers_full_length": 0.5,
+      "percent_rotamer_outliers": 2.73,
+      "percent_rotamer_outliers_full_length": 3.01
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 82.48,
+      "chemical_shift_completeness_full_length": 84.19,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 1,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 1,
+      "nmrclust_representative_model": 1
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-08-22T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-06-17T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2026-06-17T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9SGX",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "pubmed_id": 41746722,
+    "rcsb_id": "9SGX"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 984,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 936,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 124,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 124,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 14.07,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 8.09,
+    "polymer_molecular_weight_minimum": 5.98,
+    "polymer_monomer_count_maximum": 70,
+    "polymer_monomer_count_minimum": 54,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "CCPNMR ANALYSIS",
+      "CYANA",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "35015",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=35015",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9SGX",
+  "rcsb_primary_citation": {
+    "country": "US",
+    "id": "primary",
+    "journal_abbrev": "Proc.Natl.Acad.Sci.USA",
+    "journal_id_ASTM": "PNASA6",
+    "journal_id_CSD": "0040",
+    "journal_id_ISSN": "1091-6490",
+    "journal_volume": "123",
+    "page_first": "e2533726123",
+    "page_last": "e2533726123",
+    "pdbx_database_id_DOI": "10.1073/pnas.2533726123",
+    "pdbx_database_id_PubMed": 41746722,
+    "rcsb_ORCID_identifiers": [
+      "0009-0002-3161-4075",
+      "0000-0003-0225-5165",
+      "0009-0009-6060-1557",
+      "0000-0002-1482-7020",
+      "0000-0001-8908-4295",
+      "?",
+      "?",
+      "0000-0001-6023-7454",
+      "0000-0001-8380-0342"
+    ],
+    "rcsb_authors": [
+      "Krishna, C.K.",
+      "Gaussmann, S.",
+      "Das, H.",
+      "Jung, M.",
+      "Oeljeklaus, S.",
+      "Sattler, M.",
+      "Warscheid, B.",
+      "Kalel, V.C.",
+      "Erdmann, R."
+    ],
+    "rcsb_journal_abbrev": "Proc Natl Acad Sci U S A",
+    "title": "Evolutionary remodeling of a remnant GET pathway factor into PEX38, an essential peroxin.",
+    "year": 2026
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "tbPEX38(65-134) in complex with tbPEX19(1-50)"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "CHAPERONE",
+    "text": "Peroxin, PEX38, PEX19, Peroxisome Biogenesis, CHAPERONE"
+  }
+}

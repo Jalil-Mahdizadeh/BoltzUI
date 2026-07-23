@@ -1,0 +1,430 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0003-4285-4170",
+      "name": "Barbosa, G.M.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0002-3969-704X",
+      "name": "Da Poian, A.T.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0001-6046-7006",
+      "name": "Almeida, F.C.L.",
+      "pdbx_ordinal": 3
+    }
+  ],
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To Be Published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Barbosa, G.M.",
+        "Da Poian, A.T.",
+        "Almeida, F.C.L."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "The role of the N-terminal intrinsically disordered region of the Dengue virus capsid protein in protecting hydrophobic surfaces from full exposure."
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9MES",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9mes/pdb",
+      "pdbx_database_accession": "pdb_00009mes"
+    },
+    {
+      "database_code": "D_1000289929",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "51073",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR51073"
+    }
+  ],
+  "entry": {
+    "id": "9MES"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-12-17T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Brazil",
+      "funding_organization": "Brazilian National Council for Scientific and Technological Development (CNPq)",
+      "grant_number": "313517/2021-5",
+      "ordinal": 1
+    },
+    {
+      "country": "Brazil",
+      "funding_organization": "Brazilian National Council for Scientific and Technological Development (CNPq)",
+      "grant_number": "312650/2021-3",
+      "ordinal": 2
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "51073",
+      "db_name": "BMRB"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "RCSB",
+    "pdb_format_compatible": "Y",
+    "process_site": "RCSB",
+    "recvd_initial_deposition_date": "2024-12-08T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 400,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCO"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HBHA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "10",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "11",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HCCH-TOCSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "255",
+      "ionic_strength_units": "mM",
+      "label": "condition_308K_pH6",
+      "pH": "6",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "308",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "300 uM [U-13C; U-15N] Dengue Virus2 capsid protein with the deletion of the intrinsically disordered N-teminal region., 55 mM sodium phosphate pH 6, 200 mM sodium chloride, 5 % v/v [U-2H] D2O, 95% H2O/5% D2O",
+      "label": "15N_13C_D1-19_DENV2C",
+      "solution_id": "1",
+      "solvent_system": "95% H2O/5% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "CCPN",
+      "classification": "chemical shift assignment",
+      "name": "CcpNmr Analysis",
+      "ordinal": 1
+    },
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "structure calculation",
+      "name": "CNS",
+      "ordinal": 2
+    },
+    {
+      "authors": "Bhattacharya and Montelione",
+      "classification": "refinement",
+      "name": "PSVS",
+      "ordinal": 3
+    },
+    {
+      "authors": "CCPN",
+      "classification": "peak picking",
+      "name": "CcpNmr Analysis",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 800.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-06T21:17:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.69,
+      "bonds_RMSZ": 0.38,
+      "clashscore": 5.95,
+      "clashscore_full_length": 5.43,
+      "num_H_reduce": 29980,
+      "num_angles_RMSZ": 36040,
+      "num_bonds_RMSZ": 27140,
+      "percent_ramachandran_outliers": 2.81,
+      "percent_ramachandran_outliers_full_length": 4.22,
+      "percent_rotamer_outliers": 2.71,
+      "percent_rotamer_outliers_full_length": 3.19
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 22.43,
+      "chemical_shift_completeness_full_length": 20.2,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 14,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 5,
+      "nmrclust_representative_model": 19
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-12-08T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-12-17T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2025-12-17T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1"
+    ],
+    "entry_id": "9MES",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "rcsb_id": "9MES"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 1339,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1498,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 164,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 164,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 1,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 19.12,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "homomeric protein",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 1,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 9.56,
+    "polymer_molecular_weight_minimum": 9.56,
+    "polymer_monomer_count_maximum": 82,
+    "polymer_monomer_count_minimum": 82,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "CCPNMR ANALYSIS",
+      "CNS",
+      "PSVS"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "51073",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=51073",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9MES",
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To Be Published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "0000-0003-4285-4170",
+      "0000-0002-3969-704X",
+      "0000-0001-6046-7006"
+    ],
+    "rcsb_authors": [
+      "Barbosa, G.M.",
+      "Da Poian, A.T.",
+      "Almeida, F.C.L."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "The role of the N-terminal intrinsically disordered region of the Dengue virus capsid protein in protecting hydrophobic surfaces from full exposure."
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "NMR strucuture of Dengue Virus 2 capsid protein with the deletion of the intrinsically disordered N-terminal region"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "VIRAL PROTEIN",
+    "text": "Capsid, Dengue Virus, Intrinsically disordered region, VIRAL PROTEIN"
+  }
+}

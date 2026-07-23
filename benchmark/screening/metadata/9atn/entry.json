@@ -1,0 +1,530 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0001-8170-9983",
+      "name": "Zhang, Y.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0002-4967-6867",
+      "name": "Zandian, M.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0001-7375-6990",
+      "name": "Kutateladze, T.",
+      "pdbx_ordinal": 3
+    }
+  ],
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Nat Commun",
+      "journal_id_ISSN": "2041-1723",
+      "journal_volume": "15",
+      "page_first": "4883",
+      "page_last": "4883",
+      "pdbx_database_id_DOI": "10.1038/s41467-024-49391-x",
+      "pdbx_database_id_PubMed": 38849395,
+      "rcsb_authors": [
+        "Zhang, Y.",
+        "Xie, G.",
+        "Lee, J.E.",
+        "Zandian, M.",
+        "Sudarshan, D.",
+        "Estavoyer, B.",
+        "Benz, C.",
+        "Viita, T.",
+        "Asgaritarghi, G.",
+        "Lachance, C.",
+        "Messmer, C.",
+        "Simonetti, L.",
+        "Sinha, V.K.",
+        "Lambert, J.P.",
+        "Chen, Y.W.",
+        "Wang, S.P.",
+        "Ivarsson, Y.",
+        "Affar, E.B.",
+        "Cote, J.",
+        "Ge, K.",
+        "Kutateladze, T.G."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Nat Commun",
+      "title": "ASXLs binding to the PHD2/3 fingers of MLL4 provides a mechanism for the recruitment of BAP1 to active enhancers.",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9ATN",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9atn/pdb",
+      "pdbx_database_accession": "pdb_00009atn"
+    },
+    {
+      "database_code": "D_1000281731",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "31041",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR31041"
+    }
+  ],
+  "entry": {
+    "id": "9ATN"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2024-06-19T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "United States",
+      "funding_organization": "National Institutes of Health/National Institute on Aging (NIH/NIA)",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "31041",
+      "db_name": "BMRB",
+      "details": "NMR structure of the MLL4 PHD2/3 fingers in complex with ASXL2"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "RCSB",
+    "pdb_format_compatible": "Y",
+    "process_site": "RCSB",
+    "recvd_initial_deposition_date": "2024-02-27T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 60,
+    "conformers_submitted_total_number": 15
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "14",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "12",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "13",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "15",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HN(CO)CA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D CBCA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D C(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HBHA(CO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D H(CCO)NH"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "10",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "11",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D HCCH-TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D 1H-13C NOESY aliphatic"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "150",
+      "ionic_strength_units": "mM",
+      "label": "NMR Buffer",
+      "pH": "7.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "molecular dynamics",
+      "software_ordinal": 1
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "1.5 mM 13C, 15N MLL4 PHD2,3, 25 mM TRIS, 150 mM sodium chloride, 3 mM DTT, 93% H2O/7% D2O",
+      "label": "U-13C, U-15N MLL4 PHD2,3 - C-ASXL2",
+      "solution_id": "1",
+      "solvent_system": "93% H2O/7% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "refinement",
+      "name": "X-PLOR NIH",
+      "ordinal": 1
+    },
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "structure calculation",
+      "name": "X-PLOR NIH",
+      "ordinal": 2
+    },
+    {
+      "authors": "CCPN",
+      "classification": "chemical shift assignment",
+      "name": "CcpNmr Analysis",
+      "ordinal": 3
+    },
+    {
+      "authors": "Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax",
+      "classification": "processing",
+      "name": "NMRPipe",
+      "ordinal": 4
+    },
+    {
+      "authors": "CCPN",
+      "classification": "peak picking",
+      "name": "CcpNmr Analysis",
+      "ordinal": 5
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Varian",
+      "model": "INOVA",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 900.0,
+      "manufacturer": "Varian",
+      "model": "INOVA",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-05T19:11:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.06,
+      "bonds_RMSZ": 0.65,
+      "clashscore": 8.88,
+      "clashscore_full_length": 8.85,
+      "num_H_reduce": 12825,
+      "num_angles_RMSZ": 18105,
+      "num_bonds_RMSZ": 13485,
+      "percent_ramachandran_outliers": 5.96,
+      "percent_ramachandran_outliers_full_length": 5.96,
+      "percent_rotamer_outliers": 12.27,
+      "percent_rotamer_outliers_full_length": 12.27
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 72.97,
+      "chemical_shift_completeness_full_length": 72.88,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 8,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 4,
+      "nmrclust_number_of_models": 15,
+      "nmrclust_number_of_outliers": 3,
+      "nmrclust_representative_model": 7
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-02-27T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2024-06-19T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2024-06-19T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "entry_id": "9ATN",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "3"
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "pubmed_id": 38849395,
+    "rcsb_id": "9ATN"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 885,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 860,
+    "deposited_model_count": 15,
+    "deposited_modeled_polymer_monomer_count": 117,
+    "deposited_nonpolymer_entity_instance_count": 4,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 119,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 2,
+    "disulfide_bond_count": 0,
+    "entity_count": 3,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 16,
+    "molecular_weight": 13.26,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_bound_components": [
+      "ZN"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.07,
+    "nonpolymer_molecular_weight_minimum": 0.07,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 11.01,
+    "polymer_molecular_weight_minimum": 1.99,
+    "polymer_monomer_count_maximum": 100,
+    "polymer_monomer_count_minimum": 19,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "CCPNMR ANALYSIS",
+      "NMRPIPE",
+      "X-PLOR NIH"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_id": "9ATN",
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Nat Commun",
+    "journal_id_ISSN": "2041-1723",
+    "journal_volume": "15",
+    "page_first": "4883",
+    "page_last": "4883",
+    "pdbx_database_id_DOI": "10.1038/s41467-024-49391-x",
+    "pdbx_database_id_PubMed": 38849395,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "0000-0002-8250-6157",
+      "0000-0002-3768-7016",
+      "0000-0002-4967-6867",
+      "?",
+      "?",
+      "0000-0002-5166-3598",
+      "?",
+      "?",
+      "?",
+      "?",
+      "0000-0003-1283-9770",
+      "?",
+      "0000-0002-0833-1221",
+      "?",
+      "0000-0002-5895-1269",
+      "0000-0002-7081-3846",
+      "0000-0002-6374-3683",
+      "0000-0001-6751-555X",
+      "?",
+      "0000-0001-7375-6990"
+    ],
+    "rcsb_authors": [
+      "Zhang, Y.",
+      "Xie, G.",
+      "Lee, J.E.",
+      "Zandian, M.",
+      "Sudarshan, D.",
+      "Estavoyer, B.",
+      "Benz, C.",
+      "Viita, T.",
+      "Asgaritarghi, G.",
+      "Lachance, C.",
+      "Messmer, C.",
+      "Simonetti, L.",
+      "Sinha, V.K.",
+      "Lambert, J.P.",
+      "Chen, Y.W.",
+      "Wang, S.P.",
+      "Ivarsson, Y.",
+      "Affar, E.B.",
+      "Cote, J.",
+      "Ge, K.",
+      "Kutateladze, T.G."
+    ],
+    "rcsb_journal_abbrev": "Nat Commun",
+    "title": "ASXLs binding to the PHD2/3 fingers of MLL4 provides a mechanism for the recruitment of BAP1 to active enhancers.",
+    "year": 2024
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "NMR structure of the MLL4 PHD2/3 fingers in complex with ASXL2"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "TRANSFERASE/PROTEIN BINDING",
+    "text": "MLL4, transcription, PROTEIN BINDING, TRANSFERASE-PROTEIN BINDING complex"
+  }
+}

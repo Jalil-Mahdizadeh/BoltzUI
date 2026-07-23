@@ -5,10 +5,24 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const fs = require("node:fs");
 const os = require("node:os");
-const { buildBoltzCommand, summarizeResultDir } = require("../server");
+const {
+  buildBoltzCommand,
+  sortInputFilesNewestFirst,
+  summarizeResultDir
+} = require("../server");
 
 const input = path.join("fixtures", "atom_contact_example.yaml");
 const unionInput = path.join("fixtures", "atom_contact_union_example.yaml");
+const tokenInput = path.join("fixtures", "token_contact_example.yaml");
+
+test("input files are ordered newest first with deterministic name ties", () => {
+  const inputs = sortInputFilesNewestFirst([
+    { path: "workspace/inputs/older.yaml", name: "older.yaml", createdAt: "2026-01-01T00:00:00.000Z" },
+    { path: "workspace/inputs/z.yaml", name: "z.yaml", createdAt: "2026-01-02T00:00:00.000Z" },
+    { path: "workspace/inputs/a.yaml", name: "a.yaml", createdAt: "2026-01-02T00:00:00.000Z" }
+  ]);
+  assert.deepEqual(inputs.map((inputFile) => inputFile.name), ["a.yaml", "z.yaml", "older.yaml"]);
+});
 
 test("atom-contact commands default override on without run-specific output directories", () => {
   const prediction = buildBoltzCommand({ data: input, preset: "standard" });
@@ -36,6 +50,13 @@ test("union-only atom contacts trigger the same safe override policy", () => {
   assert.equal(prediction.atomContacts.length, 0);
   assert.equal(prediction.atomContactUnions.length, 1);
   assert.equal(prediction.atomContactUnions[0].alternatives.length, 2);
+});
+
+test("token-only contacts are retained for post-prediction restraint auditing", () => {
+  const prediction = buildBoltzCommand({ data: tokenInput, preset: "standard" });
+  assert.equal(prediction.tokenContacts.length, 1);
+  assert.equal(prediction.atomContacts.length, 0);
+  assert.equal(prediction.atomContactUnions.length, 0);
 });
 
 test("hydrogen flags use the BoltzUI wrapper and are passed to copied commands", () => {

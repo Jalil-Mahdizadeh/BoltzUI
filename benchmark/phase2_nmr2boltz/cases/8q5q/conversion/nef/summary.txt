@@ -1,0 +1,26 @@
+NMR-to-Boltz heavy-atom projection summary
+==============================================
+Input: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8q5q/source/8q5q_nmr-data.nef
+Detected format: nef
+Restraint groups read: 1212
+Source alternatives read: 1670
+Safe groups before pair deduplication: 1114
+Exact atom constraints emitted: 948
+Atom-contact union groups emitted: 8
+Union alternatives raised to the Boltz minimum: 0
+Union groups quarantined above the Boltz maximum: 0
+Inter-chain-only filter enabled: no
+Intrachain restraint groups filtered: 0
+Projected alternatives removed by intrachain filtering: 0
+Mixed intrachain/inter-chain OR groups filtered in full: 0
+Intraresidue restraint groups filtered: 0
+Projected alternatives removed by intraresidue filtering: 0
+Mixed intraresidue/inter-residue OR groups filtered in full: 0
+Rejection records: 104
+
+Important:
+- atom_constraints_exact.yaml contains only non-ambiguous contacts.
+- atom_constraints_union.yaml contains only ambiguous OR groups with per-alternative bounds.
+- ambiguous_groups.tsv preserves the full audit metadata for those OR alternatives.
+- conversion_report.json is the lossless audit/provenance record.
+- sequences.fasta contains polymer-only sequences extracted from the source sequence map.

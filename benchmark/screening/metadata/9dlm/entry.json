@@ -1,0 +1,413 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0001-7907-9732",
+      "name": "Chen, J.L.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0001-9270-9145",
+      "name": "Taghavi, A.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0001-8486-1796",
+      "name": "Disney, M.D.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "identifier_ORCID": "0000-0002-2521-4975",
+      "name": "Fountain, M.A.",
+      "pdbx_ordinal": 4
+    },
+    {
+      "identifier_ORCID": "0009-0001-7829-3240",
+      "name": "Childs-Disney, J.L.",
+      "pdbx_ordinal": 5
+    }
+  ],
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Nucleic Acids Res.",
+      "journal_id_ASTM": "NARHAD",
+      "journal_id_CSD": "0389",
+      "journal_id_ISSN": "1362-4962",
+      "rcsb_authors": [
+        "Chen, J.L.",
+        "Taghavi, A.",
+        "Disney, M.D.",
+        "Fountain, M.A."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Nucleic Acids Res",
+      "title": "NMR structures of small molecules bound to a model of an RNA CAG repeat expansion.",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9DLM",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9dlm/pdb",
+      "pdbx_database_accession": "pdb_00009dlm"
+    },
+    {
+      "database_code": "D_1000288139",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "31203",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR31203"
+    }
+  ],
+  "entry": {
+    "id": "9DLM"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-04-08T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "United States",
+      "funding_organization": "National Institutes of Health/National Institute of Neurological Disorders and Stroke (NIH/NINDS)",
+      "grant_number": "R35 NS116846",
+      "ordinal": 1
+    },
+    {
+      "country": "United States",
+      "funding_organization": "Department of Defense (DOD, United States)",
+      "grant_number": "HT94252310336",
+      "ordinal": 2
+    },
+    {
+      "country": "United States",
+      "funding_organization": "National Institutes of Health/Office of the Director",
+      "grant_number": "S10-OD021550",
+      "ordinal": 3
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "31203",
+      "db_name": "BMRB",
+      "details": "NMR structures of small molecules bound to a model of an RNA CAG repeat expansion."
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "RCSB",
+    "pdb_format_compatible": "N",
+    "process_site": "RCSB",
+    "recvd_initial_deposition_date": "2024-09-11T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the least restraint violations",
+    "conformers_calculated_total_number": 100,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D DQF-COSY"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 2,
+      "type": "2D NOESY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "5",
+      "ionic_strength_units": "mM",
+      "label": "condition_1",
+      "pH": "6.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "2",
+      "ionic_strength": "5",
+      "ionic_strength_units": "mM",
+      "label": "condition_2",
+      "pH": "6.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "288",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "simulated annealing",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "fewest violations"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "0.3 mM RNA (5'-R(*GP*AP*CP*AP*GP*CP*AP*GP*CP*UP*GP*UP*C)-3'), 0.6 mM 1-(2-ammonioethyl)-2-(4-((4-(4,5-dihydro-1H-imidazol-3-ium-2-yl)phenyl)carbamoyl)phenyl)-4,5-dihydro-1H-imidazol-3-ium, 5 mM potassium phosphate, 0.5 mM EDTA, 100% D2O",
+      "label": "sample_1",
+      "solution_id": "1",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "0.3 mM RNA (5'-R(*GP*AP*CP*AP*GP*CP*AP*GP*CP*UP*GP*UP*C)-3'), 0.6 mM 1-(2-ammonioethyl)-2-(4-((4-(4,5-dihydro-1H-imidazol-3-ium-2-yl)phenyl)carbamoyl)phenyl)-4,5-dihydro-1H-imidazol-3-ium, 5 mM potassium phosphate, 0.5 mM EDTA, 95% H2O/5% D2O",
+      "label": "sample_2",
+      "solution_id": "2",
+      "solvent_system": "95% H2O/5% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Bruker Biospin",
+      "classification": "processing",
+      "name": "TopSpin",
+      "ordinal": 1,
+      "version": "3.5"
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, and Kollman",
+      "classification": "structure calculation",
+      "name": "Amber",
+      "ordinal": 2
+    },
+    {
+      "authors": "Bioinformatics. 2015 Apr 15; 31(8):1325-7. Epub 2014 Dec 12\nNMRFAM-SPARKY: enhanced software for biomolecular NMR spectroscopy.\n\nLee W, Tonelli M, Markley JL",
+      "classification": "chemical shift assignment",
+      "name": "NMRFAM-SPARKY",
+      "ordinal": 3,
+      "version": "1.3"
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 700.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 850.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III HD",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "RNA_suiteness": 0.62,
+    "attempted_validation_steps": "mogul,buster-report,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "Y",
+    "report_creation_date": "2026-04-09T21:47:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 1.25,
+      "bonds_RMSZ": 1.07,
+      "clashscore_full_length": 0.0,
+      "num_H_reduce": 5650,
+      "num_angles_RMSZ": 19080,
+      "num_bonds_RMSZ": 12280
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 14.98,
+      "chemical_shift_completeness_full_length": 14.98,
+      "exp_method": "nmr"
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-09-11T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-04-08T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2026-04-08T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "9DLM",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "2"
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "rcsb_id": "9DLM"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 578,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 313,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 26,
+    "deposited_nonpolymer_entity_instance_count": 1,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 26,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 8.69,
+    "na_polymer_entity_types": "RNA (only)",
+    "ndb_struct_conf_na_feature_combined": [
+      "a-form double helix",
+      "double helix"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.38,
+    "nonpolymer_molecular_weight_minimum": 0.38,
+    "polymer_composition": "RNA",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 1,
+    "polymer_entity_count_nucleic_acid": 1,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 0,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 4.16,
+    "polymer_molecular_weight_minimum": 4.16,
+    "polymer_monomer_count_maximum": 13,
+    "polymer_monomer_count_minimum": 13,
+    "selected_polymer_entity_types": "Nucleic acid (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "NMRFAM-SPARKY",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "9DLM",
+      "link": "https://nakb.org/atlas=9DLM",
+      "type": "NAKB"
+    },
+    {
+      "id": "31203",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=31203",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "9DLM",
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Nucleic Acids Res.",
+    "journal_id_ASTM": "NARHAD",
+    "journal_id_CSD": "0389",
+    "journal_id_ISSN": "1362-4962",
+    "rcsb_ORCID_identifiers": [
+      "0000-0001-7907-9732",
+      "0000-0001-9270-9145",
+      "0000-0001-8486-1796",
+      "0000-0002-2521-4975"
+    ],
+    "rcsb_authors": [
+      "Chen, J.L.",
+      "Taghavi, A.",
+      "Disney, M.D.",
+      "Fountain, M.A."
+    ],
+    "rcsb_journal_abbrev": "Nucleic Acids Res",
+    "title": "NMR structures of small molecules bound to a model of an RNA CAG repeat expansion.",
+    "year": 2024
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "NMR structures of small molecules bound to a model of an RNA CAG repeat expansion."
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "RNA",
+    "text": "CAG repeats, Huntingtons Disease, muscle blind-like 1, RNA"
+  }
+}

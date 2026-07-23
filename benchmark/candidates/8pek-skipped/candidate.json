@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "34826"
+  ],
+  "candidate_directory": "candidates/8pek-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 99,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "SVDIRVDLPASSAKPQPRPEKPVFLSVKADKQLYVGDQPVNADQLTSVLDQRTQANKETTIFFQADKSVDYETLMSVMDTLRKAGYLKVGLVGMEGAAK"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "1",
+      "length": 99,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "SVDIRVDLPASSAKPQPRPEKPVFLSVKADKQLYVGDQPVNADQLTSVLDQRTQANKETTIFFQADKSVDYETLMSVMDTLRKAGYLKVGLVGMEGAAK"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T16:39:06Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8pek.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "95ff1858a24c39fe566592f14fbb250d158a2b3e7ac24b4e252d6d7999d77d40",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 198,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 0.6025530472718774,
+    "medoid_backbone_rmsd_mean": 0.4650280644523517,
+    "medoid_backbone_rmsd_median": 0.48123759199529487,
+    "medoid_backbone_rmsd_p90": 0.5985792696765213,
+    "medoid_model": 9,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.98989898989899,
+          "B": 0.98989898989899
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 166,
+    "native_contact_count_median": 155.0,
+    "native_contact_count_minimum": 144,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8pek_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8pek",
+  "modeled_polymer_fraction": 0.98989898989899,
+  "modeled_polymer_residues": 196,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8PEK",
+  "polymer_composition": "homomeric protein",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T16:28:39Z",
+  "reference_file": "reference/8pek.pdb",
+  "release_date": "2023-09-06T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "Structure of the dimeric, periplasmic domain of ExbD"
+}

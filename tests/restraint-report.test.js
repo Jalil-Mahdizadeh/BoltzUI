@@ -3,13 +3,16 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 const {
   measureStructure,
+  measureTokenContact,
   measureUnionGroup,
   parseMmcif,
   parsePdb,
-  summarizeModelAudit
+  summarizeModelAudit,
+  writeRestraintReport
 } = require("../lib/restraint-report");
 
 const structures = path.join(__dirname, "..", "fixtures", "structures");
@@ -40,6 +43,50 @@ test("missing endpoint is reported as unresolved", () => {
   assert.equal(measured.status, "unresolved");
   assert.equal(measured.satisfied, null);
   assert.match(measured.unresolved_reason, /A:1:MISSING/);
+});
+
+test("token contacts measure the closest atom pair between selected tokens", () => {
+  const atoms = parsePdb(fs.readFileSync(path.join(structures, "atom_contact_model_0.pdb"), "utf8"));
+  const measured = measureTokenContact({
+    chain1: "A", token1: 1,
+    chain2: "B", token2: 1,
+    max_distance: 4, force: true
+  }, atoms, "model_0");
+  assert.equal(measured.observed_distance, 3);
+  assert.equal(measured.satisfied, true);
+  assert.equal(measured.closest_atom1, "A:1:OG");
+  assert.equal(measured.closest_atom2, "B:1:N");
+});
+
+test("mmCIF token contacts resolve both endpoints in one identifier namespace", () => {
+  const atoms = parseMmcif(fs.readFileSync(path.join(structures, "atom_contact_model_0.cif"), "utf8"));
+  const measured = measureTokenContact({
+    chain1: "A", token1: 1,
+    chain2: "B", token2: 1,
+    max_distance: 2, force: false
+  }, atoms, "model_0");
+  assert.equal(measured.observed_distance, 3);
+  assert.equal(measured.status, "violated");
+  assert.equal(measured.excess_distance, 1);
+});
+
+test("token-only runs write the generic contact restraint report", async () => {
+  const resultDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "boltzui-token-report-"));
+  const predictionDirectory = path.join(resultDirectory, "predictions", "case");
+  fs.mkdirSync(predictionDirectory, { recursive: true });
+  fs.copyFileSync(
+    path.join(structures, "atom_contact_model_0.pdb"),
+    path.join(predictionDirectory, "case_model_0.pdb")
+  );
+  const { report, reportPath } = await writeRestraintReport(resultDirectory, [], [], [{
+    chain1: "A", token1: 1,
+    chain2: "B", token2: 1,
+    max_distance: 4, force: true
+  }]);
+  assert.equal(path.basename(reportPath), "contact_restraints.json");
+  assert.equal(report.schema_version, 4);
+  assert.equal(report.token_contacts[0].models[0].satisfied, true);
+  assert.equal(report.model_summaries[0].token.satisfied, 1);
 });
 
 test("union report is satisfied when any one alternative is satisfied", () => {
@@ -119,6 +166,17 @@ test("large restraint reports expose per-model exact and union aggregates", () =
     mean_excess_distance: 0.625,
     mean_violation_excess_distance: 1.25,
     maximum_excess_distance: 1.25
+  });
+  assert.deepEqual(summary.token, {
+    total: 0,
+    resolved: 0,
+    satisfied: 0,
+    violated: 0,
+    unresolved: 0,
+    satisfaction_fraction_of_resolved: null,
+    mean_excess_distance: null,
+    mean_violation_excess_distance: null,
+    maximum_excess_distance: null
   });
   assert.deepEqual(summary.union, {
     total: 3,

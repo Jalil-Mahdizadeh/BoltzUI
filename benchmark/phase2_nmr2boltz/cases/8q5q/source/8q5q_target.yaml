@@ -1,0 +1,10 @@
+# Unconstrained sequence-only input for PDB 8Q5Q
+# Generated reproducibly by benchmark/scripts/prepare_candidate.py
+version: 1
+sequences:
+  - dna:
+      id: [A, B]
+      sequence: ATTTCATTTCATTTC
+      modifications:
+        - position: 5
+          ccd: DNR

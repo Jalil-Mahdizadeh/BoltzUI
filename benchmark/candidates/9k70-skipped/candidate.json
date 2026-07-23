@@ -1,0 +1,220 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "52636"
+  ],
+  "candidate_directory": "candidates/9k70-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 15,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "GGGTTAGGGTTAGGG"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "2",
+      "length": 6,
+      "polymer_type": "polyribonucleotide",
+      "sequence": "UAGGGU"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T16:54:23Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/9k70.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "a73fb22a868a1608f5f81809a8edf41f414515e8dc7bd5022ed2825361dcbcf8",
+  "deposited_model_count": 12,
+  "deposited_polymer_residues": 21,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 1.0385052428710426,
+    "medoid_backbone_rmsd_mean": 0.265031158257772,
+    "medoid_backbone_rmsd_median": 0.19522903762317356,
+    "medoid_backbone_rmsd_p90": 0.47858856586320253,
+    "medoid_model": 1,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 11,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 12,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 12,
+    "models_usable": 12,
+    "native_contact_count_maximum": 24,
+    "native_contact_count_median": 23.0,
+    "native_contact_count_minimum": 21,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/9k70_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/9k70",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 21,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "9K70",
+  "polymer_composition": "DNA/RNA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T16:46:00Z",
+  "reference_file": "reference/9k70.pdb",
+  "release_date": "2026-04-29T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "A (3+1) hybrid G-quadruplex assembled between two strands of human telomeric DNA and RNA"
+}

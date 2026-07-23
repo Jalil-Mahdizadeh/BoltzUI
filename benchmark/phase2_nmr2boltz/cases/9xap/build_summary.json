@@ -1,0 +1,35 @@
+{
+  "arms": {
+    "combined": {
+      "applicable": true,
+      "exact_constraints": 199,
+      "input": "cases/9xap/combined/input/9xap_combined.yaml",
+      "union_groups": 16
+    },
+    "exact": {
+      "applicable": true,
+      "exact_constraints": 199,
+      "input": "cases/9xap/exact/input/9xap_exact.yaml",
+      "union_groups": 0
+    },
+    "union": {
+      "applicable": true,
+      "exact_constraints": 0,
+      "input": "cases/9xap/union/input/9xap_union.yaml",
+      "union_groups": 16
+    }
+  },
+  "exact_constraint_count": 199,
+  "fixed_phase1_msas": [
+    {
+      "bytes": 87,
+      "entity_index": 0,
+      "file": "cases/9xap/source/msa/entity_0.csv",
+      "sha256": "90f45d551191b7ba6c72a43df507304c59439ec3b6ea7801e1ebaf4fb706ce63",
+      "source": "candidates/9xap-passed/results/boltz_results_9xap_unconstrained/msa/9xap_unconstrained_0.csv"
+    }
+  ],
+  "pdb_id": "9XAP",
+  "schema_version": 1,
+  "union_group_count": 16
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "benchmark_name": "boltz-2.2.1-nmr2boltz-restraint-assistance",
+  "phase1_directory": "../..",
+  "pdb_ids": [
+    "9XAP",
+    "9JO6",
+    "9EZO",
+    "9EZP",
+    "8VOH",
+    "8IVB",
+    "9KAD",
+    "8Q5Q",
+    "9JVN",
+    "8X8T"
+  ],
+  "conversion": {
+    "primary_format": "nef",
+    "parity_format": "nmr-star",
+    "averaging": "sum-r6",
+    "missing_upper_policy": "reject",
+    "pseudoatom_policy": "reject",
+    "target_yaml_validation": true,
+    "nmr2boltz_sif": "/mimer/NOBACKUP/groups/theo-storage/Jalil/Images/nmr2boltz.sif",
+    "nmr2boltz_sif_sha256": "8e282353c4c8bb7612e2a6144047c287ac55334ccb90a6ebc2a78197dca1ace2",
+    "nmr2boltz_version": "0.1.0-validated",
+    "representation_exceptions": {
+      "8Q5Q": {
+        "reason": "Deposited residue 5 is DNR (CCD parent DC) in both identical DNA chains; the phase-1 canonical sequence represented it as C.",
+        "target_modification": {
+          "position": 5,
+          "ccd": "DNR"
+        },
+        "external_ccd": "cases/8q5q/source/DNR.cif",
+        "comparison_control": "modified_unconstrained"
+      }
+    }
+  },
+  "prediction": {
+    "arms": [
+      "exact",
+      "union",
+      "combined"
+    ],
+    "primary_arm": "combined",
+    "boltz_sif": "/cephyr/users/sayyed/Alvis/Desktop/mimer_theo-storage/Jalil/Images/boltzui-221-exact-union.sif",
+    "boltz_sif_sha256": "6d522f5c3a92eaa2eddd1e38f6ad5e56c17072a654b877b593b284ef795c0dfb",
+    "arguments": [
+      "--devices",
+      "1",
+      "--accelerator",
+      "gpu",
+      "--model",
+      "boltz2",
+      "--method",
+      "x-ray diffraction",
+      "--recycling_steps",
+      "3",
+      "--sampling_steps",
+      "400",
+      "--diffusion_samples",
+      "10",
+      "--max_parallel_samples",
+      "1",
+      "--step_scale",
+      "1.0",
+      "--seed",
+      "1",
+      "--use_potentials",
+      "--use_msa_server",
+      "--msa_server_url",
+      "https://api.colabfold.com",
+      "--msa_pairing_strategy",
+      "greedy",
+      "--max_msa_seqs",
+      "8192",
+      "--subsample_msa",
+      "--num_subsampled_msa",
+      "1024",
+      "--output_format",
+      "pdb",
+      "--write_full_pae",
+      "--override",
+      "--num_workers",
+      "0",
+      "--preprocessing-threads",
+      "1",
+      "--no_kernels"
+    ]
+  },
+  "analysis": {
+    "reference_scope": "every usable conformer in the deposited NMR ensemble",
+    "symmetry_handling": "all sequence-equivalent chain assignments",
+    "native_contact_cutoff_angstrom": 5.0,
+    "classification_source": "../../config.json",
+    "primary_comparison": "unconstrained versus combined, paired by PDB entry",
+    "attribution_comparisons": [
+      "unconstrained versus exact",
+      "unconstrained versus union"
+    ]
+  }
+}

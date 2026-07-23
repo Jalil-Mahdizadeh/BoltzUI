@@ -1,0 +1,42 @@
+{
+  "arms": {
+    "combined": {
+      "applicable": true,
+      "exact_constraints": 756,
+      "input": "cases/8x8t/combined/input/8x8t_combined.yaml",
+      "union_groups": 113
+    },
+    "exact": {
+      "applicable": true,
+      "exact_constraints": 756,
+      "input": "cases/8x8t/exact/input/8x8t_exact.yaml",
+      "union_groups": 0
+    },
+    "union": {
+      "applicable": true,
+      "exact_constraints": 0,
+      "input": "cases/8x8t/union/input/8x8t_union.yaml",
+      "union_groups": 113
+    }
+  },
+  "exact_constraint_count": 756,
+  "fixed_phase1_msas": [
+    {
+      "bytes": 191166,
+      "entity_index": 0,
+      "file": "cases/8x8t/source/msa/entity_0.csv",
+      "sha256": "a519af355e91caa0d539f19907ca1585daabb4eb42436d34b889382e1b7bb237",
+      "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_0.csv"
+    },
+    {
+      "bytes": 96895,
+      "entity_index": 1,
+      "file": "cases/8x8t/source/msa/entity_1.csv",
+      "sha256": "88fb5c35b6a09b44195ba1f99cc08572bf2bf4456115ee27e115f7d6c7645fa3",
+      "source": "candidates/8x8t-passed/results/boltz_results_8x8t_unconstrained/msa/8x8t_unconstrained_1.csv"
+    }
+  ],
+  "pdb_id": "8X8T",
+  "schema_version": 1,
+  "union_group_count": 113
+}

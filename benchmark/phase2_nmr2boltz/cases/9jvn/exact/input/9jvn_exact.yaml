@@ -1,0 +1,21 @@
+# 9JVN exact constraints generated from deposited NEF by nmr2boltz
+constraints:
+- atom_contact:
+    atom1:
+    - A
+    - 7
+    - C5
+    atom2:
+    - B
+    - 7
+    - C5
+    force: true
+    max_distance: 7.7
+sequences:
+- dna:
+    id: A
+    sequence: CGCACGCG
+- rna:
+    id: B
+    sequence: CGCGUGCG
+version: 1

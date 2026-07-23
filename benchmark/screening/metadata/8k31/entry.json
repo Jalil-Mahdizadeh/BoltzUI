@@ -1,0 +1,391 @@
+{
+  "audit_author": [
+    {
+      "name": "Dong, X.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Gong, Z.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "name": "Hu, Y.F.",
+      "pdbx_ordinal": 3
+    }
+  ],
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Commun Biol",
+      "journal_id_ISSN": "2399-3642",
+      "journal_volume": "7",
+      "page_first": "561",
+      "page_last": "561",
+      "pdbx_database_id_DOI": "10.1038/s42003-024-06258-7",
+      "pdbx_database_id_PubMed": 38734744,
+      "rcsb_authors": [
+        "Dong, X.",
+        "Yu, L.",
+        "Zhang, Q.",
+        "Yang, J.",
+        "Gong, Z.",
+        "Niu, X.",
+        "Li, H.",
+        "Zhang, X.",
+        "Liu, M.",
+        "Jin, C.",
+        "Hu, Y."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Commun Biol",
+      "title": "Structural basis for the regulation of plant transcription factor WRKY33 by the VQ protein SIB1.",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8K31",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8k31/pdb",
+      "pdbx_database_accession": "pdb_00008k31"
+    },
+    {
+      "database_code": "D_1300039438",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "50583",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR50583"
+    }
+  ],
+  "entry": {
+    "id": "8K31"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2024-06-19T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "grant_number": "21991083",
+      "ordinal": 1
+    },
+    {
+      "country": "China",
+      "funding_organization": "Ministry of Science and Technology (MoST, China)",
+      "grant_number": "2016YFA0501201",
+      "ordinal": 2
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "50583",
+      "db_name": "BMRB"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2023-07-14T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 240,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-15N HSQC"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "2D 1H-15N HSQC"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "50",
+      "ionic_strength_units": "mM",
+      "label": "condition1",
+      "pH": "6.0",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "molecular dynamics",
+      "software_ordinal": 3
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "20",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "30 mM MES, 50 mM sodium chloride, 20 uM ZINC ION, 90% H2O/10% D2O",
+      "label": "15N",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "CCPN",
+      "classification": "chemical shift assignment",
+      "name": "CcpNmr Analysis",
+      "ordinal": 1
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "structure calculation",
+      "name": "Amber",
+      "ordinal": 2
+    },
+    {
+      "authors": "Case, Darden, Cheatham III, Simmerling, Wang, Duke, Luo, ... and Kollman",
+      "classification": "refinement",
+      "name": "Amber",
+      "ordinal": 3
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 850.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE III",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "mogul,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-25T16:17:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 2.39,
+      "bonds_RMSZ": 2.06,
+      "clashscore": 0.29,
+      "clashscore_full_length": 0.39,
+      "num_H_reduce": 18040,
+      "num_angles_RMSZ": 25300,
+      "num_bonds_RMSZ": 18680,
+      "percent_ramachandran_outliers": 1.34,
+      "percent_ramachandran_outliers_full_length": 1.45,
+      "percent_rotamer_outliers": 2.39,
+      "percent_rotamer_outliers_full_length": 2.21
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 1.17,
+      "chemical_shift_completeness_full_length": 1.91,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 5,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 3,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 2,
+      "nmrclust_representative_model": 16
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2023-07-14T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2024-06-19T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2024-06-19T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "entry_id": "8K31",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "non_polymer_entity_ids": [
+      "3"
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "pubmed_id": 38734744,
+    "rcsb_id": "8K31"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 1,
+    "deposited_atom_count": 916,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 904,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 114,
+    "deposited_nonpolymer_entity_instance_count": 1,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 199,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 85,
+    "disulfide_bond_count": 0,
+    "entity_count": 3,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 4,
+    "molecular_weight": 22.69,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_bound_components": [
+      "ZN"
+    ],
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.07,
+    "nonpolymer_molecular_weight_minimum": 0.07,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 11.5,
+    "polymer_molecular_weight_minimum": 11.13,
+    "polymer_monomer_count_maximum": 101,
+    "polymer_monomer_count_minimum": 98,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "AMBER",
+      "CCPNMR ANALYSIS"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_id": "8K31",
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Commun Biol",
+    "journal_id_ISSN": "2399-3642",
+    "journal_volume": "7",
+    "page_first": "561",
+    "page_last": "561",
+    "pdbx_database_id_DOI": "10.1038/s42003-024-06258-7",
+    "pdbx_database_id_PubMed": 38734744,
+    "rcsb_ORCID_identifiers": [
+      "0000-0001-5800-7115",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "0000-0003-2481-946X",
+      "0000-0002-9359-915X",
+      "0000-0002-1352-2540",
+      "0000-0002-0156-2326"
+    ],
+    "rcsb_authors": [
+      "Dong, X.",
+      "Yu, L.",
+      "Zhang, Q.",
+      "Yang, J.",
+      "Gong, Z.",
+      "Niu, X.",
+      "Li, H.",
+      "Zhang, X.",
+      "Liu, M.",
+      "Jin, C.",
+      "Hu, Y."
+    ],
+    "rcsb_journal_abbrev": "Commun Biol",
+    "title": "Structural basis for the regulation of plant transcription factor WRKY33 by the VQ protein SIB1.",
+    "year": 2024
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "The complex of WRKY33 C terminal DBD and SIB1"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "TRANSCRIPTION",
+    "text": "Complex, transcriptional factor, TRANSCRIPTION"
+  }
+}

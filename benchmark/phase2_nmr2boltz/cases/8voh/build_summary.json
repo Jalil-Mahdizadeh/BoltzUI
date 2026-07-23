@@ -1,0 +1,42 @@
+{
+  "arms": {
+    "combined": {
+      "applicable": true,
+      "exact_constraints": 6,
+      "input": "cases/8voh/combined/input/8voh_combined.yaml",
+      "union_groups": 4
+    },
+    "exact": {
+      "applicable": true,
+      "exact_constraints": 6,
+      "input": "cases/8voh/exact/input/8voh_exact.yaml",
+      "union_groups": 0
+    },
+    "union": {
+      "applicable": true,
+      "exact_constraints": 0,
+      "input": "cases/8voh/union/input/8voh_union.yaml",
+      "union_groups": 4
+    }
+  },
+  "exact_constraint_count": 6,
+  "fixed_phase1_msas": [
+    {
+      "bytes": 1564340,
+      "entity_index": 0,
+      "file": "cases/8voh/source/msa/entity_0.csv",
+      "sha256": "bfea23ec3cd78f08595eef8eca7c5e77c471eea033f64c6ec6e6f1242bbd802f",
+      "source": "candidates/8voh-passed/results/boltz_results_8voh_unconstrained/msa/8voh_unconstrained_0.csv"
+    },
+    {
+      "bytes": 726589,
+      "entity_index": 1,
+      "file": "cases/8voh/source/msa/entity_1.csv",
+      "sha256": "74f848baae2de9c912e63a8464338757f359d419e8bfe5ff513d30f7a8f03ca3",
+      "source": "candidates/8voh-passed/results/boltz_results_8voh_unconstrained/msa/8voh_unconstrained_1.csv"
+    }
+  ],
+  "pdb_id": "8VOH",
+  "schema_version": 1,
+  "union_group_count": 4
+}

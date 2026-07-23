@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "succeeded",
+  "mode": "addh_energy_min",
+  "started_at": "2026-07-21T19:08:29.342580Z",
+  "completed_at": "2026-07-21T19:08:34.826359Z",
+  "configuration": {
+    "pH": 7.0,
+    "hydrogen_forcefield": [
+      "amber14-all.xml"
+    ],
+    "minimization_forcefield": [
+      "amber14-all.xml",
+      "implicit/gbn2.xml"
+    ],
+    "implicit_solvent": "GBn2",
+    "nonbonded_method": "NoCutoff",
+    "constraints": "HBonds",
+    "minimizer": "OpenMM LocalEnergyMinimizer (L-BFGS)",
+    "tolerance_kj_mol_nm": 10.0,
+    "max_iterations": 250,
+    "platform_priority": [
+      "CUDA",
+      "OpenCL",
+      "CPU"
+    ]
+  },
+  "software": {
+    "openmm": "8.4",
+    "pdbfixer": "1.12.0",
+    "python": "3.10.20"
+  },
+  "models": [
+    {
+      "source": "predictions/8q5q/8q5q_model_0.pdb",
+      "output": "postprocessed/addh_energy_min/8q5q/8q5q_model_0_addh_energy_min.pdb",
+      "model_index": 0,
+      "status": "succeeded",
+      "source_sha256": "396048035f36403c2dd27b201c462c3a9fcff81fce83ff946067bf030048ccc5",
+      "output_sha256": "39c7f3b10fe097ae90cd576e667e0149e7a6bd93375513a7f79a8a0d3e76734f",
+      "counts_before": {
+        "atoms": 600,
+        "heavy_atoms": 600,
+        "hydrogens": 0,
+        "residues": 30,
+        "chains": 2
+      },
+      "counts_after_terminal_normalization": {
+        "atoms": 594,
+        "heavy_atoms": 594,
+        "hydrogens": 0,
+        "residues": 30,
+        "chains": 2
+      },
+      "counts_after": {
+        "atoms": 946,
+        "heavy_atoms": 594,
+        "hydrogens": 352,
+        "residues": 30,
+        "chains": 2
+      },
+      "hydrogens_added": 352,
+      "selected_protonation_variants": [],
+      "unresolved_missing_residue_segments_not_built": [],
+      "terminal_heavy_atoms_added": [],
+      "terminal_heavy_atoms_removed": [
+        {
+          "residue": "A:1:DA",
+          "atoms": [
+            "P",
+            "OP1",
+            "OP2"
+          ],
+          "reason": "Normalized Boltz's 5-prime phosphate to the Amber OL3/OL15 5-prime hydroxyl terminus."
+        },
+        {
+          "residue": "B:1:DA",
+          "atoms": [
+            "P",
+            "OP1",
+            "OP2"
+          ],
+          "reason": "Normalized Boltz's 5-prime phosphate to the Amber OL3/OL15 5-prime hydroxyl terminus."
+        }
+      ],
+      "potential_energy": {
+        "initial_kj_mol": -15000.7939300754,
+        "final_kj_mol": -22050.861409327947,
+        "change_kj_mol": -7050.067479252546
+      },
+      "coordinate_displacement": {
+        "heavy_atom_rmsd_angstrom": 0.5986350467054785,
+        "maximum_heavy_atom_angstrom": 1.9148582929256075
+      },
+      "openmm_platform": "CUDA",
+      "pdb_confidence_b_factors_preserved": true
+    }
+  ],
+  "summary": {
+    "requested": 1,
+    "succeeded": 1,
+    "failed": 0
+  }
+}

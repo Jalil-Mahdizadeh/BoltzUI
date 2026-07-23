@@ -165,45 +165,51 @@
               </div>
             </div>
 
-            <div class="model-table-wrap">
-              <table class="model-table">
-                <thead>
-                  <tr>
-                    <th>Model</th>
-                    <th>Confidence</th>
-                    <th>pTM</th>
-                    <th>pLDDT</th>
-                    <th>PDE</th>
-                  </tr>
-                </thead>
-                <tbody id="model-table"></tbody>
-              </table>
-            </div>
-
-            <section class="restraint-audit" id="restraint-audit" hidden aria-label="Atom-pair restraint audit">
-              <div class="restraint-audit-heading">
-                <div>
-                  <span class="section-kicker">Specific atom-pair distance guidance</span>
-                  <h3>Restraint Audit</h3>
-                </div>
-                <p id="restraint-audit-summary">Soft inference-time potential guidance; final distances are measured from each generated structure.</p>
-              </div>
+            <details class="result-collapsible" id="model-metrics-panel">
+              <summary class="result-collapse-summary">
+                <span>Model metrics</span>
+                <em id="model-metrics-summary">No models</em>
+              </summary>
               <div class="model-table-wrap">
-                <table class="model-table restraint-table">
+                <table class="model-table">
                   <thead>
                     <tr>
                       <th>Model</th>
-                      <th>Atom pair</th>
-                      <th>Requested max</th>
-                      <th>Observed</th>
-                      <th>Excess</th>
-                      <th>Satisfied</th>
+                      <th>Confidence</th>
+                      <th>pTM</th>
+                      <th>pLDDT</th>
+                      <th>PDE</th>
                     </tr>
                   </thead>
-                  <tbody id="restraint-table-body"></tbody>
+                  <tbody id="model-table"></tbody>
                 </table>
               </div>
-            </section>
+            </details>
+
+            <details class="result-collapsible restraint-audit" id="restraint-audit" hidden aria-label="Contact restraint audit">
+              <summary class="result-collapse-summary">
+                <span>Restraint Audit</span>
+                <em>Token, exact and union contacts</em>
+              </summary>
+              <div class="restraint-audit-content">
+                <p id="restraint-audit-summary">Soft inference-time potential guidance; final distances are measured from each generated structure.</p>
+                <div class="model-table-wrap">
+                  <table class="model-table restraint-table">
+                    <thead>
+                      <tr>
+                        <th>Model</th>
+                        <th>Constraint</th>
+                        <th>Requested max</th>
+                        <th>Observed</th>
+                        <th>Excess</th>
+                        <th>Satisfied</th>
+                      </tr>
+                    </thead>
+                    <tbody id="restraint-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </details>
           </section>
 
           <section class="panel console-panel" aria-label="Run console">

@@ -1,0 +1,461 @@
+{
+  "audit_author": [
+    {
+      "name": "Wei, E.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Zeng, L.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "citation": [
+    {
+      "id": "primary",
+      "journal_abbrev": "To Be Published",
+      "journal_id_CSD": "0353",
+      "rcsb_authors": [
+        "Wei, E.",
+        "Ji, D.",
+        "Jia, Y.",
+        "Sun, Z.",
+        "Gao, C.",
+        "Zeng, C.",
+        "Wang, C.",
+        "Yu, M.",
+        "Shang, G.",
+        "Xie, L.",
+        "Zhang, W.",
+        "Li, Y.",
+        "Liang, Y.",
+        "Ji, B.",
+        "Yue, Y.",
+        "Liu, Y.",
+        "Zhou, M.-M.",
+        "Zeng, L."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "To be published",
+      "title": "BRD9 Recognizes Lactate-Induced H3K18 Lactylation to Drive Oncogenic Chromatin Remodeling in Hepatocellular Carcinoma"
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "21HJ",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb21hj/pdb",
+      "pdbx_database_accession": "pdb_000021hj"
+    },
+    {
+      "database_code": "D_1300067217",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "36817",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR36817"
+    }
+  ],
+  "entry": {
+    "id": "21HJ"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2026-03-11T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "36817",
+      "db_name": "BMRB",
+      "details": "Solution structures of BRD9 bromodomain in complex with histone H3 lactyl-lysine 18 (H3K18la) peptide"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBC",
+    "recvd_initial_deposition_date": "2025-12-12T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with the lowest energy",
+    "conformers_calculated_total_number": 200,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCACB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HN(COCA)CB"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HNCA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "3D HN(CO)CA"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "3D 1H-15N NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D 1H-13C NOESY aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "3D filtered-1H-13C NOESY aliphatic"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "null",
+      "ionic_strength_units": "Not defined",
+      "label": "condition_1",
+      "pH": "7.4",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "298",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "torsion angle dynamics",
+      "software_ordinal": 2
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "500 mM sodium chloride, 2.7 mM potassium chloride, 10 mM sodium phosphate, 1.8 mM potassium phosphate, 2 mM DTT, 90% H2O/10% D2O",
+      "label": "sample_1",
+      "solution_id": "1",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "500 mM sodium chloride, 2.7 mM potassium chloride, 10 mM sodium phosphate, 1.8 mM potassium phosphate, 2 mM DTT, 100% D2O",
+      "label": "sample_2",
+      "solution_id": "2",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Linge, O'Donoghue and Nilges",
+      "classification": "refinement",
+      "name": "ARIA",
+      "ordinal": 1
+    },
+    {
+      "authors": "Brunger, Adams, Clore, Gros, Nilges and Read",
+      "classification": "structure calculation",
+      "name": "CNS",
+      "ordinal": 2
+    },
+    {
+      "authors": "Johnson, One Moon Scientific",
+      "classification": "chemical shift assignment",
+      "name": "NMRView",
+      "ordinal": 3
+    },
+    {
+      "authors": "Johnson, One Moon Scientific",
+      "classification": "peak picking",
+      "name": "NMRView",
+      "ordinal": 4
+    },
+    {
+      "authors": "Bruker Biospin",
+      "classification": "collection",
+      "name": "TopSpin",
+      "ordinal": 5
+    },
+    {
+      "authors": "Delaglio, Grzesiek, Vuister, Zhu, Pfeifer and Bax",
+      "classification": "processing",
+      "name": "NMRPipe",
+      "ordinal": 6
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 800.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "mogul,molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-04-05T01:34:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.74,
+      "bonds_RMSZ": 0.42,
+      "clashscore": 16.64,
+      "clashscore_full_length": 14.71,
+      "num_H_reduce": 20780,
+      "num_angles_RMSZ": 28260,
+      "num_bonds_RMSZ": 21100,
+      "percent_ramachandran_outliers": 0.66,
+      "percent_ramachandran_outliers_full_length": 1.22,
+      "percent_rotamer_outliers": 8.31,
+      "percent_rotamer_outliers_full_length": 7.27
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 80.66,
+      "chemical_shift_completeness_full_length": 76.85,
+      "cyrange_number_of_domains": 1,
+      "exp_method": "nmr",
+      "medoid_model": 9,
+      "nmr_models_consistency_flag": "True",
+      "nmrclust_number_of_clusters": 5,
+      "nmrclust_number_of_models": 20,
+      "nmrclust_number_of_outliers": 2,
+      "nmrclust_representative_model": 9
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2025-12-12T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2026-03-11T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2026-03-11T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2"
+    ],
+    "entry_id": "21HJ",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2"
+    ],
+    "rcsb_id": "21HJ"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 1048,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 1062,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 132,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 132,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 2,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 2,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 14.96,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 2,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 2,
+    "polymer_entity_taxonomy_count": 2,
+    "polymer_molecular_weight_maximum": 13.38,
+    "polymer_molecular_weight_minimum": 1.57,
+    "polymer_monomer_count_maximum": 117,
+    "polymer_monomer_count_minimum": 15,
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "ARIA",
+      "CNS",
+      "NMRPIPE",
+      "NMRVIEW",
+      "TOPSPIN"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "36817",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=36817",
+      "type": "BMRB"
+    }
+  ],
+  "rcsb_id": "21HJ",
+  "rcsb_primary_citation": {
+    "id": "primary",
+    "journal_abbrev": "To Be Published",
+    "journal_id_CSD": "0353",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Wei, E.",
+      "Ji, D.",
+      "Jia, Y.",
+      "Sun, Z.",
+      "Gao, C.",
+      "Zeng, C.",
+      "Wang, C.",
+      "Yu, M.",
+      "Shang, G.",
+      "Xie, L.",
+      "Zhang, W.",
+      "Li, Y.",
+      "Liang, Y.",
+      "Ji, B.",
+      "Yue, Y.",
+      "Liu, Y.",
+      "Zhou, M.-M.",
+      "Zeng, L."
+    ],
+    "rcsb_journal_abbrev": "To be published",
+    "title": "BRD9 Recognizes Lactate-Induced H3K18 Lactylation to Drive Oncogenic Chromatin Remodeling in Hepatocellular Carcinoma"
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Solution structures of BRD9 bromodomain in complex with histone H3 lactyl-lysine 18 (H3K18la) peptide"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "PROTEIN BINDING",
+    "text": "histone lactylation, BRD9, chromatin remodeling, chromatin accessibility, transcription regulation, hepatocellular carcinoma, PROTEIN BINDING"
+  }
+}

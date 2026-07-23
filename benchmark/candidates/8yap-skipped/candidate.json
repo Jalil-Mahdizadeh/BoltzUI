@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36647"
+  ],
+  "candidate_directory": "candidates/8yap-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 37,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "GKPLSCEEKEKLKEKLAFLKREYSKTLARLQRAQRAW"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "1",
+      "length": 37,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "GKPLSCEEKEKLKEKLAFLKREYSKTLARLQRAQRAW"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T15:44:39Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8yap.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "ccaa76d6274025ae638339883dfe6e99b7d657f93bb5d2f2a3d1b9691562ff8b",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 74,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 4.308148815563677,
+    "medoid_backbone_rmsd_mean": 2.139133177197877,
+    "medoid_backbone_rmsd_median": 1.9269715227895605,
+    "medoid_backbone_rmsd_p90": 3.883875835443514,
+    "medoid_model": 5,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 0.972972972972973,
+          "B": 0.972972972972973
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 35,
+    "native_contact_count_median": 34.0,
+    "native_contact_count_minimum": 30,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8yap_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8yap",
+  "modeled_polymer_fraction": 0.972972972972973,
+  "modeled_polymer_residues": 72,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8YAP",
+  "polymer_composition": "homomeric protein",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T15:36:23Z",
+  "reference_file": "reference/8yap.pdb",
+  "release_date": "2025-02-12T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "Structure of human PALB2 coiled-coil domain"
+}

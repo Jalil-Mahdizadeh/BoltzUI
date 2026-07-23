@@ -1,0 +1,246 @@
+# 8IVB combined constraints generated from deposited NEF by nmr2boltz
+constraints:
+- atom_contact:
+    atom1:
+    - A
+    - 42
+    - CD
+    atom2:
+    - B
+    - 79
+    - CE
+    force: true
+    max_distance: 7.54
+- atom_contact:
+    atom1:
+    - A
+    - 42
+    - CD
+    atom2:
+    - B
+    - 97
+    - CD1
+    force: true
+    max_distance: 7.94
+- atom_contact:
+    atom1:
+    - A
+    - 42
+    - CG
+    atom2:
+    - B
+    - 72
+    - CB
+    force: true
+    max_distance: 6.74
+- atom_contact:
+    atom1:
+    - A
+    - 42
+    - CG
+    atom2:
+    - B
+    - 79
+    - CE
+    force: true
+    max_distance: 5.74
+- atom_contact:
+    atom1:
+    - A
+    - 42
+    - CG
+    atom2:
+    - B
+    - 97
+    - CD1
+    force: true
+    max_distance: 6.94
+- atom_contact:
+    atom1:
+    - A
+    - 42
+    - CG
+    atom2:
+    - B
+    - 101
+    - CD1
+    force: true
+    max_distance: 6.74
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 79
+      - CE
+      max_distance: 5.74
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 79
+      - CE
+      max_distance: 5.74
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 72
+      - CB
+      max_distance: 6.24
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 72
+      - CB
+      max_distance: 6.24
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 75
+      - CG
+      max_distance: 6.74
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 75
+      - CG
+      max_distance: 6.74
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 75
+      - CG
+      max_distance: 7.04
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 75
+      - CG
+      max_distance: 7.04
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 75
+      - CB
+      max_distance: 6.74
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 75
+      - CB
+      max_distance: 6.74
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 97
+      - CG2
+      max_distance: 5.54
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 97
+      - CG2
+      max_distance: 5.54
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 97
+      - CD1
+      max_distance: 5.54
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 97
+      - CD1
+      max_distance: 5.54
+    force: true
+- atom_contact_union:
+    alternatives:
+    - atom1:
+      - A
+      - 70
+      - CG1
+      atom2:
+      - B
+      - 101
+      - CD1
+      max_distance: 5.54
+    - atom1:
+      - A
+      - 70
+      - CG2
+      atom2:
+      - B
+      - 101
+      - CD1
+      max_distance: 5.54
+    force: true
+sequences:
+- protein:
+    id: A
+    msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8ivb/source/msa/entity_0.csv
+    sequence: MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGC
+- protein:
+    id: B
+    msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8ivb/source/msa/entity_1.csv
+    sequence: ALPSASEEQVAQDTEEVFRSYVFYRHQQEQEAEGVAAPADPEMVTLPLQPSSTMGQVGRQLAIIGDDINRRYDSEFQTMLQHLQPTAENAYEYFTCIATSLFESGINWGRVVALLGFGYRLALHVYQHGLTGFLGQVTRFVVDFMLHHCIARWIAQRGGWVAALNLGNG
+version: 1

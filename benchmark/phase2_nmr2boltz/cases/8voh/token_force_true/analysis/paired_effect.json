@@ -1,0 +1,667 @@
+{
+  "combined_vs_token_force_true": {
+    "best_of_10_deltas": {
+      "capri_rank": 1,
+      "contact_f1": 0.02801724137931033,
+      "fnat": 0.09375,
+      "global_backbone_rmsd": -0.1628762247096347,
+      "interface_backbone_rmsd": -0.8223094012577459,
+      "ligand_rmsd": -0.9577063267096335
+    },
+    "median_model_deltas": {
+      "capri_rank": 0.0,
+      "contact_f1": -0.09006855611145806,
+      "fnat": -0.078125,
+      "global_backbone_rmsd": 1.8336182864817179,
+      "interface_backbone_rmsd": 0.35857970902058955,
+      "ligand_rmsd": 0.9151530991564982
+    },
+    "model_pairs": [
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.20515003192168543,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.09375,
+        "global_backbone_rmsd_delta": 2.897151003982879,
+        "interface_backbone_rmsd_delta": 0.37260496350317585,
+        "ligand_rmsd_delta": 2.750524138848654,
+        "prediction_model": 0
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.09543122986997502,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.0625,
+        "global_backbone_rmsd_delta": 1.7446474705395634,
+        "interface_backbone_rmsd_delta": 0.250405361022787,
+        "ligand_rmsd_delta": 1.021641130634496,
+        "prediction_model": 1
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.17340521114106022,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.15625,
+        "global_backbone_rmsd_delta": 4.011428716870979,
+        "interface_backbone_rmsd_delta": 0.8813993182862951,
+        "ligand_rmsd_delta": 6.72495617904918,
+        "prediction_model": 2
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.057597249086610736,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.0625,
+        "global_backbone_rmsd_delta": -1.8942426351031347,
+        "interface_backbone_rmsd_delta": 0.34455445453800326,
+        "ligand_rmsd_delta": -5.180298016183684,
+        "prediction_model": 3
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.09583333333333333,
+        "current_capri_class": "medium",
+        "fnat_delta": 0.21875,
+        "global_backbone_rmsd_delta": 0.2928590164292526,
+        "interface_backbone_rmsd_delta": -1.7919163017662516,
+        "ligand_rmsd_delta": -3.2231936202237605,
+        "prediction_model": 4
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.1085616438356165,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.09375,
+        "global_backbone_rmsd_delta": 1.9225891024238724,
+        "interface_backbone_rmsd_delta": 0.9098313127375013,
+        "ligand_rmsd_delta": 0.8086650676785005,
+        "prediction_model": 5
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.05479452054794531,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.0625,
+        "global_backbone_rmsd_delta": -2.212867172785412,
+        "interface_backbone_rmsd_delta": 0.13609001108775542,
+        "ligand_rmsd_delta": -7.73903118309272,
+        "prediction_model": 6
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.04732254047322543,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.09375,
+        "global_backbone_rmsd_delta": 2.709939938832018,
+        "interface_backbone_rmsd_delta": 0.5592471310492702,
+        "ligand_rmsd_delta": 6.173033706829656,
+        "prediction_model": 7
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.0847058823529411,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.0625,
+        "global_backbone_rmsd_delta": -1.1627542800533295,
+        "interface_backbone_rmsd_delta": -0.24955134660281386,
+        "ligand_rmsd_delta": -5.063779691895611,
+        "prediction_model": 8
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": -1,
+        "contact_f1_delta": -0.367816091954023,
+        "current_capri_class": "incorrect",
+        "fnat_delta": -0.5,
+        "global_backbone_rmsd_delta": 15.4419285353049,
+        "interface_backbone_rmsd_delta": 31.17455611652988,
+        "ligand_rmsd_delta": 51.034175682813014,
+        "prediction_model": 9
+      }
+    ],
+    "models_with_capri_rank_improvement": 1,
+    "models_with_capri_rank_worsening": 1,
+    "paired_models": 10
+  },
+  "exact_vs_token_force_true": {
+    "best_of_10_deltas": {
+      "capri_rank": 0,
+      "contact_f1": -0.008841732979664008,
+      "fnat": -0.0625,
+      "global_backbone_rmsd": -3.2455264170414386,
+      "interface_backbone_rmsd": -0.13416244790700427,
+      "ligand_rmsd": -5.112653994049186
+    },
+    "median_model_deltas": {
+      "capri_rank": 0.0,
+      "contact_f1": -0.11362721191835642,
+      "fnat": -0.109375,
+      "global_backbone_rmsd": 1.5881248962756027,
+      "interface_backbone_rmsd": 0.4265057395737717,
+      "ligand_rmsd": 0.7743463440629998
+    },
+    "model_pairs": [
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.1025163094128611,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.0625,
+        "global_backbone_rmsd_delta": 0.04099202523178924,
+        "interface_backbone_rmsd_delta": 0.6689866991971605,
+        "ligand_rmsd_delta": 0.9758903834316506,
+        "prediction_model": 0
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.06512536633018556,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.03125,
+        "global_backbone_rmsd_delta": -1.7640828962181683,
+        "interface_backbone_rmsd_delta": -0.6850430824771707,
+        "ligand_rmsd_delta": -4.637338921036143,
+        "prediction_model": 1
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.09859943977591035,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.125,
+        "global_backbone_rmsd_delta": 4.026048211028069,
+        "interface_backbone_rmsd_delta": 0.5233296212504239,
+        "ligand_rmsd_delta": 5.072498473524941,
+        "prediction_model": 2
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.018548827059465367,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.0625,
+        "global_backbone_rmsd_delta": -4.646943323796132,
+        "interface_backbone_rmsd_delta": -0.2530067865478527,
+        "ligand_rmsd_delta": -7.5996506408872015,
+        "prediction_model": 3
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.08846153846153842,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.03125,
+        "global_backbone_rmsd_delta": 0.9797117281112016,
+        "interface_backbone_rmsd_delta": -0.9184367783375071,
+        "ligand_rmsd_delta": -1.3628465438236574,
+        "prediction_model": 4
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.12473811442385174,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.09375,
+        "global_backbone_rmsd_delta": 3.0135006162040963,
+        "interface_backbone_rmsd_delta": -0.015895739196274405,
+        "ligand_rmsd_delta": 1.8915723065447025,
+        "prediction_model": 5
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.1543949771689498,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.1402027027027027,
+        "global_backbone_rmsd_delta": 2.196538064440004,
+        "interface_backbone_rmsd_delta": 1.1371960115224833,
+        "ligand_rmsd_delta": 0.5728023046943491,
+        "prediction_model": 6
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.20316669631738124,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.21875,
+        "global_backbone_rmsd_delta": 4.25346894666344,
+        "interface_backbone_rmsd_delta": 0.6137708326196654,
+        "ligand_rmsd_delta": 6.8871646380773015,
+        "prediction_model": 7
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": -0.18086956521739123,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.125,
+        "global_backbone_rmsd_delta": -0.12080470442796454,
+        "interface_backbone_rmsd_delta": 0.32968185789711946,
+        "ligand_rmsd_delta": -4.1006386535759916,
+        "prediction_model": 8
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": -1,
+        "contact_f1_delta": -0.367816091954023,
+        "current_capri_class": "incorrect",
+        "fnat_delta": -0.5,
+        "global_backbone_rmsd_delta": 13.897261624089104,
+        "interface_backbone_rmsd_delta": 29.90320655492918,
+        "ligand_rmsd_delta": 51.5856966148354,
+        "prediction_model": 9
+      }
+    ],
+    "models_with_capri_rank_improvement": 0,
+    "models_with_capri_rank_worsening": 1,
+    "paired_models": 10
+  },
+  "token_force_true_vs_combined": {
+    "best_of_10_deltas": {
+      "capri_rank": -1,
+      "contact_f1": -0.02801724137931033,
+      "fnat": -0.09375,
+      "global_backbone_rmsd": 0.1628762247096347,
+      "interface_backbone_rmsd": 0.8223094012577459,
+      "ligand_rmsd": 0.9577063267096335
+    },
+    "median_model_deltas": {
+      "capri_rank": 0.0,
+      "contact_f1": 0.09006855611145806,
+      "fnat": 0.078125,
+      "global_backbone_rmsd": -1.8336182864817179,
+      "interface_backbone_rmsd": -0.35857970902058955,
+      "ligand_rmsd": -0.9151530991564982
+    },
+    "model_pairs": [
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.20515003192168543,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.09375,
+        "global_backbone_rmsd_delta": -2.897151003982879,
+        "interface_backbone_rmsd_delta": -0.37260496350317585,
+        "ligand_rmsd_delta": -2.750524138848654,
+        "prediction_model": 0
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.09543122986997502,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.0625,
+        "global_backbone_rmsd_delta": -1.7446474705395634,
+        "interface_backbone_rmsd_delta": -0.250405361022787,
+        "ligand_rmsd_delta": -1.021641130634496,
+        "prediction_model": 1
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.17340521114106022,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.15625,
+        "global_backbone_rmsd_delta": -4.011428716870979,
+        "interface_backbone_rmsd_delta": -0.8813993182862951,
+        "ligand_rmsd_delta": -6.72495617904918,
+        "prediction_model": 2
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.057597249086610736,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.0625,
+        "global_backbone_rmsd_delta": 1.8942426351031347,
+        "interface_backbone_rmsd_delta": -0.34455445453800326,
+        "ligand_rmsd_delta": 5.180298016183684,
+        "prediction_model": 3
+      },
+      {
+        "baseline_capri_class": "medium",
+        "capri_rank_delta": -1,
+        "contact_f1_delta": -0.09583333333333333,
+        "current_capri_class": "acceptable",
+        "fnat_delta": -0.21875,
+        "global_backbone_rmsd_delta": -0.2928590164292526,
+        "interface_backbone_rmsd_delta": 1.7919163017662516,
+        "ligand_rmsd_delta": 3.2231936202237605,
+        "prediction_model": 4
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.1085616438356165,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.09375,
+        "global_backbone_rmsd_delta": -1.9225891024238724,
+        "interface_backbone_rmsd_delta": -0.9098313127375013,
+        "ligand_rmsd_delta": -0.8086650676785005,
+        "prediction_model": 5
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.05479452054794531,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.0625,
+        "global_backbone_rmsd_delta": 2.212867172785412,
+        "interface_backbone_rmsd_delta": -0.13609001108775542,
+        "ligand_rmsd_delta": 7.73903118309272,
+        "prediction_model": 6
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.04732254047322543,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.09375,
+        "global_backbone_rmsd_delta": -2.709939938832018,
+        "interface_backbone_rmsd_delta": -0.5592471310492702,
+        "ligand_rmsd_delta": -6.173033706829656,
+        "prediction_model": 7
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.0847058823529411,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.0625,
+        "global_backbone_rmsd_delta": 1.1627542800533295,
+        "interface_backbone_rmsd_delta": 0.24955134660281386,
+        "ligand_rmsd_delta": 5.063779691895611,
+        "prediction_model": 8
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.367816091954023,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.5,
+        "global_backbone_rmsd_delta": -15.4419285353049,
+        "interface_backbone_rmsd_delta": -31.17455611652988,
+        "ligand_rmsd_delta": -51.034175682813014,
+        "prediction_model": 9
+      }
+    ],
+    "models_with_capri_rank_improvement": 1,
+    "models_with_capri_rank_worsening": 1,
+    "paired_models": 10
+  },
+  "token_force_true_vs_false": {
+    "best_of_10_deltas": {
+      "capri_rank": 0,
+      "contact_f1": 0.07834240774349666,
+      "fnat": 0.15625,
+      "global_backbone_rmsd": -0.34506550881323683,
+      "interface_backbone_rmsd": -1.12042374677499,
+      "ligand_rmsd": -2.5144169644438534
+    },
+    "median_model_deltas": {
+      "capri_rank": 1.0,
+      "contact_f1": 0.33021276595744675,
+      "fnat": 0.40625,
+      "global_backbone_rmsd": -7.283314619977108,
+      "interface_backbone_rmsd": -10.58429191661127,
+      "ligand_rmsd": -19.489303100760182
+    },
+    "model_pairs": [
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.17837837837837833,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.1875,
+        "global_backbone_rmsd_delta": -3.315438259166056,
+        "interface_backbone_rmsd_delta": -0.8198142132850301,
+        "ligand_rmsd_delta": -5.636275727182298,
+        "prediction_model": 0
+      },
+      {
+        "baseline_capri_class": "acceptable",
+        "capri_rank_delta": 0,
+        "contact_f1_delta": 0.023779327837666453,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.0625,
+        "global_backbone_rmsd_delta": 0.11846422159160674,
+        "interface_backbone_rmsd_delta": -0.3761853058790887,
+        "ligand_rmsd_delta": 0.7406386455084437,
+        "prediction_model": 1
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.27891156462585037,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.36486486486486486,
+        "global_backbone_rmsd_delta": -6.47444385498631,
+        "interface_backbone_rmsd_delta": -2.294258409438652,
+        "ligand_rmsd_delta": -10.55476211699198,
+        "prediction_model": 2
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3404255319148936,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.5,
+        "global_backbone_rmsd_delta": -9.1011922877249,
+        "interface_backbone_rmsd_delta": -13.963039278924983,
+        "ligand_rmsd_delta": -27.256331469586918,
+        "prediction_model": 3
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.375,
+        "global_backbone_rmsd_delta": -6.589861848901174,
+        "interface_backbone_rmsd_delta": -12.472103895079883,
+        "ligand_rmsd_delta": -16.178255907878338,
+        "prediction_model": 4
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3835616438356165,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.4375,
+        "global_backbone_rmsd_delta": -12.156884372069868,
+        "interface_backbone_rmsd_delta": -15.293725394331359,
+        "ligand_rmsd_delta": -27.749003920042586,
+        "prediction_model": 5
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3835616438356165,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.4375,
+        "global_backbone_rmsd_delta": -8.725965290419486,
+        "interface_backbone_rmsd_delta": -8.69647993814266,
+        "ligand_rmsd_delta": -22.800350293642023,
+        "prediction_model": 6
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.410958904109589,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.46875,
+        "global_backbone_rmsd_delta": -5.0498348070671275,
+        "interface_backbone_rmsd_delta": -4.905605225635558,
+        "ligand_rmsd_delta": -8.820789176067375,
+        "prediction_model": 7
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.31999999999999995,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.375,
+        "global_backbone_rmsd_delta": -11.156626152752773,
+        "interface_backbone_rmsd_delta": -13.249787383551906,
+        "ligand_rmsd_delta": -26.98128595425517,
+        "prediction_model": 8
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.367816091954023,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.5,
+        "global_backbone_rmsd_delta": -7.976767391053041,
+        "interface_backbone_rmsd_delta": -18.93100492586541,
+        "ligand_rmsd_delta": -32.99620950933874,
+        "prediction_model": 9
+      }
+    ],
+    "models_with_capri_rank_improvement": 8,
+    "models_with_capri_rank_worsening": 0,
+    "paired_models": 10
+  },
+  "token_force_true_vs_unconstrained": {
+    "best_of_10_deltas": {
+      "capri_rank": 1,
+      "contact_f1": 0.367816091954023,
+      "fnat": 0.5,
+      "global_backbone_rmsd": -4.330368886656304,
+      "interface_backbone_rmsd": -12.831039598271467,
+      "ligand_rmsd": -18.99715420649224
+    },
+    "median_model_deltas": {
+      "capri_rank": 1.0,
+      "contact_f1": 0.37309723516620064,
+      "fnat": 0.4375,
+      "global_backbone_rmsd": -9.002074200858761,
+      "interface_backbone_rmsd": -14.5826310502518,
+      "ligand_rmsd": -28.531875064714285
+    },
+    "model_pairs": [
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.37837837837837834,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.4375,
+        "global_backbone_rmsd_delta": -9.049635561208207,
+        "interface_backbone_rmsd_delta": -13.254955190826509,
+        "ligand_rmsd_delta": -26.67255236325881,
+        "prediction_model": 0
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3132530120481928,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.40625,
+        "global_backbone_rmsd_delta": -3.8668391562514604,
+        "interface_backbone_rmsd_delta": -12.086801157375566,
+        "ligand_rmsd_delta": -15.742098596539943,
+        "prediction_model": 1
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.380952380952381,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.5,
+        "global_backbone_rmsd_delta": -13.813665444252209,
+        "interface_backbone_rmsd_delta": -15.061854322568152,
+        "ligand_rmsd_delta": -38.7475571105346,
+        "prediction_model": 2
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3404255319148936,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.5,
+        "global_backbone_rmsd_delta": -11.365918778396537,
+        "interface_backbone_rmsd_delta": -16.848223134118356,
+        "ligand_rmsd_delta": -30.39119776616976,
+        "prediction_model": 3
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.375,
+        "global_backbone_rmsd_delta": -7.46278642068498,
+        "interface_backbone_rmsd_delta": -14.423022984345453,
+        "ligand_rmsd_delta": -17.778014351214757,
+        "prediction_model": 4
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3835616438356165,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.4375,
+        "global_backbone_rmsd_delta": -8.803044054511496,
+        "interface_backbone_rmsd_delta": -13.56269423931424,
+        "ligand_rmsd_delta": -21.907227046020477,
+        "prediction_model": 5
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.3835616438356165,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.4375,
+        "global_backbone_rmsd_delta": -8.954512840509315,
+        "interface_backbone_rmsd_delta": -19.03619730588647,
+        "ligand_rmsd_delta": -30.535618179712674,
+        "prediction_model": 6
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.410958904109589,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.46875,
+        "global_backbone_rmsd_delta": -16.051882936723146,
+        "interface_backbone_rmsd_delta": -14.742239116158148,
+        "ligand_rmsd_delta": -40.370924610255415,
+        "prediction_model": 7
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.31999999999999995,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.375,
+        "global_backbone_rmsd_delta": -7.003822037295437,
+        "interface_backbone_rmsd_delta": -13.840222288814333,
+        "ligand_rmsd_delta": -22.75479988843633,
+        "prediction_model": 8
+      },
+      {
+        "baseline_capri_class": "incorrect",
+        "capri_rank_delta": 1,
+        "contact_f1_delta": 0.367816091954023,
+        "current_capri_class": "acceptable",
+        "fnat_delta": 0.5,
+        "global_backbone_rmsd_delta": -16.56397736756847,
+        "interface_backbone_rmsd_delta": -36.12725609421232,
+        "ligand_rmsd_delta": -62.766420782449956,
+        "prediction_model": 9
+      }
+    ],
+    "models_with_capri_rank_improvement": 10,
+    "models_with_capri_rank_worsening": 0,
+    "paired_models": 10
+  }
+}

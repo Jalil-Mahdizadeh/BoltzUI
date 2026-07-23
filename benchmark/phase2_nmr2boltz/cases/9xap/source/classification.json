@@ -1,0 +1,468 @@
+{
+  "best_of_10_best_of_ensemble": {
+    "assignment": {
+      "A": "A",
+      "B": "B"
+    },
+    "capri_class": "incorrect",
+    "capri_rank": 0,
+    "chain_backbone_rmsd": {
+      "A": 3.9384173996321525,
+      "B": 3.803195935769792
+    },
+    "complex_plddt": 0.6849515438079834,
+    "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_9.json",
+    "confidence_score": 0.7066170573234558,
+    "contact_f1": 0.08,
+    "contact_precision": 0.07692307692307693,
+    "fnat": 0.08333333333333333,
+    "global_anchor_count": 126,
+    "global_backbone_rmsd": 10.501528279849676,
+    "interface_anchor_count": 60,
+    "interface_backbone_rmsd": 9.37703058144941,
+    "iptm": 0.7932791709899902,
+    "ligand_anchor_count": 63,
+    "ligand_chain": "B",
+    "ligand_rmsd": 19.52995623192015,
+    "native_contact_count": 24,
+    "predicted_contact_count": 26,
+    "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_9.pdb",
+    "prediction_model": 9,
+    "prediction_sequence_identity": {
+      "A": 1.0,
+      "B": 1.0
+    },
+    "ptm": 0.8454595804214478,
+    "receptor_anchor_count": 63,
+    "receptor_chain": "A",
+    "recovered_native_contacts": 2,
+    "reference_model": 4
+  },
+  "capri_class_counts": {
+    "acceptable": 0,
+    "high": 0,
+    "incorrect": 10,
+    "medium": 0
+  },
+  "classification_reason": "all_10_predictions_capri_incorrect",
+  "classified_at": "2026-07-20T14:57:56Z",
+  "expected_prediction_models": 10,
+  "model_summaries": [
+    {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 4.037388320724971,
+        "B": 3.5367294902233795
+      },
+      "complex_plddt": 0.8339930176734924,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_0.json",
+      "confidence_score": 0.8283924460411072,
+      "contact_f1": 0.041666666666666664,
+      "contact_precision": 0.041666666666666664,
+      "fnat": 0.041666666666666664,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.380138595580842,
+      "interface_anchor_count": 66,
+      "interface_backbone_rmsd": 10.64942655272789,
+      "iptm": 0.8059897422790527,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.871242078135662,
+      "native_contact_count": 24,
+      "predicted_contact_count": 24,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_0.pdb",
+      "prediction_model": 0,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8548548817634583,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 1,
+      "reference_model": 3
+    },
+    {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 3.8693686681956083,
+        "B": 3.7778696383393977
+      },
+      "complex_plddt": 0.8362470269203186,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_1.json",
+      "confidence_score": 0.8277751803398132,
+      "contact_f1": 0.0,
+      "contact_precision": 0.0,
+      "fnat": 0.0,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.667437635939027,
+      "interface_anchor_count": 72,
+      "interface_backbone_rmsd": 9.89266574408364,
+      "iptm": 0.7938880324363708,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.506958142797657,
+      "native_contact_count": 25,
+      "predicted_contact_count": 27,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_1.pdb",
+      "prediction_model": 1,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8473785519599915,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 0,
+      "reference_model": 9
+    },
+    {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 3.7897621007399915,
+        "B": 3.727923565868338
+      },
+      "complex_plddt": 0.8296000957489014,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_2.json",
+      "confidence_score": 0.8250600695610046,
+      "contact_f1": 0.0,
+      "contact_precision": 0.0,
+      "fnat": 0.0,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.701233465698401,
+      "interface_anchor_count": 72,
+      "interface_backbone_rmsd": 9.830366574771805,
+      "iptm": 0.8069000840187073,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.460679805316907,
+      "native_contact_count": 25,
+      "predicted_contact_count": 25,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_2.pdb",
+      "prediction_model": 2,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8556700348854065,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 0,
+      "reference_model": 9
+    },
+    {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 4.070987944168171,
+        "B": 3.6579537344009676
+      },
+      "complex_plddt": 0.8283589482307434,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_3.json",
+      "confidence_score": 0.8232329487800598,
+      "contact_f1": 0.043478260869565216,
+      "contact_precision": 0.045454545454545456,
+      "fnat": 0.041666666666666664,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.415489800513392,
+      "interface_anchor_count": 66,
+      "interface_backbone_rmsd": 10.66525211935029,
+      "iptm": 0.8027287721633911,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.88423271407657,
+      "native_contact_count": 24,
+      "predicted_contact_count": 22,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_3.pdb",
+      "prediction_model": 3,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8521431684494019,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 1,
+      "reference_model": 3
+    },
+    {
+      "assignment": {
+        "A": "B",
+        "B": "A"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 3.845835584270502,
+        "B": 3.7924211993386394
+      },
+      "complex_plddt": 0.8279221057891846,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_4.json",
+      "confidence_score": 0.8217629790306091,
+      "contact_f1": 0.0,
+      "contact_precision": 0.0,
+      "fnat": 0.0,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.386429546780754,
+      "interface_anchor_count": 72,
+      "interface_backbone_rmsd": 9.715836858619282,
+      "iptm": 0.7971264123916626,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.277356108679967,
+      "native_contact_count": 25,
+      "predicted_contact_count": 26,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_4.pdb",
+      "prediction_model": 4,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8380811214447021,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 0,
+      "reference_model": 9
+    },
+    {
+      "assignment": {
+        "A": "B",
+        "B": "A"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 3.8010727878273616,
+        "B": 3.9128709425469785
+      },
+      "complex_plddt": 0.8234574198722839,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_5.json",
+      "confidence_score": 0.8196630477905273,
+      "contact_f1": 0.0,
+      "contact_precision": 0.0,
+      "fnat": 0.0,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.738128209969432,
+      "interface_anchor_count": 72,
+      "interface_backbone_rmsd": 9.994549659614716,
+      "iptm": 0.8044856786727905,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.36105460149904,
+      "native_contact_count": 25,
+      "predicted_contact_count": 28,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_5.pdb",
+      "prediction_model": 5,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8530376553535461,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 0,
+      "reference_model": 9
+    },
+    {
+      "assignment": {
+        "A": "B",
+        "B": "A"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 4.006840820040661,
+        "B": 3.502669474149244
+      },
+      "complex_plddt": 0.8255622386932373,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_6.json",
+      "confidence_score": 0.8182441592216492,
+      "contact_f1": 0.04,
+      "contact_precision": 0.038461538461538464,
+      "fnat": 0.041666666666666664,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.634782597137491,
+      "interface_anchor_count": 66,
+      "interface_backbone_rmsd": 10.802923675561372,
+      "iptm": 0.7889721393585205,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.882874375304073,
+      "native_contact_count": 24,
+      "predicted_contact_count": 26,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_6.pdb",
+      "prediction_model": 6,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8479233980178833,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 1,
+      "reference_model": 3
+    },
+    {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 3.9776938082151947,
+        "B": 3.7498142113364445
+      },
+      "complex_plddt": 0.8250521421432495,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_7.json",
+      "confidence_score": 0.818227231502533,
+      "contact_f1": 0.03636363636363637,
+      "contact_precision": 0.03225806451612903,
+      "fnat": 0.041666666666666664,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 11.339428718364363,
+      "interface_anchor_count": 66,
+      "interface_backbone_rmsd": 10.527269925679187,
+      "iptm": 0.7909273505210876,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 26.253285832440444,
+      "native_contact_count": 24,
+      "predicted_contact_count": 31,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_7.pdb",
+      "prediction_model": 7,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8416840434074402,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 1,
+      "reference_model": 3
+    },
+    {
+      "assignment": {
+        "A": "B",
+        "B": "A"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 4.259828956619251,
+        "B": 3.6232458987033334
+      },
+      "complex_plddt": 0.746097207069397,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_8.json",
+      "confidence_score": 0.7342413067817688,
+      "contact_f1": 0.037037037037037035,
+      "contact_precision": 0.03333333333333333,
+      "fnat": 0.041666666666666664,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 10.719362641565187,
+      "interface_anchor_count": 66,
+      "interface_backbone_rmsd": 9.971059706565919,
+      "iptm": 0.6868176460266113,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 24.343803221678563,
+      "native_contact_count": 24,
+      "predicted_contact_count": 30,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_8.pdb",
+      "prediction_model": 8,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.7907329201698303,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 1,
+      "reference_model": 3
+    },
+    {
+      "assignment": {
+        "A": "A",
+        "B": "B"
+      },
+      "capri_class": "incorrect",
+      "capri_rank": 0,
+      "chain_backbone_rmsd": {
+        "A": 3.9384173996321525,
+        "B": 3.803195935769792
+      },
+      "complex_plddt": 0.6849515438079834,
+      "confidence_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/confidence_9xap_unconstrained_model_9.json",
+      "confidence_score": 0.7066170573234558,
+      "contact_f1": 0.08,
+      "contact_precision": 0.07692307692307693,
+      "fnat": 0.08333333333333333,
+      "global_anchor_count": 126,
+      "global_backbone_rmsd": 10.501528279849676,
+      "interface_anchor_count": 60,
+      "interface_backbone_rmsd": 9.37703058144941,
+      "iptm": 0.7932791709899902,
+      "ligand_anchor_count": 63,
+      "ligand_chain": "B",
+      "ligand_rmsd": 19.52995623192015,
+      "native_contact_count": 24,
+      "predicted_contact_count": 26,
+      "prediction_file": "results/boltz_results_9xap_unconstrained/predictions/9xap_unconstrained/9xap_unconstrained_model_9.pdb",
+      "prediction_model": 9,
+      "prediction_sequence_identity": {
+        "A": 1.0,
+        "B": 1.0
+      },
+      "ptm": 0.8454595804214478,
+      "receptor_anchor_count": 63,
+      "receptor_chain": "A",
+      "recovered_native_contacts": 2,
+      "reference_model": 4
+    }
+  ],
+  "pdb_id": "9XAP",
+  "prediction_models_compared": 10,
+  "reference_models_compared": 10,
+  "schema_version": 1,
+  "status": "passed",
+  "technically_complete": true,
+  "unified_nmr_downloads": [
+    {
+      "bytes": 132982,
+      "compressed_file": "nmr_data/9xap_nmr-data.nef.gz",
+      "compressed_sha256": "d792ff16c119f8a971b160f5b8c1301017bf0898b7d5c1ae8ee0d2b9455325b5",
+      "file": "nmr_data/9xap_nmr-data.nef",
+      "format": "NEF",
+      "sha256": "708012b5c381fce8cdfca125727de476b977a0bee02f39171d5c019bec9c62f8",
+      "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/xa/9xap_nmr-data.nef.gz"
+    },
+    {
+      "bytes": 197844,
+      "compressed_file": "nmr_data/9xap_nmr-data.str.gz",
+      "compressed_sha256": "54777b275fd1578fda5351ee79cf10d65235dec51b00d0cdeff8dfa96cc96638",
+      "file": "nmr_data/9xap_nmr-data.str",
+      "format": "NMR-STAR",
+      "sha256": "e3272f59e1a48eb72e30e81de501d27d8fef230ec1ac6ae4f54f707f0672ca78",
+      "source_url": "https://files.rcsb.org/pub/pdb/data/structures/divided/nmr_data/xa/9xap_nmr-data.str.gz"
+    }
+  ]
+}

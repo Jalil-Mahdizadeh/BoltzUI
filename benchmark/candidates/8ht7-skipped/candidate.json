@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36531"
+  ],
+  "candidate_directory": "candidates/8ht7-skipped",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 21,
+      "polymer_type": "polydeoxyribonucleotide",
+      "sequence": "GGGTTAGGGTTAGGGTTTGGG"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "2",
+      "length": 15,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "QAQATISFPKRKLSW"
+    }
+  ],
+  "classification_reason": "at_least_one_prediction_acceptable_or_better",
+  "classified_at": "2026-07-20T17:32:33Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8ht7.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "5a2429a1815ac7117776f8dbb8ba1b0697fa212bb86a780de5e9fbee8b7e1de4",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 36,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 3.747786963773642,
+    "medoid_backbone_rmsd_mean": 2.2343371270708445,
+    "medoid_backbone_rmsd_median": 2.088151232862165,
+    "medoid_backbone_rmsd_p90": 3.6905044383933756,
+    "medoid_model": 1,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 38,
+    "native_contact_count_median": 28.0,
+    "native_contact_count_minimum": 26,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8ht7_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8ht7",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 36,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8HT7",
+  "polymer_composition": "protein/NA",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T17:23:29Z",
+  "reference_file": "reference/8ht7.pdb",
+  "release_date": "2023-12-27T00:00:00.000+00:00",
+  "status": "skipped",
+  "title": "The N-terminal region of Cdc6 specifically recognizes human DNA G-quadruplex"
+}

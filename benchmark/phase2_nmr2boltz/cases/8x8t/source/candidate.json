@@ -1,0 +1,194 @@
+{
+  "benchmark_schema_version": 1,
+  "bmrb_ids": [
+    "36619"
+  ],
+  "candidate_directory": "candidates/8x8t-passed",
+  "chains": [
+    {
+      "auth_asym_id": "A",
+      "entity_id": "1",
+      "length": 61,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "GSAEQEPTAEQLAQIAAENEEDEHSVNYKPPAQKDIQEIQELDKDDESLRKYKEALLGRVA"
+    },
+    {
+      "auth_asym_id": "B",
+      "entity_id": "2",
+      "length": 62,
+      "polymer_type": "polypeptide(L)",
+      "sequence": "GSKRWNSCKQNKQGANSRPVNQTPPPEGEKLHSDSGISVDSQSLHDQQPHTQTASGQALKGD"
+    }
+  ],
+  "classification_reason": "all_10_predictions_capri_incorrect",
+  "classified_at": "2026-07-20T17:58:34Z",
+  "constraints_present": false,
+  "coordinate_file": "screening/structures/8x8t.pdb",
+  "coordinate_screen_reasons": [],
+  "coordinate_screen_status": "eligible_run",
+  "coordinate_sha256": "6463d728cb2bc87d23fffec57343ebf9a2d8ce906db33dc1fba895053733f0e3",
+  "deposited_model_count": 10,
+  "deposited_polymer_residues": 123,
+  "ensemble_profile": {
+    "medoid_backbone_rmsd_maximum": 4.4325146547687995,
+    "medoid_backbone_rmsd_mean": 3.3066582647100224,
+    "medoid_backbone_rmsd_median": 3.635873066823228,
+    "medoid_backbone_rmsd_p90": 4.2063083136010055,
+    "medoid_model": 4,
+    "model_records": [
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 1,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 2,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 3,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 4,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 5,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 6,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 7,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 8,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 9,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      },
+      {
+        "anchor_coverage": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "model": 10,
+        "sequence_identity": {
+          "A": 1.0,
+          "B": 1.0
+        },
+        "usable": true
+      }
+    ],
+    "models_total": 10,
+    "models_usable": 10,
+    "native_contact_count_maximum": 142,
+    "native_contact_count_median": 128.0,
+    "native_contact_count_minimum": 117,
+    "usable_model_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "experimental_method": "SOLUTION NMR",
+  "input_file": "input/8x8t_unconstrained.yaml",
+  "metadata_directory": "screening/metadata/8x8t",
+  "modeled_polymer_fraction": 1.0,
+  "modeled_polymer_residues": 123,
+  "nonpolymer_entity_count": 0,
+  "pdb_id": "8X8T",
+  "polymer_composition": "heteromeric protein",
+  "prediction_result_root": "results",
+  "prefilter_reasons": [],
+  "prefilter_status": "eligible",
+  "prepared_at": "2026-07-20T17:49:37Z",
+  "reference_file": "reference/8x8t.pdb",
+  "release_date": "2024-04-03T00:00:00.000+00:00",
+  "status": "passed",
+  "title": "NMR structure of p75NTR juxtamembrane domain in complex with RhoGDI N-terminal domain containing a phosphorylation-mimicking S34D mutation"
+}

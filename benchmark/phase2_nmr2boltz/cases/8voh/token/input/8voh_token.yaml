@@ -1,0 +1,57 @@
+# 8VOH token-only constraints generated from deposited NEF by nmr2boltz 0.1.0
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: EDSDIAFLIDGSGSIIPHDFRRMKEFVSTVMEQLKKSKTLFSLMQYSEEFRIHFTFKEFQNNPNPRSLVKPITQLLGRTHTATGIRKVVRELFNITNGARKNAFKILVVITDGEKFGDPLGYEDVIPEADREGVIRYVIGVGDAFRSEKSRQELNTIASKPPRDHVFQVNNFEALKTIQNQLREKIFAIEGTQT
+      msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/msa/entity_0.csv
+  - protein:
+      id: B
+      sequence: GKKEKPEKKVKKSDCGEWQWSVCVPTSGDCGLGTREGTRTGAECKQTMKTQRCKIPCN
+      msa: /workspace/BoltzUI/benchmark/phase2_nmr2boltz/cases/8voh/source/msa/entity_1.csv
+constraints:
+  - contact:
+      token1: [A, 130]
+      token2: [B, 32]
+      max_distance: 5.242343
+      force: false
+  - contact:
+      token1: [A, 131]
+      token2: [B, 31]
+      max_distance: 4.740000
+      force: false
+  - contact:
+      token1: [A, 133]
+      token2: [B, 32]
+      max_distance: 5.242343
+      force: false
+  - contact:
+      token1: [A, 135]
+      token2: [B, 32]
+      max_distance: 5.845624
+      force: false
+  - contact:
+      token1: [A, 135]
+      token2: [B, 52]
+      max_distance: 5.242343
+      force: false
+  - contact:
+      token1: [A, 160]
+      token2: [B, 26]
+      max_distance: 5.242343
+      force: false
+  - contact:
+      token1: [A, 160]
+      token2: [B, 34]
+      max_distance: 5.242343
+      force: false
+  - contact:
+      token1: [A, 161]
+      token2: [B, 34]
+      max_distance: 5.242343
+      force: false
+  - contact:
+      token1: [A, 161]
+      token2: [B, 50]
+      max_distance: 5.242343
+      force: false

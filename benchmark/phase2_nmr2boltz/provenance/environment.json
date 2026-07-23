@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "executed_on": "2026-07-20",
+  "apptainer_version": "1.4.5-3.el8",
+  "gpus": [
+    {
+      "index": 0,
+      "name": "NVIDIA A100-SXM4-40GB",
+      "memory_mib": 40960,
+      "driver_version": "595.58.03"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA A100-SXM4-40GB",
+      "memory_mib": 40960,
+      "driver_version": "595.58.03"
+    }
+  ],
+  "containers": {
+    "nmr2boltz": {
+      "path": "/mimer/NOBACKUP/groups/theo-storage/Jalil/Images/nmr2boltz.sif",
+      "sha256": "8e282353c4c8bb7612e2a6144047c287ac55334ccb90a6ebc2a78197dca1ace2",
+      "version": "0.1.0-validated",
+      "build_date": "Monday_20_July_2026_20:3:45_CEST",
+      "description": "Conservative NEF/NMR-STAR proton-restraint to Boltz heavy-atom constraint converter"
+    },
+    "boltz": {
+      "path": "/cephyr/users/sayyed/Alvis/Desktop/mimer_theo-storage/Jalil/Images/boltzui-221-exact-union.sif",
+      "sha256": "6d522f5c3a92eaa2eddd1e38f6ad5e56c17072a654b877b593b284ef795c0dfb",
+      "version": "Boltz 2.2.1 with exact+union atom-contact patch",
+      "build_date": "Monday_20_July_2026_16:0:13_CEST",
+      "description": "BoltzUI with exact and union atom-contact guidance and bounded Boltz 2.2.1 denoiser sample batches"
+    }
+  },
+  "nmr2boltz_repository": {
+    "url": "https://github.com/Jalil-Mahdizadeh/NMR2Boltz",
+    "captured_latest_commit": "7d9cf44bbd5da2e9b23434cae09b6ea1c611640c",
+    "captured_commit_author_date": "2026-07-20T18:00:25Z",
+    "packaged_file_matches": {
+      "README.md": "494a64d29f6f5dbff6c5056abfe6ab54edb835dc0f18ad2509e7335f1e6d5eca",
+      "nmr_to_boltz.py": "8764488e7c194dd7fce5f2b1e8c3e067fdc3224cba9413fc62c874f2b6097344",
+      "pyproject.toml": "2bd9892770afee850418334ba8465698dd61b460bbe7f33fc4c96bb697f4879d"
+    },
+    "note": "These three files inside the immutable SIF match the captured repository commit byte-for-byte."
+  },
+  "external_components": {
+    "DNR": {
+      "source_url": "https://files.rcsb.org/ligands/download/DNR.cif",
+      "sha256": "912f58402d5550bcc698d59c98dc004c278a707d3a117ca69bd8fdf08e3234da",
+      "parent_component": "DC"
+    }
+  }
+}

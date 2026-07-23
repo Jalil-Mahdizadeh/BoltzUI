@@ -1,0 +1,492 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0002-0766-4788",
+      "name": "Li, X.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0002-8866-2265",
+      "name": "Groaz, E.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "identifier_ORCID": "0000-0003-3589-8503",
+      "name": "Herdewyn, P.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "identifier_ORCID": "0000-0001-7066-4329",
+      "name": "Lescrinier, E.",
+      "pdbx_ordinal": 4
+    }
+  ],
+  "citation": [
+    {
+      "country": "GE",
+      "id": "primary",
+      "journal_abbrev": "Chemistry",
+      "journal_id_ISSN": "0947-6539",
+      "journal_volume": "30",
+      "page_first": "e202401254",
+      "page_last": "e202401254",
+      "pdbx_database_id_DOI": "10.1002/chem.202401254",
+      "pdbx_database_id_PubMed": 38687344,
+      "rcsb_authors": [
+        "Li, X.",
+        "Groaz, E.",
+        "Herdewijn, P.",
+        "Lescrinier, E."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Chemistry",
+      "title": "Impact of Single Acyclic Phosphonate Nucleotide (ZNA) Modifications on DNA Duplex Stability.",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "9F3E",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb9f3e/pdb",
+      "pdbx_database_accession": "pdb_00009f3e"
+    },
+    {
+      "database_code": "D_1292138089",
+      "database_id": "WWPDB"
+    },
+    {
+      "database_code": "34915",
+      "database_id": "BMRB",
+      "pdbx_DOI": "10.13018/BMR34915"
+    }
+  ],
+  "entry": {
+    "id": "9F3E"
+  },
+  "exptl": [
+    {
+      "method": "SOLUTION NMR"
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "citation",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "category": "citation_author",
+      "data_content_type": "Structure model",
+      "ordinal": 2,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Database references",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2024-06-05T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2024-07-10T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_revision_item": [
+    {
+      "data_content_type": "Structure model",
+      "item": "_citation.journal_volume",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "data_content_type": "Structure model",
+      "item": "_citation_author.identifier_ORCID",
+      "ordinal": 2,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "Belgium",
+      "funding_organization": "KU Leuven",
+      "grant_number": "[14/19/102]",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "34915",
+      "db_name": "BMRB",
+      "details": "Single acyclic phosphonate nucleotide (R)-ZNA modification on DNA duplex"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2024-04-25T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "pdbx_nmr_ensemble": {
+    "conformer_selection_criteria": "structures with acceptable covalent geometry",
+    "conformers_calculated_total_number": 100,
+    "conformers_submitted_total_number": 20
+  },
+  "pdbx_nmr_exptl": [
+    {
+      "conditions_id": "1",
+      "experiment_id": "1",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D NOESY"
+    },
+    {
+      "conditions_id": "2",
+      "experiment_id": "2",
+      "sample_state": "isotropic",
+      "solution_id": "2",
+      "spectrometer_id": 1,
+      "type": "2D NOESY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "3",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-1H COSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "4",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aliphatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "5",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HSQC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "9",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D 1H-13C HMBC aromatic"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "6",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D TOCSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "7",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 2,
+      "type": "2D 1H-31P COSY"
+    },
+    {
+      "conditions_id": "1",
+      "experiment_id": "8",
+      "sample_state": "isotropic",
+      "solution_id": "1",
+      "spectrometer_id": 1,
+      "type": "2D DQF-COSY"
+    }
+  ],
+  "pdbx_nmr_exptl_sample_conditions": [
+    {
+      "conditions_id": "1",
+      "ionic_strength": "0",
+      "ionic_strength_units": "mM",
+      "label": "Sample_1",
+      "pH": "6.38",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "278",
+      "temperature_units": "K"
+    },
+    {
+      "conditions_id": "2",
+      "ionic_strength": "0",
+      "ionic_strength_units": "mM",
+      "label": "Sample_2",
+      "pH": "6.38",
+      "pH_units": "pH",
+      "pressure": "1",
+      "pressure_units": "atm",
+      "temperature": "278",
+      "temperature_units": "K"
+    }
+  ],
+  "pdbx_nmr_refine": [
+    {
+      "method": "torsion angle dynamics",
+      "software_ordinal": 3
+    }
+  ],
+  "pdbx_nmr_representative": {
+    "conformer_id": "1",
+    "selection_criteria": "lowest energy"
+  },
+  "pdbx_nmr_sample_details": [
+    {
+      "contents": "990 ug/mL [U-1% 13C] Oligo2, 100% D2O",
+      "label": "Sample_1",
+      "solution_id": "3",
+      "solvent_system": "100% D2O",
+      "type": "solution"
+    },
+    {
+      "contents": "990 ug/mL [U-1% 13C] Oligo2, 90% H2O/10% D2O",
+      "label": "Sample_2",
+      "solution_id": "4",
+      "solvent_system": "90% H2O/10% D2O",
+      "type": "solution"
+    }
+  ],
+  "pdbx_nmr_software": [
+    {
+      "authors": "Keller and Wuthrich",
+      "classification": "chemical shift assignment",
+      "name": "CARA",
+      "ordinal": 1
+    },
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "structure calculation",
+      "name": "X-PLOR NIH",
+      "ordinal": 2
+    },
+    {
+      "authors": "Schwieters, Kuszewski, Tjandra and Clore",
+      "classification": "refinement",
+      "name": "X-PLOR NIH",
+      "ordinal": 3
+    },
+    {
+      "authors": "Bartels et al.",
+      "classification": "peak picking",
+      "name": "XEASY",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_nmr_spectrometer": [
+    {
+      "field_strength": 600.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE II",
+      "spectrometer_id": "1"
+    },
+    {
+      "field_strength": 500.0,
+      "manufacturer": "Bruker",
+      "model": "AVANCE",
+      "spectrometer_id": "2"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,coreclust,chemicalshiftanalysis,restraintsanalysis,validation_schema,percentiles,writepdf,writexml,writecif",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-05T18:55:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.46,
+      "bonds_RMSZ": 0.23,
+      "clashscore": 37.07,
+      "clashscore_full_length": 37.4,
+      "num_H_reduce": 5440,
+      "num_angles_RMSZ": 15280,
+      "num_bonds_RMSZ": 10000
+    }
+  ],
+  "pdbx_vrpt_summary_nmr": [
+    {
+      "chemical_shift_completeness": 67.27,
+      "chemical_shift_completeness_full_length": 67.27,
+      "exp_method": "nmr"
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-04-25T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2024-06-05T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 1,
+    "revision_date": "2024-07-10T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1"
+    ],
+    "entry_id": "9F3E",
+    "model_ids": [
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "polymer_entity_ids": [
+      "1"
+    ],
+    "pubmed_id": 38687344,
+    "rcsb_id": "9F3E"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 0,
+    "deposited_atom_count": 482,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 272,
+    "deposited_model_count": 20,
+    "deposited_modeled_polymer_monomer_count": 24,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 2,
+    "deposited_polymer_monomer_count": 24,
+    "deposited_solvent_atom_count": 0,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "disulfide_bond_count": 0,
+    "entity_count": 1,
+    "experimental_method": "NMR",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 4,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 7.27,
+    "na_polymer_entity_types": "DNA (only)",
+    "ndb_struct_conf_na_feature_combined": [
+      "b-form double helix",
+      "double helix"
+    ],
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "DNA",
+    "polymer_entity_count": 1,
+    "polymer_entity_count_DNA": 1,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 1,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 0,
+    "polymer_entity_taxonomy_count": 1,
+    "polymer_molecular_weight_maximum": 3.64,
+    "polymer_molecular_weight_minimum": 3.64,
+    "polymer_monomer_count_maximum": 12,
+    "polymer_monomer_count_minimum": 12,
+    "selected_polymer_entity_types": "Nucleic acid (only)",
+    "software_programs_combined": [
+      "CARA",
+      "X-PLOR NIH",
+      "XEASY"
+    ],
+    "solvent_entity_count": 0,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10
+  },
+  "rcsb_external_references": [
+    {
+      "id": "34915",
+      "link": "https://bmrb.io/data_library/generate_summary.php?bmrbId=34915",
+      "type": "BMRB"
+    },
+    {
+      "id": "9F3E",
+      "link": "https://nakb.org/atlas=9F3E",
+      "type": "NAKB"
+    }
+  ],
+  "rcsb_id": "9F3E",
+  "rcsb_primary_citation": {
+    "country": "GE",
+    "id": "primary",
+    "journal_abbrev": "Chemistry",
+    "journal_id_ISSN": "0947-6539",
+    "journal_volume": "30",
+    "page_first": "e202401254",
+    "page_last": "e202401254",
+    "pdbx_database_id_DOI": "10.1002/chem.202401254",
+    "pdbx_database_id_PubMed": 38687344,
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "0000-0002-8866-2265",
+      "0000-0003-3589-8503",
+      "0000-0001-7066-4329"
+    ],
+    "rcsb_authors": [
+      "Li, X.",
+      "Groaz, E.",
+      "Herdewijn, P.",
+      "Lescrinier, E."
+    ],
+    "rcsb_journal_abbrev": "Chemistry",
+    "title": "Impact of Single Acyclic Phosphonate Nucleotide (ZNA) Modifications on DNA Duplex Stability.",
+    "year": 2024
+  },
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Single acyclic phosphonate nucleotide (R)-ZNA modification on DNA duplex"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "DNA",
+    "text": "Dickerson Drew Decamers, XNA, (R)-ZNA, acyclic backbone, phosphonate linkage, DNA"
+  }
+}

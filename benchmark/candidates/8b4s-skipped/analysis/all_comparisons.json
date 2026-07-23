@@ -1,0 +1,5662 @@
+[
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_0.pdb",
+    "prediction_model": 0,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7394372397516427,
+          "B": 1.9353770797401915
+        },
+        "contact_f1": 0.7857142857142856,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.233469187144787,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.266770354927841,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.5227347402312037,
+        "native_contact_count": 25,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9163446584703463,
+          "B": 1.7231722037044317
+        },
+        "contact_f1": 0.7636363636363636,
+        "contact_precision": 0.6774193548387096,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.006118280401093,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.298053453062758,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.7483363173791373,
+        "native_contact_count": 24,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.476248979519728,
+          "B": 1.787468316670808
+        },
+        "contact_f1": 0.7719298245614036,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.8461538461538461,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9497189647723951,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.222981208582723,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.7713042129918652,
+        "native_contact_count": 26,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0397605483010985,
+          "B": 2.1847693991864054
+        },
+        "contact_f1": 0.7241379310344828,
+        "contact_precision": 0.6774193548387096,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.350298834160027,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.4364486068717985,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.5823140339756323,
+        "native_contact_count": 27,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3698340947908907,
+          "B": 1.8581663868406406
+        },
+        "contact_f1": 0.8214285714285714,
+        "contact_precision": 0.7419354838709677,
+        "fnat": 0.92,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.002892897475672,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.5234209298463346,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.949495331416386,
+        "native_contact_count": 25,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7158889087590143,
+          "B": 1.5701409919964406
+        },
+        "contact_f1": 0.7307692307692307,
+        "contact_precision": 0.6129032258064516,
+        "fnat": 0.9047619047619048,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9298907683738504,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.10861664448719,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.5544214173524713,
+        "native_contact_count": 21,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.574379979710173,
+          "B": 2.079332587730277
+        },
+        "contact_f1": 0.7586206896551724,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.303762730863489,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.6757324966168008,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.104533574349479,
+        "native_contact_count": 27,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.385299644213102,
+          "B": 1.3063887150957738
+        },
+        "contact_f1": 0.7636363636363636,
+        "contact_precision": 0.6774193548387096,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.4403184077152318,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7105585534597844,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.000276220344357,
+        "native_contact_count": 24,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9066496687372834,
+          "B": 1.7770190662085914
+        },
+        "contact_f1": 0.7500000000000001,
+        "contact_precision": 0.7741935483870968,
+        "fnat": 0.7272727272727273,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.123074264945994,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.335545287327556,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.0949969689419996,
+        "native_contact_count": 33,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.426551386055001,
+          "B": 1.620146402636761
+        },
+        "contact_f1": 0.7457627118644068,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8689974063774553,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.0796550476631475,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6221612393083245,
+        "native_contact_count": 28,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5839460185101744,
+          "B": 1.800309879866825
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.6774193548387096,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.187638463557189,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.3842371958593418,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.1844185432899845,
+        "native_contact_count": 25,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8230125653633615,
+          "B": 1.3312125207234249
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.6774193548387096,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1964722985375786,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.614286192808631,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.353760534829454,
+        "native_contact_count": 25,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0496738015943823,
+          "B": 1.937091401649894
+        },
+        "contact_f1": 0.7719298245614036,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.8461538461538461,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.373196650953069,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.462153365406112,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.233113978464759,
+        "native_contact_count": 26,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9101513674766317,
+          "B": 1.7906251833441214
+        },
+        "contact_f1": 0.7419354838709677,
+        "contact_precision": 0.7419354838709677,
+        "fnat": 0.7419354838709677,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.172091154129477,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.1893331339822018,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.211189226128113,
+        "native_contact_count": 31,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.071249980147305,
+          "B": 1.8436625309635728
+        },
+        "contact_f1": 0.7636363636363636,
+        "contact_precision": 0.6774193548387096,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2750824231938807,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.4747497605477242,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.262421869939396,
+        "native_contact_count": 24,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0456470611136073,
+          "B": 1.7445881218103192
+        },
+        "contact_f1": 0.7457627118644068,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.4868965733854416,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.760527811653052,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.483046063257106,
+        "native_contact_count": 28,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.041119286375069,
+          "B": 2.038150251902381
+        },
+        "contact_f1": 0.7761194029850746,
+        "contact_precision": 0.8387096774193549,
+        "fnat": 0.7222222222222222,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1646633282216796,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.213562321562874,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.6229304586088915,
+        "native_contact_count": 36,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 26,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0884116256821093,
+          "B": 1.0273092593689381
+        },
+        "contact_f1": 0.7999999999999999,
+        "contact_precision": 0.7741935483870968,
+        "fnat": 0.8275862068965517,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.097059691628035,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.914759112711791,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.796896676721411,
+        "native_contact_count": 29,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6723932874023335,
+          "B": 2.0109796578408297
+        },
+        "contact_f1": 0.7586206896551724,
+        "contact_precision": 0.7096774193548387,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3414375180965723,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.570725741852659,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.8435637815972044,
+        "native_contact_count": 27,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 0.9952552267951965,
+          "B": 1.2748323026630282
+        },
+        "contact_f1": 0.8852459016393444,
+        "contact_precision": 0.8709677419354839,
+        "fnat": 0.9,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.128393638742388,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.8483617777658186,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.994462252463267,
+        "native_contact_count": 30,
+        "predicted_contact_count": 31,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 27,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_1.pdb",
+    "prediction_model": 1,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8943367842270997,
+          "B": 1.660650343463503
+        },
+        "contact_f1": 0.8,
+        "contact_precision": 0.7333333333333333,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2028760591880925,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.329379310722811,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.14248394603657,
+        "native_contact_count": 25,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6728608719045832,
+          "B": 1.90324861364376
+        },
+        "contact_f1": 0.7777777777777777,
+        "contact_precision": 0.7,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.000636918853479,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.3643381305071982,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.33412239665833,
+        "native_contact_count": 24,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.644420899659812,
+          "B": 1.5126323669988784
+        },
+        "contact_f1": 0.8214285714285715,
+        "contact_precision": 0.7666666666666667,
+        "fnat": 0.8846153846153846,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8772278550757917,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2537991369400445,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.8241655025492918,
+        "native_contact_count": 26,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9529688684603332,
+          "B": 2.1599055965344407
+        },
+        "contact_f1": 0.7719298245614035,
+        "contact_precision": 0.7333333333333333,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3576754238836357,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.477489188114023,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.47890327388923,
+        "native_contact_count": 27,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4977073458181305,
+          "B": 1.6047993299251997
+        },
+        "contact_f1": 0.8363636363636363,
+        "contact_precision": 0.7666666666666667,
+        "fnat": 0.92,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9000662152017007,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.5847109882792318,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.8782530005019775,
+        "native_contact_count": 25,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4675055526819623,
+          "B": 1.7724274500333814
+        },
+        "contact_f1": 0.7450980392156863,
+        "contact_precision": 0.6333333333333333,
+        "fnat": 0.9047619047619048,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.978448167164445,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.2029826713474323,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.293420034107662,
+        "native_contact_count": 21,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4537692987514685,
+          "B": 2.0716187585402435
+        },
+        "contact_f1": 0.8421052631578948,
+        "contact_precision": 0.8,
+        "fnat": 0.8888888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3111170817095723,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.7497614242998372,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.924798708218707,
+        "native_contact_count": 27,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.3706396530600053,
+          "B": 1.2131809651285694
+        },
+        "contact_f1": 0.7777777777777777,
+        "contact_precision": 0.7,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.4665818897857077,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7981704785235249,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.541826322049237,
+        "native_contact_count": 24,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0370981998620783,
+          "B": 1.568033207568067
+        },
+        "contact_f1": 0.761904761904762,
+        "contact_precision": 0.8,
+        "fnat": 0.7272727272727273,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.114445240158667,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.2993567218359754,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.807137012093207,
+        "native_contact_count": 33,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3154432286561912,
+          "B": 1.6012210332817696
+        },
+        "contact_f1": 0.8275862068965518,
+        "contact_precision": 0.8,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8887454057803779,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.0969190786871723,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.57745843111517,
+        "native_contact_count": 28,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5162409031174053,
+          "B": 1.7882425028207682
+        },
+        "contact_f1": 0.7636363636363636,
+        "contact_precision": 0.7,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2084204960975002,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.4140469973490122,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.034414104884257,
+        "native_contact_count": 25,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8044728529702152,
+          "B": 1.2071278340910983
+        },
+        "contact_f1": 0.8,
+        "contact_precision": 0.7333333333333333,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1667345423417115,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.6860365821784133,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.82665007811661,
+        "native_contact_count": 25,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.016955121374338,
+          "B": 1.866339015167944
+        },
+        "contact_f1": 0.8214285714285715,
+        "contact_precision": 0.7666666666666667,
+        "fnat": 0.8846153846153846,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3788613272327215,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.51564959122346,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.828533381093709,
+        "native_contact_count": 26,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.650708546613829,
+          "B": 1.910040325427635
+        },
+        "contact_f1": 0.819672131147541,
+        "contact_precision": 0.8333333333333334,
+        "fnat": 0.8064516129032258,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1972638790773624,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.25681684874511,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.933099702013792,
+        "native_contact_count": 31,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8618740841070804,
+          "B": 2.001958486158147
+        },
+        "contact_f1": 0.7777777777777777,
+        "contact_precision": 0.7,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.321630294412133,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.5351911072071418,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.884721492802846,
+        "native_contact_count": 24,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "acceptable",
+        "capri_rank": 1,
+        "chain_backbone_rmsd": {
+          "A": 2.17882699547963,
+          "B": 1.4944645167633723
+        },
+        "contact_f1": 0.793103448275862,
+        "contact_precision": 0.7666666666666667,
+        "fnat": 0.8214285714285714,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.4976133913506495,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.7370782561201734,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.39320542870501,
+        "native_contact_count": 28,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9703339230639934,
+          "B": 2.0266707164750053
+        },
+        "contact_f1": 0.7575757575757577,
+        "contact_precision": 0.8333333333333334,
+        "fnat": 0.6944444444444444,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1279251646460766,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.191634458647111,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.211013773634786,
+        "native_contact_count": 36,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0763208258596706,
+          "B": 1.055377777007393
+        },
+        "contact_f1": 0.8135593220338982,
+        "contact_precision": 0.8,
+        "fnat": 0.8275862068965517,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0251432822232647,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.938383268824897,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.695706001059974,
+        "native_contact_count": 29,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5905179018223954,
+          "B": 2.005781563350928
+        },
+        "contact_f1": 0.7368421052631577,
+        "contact_precision": 0.7,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.314731516765722,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.5213814597579447,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.498414411392207,
+        "native_contact_count": 27,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 0.9922645381379072,
+          "B": 1.283975935353611
+        },
+        "contact_f1": 0.8333333333333334,
+        "contact_precision": 0.8333333333333334,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.087856354917172,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.864218849544823,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.345494637535935,
+        "native_contact_count": 30,
+        "predicted_contact_count": 30,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_2.pdb",
+    "prediction_model": 2,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8567916607880188,
+          "B": 1.8824319001762246
+        },
+        "contact_f1": 0.8076923076923077,
+        "contact_precision": 0.7777777777777778,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2824933826181315,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.4539890929403203,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.8607546521431284,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8623143583309083,
+          "B": 1.8235023410957691
+        },
+        "contact_f1": 0.8627450980392156,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.9166666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0498290711526375,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.3198558756457235,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.9960267683092243,
+        "native_contact_count": 24,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5630224198997384,
+          "B": 1.7210679759996783
+        },
+        "contact_f1": 0.9056603773584906,
+        "contact_precision": 0.8888888888888888,
+        "fnat": 0.9230769230769231,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9681044852308425,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2296353024865498,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.8672667621941614,
+        "native_contact_count": 26,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.1788024834348727,
+          "B": 2.142031465023154
+        },
+        "contact_f1": 0.7407407407407407,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.7407407407407407,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.419904390626984,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.6052113958246466,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.122973260891359,
+        "native_contact_count": 27,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4694747220278392,
+          "B": 1.8144855126247845
+        },
+        "contact_f1": 0.8846153846153846,
+        "contact_precision": 0.8518518518518519,
+        "fnat": 0.92,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0251801663718614,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.642762250935695,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.0095870775324656,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.65105544037788,
+          "B": 1.6708178123217265
+        },
+        "contact_f1": 0.8333333333333334,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.9523809523809523,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9698510667449831,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.1550398831845503,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.809499800607408,
+        "native_contact_count": 21,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6434034341692547,
+          "B": 2.0570566910939863
+        },
+        "contact_f1": 0.8888888888888888,
+        "contact_precision": 0.8888888888888888,
+        "fnat": 0.8888888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3445658311574746,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.7959114844230384,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.540209846660889,
+        "native_contact_count": 27,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.2978254358272903,
+          "B": 1.3961001207804036
+        },
+        "contact_f1": 0.8627450980392156,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.9166666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.449229242039029,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7302057099626001,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.3155995662834714,
+        "native_contact_count": 24,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0272243353385138,
+          "B": 1.7545593766766039
+        },
+        "contact_f1": 0.7333333333333333,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.6666666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1974051512974797,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.450433218280848,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.517856517143804,
+        "native_contact_count": 33,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5138674269945134,
+          "B": 1.5403495001386693
+        },
+        "contact_f1": 0.8727272727272727,
+        "contact_precision": 0.8888888888888888,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8957264999730417,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.0951160435416405,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.023226898317785,
+        "native_contact_count": 28,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7163438154293877,
+          "B": 1.7087510246891089
+        },
+        "contact_f1": 0.8461538461538461,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.235644590395775,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.4023533970367048,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.642643574787594,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7697233587235783,
+          "B": 1.384422898094854
+        },
+        "contact_f1": 0.8461538461538461,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.212901891792461,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.7273820063329062,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.60203611689525,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0022990495314015,
+          "B": 2.084952165755284
+        },
+        "contact_f1": 0.830188679245283,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.8461538461538461,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.443934811565401,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.6378995055600005,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.436391748962159,
+        "native_contact_count": 26,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8723566392353574,
+          "B": 1.9026270940790284
+        },
+        "contact_f1": 0.8275862068965517,
+        "contact_precision": 0.8888888888888888,
+        "fnat": 0.7741935483870968,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.24339777108013,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.3502643886332235,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.533000093432321,
+        "native_contact_count": 31,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.059094455983342,
+          "B": 1.9607595261723407
+        },
+        "contact_f1": 0.8627450980392156,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.9166666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3484548610557705,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.4961719588188824,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.455434268457853,
+        "native_contact_count": 24,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "acceptable",
+        "capri_rank": 1,
+        "chain_backbone_rmsd": {
+          "A": 2.185659973181063,
+          "B": 1.7264716191612908
+        },
+        "contact_f1": 0.7636363636363638,
+        "contact_precision": 0.7777777777777778,
+        "fnat": 0.75,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.575330658585709,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.898771123093308,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.002848958915175,
+        "native_contact_count": 28,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.1571315910188447,
+          "B": 2.0238649401152466
+        },
+        "contact_f1": 0.7301587301587301,
+        "contact_precision": 0.8518518518518519,
+        "fnat": 0.6388888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.23297222154564,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.334447260552222,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.937153729134849,
+        "native_contact_count": 36,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 0.9885465295479561,
+          "B": 1.1909790321458613
+        },
+        "contact_f1": 0.7857142857142857,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.7586206896551724,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.144867597187082,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.085250378111395,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.9367498418315385,
+        "native_contact_count": 29,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7769346157764065,
+          "B": 1.9637663828445755
+        },
+        "contact_f1": 0.8148148148148148,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3840266849833074,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.5534956840142147,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.175165613200213,
+        "native_contact_count": 27,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0663222477081054,
+          "B": 1.2314526194009405
+        },
+        "contact_f1": 0.7719298245614035,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.7333333333333333,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.157199931579239,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.0109875623387437,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.224130457076818,
+        "native_contact_count": 30,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_3.pdb",
+    "prediction_model": 3,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7770879493198575,
+          "B": 1.6661353171640556
+        },
+        "contact_f1": 0.7037037037037037,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.76,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.233089211434099,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.2302739062351185,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6840282271365568,
+        "native_contact_count": 25,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6425596190669998,
+          "B": 1.7586943270475284
+        },
+        "contact_f1": 0.7169811320754716,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.7916666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9556308594822156,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.256487251399441,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.8865683401877615,
+        "native_contact_count": 24,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.545929138484732,
+          "B": 1.537537442768996
+        },
+        "contact_f1": 0.7636363636363636,
+        "contact_precision": 0.7241379310344828,
+        "fnat": 0.8076923076923077,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.959780596989992,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2215978362116224,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.880941255128076,
+        "native_contact_count": 26,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0552831327399748,
+          "B": 1.9185408337586058
+        },
+        "contact_f1": 0.6785714285714286,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.7037037037037037,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.304221252575772,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.433420231826776,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.7050749070517655,
+        "native_contact_count": 27,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4343866467886097,
+          "B": 1.5984817525285075
+        },
+        "contact_f1": 0.7777777777777777,
+        "contact_precision": 0.7241379310344828,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0098618258643683,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.549467355018407,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.061968469657004,
+        "native_contact_count": 25,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4473527013516754,
+          "B": 1.6164309305866114
+        },
+        "contact_f1": 0.68,
+        "contact_precision": 0.5862068965517241,
+        "fnat": 0.8095238095238095,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9027377080815377,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.0471753982206178,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6534794131450266,
+        "native_contact_count": 21,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 17,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6310659452189962,
+          "B": 1.809334330285087
+        },
+        "contact_f1": 0.7857142857142857,
+        "contact_precision": 0.7586206896551724,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3004232607618817,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.6974970202731812,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.215591060115452,
+        "native_contact_count": 27,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.2797354195009387,
+          "B": 1.2483502839577845
+        },
+        "contact_f1": 0.7169811320754716,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.7916666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.3860025145753625,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7036853206816415,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 1.8787240038697905,
+        "native_contact_count": 24,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.910300914689836,
+          "B": 1.5476381881684527
+        },
+        "contact_f1": 0.7096774193548386,
+        "contact_precision": 0.7586206896551724,
+        "fnat": 0.6666666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1180351966912534,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.3546440553480936,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.253527926929154,
+        "native_contact_count": 33,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3742814725555204,
+          "B": 1.5484240069303383
+        },
+        "contact_f1": 0.7719298245614034,
+        "contact_precision": 0.7586206896551724,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8999796504549253,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.0867121071578318,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.9379954343487698,
+        "native_contact_count": 28,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4980055465258013,
+          "B": 1.65923286439912
+        },
+        "contact_f1": 0.7037037037037037,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.76,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2013870966310347,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.388300179334226,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.535164939721308,
+        "native_contact_count": 25,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5550296074467427,
+          "B": 1.4063494734875996
+        },
+        "contact_f1": 0.7407407407407408,
+        "contact_precision": 0.6896551724137931,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.225355541850714,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.6170173851461778,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.545721370598577,
+        "native_contact_count": 25,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.909428607642437,
+          "B": 1.83669363749951
+        },
+        "contact_f1": 0.7272727272727274,
+        "contact_precision": 0.6896551724137931,
+        "fnat": 0.7692307692307693,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3575399385418856,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.4421875937535127,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.126562073826797,
+        "native_contact_count": 26,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6473445755270308,
+          "B": 1.8066715389368861
+        },
+        "contact_f1": 0.7333333333333333,
+        "contact_precision": 0.7586206896551724,
+        "fnat": 0.7096774193548387,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1391349476495787,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.123223060505404,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.239551745403734,
+        "native_contact_count": 31,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7884336320684673,
+          "B": 1.8423204838585685
+        },
+        "contact_f1": 0.7169811320754716,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.7916666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.224469294512571,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.4278156161902518,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.264311730271519,
+        "native_contact_count": 24,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0592039333131114,
+          "B": 1.5378860232888474
+        },
+        "contact_f1": 0.7017543859649122,
+        "contact_precision": 0.6896551724137931,
+        "fnat": 0.7142857142857143,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.5325367154691634,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.7853686491748637,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.733391527933587,
+        "native_contact_count": 28,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9295694334093354,
+          "B": 1.8897299343952787
+        },
+        "contact_f1": 0.7076923076923076,
+        "contact_precision": 0.7931034482758621,
+        "fnat": 0.6388888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.10719070101958,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.196769593373164,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.820011912796362,
+        "native_contact_count": 36,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0581041899317694,
+          "B": 1.1675470871131115
+        },
+        "contact_f1": 0.7931034482758621,
+        "contact_precision": 0.7931034482758621,
+        "fnat": 0.7931034482758621,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.258432779771063,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.9300131335449338,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.114181635413024,
+        "native_contact_count": 29,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6162985723329661,
+          "B": 1.8995859251705236
+        },
+        "contact_f1": 0.6785714285714286,
+        "contact_precision": 0.6551724137931034,
+        "fnat": 0.7037037037037037,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3793027079607967,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.5947279301058401,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.167734500156253,
+        "native_contact_count": 27,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.1100345671582135,
+          "B": 1.2251576064329277
+        },
+        "contact_f1": 0.8135593220338982,
+        "contact_precision": 0.8275862068965517,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.269372537077394,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.8506716015712028,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.352596076081225,
+        "native_contact_count": 30,
+        "predicted_contact_count": 29,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_4.pdb",
+    "prediction_model": 4,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.804849488187828,
+          "B": 1.7611503362622845
+        },
+        "contact_f1": 0.7547169811320756,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.325719084971986,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.5310011658659026,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.0441862334987615,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7421700194751624,
+          "B": 1.7694808397847532
+        },
+        "contact_f1": 0.8076923076923077,
+        "contact_precision": 0.75,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0428630267226477,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.38489738428377,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.1213676278185893,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5369936636970056,
+          "B": 1.6254569162570827
+        },
+        "contact_f1": 0.8518518518518519,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.8846153846153846,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.027854399316179,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2940850754377136,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.085151570171005,
+        "native_contact_count": 26,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.021679458800683,
+          "B": 2.0688041982672862
+        },
+        "contact_f1": 0.7272727272727273,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.7407407407407407,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3971254751856144,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.690043128981982,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.220642035528698,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4191936908522893,
+          "B": 1.6381337428249938
+        },
+        "contact_f1": 0.830188679245283,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0572171250015363,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.716339617516029,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.2174520740787598,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5851138510919967,
+          "B": 1.5862245175918337
+        },
+        "contact_f1": 0.7755102040816326,
+        "contact_precision": 0.6785714285714286,
+        "fnat": 0.9047619047619048,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9850987938657558,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.2241416393720148,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.8471780104426947,
+        "native_contact_count": 21,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5981889746642117,
+          "B": 1.8762549412707705
+        },
+        "contact_f1": 0.8363636363636364,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.8518518518518519,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.365584153663562,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.8589451842644158,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.631625512355912,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.2410944428225534,
+          "B": 1.2928130634418546
+        },
+        "contact_f1": 0.8076923076923077,
+        "contact_precision": 0.75,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.405129800359583,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7841538618480092,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.207361934152394,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9541570536368553,
+          "B": 1.6464661734305996
+        },
+        "contact_f1": 0.7540983606557378,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.696969696969697,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.219163411554207,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.549087267232654,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6706588315137725,
+        "native_contact_count": 33,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4194503509914311,
+          "B": 1.4843972425092489
+        },
+        "contact_f1": 0.8571428571428571,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.934512792772793,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.103495876300084,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.2075262137096665,
+        "native_contact_count": 28,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6154086596048645,
+          "B": 1.669858971208248
+        },
+        "contact_f1": 0.7924528301886793,
+        "contact_precision": 0.75,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.299244611152168,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.4803253166626664,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.833411874860882,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6127900746838404,
+          "B": 1.3621483880018297
+        },
+        "contact_f1": 0.7924528301886793,
+        "contact_precision": 0.75,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2841499984056886,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.7856448545530825,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.828620252478966,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9364915971797045,
+          "B": 1.9373739916736379
+        },
+        "contact_f1": 0.7777777777777779,
+        "contact_precision": 0.75,
+        "fnat": 0.8076923076923077,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.4570386727263602,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.718321517878636,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.555790631843736,
+        "native_contact_count": 26,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7809565873654778,
+          "B": 1.7778436944397278
+        },
+        "contact_f1": 0.7796610169491526,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.7419354838709677,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.23560083335379,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.366995773651646,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.510783078900798,
+        "native_contact_count": 31,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9151783087311327,
+          "B": 1.9018302790163832
+        },
+        "contact_f1": 0.8076923076923077,
+        "contact_precision": 0.75,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.351447215398101,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.5667034674546532,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.644950250027867,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "acceptable",
+        "capri_rank": 1,
+        "chain_backbone_rmsd": {
+          "A": 2.106263189211633,
+          "B": 1.6021399988404665
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.75,
+        "fnat": 0.75,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.628820295403566,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.989218184513221,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.207722713791344,
+        "native_contact_count": 28,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0833378556396998,
+          "B": 1.878143970919001
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.6666666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.200741421797429,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.3914289606913717,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.0132948258962546,
+        "native_contact_count": 36,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0086857089639025,
+          "B": 1.165192523485327
+        },
+        "contact_f1": 0.7719298245614034,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.7586206896551724,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3113211869560017,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.152855818194703,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.305799968871527,
+        "native_contact_count": 29,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6864361550089022,
+          "B": 1.8893582418003856
+        },
+        "contact_f1": 0.7636363636363638,
+        "contact_precision": 0.75,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.4465578814629665,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.6201182903458682,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.436009073275969,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.106705001026474,
+          "B": 1.2261035194602854
+        },
+        "contact_f1": 0.7586206896551724,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.7333333333333333,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3332053313191423,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.068431908330312,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.627568947774116,
+        "native_contact_count": 30,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_5.pdb",
+    "prediction_model": 5,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5851155634371066,
+          "B": 1.7281261642947827
+        },
+        "contact_f1": 0.7924528301886793,
+        "contact_precision": 0.75,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1220446421922206,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.135949034631995,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.845943922001715,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5954821456754826,
+          "B": 1.6985504680814372
+        },
+        "contact_f1": 0.7692307692307692,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8837630337296853,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.2661259174137713,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.9583899390996162,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4575791960346904,
+          "B": 1.4550414452626625
+        },
+        "contact_f1": 0.7777777777777779,
+        "contact_precision": 0.75,
+        "fnat": 0.8076923076923077,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.802605254486097,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.179641842377756,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.840969752696451,
+        "native_contact_count": 26,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8814384334044616,
+          "B": 1.997953520928372
+        },
+        "contact_f1": 0.7636363636363638,
+        "contact_precision": 0.75,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2454052973774083,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.325822417908844,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.010159511815457,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.247782561467795,
+          "B": 1.6750591561782653
+        },
+        "contact_f1": 0.830188679245283,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8718947500796181,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.4436570784332932,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.881186288775374,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.527037908787847,
+          "B": 1.4337363469344349
+        },
+        "contact_f1": 0.7346938775510204,
+        "contact_precision": 0.6428571428571429,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8540161204008088,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.0783324514169923,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.0869216065530045,
+        "native_contact_count": 21,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 18,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4135361145168586,
+          "B": 1.8932735174480653
+        },
+        "contact_f1": 0.7999999999999999,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2139383810712316,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.6106808913914425,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.463782984586558,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.0952988307251872,
+          "B": 1.3047374823568108
+        },
+        "contact_f1": 0.7692307692307692,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.3476292865659942,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7156164337665281,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.2916840408527457,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.877744002350572,
+          "B": 1.4719345045554617
+        },
+        "contact_f1": 0.7868852459016394,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.7272727272727273,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.021506722331084,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.216080090904568,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6279879146775618,
+        "native_contact_count": 33,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3136006908710562,
+          "B": 1.4354342377776204
+        },
+        "contact_f1": 0.7857142857142857,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8042902389906568,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.0614400186010544,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.099536394109349,
+        "native_contact_count": 28,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4266198811747535,
+          "B": 1.5811029674783492
+        },
+        "contact_f1": 0.7547169811320756,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.112325803708508,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.3524813112794436,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.681023180682206,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5077142290704244,
+          "B": 1.2841201400370257
+        },
+        "contact_f1": 0.7924528301886793,
+        "contact_precision": 0.75,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0916154246519834,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.5865528999214158,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.600370437231906,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8594008089724225,
+          "B": 1.7758931341257258
+        },
+        "contact_f1": 0.8148148148148148,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.8461538461538461,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2771070421923683,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.3363029129900528,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.613346874212613,
+        "native_contact_count": 26,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.714910767470017,
+          "B": 1.6226669205769544
+        },
+        "contact_f1": 0.7796610169491526,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.7419354838709677,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.086020202139787,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.0916635486360455,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.686402085451259,
+        "native_contact_count": 31,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7381817521465972,
+          "B": 1.80758010232246
+        },
+        "contact_f1": 0.7692307692307692,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1832661262076583,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.4250332368588143,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.4579151736725615,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8970781789765243,
+          "B": 1.5442337655031348
+        },
+        "contact_f1": 0.7857142857142857,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.403083853632575,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.635554395268258,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.945470321536052,
+        "native_contact_count": 28,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0103123017031894,
+          "B": 1.718800436351027
+        },
+        "contact_f1": 0.78125,
+        "contact_precision": 0.8928571428571429,
+        "fnat": 0.6944444444444444,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0273223912696237,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.094072094601228,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.982950421092856,
+        "native_contact_count": 36,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0007539251357969,
+          "B": 1.0225420491377761
+        },
+        "contact_f1": 0.8070175438596492,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.7931034482758621,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0707294667425376,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.810607076566637,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.8941577384970003,
+        "native_contact_count": 29,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6469816607431833,
+          "B": 1.7037474061600808
+        },
+        "contact_f1": 0.7272727272727273,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.7407407407407407,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.235302548706169,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.5100999812942897,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.284793532479143,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0415038554151208,
+          "B": 1.0977514473164547
+        },
+        "contact_f1": 0.8620689655172413,
+        "contact_precision": 0.8928571428571429,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.096915082250776,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.741377553387692,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.293950631412704,
+        "native_contact_count": 30,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_6.pdb",
+    "prediction_model": 6,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6625037364647384,
+          "B": 1.573079963115246
+        },
+        "contact_f1": 0.7307692307692308,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.76,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.274346441652079,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.2922124091317104,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.627213192183961,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5425291271412034,
+          "B": 1.6309014672143187
+        },
+        "contact_f1": 0.7450980392156864,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.7916666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.95151670664383,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.2551324352071158,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.2271957761855448,
+        "native_contact_count": 24,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3284812479234653,
+          "B": 1.5510956966086993
+        },
+        "contact_f1": 0.7547169811320754,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.7692307692307693,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9745165086754204,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2197379545283347,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.2510898542003464,
+        "native_contact_count": 26,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.849068731202837,
+          "B": 1.9225532880807128
+        },
+        "contact_f1": 0.6666666666666666,
+        "contact_precision": 0.6666666666666666,
+        "fnat": 0.6666666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.335767600041574,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.522352096175087,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.2940791611533,
+        "native_contact_count": 27,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 18,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.2063806756497009,
+          "B": 1.6357566106679022
+        },
+        "contact_f1": 0.7692307692307692,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0452022918759316,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.6114631684967629,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.403261761903483,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.366026597756489,
+          "B": 1.4855916037491226
+        },
+        "contact_f1": 0.7083333333333334,
+        "contact_precision": 0.6296296296296297,
+        "fnat": 0.8095238095238095,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9429081161028638,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.0562456021125655,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.0994462940831005,
+        "native_contact_count": 21,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 17,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5231739098637558,
+          "B": 1.7050559536044156
+        },
+        "contact_f1": 0.7037037037037037,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.7037037037037037,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.364663010625722,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.7631115482460369,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.293239088651041,
+        "native_contact_count": 27,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.185962485057595,
+          "B": 1.1248387144545666
+        },
+        "contact_f1": 0.7843137254901961,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.379815020528357,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.6997258626355254,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.928406774235615,
+        "native_contact_count": 24,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.8084987973889866,
+          "B": 1.4702128942728916
+        },
+        "contact_f1": 0.6666666666666666,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.6060606060606061,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.155982272602828,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.4077171980193395,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.238476870174262,
+        "native_contact_count": 33,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.2590462923291135,
+          "B": 1.4319535121562086
+        },
+        "contact_f1": 0.7999999999999999,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9608294086684175,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.1269971950949562,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.48336738825759,
+        "native_contact_count": 28,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5020701979233968,
+          "B": 1.4354748336717744
+        },
+        "contact_f1": 0.7307692307692308,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.76,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.271611814993463,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.434919305057506,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.487879793259397,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5816117685526112,
+          "B": 1.1785011861806172
+        },
+        "contact_f1": 0.6923076923076923,
+        "contact_precision": 0.6666666666666666,
+        "fnat": 0.72,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3182056703616643,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.6718041440407767,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.484762102566504,
+        "native_contact_count": 25,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 18,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7186966112580413,
+          "B": 1.843833505416472
+        },
+        "contact_f1": 0.7169811320754716,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.7307692307692307,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.417685673078609,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.5248350808523723,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.727350288627663,
+        "native_contact_count": 26,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5548719201445034,
+          "B": 1.695576404174467
+        },
+        "contact_f1": 0.7241379310344828,
+        "contact_precision": 0.7777777777777778,
+        "fnat": 0.6774193548387096,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.205292022989845,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.2243214736108534,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.749584504260554,
+        "native_contact_count": 31,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7213592448041626,
+          "B": 1.7196987664546055
+        },
+        "contact_f1": 0.7450980392156864,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.7916666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.280623237704743,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.4347525707021345,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.713922150793771,
+        "native_contact_count": 24,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "acceptable",
+        "capri_rank": 1,
+        "chain_backbone_rmsd": {
+          "A": 1.9686507931733561,
+          "B": 1.4683024755530913
+        },
+        "contact_f1": 0.6909090909090909,
+        "contact_precision": 0.7037037037037037,
+        "fnat": 0.6785714285714286,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.621038370653998,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.8658208653059303,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.816432719141278,
+        "native_contact_count": 28,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9357167657335181,
+          "B": 1.691493586070981
+        },
+        "contact_f1": 0.6984126984126984,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.6111111111111112,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.099310780675054,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.248122909262448,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.520121696872981,
+        "native_contact_count": 36,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 0.9728566081328303,
+          "B": 1.1346535091101895
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.7777777777777778,
+        "fnat": 0.7241379310344828,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3439321865961813,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.0296405155992923,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.4569877803258935,
+        "native_contact_count": 29,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5113120390970718,
+          "B": 1.789465355587431
+        },
+        "contact_f1": 0.7407407407407407,
+        "contact_precision": 0.7407407407407407,
+        "fnat": 0.7407407407407407,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.426104584725377,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.5805147508384894,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.595472157933857,
+        "native_contact_count": 27,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.1499652172173642,
+          "B": 1.0293193183374498
+        },
+        "contact_f1": 0.7719298245614035,
+        "contact_precision": 0.8148148148148148,
+        "fnat": 0.7333333333333333,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.37849654095994,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.9659968974333322,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 5.054976993211834,
+        "native_contact_count": 30,
+        "predicted_contact_count": 27,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_7.pdb",
+    "prediction_model": 7,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7811410114928299,
+          "B": 1.6255039418024415
+        },
+        "contact_f1": 0.7719298245614036,
+        "contact_precision": 0.6875,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0682337616236035,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.6365893455124554,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.0085261737800058,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6086940918284687,
+          "B": 1.756558559241981
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.65625,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8377062615968756,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.1152588531112362,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.3715150856281593,
+        "native_contact_count": 24,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6292185177417373,
+          "B": 1.5242544967948355
+        },
+        "contact_f1": 0.7931034482758621,
+        "contact_precision": 0.71875,
+        "fnat": 0.8846153846153846,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8639770014391717,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.1473164544543564,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.512428491318764,
+        "native_contact_count": 26,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0331215439480412,
+          "B": 1.8468314374001695
+        },
+        "contact_f1": 0.7457627118644067,
+        "contact_precision": 0.6875,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1390860172513313,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.9346520142311712,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.9135932718180717,
+        "native_contact_count": 27,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3729874262087283,
+          "B": 1.7987197861263367
+        },
+        "contact_f1": 0.8070175438596492,
+        "contact_precision": 0.71875,
+        "fnat": 0.92,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9417597028510563,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.305887719369838,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.876744583005384,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.4237331559704611,
+          "B": 1.6133562078990002
+        },
+        "contact_f1": 0.7169811320754718,
+        "contact_precision": 0.59375,
+        "fnat": 0.9047619047619048,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.7761183147337942,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 0.8753750032145803,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.050423743292091,
+        "native_contact_count": 21,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 19,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5337395593339844,
+          "B": 1.9493950377364704
+        },
+        "contact_f1": 0.8135593220338982,
+        "contact_precision": 0.75,
+        "fnat": 0.8888888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.165922509813407,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.44693583901915,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6694622578289016,
+        "native_contact_count": 27,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.4839165035990491,
+          "B": 1.3600157104644792
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.65625,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.5107452373845853,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7685469177615518,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 1.7072107101294804,
+        "native_contact_count": 24,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.882874435804581,
+          "B": 1.4843054283700845
+        },
+        "contact_f1": 0.7692307692307692,
+        "contact_precision": 0.78125,
+        "fnat": 0.7575757575757576,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9526074205325061,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 1.9906531002286159,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.5418418765891952,
+        "native_contact_count": 33,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4352711251800514,
+          "B": 1.6497484225555934
+        },
+        "contact_f1": 0.7666666666666666,
+        "contact_precision": 0.71875,
+        "fnat": 0.8214285714285714,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8386304558387605,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.1141724304239466,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.3098716127626076,
+        "native_contact_count": 28,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4558445542553375,
+          "B": 1.6859748104415861
+        },
+        "contact_f1": 0.736842105263158,
+        "contact_precision": 0.65625,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.030052371810704,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2718850807367226,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.826625927706311,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7794289184589085,
+          "B": 1.3641773164797455
+        },
+        "contact_f1": 0.7719298245614036,
+        "contact_precision": 0.6875,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.11650322618309,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.3587353032326697,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.628231776834787,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.889089813211628,
+          "B": 1.7665306296654213
+        },
+        "contact_f1": 0.7931034482758621,
+        "contact_precision": 0.71875,
+        "fnat": 0.8846153846153846,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.168737357747407,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.8767335188898642,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.317020439264111,
+        "native_contact_count": 26,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6319329419580555,
+          "B": 1.8193959409826361
+        },
+        "contact_f1": 0.7936507936507936,
+        "contact_precision": 0.78125,
+        "fnat": 0.8064516129032258,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9905477197154273,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 1.7007262969332597,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.4384843940384444,
+        "native_contact_count": 31,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6751568039398044,
+          "B": 1.7480338799492048
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.65625,
+        "fnat": 0.875,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9919004189186393,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.2486142426956917,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.3888075904106905,
+        "native_contact_count": 24,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0474308942975163,
+          "B": 1.5630800996223202
+        },
+        "contact_f1": 0.7666666666666666,
+        "contact_precision": 0.71875,
+        "fnat": 0.8214285714285714,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.357680009746072,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.379811671591546,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.8622851658727995,
+        "native_contact_count": 28,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.0363622702542044,
+          "B": 1.720374009085359
+        },
+        "contact_f1": 0.7647058823529411,
+        "contact_precision": 0.8125,
+        "fnat": 0.7222222222222222,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0028208164548142,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 1.8595722338467924,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.1884398630401716,
+        "native_contact_count": 36,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 26,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.234382179363749,
+          "B": 1.3382788445977947
+        },
+        "contact_f1": 0.8196721311475409,
+        "contact_precision": 0.78125,
+        "fnat": 0.8620689655172413,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1471380852464477,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.537641584598191,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6785497543030714,
+        "native_contact_count": 29,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6199123181543462,
+          "B": 1.9382575931331834
+        },
+        "contact_f1": 0.711864406779661,
+        "contact_precision": 0.65625,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2370732618884643,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.5638735485584982,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.5240355806647936,
+        "native_contact_count": 27,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.195757471214024,
+          "B": 1.388911316489512
+        },
+        "contact_f1": 0.870967741935484,
+        "contact_precision": 0.84375,
+        "fnat": 0.9,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1317023053468573,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.466382925553328,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.7570264817251076,
+        "native_contact_count": 30,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 27,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_8.pdb",
+    "prediction_model": 8,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6478550487742298,
+          "B": 1.6323901075244032
+        },
+        "contact_f1": 0.7924528301886793,
+        "contact_precision": 0.75,
+        "fnat": 0.84,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1244296208443356,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.284334666411324,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.504659698853388,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.60277121417604,
+          "B": 1.6074535200818267
+        },
+        "contact_f1": 0.8461538461538461,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.9166666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8494923299520516,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.2441693068024597,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.612287750243277,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3719002933303988,
+          "B": 1.5003107117399554
+        },
+        "contact_f1": 0.888888888888889,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.9230769230769231,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.8519182727256083,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.2135710609053394,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.7680724663904934,
+        "native_contact_count": 26,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9068812260449604,
+          "B": 1.912209691974051
+        },
+        "contact_f1": 0.7636363636363638,
+        "contact_precision": 0.75,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1911662825616203,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.446226180656647,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.507319682297735,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3055210413330502,
+          "B": 1.5686899321745982
+        },
+        "contact_f1": 0.8679245283018867,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.92,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9195235484835533,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.5605091448618846,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.9658679974099043,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4305527982304964,
+          "B": 1.4521620323457236
+        },
+        "contact_f1": 0.8163265306122449,
+        "contact_precision": 0.7142857142857143,
+        "fnat": 0.9523809523809523,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.7713397698434832,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.0791262894102471,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.2759542178454386,
+        "native_contact_count": 21,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4923170393971794,
+          "B": 1.7994324044609022
+        },
+        "contact_f1": 0.8727272727272727,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.8888888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.180501429246916,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.6865574293064327,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.038184358897747,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.0836128035537782,
+          "B": 1.220927881516828
+        },
+        "contact_f1": 0.8461538461538461,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.9166666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.23705015590983,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.7211129077061894,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 1.599457438112012,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7915318436996952,
+          "B": 1.5589592644885986
+        },
+        "contact_f1": 0.7540983606557378,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.696969696969697,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0437830457867356,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.3130361546539455,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.114094590487702,
+        "native_contact_count": 33,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3142851996501916,
+          "B": 1.3778293294014508
+        },
+        "contact_f1": 0.8571428571428571,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.7381821522176102,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.0078352911577786,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.352358421554972,
+        "native_contact_count": 28,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.4860092167067005,
+          "B": 1.4933330330707135
+        },
+        "contact_f1": 0.830188679245283,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.072345899591697,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.3721600173676258,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.162650518745133,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5244483387616334,
+          "B": 1.2673132571045052
+        },
+        "contact_f1": 0.830188679245283,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.111500473929674,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.622738766226724,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.082056196623792,
+        "native_contact_count": 25,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7870803233806813,
+          "B": 1.8279291501883879
+        },
+        "contact_f1": 0.8148148148148148,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.8461538461538461,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2514182484484535,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.4812970247613464,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.778132935727898,
+        "native_contact_count": 26,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.6281789813697338,
+          "B": 1.6701183435946976
+        },
+        "contact_f1": 0.8135593220338982,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.7741935483870968,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0184683225382702,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.1083822683467437,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6785672203438984,
+        "native_contact_count": 31,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.779208840678759,
+          "B": 1.7483177950317648
+        },
+        "contact_f1": 0.8461538461538461,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.9166666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1259083284252474,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.4196349125230985,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.866840477902419,
+        "native_contact_count": 24,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9690347121092038,
+          "B": 1.5457298373343018
+        },
+        "contact_f1": 0.7857142857142857,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.7857142857142857,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.447555639380053,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.7822705780015746,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.452095145335596,
+        "native_contact_count": 28,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9241992239403551,
+          "B": 1.7579890957524795
+        },
+        "contact_f1": 0.75,
+        "contact_precision": 0.8571428571428571,
+        "fnat": 0.6666666666666666,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0336577566316407,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.168919061100233,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.5023759745461196,
+        "native_contact_count": 36,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0371260641299729,
+          "B": 1.0662704632726554
+        },
+        "contact_f1": 0.7719298245614034,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.7586206896551724,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.20275461504735,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.978222049504661,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.012077054775256,
+        "native_contact_count": 29,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.592881006287628,
+          "B": 1.7414349147185095
+        },
+        "contact_f1": 0.7999999999999999,
+        "contact_precision": 0.7857142857142857,
+        "fnat": 0.8148148148148148,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.264420202775311,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.50690306166394,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.7746164063304057,
+        "native_contact_count": 27,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0566843454933028,
+          "B": 1.109675145711554
+        },
+        "contact_f1": 0.793103448275862,
+        "contact_precision": 0.8214285714285714,
+        "fnat": 0.7666666666666667,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.174275851265874,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.8831250813985032,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.1206171742905475,
+        "native_contact_count": 30,
+        "predicted_contact_count": 28,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 20
+      }
+    ]
+  },
+  {
+    "prediction_file": "results/boltz_results_8b4s_unconstrained/predictions/8b4s_unconstrained/8b4s_unconstrained_model_9.pdb",
+    "prediction_model": 9,
+    "reference_comparisons": [
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.060468621377157,
+          "B": 1.7460225576549193
+        },
+        "contact_f1": 0.7017543859649122,
+        "contact_precision": 0.625,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.285388929133664,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.43259921716045,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.6605140434117387,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 1
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7549647673019166,
+          "B": 2.027599291484291
+        },
+        "contact_f1": 0.7142857142857143,
+        "contact_precision": 0.625,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0876492861060734,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.429950201773281,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.8524773487531108,
+        "native_contact_count": 24,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 2
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.7755986386121663,
+          "B": 1.593512584307066
+        },
+        "contact_f1": 0.7586206896551724,
+        "contact_precision": 0.6875,
+        "fnat": 0.8461538461538461,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.987920491715537,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.317886032884367,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.6976647447744324,
+        "native_contact_count": 26,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 3
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.331517811813672,
+          "B": 2.0061680081889572
+        },
+        "contact_f1": 0.6779661016949152,
+        "contact_precision": 0.625,
+        "fnat": 0.7407407407407407,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.402774451614905,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.550101703199236,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.866094309520865,
+        "native_contact_count": 27,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 4
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.3248548263452817,
+          "B": 1.957153041745022
+        },
+        "contact_f1": 0.7719298245614036,
+        "contact_precision": 0.6875,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.0178603079689346,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.5761426535610672,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.9744031183510677,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 5
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5717360637715954,
+          "B": 1.8822891973927556
+        },
+        "contact_f1": 0.6792452830188678,
+        "contact_precision": 0.5625,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.014073733689463,
+        "interface_anchor_count": 48,
+        "interface_backbone_rmsd": 1.26625136834431,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.540727886111016,
+        "native_contact_count": 21,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 18,
+        "reference_model": 6
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.563883693528136,
+          "B": 2.205548340177281
+        },
+        "contact_f1": 0.8135593220338982,
+        "contact_precision": 0.75,
+        "fnat": 0.8888888888888888,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3370900811624757,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 1.7335816839225557,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.153128486794603,
+        "native_contact_count": 27,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 7
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "high",
+        "capri_rank": 3,
+        "chain_backbone_rmsd": {
+          "A": 1.4706423208054822,
+          "B": 1.2999150158438515
+        },
+        "contact_f1": 0.7142857142857143,
+        "contact_precision": 0.625,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.4822352376538341,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 0.8568305605100227,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.001741457979121,
+        "native_contact_count": 24,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 8
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.1979961933857335,
+          "B": 1.6276142680807117
+        },
+        "contact_f1": 0.7076923076923077,
+        "contact_precision": 0.71875,
+        "fnat": 0.696969696969697,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.207304751793983,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.395038034459841,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.3131220656329465,
+        "native_contact_count": 33,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 9
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.717821056242333,
+          "B": 1.4409884326405062
+        },
+        "contact_f1": 0.7999999999999999,
+        "contact_precision": 0.75,
+        "fnat": 0.8571428571428571,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 1.9019254949736761,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.1451352925705283,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.701813044717821,
+        "native_contact_count": 28,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 10
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.5981132116491696,
+          "B": 1.9249954202202293
+        },
+        "contact_f1": 0.7017543859649122,
+        "contact_precision": 0.625,
+        "fnat": 0.8,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.244247844507378,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.466826917047437,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.336788730322376,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 11
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.9285554973000092,
+          "B": 1.3167213907244957
+        },
+        "contact_f1": 0.7719298245614036,
+        "contact_precision": 0.6875,
+        "fnat": 0.88,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.203754237267687,
+        "interface_anchor_count": 57,
+        "interface_backbone_rmsd": 1.6605357198538528,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.208532631900084,
+        "native_contact_count": 25,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 22,
+        "reference_model": 12
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.1945421387634574,
+          "B": 1.9314845203898219
+        },
+        "contact_f1": 0.7241379310344829,
+        "contact_precision": 0.65625,
+        "fnat": 0.8076923076923077,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.426163185747325,
+        "interface_anchor_count": 60,
+        "interface_backbone_rmsd": 2.6052370275930685,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.220161992689537,
+        "native_contact_count": 26,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 13
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.039748100415459,
+          "B": 1.7690309195316056
+        },
+        "contact_f1": 0.7619047619047619,
+        "contact_precision": 0.75,
+        "fnat": 0.7741935483870968,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.2198751925321254,
+        "interface_anchor_count": 72,
+        "interface_backbone_rmsd": 2.294542908383584,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.192060619514259,
+        "native_contact_count": 31,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 24,
+        "reference_model": 14
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.898643638777237,
+          "B": 2.1529804378517565
+        },
+        "contact_f1": 0.7142857142857143,
+        "contact_precision": 0.625,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3389394739283045,
+        "interface_anchor_count": 54,
+        "interface_backbone_rmsd": 1.5937551190360775,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.1451550706454015,
+        "native_contact_count": 24,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 20,
+        "reference_model": 15
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.3483933052081656,
+          "B": 1.561264296848501
+        },
+        "contact_f1": 0.7,
+        "contact_precision": 0.65625,
+        "fnat": 0.75,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.5446484171006425,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 2.819119630191543,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 4.791009199496301,
+        "native_contact_count": 28,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 16
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 2.335457986173231,
+          "B": 1.860923853384025
+        },
+        "contact_f1": 0.7352941176470588,
+        "contact_precision": 0.78125,
+        "fnat": 0.6944444444444444,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.242146087674241,
+        "interface_anchor_count": 78,
+        "interface_backbone_rmsd": 2.295588649232732,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 2.7205420016120208,
+        "native_contact_count": 36,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 17
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.1095908963289174,
+          "B": 1.0606496081256194
+        },
+        "contact_f1": 0.7540983606557378,
+        "contact_precision": 0.71875,
+        "fnat": 0.7931034482758621,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.111422475591977,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 2.016125345898148,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.80212951827093,
+        "native_contact_count": 29,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 23,
+        "reference_model": 18
+      },
+      {
+        "assignment": {
+          "A": "B",
+          "B": "A"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.973968774047978,
+          "B": 1.8093018015001618
+        },
+        "contact_f1": 0.711864406779661,
+        "contact_precision": 0.65625,
+        "fnat": 0.7777777777777778,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.3597443844003383,
+        "interface_anchor_count": 63,
+        "interface_backbone_rmsd": 1.6046440644001236,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.9083140251472033,
+        "native_contact_count": 27,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 21,
+        "reference_model": 19
+      },
+      {
+        "assignment": {
+          "A": "A",
+          "B": "B"
+        },
+        "capri_class": "medium",
+        "capri_rank": 2,
+        "chain_backbone_rmsd": {
+          "A": 1.0486915503196625,
+          "B": 1.3391244509395224
+        },
+        "contact_f1": 0.8064516129032259,
+        "contact_precision": 0.78125,
+        "fnat": 0.8333333333333334,
+        "global_anchor_count": 120,
+        "global_backbone_rmsd": 2.1324352237824242,
+        "interface_anchor_count": 66,
+        "interface_backbone_rmsd": 1.930570995874215,
+        "ligand_anchor_count": 60,
+        "ligand_chain": "B",
+        "ligand_rmsd": 3.97527322864371,
+        "native_contact_count": 30,
+        "predicted_contact_count": 32,
+        "receptor_anchor_count": 60,
+        "receptor_chain": "A",
+        "recovered_native_contacts": 25,
+        "reference_model": 20
+      }
+    ]
+  }
+]
