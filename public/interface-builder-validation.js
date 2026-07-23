@@ -68,8 +68,18 @@
     return issues;
   }
 
+  function canEmitInterfaceContactDraft(patch1, patch2) {
+    return [patch1, patch2].every((patch) => (
+      Boolean(String(patch?.chain || "").trim())
+      && patch?.syntaxValid !== false
+      && Array.isArray(patch?.residues)
+      && patch.residues.length > 0
+    ));
+  }
+
   return {
     buildPolymerChainIndex,
-    validateInterfacePatch
+    validateInterfacePatch,
+    canEmitInterfaceContactDraft
   };
 }));

@@ -4,7 +4,8 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const {
   buildPolymerChainIndex,
-  validateInterfacePatch
+  validateInterfacePatch,
+  canEmitInterfaceContactDraft
 } = require("../public/interface-builder-validation");
 
 test("builder interface validation indexes every declared polymer chain", () => {
@@ -41,4 +42,21 @@ test("builder interface validation requires an unambiguous protein chain", () =>
   ]);
   assert.match(validateInterfacePatch("A", [1], "Patch 1", chains)[0], /more than one polymer/);
   assert.match(validateInterfacePatch("R", [1], "Patch 2", chains)[0], /must be a protein/);
+});
+
+test("semantic chain and residue warnings do not hide a complete interface draft", () => {
+  assert.equal(
+    canEmitInterfaceContactDraft(
+      { chain: "A", residues: [12], syntaxValid: true },
+      { chain: "B", residues: [34], syntaxValid: true }
+    ),
+    true
+  );
+  assert.equal(
+    canEmitInterfaceContactDraft(
+      { chain: "A", residues: [12], syntaxValid: true },
+      { chain: "", residues: [34], syntaxValid: true }
+    ),
+    false
+  );
 });

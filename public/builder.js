@@ -657,15 +657,26 @@ function buildYamlFromBuilder() {
       )
     ];
     warnings.push(...patchIssues);
-    let valid = patch1Result.valid && patch2Result.valid && patchIssues.length === 0;
+    let emittable = InterfaceBuilderValidation.canEmitInterfaceContactDraft(
+      {
+        chain: patch1Chain,
+        residues: patch1Residues,
+        syntaxValid: patch1Result.valid
+      },
+      {
+        chain: patch2Chain,
+        residues: patch2Residues,
+        syntaxValid: patch2Result.valid
+      }
+    );
     if (patch1Chain === patch2Chain) {
       const overlap = patch1Residues.filter((residue) => patch2Residues.includes(residue));
       if (overlap.length) {
         warnings.push(`${label} same-chain patches overlap at residue(s) ${overlap.join(", ")}.`);
-        valid = false;
+        emittable = false;
       }
     }
-    if (!valid) return;
+    if (!emittable) return;
     constraints.push("  - interface_contact:");
     constraints.push("      patch1:");
     constraints.push(`        chain: ${yamlScalar(patch1Chain)}`);
