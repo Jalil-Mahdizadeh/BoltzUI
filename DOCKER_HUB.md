@@ -6,7 +6,7 @@ BoltzUI for Boltz 2.2.1 with exact/union atom guidance, neutral-pH hydrogens, an
 
 ## Overview
 
-This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only CSP-derived `interface_contact`, exact `atom_contact`, and OR-grouped `atom_contact_union` restraints and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only CSP-derived `interface_contact`, exact `atom_contact`, and OR-grouped `atom_contact_union` restraints, uses numerically stable exact OR reduction, applies bounded interface forces coherently by residue, and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -22,6 +22,8 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Supports standard protein, RNA, and DNA; rejects ligands and modified residues without explicit parameters
 - Adds reciprocal ambiguous CSP patch-to-patch `interface_contact` restraints for multichain and single-chain folding
 - Adds exact `atom_contact` and ambiguous `atom_contact_union` YAML restraints
+- Uses the exact minimum violation per OR group, avoiding exponential underflow and preventing satisfied groups from pulling distant alternatives
+- Applies closest-pair interface guidance as a capped coherent residue translation instead of a direct single-atom displacement
 - Keeps one potential union index per OR group and excludes union alternatives from binary token-contact conditioning
 - YAML Builder fields can directly load nmr2boltz `atom_constraints_exact.yaml` and `atom_constraints_union.yaml`
 - Corrects Boltz 2.2.1 diffusion chunking so `max_parallel_samples` is a true denoiser batch limit
@@ -74,4 +76,4 @@ Make sure the local `boltzui:221-exact-union` base image exists, then run:
 docker build -t boltzui:221-exact-union .
 ```
 
-The build applies and compiles the exact/union Boltz atom-contact and diffusion-chunking patch, installs the post-processing stack, runs compatibility tests, then verifies that `boltz`, `boltzui-predict`, OpenMM, PDBFixer, and Node.js are available.
+The build applies and compiles the exact/union/interface Boltz contact-potential and diffusion-chunking patch, installs the post-processing stack, runs compatibility and numerical regression tests, then verifies that `boltz`, `boltzui-predict`, OpenMM, PDBFixer, and Node.js are available.

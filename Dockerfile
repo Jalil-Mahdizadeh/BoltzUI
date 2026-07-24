@@ -9,8 +9,8 @@ RUN npm ci --omit=dev
 
 FROM ${BASE_IMAGE}
 
-LABEL org.opencontainers.image.title="BoltzUI 2.2.1 interface and atom contacts"
-LABEL org.opencontainers.image.description="BoltzUI with ambiguous CSP interface guidance, atom-contact guidance, and structure post-processing"
+LABEL org.opencontainers.image.title="BoltzUI 2.2.1 stable interface and atom contacts"
+LABEL org.opencontainers.image.description="BoltzUI with exact-OR atom contacts, residue-coherent CSP interface guidance, and structure post-processing"
 
 ENV BOLTZ_CACHE=/opt/boltz-cache \
     OPENMM_CPU_THREADS=4 \

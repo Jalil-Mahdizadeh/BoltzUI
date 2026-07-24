@@ -3,8 +3,8 @@
 This directory contains the reproducible patch layer that adds Boltz2-only
 exact `atom_contact`, ambiguous `atom_contact_union`, and CSP-derived
 `interface_contact` constraints and
-corrects diffusion sample chunking in the installed Boltz runtime in the
-Docker image.
+corrects both union-potential reduction and diffusion sample chunking in the
+installed Boltz runtime in the Docker image.
 
 The patch is applied during `docker build` by `apply_atom_contact_patch.py`.
 It locates the installed Boltz source files through Python imports and
@@ -57,22 +57,26 @@ Rules:
 - Residue indices are 1-indexed in YAML.
 - `max_distance` must be finite and in the `2.0-20.0` Angstrom range.
 - `force: true` is required because specific atom-pair distance guidance uses
-  a soft inference-time contact potential.
+  an inference-time contact potential.
 - Boltz contact guidance remains active without `--use_potentials`. That flag
   enables additional FK/physical steering and remains on by default in the
   experimental UI preset.
 - `atom_contact` adds token-level contact conditioning and exactly one atom-index
   pair to the contact potential. Multiple atom contacts between the same token
   pair use the minimum token threshold independent of YAML order, while every
-  exact atom pair is preserved. It is sampling guidance, not a mathematical
+  distinct exact atom pair is preserved. Reversed duplicate exact pairs are
+  rejected, and intra-token pairs do not set diagonal token conditioning.
+  It is sampling guidance, not a mathematical
   guarantee or final minimizer. The experimental UI preset changes the
   reverse-diffusion sampling schedule; lower step scale changes the update and
   sample diversity and may interact with guidance.
-  Final distances must be checked in `atom_contact_restraints.json`.
+  Final distances must be checked in `contact_restraints.json`.
 - `atom_contact_union` requires at least two unique alternatives. Every
   alternative retains its own bound, and all alternatives in one group share
   one contact-potential `union_index`. Separate union groups use separate
-  indices.
+  indices. Each group uses the exact minimum flat-bottom violation; a satisfied
+  alternative therefore gives the group zero energy and distant alternatives
+  cannot pull it. This also avoids exponential underflow on large violations.
 - Union alternatives do not enter binary token-contact conditioning. Applying
   that conditioning to every alternative would recreate AND semantics even
   though the coordinate potential is grouped as OR.
@@ -80,7 +84,9 @@ Rules:
   Different chains and two disjoint patches on one chain are supported.
 - For every active residue on each side, the runtime creates one potential
   union containing all atom pairs to the opposite patch. This is reciprocal
-  patch-to-patch ambiguity, not an all-pairs contact assertion.
+  patch-to-patch ambiguity, not an all-pairs contact assertion. The closest
+  violating pair sets the direction, then a capped gradient translates every
+  modeled atom in each endpoint residue coherently.
 - Interface bounds must be finite and in the `4.0-20.0` Angstrom range. The UI
   defaults to `6.0` Angstrom. `force: true` activates guidance; `force: false`
   is retained for post-run reporting and adds no binary or potential guidance.

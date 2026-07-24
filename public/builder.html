@@ -127,7 +127,7 @@
               <summary><span><b>05</b>Interface constraints</span><em>CSP-derived ambiguous patches</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
-                  <span>Connect two experimentally supported protein residue patches. Each active residue is guided to any residue in the opposite patch; the two patches may be on different chains or disjoint regions of one chain.</span>
+                  <span>Connect two experimentally supported protein residue patches. Each active residue uses a closest-heavy-atom hard OR to any residue in the opposite patch; the two patches may be on different chains or disjoint regions of one chain.</span>
                   <button class="secondary-button mini-action-button" id="add-interface-contact-button" type="button">Add interface</button>
                 </div>
                 <div class="repeat-list interface-contact-list" id="interface-contact-list"></div>
@@ -154,7 +154,7 @@
               <summary><span><b>07</b>Exact atom contact constraints</span><em>Define exact atom constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
-                  <span>Use atom_contact for one exact atom-pair upper-distance restraint. This is soft inference-time guidance and requires force: true. Optional physical potentials are independent. Verify final distances in the restraint report.</span>
+                  <span>Use atom_contact for one exact atom-pair upper-distance restraint. This is inference-time guidance and requires force: true. Optional physical potentials are independent. Verify final distances in the restraint report.</span>
                   <div class="builder-toolbar-actions">
                     <button class="ghost-button mini-action-button" id="load-exact-atom-contact-yaml-button" type="button">Load nmr2boltz exact YAML</button>
                     <button class="secondary-button mini-action-button" id="add-atom-contact-button" type="button">Add exact contact</button>
@@ -170,7 +170,7 @@
               <summary><span><b>08</b>Union atom contact constraints</span><em>Define ambiguous atom constraints</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar constraint-import-toolbar">
-                  <span>Use atom_contact_union when any one of two or more atom-pair alternatives may satisfy an ambiguous restraint. Every alternative keeps its own upper bound and shares one potential union index. Union alternatives do not set binary token-contact conditioning.</span>
+                  <span>Use atom_contact_union when any one of two or more atom-pair alternatives may satisfy an ambiguous restraint. The group uses the exact minimum violation; every alternative keeps its own upper bound and shares one potential union index. Union alternatives do not set binary token-contact conditioning.</span>
                   <div class="builder-toolbar-actions">
                     <button class="ghost-button mini-action-button" id="load-union-atom-contact-yaml-button" type="button">Load nmr2boltz union YAML</button>
                     <button class="secondary-button mini-action-button" id="add-atom-contact-union-button" type="button">Add union group</button>

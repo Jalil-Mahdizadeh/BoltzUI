@@ -21,6 +21,11 @@ from boltz.data.parse.yaml import parse_yaml
 from boltz.data.types import InferenceOptions
 from boltz.main import BoltzSteeringParams, load_canonicals
 from boltz.model.modules.diffusionv2 import AtomDiffusion
+from boltz.model.potentials.potentials import (
+    ContactPotentital,
+    InterfaceContactPotentital,
+    get_potentials,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,6 +148,119 @@ class BoltzPatchTests(unittest.TestCase):
             )
         )
 
+    @staticmethod
+    def contact_features(pair_index, union_index, thresholds, prefix="contact"):
+        return {
+            f"{prefix}_pair_index": pair_index.unsqueeze(0),
+            f"{prefix}_union_index": union_index.unsqueeze(0),
+            f"{prefix}_negation_mask": torch.ones_like(
+                union_index, dtype=torch.bool
+            ).unsqueeze(0),
+            f"{prefix}_thresholds": thresholds.unsqueeze(0),
+        }
+
+    def test_exact_atom_energy_does_not_underflow_for_large_violations(self):
+        potential = ContactPotentital(parameters={})
+        features = self.contact_features(
+            torch.tensor([[0], [1]], dtype=torch.long),
+            torch.tensor([0], dtype=torch.long),
+            torch.tensor([6.0]),
+        )
+        coords = torch.tensor(
+            [[[0.0, 0.0, 0.0], [30.0, 0.0, 0.0]]]
+        )
+        self.assertAlmostEqual(float(potential.compute(coords, features, {})), 24.0)
+        gradient = potential.compute_gradient(coords, features, {})
+        self.assertGreater(float(torch.linalg.vector_norm(gradient)), 1.0)
+        self.assertTrue(torch.isfinite(gradient).all())
+        self.assertLess(
+            float(potential.compute(coords - 0.1 * gradient, features, {})),
+            24.0,
+        )
+
+    def test_satisfied_union_has_zero_energy_and_does_not_pull_other_alternatives(self):
+        potential = ContactPotentital(parameters={})
+        features = self.contact_features(
+            torch.tensor([[0, 2], [1, 3]], dtype=torch.long),
+            torch.tensor([0, 0], dtype=torch.long),
+            torch.tensor([6.0, 6.0]),
+        )
+        coords = torch.tensor(
+            [[
+                [0.0, 0.0, 0.0],
+                [5.0, 0.0, 0.0],
+                [20.0, 0.0, 0.0],
+                [40.0, 0.0, 0.0],
+            ]]
+        )
+        self.assertEqual(float(potential.compute(coords, features, {})), 0.0)
+        self.assertTrue(
+            torch.equal(
+                potential.compute_gradient(coords, features, {}),
+                torch.zeros_like(coords),
+            )
+        )
+
+    def test_violated_union_uses_the_closest_alternative_without_underflow(self):
+        potential = ContactPotentital(parameters={})
+        features = self.contact_features(
+            torch.tensor([[0, 2], [1, 3]], dtype=torch.long),
+            torch.tensor([0, 0], dtype=torch.long),
+            torch.tensor([6.0, 6.0]),
+        )
+        coords = torch.tensor(
+            [[
+                [0.0, 0.0, 0.0],
+                [30.0, 0.0, 0.0],
+                [100.0, 0.0, 0.0],
+                [140.0, 0.0, 0.0],
+            ]]
+        )
+        self.assertAlmostEqual(float(potential.compute(coords, features, {})), 24.0)
+        gradient = potential.compute_gradient(coords, features, {})
+        self.assertGreater(float(torch.linalg.vector_norm(gradient[:, :2])), 1.0)
+        self.assertEqual(float(torch.linalg.vector_norm(gradient[:, 2:])), 0.0)
+
+    def test_interface_gradient_translates_and_caps_each_residue(self):
+        potential = InterfaceContactPotentital(parameters={})
+        features = self.contact_features(
+            torch.tensor(
+                [[0, 0, 1, 1], [2, 3, 2, 3]],
+                dtype=torch.long,
+            ),
+            torch.zeros(4, dtype=torch.long),
+            torch.full((4,), 6.0),
+            prefix="interface_contact",
+        )
+        features["atom_to_token"] = torch.tensor(
+            [[
+                [1.0, 0.0],
+                [1.0, 0.0],
+                [0.0, 1.0],
+                [0.0, 1.0],
+            ]]
+        )
+        features["atom_pad_mask"] = torch.ones((1, 4), dtype=torch.bool)
+        coords = torch.tensor(
+            [[
+                [0.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0],
+                [10.0, 0.0, 0.0],
+                [11.0, 0.0, 0.0],
+            ]]
+        )
+        self.assertAlmostEqual(float(potential.compute(coords, features, {})), 3.0)
+        gradient = potential.compute_gradient(coords, features, {})
+        self.assertTrue(torch.equal(gradient[:, 0], gradient[:, 1]))
+        self.assertTrue(torch.equal(gradient[:, 2], gradient[:, 3]))
+        token_norms = torch.linalg.vector_norm(gradient[:, [0, 2]], dim=-1)
+        self.assertTrue(torch.all(token_norms <= 1.0))
+        self.assertTrue(torch.all(token_norms > 0.0))
+        self.assertLess(
+            float(potential.compute(coords - 0.1 * gradient, features, {})),
+            3.0,
+        )
+
     def test_union_alternatives_do_not_enter_binary_token_conditioning(self):
         parameters = inspect.signature(process_token_features).parameters
         self.assertIn("inference_atom_contact_constraints", parameters)
@@ -176,9 +294,10 @@ class BoltzPatchTests(unittest.TestCase):
                 ([(0, 0), (0, 2)], [(1, 0), (1, 1)], 6.0, True)
             ],
         )
+        self.assertEqual(features["contact_pair_index"].shape, (2, 0))
         self.assertTrue(
             torch.equal(
-                features["contact_pair_index"],
+                features["interface_contact_pair_index"],
                 torch.tensor(
                     [[0, 0, 1, 1, 2, 2, 3, 3], [2, 3, 2, 3, 0, 1, 0, 1]]
                 ),
@@ -186,12 +305,15 @@ class BoltzPatchTests(unittest.TestCase):
         )
         self.assertTrue(
             torch.equal(
-                features["contact_union_index"],
+                features["interface_contact_union_index"],
                 torch.tensor([0, 0, 1, 1, 2, 2, 3, 3]),
             )
         )
         self.assertTrue(
-            torch.equal(features["contact_thresholds"], torch.full((8,), 6.0))
+            torch.equal(
+                features["interface_contact_thresholds"],
+                torch.full((8,), 6.0),
+            )
         )
 
     def test_force_off_interface_is_report_only(self):
@@ -218,7 +340,7 @@ class BoltzPatchTests(unittest.TestCase):
                 ([(0, 0)], [(0, 2)], 6.0, False)
             ],
         )
-        self.assertEqual(features["contact_pair_index"].shape, (2, 0))
+        self.assertEqual(features["interface_contact_pair_index"].shape, (2, 0))
 
     def test_endpoint_errors_identify_complete_endpoint(self):
         chain_to_idx = {"A": 0}
@@ -239,6 +361,30 @@ class BoltzPatchTests(unittest.TestCase):
             target = Path(directory) / "identical.yaml"
             target.write_text(yaml.safe_dump(document))
             with self.assertRaisesRegex(ValueError, "same exact atom.*global atom index"):
+                parse_yaml(
+                    target,
+                    load_canonicals(Path("/opt/boltz-cache/mols")),
+                    Path("/opt/boltz-cache/mols"),
+                    boltz2=True,
+                )
+
+    def test_parser_rejects_duplicate_reversed_exact_atom_pairs(self):
+        document = yaml.safe_load(
+            (ROOT / "fixtures" / "atom_contact_example.yaml").read_text()
+        )
+        first = document["constraints"][0]["atom_contact"]
+        document["constraints"].append({
+            "atom_contact": {
+                "atom1": first["atom2"],
+                "atom2": first["atom1"],
+                "max_distance": first["max_distance"],
+                "force": True,
+            }
+        })
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "duplicate-exact.yaml"
+            target.write_text(yaml.safe_dump(document))
+            with self.assertRaisesRegex(ValueError, "duplicate exact atom pair"):
                 parse_yaml(
                     target,
                     load_canonicals(Path("/opt/boltz-cache/mols")),
@@ -309,11 +455,41 @@ class BoltzPatchTests(unittest.TestCase):
         self.assertEqual(outputs[0][0, 1], 4.0)
         self.assertEqual(outputs[0][1, 0], 4.0)
 
+    def test_same_token_exact_atom_pair_does_not_condition_the_diagonal(self):
+        tokens = np.array(
+            [(7, 2)],
+            dtype=[("atom_idx", np.int64), ("atom_num", np.int64)],
+        )
+        conditioning = np.zeros((1, 1), dtype=np.int64)
+        thresholds = np.zeros((1, 1), dtype=np.float32)
+        apply_atom_contact_token_conditioning(
+            conditioning,
+            thresholds,
+            tokens,
+            [((0, 0, 7), (0, 0, 8), 4.0, True)],
+        )
+        self.assertEqual(conditioning[0, 0], 0)
+        self.assertEqual(thresholds[0, 0], 0.0)
+
     def test_contact_guidance_remains_on_without_optional_physical_potentials(self):
         steering = BoltzSteeringParams()
         self.assertTrue(steering.contact_guidance_update)
         self.assertFalse(steering.fk_steering)
         self.assertFalse(steering.physical_guidance_update)
+        potentials = get_potentials(
+            {
+                "fk_steering": False,
+                "physical_guidance_update": False,
+                "contact_guidance_update": True,
+            },
+            boltz2=True,
+        )
+        self.assertTrue(
+            any(
+                isinstance(potential, InterfaceContactPotentital)
+                for potential in potentials
+            )
+        )
 
     def test_method_choices_match_boltz_constants_without_future_slots(self):
         script = (

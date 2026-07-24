@@ -15,6 +15,7 @@ import boltz.data.module.inferencev2 as inferencev2
 import boltz.data.parse.schema as schema
 import boltz.data.types as types
 import boltz.model.modules.diffusionv2 as diffusionv2
+import boltz.model.potentials.potentials as potentials
 
 
 EXPECTED_BOLTZ_VERSION = "2.2.1"
@@ -24,6 +25,7 @@ EXPECTED_SOURCE_SHA256 = {
     "inferencev2.py": "675235dff103d698dc65f2ebaca85a62b664ab28cd09f4b1c0166e6e56b47db4",
     "featurizerv2.py": "af1f9e6ec0c3d7289eb1f7503c3c1c3ee0d9f03436778dd4a7d412b8f7bd9f94",
     "diffusionv2.py": "9eacc8cf7daeb62dffa81a09a1f93d2e268a4b7b68b5b88c2058c5ebf5ca4057",
+    "potentials.py": "1e4a79f1454e5a71ca5a3eb82fca5451a7dc2bed8a45df9f0a814f62a6219f38",
 }
 PATCH_MARKERS = {
     "schema.py": (
@@ -38,6 +40,10 @@ PATCH_MARKERS = {
         "inference_atom_contact_union_constraints",
     ),
     "diffusionv2.py": ("sample_ids.split(max_parallel_samples)",),
+    "potentials.py": (
+        "def hard_union_reduction",
+        "class InterfaceContactPotentital",
+    ),
 }
 INTERFACE_PATCH_MARKERS = {
     "schema.py": (
@@ -160,6 +166,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
     contact_constraints = []
     atom_contact_constraints = []
     atom_contact_union_constraints = []
+    seen_atom_contact_pairs = {}
 '''
     text = replace_once(text, lists_anchor, lists_replacement, "schema atom_contact list")
 
@@ -192,7 +199,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
             if force is not True:
                 msg = (
                     "atom_contact requires force: true because specific atom-pair "
-                    "distance guidance is implemented through a soft inference-time potential."
+                    "distance guidance is implemented through an inference-time contact potential."
                 )
                 raise ValueError(msg)
 
@@ -219,6 +226,21 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
                     f"the same exact atom (global atom index {atom1[2]})."
                 )
                 raise ValueError(msg)
+            pair = tuple(sorted((atom1[2], atom2[2])))
+            if pair in seen_atom_contact_pairs:
+                previous_distance = seen_atom_contact_pairs[pair]
+                duplicate_kind = (
+                    "duplicate"
+                    if previous_distance == max_distance
+                    else "conflicting duplicate"
+                )
+                msg = (
+                    f"atom_contact is a {duplicate_kind} exact atom pair "
+                    f"({pair[0]} <-> {pair[1]}): max_distance "
+                    f"{previous_distance} versus {max_distance}."
+                )
+                raise ValueError(msg)
+            seen_atom_contact_pairs[pair] = max_distance
             atom_contact_constraints.append((atom1, atom2, max_distance, force))
         elif "atom_contact_union" in constraint:
             if not boltz_2:
@@ -233,7 +255,7 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
             if atom_contact_union.get("force", False) is not True:
                 msg = (
                     f"atom_contact_union {union_number} requires force: true because "
-                    "its OR group is implemented through a soft inference-time potential."
+                    "its OR group is implemented through an inference-time contact potential."
                 )
                 raise ValueError(msg)
             alternatives = atom_contact_union.get("alternatives")
@@ -328,6 +350,64 @@ def atom_contact_spec_to_ids(atom_spec, chain_to_idx, atom_idx_map, label):
 '''
     text = replace_once(text, options_anchor, options_replacement, "schema InferenceOptions")
 
+    return write_if_changed(path, text)
+
+
+def patch_exact_atom_validation(path: Path) -> bool:
+    """Add duplicate-pair validation to an older installed atom-contact patch."""
+    text = path.read_text(encoding="utf-8")
+    marker = "seen_atom_contact_pairs = {}"
+    if marker in text:
+        return False
+
+    list_anchor = '''    atom_contact_constraints = []
+    atom_contact_union_constraints = []
+'''
+    list_replacement = '''    atom_contact_constraints = []
+    atom_contact_union_constraints = []
+    seen_atom_contact_pairs = {}
+'''
+    text = replace_once(
+        text,
+        list_anchor,
+        list_replacement,
+        "exact atom_contact duplicate tracker",
+    )
+
+    append_anchor = '''            atom_contact_constraints.append((atom1, atom2, max_distance, force))
+        elif "atom_contact_union" in constraint:
+'''
+    append_replacement = '''            pair = tuple(sorted((atom1[2], atom2[2])))
+            if pair in seen_atom_contact_pairs:
+                previous_distance = seen_atom_contact_pairs[pair]
+                duplicate_kind = (
+                    "duplicate"
+                    if previous_distance == max_distance
+                    else "conflicting duplicate"
+                )
+                msg = (
+                    f"atom_contact is a {duplicate_kind} exact atom pair "
+                    f"({pair[0]} <-> {pair[1]}): max_distance "
+                    f"{previous_distance} versus {max_distance}."
+                )
+                raise ValueError(msg)
+            seen_atom_contact_pairs[pair] = max_distance
+            atom_contact_constraints.append((atom1, atom2, max_distance, force))
+        elif "atom_contact_union" in constraint:
+'''
+    text = replace_once(
+        text,
+        append_anchor,
+        append_replacement,
+        "exact atom_contact duplicate validation",
+    )
+    text = text.replace(
+        "distance guidance is implemented through a soft inference-time potential.",
+        "distance guidance is implemented through an inference-time contact potential.",
+    ).replace(
+        "its OR group is implemented through a soft inference-time potential.",
+        "its OR group is implemented through an inference-time contact potential.",
+    )
     return write_if_changed(path, text)
 
 
@@ -435,6 +515,8 @@ def patch_featurizerv2(path: Path) -> bool:
             if token["atom_idx"] <= atom_idx2 < token["atom_idx"] + token["atom_num"]:
                 idx2 = idx
         if idx1 is None or idx2 is None:
+            continue
+        if idx1 == idx2:
             continue
 
         contact_conditioning[idx1, idx2] = const.contact_conditioning_info["CONTACT"]
@@ -594,6 +676,35 @@ def process_token_features(  # noqa: C901, PLR0915, PLR0912
 '''
     text = replace_once(text, contact_call_anchor, contact_call_replacement, "contact feature call")
 
+    return write_if_changed(path, text)
+
+
+def patch_exact_token_conditioning(path: Path) -> bool:
+    """Avoid creating a nonsensical binary contact on one token's diagonal."""
+    text = path.read_text(encoding="utf-8")
+    marker = '''        if idx1 == idx2:
+            continue
+'''
+    if marker in text:
+        return False
+    anchor = '''        if idx1 is None or idx2 is None:
+            continue
+
+        contact_conditioning[idx1, idx2] = const.contact_conditioning_info["CONTACT"]
+'''
+    replacement = '''        if idx1 is None or idx2 is None:
+            continue
+        if idx1 == idx2:
+            continue
+
+        contact_conditioning[idx1, idx2] = const.contact_conditioning_info["CONTACT"]
+'''
+    text = replace_once(
+        text,
+        anchor,
+        replacement,
+        "same-token exact atom conditioning guard",
+    )
     return write_if_changed(path, text)
 
 
@@ -1010,6 +1121,378 @@ def process_contact_feature_constraints(
     return write_if_changed(path, text)
 
 
+def patch_interface_feature_separation(path: Path) -> bool:
+    """Keep interface pairs separate so their gradients can move whole residues."""
+    text = path.read_text(encoding="utf-8")
+    marker = '"interface_contact_pair_index"'
+    if marker in text:
+        return False
+
+    helper_start = text.index("def apply_interface_contact_potentials(")
+    helper_end = text.index("\ndef process_contact_feature_constraints(", helper_start)
+    old_helper = text[helper_start:helper_end]
+    new_helper = '''def apply_interface_contact_potentials(token_data, constraints):
+    """Build reciprocal hard-OR groups for residue-coherent interface guidance."""
+    pair_index, union_index, negation_mask, thresholds = [], [], [], []
+    union_idx = 0
+    token_by_residue = {
+        (int(token["asym_id"]), int(token["res_idx"])): token
+        for token in token_data
+        if token["mol_type"] != const.chain_type_ids["NONPOLYMER"]
+    }
+    for patch1, patch2, max_distance, force in constraints or []:
+        if not force:
+            continue
+        patch1_tokens = [token_by_residue[tuple(selector)] for selector in patch1]
+        patch2_tokens = [token_by_residue[tuple(selector)] for selector in patch2]
+        for source_tokens, target_tokens in (
+            (patch1_tokens, patch2_tokens),
+            (patch2_tokens, patch1_tokens),
+        ):
+            target_atoms = torch.cat(
+                [
+                    torch.arange(
+                        int(token["atom_idx"]),
+                        int(token["atom_idx"] + token["atom_num"]),
+                    )
+                    for token in target_tokens
+                ]
+            )
+            for source_token in source_tokens:
+                source_atoms = torch.arange(
+                    int(source_token["atom_idx"]),
+                    int(source_token["atom_idx"] + source_token["atom_num"]),
+                )
+                atom_idx_pairs = torch.cartesian_prod(source_atoms, target_atoms).T
+                pair_index.append(atom_idx_pairs)
+                union_index.append(
+                    torch.full((atom_idx_pairs.shape[1],), union_idx)
+                )
+                negation_mask.append(
+                    torch.ones((atom_idx_pairs.shape[1],), dtype=torch.bool)
+                )
+                thresholds.append(
+                    torch.full((atom_idx_pairs.shape[1],), max_distance)
+                )
+                union_idx += 1
+
+    if pair_index:
+        pair_index = torch.cat(pair_index, dim=1)
+        union_index = torch.cat(union_index)
+        negation_mask = torch.cat(negation_mask)
+        thresholds = torch.cat(thresholds)
+    else:
+        pair_index = torch.empty((2, 0), dtype=torch.long)
+        union_index = torch.empty((0,), dtype=torch.long)
+        negation_mask = torch.empty((0,), dtype=torch.bool)
+        thresholds = torch.empty((0,), dtype=torch.float32)
+    return {
+        "interface_contact_pair_index": pair_index,
+        "interface_contact_union_index": union_index,
+        "interface_contact_negation_mask": negation_mask,
+        "interface_contact_thresholds": thresholds,
+    }
+
+'''
+    text = text[:helper_start] + new_helper + text[helper_end + 1:]
+
+    call_anchor = '''    union_idx = apply_interface_contact_potentials(
+        token_data,
+        inference_interface_contact_constraints,
+        pair_index,
+        union_index,
+        negation_mask,
+        thresholds,
+        union_idx,
+    )
+
+    if len(pair_index) > 0:
+'''
+    call_replacement = '''    interface_features = apply_interface_contact_potentials(
+        token_data,
+        inference_interface_contact_constraints,
+    )
+
+    if len(pair_index) > 0:
+'''
+    text = replace_once(
+        text,
+        call_anchor,
+        call_replacement,
+        "separate interface potential features",
+    )
+
+    return_anchor = '''    return {
+        "contact_pair_index": pair_index,
+        "contact_union_index": union_index,
+        "contact_negation_mask": negation_mask,
+        "contact_thresholds": thresholds,
+    }
+'''
+    return_replacement = '''    return {
+        "contact_pair_index": pair_index,
+        "contact_union_index": union_index,
+        "contact_negation_mask": negation_mask,
+        "contact_thresholds": thresholds,
+        **interface_features,
+    }
+'''
+    text = replace_once(
+        text,
+        return_anchor,
+        return_replacement,
+        "return separate interface potential features",
+    )
+    if old_helper == new_helper:
+        raise RuntimeError("Interface feature separation did not change the helper.")
+    return write_if_changed(path, text)
+
+
+def patch_potentials(path: Path) -> bool:
+    """Use exact hard-OR energies and residue-coherent interface gradients."""
+    text = path.read_text(encoding="utf-8")
+    if all(marker in text for marker in PATCH_MARKERS["potentials.py"]):
+        return False
+
+    class_anchor = "class Potential(ABC):\n"
+    helper = '''def hard_union_reduction(energy, union_index):
+    """Return per-group minima and equal subgradients for exact ties."""
+    expanded_index = union_index.expand_as(energy)
+    group_count = int(union_index.max().item()) + 1
+    group_shape = (*energy.shape[:-1], group_count)
+    minima = torch.full(
+        group_shape,
+        torch.inf,
+        dtype=energy.dtype,
+        device=energy.device,
+    ).scatter_reduce(-1, expanded_index, energy, "amin")
+    selected = energy == minima[..., union_index]
+    tie_count = torch.zeros(
+        group_shape,
+        dtype=energy.dtype,
+        device=energy.device,
+    ).scatter_reduce(
+        -1,
+        expanded_index,
+        selected.to(dtype=energy.dtype),
+        "sum",
+    )
+    derivative_weight = (
+        selected.to(dtype=energy.dtype)
+        / tie_count[..., union_index].clamp_min(1.0)
+    )
+    return minima, derivative_weight
+
+
+class Potential(ABC):
+'''
+    text = replace_once(text, class_anchor, helper, "hard union reduction helper")
+
+    compute_anchor = '''        if union_index is not None:
+            neg_exp_energy = torch.exp(-1 * parameters["union_lambda"] * energy)
+            Z = torch.zeros(
+                (*energy.shape[:-1], union_index.max() + 1), device=union_index.device
+            ).scatter_reduce(
+                -1,
+                union_index.expand_as(neg_exp_energy),
+                neg_exp_energy,
+                "sum",
+            )
+            softmax_energy = neg_exp_energy / Z[..., union_index]
+            softmax_energy[Z[..., union_index] == 0] = 0
+            return (energy * softmax_energy).sum(dim=-1)
+'''
+    compute_replacement = '''        if union_index is not None:
+            minimum_energy, _ = hard_union_reduction(energy, union_index)
+            return minimum_energy.sum(dim=-1)
+'''
+    text = replace_once(
+        text,
+        compute_anchor,
+        compute_replacement,
+        "exact hard-OR potential energy",
+    )
+
+    gradient_anchor = '''        if union_index is not None:
+            neg_exp_energy = torch.exp(-1 * parameters["union_lambda"] * energy)
+            Z = torch.zeros(
+                (*energy.shape[:-1], union_index.max() + 1), device=union_index.device
+            ).scatter_reduce(
+                -1,
+                union_index.expand_as(energy),
+                neg_exp_energy,
+                "sum",
+            )
+            softmax_energy = neg_exp_energy / Z[..., union_index]
+            softmax_energy[Z[..., union_index] == 0] = 0
+            f = torch.zeros(
+                (*energy.shape[:-1], union_index.max() + 1), device=union_index.device
+            ).scatter_reduce(
+                -1,
+                union_index.expand_as(energy),
+                energy * softmax_energy,
+                "sum",
+            )
+            dSoftmax = (
+                dEnergy
+                * softmax_energy
+                * (1 + parameters["union_lambda"] * (energy - f[..., union_index]))
+            )
+            prod = dSoftmax.tile(grad_value.shape[-3]).unsqueeze(
+                -1
+            ) * grad_value.flatten(start_dim=-3, end_dim=-2)
+'''
+    gradient_replacement = '''        if union_index is not None:
+            _, derivative_weight = hard_union_reduction(energy, union_index)
+            dUnion = dEnergy * derivative_weight
+            prod = dUnion.tile(grad_value.shape[-3]).unsqueeze(
+                -1
+            ) * grad_value.flatten(start_dim=-3, end_dim=-2)
+'''
+    text = replace_once(
+        text,
+        gradient_anchor,
+        gradient_replacement,
+        "exact hard-OR potential gradient",
+    )
+
+    contact_anchor = '''class ContactPotentital(FlatBottomPotential, DistancePotential):
+    def compute_args(self, feats, parameters):
+        index = feats["contact_pair_index"][0]
+        union_index = feats["contact_union_index"][0]
+        negation_mask = feats["contact_negation_mask"][0]
+        lower_bounds = None
+        upper_bounds = feats["contact_thresholds"][0].clone()
+        k = torch.ones_like(upper_bounds)
+        return (
+            index,
+            (k, lower_bounds, upper_bounds),
+            None,
+            None,
+            (negation_mask, union_index),
+        )
+
+
+def get_potentials(steering_args, boltz2=False):
+'''
+    contact_replacement = '''class ContactPotentital(FlatBottomPotential, DistancePotential):
+    feature_prefix = "contact"
+
+    def compute_args(self, feats, parameters):
+        prefix = self.feature_prefix
+        index = feats[f"{prefix}_pair_index"][0]
+        union_index = feats[f"{prefix}_union_index"][0]
+        negation_mask = feats[f"{prefix}_negation_mask"][0]
+        lower_bounds = None
+        upper_bounds = feats[f"{prefix}_thresholds"][0].clone()
+        k = torch.ones_like(upper_bounds)
+        return (
+            index,
+            (k, lower_bounds, upper_bounds),
+            None,
+            None,
+            (negation_mask, union_index),
+        )
+
+
+class InterfaceContactPotentital(ContactPotentital):
+    """Interface contact potential that translates residues instead of atoms."""
+
+    feature_prefix = "interface_contact"
+
+    def compute_gradient(self, coords, feats, parameters):
+        atom_gradient = super().compute_gradient(coords, feats, parameters)
+        atom_to_token = feats["atom_to_token"][0].to(
+            device=atom_gradient.device,
+            dtype=atom_gradient.dtype,
+        )
+        atom_pad_mask = feats["atom_pad_mask"][0].to(
+            device=atom_gradient.device,
+            dtype=atom_gradient.dtype,
+        )
+        atom_to_token = atom_to_token * atom_pad_mask.unsqueeze(-1)
+        token_gradient = torch.einsum(
+            "at,...ad->...td",
+            atom_to_token,
+            atom_gradient,
+        )
+        gradient_norm = torch.linalg.vector_norm(
+            token_gradient,
+            dim=-1,
+            keepdim=True,
+        )
+        token_gradient = token_gradient / gradient_norm.clamp_min(1.0)
+        return torch.einsum(
+            "at,...td->...ad",
+            atom_to_token,
+            token_gradient,
+        )
+
+
+def get_potentials(steering_args, boltz2=False):
+'''
+    text = replace_once(
+        text,
+        contact_anchor,
+        contact_replacement,
+        "residue-coherent interface potential",
+    )
+
+    potential_list_anchor = '''                ContactPotentital(
+                    parameters={
+                        "guidance_interval": 4,
+                        "guidance_weight": (
+                            PiecewiseStepFunction(
+                                thresholds=[0.25, 0.75], values=[0.0, 0.5, 1.0]
+                            )
+                            if steering_args["contact_guidance_update"]
+                            else 0.0
+                        ),
+                        "resampling_weight": 1.0,
+                        "union_lambda": ExponentialInterpolation(
+                            start=8.0, end=0.0, alpha=-2.0
+                        ),
+                    }
+                ),
+                TemplateReferencePotential(
+'''
+    potential_list_replacement = '''                ContactPotentital(
+                    parameters={
+                        "guidance_interval": 4,
+                        "guidance_weight": (
+                            PiecewiseStepFunction(
+                                thresholds=[0.25, 0.75], values=[0.0, 0.5, 1.0]
+                            )
+                            if steering_args["contact_guidance_update"]
+                            else 0.0
+                        ),
+                        "resampling_weight": 1.0,
+                    }
+                ),
+                InterfaceContactPotentital(
+                    parameters={
+                        "guidance_interval": 4,
+                        "guidance_weight": (
+                            PiecewiseStepFunction(
+                                thresholds=[0.25, 0.75], values=[0.0, 0.5, 1.0]
+                            )
+                            if steering_args["contact_guidance_update"]
+                            else 0.0
+                        ),
+                        "resampling_weight": 1.0,
+                    }
+                ),
+                TemplateReferencePotential(
+'''
+    text = replace_once(
+        text,
+        potential_list_anchor,
+        potential_list_replacement,
+        "register interface contact potential",
+    )
+    return write_if_changed(path, text)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -1024,6 +1507,7 @@ def main() -> None:
         "inferencev2.py": Path(inspect.getfile(inferencev2)),
         "featurizerv2.py": Path(inspect.getfile(featurizerv2)),
         "diffusionv2.py": Path(inspect.getfile(diffusionv2)),
+        "potentials.py": Path(inspect.getfile(potentials)),
     }
 
     print("boltz version:", getattr(boltz, "__version__", "unknown"))
@@ -1041,7 +1525,15 @@ def main() -> None:
         "inferencev2.py": patch_inferencev2(paths["inferencev2.py"]),
         "featurizerv2.py": patch_featurizerv2(paths["featurizerv2.py"]),
         "diffusionv2.py": patch_diffusionv2(paths["diffusionv2.py"]),
+        "potentials.py": patch_potentials(paths["potentials.py"]),
     }
+    changed["schema.py"] = (
+        patch_exact_atom_validation(paths["schema.py"]) or changed["schema.py"]
+    )
+    changed["featurizerv2.py"] = (
+        patch_exact_token_conditioning(paths["featurizerv2.py"])
+        or changed["featurizerv2.py"]
+    )
     interface_changed = {
         "schema.py": patch_interface_schema(paths["schema.py"]),
         "types.py": patch_interface_types(paths["types.py"]),
@@ -1050,6 +1542,10 @@ def main() -> None:
     }
     for label, was_changed in interface_changed.items():
         changed[label] = changed[label] or was_changed
+    changed["featurizerv2.py"] = (
+        patch_interface_feature_separation(paths["featurizerv2.py"])
+        or changed["featurizerv2.py"]
+    )
 
     for label, was_changed in changed.items():
         print(f"{label}: {'patched' if was_changed else 'already patched'}")

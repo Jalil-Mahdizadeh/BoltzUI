@@ -1,16 +1,16 @@
-# Graph Report - BoltzUI  (2026-07-23)
+# Graph Report - BoltzUI  (2026-07-24)
 
 ## Corpus Check
-- 2061 files · ~15,442,351 words
+- 2213 files · ~15,703,624 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1031 nodes · 1614 edges · 169 communities (37 shown, 132 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 44 edges (avg confidence: 0.8)
+- 1101 nodes · 1749 edges · 174 communities (38 shown, 136 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 45 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2df73741`
+- Built from commit: `5b116255`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -181,26 +181,31 @@
 - [[_COMMUNITY_Community 166|Community 166]]
 - [[_COMMUNITY_Community 167|Community 167]]
 - [[_COMMUNITY_Community 168|Community 168]]
+- [[_COMMUNITY_Community 169|Community 169]]
+- [[_COMMUNITY_Community 170|Community 170]]
+- [[_COMMUNITY_Community 171|Community 171]]
+- [[_COMMUNITY_Community 172|Community 172]]
+- [[_COMMUNITY_Community 173|Community 173]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `$()` - 110 edges
+1. `$()` - 115 edges
 2. `$()` - 70 edges
-3. `handleApi()` - 21 edges
-4. `main()` - 17 edges
-5. `buildYamlFromBuilder()` - 17 edges
-6. `applyYamlPreset()` - 17 edges
-7. `applyParsedYamlToBuilder()` - 17 edges
-8. `BoltzPatchTests` - 15 edges
-9. `process_structure()` - 14 edges
-10. `preparePrediction()` - 14 edges
+3. `BoltzPatchTests` - 25 edges
+4. `handleApi()` - 21 edges
+5. `applyYamlPreset()` - 18 edges
+6. `applyParsedYamlToBuilder()` - 18 edges
+7. `main()` - 17 edges
+8. `main()` - 17 edges
+9. `buildYamlFromBuilder()` - 17 edges
+10. `write_if_changed()` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `main()` --calls--> `parseInputFile()`  [INFERRED]
-  benchmark/phase2_nmr2boltz/scripts/restraint_audit.js → lib/atom-contact.js
 - `main()` --calls--> `validateAtomContacts()`  [INFERRED]
   benchmark/phase2_nmr2boltz/scripts/restraint_audit.js → lib/atom-contact.js
 - `main()` --calls--> `writeRestraintReport()`  [INFERRED]
   benchmark/phase2_nmr2boltz/scripts/restraint_audit.js → lib/restraint-report.js
+- `main()` --calls--> `parseInputFile()`  [INFERRED]
+  benchmark/phase2_nmr2boltz/scripts/restraint_audit.js → lib/atom-contact.js
 - `handleApi()` --calls--> `parseInputText()`  [EXTRACTED]
   server.js → lib/atom-contact.js
 - `documentFromFixture()` --calls--> `parseInputText()`  [EXTRACTED]
@@ -209,11 +214,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (169 total, 132 thin omitted)
+## Communities (174 total, 136 thin omitted)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
-Nodes (35): { analyzePostprocessEligibility }, appendPredictOptions(), { completeRunManifest, createRunManifest, writeJson }, contentType(), {
+Nodes (35): { analyzePostprocessEligibility }, appendPredictOptions(), { completeRunManifest, createRunManifest, writeJson }, {
   DEFAULT_PRESET,
   optionSchema,
   publicPresets,
@@ -224,6 +229,9 @@ Nodes (35): { analyzePostprocessEligibility }, appendPredictOptions(), { complet
   parseInputFile,
   parseInputText,
   validateAtomContacts
+}, {
+  documentHasInterfaceContacts,
+  validateInterfaceContacts
 }, EventEmitter, findFiles() (+27 more)
 
 ### Community 2 - "Community 2"
@@ -248,15 +256,15 @@ Nodes (8): Build From Source, Docker Hub Description, Highlights, Overview, Pred
 
 ### Community 8 - "Community 8"
 Cohesion: 0.11
-Nodes (33): api(), applyParsedYamlToBuilder(), applyYamlPreset(), filenameFromPath(), generateYamlFromBuilder(), loadAtomConstraintFile(), loadExistingYaml(), loadTokenConstraintFile() (+25 more)
+Nodes (34): api(), applyParsedYamlToBuilder(), applyYamlPreset(), filenameFromPath(), generateYamlFromBuilder(), loadAtomConstraintFile(), loadExistingYaml(), loadTokenConstraintFile() (+26 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.33
 Nodes (5): Build input, GPU memory, Host system, Prediction presets, Requirements
 
 ### Community 19 - "Community 19"
-Cohesion: 0.09
-Nodes (44): Any, check_compatibility(), main(), patch_diffusionv2(), patch_featurizerv2(), patch_inferencev2(), patch_schema(), patch_types() (+36 more)
+Cohesion: 0.08
+Nodes (56): Any, check_compatibility(), main(), patch_diffusionv2(), patch_exact_atom_validation(), patch_exact_token_conditioning(), patch_featurizerv2(), patch_inferencev2() (+48 more)
 
 ### Community 22 - "Community 22"
 Cohesion: 0.07
@@ -264,7 +272,7 @@ Nodes (41): defaultOptions(), METHOD_CHOICES, normalizeOptions(), normalizeScala
 
 ### Community 23 - "Community 23"
 Cohesion: 0.09
-Nodes (45): addMmcifAtom(), atomKey(), chainAtomKey(), closestAtomPair(), createMmcifNamespace(), createRestraintReport(), createTokenIndex(), endpoint() (+37 more)
+Nodes (48): addMmcifAtom(), atomKey(), chainAtomKey(), closestAtomPair(), createMmcifNamespace(), createRestraintReport(), createTokenIndex(), endpoint() (+40 more)
 
 ### Community 24 - "Community 24"
 Cohesion: 0.22
@@ -272,11 +280,11 @@ Nodes (16): AtomContactValidationError, buildChainIndex(), canonicalPair(), endp
 
 ### Community 26 - "Community 26"
 Cohesion: 0.07
-Nodes (56): aggregate_audits(), analyze_prediction_root(), arm_aggregate(), canonical_pair(), compact_analysis(), comparison_key(), confidence_for(), constraint_scope() (+48 more)
+Nodes (57): aggregate_audits(), analyze_prediction_root(), arm_aggregate(), canonical_pair(), compact_analysis(), comparison_key(), confidence_for(), constraint_scope() (+49 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.22
-Nodes (18): addLog(), buildBoltzCommand(), displayPath(), ensureDataWorkspace(), handleApi(), isInside(), listResults(), openLocalPath() (+10 more)
+Cohesion: 0.20
+Nodes (19): addLog(), buildBoltzCommand(), contentType(), displayPath(), ensureDataWorkspace(), handleApi(), isInside(), listResults() (+11 more)
 
 ### Community 28 - "Community 28"
 Cohesion: 0.15
@@ -291,8 +299,8 @@ Cohesion: 0.36
 Nodes (9): existing_candidate_directory(), false_value(), generate_yaml(), load_json(), main(), Make the absence of constraints explicit without relying on YAML parsing., utc_now(), write_json() (+1 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.08
-Nodes (43): RuntimeError, aggregate_token_audits(), arm_summary(), audit_mapped(), audit_prediction_root(), load_json(), load_yaml(), main() (+35 more)
+Cohesion: 0.09
+Nodes (42): RuntimeError, aggregate_token_audits(), arm_summary(), audit_mapped(), audit_prediction_root(), load_json(), load_yaml(), main() (+34 more)
 
 ### Community 34 - "Community 34"
 Cohesion: 0.22
@@ -328,28 +336,33 @@ Cohesion: 0.24
 Nodes (9): analyzePostprocessEligibility(), entityIds(), entityLabel(), STANDARD_ALPHABETS, summarizeIssues(), SUPPORTED_POLYMERS, { analyzePostprocessEligibility }, assert (+1 more)
 
 ### Community 140 - "Community 140"
-Cohesion: 0.15
-Nodes (12): listInputFiles(), sortInputFilesNewestFirst(), walkFiles(), assert, {
+Cohesion: 0.13
+Nodes (14): listInputFiles(), sortInputFilesNewestFirst(), walkFiles(), assert, {
   buildBoltzCommand,
   sortInputFilesNewestFirst,
   summarizeResultDir
-}, fs, input, os (+4 more)
+}, fs, input, interfaceInput (+6 more)
 
 ### Community 141 - "Community 141"
 Cohesion: 0.29
 Nodes (6): 8VOH forced-token rerun, Conclusion, Important attribution caveat, Results, Validation, What `force` changes
 
 ### Community 142 - "Community 142"
-Cohesion: 0.33
-Nodes (9): documentHasAtomContacts(), parseInputFile(), describeInputFile(), inputCreationTime(), inputHasLigandEntity(), inputPostprocessEligibility(), objectHasLigandEntity(), preparePrediction() (+1 more)
+Cohesion: 0.17
+Nodes (14): documentHasAtomContacts(), parseInputFile(), documentHasInterfaceContacts(), main(), {
+  parseInputFile,
+  validateAtomContacts
+}, path, {
+  writeRestraintReport
+}, describeInputFile() (+6 more)
 
 ### Community 143 - "Community 143"
 Cohesion: 0.40
 Nodes (4): 8VOH token-only attribution test, Attribution, Limitation, Result
 
 ### Community 144 - "Community 144"
-Cohesion: 0.12
-Nodes (25): $(), atomContactCard(), atomContactUnionAlternativeCard(), bindBuilderPage(), bindRepeatLists(), bondCard(), builderState, contactCard() (+17 more)
+Cohesion: 0.10
+Nodes (27): $(), atomContactCard(), atomContactUnionAlternativeCard(), bindBuilderPage(), bindRepeatLists(), bondCard(), builderState, contactCard() (+19 more)
 
 ### Community 147 - "Community 147"
 Cohesion: 0.26
@@ -360,37 +373,40 @@ Cohesion: 0.18
 Nodes (17): appendPolymerYaml(), buildYamlFromBuilder(), cleanSequence(), fieldValue(), formatNumberForYaml(), parseAtomSpec(), parseIdList(), parseModificationLines() (+9 more)
 
 ### Community 149 - "Community 149"
-Cohesion: 0.20
-Nodes (10): renderLigands(), renderPolymers(), syncYamlFromBuilder, updateAtomContactFromElement(), updateAtomContactUnionFromElement(), updateBondFromElement(), updateContactFromElement(), updateLigandFromElement() (+2 more)
+Cohesion: 0.18
+Nodes (11): renderLigands(), renderPolymers(), syncYamlFromBuilder, updateAtomContactFromElement(), updateAtomContactUnionFromElement(), updateBondFromElement(), updateContactFromElement(), updateInterfaceContactFromElement() (+3 more)
 
 ### Community 168 - "Community 168"
-Cohesion: 0.40
-Nodes (4): main(), {
-  parseInputFile,
-  validateAtomContacts
-}, path, {
-  writeRestraintReport
-}
+Cohesion: 0.15
+Nodes (14): { buildChainIndex }, canonicalInterface(), InterfaceContactValidationError, normalizePatch(), patchLabel(), validateInterfaceContacts(), validateResolvedPatch(), assert (+6 more)
+
+### Community 169 - "Community 169"
+Cohesion: 0.31
+Nodes (8): buildPolymerChainIndex(), canEmitInterfaceContactDraft(), parseIds(), sequenceLength(), validateInterfacePatch(), assert, {
+  buildPolymerChainIndex,
+  validateInterfacePatch,
+  canEmitInterfaceContactDraft
+}, test
 
 ## Knowledge Gaps
-- **309 isolated node(s):** `pair.sh script`, `MMSEQS_CALL_DEPTH`, `records`, `records`, `records` (+304 more)
+- **327 isolated node(s):** `pair.sh script`, `MMSEQS_CALL_DEPTH`, `records`, `records`, `records` (+322 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **132 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **136 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `path` connect `Community 19` to `Community 1`?**
-  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+  _High betweenness centrality (0.087) - this node is a cross-community bridge._
 - **Why does `replace_once()` connect `Community 19` to `Community 33`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Why does `main()` connect `Community 26` to `Community 33`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Are the 3 inferred relationships involving `main()` (e.g. with `RuntimeError` and `map_model()`) actually correct?**
-  _`main()` has 3 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **What connects `pair.sh script`, `MMSEQS_CALL_DEPTH`, `records` to the rest of the system?**
-  _319 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _341 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.059743954480796585 - nodes in this community are weakly interconnected._
+- **Should `Community 2` be split into smaller, more focused modules?**
+  _Cohesion score 0.07502131287297528 - nodes in this community are weakly interconnected._
