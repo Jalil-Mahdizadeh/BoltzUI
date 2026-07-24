@@ -1,16 +1,16 @@
 # Graph Report - BoltzUI  (2026-07-24)
 
 ## Corpus Check
-- 2213 files · ~15,703,734 words
+- 2213 files · ~15,703,796 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1101 nodes · 1749 edges · 174 communities (38 shown, 136 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 45 edges (avg confidence: 0.8)
+- 1104 nodes · 1754 edges · 177 communities (41 shown, 136 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `add3d0fe`
+- Built from commit: `eff59041`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -186,6 +186,9 @@
 - [[_COMMUNITY_Community 171|Community 171]]
 - [[_COMMUNITY_Community 172|Community 172]]
 - [[_COMMUNITY_Community 173|Community 173]]
+- [[_COMMUNITY_Community 174|Community 174]]
+- [[_COMMUNITY_Community 175|Community 175]]
+- [[_COMMUNITY_Community 176|Community 176]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `$()` - 115 edges
@@ -214,7 +217,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (174 total, 136 thin omitted)
+## Communities (177 total, 136 thin omitted)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -263,8 +266,8 @@ Cohesion: 0.33
 Nodes (5): Build input, GPU memory, Host system, Prediction presets, Requirements
 
 ### Community 19 - "Community 19"
-Cohesion: 0.08
-Nodes (56): Any, check_compatibility(), main(), patch_diffusionv2(), patch_exact_atom_validation(), patch_exact_token_conditioning(), patch_featurizerv2(), patch_inferencev2() (+48 more)
+Cohesion: 0.07
+Nodes (59): Any, check_compatibility(), main(), patch_diffusionv2(), patch_exact_atom_validation(), patch_exact_token_conditioning(), patch_featurizerv2(), patch_inferencev2() (+51 more)
 
 ### Community 22 - "Community 22"
 Cohesion: 0.07
@@ -279,8 +282,8 @@ Cohesion: 0.22
 Nodes (16): AtomContactValidationError, buildChainIndex(), canonicalPair(), endpointLabel(), entityIds(), fs, inputMsaSummary(), normalizeAtomContact() (+8 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.07
-Nodes (57): aggregate_audits(), analyze_prediction_root(), arm_aggregate(), canonical_pair(), compact_analysis(), comparison_key(), confidence_for(), constraint_scope() (+49 more)
+Cohesion: 0.06
+Nodes (68): aggregate_audits(), analyze_prediction_root(), arm_aggregate(), canonical_pair(), compact_analysis(), comparison_key(), confidence_for(), constraint_scope() (+60 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.20
@@ -299,8 +302,8 @@ Cohesion: 0.36
 Nodes (9): existing_candidate_directory(), false_value(), generate_yaml(), load_json(), main(), Make the absence of constraints explicit without relying on YAML parsing., utc_now(), write_json() (+1 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.09
-Nodes (42): RuntimeError, aggregate_token_audits(), arm_summary(), audit_mapped(), audit_prediction_root(), load_json(), load_yaml(), main() (+34 more)
+Cohesion: 0.35
+Nodes (11): aggregate_token_audits(), arm_summary(), audit_mapped(), audit_prediction_root(), load_json(), load_yaml(), main(), measure_token_contact() (+3 more)
 
 ### Community 34 - "Community 34"
 Cohesion: 0.22
@@ -388,6 +391,18 @@ Nodes (8): buildPolymerChainIndex(), canEmitInterfaceContactDraft(), parseIds(),
   canEmitInterfaceContactDraft
 }, test
 
+### Community 174 - "Community 174"
+Cohesion: 0.44
+Nodes (8): attach_fixed_msas(), container_path(), dump_yaml(), load_yaml(), main(), Use the exact phase-1 raw MSAs to isolate the constraint treatment., sha256(), write_json()
+
+### Community 175 - "Community 175"
+Cohesion: 0.44
+Nodes (8): bmrb_ids(), fetch_json(), inspect_candidate(), load_json(), main(), normalized_sequence(), supported_alphabet(), write_json()
+
+### Community 176 - "Community 176"
+Cohesion: 0.83
+Nodes (3): confidence_selected(), main(), strip_force()
+
 ## Knowledge Gaps
 - **327 isolated node(s):** `pair.sh script`, `MMSEQS_CALL_DEPTH`, `records`, `records`, `records` (+322 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -397,16 +412,16 @@ Nodes (8): buildPolymerChainIndex(), canEmitInterfaceContactDraft(), parseIds(),
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `path` connect `Community 19` to `Community 1`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
-- **Why does `replace_once()` connect `Community 19` to `Community 33`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **Why does `main()` connect `Community 26` to `Community 33`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.084) - this node is a cross-community bridge._
+- **Why does `main()` connect `Community 26` to `Community 19`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **What connects `pair.sh script`, `MMSEQS_CALL_DEPTH`, `records` to the rest of the system?**
-  _341 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _342 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.059743954480796585 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.07502131287297528 - nodes in this community are weakly interconnected._
+- **Should `Community 4` be split into smaller, more focused modules?**
+  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._

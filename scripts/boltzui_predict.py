@@ -34,6 +34,13 @@ def split_postprocess_flags(arguments: list[str]) -> tuple[list[str], str | None
     return forwarded, selected[0] if selected else None
 
 
+def enforce_image_runtime_flags(arguments: list[str]) -> list[str]:
+    """Keep supported prediction entry points on the image's tested runtime path."""
+    if arguments and arguments[0] == "predict" and "--no_kernels" not in arguments:
+        return [*arguments, "--no_kernels"]
+    return arguments
+
+
 def _option_value(arguments: list[str], flag: str, default: str) -> str:
     try:
         index = arguments.index(flag)
@@ -60,6 +67,7 @@ def main(arguments: list[str] | None = None) -> int:
     arguments = list(sys.argv[1:] if arguments is None else arguments)
     try:
         forwarded, mode = split_postprocess_flags(arguments)
+        forwarded = enforce_image_runtime_flags(forwarded)
         if mode is not None:
             target = result_directory(forwarded, Path.cwd())
         completed = subprocess.run([os.environ.get("BOLTZ_EXECUTABLE", "boltz"), *forwarded], check=False)

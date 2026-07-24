@@ -7,7 +7,13 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from boltzui_predict import HELP_TEXT, PostprocessError, result_directory, split_postprocess_flags
+from boltzui_predict import (
+    HELP_TEXT,
+    PostprocessError,
+    enforce_image_runtime_flags,
+    result_directory,
+    split_postprocess_flags,
+)
 from structure_postprocess import _apply_pdb_confidence
 
 
@@ -27,6 +33,17 @@ class BoltzUiPredictTests(unittest.TestCase):
     def test_flags_are_mutually_exclusive(self):
         with self.assertRaisesRegex(PostprocessError, "mutually exclusive"):
             split_postprocess_flags(["predict", "input.yaml", "--addh", "--addh-energy-min"])
+
+    def test_prediction_wrapper_always_disables_unavailable_kernels(self):
+        self.assertEqual(
+            enforce_image_runtime_flags(["predict", "input.yaml"]),
+            ["predict", "input.yaml", "--no_kernels"],
+        )
+        self.assertEqual(
+            enforce_image_runtime_flags(["predict", "input.yaml", "--no_kernels"]),
+            ["predict", "input.yaml", "--no_kernels"],
+        )
+        self.assertEqual(enforce_image_runtime_flags(["--help"]), ["--help"])
 
     def test_result_directory_matches_boltz_naming(self):
         target = result_directory(
