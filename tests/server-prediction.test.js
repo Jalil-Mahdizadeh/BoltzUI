@@ -76,6 +76,16 @@ test("single-chain interface contacts are accepted", () => {
   assert.equal(prediction.interfaceContacts[0].patch2.chain, "A");
 });
 
+test("commands always disable unavailable optional kernels", () => {
+  const prediction = buildBoltzCommand({
+    data: interfaceInput,
+    preset: "custom",
+    options: { no_kernels: false }
+  });
+  assert.equal(prediction.options.no_kernels, true);
+  assert.equal(prediction.args.includes("--no_kernels"), true);
+});
+
 test("hydrogen flags use the BoltzUI wrapper and are passed to copied commands", () => {
   const prediction = buildBoltzCommand({ data: input, preset: "custom", options: { addh: true } });
   assert.equal(prediction.executable, "boltzui-predict");

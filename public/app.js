@@ -67,6 +67,7 @@ function defaultsFromSchema(schema) {
 }
 
 function optionIsActive(option) {
+  if (option.locked) return false;
   if (POSTPROCESS_OPTION_KEYS.has(option.key) && selectedInputFile()?.postprocessEligibility?.eligible === false) {
     return false;
   }
@@ -366,7 +367,9 @@ function renderOptionField(option) {
     input.type = "checkbox";
     input.checked = Boolean(value);
     input.disabled = !active;
-    if (!active && POSTPROCESS_OPTION_KEYS.has(option.key)) {
+    if (!active && option.lockedReason) {
+      label.title = option.lockedReason;
+    } else if (!active && POSTPROCESS_OPTION_KEYS.has(option.key)) {
       label.title = selectedInputPostprocessReason();
     }
     input.addEventListener("change", () => {

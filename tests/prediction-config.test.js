@@ -37,6 +37,12 @@ test("hydrogen post-processing defaults off and modes are mutually exclusive", (
   );
 });
 
+test("unsupported optimized kernels cannot be enabled in this image", () => {
+  const noKernels = optionSchema.find((option) => option.key === "no_kernels");
+  assert.equal(noKernels.locked, true);
+  assert.equal(resolvePredictionOptions({ no_kernels: false }, "custom").options.no_kernels, true);
+});
+
 test("atom-contact tasks default override on but respect explicit custom override off", () => {
   const automatic = resolvePredictionOptions({}, "standard", { hasAtomContacts: true });
   assert.equal(automatic.options.override, true);

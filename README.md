@@ -225,7 +225,7 @@ The sidebar exposes these Boltz `predict` options:
 - `--max_msa_seqs INTEGER` - maximum MSA sequences used. BoltzUI default: `8192`, matching upstream Boltz.
 - `--subsample_msa` - subsamples MSA sequences. BoltzUI default: `True`, matching upstream Boltz.
 - `--num_subsampled_msa INTEGER` - number of MSA sequences after subsampling. BoltzUI default: `1024`, matching upstream Boltz.
-- `--no_kernels` - disables optional optimized kernels. BoltzUI default: `True`.
+- `--no_kernels` - disables optional optimized kernels. It is fixed to `True` in this image because the optional kernel packages are not installed; this prevents a predictable GPU runtime failure.
 - `--write_embeddings` - writes `s` and `z` embeddings to NPZ. Default: `False`.
 - `--help` - prints command help.
 

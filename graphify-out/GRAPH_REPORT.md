@@ -1,7 +1,7 @@
 # Graph Report - BoltzUI  (2026-07-24)
 
 ## Corpus Check
-- 2213 files · ~15,703,624 words
+- 2213 files · ~15,703,734 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5b116255`
+- Built from commit: `add3d0fe`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
