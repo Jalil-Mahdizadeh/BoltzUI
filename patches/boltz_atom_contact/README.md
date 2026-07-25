@@ -81,15 +81,35 @@ Rules:
   that conditioning to every alternative would recreate AND semantics even
   though the coordinate potential is grouped as OR.
 - `interface_contact` accepts exactly two nonempty protein-residue patches.
-  Different chains and two disjoint patches on one chain are supported.
+  Different chains and two disjoint, non-neighbor regions on one chain are
+  supported.
 - For every active residue on each side, the runtime creates one potential
-  union containing all atom pairs to the opposite patch. This is reciprocal
-  patch-to-patch ambiguity, not an all-pairs contact assertion. The closest
-  violating pair sets the direction, then a capped gradient translates every
-  modeled atom in each endpoint residue coherently.
+  group containing all eligible heavy-atom pairs to the opposite patch. The
+  group distance is the literal closest pair, matching the final report. Each
+  reciprocal direction contributes `0.5` times the mean 2-Angstrom Huber
+  penalty. The normalized energy is patch-size-independent and every violated
+  active residue receives a bounded gradient. Sampling scales that gradient by
+  `4.0` before translating every modeled atom in each affected residue
+  coherently and capping its norm at `0.5`. Interface energy participates in
+  particle resampling; the clash term does not.
+- This is HADDOCK-inspired reciprocal AIR topology, not raw HADDOCK D^-6
+  energy. Raw D^-6 is a pseudo-distance that can be shorter than every physical
+  pair, so it cannot share BoltzUI's literal `max_distance` pass/fail meaning.
 - Interface bounds must be finite and in the `4.0-20.0` Angstrom range. The UI
-  defaults to `6.0` Angstrom. `force: true` activates guidance; `force: false`
-  is retained for post-run reporting and adds no binary or potential guidance.
+  defaults to `6.0` Angstrom. Guidance and reporting apply the same literal
+  closest-heavy-atom bound. Linear and cyclic same-chain neighbors and explicit
+  structure bonds are excluded from attraction. Every active residue must have
+  an eligible opposite-patch residue, and a forced interface fails if cropping
+  removes any submitted active selector. `force: true` activates guidance;
+  `force: false` is retained for post-run reporting and adds no binary or
+  potential guidance.
+- An interface-only repulsive term protects nonbonded cross-patch atom pairs
+  below `2.5` Angstrom. It excludes ordinary and cyclic sequence neighbors and
+  explicit structure bonds. It is not a whole-structure clash score.
+- Duplicate or reversed definitions of the same patch pair are rejected.
+  Multiple distinct interfaces remain independent and additive.
+- Interface tensors and potentials are separate from the native token-contact
+  tensors and potential.
 - Interface definitions do not use constraint subsampling or FreeSASA-based
   passive-residue expansion.
 - Reversed duplicate alternatives, same-atom endpoints, unresolved selectors,

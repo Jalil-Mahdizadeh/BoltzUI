@@ -127,7 +127,7 @@
               <summary><span><b>05</b>Interface constraints</span><em>CSP-derived ambiguous patches</em></summary>
               <div class="builder-section-body">
                 <div class="builder-section-toolbar">
-                  <span>Connect two experimentally supported protein residue patches. Each active residue uses a closest-heavy-atom hard OR to any residue in the opposite patch; the two patches may be on different chains or disjoint regions of one chain.</span>
+                  <span>Connect two experimentally supported protein residue patches. Sampling uses a reciprocal, patch-size-normalized closest-heavy-atom objective at the literal cutoff. Patches may be on different chains or disjoint regions of one chain; every active residue must have a non-neighbor residue in the opposite patch, including across cyclic chain closure.</span>
                   <button class="secondary-button mini-action-button" id="add-interface-contact-button" type="button">Add interface</button>
                 </div>
                 <div class="repeat-list interface-contact-list" id="interface-contact-list"></div>

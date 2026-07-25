@@ -670,11 +670,15 @@ function buildYamlFromBuilder() {
       }
     );
     if (patch1Chain === patch2Chain) {
-      const overlap = patch1Residues.filter((residue) => patch2Residues.includes(residue));
-      if (overlap.length) {
-        warnings.push(`${label} same-chain patches overlap at residue(s) ${overlap.join(", ")}.`);
-        emittable = false;
-      }
+      const pairIssues = InterfaceBuilderValidation.validateInterfacePatchPair(
+        patch1Chain,
+        patch1Residues,
+        patch2Residues,
+        label,
+        interfaceChainIndex
+      );
+      warnings.push(...pairIssues);
+      if (pairIssues.length) emittable = false;
     }
     if (!emittable) return;
     constraints.push("  - interface_contact:");
@@ -1054,7 +1058,7 @@ function interfaceContactCard(interfaceContact, index) {
           <textarea class="mini-textarea" data-interface-contact-field="patch2Residues" spellcheck="false" placeholder="34&#10;40&#10;43">${escapeHtml(interfaceContact.patch2Residues)}</textarea>
         </label>
         <label class="field">
-          <span>Max distance</span>
+          <span>Heavy-atom cutoff</span>
           <input data-interface-contact-field="distance" type="number" min="4" max="20" step="0.1" value="${escapeHtml(interfaceContact.distance)}">
         </label>
         <label class="toggle-field">
@@ -1066,7 +1070,7 @@ function interfaceContactCard(interfaceContact, index) {
         </label>
       </div>
       <div class="union-group-options">
-        <span>Each active residue is restrained ambiguously to any residue in the opposite patch. Force off is report-only.</span>
+        <span>Reciprocal active-residue ambiguity uses the literal closest-heavy-atom cutoff, normalizes both patch directions, and protects against cross-patch clashes. The report separates any patch contact, active-residue coverage, and strict full coverage. Force off is report-only.</span>
       </div>
     </article>
   `;

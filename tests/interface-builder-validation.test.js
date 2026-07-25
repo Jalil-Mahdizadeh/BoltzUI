@@ -5,6 +5,7 @@ const assert = require("node:assert/strict");
 const {
   buildPolymerChainIndex,
   validateInterfacePatch,
+  validateInterfacePatchPair,
   canEmitInterfaceContactDraft
 } = require("../public/interface-builder-validation");
 
@@ -58,5 +59,30 @@ test("semantic chain and residue warnings do not hide a complete interface draft
       { chain: "", residues: [34], syntaxValid: true }
     ),
     false
+  );
+});
+
+test("builder requires every same-chain residue to have an eligible opposite target", () => {
+  const chains = buildPolymerChainIndex([
+    { ids: "A", type: "protein", sequence: "SAKGDE" }
+  ]);
+  assert.match(
+    validateInterfacePatchPair("A", [1, 5], [2], "Interface 1", chains)[0],
+    /patch 1: 1/
+  );
+  assert.deepEqual(
+    validateInterfacePatchPair("A", [1, 2], [5, 6], "Interface 1", chains),
+    []
+  );
+});
+
+test("builder treats cyclic first and last residues as sequence neighbors", () => {
+  const chains = buildPolymerChainIndex([
+    { ids: "A", type: "protein", sequence: "SAKGDE", cyclic: true }
+  ]);
+  assert.equal(chains.get("A").cyclic, true);
+  assert.match(
+    validateInterfacePatchPair("A", [1], [6], "Interface 1", chains)[0],
+    /without an eligible target/
   );
 });

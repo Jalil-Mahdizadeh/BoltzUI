@@ -590,6 +590,7 @@ function renderRestraintAudit() {
   const body = $("#restraint-table-body");
   const summaryText = $("#restraint-audit-summary");
   const report = result && result.restraintReport;
+  const reportSchemaVersion = Number(report?.schema_version) || 0;
   const exactRestraints = Array.isArray(report?.restraints) ? report.restraints : [];
   const unionGroups = Array.isArray(report?.union_groups) ? report.union_groups : [];
   const tokenContacts = Array.isArray(report?.token_contacts) ? report.token_contacts : [];
@@ -614,7 +615,7 @@ function renderRestraintAudit() {
     )
   ) {
     audit.hidden = true;
-    summaryText.textContent = "Soft inference-time potential guidance; final distances are measured from each generated structure.";
+    summaryText.textContent = "Inference-time guidance is not a guarantee; final distances and interface coverage are measured from each generated structure.";
     return;
   }
 
@@ -629,34 +630,70 @@ function renderRestraintAudit() {
         model: "No structure",
         status: "unresolved",
         satisfied: null,
+        patch_contact_satisfied: null,
+        all_active_residues_satisfied: null,
         maximum_observed_distance: null,
         maximum_excess_distance: null,
+        minimum_observed_distance: null,
+        residue_total: 0,
+        residue_satisfied: 0,
+        residue_satisfaction_fraction: null,
+        sub_2A_cross_patch_atom_pairs: null,
+        has_sub_2A_cross_patch_overlap: null,
         residue_restraints: [],
         unresolved_reason: "No generated structure was found."
       }];
     for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
       const row = document.createElement("tr");
-      const satisfaction = model.satisfied === true
-        ? "Yes"
-        : model.satisfied === false
-          ? `No (${(model.violated_residues || []).join(", ")})`
-          : "Unresolved";
+      const semantics = InterfaceAuditSemantics.normalize(model, reportSchemaVersion);
+      const residueCoverage = Number.isInteger(model.residue_total)
+        ? `${model.residue_satisfied}/${model.residue_total} active residues`
+        : "active-residue coverage unavailable";
+      const patchContact = semantics.patchContact === true
+        ? "patch contact: yes"
+        : semantics.patchContact === false
+          ? "patch contact: no"
+          : "patch contact: unresolved";
+      const strictCoverage = semantics.allActiveResidues === true
+        ? "all active residues: yes"
+        : semantics.allActiveResidues === false
+          ? "all active residues: no"
+          : "all active residues: unresolved";
+      const perPatchCoverage = Number.isInteger(semantics.patch1.total)
+        && Number.isInteger(semantics.patch2.total)
+        ? (
+          `patch 1 ${semantics.patch1.satisfied}/${semantics.patch1.total}; `
+          + `patch 2 ${semantics.patch2.satisfied}/${semantics.patch2.total}`
+        )
+        : null;
+      const overlapWarning = model.has_sub_2A_cross_patch_overlap
+        ? `; cross-patch atom pairs <2 A: ${model.sub_2A_cross_patch_atom_pairs}`
+        : "";
+      const satisfaction = [
+        patchContact,
+        residueCoverage,
+        perPatchCoverage,
+        strictCoverage
+      ].filter(Boolean).join("; ") + overlapWarning;
+      const observedRange = !Number.isFinite(model.maximum_observed_distance)
+        ? "-"
+        : !Number.isFinite(model.minimum_observed_distance)
+          ? `${formatNumber(model.maximum_observed_distance, 3)} A max`
+          : `${formatNumber(model.minimum_observed_distance, 3)}-${formatNumber(model.maximum_observed_distance, 3)} A min-max`;
       const residueDetails = (model.residue_restraints || []).map((measurement) => (
         `${measurement.patch} ${measurement.chain}:${measurement.residue}: `
         + `${measurement.observed_distance} A; `
         + `${measurement.closest_source_atom} - ${measurement.closest_opposite_atom}`
       )).join("\n");
-      row.className = model.satisfied === true
-        ? "restraint-satisfied"
-        : model.satisfied === false
-          ? "restraint-violated"
-          : "restraint-unresolved";
+      row.className = model.has_sub_2A_cross_patch_overlap
+        ? "restraint-violated"
+        : `restraint-${semantics.status}`;
       row.title = [residueDetails, model.unresolved_reason].filter(Boolean).join("\n\n");
       row.innerHTML = `
         <td>${escapeHtml(model.model)}</td>
         <td>${escapeHtml(pair)}</td>
         <td>${formatNumber(Number(interfaceContact.max_distance), 2)} A</td>
-        <td>${model.maximum_observed_distance === null ? "-" : `${formatNumber(model.maximum_observed_distance, 3)} A max`}</td>
+        <td>${observedRange}</td>
         <td>${model.maximum_excess_distance === null ? "-" : `${formatNumber(model.maximum_excess_distance, 3)} A max`}</td>
         <td>${escapeHtml(satisfaction)}</td>
       `;
@@ -664,7 +701,14 @@ function renderRestraintAudit() {
         row,
         kind: "interface",
         measurement: model,
-        priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
+        interfaceSemantics: semantics,
+        priority: model.has_sub_2A_cross_patch_overlap || semantics.status === "violated"
+          ? 0
+          : semantics.status === "partial"
+            ? 1
+            : semantics.status === "unresolved"
+              ? 2
+              : 3
       });
     }
   }
@@ -796,7 +840,7 @@ function renderRestraintAudit() {
   const unionConclusive = unionEntries.filter((entry) => entry.measurement.satisfied !== null);
   const tokenResolved = tokenEntries.filter((entry) => entry.measurement.satisfied !== null);
   const interfaceResolved = interfaceEntries.filter(
-    (entry) => entry.measurement.satisfied !== null
+    (entry) => entry.interfaceSemantics.patchContact !== null
   );
   const exactSatisfied = modelSummary?.exact?.satisfied
     ?? exactResolved.filter((entry) => entry.measurement.satisfied === true).length;
@@ -807,15 +851,46 @@ function renderRestraintAudit() {
   const tokenSatisfied = modelSummary?.token?.satisfied
     ?? tokenResolved.filter((entry) => entry.measurement.satisfied === true).length;
   const tokenTotal = modelSummary?.token?.resolved ?? tokenResolved.length;
-  const interfaceSatisfied = modelSummary?.interface?.satisfied
-    ?? interfaceResolved.filter((entry) => entry.measurement.satisfied === true).length;
-  const interfaceTotal = modelSummary?.interface?.resolved ?? interfaceResolved.length;
+  const interfaceSatisfied = interfaceResolved.filter(
+    (entry) => entry.interfaceSemantics.patchContact === true
+  ).length;
+  const interfaceStrictSatisfied = interfaceEntries.filter(
+    (entry) => entry.interfaceSemantics.allActiveResidues === true
+  ).length;
+  const interfaceTotal = interfaceResolved.length;
   const rowNote = visibleRows.length < rowQueue.length
     ? ` Showing ${visibleRows.length} of ${rowQueue.length} rows, with violations first; use the restraint report for all rows.`
     : "";
   const summaryParts = [];
   if (interfaceContacts.length) {
-    summaryParts.push(`interface ${interfaceSatisfied}/${interfaceTotal} resolved satisfied`);
+    const residueSatisfied = modelSummary?.interface?.residue_satisfied;
+    const residueTotal = modelSummary?.interface?.residue_total;
+    const patch1Satisfied = modelSummary?.interface?.patch1_residue_satisfied;
+    const patch1Total = modelSummary?.interface?.patch1_residue_total;
+    const patch2Satisfied = modelSummary?.interface?.patch2_residue_satisfied;
+    const patch2Total = modelSummary?.interface?.patch2_residue_total;
+    const overlapPairs = modelSummary?.interface?.sub_2A_cross_patch_atom_pairs;
+    const residueSummary = Number.isInteger(residueSatisfied) && Number.isInteger(residueTotal)
+      ? `; active residues ${residueSatisfied}/${residueTotal}`
+      : "";
+    const overlapSummary = overlapPairs > 0
+      ? `; cross-patch atom pairs <2 A: ${overlapPairs}`
+      : "";
+    const perPatchSummary = [
+      Number.isInteger(patch1Satisfied) && Number.isInteger(patch1Total)
+        ? `patch 1 active residues ${patch1Satisfied}/${patch1Total}`
+        : "",
+      Number.isInteger(patch2Satisfied) && Number.isInteger(patch2Total)
+        ? `patch 2 active residues ${patch2Satisfied}/${patch2Total}`
+        : ""
+    ].filter(Boolean).join("; ");
+    summaryParts.push(
+      `patch contacts ${interfaceSatisfied}/${interfaceTotal} resolved`
+      + residueSummary
+      + (perPatchSummary ? `; ${perPatchSummary}` : "")
+      + `; all-active strict ${interfaceStrictSatisfied}/${interfaceEntries.length}`
+      + overlapSummary
+    );
   }
   if (tokenContacts.length) summaryParts.push(`token ${tokenSatisfied}/${tokenTotal} resolved satisfied`);
   if (exactRestraints.length) summaryParts.push(`exact ${exactSatisfied}/${exactTotal} resolved satisfied`);

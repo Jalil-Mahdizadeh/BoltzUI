@@ -57,6 +57,25 @@ INTERFACE_PATCH_MARKERS = {
         "def apply_interface_contact_potentials",
     ),
 }
+INTERFACE_FEATURES_V2_MARKER = '"interface_contact_pair_weights"'
+INTERFACE_FEATURES_CYCLIC_MARKER = "cyclic_period_by_chain"
+INTERFACE_FEATURES_CROP_MARKER = "lost forced active residue(s) during cropping"
+INTERFACE_FEATURES_AIR_MARKER = "literal_threshold = float(max_distance)"
+INTERFACE_POTENTIALS_V2_MARKER = "class InterfaceClashPotentital"
+INTERFACE_POTENTIALS_RESAMPLING_MARKER = (
+    "# Reciprocal per-active-residue AIR energy participates in particle resampling."
+)
+INTERFACE_POTENTIALS_AIR_MARKER = (
+    'parameters.get("gradient_strength", 4.0)'
+)
+INTERFACE_POTENTIALS_AIR_REGISTRATION_MARKER = '"huber_delta": 2.0'
+INTERFACE_SCHEMA_V2_MARKER = "seen_interface_contacts = {}"
+INTERFACE_SCHEMA_NEIGHBOR_MARKER = (
+    "patch1_without_target = ["
+)
+INTERFACE_FAILURE_PROPAGATION_MARKER = (
+    "if interface_contact_constraints:\n                raise"
+)
 
 
 def source_sha256(path: Path) -> str:
@@ -83,6 +102,70 @@ def check_compatibility(paths: dict[str, Path]) -> None:
                 f"expected {expected}, found {actual}."
             )
         print(f"{label}: compatibility check passed ({actual})")
+
+
+def verify_applied_patch(paths: dict[str, Path]) -> None:
+    """Fail unless the complete interface-v2 and atom-contact patch is installed."""
+    for label, markers in PATCH_MARKERS.items():
+        text = paths[label].read_text(encoding="utf-8")
+        missing = [marker for marker in markers if marker not in text]
+        if missing:
+            raise RuntimeError(
+                f"{label} is missing applied patch marker(s): {missing}"
+            )
+    for label, markers in INTERFACE_PATCH_MARKERS.items():
+        text = paths[label].read_text(encoding="utf-8")
+        missing = [marker for marker in markers if marker not in text]
+        if missing:
+            raise RuntimeError(
+                f"{label} is missing interface patch marker(s): {missing}"
+            )
+    feature_text = paths["featurizerv2.py"].read_text(encoding="utf-8")
+    potential_text = paths["potentials.py"].read_text(encoding="utf-8")
+    schema_text = paths["schema.py"].read_text(encoding="utf-8")
+    if INTERFACE_SCHEMA_V2_MARKER not in schema_text:
+        raise RuntimeError("schema.py is missing interface-v2 duplicate validation.")
+    if INTERFACE_SCHEMA_NEIGHBOR_MARKER not in schema_text:
+        raise RuntimeError(
+            "schema.py is missing same-chain interface-neighbor validation."
+        )
+    inference_text = paths["inferencev2.py"].read_text(encoding="utf-8")
+    if INTERFACE_FAILURE_PROPAGATION_MARKER not in inference_text:
+        raise RuntimeError(
+            "inferencev2.py is missing interface feature-error propagation."
+        )
+    if INTERFACE_FEATURES_V2_MARKER not in feature_text:
+        raise RuntimeError("featurizerv2.py is missing interface-v2 feature tensors.")
+    if INTERFACE_FEATURES_CYCLIC_MARKER not in feature_text:
+        raise RuntimeError(
+            "featurizerv2.py is missing cyclic interface-neighbor protection."
+        )
+    if INTERFACE_FEATURES_CROP_MARKER not in feature_text:
+        raise RuntimeError(
+            "featurizerv2.py is missing cropped-interface handling."
+        )
+    if INTERFACE_FEATURES_AIR_MARKER not in feature_text:
+        raise RuntimeError(
+            "featurizerv2.py is missing literal-bound reciprocal AIR groups."
+        )
+    if (
+        INTERFACE_POTENTIALS_V2_MARKER not in potential_text
+        or potential_text.count("InterfaceClashPotentital(") < 2
+    ):
+        raise RuntimeError("potentials.py is missing interface-v2 clash guidance.")
+    if INTERFACE_POTENTIALS_RESAMPLING_MARKER not in potential_text:
+        raise RuntimeError(
+            "potentials.py is missing interface AIR particle resampling."
+        )
+    if INTERFACE_POTENTIALS_AIR_MARKER not in potential_text:
+        raise RuntimeError(
+            "potentials.py is missing per-active-residue AIR reduction."
+        )
+    if INTERFACE_POTENTIALS_AIR_REGISTRATION_MARKER not in potential_text:
+        raise RuntimeError(
+            "potentials.py is missing interface AIR guidance parameters."
+        )
+    print("Boltz atom_contact/interface-v2 applied-state verification passed.")
 
 
 def replace_once(text: str, anchor: str, replacement: str, description: str) -> str:
@@ -788,6 +871,21 @@ def interface_patch_to_ids(patch, chain_to_idx, atom_idx_map, chains, label):
             msg = f"Unable to resolve {label} residue {chain_name}:{residue_index}."
             raise ValueError(msg) from exc
     return resolved
+
+
+def interface_residue_pair_is_eligible(residue1, residue2, cyclic_period_by_chain):
+    """Return whether two patch residues are not covalent sequence neighbors."""
+    if residue1[0] != residue2[0]:
+        return True
+    residue_delta = abs(residue1[1] - residue2[1])
+    cyclic_period = cyclic_period_by_chain.get(residue1[0], 0)
+    return (
+        residue_delta > 1
+        and not (
+            cyclic_period > 0
+            and cyclic_period - residue_delta <= 1
+        )
+    )
 '''
     text = replace_once(
         text,
@@ -797,10 +895,13 @@ def interface_patch_to_ids(patch, chain_to_idx, atom_idx_map, chains, label):
     )
 
     list_anchor = '''    atom_contact_union_constraints = []
+    seen_atom_contact_pairs = {}
     constraints = schema.get("constraints", [])
 '''
     list_replacement = '''    atom_contact_union_constraints = []
     interface_contact_constraints = []
+    seen_interface_contacts = {}
+    seen_atom_contact_pairs = {}
     constraints = schema.get("constraints", [])
 '''
     text = replace_once(text, list_anchor, list_replacement, "schema interface list")
@@ -864,6 +965,81 @@ def interface_patch_to_ids(patch, chain_to_idx, atom_idx_map, chains, label):
                     f"must be disjoint; overlapping residues: {residues}."
                 )
                 raise ValueError(msg)
+            cyclic_period_by_chain = {
+                chain_to_idx[chain_name]: chains[chain_name].cyclic_period
+                for chain_name in chain_to_idx
+            }
+            patch1_without_target = [
+                residue
+                for residue in patch1
+                if not any(
+                    interface_residue_pair_is_eligible(
+                        residue,
+                        target,
+                        cyclic_period_by_chain,
+                    )
+                    for target in patch2
+                )
+            ]
+            patch2_without_target = [
+                residue
+                for residue in patch2
+                if not any(
+                    interface_residue_pair_is_eligible(
+                        residue,
+                        target,
+                        cyclic_period_by_chain,
+                    )
+                    for target in patch1
+                )
+            ]
+            if patch1_without_target or patch2_without_target:
+                details = []
+                if patch1_without_target:
+                    details.append(
+                        "patch1: "
+                        + ", ".join(
+                            str(residue[1] + 1)
+                            for residue in patch1_without_target
+                        )
+                    )
+                if patch2_without_target:
+                    details.append(
+                        "patch2: "
+                        + ", ".join(
+                            str(residue[1] + 1)
+                            for residue in patch2_without_target
+                        )
+                    )
+                msg = (
+                    f"interface_contact {interface_number} same-chain patches "
+                    "are invalid: every active residue must have an eligible "
+                    "opposite-patch residue after excluding linear or cyclic "
+                    f"sequence neighbors; {'; '.join(details)}."
+                )
+                raise ValueError(msg)
+            canonical_patches = tuple(
+                sorted((tuple(sorted(patch1)), tuple(sorted(patch2))))
+            )
+            if canonical_patches in seen_interface_contacts:
+                previous_number, previous_distance = seen_interface_contacts[
+                    canonical_patches
+                ]
+                relation = (
+                    "conflicts with"
+                    if previous_distance != max_distance
+                    else "duplicates"
+                )
+                msg = (
+                    f"interface_contact {interface_number} {relation} "
+                    f"interface_contact {previous_number}; duplicate or reversed "
+                    "patch pairs are not allowed."
+                )
+                raise ValueError(msg)
+            seen_interface_contacts[canonical_patches] = (
+                interface_number,
+                max_distance,
+            )
             interface_contact_constraints.append(
                 (patch1, patch2, max_distance, force)
             )
@@ -879,6 +1055,203 @@ def interface_patch_to_ids(patch, chain_to_idx, atom_idx_map, chains, label):
     )
 '''
     text = replace_once(text, options_anchor, options_replacement, "schema interface options")
+    return write_if_changed(path, text)
+
+
+def patch_interface_schema_v2(path: Path) -> bool:
+    """Reject duplicate/reversed interface definitions in already-patched images."""
+    text = path.read_text(encoding="utf-8")
+    if INTERFACE_SCHEMA_V2_MARKER in text:
+        return False
+    list_anchor = '''    interface_contact_constraints = []
+    seen_atom_contact_pairs = {}
+'''
+    list_replacement = '''    interface_contact_constraints = []
+    seen_interface_contacts = {}
+    seen_atom_contact_pairs = {}
+'''
+    legacy_list_anchor = '''    seen_atom_contact_pairs = {}
+    interface_contact_constraints = []
+'''
+    legacy_list_replacement = '''    seen_atom_contact_pairs = {}
+    interface_contact_constraints = []
+    seen_interface_contacts = {}
+'''
+    if list_anchor in text:
+        text = replace_once(
+            text,
+            list_anchor,
+            list_replacement,
+            "schema interface duplicate tracking",
+        )
+    else:
+        text = replace_once(
+            text,
+            legacy_list_anchor,
+            legacy_list_replacement,
+            "legacy schema interface duplicate tracking",
+        )
+    append_anchor = '''            interface_contact_constraints.append(
+                (patch1, patch2, max_distance, force)
+            )
+'''
+    append_replacement = '''            canonical_patches = tuple(
+                sorted((tuple(sorted(patch1)), tuple(sorted(patch2))))
+            )
+            if canonical_patches in seen_interface_contacts:
+                previous_number, previous_distance = seen_interface_contacts[
+                    canonical_patches
+                ]
+                relation = (
+                    "conflicts with"
+                    if previous_distance != max_distance
+                    else "duplicates"
+                )
+                msg = (
+                    f"interface_contact {interface_number} {relation} "
+                    f"interface_contact {previous_number}; duplicate or reversed "
+                    "patch pairs are not allowed."
+                )
+                raise ValueError(msg)
+            seen_interface_contacts[canonical_patches] = (
+                interface_number,
+                max_distance,
+            )
+            interface_contact_constraints.append(
+                (patch1, patch2, max_distance, force)
+            )
+'''
+    text = replace_once(
+        text,
+        append_anchor,
+        append_replacement,
+        "schema interface duplicate validation",
+    )
+    return write_if_changed(path, text)
+
+
+def patch_interface_schema_neighbor_validation(path: Path) -> bool:
+    """Require every active residue to have a non-neighbor opposite target."""
+    text = path.read_text(encoding="utf-8")
+    if INTERFACE_SCHEMA_NEIGHBOR_MARKER in text:
+        return False
+
+    helper_marker = "def interface_residue_pair_is_eligible("
+    if helper_marker not in text:
+        resolver_anchor = "\ndef interface_patch_to_ids("
+        helper = '''
+def interface_residue_pair_is_eligible(residue1, residue2, cyclic_period_by_chain):
+    """Return whether two patch residues are not covalent sequence neighbors."""
+    if residue1[0] != residue2[0]:
+        return True
+    residue_delta = abs(residue1[1] - residue2[1])
+    cyclic_period = cyclic_period_by_chain.get(residue1[0], 0)
+    return (
+        residue_delta > 1
+        and not (
+            cyclic_period > 0
+            and cyclic_period - residue_delta <= 1
+        )
+    )
+
+
+'''
+        text = replace_once(
+            text,
+            resolver_anchor,
+            "\n" + helper + "def interface_patch_to_ids(",
+            "interface residue eligibility helper",
+        )
+
+    old_validation = '''            has_non_neighbor_pair = any(
+                residue1[0] != residue2[0]
+                or abs(residue1[1] - residue2[1]) > 1
+                for residue1 in patch1
+                for residue2 in patch2
+            )
+            if not has_non_neighbor_pair:
+                msg = (
+                    f"interface_contact {interface_number} same-chain patches "
+                    "must include at least one non-neighbor residue pair."
+                )
+                raise ValueError(msg)
+'''
+    no_validation_anchor = '''            if overlap:
+                residues = ", ".join(str(residue[1] + 1) for residue in sorted(overlap))
+                msg = (
+                    f"interface_contact {interface_number} same-chain patches "
+                    f"must be disjoint; overlapping residues: {residues}."
+                )
+                raise ValueError(msg)
+'''
+    complete_validation = '''            cyclic_period_by_chain = {
+                chain_to_idx[chain_name]: chains[chain_name].cyclic_period
+                for chain_name in chain_to_idx
+            }
+            patch1_without_target = [
+                residue
+                for residue in patch1
+                if not any(
+                    interface_residue_pair_is_eligible(
+                        residue,
+                        target,
+                        cyclic_period_by_chain,
+                    )
+                    for target in patch2
+                )
+            ]
+            patch2_without_target = [
+                residue
+                for residue in patch2
+                if not any(
+                    interface_residue_pair_is_eligible(
+                        residue,
+                        target,
+                        cyclic_period_by_chain,
+                    )
+                    for target in patch1
+                )
+            ]
+            if patch1_without_target or patch2_without_target:
+                details = []
+                if patch1_without_target:
+                    details.append(
+                        "patch1: "
+                        + ", ".join(
+                            str(residue[1] + 1)
+                            for residue in patch1_without_target
+                        )
+                    )
+                if patch2_without_target:
+                    details.append(
+                        "patch2: "
+                        + ", ".join(
+                            str(residue[1] + 1)
+                            for residue in patch2_without_target
+                        )
+                    )
+                msg = (
+                    f"interface_contact {interface_number} same-chain patches "
+                    "are invalid: every active residue must have an eligible "
+                    "opposite-patch residue after excluding linear or cyclic "
+                    f"sequence neighbors; {'; '.join(details)}."
+                )
+                raise ValueError(msg)
+'''
+    if old_validation in text:
+        text = replace_once(
+            text,
+            old_validation,
+            complete_validation,
+            "complete interface residue eligibility validation",
+        )
+    else:
+        text = replace_once(
+            text,
+            no_validation_anchor,
+            no_validation_anchor + complete_validation,
+            "complete interface residue eligibility validation",
+        )
     return write_if_changed(path, text)
 
 
@@ -939,6 +1312,36 @@ def patch_interface_inferencev2(path: Path) -> bool:
                 compute_constraint_features=True,
 '''
     text = replace_once(text, call_anchor, call_replacement, "inference interface call")
+    return write_if_changed(path, text)
+
+
+def patch_interface_failure_propagation(path: Path) -> bool:
+    """Do not let PredictionDataset swallow or substitute interface failures."""
+    text = path.read_text(encoding="utf-8")
+    if INTERFACE_FAILURE_PROPAGATION_MARKER in text:
+        return False
+    anchor = '''        except Exception as e:  # noqa: BLE001
+            import traceback
+
+            traceback.print_exc()
+            print(f"Featurizer failed on {record.id} with error {e}. Skipping.")  # noqa: T201
+            return self.__getitem__(0)
+'''
+    replacement = '''        except Exception as e:  # noqa: BLE001
+            if interface_contact_constraints:
+                raise
+            import traceback
+
+            traceback.print_exc()
+            print(f"Featurizer failed on {record.id} with error {e}. Skipping.")  # noqa: T201
+            return self.__getitem__(0)
+'''
+    text = replace_once(
+        text,
+        anchor,
+        replacement,
+        "interface featurizer failure propagation",
+    )
     return write_if_changed(path, text)
 
 
@@ -1121,8 +1524,236 @@ def process_contact_feature_constraints(
     return write_if_changed(path, text)
 
 
+def interface_features_v2_source() -> str:
+    return '''def apply_interface_contact_potentials(data, constraints):
+    """Build literal heavy-atom reciprocal AIR guidance and clash-protection pairs."""
+    token_data = data.tokens
+    pair_index, union_index, negation_mask, thresholds = [], [], [], []
+    pair_weights, group_thresholds, group_weights = [], [], []
+    clash_pair_index = []
+    seen_clash_pairs = set()
+    union_idx = 0
+    clash_distance = 2.5
+    max_interface_atom_pairs = 250_000
+    interface_atom_pair_count = 0
+    token_by_residue = {}
+    global_to_local_atom = {}
+    cyclic_period_by_chain = {
+        int(chain["asym_id"]): int(chain["cyclic_period"])
+        for chain in getattr(data.structure, "chains", [])
+        if int(chain["cyclic_period"]) > 0
+    }
+    local_atom_start = 0
+    for token in token_data:
+        atom_start = int(token["atom_idx"])
+        atom_count = int(token["atom_num"])
+        for offset in range(atom_count):
+            global_to_local_atom[atom_start + offset] = local_atom_start + offset
+        if token["mol_type"] != const.chain_type_ids["NONPOLYMER"]:
+            token_by_residue[
+                (int(token["asym_id"]), int(token["res_idx"]))
+            ] = (token, local_atom_start)
+        local_atom_start += atom_count
+
+    bonded_pairs = set()
+    for bond in getattr(data.structure, "bonds", []):
+        atom1 = global_to_local_atom.get(int(bond["atom_1"]))
+        atom2 = global_to_local_atom.get(int(bond["atom_2"]))
+        if atom1 is not None and atom2 is not None:
+            bonded_pairs.add(tuple(sorted((atom1, atom2))))
+
+    def available_patch_tokens(patch, label):
+        missing = [
+            tuple(selector)
+            for selector in patch
+            if tuple(selector) not in token_by_residue
+        ]
+        if missing:
+            missing_text = ", ".join(
+                f"chain_index={selector[0]},residue_index={selector[1]}"
+                for selector in missing
+            )
+            raise ValueError(
+                f"{label} lost forced active residue(s) during cropping: "
+                f"{missing_text}. Increase the crop size or reduce the input."
+            )
+        return [token_by_residue[tuple(selector)] for selector in patch]
+
+    def same_chain_neighbors(token1, token2):
+        chain1 = int(token1["asym_id"])
+        chain2 = int(token2["asym_id"])
+        if chain1 != chain2:
+            return False
+        residue_delta = abs(
+            int(token1["res_idx"]) - int(token2["res_idx"])
+        )
+        cyclic_period = cyclic_period_by_chain.get(chain1, 0)
+        return (
+            residue_delta <= 1
+            or (
+                cyclic_period > 0
+                and cyclic_period - residue_delta <= 1
+            )
+        )
+
+    def eligible_atom_pairs(token1, local_start1, token2, local_start2):
+        if same_chain_neighbors(token1, token2):
+            return []
+        pairs = []
+        for atom1 in range(
+            local_start1,
+            local_start1 + int(token1["atom_num"]),
+        ):
+            for atom2 in range(
+                local_start2,
+                local_start2 + int(token2["atom_num"]),
+            ):
+                if tuple(sorted((atom1, atom2))) not in bonded_pairs:
+                    pairs.append((atom1, atom2))
+        return pairs
+
+    for interface_number, (
+        patch1,
+        patch2,
+        max_distance,
+        force,
+    ) in enumerate(constraints or [], start=1):
+        if not force:
+            continue
+        patch1_tokens = available_patch_tokens(
+            patch1,
+            f"interface_contact {interface_number} patch1",
+        )
+        patch2_tokens = available_patch_tokens(
+            patch2,
+            f"interface_contact {interface_number} patch2",
+        )
+        literal_threshold = float(max_distance)
+
+        for source_label, source_tokens, target_tokens in (
+            ("patch1", patch1_tokens, patch2_tokens),
+            ("patch2", patch2_tokens, patch1_tokens),
+        ):
+            direction_groups = []
+            for source_token, source_local_start in source_tokens:
+                group_pairs = []
+                for target_token, target_local_start in target_tokens:
+                    group_pairs.extend(
+                        eligible_atom_pairs(
+                            source_token,
+                            source_local_start,
+                            target_token,
+                            target_local_start,
+                        )
+                    )
+                if not group_pairs:
+                    raise ValueError(
+                        f"interface_contact {interface_number} {source_label} "
+                        "contains an active residue with no eligible opposite-"
+                        "patch heavy-atom pair after excluding sequence "
+                        "neighbors and explicit bonds."
+                    )
+                direction_groups.append(
+                    torch.tensor(group_pairs, dtype=torch.long).T
+                )
+            direction_group_weight = 0.5 / len(direction_groups)
+            for atom_pairs in direction_groups:
+                interface_atom_pair_count += atom_pairs.shape[1]
+                if interface_atom_pair_count > max_interface_atom_pairs:
+                    raise ValueError(
+                        "interface_contact generated more than "
+                        f"{max_interface_atom_pairs} eligible heavy-atom pairs; "
+                        "reduce the interface patch sizes."
+                    )
+                pair_index.append(atom_pairs)
+                union_index.append(
+                    torch.full(
+                        (atom_pairs.shape[1],),
+                        union_idx,
+                        dtype=torch.long,
+                    )
+                )
+                negation_mask.append(
+                    torch.ones(
+                        (atom_pairs.shape[1],),
+                        dtype=torch.bool,
+                    )
+                )
+                thresholds.append(
+                    torch.full(
+                        (atom_pairs.shape[1],),
+                        literal_threshold,
+                    )
+                )
+                pair_weights.append(
+                    torch.full(
+                        (atom_pairs.shape[1],),
+                        1.0,
+                    )
+                )
+                group_thresholds.append(literal_threshold)
+                group_weights.append(direction_group_weight)
+                union_idx += 1
+
+        for (token1, local_start1) in patch1_tokens:
+            for (token2, local_start2) in patch2_tokens:
+                for atom1, atom2 in eligible_atom_pairs(
+                    token1,
+                    local_start1,
+                    token2,
+                    local_start2,
+                ):
+                    canonical_pair = tuple(sorted((atom1, atom2)))
+                    if canonical_pair in seen_clash_pairs:
+                        continue
+                    seen_clash_pairs.add(canonical_pair)
+                    clash_pair_index.append((atom1, atom2))
+
+    if pair_index:
+        pair_index = torch.cat(pair_index, dim=1)
+        union_index = torch.cat(union_index)
+        negation_mask = torch.cat(negation_mask)
+        thresholds = torch.cat(thresholds)
+        pair_weights = torch.cat(pair_weights)
+        group_thresholds = torch.tensor(group_thresholds, dtype=torch.float32)
+        group_weights = torch.tensor(group_weights, dtype=torch.float32)
+    else:
+        pair_index = torch.empty((2, 0), dtype=torch.long)
+        union_index = torch.empty((0,), dtype=torch.long)
+        negation_mask = torch.empty((0,), dtype=torch.bool)
+        thresholds = torch.empty((0,), dtype=torch.float32)
+        pair_weights = torch.empty((0,), dtype=torch.float32)
+        group_thresholds = torch.empty((0,), dtype=torch.float32)
+        group_weights = torch.empty((0,), dtype=torch.float32)
+
+    if clash_pair_index:
+        clash_pair_index = torch.tensor(clash_pair_index, dtype=torch.long).T
+        clash_thresholds = torch.full(
+            (clash_pair_index.shape[1],),
+            clash_distance,
+            dtype=torch.float32,
+        )
+    else:
+        clash_pair_index = torch.empty((2, 0), dtype=torch.long)
+        clash_thresholds = torch.empty((0,), dtype=torch.float32)
+
+    return {
+        "interface_contact_pair_index": pair_index,
+        "interface_contact_union_index": union_index,
+        "interface_contact_negation_mask": negation_mask,
+        "interface_contact_thresholds": thresholds,
+        "interface_contact_pair_weights": pair_weights,
+        "interface_contact_group_thresholds": group_thresholds,
+        "interface_contact_group_weights": group_weights,
+        "interface_clash_pair_index": clash_pair_index,
+        "interface_clash_thresholds": clash_thresholds,
+    }
+
+'''
+
+
 def patch_interface_feature_separation(path: Path) -> bool:
-    """Keep interface pairs separate so their gradients can move whole residues."""
+    """Keep interface-only tensors separate from native token-contact features."""
     text = path.read_text(encoding="utf-8")
     marker = '"interface_contact_pair_index"'
     if marker in text:
@@ -1131,69 +1762,7 @@ def patch_interface_feature_separation(path: Path) -> bool:
     helper_start = text.index("def apply_interface_contact_potentials(")
     helper_end = text.index("\ndef process_contact_feature_constraints(", helper_start)
     old_helper = text[helper_start:helper_end]
-    new_helper = '''def apply_interface_contact_potentials(token_data, constraints):
-    """Build reciprocal hard-OR groups for residue-coherent interface guidance."""
-    pair_index, union_index, negation_mask, thresholds = [], [], [], []
-    union_idx = 0
-    token_by_residue = {
-        (int(token["asym_id"]), int(token["res_idx"])): token
-        for token in token_data
-        if token["mol_type"] != const.chain_type_ids["NONPOLYMER"]
-    }
-    for patch1, patch2, max_distance, force in constraints or []:
-        if not force:
-            continue
-        patch1_tokens = [token_by_residue[tuple(selector)] for selector in patch1]
-        patch2_tokens = [token_by_residue[tuple(selector)] for selector in patch2]
-        for source_tokens, target_tokens in (
-            (patch1_tokens, patch2_tokens),
-            (patch2_tokens, patch1_tokens),
-        ):
-            target_atoms = torch.cat(
-                [
-                    torch.arange(
-                        int(token["atom_idx"]),
-                        int(token["atom_idx"] + token["atom_num"]),
-                    )
-                    for token in target_tokens
-                ]
-            )
-            for source_token in source_tokens:
-                source_atoms = torch.arange(
-                    int(source_token["atom_idx"]),
-                    int(source_token["atom_idx"] + source_token["atom_num"]),
-                )
-                atom_idx_pairs = torch.cartesian_prod(source_atoms, target_atoms).T
-                pair_index.append(atom_idx_pairs)
-                union_index.append(
-                    torch.full((atom_idx_pairs.shape[1],), union_idx)
-                )
-                negation_mask.append(
-                    torch.ones((atom_idx_pairs.shape[1],), dtype=torch.bool)
-                )
-                thresholds.append(
-                    torch.full((atom_idx_pairs.shape[1],), max_distance)
-                )
-                union_idx += 1
-
-    if pair_index:
-        pair_index = torch.cat(pair_index, dim=1)
-        union_index = torch.cat(union_index)
-        negation_mask = torch.cat(negation_mask)
-        thresholds = torch.cat(thresholds)
-    else:
-        pair_index = torch.empty((2, 0), dtype=torch.long)
-        union_index = torch.empty((0,), dtype=torch.long)
-        negation_mask = torch.empty((0,), dtype=torch.bool)
-        thresholds = torch.empty((0,), dtype=torch.float32)
-    return {
-        "interface_contact_pair_index": pair_index,
-        "interface_contact_union_index": union_index,
-        "interface_contact_negation_mask": negation_mask,
-        "interface_contact_thresholds": thresholds,
-    }
-
-'''
+    new_helper = interface_features_v2_source()
     text = text[:helper_start] + new_helper + text[helper_end + 1:]
 
     call_anchor = '''    union_idx = apply_interface_contact_potentials(
@@ -1209,7 +1778,7 @@ def patch_interface_feature_separation(path: Path) -> bool:
     if len(pair_index) > 0:
 '''
     call_replacement = '''    interface_features = apply_interface_contact_potentials(
-        token_data,
+        data,
         inference_interface_contact_constraints,
     )
 
@@ -1245,6 +1814,43 @@ def patch_interface_feature_separation(path: Path) -> bool:
     )
     if old_helper == new_helper:
         raise RuntimeError("Interface feature separation did not change the helper.")
+    return write_if_changed(path, text)
+
+
+def patch_interface_features_v2(path: Path) -> bool:
+    """Upgrade an already-patched image to reciprocal AIR interface features."""
+    text = path.read_text(encoding="utf-8")
+    if (
+        INTERFACE_FEATURES_V2_MARKER in text
+        and INTERFACE_FEATURES_CYCLIC_MARKER in text
+        and INTERFACE_FEATURES_CROP_MARKER in text
+        and INTERFACE_FEATURES_AIR_MARKER in text
+    ):
+        return False
+    helper_start = text.index("def apply_interface_contact_potentials(")
+    helper_end = text.index("\ndef process_contact_feature_constraints(", helper_start)
+    text = (
+        text[:helper_start]
+        + interface_features_v2_source()
+        + text[helper_end + 1:]
+    )
+    call_anchor = '''    interface_features = apply_interface_contact_potentials(
+        token_data,
+        inference_interface_contact_constraints,
+    )
+'''
+    call_replacement = '''    interface_features = apply_interface_contact_potentials(
+        data,
+        inference_interface_contact_constraints,
+    )
+'''
+    if call_anchor in text:
+        text = replace_once(
+            text,
+            call_anchor,
+            call_replacement,
+            "pass tokenized data to interface feature builder",
+        )
     return write_if_changed(path, text)
 
 
@@ -1493,12 +2099,379 @@ def get_potentials(steering_args, boltz2=False):
     return write_if_changed(path, text)
 
 
+def interface_potentials_v2_source() -> str:
+    return '''def translate_interface_gradient(atom_gradient, feats, max_norm):
+    """Convert sparse atom forces into capped rigid translations per residue."""
+    atom_to_token = feats["atom_to_token"][0].to(
+        device=atom_gradient.device,
+        dtype=atom_gradient.dtype,
+    )
+    atom_pad_mask = feats["atom_pad_mask"][0].to(
+        device=atom_gradient.device,
+        dtype=atom_gradient.dtype,
+    )
+    atom_to_token = atom_to_token * atom_pad_mask.unsqueeze(-1)
+    token_gradient = torch.einsum(
+        "at,...ad->...td",
+        atom_to_token,
+        atom_gradient,
+    )
+    gradient_norm = torch.linalg.vector_norm(
+        token_gradient,
+        dim=-1,
+        keepdim=True,
+    )
+    cap = torch.as_tensor(
+        max_norm,
+        dtype=token_gradient.dtype,
+        device=token_gradient.device,
+    )
+    token_gradient = token_gradient * cap / gradient_norm.clamp_min(cap)
+    return torch.einsum(
+        "at,...td->...ad",
+        atom_to_token,
+        token_gradient,
+    )
+
+
+class InterfaceContactPotentital(ContactPotentital):
+    """Literal heavy-atom reciprocal AIR guidance with a bounded robust loss."""
+
+    feature_prefix = "interface_contact"
+
+    def _geometry(self, coords, feats):
+        pair_index = feats["interface_contact_pair_index"][0].to(
+            device=coords.device
+        )
+        if pair_index.shape[1] == 0:
+            return None
+        group_index = feats["interface_contact_union_index"][0].to(
+            device=coords.device
+        )
+        group_thresholds = feats["interface_contact_group_thresholds"][0].to(
+            device=coords.device,
+            dtype=coords.dtype,
+        )
+        group_weights = feats["interface_contact_group_weights"][0].to(
+            device=coords.device,
+            dtype=coords.dtype,
+        )
+        delta = (
+            coords.index_select(-2, pair_index[0])
+            - coords.index_select(-2, pair_index[1])
+        )
+        raw_distance = torch.linalg.vector_norm(delta, dim=-1)
+        pair_shape = (*([1] * (raw_distance.dim() - 1)), -1)
+        expanded_group_index = group_index.view(pair_shape).expand_as(
+            raw_distance
+        )
+        group_shape = (*raw_distance.shape[:-1], group_thresholds.numel())
+        minimum_distance = torch.full(
+            group_shape,
+            torch.inf,
+            dtype=coords.dtype,
+            device=coords.device,
+        ).scatter_reduce(
+            -1,
+            expanded_group_index,
+            raw_distance,
+            "amin",
+        )
+        return (
+            pair_index,
+            group_index,
+            group_thresholds,
+            group_weights,
+            delta,
+            raw_distance,
+            minimum_distance,
+        )
+
+    def compute(self, coords, feats, parameters):
+        geometry = self._geometry(coords, feats)
+        if geometry is None:
+            return torch.zeros(
+                coords.shape[:-2],
+                dtype=coords.dtype,
+                device=coords.device,
+            )
+        (
+            _,
+            _,
+            group_thresholds,
+            group_weights,
+            _,
+            _,
+            minimum_distance,
+        ) = geometry
+        group_shape = (*([1] * (minimum_distance.dim() - 1)), -1)
+        violation = torch.relu(
+            minimum_distance - group_thresholds.view(group_shape)
+        )
+        huber_delta = parameters.get("huber_delta", 2.0)
+        penalty = torch.where(
+            violation <= huber_delta,
+            violation.square() / (2.0 * huber_delta),
+            violation - (0.5 * huber_delta),
+        )
+        return (penalty * group_weights.view(group_shape)).sum(dim=-1)
+
+    def compute_gradient(self, coords, feats, parameters):
+        geometry = self._geometry(coords, feats)
+        if geometry is None:
+            return torch.zeros_like(coords)
+        (
+            pair_index,
+            group_index,
+            group_thresholds,
+            group_weights,
+            delta,
+            raw_distance,
+            minimum_distance,
+        ) = geometry
+        group_shape = (*([1] * (minimum_distance.dim() - 1)), -1)
+        violation = torch.relu(
+            minimum_distance - group_thresholds.view(group_shape)
+        )
+        huber_delta = parameters.get("huber_delta", 2.0)
+        huber_slope = (violation / huber_delta).clamp(max=1.0)
+        gradient_strength = parameters.get("gradient_strength", 4.0)
+        group_coefficient = (
+            huber_slope
+            * group_weights.view(group_shape)
+            * gradient_strength
+        )
+        minimum_by_pair = minimum_distance.index_select(-1, group_index)
+        active_pair = (
+            (raw_distance == minimum_by_pair)
+            & (group_coefficient.index_select(-1, group_index) > 0.0)
+        ).to(dtype=coords.dtype)
+        pair_shape = (*([1] * (raw_distance.dim() - 1)), -1)
+        expanded_group_index = group_index.view(pair_shape).expand_as(
+            raw_distance
+        )
+        tie_count = torch.zeros(
+            (*raw_distance.shape[:-1], group_thresholds.numel()),
+            dtype=coords.dtype,
+            device=coords.device,
+        ).scatter_add(
+            -1,
+            expanded_group_index,
+            active_pair,
+        )
+        tie_count_by_pair = tie_count.index_select(
+            -1,
+            group_index,
+        ).clamp_min(1.0)
+        coefficient_by_pair = group_coefficient.index_select(
+            -1,
+            group_index,
+        ) * active_pair / tie_count_by_pair
+        direction = delta / raw_distance.clamp_min(1e-6).unsqueeze(-1)
+        pair_gradient = coefficient_by_pair.unsqueeze(-1) * direction
+        atom_gradient = torch.zeros_like(coords)
+        index_shape = (*([1] * (coords.dim() - 2)), -1, 1)
+        output_shape = (*coords.shape[:-2], pair_index.shape[1], 3)
+        first_index = pair_index[0].view(index_shape).expand(output_shape)
+        second_index = pair_index[1].view(index_shape).expand(output_shape)
+        atom_gradient.scatter_add_(-2, first_index, pair_gradient)
+        atom_gradient.scatter_add_(-2, second_index, -pair_gradient)
+        return translate_interface_gradient(
+            atom_gradient,
+            feats,
+            parameters["max_token_gradient"],
+        )
+
+
+class InterfaceClashPotentital(FlatBottomPotential, DistancePotential):
+    """Repel severe cross-patch overlaps without changing native contacts."""
+
+    def compute_args(self, feats, parameters):
+        index = feats["interface_clash_pair_index"][0]
+        lower_bounds = feats["interface_clash_thresholds"][0].clone()
+        upper_bounds = None
+        k = torch.full_like(lower_bounds, parameters["clash_strength"])
+        return (
+            index,
+            (k, lower_bounds, upper_bounds),
+            None,
+            None,
+            None,
+        )
+
+    def compute_gradient(self, coords, feats, parameters):
+        atom_gradient = super().compute_gradient(coords, feats, parameters)
+        atom_gradient = torch.nan_to_num(
+            atom_gradient,
+            nan=0.0,
+            posinf=0.0,
+            neginf=0.0,
+        )
+        return translate_interface_gradient(
+            atom_gradient,
+            feats,
+            parameters["max_token_gradient"],
+        )
+
+
+'''
+
+
+def patch_interface_potentials_v2(path: Path) -> bool:
+    """Upgrade an already-patched image without changing native contact code."""
+    text = path.read_text(encoding="utf-8")
+    if (
+        INTERFACE_POTENTIALS_V2_MARKER in text
+        and text.count("InterfaceClashPotentital(") >= 2
+        and INTERFACE_POTENTIALS_RESAMPLING_MARKER in text
+        and INTERFACE_POTENTIALS_AIR_MARKER in text
+        and INTERFACE_POTENTIALS_AIR_REGISTRATION_MARKER in text
+    ):
+        return False
+
+    class_start = text.index("class InterfaceContactPotentital(")
+    class_end = text.index("\ndef get_potentials(", class_start)
+    text = (
+        text[:class_start]
+        + interface_potentials_v2_source()
+        + text[class_end + 1:]
+    )
+
+    registration_anchor = '''                InterfaceContactPotentital(
+                    parameters={
+                        "guidance_interval": 4,
+                        "guidance_weight": (
+                            PiecewiseStepFunction(
+                                thresholds=[0.25, 0.75], values=[0.0, 0.5, 1.0]
+                            )
+                            if steering_args["contact_guidance_update"]
+                            else 0.0
+                        ),
+                        "resampling_weight": 1.0,
+                    }
+                ),
+                TemplateReferencePotential(
+'''
+    registration_replacement = '''                InterfaceContactPotentital(
+                    parameters={
+                        "guidance_interval": 4,
+                        "guidance_weight": (
+                            PiecewiseStepFunction(
+                                thresholds=[0.25, 0.75], values=[0.0, 0.5, 1.0]
+                            )
+                            if steering_args["contact_guidance_update"]
+                            else 0.0
+                        ),
+                        # Reciprocal per-active-residue AIR energy participates in particle resampling.
+                        "resampling_weight": 1.0,
+                        "max_token_gradient": 0.5,
+                        "huber_delta": 2.0,
+                        "gradient_strength": 4.0,
+                    }
+                ),
+                InterfaceClashPotentital(
+                    parameters={
+                        "guidance_interval": 4,
+                        "guidance_weight": (
+                            PiecewiseStepFunction(
+                                thresholds=[0.25, 0.75], values=[0.0, 0.5, 1.0]
+                            )
+                            if steering_args["contact_guidance_update"]
+                            else 0.0
+                        ),
+                        "resampling_weight": 0.0,
+                        "clash_strength": 0.5,
+                        "max_token_gradient": 0.5,
+                    }
+                ),
+                TemplateReferencePotential(
+'''
+    if registration_anchor in text:
+        text = replace_once(
+            text,
+            registration_anchor,
+            registration_replacement,
+            "register interface AIR and clash potentials",
+        )
+    else:
+        existing_v2_anchor = '''                        "resampling_weight": 1.0,
+                        "max_token_gradient": 0.5,
+                    }
+                ),
+                InterfaceClashPotentital(
+'''
+        existing_v2_replacement = '''                        # Reciprocal per-active-residue AIR energy participates in particle resampling.
+                        "resampling_weight": 1.0,
+                        "max_token_gradient": 0.5,
+                        "huber_delta": 2.0,
+                        "gradient_strength": 4.0,
+                    }
+                ),
+                InterfaceClashPotentital(
+'''
+        minimax_resampling_anchor = '''                        # Reciprocal minimax interface energy participates in particle resampling.
+                        "resampling_weight": 1.0,
+                        "max_token_gradient": 0.5,
+                    }
+                ),
+                InterfaceClashPotentital(
+'''
+        calibrated_resampling_anchor = '''                        # Interface energy participates in calibrated particle resampling.
+                        "resampling_weight": 1.0,
+                        "max_token_gradient": 0.5,
+                    }
+                ),
+                InterfaceClashPotentital(
+'''
+        if minimax_resampling_anchor in text:
+            text = replace_once(
+                text,
+                minimax_resampling_anchor,
+                existing_v2_replacement,
+                "migrate minimax interface particle resampling",
+            )
+        elif calibrated_resampling_anchor in text:
+            text = replace_once(
+                text,
+                calibrated_resampling_anchor,
+                existing_v2_replacement,
+                "migrate calibrated interface particle resampling",
+            )
+        elif existing_v2_anchor in text:
+            text = replace_once(
+                text,
+                existing_v2_anchor,
+                existing_v2_replacement,
+                "register interface AIR particle resampling",
+            )
+        else:
+            no_resampling_anchor = '''                        # Interface energy is excluded from particle resampling.
+                        "resampling_weight": 0.0,
+                        "max_token_gradient": 0.5,
+                    }
+                ),
+                InterfaceClashPotentital(
+'''
+            text = replace_once(
+                text,
+                no_resampling_anchor,
+                existing_v2_replacement,
+                "restore interface AIR particle resampling",
+            )
+    return write_if_changed(path, text)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--check",
         action="store_true",
         help="Verify the Boltz version and source hashes without modifying files.",
+    )
+    parser.add_argument(
+        "--verify-applied",
+        action="store_true",
+        help="Verify that the complete interface-v2 runtime patch is installed.",
     )
     args = parser.parse_args()
     paths = {
@@ -1515,6 +2488,9 @@ def main() -> None:
         print(f"{label}: {path}")
 
     check_compatibility(paths)
+    if args.verify_applied:
+        verify_applied_patch(paths)
+        return
     if args.check:
         print("Boltz atom_contact patch compatibility check passed.")
         return
@@ -1542,9 +2518,28 @@ def main() -> None:
     }
     for label, was_changed in interface_changed.items():
         changed[label] = changed[label] or was_changed
+    changed["inferencev2.py"] = (
+        patch_interface_failure_propagation(paths["inferencev2.py"])
+        or changed["inferencev2.py"]
+    )
+    changed["schema.py"] = (
+        patch_interface_schema_v2(paths["schema.py"]) or changed["schema.py"]
+    )
+    changed["schema.py"] = (
+        patch_interface_schema_neighbor_validation(paths["schema.py"])
+        or changed["schema.py"]
+    )
     changed["featurizerv2.py"] = (
         patch_interface_feature_separation(paths["featurizerv2.py"])
         or changed["featurizerv2.py"]
+    )
+    changed["featurizerv2.py"] = (
+        patch_interface_features_v2(paths["featurizerv2.py"])
+        or changed["featurizerv2.py"]
+    )
+    changed["potentials.py"] = (
+        patch_interface_potentials_v2(paths["potentials.py"])
+        or changed["potentials.py"]
     )
 
     for label, was_changed in changed.items():

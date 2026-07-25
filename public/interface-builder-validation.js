@@ -31,6 +31,7 @@
           id,
           type: polymer?.type || "protein",
           length: sequenceLength(polymer?.sequence),
+          cyclic: polymer?.cyclic === true,
           ambiguous: false
         });
       }
@@ -77,9 +78,45 @@
     ));
   }
 
+  function sameChainSequenceNeighbors(residue1, residue2, chain) {
+    const delta = Math.abs(residue1 - residue2);
+    return delta <= 1 || (
+      chain?.cyclic === true
+      && Number.isInteger(chain.length)
+      && chain.length - delta <= 1
+    );
+  }
+
+  function validateInterfacePatchPair(chainId, patch1Residues, patch2Residues, label, chainIndex) {
+    const issues = [];
+    const overlap = patch1Residues.filter((residue) => patch2Residues.includes(residue));
+    if (overlap.length) {
+      issues.push(`${label} same-chain patches overlap at residue(s) ${overlap.join(", ")}.`);
+    }
+    const chain = chainIndex.get(chainId);
+    const missing1 = patch1Residues.filter((source) => (
+      !patch2Residues.some((target) => !sameChainSequenceNeighbors(source, target, chain))
+    ));
+    const missing2 = patch2Residues.filter((source) => (
+      !patch1Residues.some((target) => !sameChainSequenceNeighbors(source, target, chain))
+    ));
+    if (missing1.length || missing2.length) {
+      const details = [
+        missing1.length ? `patch 1: ${missing1.join(", ")}` : "",
+        missing2.length ? `patch 2: ${missing2.join(", ")}` : ""
+      ].filter(Boolean).join("; ");
+      issues.push(
+        `${label} every active residue needs a non-neighbor residue in the opposite `
+        + `patch; residues without an eligible target: ${details}.`
+      );
+    }
+    return issues;
+  }
+
   return {
     buildPolymerChainIndex,
     validateInterfacePatch,
+    validateInterfacePatchPair,
     canEmitInterfaceContactDraft
   };
 }));

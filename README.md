@@ -1,10 +1,10 @@
 # BoltzUI
 
-BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs predictions inside the same container. This build upgrades the local `boltzui:221-exact-union` image with reproducible Boltz2-only CSP-derived `interface_contact` guidance, numerically stable exact/ambiguous atom restraints, corrected `max_parallel_samples` denoiser chunking, neutral-pH hydrogen placement, and optional Amber energy minimization.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs predictions inside the same container. This build creates the local `boltzui:221-exact-union` workflow image from the pristine `boltz:221` runtime with reproducible Boltz2-only, reciprocal CSP-derived `interface_contact` guidance, numerically stable exact/ambiguous atom restraints, corrected `max_parallel_samples` denoiser chunking, neutral-pH hydrogen placement, and optional Amber energy minimization.
 
 ## Repository Contents
 
-- `Dockerfile` - upgrades the local `boltzui:221-exact-union` workflow image.
+- `Dockerfile` - builds the local `boltzui:221-exact-union` workflow image from `boltz:221`.
 - `patches/boltz_atom_contact/` - reproducible Boltz runtime patch applied during Docker build.
 - `server.js`, `public/`, `package.json` - BoltzUI web interface for configuring, launching, and inspecting Boltz runs.
 - `run.sh` - optional launcher for the BoltzUI container.
@@ -17,19 +17,19 @@ BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web
 
 ## Build The Image
 
-The patched build expects the base workflow image to already exist locally:
+The patched build expects the pristine base runtime image to already exist locally:
 
 ```bash
-docker image inspect boltzui:221-exact-union >/dev/null
+docker image inspect boltz:221 >/dev/null
 ```
 
 Build:
 
 ```bash
-docker build --build-arg BASE_IMAGE=boltzui:221-exact-union -t boltzui:221-exact-union .
+docker build --build-arg BASE_IMAGE=boltz:221 -t boltzui:221-exact-union .
 ```
 
-The updated `boltzui:221-exact-union` image retains its Boltz runtime, Node.js, bounded denoiser sample chunking, OpenMM, CUDA plugin, and PDBFixer, and adds exact hard-OR reduction for atom contacts plus reciprocal residue-coherent interface guidance.
+The updated `boltzui:221-exact-union` image retains its Boltz runtime, Node.js, bounded denoiser sample chunking, OpenMM, CUDA plugin, and PDBFixer, and adds exact hard-OR reduction for atom contacts plus reciprocal, literal-heavy-atom interface guidance with local clash protection.
 
 ## Run The Web UI
 
@@ -100,7 +100,7 @@ The dedicated YAML Builder page at `http://localhost:5173/builder.html` is the p
 
 The builder covers Boltz YAML features that are not available in FASTA: any number of protein/DNA/RNA polymers, multiple identical chain IDs, automatic/custom/empty protein MSA modes, cyclic polymers, modified residues, any number of ligands by SMILES or CCD code, repeatable pocket constraints, repeatable two-patch interface constraints, repeatable token-level contacts, repeatable exact atom-pair upper-distance restraints, repeatable ambiguous atom-pair OR groups, covalent bonds, multiple structural templates, and the Boltz-2 affinity property. Affinity runs still need a single ligand copy as the binder. The generated YAML remains directly editable before saving.
 
-For every interface-constraint patch, the builder checks that its chain ID belongs to exactly one current protein card and that every 1-based residue index is within that chain's sequence length. Chain and residue issues are reported while the complete interface entry remains visible in generated YAML for correction; prediction preflight repeats the checks and rejects unresolved issues before a run.
+For every interface-constraint patch, the builder checks that its chain ID belongs to exactly one current protein card and that every 1-based residue index is within that chain's sequence length. Chain and residue issues are reported while the complete interface entry remains visible in generated YAML for correction; prediction preflight repeats the checks and rejects unresolved issues before a run. Duplicate or reversed definitions of the same patch pair are rejected so they cannot silently multiply its steering strength.
 
 The Token, Exact atom-contact, and Union atom-contact sections each have a dedicated nmr2boltz loader. `token_constraints.yaml` replaces only the token-contact cards, `atom_constraints_exact.yaml` replaces only the exact-contact cards, and `atom_constraints_union.yaml` replaces only the union-group cards; sequences, ligands, settings, and all other constraint types are preserved. The loaders parse YAML on the server and validate the corresponding constraint structure. An empty `constraints: []` file intentionally clears the corresponding section.
 
@@ -113,9 +113,9 @@ The Token, Exact atom-contact, and Union atom-contact sections each have a dedic
 - `atom_contact_union` is a patched Boltz2-only OR group containing two or more exact atom-pair alternatives, each with its own upper-distance bound.
 - `interface_contact` is a patched Boltz2-only ambiguous contact between two nonempty sets of protein residues. The patches may belong to different chains or to disjoint regions of one chain.
 
-For `interface_contact`, BoltzUI creates reciprocal HADDOCK-like ambiguous restraints: every residue in patch 1 gets one OR group containing all of its atom pairs to patch 2, and every residue in patch 2 gets the corresponding OR group to patch 1. Thus every submitted active residue is encouraged to approach at least one residue in the opposite patch without asserting a particular residue-residue register. Each group uses the exact minimum flat-bottom violation, so one in-bound alternative satisfies that residue's OR group and no out-of-bound alternative continues pulling it. This is a hard closest-pair OR, not a D^-6 effective distance or an exponential average. No constraint subsampling or solvent-accessibility expansion is applied.
+For `interface_contact`, BoltzUI uses the reciprocal active-residue topology of HADDOCK AIRs: every active residue on one side is ambiguous against all eligible heavy atoms in the opposite patch, and the same construction is applied in reverse. Its loss deliberately differs from raw HADDOCK D^-6. A D^-6 pseudo-distance can be shorter than every physical pair and therefore cannot enforce BoltzUI's literal `max_distance`. BoltzUI instead uses the closest eligible heavy-atom distance for each active residue, a 2 Angstrom Huber hinge, and a `0.5` mean in each reciprocal direction. This loss is zero only when every active residue meets the submitted cutoff, remains invariant to patch size, and gives every violated residue a bounded gradient. Sampling multiplies that normalized gradient by `4.0` before the existing per-residue `0.5` cap; FK resampling sees the normalized energy. Separate, nonduplicate interface records remain additive. No constraint subsampling or solvent-accessibility expansion is applied.
 
-`max_distance` is required and defaults to `6.0` Angstrom in the builder, with a supported range of `4.0-20.0` Angstrom. The value is evaluated as the closest heavy-atom distance. Six Angstrom is a practical interface-contact cutoff for this direct Boltz potential; HADDOCK AIR defaults should not be copied numerically because HADDOCK uses a different effective-distance restraint formulation. During guidance, the closest violating atom pair determines the direction, but the bounded force is applied coherently to all modeled atoms in each endpoint residue rather than tearing one atom away from its residue. `force: true` activates the reciprocal inference-time potential. `force: false` deliberately remains report-only: ambiguous patches are not expanded into binary token contacts, since that would turn the intended OR relation into incorrect all-to-all pairwise guidance.
+`max_distance` is required and defaults to `6.0` Angstrom in the builder, with a supported range of `4.0-20.0` Angstrom. Sampling and the post-run audit both apply it literally to closest eligible heavy atoms. Linear and cyclic same-chain sequence neighbors and explicit structure bonds are excluded from attraction. Every submitted active residue must retain at least one eligible opposite-patch residue; mixed or wholly neighbor-only same-chain definitions are rejected. A forced interface now fails clearly if cropping removes any active selector instead of silently weakening the patch. A capped gradient translates all modeled atoms of each affected residue coherently. A separate interface-only repulsive term protects nonbonded cross-patch atom pairs below `2.5` Angstrom and excludes linear or cyclic sequence neighbors and explicit structure bonds. This is local protection for the declared patches, not a whole-structure clash score: raw Boltz models can still contain unrelated nonlocal overlaps. Use the optional hydrogen-addition/energy-minimization output when appropriate, then re-check both structure quality and the postprocessed model's restraint rows. `force: true` activates both interface-only guidance terms. `force: false` remains report-only. Interface features are never inserted into the native token-constraint pipeline.
 
 ```yaml
 constraints:
@@ -180,7 +180,7 @@ The complete union fixture is `fixtures/atom_contact_union_example.yaml`, the ex
 
 Every completed, stopped, or failed submitted process writes `boltzui_run.json` into its `workspace/results/boltz_results_<input-stem>/` directory. Manifest schema version 5 records the Git commit when available, Boltz version, selected preset, resolved parameters, credential-free command arguments, input SHA-256, MSA configuration, post-processing report when requested, timestamps, exit status, and submitted token, interface, exact, and union contact restraints.
 
-Any run with token, interface, exact, or union contact constraints also writes `contact_restraints.json` in the same directory. Report schema version 5 measures explicit token contacts using the closest atom pair between the selected tokens, every reciprocal active-residue interface group using closest heavy atoms, every exact pair, and every union alternative in each generated PDB or mmCIF structure. It adds compact per-model token/interface/exact/union aggregates. An interface is satisfied only when every submitted active residue is within its bound to at least one opposite-patch residue. A union group is satisfied if any alternative is within its own bound, violated only when every alternative resolves and violates, and indeterminate when unresolved alternatives prevent a definitive violation. The result viewer exposes both JSON files and renders at most 500 audit rows for the selected model with violations first; the complete measurements remain in the JSON report. Existing `atom_contact_restraints.json` reports remain readable for backward compatibility.
+Any run with token, interface, exact, or union contact constraints also writes `contact_restraints.json` in the same directory. Report schema version 8 measures explicit token contacts, reciprocal active-residue interface groups, exact pairs, and union alternatives in every generated PDB or mmCIF structure. For interfaces it reports four distinct quantities: existential patch contact (any eligible cross-patch heavy-atom pair within `max_distance`), coverage for each patch, balanced two-patch coverage, and strict all-active-residue satisfaction. The top-level interface `satisfied` field means existential patch contact; a contact with incomplete active-residue coverage has `status: partial` and is shown in amber rather than as fully satisfied. The viewer normalizes older schema 5/6 strict semantics instead of mislabeling a legacy failed strict result as “no patch contact.” The report also gives minimum cross-patch distance and a warning count for cross-patch heavy-atom pairs below `2.0` Angstrom. A union group is satisfied if any alternative is within its own bound, violated only when every alternative resolves and violates, and indeterminate when unresolved alternatives prevent a definitive violation. The result viewer exposes both JSON files and renders at most 500 audit rows for the selected model with violations first; the complete measurements remain in the JSON report. Existing `atom_contact_restraints.json` reports remain readable for backward compatibility.
 
 PDB reports use the one-character chain identifiers present in the PDB file. Use mmCIF output when identifiers cannot be represented unambiguously in PDB. For mmCIF, the reporter resolves matching author identifiers first and also supports label identifiers without mixing the two namespaces.
 

@@ -85,7 +85,7 @@ test("token-only runs write the generic contact restraint report", async () => {
     max_distance: 4, force: true
   }]);
   assert.equal(path.basename(reportPath), "contact_restraints.json");
-  assert.equal(report.schema_version, 5);
+  assert.equal(report.schema_version, 8);
   assert.equal(report.token_contacts[0].models[0].satisfied, true);
   assert.equal(report.model_summaries[0].token.satisfied, 1);
 });
@@ -122,9 +122,95 @@ END
     force: true
   }, parsePdb(pdb), "model_0");
   assert.equal(measured.satisfied, true);
+  assert.equal(measured.patch_contact_satisfied, true);
+  assert.equal(measured.all_active_residues_satisfied, true);
   assert.equal(measured.residue_restraints.length, 2);
   assert.equal(measured.residue_restraints[0].observed_distance, 3);
   assert.equal(measured.residue_restraints[1].observed_distance, 3);
+  assert.equal(measured.residue_total, 2);
+  assert.equal(measured.residue_satisfied, 2);
+  assert.equal(measured.residue_satisfaction_fraction, 1);
+  assert.equal(measured.patch1_residue_satisfaction_fraction, 1);
+  assert.equal(measured.patch2_residue_satisfaction_fraction, 1);
+  assert.equal(measured.balanced_residue_satisfaction_fraction, 1);
+  assert.equal(measured.minimum_observed_distance, 3);
+  assert.equal(measured.sub_2A_cross_patch_atom_pairs, 0);
+  assert.equal(measured.has_sub_2A_cross_patch_overlap, false);
+});
+
+test("interface patch contact and strict active-residue coverage are separate", () => {
+  const pdb = `ATOM      1  CA  ALA A   1       0.000   0.000   0.000  1.00 80.00           C
+ATOM      2  CA  ALA A   3      20.000   0.000   0.000  1.00 80.00           C
+ATOM      3  CA  GLY B   1       3.000   0.000   0.000  1.00 80.00           C
+END
+`;
+  const measured = measureInterfaceContact({
+    patch1: { chain: "A", residues: [1, 3] },
+    patch2: { chain: "B", residues: [1] },
+    max_distance: 4,
+    force: true
+  }, parsePdb(pdb), "model_0");
+  assert.equal(measured.satisfied, true);
+  assert.equal(measured.patch_contact_satisfied, true);
+  assert.equal(measured.all_active_residues_satisfied, false);
+  assert.equal(measured.status, "partial");
+  assert.equal(measured.residue_satisfied, 2);
+  assert.equal(measured.residue_total, 3);
+  assert.equal(measured.patch1_residue_satisfaction_fraction, 0.5);
+  assert.equal(measured.patch2_residue_satisfaction_fraction, 1);
+  assert.equal(measured.balanced_residue_satisfaction_fraction, 0.75);
+});
+
+test("interface audit excludes immediate same-chain neighbors", () => {
+  const pdb = `ATOM      1  CA  ALA A   1       0.000   0.000   0.000  1.00 80.00           C
+ATOM      2  CA  GLY A   2       1.500   0.000   0.000  1.00 80.00           C
+END
+`;
+  const measured = measureInterfaceContact({
+    patch1: { chain: "A", residues: [1] },
+    patch2: { chain: "A", residues: [2] },
+    max_distance: 4,
+    force: true
+  }, parsePdb(pdb), "model_0");
+  assert.equal(measured.satisfied, null);
+  assert.equal(measured.status, "unresolved");
+  assert.match(measured.unresolved_reason, /linear or cyclic sequence neighbors/);
+});
+
+test("interface audit excludes cyclic chain-closing neighbors", () => {
+  const pdb = `ATOM      1  CA  ALA A   1       0.000   0.000   0.000  1.00 80.00           C
+ATOM      2  CA  GLY A   6       1.500   0.000   0.000  1.00 80.00           C
+END
+`;
+  const measured = measureInterfaceContact({
+    patch1: { chain: "A", residues: [1] },
+    patch2: { chain: "A", residues: [6] },
+    cyclic_periods: { A: 6 },
+    max_distance: 4,
+    force: false
+  }, parsePdb(pdb), "model_0");
+  assert.equal(measured.satisfied, null);
+  assert.equal(measured.status, "unresolved");
+  assert.match(measured.unresolved_reason, /linear or cyclic sequence neighbors/);
+});
+
+test("interface audit reports severe cross-patch heavy-atom overlap", () => {
+  const pdb = fs.readFileSync(
+    path.join(structures, "atom_contact_model_0.pdb"),
+    "utf8"
+  ).replace(
+    "ATOM      4  N   GLY B   1       3.000",
+    "ATOM      4  N   GLY B   1       1.500"
+  );
+  const measured = measureInterfaceContact({
+    patch1: { chain: "A", residues: [1] },
+    patch2: { chain: "B", residues: [1] },
+    max_distance: 4,
+    force: true
+  }, parsePdb(pdb), "model_0");
+  assert.equal(measured.minimum_observed_distance, 1.5);
+  assert.equal(measured.sub_2A_cross_patch_atom_pairs, 1);
+  assert.equal(measured.has_sub_2A_cross_patch_overlap, true);
 });
 
 test("partially unresolved union reports indeterminate instead of a false violation", () => {
@@ -204,6 +290,20 @@ test("large restraint reports expose per-model exact and union aggregates", () =
     violated: 0,
     unresolved: 0,
     satisfaction_fraction_of_resolved: null,
+    residue_total: 0,
+    residue_satisfied: 0,
+    residue_satisfaction_fraction: null,
+    all_active_residues_satisfied: 0,
+    all_active_residues_satisfied_count: 0,
+    minimum_observed_distance: null,
+    sub_2A_cross_patch_atom_pairs: 0,
+    patch1_residue_total: 0,
+    patch1_residue_satisfied: 0,
+    patch1_residue_satisfaction_fraction: null,
+    patch2_residue_total: 0,
+    patch2_residue_satisfied: 0,
+    patch2_residue_satisfaction_fraction: null,
+    balanced_residue_satisfaction_fraction: null,
     mean_maximum_excess_distance: null,
     maximum_excess_distance: null
   });
@@ -218,6 +318,71 @@ test("large restraint reports expose per-model exact and union aggregates", () =
     mean_minimum_excess_distance: 0.375,
     mean_violation_excess_distance: 0.75,
     maximum_minimum_excess_distance: 0.75
+  });
+});
+
+test("model summaries aggregate interface coverage and overlap warnings", () => {
+  const summary = summarizeModelAudit("model_0", [], [], [], [
+    {
+      models: [{
+        model: "model_0",
+        status: "violated",
+        satisfied: false,
+        all_active_residues_satisfied: false,
+        maximum_excess_distance: 3,
+        minimum_observed_distance: 1.5,
+        residue_total: 6,
+        residue_satisfied: 4,
+        patch1_residue_total: 3,
+        patch1_residue_satisfied: 2,
+        patch2_residue_total: 3,
+        patch2_residue_satisfied: 2,
+        balanced_residue_satisfaction_fraction: 2 / 3,
+        sub_2A_cross_patch_atom_pairs: 2
+      }]
+    },
+    {
+      models: [{
+        model: "model_0",
+        status: "satisfied",
+        satisfied: true,
+        all_active_residues_satisfied: true,
+        maximum_excess_distance: 0,
+        minimum_observed_distance: 3,
+        residue_total: 4,
+        residue_satisfied: 4,
+        patch1_residue_total: 2,
+        patch1_residue_satisfied: 2,
+        patch2_residue_total: 2,
+        patch2_residue_satisfied: 2,
+        balanced_residue_satisfaction_fraction: 1,
+        sub_2A_cross_patch_atom_pairs: 0
+      }]
+    }
+  ]);
+  assert.deepEqual(summary.interface, {
+    total: 2,
+    resolved: 2,
+    satisfied: 1,
+    violated: 1,
+    unresolved: 0,
+    satisfaction_fraction_of_resolved: 0.5,
+    residue_total: 10,
+    residue_satisfied: 8,
+    residue_satisfaction_fraction: 0.8,
+    all_active_residues_satisfied: 1,
+    all_active_residues_satisfied_count: 1,
+    minimum_observed_distance: 1.5,
+    sub_2A_cross_patch_atom_pairs: 2,
+    patch1_residue_total: 5,
+    patch1_residue_satisfied: 4,
+    patch1_residue_satisfaction_fraction: 0.8,
+    patch2_residue_total: 5,
+    patch2_residue_satisfied: 4,
+    patch2_residue_satisfaction_fraction: 0.8,
+    balanced_residue_satisfaction_fraction: ((2 / 3) + 1) / 2,
+    mean_maximum_excess_distance: 1.5,
+    maximum_excess_distance: 3
   });
 });
 

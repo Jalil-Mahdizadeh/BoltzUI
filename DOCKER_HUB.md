@@ -6,7 +6,7 @@ BoltzUI for Boltz 2.2.1 with exact/union atom guidance, neutral-pH hydrogens, an
 
 ## Overview
 
-This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only CSP-derived `interface_contact`, exact `atom_contact`, and OR-grouped `atom_contact_union` restraints, uses numerically stable exact OR reduction, applies bounded interface forces coherently by residue, and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
+This image packages the BoltzUI web interface on top of a cached Boltz 2.2.1 runtime image. Its reproducible runtime patch adds Boltz2-only CSP-derived `interface_contact`, exact `atom_contact`, and OR-grouped `atom_contact_union` restraints, uses numerically stable exact OR reduction, applies normalized reciprocal heavy-atom interface forces coherently by residue with local clash protection, and corrects `max_parallel_samples` so it limits each denoiser call. The same image includes OpenMM, its CUDA 12 plugin, PDBFixer, neutral-pH hydrogen placement, and Amber14/GBn2 minimization.
 
 The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Docker host with NVIDIA container support.
 
@@ -23,12 +23,15 @@ The image is built for NVIDIA GPU execution through Docker Desktop or a Linux Do
 - Adds reciprocal ambiguous CSP patch-to-patch `interface_contact` restraints for multichain and single-chain folding
 - Adds exact `atom_contact` and ambiguous `atom_contact_union` YAML restraints
 - Uses the exact minimum violation per OR group, avoiding exponential underflow and preventing satisfied groups from pulling distant alternatives
-- Applies closest-pair interface guidance as a capped coherent residue translation instead of a direct single-atom displacement
+- Uses reciprocal active-residue ambiguity over literal closest heavy-atom distances, with a patch-size-normalized robust loss and capped coherent residue translations
+- Protects declared interface patches against nonbonded cross-patch contacts below 2.5 Angstrom while excluding sequence neighbors and explicit bonds
+- Rejects partially ineligible same-chain patches and fails forced interfaces if cropping removes an active residue instead of silently weakening guidance
+- Keeps interface features separate from the native token-contact pipeline
 - Keeps one potential union index per OR group and excludes union alternatives from binary token-contact conditioning
 - YAML Builder fields can directly load nmr2boltz `atom_constraints_exact.yaml` and `atom_constraints_union.yaml`
 - Corrects Boltz 2.2.1 diffusion chunking so `max_parallel_samples` is a true denoiser batch limit
 - Exact and union atom contacts require `force: true` and per-pair `max_distance` in `2.0-20.0` Angstrom; additional FK/physical potentials are optional and enabled by default in the experimental preset
-- Exact pairs and union-group alternatives are measured after prediction, summarized per model, and reported separately from confidence; large audits show violations first while retaining every measurement in JSON
+- Token, interface, exact, and union restraints are measured after prediction and reported separately from confidence; interface audits separate patch contact, per-patch/balanced coverage, strict all-active satisfaction, and cross-patch overlap warnings
 - MSA defaults match upstream Boltz: `max_msa_seqs=8192`, `subsample_msa=true`, and `num_subsampled_msa=1024`
 - Starts the BoltzUI web server on port `5173`
 - Designed for bind-mounted workspaces at `/workspace/BoltzUI`
@@ -70,10 +73,10 @@ Boltz2 inference can consume substantial GPU memory. On 8 GB GPUs, use `--max_pa
 
 ## Build From Source
 
-Make sure the local `boltzui:221-exact-union` base image exists, then run:
+Make sure the pristine local `boltz:221` runtime image exists, then run:
 
 ```bash
-docker build -t boltzui:221-exact-union .
+docker build --build-arg BASE_IMAGE=boltz:221 -t boltzui:221-exact-union .
 ```
 
 The build applies and compiles the exact/union/interface Boltz contact-potential and diffusion-chunking patch, installs the post-processing stack, runs compatibility and numerical regression tests, then verifies that `boltz`, `boltzui-predict`, OpenMM, PDBFixer, and Node.js are available.
