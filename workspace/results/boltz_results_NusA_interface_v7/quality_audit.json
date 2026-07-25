@@ -1,0 +1,897 @@
+{
+  "generated_at": "2026-07-25T00:19:49.453Z",
+  "scope": "Comparative geometry sanity check; not experimental validation or a substitute for MolProbity.",
+  "thresholds": {
+    "nonlocal_heavy_atom_clash_A": 2,
+    "severe_nonlocal_heavy_atom_clash_A": 1.5,
+    "peptide_C_N_expected_range_A": [
+      1.1,
+      1.6
+    ],
+    "consecutive_CA_expected_range_A": [
+      3.2,
+      4.3
+    ],
+    "exclusions": "same residue and immediate same-chain sequence neighbors"
+  },
+  "interface_restraint": {
+    "model_count": 10,
+    "models_with_literal_patch_contact": 8,
+    "models_with_all_active_residues_satisfied": 0,
+    "total_active_residues_satisfied": 34,
+    "total_active_residue_measurements": 280,
+    "models_with_sub_2A_cross_patch_overlap": 0,
+    "minimum_distance_by_model_A": {
+      "model_0": 4.302,
+      "model_1": 6.273,
+      "model_2": 6.532,
+      "model_3": 3.848,
+      "model_4": 3.339,
+      "model_5": 4.026,
+      "model_6": 3.664,
+      "model_7": 3.415,
+      "model_8": 3.475,
+      "model_9": 2.662
+    }
+  },
+  "constrained": {
+    "aggregate": {
+      "model_count": 10,
+      "mean_confidence_score": 0.785467,
+      "mean_complex_plddt": 0.831174,
+      "models_with_nonlocal_pair_below_2A": 10,
+      "total_nonlocal_pairs_below_2A": 41,
+      "models_with_peptide_C_N_outlier": 0,
+      "total_peptide_C_N_outliers": 0,
+      "models_with_CA_step_outlier": 10,
+      "total_CA_step_outliers": 10,
+      "mean_CA_radius_of_gyration_A": 32.891
+    },
+    "models": [
+      {
+        "model": "model_0",
+        "confidence_score": 0.7956356406211853,
+        "complex_plddt": 0.8408637046813965,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.8,
+        "clash_examples": [
+          {
+            "atom1": "A:116:NE2",
+            "atom2": "A:120:OE2",
+            "distance": 1.895
+          },
+          {
+            "atom1": "A:190:O",
+            "atom2": "A:194:NE2",
+            "distance": 1.827
+          },
+          {
+            "atom1": "A:270:NH2",
+            "atom2": "A:320:NH1",
+            "distance": 1.8
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3239,
+          "min": 1.213,
+          "max": 1.4308
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7886,
+          "min": 3.0134,
+          "max": 3.9096
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 32.645
+      },
+      {
+        "model": "model_1",
+        "confidence_score": 0.7949458956718445,
+        "complex_plddt": 0.8405412435531616,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.542,
+        "clash_examples": [
+          {
+            "atom1": "A:21:OE2",
+            "atom2": "A:25:OE2",
+            "distance": 1.542
+          },
+          {
+            "atom1": "A:123:NH2",
+            "atom2": "A:188:O",
+            "distance": 1.726
+          },
+          {
+            "atom1": "A:338:O",
+            "atom2": "A:480:CB",
+            "distance": 1.863
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3277,
+          "min": 1.2518,
+          "max": 1.4169
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7946,
+          "min": 2.9495,
+          "max": 3.8644
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 35.279
+      },
+      {
+        "model": "model_2",
+        "confidence_score": 0.7906041145324707,
+        "complex_plddt": 0.8386014699935913,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.794,
+        "clash_examples": [
+          {
+            "atom1": "A:49:O",
+            "atom2": "A:51:NH1",
+            "distance": 1.955
+          },
+          {
+            "atom1": "A:233:NH2",
+            "atom2": "A:272:OD2",
+            "distance": 1.973
+          },
+          {
+            "atom1": "A:228:O",
+            "atom2": "A:493:OD2",
+            "distance": 1.794
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3285,
+          "min": 1.1451,
+          "max": 1.5893
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7938,
+          "min": 2.9151,
+          "max": 3.8956
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 34.042
+      },
+      {
+        "model": "model_3",
+        "confidence_score": 0.7885648012161255,
+        "complex_plddt": 0.8316146731376648,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 6,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 2,
+        "minimum_nonlocal_heavy_atom_distance": 0.618,
+        "clash_examples": [
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:CZ",
+            "distance": 1.399
+          },
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:NH2",
+            "distance": 0.618
+          },
+          {
+            "atom1": "A:147:C",
+            "atom2": "A:164:NH2",
+            "distance": 1.551
+          },
+          {
+            "atom1": "A:190:O",
+            "atom2": "A:194:OE1",
+            "distance": 1.733
+          },
+          {
+            "atom1": "A:422:O",
+            "atom2": "A:425:CD1",
+            "distance": 1.821
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3241,
+          "min": 1.2066,
+          "max": 1.4465
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7895,
+          "min": 2.9961,
+          "max": 3.8934
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 32.169
+      },
+      {
+        "model": "model_4",
+        "confidence_score": 0.7862462401390076,
+        "complex_plddt": 0.8377429246902466,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 8,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 4,
+        "minimum_nonlocal_heavy_atom_distance": 0.968,
+        "clash_examples": [
+          {
+            "atom1": "A:1:N",
+            "atom2": "A:102:CD2",
+            "distance": 1.812
+          },
+          {
+            "atom1": "A:38:NZ",
+            "atom2": "A:104:C",
+            "distance": 1.744
+          },
+          {
+            "atom1": "A:38:NZ",
+            "atom2": "A:104:O",
+            "distance": 1.179
+          },
+          {
+            "atom1": "A:443:OD2",
+            "atom2": "A:447:NZ",
+            "distance": 1.785
+          },
+          {
+            "atom1": "A:335:OE1",
+            "atom2": "A:471:OE1",
+            "distance": 1.973
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3086,
+          "min": 1.177,
+          "max": 1.3647
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7636,
+          "min": 2.9088,
+          "max": 3.8477
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 31.404
+      },
+      {
+        "model": "model_5",
+        "confidence_score": 0.7850626111030579,
+        "complex_plddt": 0.8224268555641174,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.689,
+        "clash_examples": [
+          {
+            "atom1": "A:428:ND2",
+            "atom2": "A:449:O",
+            "distance": 1.689
+          },
+          {
+            "atom1": "A:338:O",
+            "atom2": "A:483:CG",
+            "distance": 1.944
+          },
+          {
+            "atom1": "A:326:CD",
+            "atom2": "A:488:O",
+            "distance": 1.84
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3334,
+          "min": 1.2476,
+          "max": 1.416
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.8073,
+          "min": 2.944,
+          "max": 3.9202
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 33.433
+      },
+      {
+        "model": "model_6",
+        "confidence_score": 0.7849764823913574,
+        "complex_plddt": 0.8284971117973328,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 2,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.827,
+        "clash_examples": [
+          {
+            "atom1": "A:387:O",
+            "atom2": "A:407:NH1",
+            "distance": 1.827
+          },
+          {
+            "atom1": "A:422:OE2",
+            "atom2": "A:442:NH2",
+            "distance": 1.994
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3295,
+          "min": 1.2184,
+          "max": 1.4089
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7987,
+          "min": 2.9183,
+          "max": 3.9232
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 33.259
+      },
+      {
+        "model": "model_7",
+        "confidence_score": 0.7838754057884216,
+        "complex_plddt": 0.8302014470100403,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 5,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 2,
+        "minimum_nonlocal_heavy_atom_distance": 1.322,
+        "clash_examples": [
+          {
+            "atom1": "A:340:OG1",
+            "atom2": "A:343:OD2",
+            "distance": 1.856
+          },
+          {
+            "atom1": "A:447:NZ",
+            "atom2": "A:471:O",
+            "distance": 1.449
+          },
+          {
+            "atom1": "A:226:O",
+            "atom2": "A:483:SD",
+            "distance": 1.789
+          },
+          {
+            "atom1": "A:223:O",
+            "atom2": "A:491:CE2",
+            "distance": 1.932
+          },
+          {
+            "atom1": "A:223:O",
+            "atom2": "A:491:CZ",
+            "distance": 1.322
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3235,
+          "min": 1.2507,
+          "max": 1.385
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7881,
+          "min": 2.9241,
+          "max": 3.9186
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 30.83
+      },
+      {
+        "model": "model_8",
+        "confidence_score": 0.7815092206001282,
+        "complex_plddt": 0.8330985307693481,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 1,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.739,
+        "clash_examples": [
+          {
+            "atom1": "A:171:OE2",
+            "atom2": "A:199:NH1",
+            "distance": 1.739
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3162,
+          "min": 1.2352,
+          "max": 1.4419
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7791,
+          "min": 3.0046,
+          "max": 3.9161
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 31.84
+      },
+      {
+        "model": "model_9",
+        "confidence_score": 0.7632465958595276,
+        "complex_plddt": 0.8081536889076233,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 7,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.512,
+        "clash_examples": [
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:NH2",
+            "distance": 1.761
+          },
+          {
+            "atom1": "A:123:NH2",
+            "atom2": "A:188:O",
+            "distance": 1.558
+          },
+          {
+            "atom1": "A:207:OE1",
+            "atom2": "A:210:NH1",
+            "distance": 1.769
+          },
+          {
+            "atom1": "A:347:NZ",
+            "atom2": "A:351:OE2",
+            "distance": 1.512
+          },
+          {
+            "atom1": "A:296:O",
+            "atom2": "A:353:ND1",
+            "distance": 1.691
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3096,
+          "min": 1.2035,
+          "max": 1.3753
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7697,
+          "min": 2.9787,
+          "max": 3.8525
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 34.006
+      }
+    ]
+  },
+  "control": {
+    "aggregate": {
+      "model_count": 10,
+      "mean_confidence_score": 0.80154,
+      "mean_complex_plddt": 0.846749,
+      "models_with_nonlocal_pair_below_2A": 9,
+      "total_nonlocal_pairs_below_2A": 23,
+      "models_with_peptide_C_N_outlier": 0,
+      "total_peptide_C_N_outliers": 0,
+      "models_with_CA_step_outlier": 10,
+      "total_CA_step_outliers": 11,
+      "mean_CA_radius_of_gyration_A": 34.082
+    },
+    "models": [
+      {
+        "model": "model_0",
+        "confidence_score": 0.814433753490448,
+        "complex_plddt": 0.8608682155609131,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 1,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.708,
+        "clash_examples": [
+          {
+            "atom1": "A:64:O",
+            "atom2": "A:89:O",
+            "distance": 1.708
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3214,
+          "min": 1.1841,
+          "max": 1.5665
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.783,
+          "min": 3.0279,
+          "max": 3.8696
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 2,
+        "CA_radius_of_gyration_A": 35.157
+      },
+      {
+        "model": "model_1",
+        "confidence_score": 0.8103286623954773,
+        "complex_plddt": 0.8560432195663452,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 1,
+        "minimum_nonlocal_heavy_atom_distance": 1.263,
+        "clash_examples": [
+          {
+            "atom1": "A:105:O",
+            "atom2": "A:110:CB",
+            "distance": 1.998
+          },
+          {
+            "atom1": "A:123:NH2",
+            "atom2": "A:192:O",
+            "distance": 1.263
+          },
+          {
+            "atom1": "A:188:O",
+            "atom2": "A:194:NE2",
+            "distance": 1.805
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3249,
+          "min": 1.2003,
+          "max": 1.4071
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.789,
+          "min": 2.9743,
+          "max": 3.8871
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 32.311
+      },
+      {
+        "model": "model_2",
+        "confidence_score": 0.8093690872192383,
+        "complex_plddt": 0.8540226817131042,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 2,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.56,
+        "clash_examples": [
+          {
+            "atom1": "A:10:OE1",
+            "atom2": "A:20:NH2",
+            "distance": 1.951
+          },
+          {
+            "atom1": "A:123:NH2",
+            "atom2": "A:190:O",
+            "distance": 1.56
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.324,
+          "min": 1.2684,
+          "max": 1.392
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7936,
+          "min": 2.9791,
+          "max": 3.8695
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 33.637
+      },
+      {
+        "model": "model_3",
+        "confidence_score": 0.8035014271736145,
+        "complex_plddt": 0.8486534953117371,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 2,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.513,
+        "clash_examples": [
+          {
+            "atom1": "A:16:O",
+            "atom2": "A:18:N",
+            "distance": 1.88
+          },
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:NH2",
+            "distance": 1.513
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3139,
+          "min": 1.2125,
+          "max": 1.4055
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7732,
+          "min": 2.9534,
+          "max": 3.9325
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 32.868
+      },
+      {
+        "model": "model_4",
+        "confidence_score": 0.8019939661026001,
+        "complex_plddt": 0.8472732901573181,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 2,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.927,
+        "clash_examples": [
+          {
+            "atom1": "A:180:O",
+            "atom2": "A:199:NH1",
+            "distance": 1.934
+          },
+          {
+            "atom1": "A:166:OD1",
+            "atom2": "A:201:NZ",
+            "distance": 1.927
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3285,
+          "min": 1.2458,
+          "max": 1.3857
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7954,
+          "min": 3.0119,
+          "max": 3.93
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 32.359
+      },
+      {
+        "model": "model_5",
+        "confidence_score": 0.8018612265586853,
+        "complex_plddt": 0.8434931635856628,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 1,
+        "minimum_nonlocal_heavy_atom_distance": 1.269,
+        "clash_examples": [
+          {
+            "atom1": "A:338:O",
+            "atom2": "A:487:ND2",
+            "distance": 1.269
+          },
+          {
+            "atom1": "A:336:O",
+            "atom2": "A:491:CE2",
+            "distance": 1.521
+          },
+          {
+            "atom1": "A:336:O",
+            "atom2": "A:491:CZ",
+            "distance": 1.867
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3364,
+          "min": 1.2714,
+          "max": 1.3983
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.8094,
+          "min": 3.0495,
+          "max": 3.9366
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 34.672
+      },
+      {
+        "model": "model_6",
+        "confidence_score": 0.7986531853675842,
+        "complex_plddt": 0.8436487913131714,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 1,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.988,
+        "clash_examples": [
+          {
+            "atom1": "A:263:OG",
+            "atom2": "A:269:O",
+            "distance": 1.988
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3171,
+          "min": 1.2379,
+          "max": 1.3815
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7751,
+          "min": 2.9136,
+          "max": 3.8528
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 36.722
+      },
+      {
+        "model": "model_7",
+        "confidence_score": 0.7933290600776672,
+        "complex_plddt": 0.8393624424934387,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 0,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 2.016,
+        "clash_examples": [],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3275,
+          "min": 1.2764,
+          "max": 1.3757
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.798,
+          "min": 2.9436,
+          "max": 3.8684
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 35.161
+      },
+      {
+        "model": "model_8",
+        "confidence_score": 0.7928049564361572,
+        "complex_plddt": 0.8426157832145691,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 3,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.619,
+        "clash_examples": [
+          {
+            "atom1": "A:1:SD",
+            "atom2": "A:103:OD1",
+            "distance": 1.725
+          },
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:NH2",
+            "distance": 1.666
+          },
+          {
+            "atom1": "A:363:O",
+            "atom2": "A:409:NH2",
+            "distance": 1.619
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3212,
+          "min": 1.1982,
+          "max": 1.4474
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7872,
+          "min": 2.9565,
+          "max": 3.9037
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 34.536
+      },
+      {
+        "model": "model_9",
+        "confidence_score": 0.7891234159469604,
+        "complex_plddt": 0.8315051198005676,
+        "heavy_atom_count": 3852,
+        "residue_count": 495,
+        "nonlocal_heavy_atom_pairs_below_2A": 6,
+        "nonlocal_heavy_atom_pairs_below_1_5A": 0,
+        "minimum_nonlocal_heavy_atom_distance": 1.512,
+        "clash_examples": [
+          {
+            "atom1": "A:2:OD1",
+            "atom2": "A:55:OD1",
+            "distance": 1.607
+          },
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:CZ",
+            "distance": 1.918
+          },
+          {
+            "atom1": "A:147:O",
+            "atom2": "A:164:NH2",
+            "distance": 1.512
+          },
+          {
+            "atom1": "A:123:NH2",
+            "atom2": "A:188:CA",
+            "distance": 1.727
+          },
+          {
+            "atom1": "A:235:NZ",
+            "atom2": "A:287:O",
+            "distance": 1.773
+          }
+        ],
+        "peptide_C_N_distance_A": {
+          "count": 494,
+          "mean": 1.3231,
+          "min": 1.2561,
+          "max": 1.3873
+        },
+        "peptide_C_N_outliers_outside_1_1_to_1_6A": 0,
+        "consecutive_CA_distance_A": {
+          "count": 494,
+          "mean": 3.7911,
+          "min": 3.0892,
+          "max": 3.8711
+        },
+        "consecutive_CA_outliers_outside_3_2_to_4_3A": 1,
+        "CA_radius_of_gyration_A": 33.394
+      }
+    ]
+  },
+  "comparison": {
+    "mean_confidence_delta_constrained_minus_control": -0.016073,
+    "mean_radius_of_gyration_delta_A": -1.191
+  }
+}
