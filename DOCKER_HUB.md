@@ -62,7 +62,7 @@ docker run --rm \
   -p 5173:5173 \
   -v "${PWD}:/workspace/BoltzUI" \
   -w /workspace/BoltzUI \
-  boltzui:221-exact-union
+  boltzui:221
 ```
 
 Open `http://localhost:5173`.
@@ -76,7 +76,7 @@ Boltz2 inference can consume substantial GPU memory. On 8 GB GPUs, use `--max_pa
 Make sure the pristine local `boltz:221` runtime image exists, then run:
 
 ```bash
-docker build --build-arg BASE_IMAGE=boltz:221 -t boltzui:221-exact-union .
+docker build --build-arg BASE_IMAGE=boltz:221 -t boltzui:221 .
 ```
 
 The build applies and compiles the exact/union/interface Boltz contact-potential and diffusion-chunking patch, installs the post-processing stack, runs compatibility and numerical regression tests, then verifies that `boltz`, `boltzui-predict`, OpenMM, PDBFixer, and Node.js are available.

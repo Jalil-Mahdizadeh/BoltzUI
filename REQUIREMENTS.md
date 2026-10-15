@@ -8,7 +8,7 @@
 - At least 32 GB system RAM recommended.
 - At least 45 GB free disk space for the final cached image and Docker build layers.
 
-OpenMM 8.4.0, its pinned CUDA 12 plugin, PDBFixer 1.12.0, and all Amber XML force-field files are installed directly in `boltzui:221-exact-union`. The post-processor prefers CUDA but automatically uses OpenCL or a four-thread CPU platform when CUDA is unavailable. Energy minimization does not run concurrently with Boltz prediction.
+OpenMM 8.4.0, its pinned CUDA 12 plugin, PDBFixer 1.12.0, and all Amber XML force-field files are installed directly in `boltzui:221`. The post-processor prefers CUDA but automatically uses OpenCL or a four-thread CPU platform when CUDA is unavailable. Energy minimization does not run concurrently with Boltz prediction.
 
 ## GPU memory
 
@@ -39,4 +39,4 @@ For the real 495-residue `NusA_open.yaml` input, single-sequence GPU prediction 
 
 ## Build input
 
-The Docker build starts from the local pristine runtime image `boltz:221` and writes the runnable workflow image as `boltzui:221-exact-union`. It verifies Boltz 2.2.1 and all guarded source/patch markers before applying the stable exact-OR and normalized reciprocal heavy-atom interface-potential upgrade with local clash protection. Model and molecule caches are inherited from the base image; using the pristine base avoids recursively accumulating layers in repeated workflow-image rebuilds.
+The Docker build starts from the local pristine runtime image `boltz:221` and writes the runnable workflow image as `boltzui:221`. It verifies Boltz 2.2.1 and all guarded source/patch markers before applying the stable exact-OR and normalized reciprocal heavy-atom interface-potential upgrade with local clash protection. Model and molecule caches are inherited from the base image; using the pristine base avoids recursively accumulating layers in repeated workflow-image rebuilds.

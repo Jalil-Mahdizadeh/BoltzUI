@@ -1,10 +1,10 @@
 # BoltzUI
 
-BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs predictions inside the same container. This build creates the local `boltzui:221-exact-union` workflow image from the pristine `boltz:221` runtime with reproducible Boltz2-only, reciprocal CSP-derived `interface_contact` guidance, numerically stable exact/ambiguous atom restraints, corrected `max_parallel_samples` denoiser chunking, neutral-pH hydrogen placement, and optional Amber energy minimization.
+BoltzUI is a Dockerized web app for Boltz 2.2.1. The Docker image starts the web interface, exposes it on port `5173`, and runs predictions inside the same container. This build creates the local `boltzui:221` workflow image from the pristine `boltz:221` runtime with reproducible Boltz2-only, reciprocal CSP-derived `interface_contact` guidance, numerically stable exact/ambiguous atom restraints, corrected `max_parallel_samples` denoiser chunking, neutral-pH hydrogen placement, and optional Amber energy minimization.
 
 ## Repository Contents
 
-- `Dockerfile` - builds the local `boltzui:221-exact-union` workflow image from `boltz:221`.
+- `Dockerfile` - builds the local `boltzui:221` workflow image from `boltz:221`.
 - `patches/boltz_atom_contact/` - reproducible Boltz runtime patch applied during Docker build.
 - `server.js`, `public/`, `package.json` - BoltzUI web interface for configuring, launching, and inspecting Boltz runs.
 - `run.sh` - optional launcher for the BoltzUI container.
@@ -26,10 +26,10 @@ docker image inspect boltz:221 >/dev/null
 Build:
 
 ```bash
-docker build --build-arg BASE_IMAGE=boltz:221 -t boltzui:221-exact-union .
+docker build --build-arg BASE_IMAGE=boltz:221 -t boltzui:221 .
 ```
 
-The updated `boltzui:221-exact-union` image retains its Boltz runtime, Node.js, bounded denoiser sample chunking, OpenMM, CUDA plugin, and PDBFixer, and adds exact hard-OR reduction for atom contacts plus reciprocal, literal-heavy-atom interface guidance with local clash protection.
+The updated `boltzui:221` image retains its Boltz runtime, Node.js, bounded denoiser sample chunking, OpenMM, CUDA plugin, and PDBFixer, and adds exact hard-OR reduction for atom contacts plus reciprocal, literal-heavy-atom interface guidance with local clash protection.
 
 ## Run The Web UI
 
@@ -41,7 +41,7 @@ docker run --rm --gpus all \
   -p 5173:5173 \
   -v "$(pwd):/workspace/BoltzUI" \
   -w /workspace/BoltzUI \
-  boltzui:221-exact-union
+  boltzui:221
 ```
 
 PowerShell equivalent:
@@ -51,7 +51,7 @@ docker run --rm --gpus all --shm-size=8g `
   -p 5173:5173 `
   -v "${PWD}:/workspace/BoltzUI" `
   -w /workspace/BoltzUI `
-  boltzui:221-exact-union
+  boltzui:221
 ```
 
 Then open:
