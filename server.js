@@ -26,6 +26,9 @@ const {
 } = require("./lib/prediction-config");
 const { completeRunManifest, createRunManifest, writeJson } = require("./lib/run-manifest");
 const { writeRestraintReport } = require("./lib/restraint-report");
+const { prepareJobOutput, finishJobOutput } = require("./lib/job-output");
+const { parseBuilderYaml } = require("./lib/builder-yaml");
+const { createJsonCache, selectAuditModel } = require("./lib/result-cache");
 
 const ROOT = process.cwd();
 const HOST = process.env.HOST || "0.0.0.0";
@@ -44,6 +47,7 @@ const TEXT_EXTENSIONS = new Set([".txt", ".log", ".json", ".yaml", ".yml", ".csv
 const SKIP_DIRS = new Set([".git", ".boltz", ".boltz-ui", "graphify-out", "node_modules"]);
 
 const jobs = new Map();
+const activeOutputDirectories = new Set();
 const inputDescriptionCache = new Map();
 const jobEvents = new EventEmitter();
 const MSA_SERVER_DEPENDENT_OPTIONS = new Set([
@@ -380,9 +384,11 @@ function numericMetric(value) {
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
-async function readJsonIfPresent(filePath) {
+const readJsonIfPresent = createJsonCache();
+
+async function existingFilePath(filePath) {
   try {
-    return JSON.parse(await fsp.readFile(filePath, "utf8"));
+    return (await fsp.stat(filePath)).isFile() ? toRelative(filePath) : null;
   } catch {
     return null;
   }
@@ -393,23 +399,23 @@ function modelIndexFromName(file) {
   return match ? Number(match[1]) : null;
 }
 
-async function summarizeResultDir(dir) {
+async function summarizeResultDir(dir, { details = true } = {}) {
   const predictionsDir = path.join(dir, "predictions");
-  const structureFiles = await findFiles(predictionsDir, (file) => STRUCTURE_EXTENSIONS.has(path.extname(file).toLowerCase()));
-  const confidenceFiles = await findFiles(predictionsDir, (file) => path.basename(file).startsWith("confidence_") && path.extname(file).toLowerCase() === ".json");
-  const paeFiles = await findFiles(predictionsDir, (file) => path.basename(file).startsWith("pae_"));
-  const pdeFiles = await findFiles(predictionsDir, (file) => path.basename(file).startsWith("pde_"));
-  const plddtFiles = await findFiles(predictionsDir, (file) => path.basename(file).startsWith("plddt_"));
+  const files = await findFiles(predictionsDir, () => true, Number.POSITIVE_INFINITY);
+  const structureFiles = files.filter((file) => STRUCTURE_EXTENSIONS.has(path.extname(file).toLowerCase()));
+  const confidenceFiles = files.filter((file) => path.basename(file).startsWith("confidence_") && path.extname(file).toLowerCase() === ".json");
+  const paeFiles = files.filter((file) => path.basename(file).startsWith("pae_"));
+  const pdeFiles = files.filter((file) => path.basename(file).startsWith("pde_"));
+  const plddtFiles = files.filter((file) => path.basename(file).startsWith("plddt_"));
 
   const structureByModel = new Map(structureFiles.map((file) => [modelIndexFromName(file), file]));
+  const structureRevisions = new Map(await Promise.all(structureFiles.map(async (file) => {
+    const stat = await fsp.stat(file);
+    return [file, `${stat.size}:${stat.mtimeMs}:${stat.ctimeMs}`];
+  })));
   const originalModels = [];
   for (const confidenceFile of confidenceFiles) {
-    let metrics = {};
-    try {
-      metrics = JSON.parse(await fsp.readFile(confidenceFile, "utf8"));
-    } catch {
-      metrics = {};
-    }
+    const metrics = await readJsonIfPresent(confidenceFile) || {};
     const index = modelIndexFromName(confidenceFile);
     originalModels.push({
       index,
@@ -418,6 +424,7 @@ async function summarizeResultDir(dir) {
       auditModel: index === null ? null : `model_${index}`,
       confidencePath: toRelative(confidenceFile),
       structurePath: structureByModel.has(index) ? toRelative(structureByModel.get(index)) : null,
+      structureRevision: structureRevisions.get(structureByModel.get(index)) || null,
       confidenceScore: numericMetric(metrics.confidence_score),
       ptm: numericMetric(metrics.ptm),
       iptm: numericMetric(metrics.iptm),
@@ -439,25 +446,18 @@ async function summarizeResultDir(dir) {
     return best;
   }, null);
 
-  let manifest = null;
   const manifestPath = path.join(dir, "processed", "manifest.json");
-  try {
-    manifest = JSON.parse(await fsp.readFile(manifestPath, "utf8"));
-  } catch {
-    manifest = null;
-  }
+  const manifest = details ? await readJsonIfPresent(manifestPath) : null;
 
   const runManifestFile = path.join(dir, "boltzui_run.json");
   const restraintReportFile = path.join(dir, "contact_restraints.json");
   const legacyRestraintReportFile = path.join(dir, "atom_contact_restraints.json");
   const postprocessReportFile = path.join(dir, "boltzui_postprocess.json");
-  const runManifest = await readJsonIfPresent(runManifestFile);
-  const currentRestraintReport = await readJsonIfPresent(restraintReportFile);
-  const restraintReport = currentRestraintReport
-    || await readJsonIfPresent(legacyRestraintReportFile);
-  const resolvedRestraintReportFile = currentRestraintReport
-    ? restraintReportFile
-    : legacyRestraintReportFile;
+  const runManifest = details ? await readJsonIfPresent(runManifestFile) : null;
+  const restraintReportPath = await existingFilePath(restraintReportFile)
+    || await existingFilePath(legacyRestraintReportFile);
+  const restraintReport = details && restraintReportPath
+    ? await readJsonIfPresent(path.resolve(ROOT, restraintReportPath)) : null;
   const postprocessReport = await readJsonIfPresent(postprocessReportFile);
   const models = [...originalModels];
   if (Array.isArray(postprocessReport?.models)) {
@@ -465,8 +465,10 @@ async function summarizeResultDir(dir) {
       if (processed?.status !== "succeeded" || typeof processed.output !== "string") continue;
       const outputPath = path.resolve(dir, processed.output);
       if (!isInside(outputPath, dir) || !STRUCTURE_EXTENSIONS.has(path.extname(outputPath).toLowerCase())) continue;
+      let outputStat;
       try {
-        if (!(await fsp.stat(outputPath)).isFile()) continue;
+        outputStat = await fsp.stat(outputPath);
+        if (!outputStat.isFile()) continue;
       } catch {
         continue;
       }
@@ -480,6 +482,7 @@ async function summarizeResultDir(dir) {
         variant,
         auditModel: index === null ? null : `model_${index}_${variant}`,
         structurePath: toRelative(outputPath),
+        structureRevision: `${outputStat.size}:${outputStat.mtimeMs}:${outputStat.ctimeMs}`,
         postprocess: processed
       });
     }
@@ -504,10 +507,10 @@ async function summarizeResultDir(dir) {
     models,
     manifest,
     runManifest,
-    runManifestPath: runManifest ? toRelative(runManifestFile) : null,
+    runManifestPath: await existingFilePath(runManifestFile),
     restraintReport,
-    restraintReportPath: restraintReport ? toRelative(resolvedRestraintReportFile) : null,
-    postprocessReport,
+    restraintReportPath,
+    postprocessReport: details ? postprocessReport : null,
     postprocessReportPath: postprocessReport ? toRelative(postprocessReportFile) : null
   };
 }
@@ -518,8 +521,16 @@ async function listResults() {
   const dirs = entries
     .filter((entry) => entry.isDirectory() && entry.name.startsWith("boltz_results_"))
     .map((entry) => path.join(RESULTS_DIR, entry.name));
-  const summaries = await Promise.all(dirs.map(summarizeResultDir));
-  return summaries.sort((a, b) => new Date(b.modifiedAt) - new Date(a.modifiedAt));
+  const summaries = await Promise.all(dirs.map(async (dir) => {
+    try {
+      return await summarizeResultDir(dir, { details: false });
+    } catch (error) {
+      // A job may archive/restore its output while this inventory is in flight.
+      if (error.code === "ENOENT") return null;
+      throw error;
+    }
+  }));
+  return summaries.filter(Boolean).sort((a, b) => new Date(b.modifiedAt) - new Date(a.modifiedAt));
 }
 
 function publicJob(job, includeLogs = false) {
@@ -566,120 +577,154 @@ async function startJob(payload) {
   await fsp.mkdir(JOB_DIR, { recursive: true });
   await ensureDataWorkspace();
   const prediction = preparePrediction(payload);
-  const id = `${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID().slice(0, 8)}`;
-  const logPath = path.join(JOB_DIR, `${id}.log`);
-  const manifestStagingPath = path.join(JOB_DIR, `${id}.manifest.json`);
-  const job = {
-    id,
-    status: "running",
-    startedAt: new Date().toISOString(),
-    endedAt: null,
-    exitCode: null,
-    signal: null,
-    command: prediction.maskedCommand,
-    data: prediction.data,
-    preset: prediction.preset,
-    options: prediction.options,
-    atomContacts: prediction.atomContacts,
-    atomContactUnions: prediction.atomContactUnions,
-    tokenContacts: prediction.tokenContacts,
-    interfaceContacts: prediction.interfaceContacts,
-    resultDirectory: prediction.resultDirectory,
-    manifestStagingPath,
-    manifestPath: null,
-    restraintReportPath: null,
-    detectedFailure: false,
-    failureReason: null,
-    logPath,
-    logs: []
-  };
-  job.manifest = createRunManifest({
-    root: ROOT,
-    jobId: id,
-    preset: prediction.preset,
-    options: prediction.options,
-    args: prediction.manifestArgs,
-    inputPath: prediction.dataPath,
-    outputDirectory: prediction.outputDirectory,
-    atomContacts: prediction.atomContacts,
-    atomContactUnions: prediction.atomContactUnions,
-    tokenContacts: prediction.tokenContacts,
-    interfaceContacts: prediction.interfaceContacts,
-    msa: prediction.msa,
-    startedAt: job.startedAt,
-    executable: prediction.executable
-  });
-  jobs.set(id, job);
-  await fsp.writeFile(logPath, "", "utf8");
-  await writeJson(manifestStagingPath, job.manifest);
-  addLog(job, `${job.startedAt} ${job.command}\n`);
+  const outputKey = process.platform === "win32"
+    ? prediction.resultDirectory.toLowerCase() : prediction.resultDirectory;
+  if (activeOutputDirectories.has(outputKey)) {
+    throw new Error("A job is already writing to this result directory. Wait for it to finish or choose another output directory.");
+  }
+  activeOutputDirectories.add(outputKey);
+  let output;
+  try {
+    const id = `${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID().slice(0, 8)}`;
+    const logPath = path.join(JOB_DIR, `${id}.log`);
+    const manifestStagingPath = path.join(JOB_DIR, `${id}.manifest.json`);
+    const job = {
+      id,
+      status: "running",
+      startedAt: new Date().toISOString(),
+      endedAt: null,
+      exitCode: null,
+      signal: null,
+      command: prediction.maskedCommand,
+      data: prediction.data,
+      preset: prediction.preset,
+      options: prediction.options,
+      atomContacts: prediction.atomContacts,
+      atomContactUnions: prediction.atomContactUnions,
+      tokenContacts: prediction.tokenContacts,
+      interfaceContacts: prediction.interfaceContacts,
+      resultDirectory: prediction.resultDirectory,
+      manifestStagingPath,
+      manifestPath: null,
+      restraintReportPath: null,
+      detectedFailure: false,
+      failureReason: null,
+      logPath,
+      logs: []
+    };
+    job.manifest = createRunManifest({
+      root: ROOT,
+      jobId: id,
+      preset: prediction.preset,
+      options: prediction.options,
+      args: prediction.manifestArgs,
+      inputPath: prediction.dataPath,
+      outputDirectory: prediction.outputDirectory,
+      atomContacts: prediction.atomContacts,
+      atomContactUnions: prediction.atomContactUnions,
+      tokenContacts: prediction.tokenContacts,
+      interfaceContacts: prediction.interfaceContacts,
+      msa: prediction.msa,
+      startedAt: job.startedAt,
+      executable: prediction.executable
+    });
+    await fsp.writeFile(logPath, "", "utf8");
+    await writeJson(manifestStagingPath, job.manifest);
+    output = await prepareJobOutput(prediction.resultDirectory, id, prediction.options.override);
+    jobs.set(id, job);
+    addLog(job, `${job.startedAt} ${job.command}\n`);
 
-  const child = spawn(prediction.executable, prediction.args, {
-    cwd: ROOT,
-    env: prediction.env,
-    windowsHide: true
-  });
-  job.child = child;
-  job.pid = child.pid;
+    const child = spawn(prediction.executable, prediction.args, {
+      cwd: ROOT,
+      env: prediction.env,
+      windowsHide: true,
+      detached: process.platform !== "win32"
+    });
+    job.child = child;
+    job.pid = child.pid;
 
-  child.stdout.on("data", (chunk) => addLog(job, chunk));
-  child.stderr.on("data", (chunk) => addLog(job, chunk));
-  child.on("error", (error) => {
-    job.status = "failed";
-    job.failureReason = `Process error: ${error.message}`;
-    addLog(job, `\nProcess error: ${error.message}\n`);
-  });
-  child.on("close", async (code, signal) => {
-    if (job.status === "stopping") {
-      job.status = "stopped";
-    } else if (job.status !== "failed") {
-      job.status = code === 0 && !job.detectedFailure ? "succeeded" : "failed";
-    }
-    job.exitCode = code;
-    job.signal = signal;
-    job.endedAt = new Date().toISOString();
-    if (job.detectedFailure && code === 0) {
-      addLog(job, "\nBoltz reported an input-processing failure even though the process exited with code 0.\n");
-    }
-    addLog(job, `\nExited with code ${code}${signal ? ` (${signal})` : ""}.\n`);
-    try {
-      if (
-        job.atomContacts.length > 0
-        || job.atomContactUnions.length > 0
-        || job.tokenContacts.length > 0
-        || job.interfaceContacts.length > 0
-      ) {
-        const audit = await writeRestraintReport(
-          job.resultDirectory,
-          job.atomContacts,
-          job.atomContactUnions,
-          job.tokenContacts,
-          job.interfaceContacts
-        );
-        job.restraintReportPath = audit.reportPath;
+    child.stdout.on("data", (chunk) => addLog(job, chunk));
+    child.stderr.on("data", (chunk) => addLog(job, chunk));
+    child.on("error", (error) => {
+      job.status = "failed";
+      job.failureReason = `Process error: ${error.message}`;
+      addLog(job, `\nProcess error: ${error.message}\n`);
+    });
+    child.on("close", async (code, signal) => {
+      clearTimeout(job.killTimer);
+      if (job.status === "stopping" && process.platform !== "win32") {
+        try { process.kill(-job.pid, "SIGKILL"); } catch (error) {
+          if (error.code !== "ESRCH") addLog(job, `Unable to clean up process group: ${error.message}\n`);
+        }
       }
-    } catch (error) {
-      job.status = "failed";
-      job.failureReason = `Restraint report generation failed: ${error.message}`;
-      addLog(job, `\n${job.failureReason}\n`);
-    }
-    try {
-      job.manifest.structure_postprocessing = await readJsonIfPresent(
-        path.join(job.resultDirectory, "boltzui_postprocess.json")
-      );
-      job.manifest = completeRunManifest(job.manifest, job);
-      job.manifestPath = path.join(job.resultDirectory, "boltzui_run.json");
-      await writeJson(job.manifestStagingPath, job.manifest);
-      await writeJson(job.manifestPath, job.manifest);
-    } catch (error) {
-      job.status = "failed";
-      job.failureReason = `Run manifest finalization failed: ${error.message}`;
-      addLog(job, `\n${job.failureReason}\n`);
-    }
-    jobEvents.emit(job.id, { type: "status", data: publicJob(job) });
-  });
+      if (job.status === "stopping") {
+        job.status = "stopped";
+      } else if (job.status !== "failed") {
+        job.status = code === 0 && !job.detectedFailure ? "succeeded" : "failed";
+      }
+      job.exitCode = code;
+      job.signal = signal;
+      job.endedAt = new Date().toISOString();
+      if (job.detectedFailure && code === 0) {
+        addLog(job, "\nBoltz reported an input-processing failure even though the process exited with code 0.\n");
+      }
+      addLog(job, `\nExited with code ${code}${signal ? ` (${signal})` : ""}.\n`);
+      try {
+        if (job.status === "succeeded") {
+          const structures = await findFiles(path.join(job.resultDirectory, "predictions"),
+            (file) => STRUCTURE_EXTENSIONS.has(path.extname(file).toLowerCase()), 1);
+          if (!structures.length) throw new Error("The prediction process produced no structures.");
+        }
+        if (
+          job.status === "succeeded" && (job.atomContacts.length > 0
+          || job.atomContactUnions.length > 0
+          || job.tokenContacts.length > 0
+          || job.interfaceContacts.length > 0)
+        ) {
+          const audit = await writeRestraintReport(
+            job.resultDirectory,
+            job.atomContacts,
+            job.atomContactUnions,
+            job.tokenContacts,
+            job.interfaceContacts
+          );
+          job.restraintReportPath = audit.reportPath;
+        }
+      } catch (error) {
+        job.status = "failed";
+        job.failureReason = `Result validation failed: ${error.message}`;
+        addLog(job, `\n${job.failureReason}\n`);
+      }
+      try {
+        const ownedDirectory = await finishJobOutput(output, job.status === "succeeded");
+        job.manifest.output_directory = displayPath(ownedDirectory);
+        job.manifest.structure_postprocessing = await readJsonIfPresent(
+          path.join(ownedDirectory, "boltzui_postprocess.json")
+        );
+        job.manifest = completeRunManifest(job.manifest, job);
+        const manifestPath = path.join(ownedDirectory, "boltzui_run.json");
+        await writeJson(job.manifestStagingPath, job.manifest);
+        await writeJson(manifestPath, job.manifest);
+        job.manifestPath = manifestPath;
+      } catch (error) {
+        job.status = "failed";
+        job.failureReason = `Run manifest finalization failed: ${error.message}`;
+        addLog(job, `\n${job.failureReason}\n`);
+      } finally {
+        activeOutputDirectories.delete(outputKey);
+      }
+      jobEvents.emit(job.id, { type: "status", data: publicJob(job) });
+    });
 
-  return publicJob(job, true);
+    return publicJob(job, true);
+  } catch (error) {
+    try {
+      if (output) await finishJobOutput(output, false);
+    } finally {
+      activeOutputDirectories.delete(outputKey);
+    }
+    throw error;
+  }
 }
 
 async function stopJob(id) {
@@ -688,7 +733,19 @@ async function stopJob(id) {
   if (!job.child || job.status !== "running") return publicJob(job, true);
   job.status = "stopping";
   addLog(job, "\nStopping job...\n");
-  job.child.kill("SIGTERM");
+  if (process.platform === "win32") {
+    const killer = spawn("taskkill", ["/PID", String(job.pid), "/T", "/F"], { windowsHide: true });
+    killer.on("error", (error) => addLog(job, `Unable to stop process tree: ${error.message}\n`));
+  } else {
+    const killGroup = (signal) => {
+      try { process.kill(-job.pid, signal); } catch (error) {
+        if (error.code !== "ESRCH") addLog(job, `Unable to stop process group: ${error.message}\n`);
+      }
+    };
+    killGroup("SIGTERM");
+    job.killTimer = setTimeout(() => killGroup("SIGKILL"), 5000);
+    job.killTimer.unref();
+  }
   jobEvents.emit(job.id, { type: "status", data: publicJob(job) });
   return publicJob(job, true);
 }
@@ -787,6 +844,14 @@ async function handleApi(req, res, url) {
     return;
   }
 
+  if (req.method === "GET" && url.pathname === "/api/results/audit") {
+    const directory = safeResolve(url.searchParams.get("path") || "");
+    const report = await readJsonIfPresent(path.join(directory, "contact_restraints.json"))
+      || await readJsonIfPresent(path.join(directory, "atom_contact_restraints.json"));
+    sendJson(res, 200, { report: selectAuditModel(report, url.searchParams.get("model")) });
+    return;
+  }
+
   if (req.method === "POST" && url.pathname === "/api/command") {
     const payload = await readBody(req);
     const command = buildBoltzCommand(payload, { maskSecrets: true });
@@ -796,6 +861,12 @@ async function handleApi(req, res, url) {
       preset: command.preset,
       options: command.options
     });
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/api/builder/parse") {
+    const payload = await readBody(req);
+    sendJson(res, 200, parseBuilderYaml(String(payload.content || "")));
     return;
   }
 

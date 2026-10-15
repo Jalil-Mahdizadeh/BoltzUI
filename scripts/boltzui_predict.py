@@ -37,27 +37,30 @@ def split_postprocess_flags(arguments: list[str]) -> tuple[list[str], str | None
 def enforce_image_runtime_flags(arguments: list[str]) -> list[str]:
     """Keep supported prediction entry points on the image's tested runtime path."""
     if arguments and arguments[0] == "predict" and "--no_kernels" not in arguments:
-        return [*arguments, "--no_kernels"]
+        boundary = arguments.index("--") if "--" in arguments else len(arguments)
+        return [*arguments[:boundary], "--no_kernels", *arguments[boundary:]]
     return arguments
-
-
-def _option_value(arguments: list[str], flag: str, default: str) -> str:
-    try:
-        index = arguments.index(flag)
-    except ValueError:
-        return default
-    if index + 1 >= len(arguments):
-        raise PostprocessError(f"{flag} requires a value.")
-    return arguments[index + 1]
 
 
 def result_directory(arguments: list[str], cwd: Path) -> Path:
     if len(arguments) < 2 or arguments[0] != "predict":
         raise PostprocessError("Hydrogen post-processing is only valid with 'boltzui-predict predict DATA'.")
-    data = Path(arguments[1])
+    # Use the installed command's option arities and Click's lexical parser.
+    # Avoid invoking callbacks or validating paths a second time.
+    import click
+    from boltz.main import predict
+
+    try:
+        with click.Context(predict) as context:
+            values, _, _ = predict.make_parser(context).parse_args(arguments[1:])
+    except click.ClickException as exc:
+        raise PostprocessError(str(exc)) from exc
+    if not values.get("data"):
+        raise PostprocessError("predict requires a DATA path.")
+    data = Path(values["data"])
     if not data.is_absolute():
         data = cwd / data
-    output_root = Path(_option_value(arguments, "--out_dir", "boltz_results"))
+    output_root = Path(values.get("out_dir") or "boltz_results")
     if not output_root.is_absolute():
         output_root = cwd / output_root
     return output_root / f"boltz_results_{data.stem}"
@@ -68,11 +71,13 @@ def main(arguments: list[str] | None = None) -> int:
     try:
         forwarded, mode = split_postprocess_flags(arguments)
         forwarded = enforce_image_runtime_flags(forwarded)
-        if mode is not None:
+        help_requested = any(argument in {"--help", "-h"} for argument in forwarded)
+        if mode is not None and not help_requested:
             target = result_directory(forwarded, Path.cwd())
         completed = subprocess.run([os.environ.get("BOLTZ_EXECUTABLE", "boltz"), *forwarded], check=False)
-        if any(argument in {"--help", "-h"} for argument in forwarded):
+        if help_requested:
             print(HELP_TEXT)
+            return completed.returncode
         if completed.returncode != 0:
             return completed.returncode
         if mode is None:

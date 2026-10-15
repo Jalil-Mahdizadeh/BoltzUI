@@ -1,4 +1,4 @@
-"""Dependency-free tests for the BoltzUI prediction wrapper."""
+"""Tests for the BoltzUI prediction wrapper and installed CLI parser."""
 
 from pathlib import Path
 import sys
@@ -55,6 +55,20 @@ class BoltzUiPredictTests(unittest.TestCase):
     def test_help_documents_both_custom_flags(self):
         self.assertIn("--addh", HELP_TEXT)
         self.assertIn("--addh-energy-min", HELP_TEXT)
+
+    def test_result_directory_accepts_click_option_forms(self):
+        for arguments in [
+            ["predict", "case.yaml", "--out_dir=/tmp/custom"],
+            ["predict", "--out_dir", "/tmp/custom", "case.yaml"],
+            ["predict", "--sampling_steps", "200", "--override", "case.yaml", "--out_dir=/tmp/custom"],
+            ["predict", "--out_dir", "/tmp/custom", "--", "case.yaml"],
+        ]:
+            with self.subTest(arguments=arguments):
+                self.assertEqual(result_directory(arguments, Path("/work")), Path("/tmp/custom/boltz_results_case"))
+
+    def test_runtime_flag_precedes_end_of_options(self):
+        self.assertEqual(enforce_image_runtime_flags(["predict", "--", "-case.yaml"]),
+                         ["predict", "--no_kernels", "--", "-case.yaml"])
 
     def test_pdb_confidence_is_copied_to_heavy_atoms_and_new_hydrogens(self):
         with tempfile.TemporaryDirectory() as directory:

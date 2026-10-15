@@ -23,6 +23,50 @@ const restraint = {
   max_distance: 4, force: true
 };
 
+function regressionAtoms(records, format) {
+  if (format === "cif") {
+    const fields = ["group_PDB", "type_symbol", "label_atom_id", "label_asym_id", "label_seq_id", "auth_atom_id", "auth_asym_id", "auth_seq_id", "Cartn_x", "Cartn_y", "Cartn_z"];
+    return parseMmcif(`data_test\nloop_\n${fields.map((field) => `_atom_site.${field}`).join("\n")}\n${records.map(([atom, chain, x, element = "C"]) => `ATOM ${element} ${atom} ${chain} 1 ${atom} ${chain} 1 ${x} 0 0`).join("\n")}\n#`);
+  }
+  return parsePdb(records.map(([atom, chain, x, element = "C"], index) => (
+    `ATOM  ${String(index + 1).padStart(5)} ${atom.padStart(4)} ALA ${chain}   1    ${x.toFixed(3).padStart(8)}   0.000   0.000  1.00 80.00          ${element.padStart(2)}  `
+  )).join("\n"));
+}
+
+test("adding hydrogen or deuterium cannot satisfy an unchanged token contact", () => {
+  const contact = { chain1: "A", token1: 1, chain2: "B", token2: 1, max_distance: 4 };
+  const heavy = [["CA", "A", 0], ["CA", "B", 4.8]];
+  for (const format of ["pdb", "cif"]) {
+    for (const records of [heavy, [...heavy, ["HA", "A", 1, "H"], ["DA", "B", 3.8, "D"]]]) {
+      const measured = measureTokenContact(contact, regressionAtoms(records, format), "model_0");
+      assert.equal(measured.satisfied, false);
+      assert.equal(measured.observed_distance, 4.8);
+    }
+  }
+});
+
+test("explicit bonds are excluded from reciprocal interface coverage and overlap counts", () => {
+  const { validateInterfaceContacts } = require("../lib/interface-contact");
+  const document = {
+    sequences: ["A", "B"].map((id) => ({ protein: { id, sequence: "A" } })),
+    constraints: [
+      { bond: { atom1: ["B", 1, "CA"], atom2: ["A", 1, "CA"] } },
+      { interface_contact: { patch1: { chain: "A", residues: [1] }, patch2: { chain: "B", residues: [1] }, max_distance: 6, force: true } }
+    ]
+  };
+  const contact = validateInterfaceContacts(document).interfaces[0];
+  for (const format of ["pdb", "cif"]) {
+    const atoms = regressionAtoms([["CA", "A", 0], ["CB", "A", -10], ["CA", "B", 1.8], ["CB", "B", 11.8]], format);
+    const measured = measureInterfaceContact(contact, atoms, "model_0");
+    assert.equal(measured.satisfied, false);
+    assert.equal(measured.minimum_observed_distance, 11.8);
+    assert.equal(measured.residue_satisfied, 0);
+    assert.equal(measured.sub_2A_cross_patch_atom_pairs, 0);
+    const onlyBond = regressionAtoms([["CA", "A", 0], ["CA", "B", 1.8]], format);
+    assert.equal(measureInterfaceContact(contact, onlyBond, "model_0").status, "unresolved");
+  }
+});
+
 test("PDB parsing supports post-prediction distance measurement", () => {
   const atoms = parsePdb(fs.readFileSync(path.join(structures, "atom_contact_model_0.pdb"), "utf8"));
   const measured = measureStructure(restraint, atoms, "model_0");
@@ -85,7 +129,7 @@ test("token-only runs write the generic contact restraint report", async () => {
     max_distance: 4, force: true
   }]);
   assert.equal(path.basename(reportPath), "contact_restraints.json");
-  assert.equal(report.schema_version, 8);
+  assert.equal(report.schema_version, 9);
   assert.equal(report.token_contacts[0].models[0].satisfied, true);
   assert.equal(report.model_summaries[0].token.satisfied, 1);
 });

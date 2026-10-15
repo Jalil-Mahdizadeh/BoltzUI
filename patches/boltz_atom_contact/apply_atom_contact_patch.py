@@ -61,6 +61,7 @@ INTERFACE_FEATURES_V2_MARKER = '"interface_contact_pair_weights"'
 INTERFACE_FEATURES_CYCLIC_MARKER = "cyclic_period_by_chain"
 INTERFACE_FEATURES_CROP_MARKER = "lost forced active residue(s) during cropping"
 INTERFACE_FEATURES_AIR_MARKER = "literal_threshold = float(max_distance)"
+INTERFACE_FEATURES_PAIR_LIMIT_MARKER = "def reserve_interface_pair():"
 INTERFACE_POTENTIALS_V2_MARKER = "class InterfaceClashPotentital"
 INTERFACE_POTENTIALS_RESAMPLING_MARKER = (
     "# Reciprocal per-active-residue AIR energy participates in particle resampling."
@@ -148,6 +149,8 @@ def verify_applied_patch(paths: dict[str, Path]) -> None:
         raise RuntimeError(
             "featurizerv2.py is missing literal-bound reciprocal AIR groups."
         )
+    if INTERFACE_FEATURES_PAIR_LIMIT_MARKER not in feature_text:
+        raise RuntimeError("featurizerv2.py is missing the early interface pair allocation limit.")
     if (
         INTERFACE_POTENTIALS_V2_MARKER not in potential_text
         or potential_text.count("InterfaceClashPotentital(") < 2
@@ -1596,7 +1599,17 @@ def interface_features_v2_source() -> str:
             )
         )
 
-    def eligible_atom_pairs(token1, local_start1, token2, local_start2):
+    def reserve_interface_pair():
+        nonlocal interface_atom_pair_count
+        if interface_atom_pair_count >= max_interface_atom_pairs:
+            raise ValueError(
+                "interface_contact generated more than "
+                f"{max_interface_atom_pairs} eligible heavy-atom pairs; "
+                "reduce the interface patch sizes."
+            )
+        interface_atom_pair_count += 1
+
+    def eligible_atom_pairs(token1, local_start1, token2, local_start2, reserve=False):
         if same_chain_neighbors(token1, token2):
             return []
         pairs = []
@@ -1609,6 +1622,8 @@ def interface_features_v2_source() -> str:
                 local_start2 + int(token2["atom_num"]),
             ):
                 if tuple(sorted((atom1, atom2))) not in bonded_pairs:
+                    if reserve:
+                        reserve_interface_pair()
                     pairs.append((atom1, atom2))
         return pairs
 
@@ -1644,6 +1659,7 @@ def interface_features_v2_source() -> str:
                             source_local_start,
                             target_token,
                             target_local_start,
+                            reserve=True,
                         )
                     )
                 if not group_pairs:
@@ -1658,13 +1674,6 @@ def interface_features_v2_source() -> str:
                 )
             direction_group_weight = 0.5 / len(direction_groups)
             for atom_pairs in direction_groups:
-                interface_atom_pair_count += atom_pairs.shape[1]
-                if interface_atom_pair_count > max_interface_atom_pairs:
-                    raise ValueError(
-                        "interface_contact generated more than "
-                        f"{max_interface_atom_pairs} eligible heavy-atom pairs; "
-                        "reduce the interface patch sizes."
-                    )
                 pair_index.append(atom_pairs)
                 union_index.append(
                     torch.full(
@@ -1825,6 +1834,7 @@ def patch_interface_features_v2(path: Path) -> bool:
         and INTERFACE_FEATURES_CYCLIC_MARKER in text
         and INTERFACE_FEATURES_CROP_MARKER in text
         and INTERFACE_FEATURES_AIR_MARKER in text
+        and INTERFACE_FEATURES_PAIR_LIMIT_MARKER in text
     ):
         return False
     helper_start = text.index("def apply_interface_contact_potentials(")

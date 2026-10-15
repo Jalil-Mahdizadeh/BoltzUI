@@ -1082,7 +1082,7 @@ class BoltzPatchTests(unittest.TestCase):
             ],
         )
         data = SimpleNamespace(tokens=tokens, structure=SimpleNamespace(chains=[]))
-        with self.assertRaisesRegex(
+        with patch("torch.tensor", wraps=torch.tensor) as tensors, self.assertRaisesRegex(
             ValueError,
             "more than 250000 eligible heavy-atom pairs",
         ):
@@ -1096,6 +1096,13 @@ class BoltzPatchTests(unittest.TestCase):
                     ([(0, 0)], [(1, 0)], 6.0, True)
                 ],
             )
+
+        allocated_pairs = sum(
+            len(call.args[0]) for call in tensors.call_args_list
+            if call.args and isinstance(call.args[0], list) and call.args[0]
+            and isinstance(call.args[0][0], tuple) and len(call.args[0][0]) == 2
+        )
+        self.assertLessEqual(allocated_pairs, 250_000)
 
     def test_force_off_interface_is_report_only(self):
         tokens = np.array(

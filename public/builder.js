@@ -1334,7 +1334,16 @@ function updateYamlBuilderVisibility() {
   });
 }
 
+let builderLoadError = null;
+let builderLoadGeneration = 0;
+
 function generateYamlFromBuilder({ silent = false } = {}) {
+  if (builderLoadError) {
+    const result = { yaml: $("#input-editor").value, warnings: [builderLoadError], summary: "Manual YAML editing" };
+    renderYamlBuilderStatus(result);
+    if (!silent) showToast(builderLoadError);
+    return result;
+  }
   updateYamlBuilderVisibility();
   const result = buildYamlFromBuilder();
   $("#input-editor").value = result.yaml;
@@ -1346,6 +1355,8 @@ function generateYamlFromBuilder({ silent = false } = {}) {
 const syncYamlFromBuilder = debounce(() => generateYamlFromBuilder({ silent: true }), 90);
 
 function applyYamlPreset(profileName, { silent = true } = {}) {
+  builderLoadGeneration += 1;
+  builderLoadError = null;
   const preset = YAML_TASK_PRESETS[profileName] || YAML_TASK_PRESETS.structure;
   setDraftName(preset.filename);
 
@@ -1382,294 +1393,11 @@ function applyYamlPreset(profileName, { silent = true } = {}) {
   generateYamlFromBuilder({ silent });
 }
 
-function yamlLineIndent(line) {
-  return (String(line).match(/^\s*/) || [""])[0].length;
-}
-
-function yamlSectionLines(text, sectionName) {
-  const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
-  const sectionStart = lines.findIndex((line) => (
-    yamlLineIndent(line) === 0 && new RegExp(`^${sectionName}:\\s*$`).test(line.trim())
-  ));
-  if (sectionStart === -1) return [];
-
-  const section = [];
-  for (let index = sectionStart + 1; index < lines.length; index += 1) {
-    const line = lines[index];
-    if (line.trim() && yamlLineIndent(line) === 0 && /^[A-Za-z_][\w-]*:\s*/.test(line.trim())) break;
-    section.push(line);
-  }
-  return section;
-}
-
-function splitYamlItems(sectionLines) {
-  const items = [];
-  let itemIndent = null;
-  let current = null;
-
-  for (const line of sectionLines) {
-    if (!line.trim()) {
-      if (current) current.push(line);
-      continue;
-    }
-
-    const trimmed = line.trim();
-    const indent = yamlLineIndent(line);
-    if (trimmed.startsWith("- ")) {
-      if (itemIndent === null) itemIndent = indent;
-      if (indent === itemIndent) {
-        if (current) items.push(current);
-        current = [line];
-        continue;
-      }
-    }
-
-    if (current) current.push(line);
-  }
-
-  if (current) items.push(current);
-  return items;
-}
-
-function yamlItemHeader(itemLines) {
-  const header = itemLines[0]?.trim().match(/^-\s+([A-Za-z_][\w-]*):\s*(.*)$/);
-  if (!header) return null;
-  return { key: header[1], value: header[2] || "" };
-}
-
-function parseYamlItemMapping(itemLines) {
-  const map = {};
-  for (let index = 1; index < itemLines.length; index += 1) {
-    const line = itemLines[index];
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("- ")) continue;
-    const match = trimmed.match(/^([A-Za-z_][\w-]*):(?:\s*(.*))?$/);
-    if (!match) continue;
-
-    const key = match[1];
-    const value = match[2] || "";
-    if (value !== "") {
-      map[key] = value;
-      continue;
-    }
-
-    const baseIndent = yamlLineIndent(line);
-    const listValues = [];
-    for (let childIndex = index + 1; childIndex < itemLines.length; childIndex += 1) {
-      const childLine = itemLines[childIndex];
-      const childTrimmed = childLine.trim();
-      if (!childTrimmed || childTrimmed.startsWith("#")) continue;
-      if (yamlLineIndent(childLine) <= baseIndent) break;
-      if (!childTrimmed.startsWith("- ")) continue;
-      const listValue = childTrimmed.replace(/^-\s+/, "").trim();
-      if (listValue) listValues.push(listValue);
-    }
-    if (listValues.length) map[key] = `[${listValues.join(", ")}]`;
-  }
-  return map;
-}
-
-function parseYamlModifications(itemLines) {
-  const modifications = [];
-  const start = itemLines.findIndex((line) => line.trim() === "modifications:");
-  if (start === -1) return "";
-
-  const baseIndent = yamlLineIndent(itemLines[start]);
-  let current = null;
-  for (const line of itemLines.slice(start + 1)) {
-    const trimmed = line.trim();
-    if (!trimmed) continue;
-    if (yamlLineIndent(line) <= baseIndent) break;
-
-    const position = trimmed.match(/^-\s+position:\s*(.+)$/);
-    if (position) {
-      if (current?.position && current?.ccd) modifications.push(current);
-      current = { position: stripYamlQuotes(position[1]), ccd: "" };
-      continue;
-    }
-
-    const ccd = trimmed.match(/^ccd:\s*(.+)$/);
-    if (ccd && current) current.ccd = stripYamlQuotes(ccd[1]);
-  }
-  if (current?.position && current?.ccd) modifications.push(current);
-
-  return modifications.map((item) => `${item.position}:${item.ccd}`).join("\n");
-}
-
-function parseYamlSequences(text, parsed) {
-  for (const item of splitYamlItems(yamlSectionLines(text, "sequences"))) {
-    const header = yamlItemHeader(item);
-    if (!header) continue;
-
-    const map = parseYamlItemMapping(item);
-    if (POLYMER_TYPES.has(header.key)) {
-      const msa = map.msa ? stripYamlQuotes(map.msa) : "";
-      const msaMode = msa ? (msa.toLowerCase() === "empty" ? "empty" : "custom") : "auto";
-      parsed.polymers.push({
-        type: header.key,
-        ids: yamlValueAsText(map.id || "A"),
-        sequence: stripYamlQuotes(map.sequence || ""),
-        msaMode,
-        msaPath: msaMode === "custom" ? msa : "",
-        cyclic: boolFromYamlValue(map.cyclic),
-        modifications: parseYamlModifications(item)
-      });
-      continue;
-    }
-
-    if (header.key === "ligand") {
-      const source = map.ccd !== undefined ? "ccd" : "smiles";
-      parsed.ligands.push({
-        ids: yamlValueAsText(map.id || "B"),
-        source,
-        value: source === "ccd" ? yamlValueAsText(map.ccd || "") : stripYamlQuotes(map.smiles || "")
-      });
-      continue;
-    }
-
-    parsed.warnings.push(`Unsupported sequence entity "${header.key}" was left out of builder fields.`);
-  }
-}
-
-function parseYamlConstraints(text, parsed) {
-  for (const item of splitYamlItems(yamlSectionLines(text, "constraints"))) {
-    const header = yamlItemHeader(item);
-    if (!header) continue;
-
-    const map = parseYamlItemMapping(item);
-    if (header.key === "contact") {
-      parsed.contacts.push({
-        token1: yamlTokenAsField(map.token1 || "A:45"),
-        token2: yamlTokenAsField(map.token2 || "B:67"),
-        distance: stripYamlQuotes(map.max_distance || "6"),
-        force: boolFromYamlValue(map.force)
-      });
-      continue;
-    }
-
-    if (header.key === "pocket") {
-      parsed.pockets.push({
-        binder: stripYamlQuotes(map.binder || "B"),
-        contacts: yamlContactListAsField(map.contacts || ""),
-        distance: stripYamlQuotes(map.max_distance || "6"),
-        force: boolFromYamlValue(map.force)
-      });
-      continue;
-    }
-
-    if (header.key === "interface_contact") {
-      const patches = {
-        patch1: { chain: "A", residues: "" },
-        patch2: { chain: "B", residues: "" }
-      };
-      let currentPatch = null;
-      for (const line of item.slice(1)) {
-        const trimmed = line.trim();
-        const patchMatch = trimmed.match(/^(patch[12]):\s*$/);
-        if (patchMatch) {
-          currentPatch = patchMatch[1];
-          continue;
-        }
-        if (!currentPatch) continue;
-        const chainMatch = trimmed.match(/^chain:\s*(.+)$/);
-        if (chainMatch) {
-          patches[currentPatch].chain = stripYamlQuotes(chainMatch[1]);
-          continue;
-        }
-        const residuesMatch = trimmed.match(/^residues:\s*(.+)$/);
-        if (residuesMatch) {
-          patches[currentPatch].residues = yamlValueAsList(residuesMatch[1])
-            .map((value) => stripYamlQuotes(value))
-            .join("\n");
-        }
-      }
-      parsed.interfaceContacts.push({
-        patch1Chain: patches.patch1.chain,
-        patch1Residues: patches.patch1.residues,
-        patch2Chain: patches.patch2.chain,
-        patch2Residues: patches.patch2.residues,
-        distance: stripYamlQuotes(map.max_distance || "6"),
-        force: boolFromYamlValue(map.force)
-      });
-      continue;
-    }
-
-    if (header.key === "atom_contact") {
-      parsed.atomContacts.push({
-        atom1: yamlAtomAsField(map.atom1 || "A:145:NZ"),
-        atom2: yamlAtomAsField(map.atom2 || "B:37:OD1"),
-        distance: stripYamlQuotes(map.max_distance || "3.5"),
-        force: boolFromYamlValue(map.force)
-      });
-      continue;
-    }
-
-    if (header.key === "bond") {
-      parsed.bonds.push({
-        atom1: yamlAtomAsField(map.atom1 || "A:145:SG"),
-        atom2: yamlAtomAsField(map.atom2 || "B:1:C1")
-      });
-      continue;
-    }
-
-    parsed.warnings.push(`Unsupported constraint "${header.key}" was left out of builder fields.`);
-  }
-}
-
-function parseYamlTemplates(text, parsed) {
-  const items = splitYamlItems(yamlSectionLines(text, "templates"));
-  for (const item of items) {
-    const header = yamlItemHeader(item);
-    if (!header) continue;
-    const map = parseYamlItemMapping(item);
-    if (!["cif", "pdb"].includes(header.key)) {
-      parsed.warnings.push(`Unsupported template format "${header.key}" was left out of builder fields.`);
-      continue;
-    }
-    const format = header.key;
-    parsed.templates.push({
-      format,
-      path: stripYamlQuotes(header.value || map[format] || `./template.${format}`),
-      chainIds: yamlValueAsText(map.chain_id || "A"),
-      templateIds: yamlValueAsText(map.template_id || ""),
-      force: boolFromYamlValue(map.force),
-      threshold: stripYamlQuotes(map.threshold || "2")
-    });
-  }
-}
-
-function parseYamlProperties(text, parsed) {
-  for (const item of splitYamlItems(yamlSectionLines(text, "properties"))) {
-    const header = yamlItemHeader(item);
-    if (!header) continue;
-    const map = parseYamlItemMapping(item);
-    if (header.key === "affinity") {
-      parsed.affinity = { enabled: true, binder: stripYamlQuotes(map.binder || "B") };
-    } else {
-      parsed.warnings.push(`Unsupported property "${header.key}" was left out of builder fields.`);
-    }
-  }
-}
-
-function parseBuilderYaml(text) {
-  const parsed = {
-    polymers: [],
-    ligands: [],
-    pockets: [],
-    interfaceContacts: [],
-    contacts: [],
-    atomContacts: [],
-    atomContactUnions: [],
-    bonds: [],
-    affinity: null,
-    templates: [],
-    warnings: []
-  };
-  parseYamlSequences(text, parsed);
-  parseYamlConstraints(text, parsed);
-  parseYamlTemplates(text, parsed);
-  parseYamlProperties(text, parsed);
-  return parsed;
+async function parseBuilderYaml(text) {
+  return api("/api/builder/parse", {
+    method: "POST",
+    body: JSON.stringify({ content: text })
+  });
 }
 
 function profileFromParsedYaml(parsed) {
@@ -1886,18 +1614,20 @@ function populateExistingYamlSelect(inputs = []) {
 
 async function loadExistingYaml(relativePath) {
   if (!relativePath) return;
+  const generation = ++builderLoadGeneration;
+  builderLoadError = "Loading input. Builder generation is paused.";
   try {
     const response = await fetch(`/api/file?path=${encodeURIComponent(relativePath)}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`Failed to load ${relativePath}.`);
     const text = await response.text();
-    const parsed = parseBuilderYaml(text);
-    const atomConstraints = await parseAtomConstraintsYaml(text, filenameFromPath(relativePath));
-    parsed.atomContacts = atomConstraints.exact;
-    parsed.atomContactUnions = atomConstraints.unions;
+    if (generation !== builderLoadGeneration) return;
     const filename = filenameFromPath(relativePath);
 
     $("#input-editor").value = text.endsWith("\n") ? text : `${text}\n`;
     setDraftName(filename);
+    const parsed = await parseBuilderYaml(text);
+    if (generation !== builderLoadGeneration) return;
+    builderLoadError = null;
     if (!parsed.polymers.length && !parsed.ligands.length) {
       renderYamlBuilderStatus({
         warnings: ["No supported sequence entities were found. The YAML is loaded in the editor only."],
@@ -1912,6 +1642,9 @@ async function loadExistingYaml(relativePath) {
     if (savedStatus) savedStatus.textContent = `Loaded: ${relativePath}`;
     showToast(parsed.warnings.length ? "YAML loaded with parser notes." : "YAML loaded.");
   } catch (error) {
+    if (generation !== builderLoadGeneration) return;
+    builderLoadError = `${error.message} The editor content is preserved; choose a preset to start a new builder draft.`;
+    renderYamlBuilderStatus({ warnings: [builderLoadError], summary: "Manual YAML editing" });
     showToast(error.message);
   }
 }

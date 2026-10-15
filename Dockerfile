@@ -41,7 +41,7 @@ RUN --mount=type=bind,from=node_runtime,source=/node-bundle,target=/tmp/node-bun
     python patches/boltz_atom_contact/apply_atom_contact_patch.py --verify-applied; \
     node scripts/sync-docs.js --check; \
     node --test tests/*.test.js; \
-    python -m unittest tests/test_boltz_patch.py tests/test_boltzui_predict.py tests/test_structure_postprocess.py; \
+    python -m unittest tests/test_boltz_patch.py tests/test_boltzui_predict.py tests/test_structure_postprocess.py tests/test_job_lifecycle.py; \
     python -c "import openmm, pdbfixer; print('OpenMM', openmm.__version__, 'PDBFixer', getattr(pdbfixer, '__version__', 'unknown'))"; \
     boltzui-predict --help >/dev/null; \
     boltz --help >/dev/null; \

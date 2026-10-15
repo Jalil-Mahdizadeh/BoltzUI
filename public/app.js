@@ -578,9 +578,38 @@ function renderResults() {
   renderResultSelectors();
   renderResultCards();
   renderModelTable();
-  renderRestraintAudit();
+  loadSelectedAudit();
   renderSelectedStructure();
   renderOverview();
+}
+
+let auditRequestId = 0;
+let auditController = null;
+
+async function loadSelectedAudit() {
+  const requestId = ++auditRequestId;
+  auditController?.abort();
+  const result = currentResult();
+  const model = currentModel(result);
+  const audit = $("#restraint-audit");
+  setFileLink("#run-manifest-link", result?.runManifestPath);
+  setFileLink("#restraint-report-link", result?.restraintReportPath);
+  setFileLink("#postprocess-report-link", result?.postprocessReportPath);
+  $("#restraint-table-body").innerHTML = "";
+  audit.hidden = !result?.restraintReportPath;
+  if (audit.hidden) return;
+  $("#restraint-audit-summary").textContent = audit.open ? "Loading selected model audit…" : "Expand to load the selected model's restraint audit.";
+  if (!audit.open) return;
+  auditController = new AbortController();
+  try {
+    const auditModel = model?.auditModel || (model ? `model_${model.index}` : "");
+    const { report } = await api(`/api/results/audit?path=${encodeURIComponent(result.path)}&model=${encodeURIComponent(auditModel)}`, { signal: auditController.signal });
+    if (requestId !== auditRequestId) return;
+    result.restraintReport = report;
+    renderRestraintAudit();
+  } catch (error) {
+    if (requestId === auditRequestId && error.name !== "AbortError") $("#restraint-audit-summary").textContent = error.message;
+  }
 }
 
 function renderRestraintAudit() {
@@ -644,61 +673,64 @@ function renderRestraintAudit() {
         unresolved_reason: "No generated structure was found."
       }];
     for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
-      const row = document.createElement("tr");
       const semantics = InterfaceAuditSemantics.normalize(model, reportSchemaVersion);
-      const residueCoverage = Number.isInteger(model.residue_total)
-        ? `${model.residue_satisfied}/${model.residue_total} active residues`
-        : "active-residue coverage unavailable";
-      const patchContact = semantics.patchContact === true
-        ? "patch contact: yes"
-        : semantics.patchContact === false
-          ? "patch contact: no"
-          : "patch contact: unresolved";
-      const strictCoverage = semantics.allActiveResidues === true
-        ? "all active residues: yes"
-        : semantics.allActiveResidues === false
-          ? "all active residues: no"
-          : "all active residues: unresolved";
-      const perPatchCoverage = Number.isInteger(semantics.patch1.total)
-        && Number.isInteger(semantics.patch2.total)
-        ? (
-          `patch 1 ${semantics.patch1.satisfied}/${semantics.patch1.total}; `
-          + `patch 2 ${semantics.patch2.satisfied}/${semantics.patch2.total}`
-        )
-        : null;
-      const overlapWarning = model.has_sub_2A_cross_patch_overlap
-        ? `; cross-patch atom pairs <2 A: ${model.sub_2A_cross_patch_atom_pairs}`
-        : "";
-      const satisfaction = [
-        patchContact,
-        residueCoverage,
-        perPatchCoverage,
-        strictCoverage
-      ].filter(Boolean).join("; ") + overlapWarning;
-      const observedRange = !Number.isFinite(model.maximum_observed_distance)
-        ? "-"
-        : !Number.isFinite(model.minimum_observed_distance)
-          ? `${formatNumber(model.maximum_observed_distance, 3)} A max`
-          : `${formatNumber(model.minimum_observed_distance, 3)}-${formatNumber(model.maximum_observed_distance, 3)} A min-max`;
-      const residueDetails = (model.residue_restraints || []).map((measurement) => (
-        `${measurement.patch} ${measurement.chain}:${measurement.residue}: `
-        + `${measurement.observed_distance} A; `
-        + `${measurement.closest_source_atom} - ${measurement.closest_opposite_atom}`
-      )).join("\n");
-      row.className = model.has_sub_2A_cross_patch_overlap
-        ? "restraint-violated"
-        : `restraint-${semantics.status}`;
-      row.title = [residueDetails, model.unresolved_reason].filter(Boolean).join("\n\n");
-      row.innerHTML = `
-        <td>${escapeHtml(model.model)}</td>
-        <td>${escapeHtml(pair)}</td>
-        <td>${formatNumber(Number(interfaceContact.max_distance), 2)} A</td>
-        <td>${observedRange}</td>
-        <td>${model.maximum_excess_distance === null ? "-" : `${formatNumber(model.maximum_excess_distance, 3)} A max`}</td>
-        <td>${escapeHtml(satisfaction)}</td>
-      `;
+      const createRow = () => {
+        const row = document.createElement("tr");
+        const residueCoverage = Number.isInteger(model.residue_total)
+          ? `${model.residue_satisfied}/${model.residue_total} active residues`
+          : "active-residue coverage unavailable";
+        const patchContact = semantics.patchContact === true
+          ? "patch contact: yes"
+          : semantics.patchContact === false
+            ? "patch contact: no"
+            : "patch contact: unresolved";
+        const strictCoverage = semantics.allActiveResidues === true
+          ? "all active residues: yes"
+          : semantics.allActiveResidues === false
+            ? "all active residues: no"
+            : "all active residues: unresolved";
+        const perPatchCoverage = Number.isInteger(semantics.patch1.total)
+          && Number.isInteger(semantics.patch2.total)
+          ? (
+            `patch 1 ${semantics.patch1.satisfied}/${semantics.patch1.total}; `
+            + `patch 2 ${semantics.patch2.satisfied}/${semantics.patch2.total}`
+          )
+          : null;
+        const overlapWarning = model.has_sub_2A_cross_patch_overlap
+          ? `; cross-patch atom pairs <2 A: ${model.sub_2A_cross_patch_atom_pairs}`
+          : "";
+        const satisfaction = [
+          patchContact,
+          residueCoverage,
+          perPatchCoverage,
+          strictCoverage
+        ].filter(Boolean).join("; ") + overlapWarning;
+        const observedRange = !Number.isFinite(model.maximum_observed_distance)
+          ? "-"
+          : !Number.isFinite(model.minimum_observed_distance)
+            ? `${formatNumber(model.maximum_observed_distance, 3)} A max`
+            : `${formatNumber(model.minimum_observed_distance, 3)}-${formatNumber(model.maximum_observed_distance, 3)} A min-max`;
+        const residueDetails = (model.residue_restraints || []).map((measurement) => (
+          `${measurement.patch} ${measurement.chain}:${measurement.residue}: `
+          + `${measurement.observed_distance} A; `
+          + `${measurement.closest_source_atom} - ${measurement.closest_opposite_atom}`
+        )).join("\n");
+        row.className = model.has_sub_2A_cross_patch_overlap
+          ? "restraint-violated"
+          : `restraint-${semantics.status}`;
+        row.title = [residueDetails, model.unresolved_reason].filter(Boolean).join("\n\n");
+        row.innerHTML = `
+          <td>${escapeHtml(model.model)}</td>
+          <td>${escapeHtml(pair)}</td>
+          <td>${formatNumber(Number(interfaceContact.max_distance), 2)} A</td>
+          <td>${observedRange}</td>
+          <td>${model.maximum_excess_distance === null ? "-" : `${formatNumber(model.maximum_excess_distance, 3)} A max`}</td>
+          <td>${escapeHtml(satisfaction)}</td>
+        `;
+        return row;
+      };
       rowQueue.push({
-        row,
+        createRow,
         kind: "interface",
         measurement: model,
         interfaceSemantics: semantics,
@@ -719,23 +751,26 @@ function renderRestraintAudit() {
       ? contact.models
       : [{ model: "No structure", status: "unresolved", observed_distance: null, excess_distance: null, satisfied: null, unresolved_reason: "No generated structure was found." }];
     for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
-      const row = document.createElement("tr");
-      const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
-      const closestAtoms = model.closest_atom1 && model.closest_atom2
-        ? `Closest atoms: ${model.closest_atom1} - ${model.closest_atom2}`
-        : "";
-      row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
-      row.title = [closestAtoms, model.unresolved_reason].filter(Boolean).join("\n");
-      row.innerHTML = `
-        <td>${escapeHtml(model.model)}</td>
-        <td>${escapeHtml(pair)}</td>
-        <td>${formatNumber(Number(contact.max_distance), 2)} A</td>
-        <td>${model.observed_distance === null ? "-" : `${formatNumber(model.observed_distance, 3)} A`}</td>
-        <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
-        <td>${escapeHtml(satisfaction)}</td>
-      `;
+      const createRow = () => {
+        const row = document.createElement("tr");
+        const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
+        const closestAtoms = model.closest_atom1 && model.closest_atom2
+          ? `Closest atoms: ${model.closest_atom1} - ${model.closest_atom2}`
+          : "";
+        row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
+        row.title = [closestAtoms, model.unresolved_reason].filter(Boolean).join("\n");
+        row.innerHTML = `
+          <td>${escapeHtml(model.model)}</td>
+          <td>${escapeHtml(pair)}</td>
+          <td>${formatNumber(Number(contact.max_distance), 2)} A</td>
+          <td>${model.observed_distance === null ? "-" : `${formatNumber(model.observed_distance, 3)} A`}</td>
+          <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
+          <td>${escapeHtml(satisfaction)}</td>
+        `;
+        return row;
+      };
       rowQueue.push({
-        row,
+        createRow,
         kind: "token",
         measurement: model,
         priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
@@ -749,20 +784,23 @@ function renderRestraintAudit() {
       ? restraint.models
       : [{ model: "No structure", status: "unresolved", observed_distance: null, excess_distance: null, satisfied: null, unresolved_reason: "No generated structure was found." }];
     for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
-      const row = document.createElement("tr");
-      const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
-      row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
-      row.title = model.unresolved_reason || "";
-      row.innerHTML = `
-        <td>${escapeHtml(model.model)}</td>
-        <td>${escapeHtml(pair)}</td>
-        <td>${formatNumber(Number(restraint.max_distance), 2)} A</td>
-        <td>${model.observed_distance === null ? "-" : `${formatNumber(model.observed_distance, 3)} A`}</td>
-        <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
-        <td>${escapeHtml(satisfaction)}</td>
-      `;
+      const createRow = () => {
+        const row = document.createElement("tr");
+        const satisfaction = model.satisfied === true ? "Yes" : model.satisfied === false ? "No" : "Unresolved";
+        row.className = model.status === "unresolved" ? "restraint-unresolved" : model.satisfied ? "restraint-satisfied" : "restraint-violated";
+        row.title = model.unresolved_reason || "";
+        row.innerHTML = `
+          <td>${escapeHtml(model.model)}</td>
+          <td>${escapeHtml(pair)}</td>
+          <td>${formatNumber(Number(restraint.max_distance), 2)} A</td>
+          <td>${model.observed_distance === null ? "-" : `${formatNumber(model.observed_distance, 3)} A`}</td>
+          <td>${model.excess_distance === null ? "-" : `${formatNumber(model.excess_distance, 3)} A`}</td>
+          <td>${escapeHtml(satisfaction)}</td>
+        `;
+        return row;
+      };
       rowQueue.push({
-        row,
+        createRow,
         kind: "exact",
         measurement: model,
         priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
@@ -773,12 +811,6 @@ function renderRestraintAudit() {
   for (const group of unionGroups) {
     const alternatives = Array.isArray(group.alternatives) ? group.alternatives : [];
     const pair = `Union group ${group.group_index} (${alternatives.length} alternatives)`;
-    const alternativeSummary = alternatives.map((alternative) => (
-      `${alternative.alternative_index}: `
-      + `${alternative.chain1}:${alternative.residue1}:${alternative.atom1} - `
-      + `${alternative.chain2}:${alternative.residue2}:${alternative.atom2} `
-      + `(<= ${formatNumber(Number(alternative.max_distance), 2)} A)`
-    )).join("\n");
     const models = Array.isArray(group.models) && group.models.length
       ? group.models
       : [{
@@ -791,33 +823,43 @@ function renderRestraintAudit() {
         unresolved_reason: "No generated structure was found."
       }];
     for (const model of models.filter((item) => !selectedAuditModel || item.model === selectedAuditModel)) {
-      const row = document.createElement("tr");
-      const satisfying = Array.isArray(model.satisfying_alternatives)
-        ? model.satisfying_alternatives
-        : [];
-      const satisfaction = model.satisfied === true
-        ? `Yes (alternative ${satisfying.join(", ")})`
-        : model.satisfied === false
-          ? "No"
-          : model.status === "indeterminate"
-            ? "Indeterminate"
-            : "Unresolved";
-      row.className = model.satisfied === true
-        ? "restraint-satisfied"
-        : model.satisfied === false
-          ? "restraint-violated"
-          : "restraint-unresolved";
-      row.title = [alternativeSummary, model.unresolved_reason].filter(Boolean).join("\n\n");
-      row.innerHTML = `
-        <td>${escapeHtml(model.model)}</td>
-        <td>${escapeHtml(pair)}</td>
-        <td>Per alternative</td>
-        <td>${model.best_observed_distance === null ? "-" : `${formatNumber(model.best_observed_distance, 3)} A`}</td>
-        <td>${model.minimum_excess_distance === null ? "-" : `${formatNumber(model.minimum_excess_distance, 3)} A`}</td>
-        <td>${escapeHtml(satisfaction)}</td>
-      `;
+      const createRow = () => {
+        const row = document.createElement("tr");
+        const alternativeSummary = alternatives.map((alternative) => (
+          `${alternative.alternative_index}: `
+          + `${alternative.chain1}:${alternative.residue1}:${alternative.atom1} - `
+          + `${alternative.chain2}:${alternative.residue2}:${alternative.atom2} `
+          + `(<= ${formatNumber(Number(alternative.max_distance), 2)} A)`
+        )).join("\n");
+
+        const satisfying = Array.isArray(model.satisfying_alternatives)
+          ? model.satisfying_alternatives
+          : [];
+        const satisfaction = model.satisfied === true
+          ? `Yes (alternative ${satisfying.join(", ")})`
+          : model.satisfied === false
+            ? "No"
+            : model.status === "indeterminate"
+              ? "Indeterminate"
+              : "Unresolved";
+        row.className = model.satisfied === true
+          ? "restraint-satisfied"
+          : model.satisfied === false
+            ? "restraint-violated"
+            : "restraint-unresolved";
+        row.title = [alternativeSummary, model.unresolved_reason].filter(Boolean).join("\n\n");
+        row.innerHTML = `
+          <td>${escapeHtml(model.model)}</td>
+          <td>${escapeHtml(pair)}</td>
+          <td>Per alternative</td>
+          <td>${model.best_observed_distance === null ? "-" : `${formatNumber(model.best_observed_distance, 3)} A`}</td>
+          <td>${model.minimum_excess_distance === null ? "-" : `${formatNumber(model.minimum_excess_distance, 3)} A`}</td>
+          <td>${escapeHtml(satisfaction)}</td>
+        `;
+        return row;
+      };
       rowQueue.push({
-        row,
+        createRow,
         kind: "union",
         measurement: model,
         priority: model.satisfied === false ? 0 : model.satisfied === null ? 1 : 2
@@ -827,7 +869,7 @@ function renderRestraintAudit() {
 
   rowQueue.sort((first, second) => first.priority - second.priority);
   const visibleRows = rowQueue.slice(0, 500);
-  for (const entry of visibleRows) body.appendChild(entry.row);
+  for (const entry of visibleRows) body.appendChild(entry.createRow());
 
   const modelSummary = Array.isArray(report.model_summaries)
     ? report.model_summaries.find((item) => item.model === selectedAuditModel)
@@ -977,6 +1019,10 @@ function renderModelTable() {
   $("#model-metrics-summary").textContent = `${result.models.length} model${result.models.length === 1 ? "" : "s"}`;
 }
 
+let structureRequestId = 0;
+let structureController = null;
+let structureRequestKey = null;
+
 async function renderSelectedStructure() {
   const result = currentResult();
   const model = currentModel(result);
@@ -984,16 +1030,29 @@ async function renderSelectedStructure() {
   $("#selected-input-meta").textContent = $("#input-file").value ? "Ready" : "Waiting";
 
   if (!result || !model || !model.structurePath) {
+    structureRequestId += 1;
+    structureController?.abort();
+    structureRequestKey = null;
     clearViewer("No PDB structure selected.");
     return;
   }
 
+  const key = `${model.structurePath}:${model.structureRevision || result.modifiedAt}`;
+  if (structureRequestKey === key) return;
+  const requestId = ++structureRequestId;
+  structureController?.abort();
+  structureController = new AbortController();
+  structureRequestKey = key;
+  clearViewer("Loading structure…");
   try {
-    const response = await fetch(`/api/file?path=${encodeURIComponent(model.structurePath)}`);
+    const response = await fetch(`/api/file?path=${encodeURIComponent(model.structurePath)}`, { signal: structureController.signal });
     if (!response.ok) throw new Error("Could not load structure.");
     const text = await response.text();
+    if (requestId !== structureRequestId) return;
     draw3DStructure(text, model.structurePath);
   } catch (error) {
+    if (requestId !== structureRequestId || error.name === "AbortError") return;
+    structureRequestKey = null;
     clearViewer(error.message);
   }
 }
@@ -1276,6 +1335,7 @@ async function togglePreviewFullscreen() {
 }
 
 function bindEvents() {
+  $("#restraint-audit").addEventListener("toggle", loadSelectedAudit);
   $("#sidebar-toggle").addEventListener("click", () => {
     setSidebarCollapsed(!$(".studio-shell").classList.contains("sidebar-collapsed"));
   });
